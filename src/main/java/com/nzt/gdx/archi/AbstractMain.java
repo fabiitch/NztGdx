@@ -13,7 +13,6 @@ public abstract class AbstractMain extends Game {
 
 	@Override
 	public void create() {
-		System.out.println("cretaaaaaaaaaaa");
 		this.sb = new SpriteBatch();
 		this.shapeRenderer = new ShapeRenderer();
 		this.shapeRenderer.setAutoShapeType(true);
