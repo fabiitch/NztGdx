@@ -24,7 +24,7 @@ public abstract class AbstractScreenManager<M extends AbstractMain> implements S
 				afterSplashScreen();
 			}
 		};
-		loadingScreen = new SimpleProgressBarScreen<M>(mainClass, after, 2, assetsManager);
+		loadingScreen = new SimpleProgressBarScreen<M>(mainClass, after, 0.5f, assetsManager);
 		setScreen(loadingScreen);
 	}
 
