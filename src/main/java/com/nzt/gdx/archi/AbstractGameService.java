@@ -2,9 +2,9 @@ package com.nzt.gdx.archi;
 
 import com.badlogic.gdx.utils.Disposable;
 
-public abstract class AbstractGameManager implements Disposable {
+public abstract class AbstractGameService implements Disposable {
 
-	public AbstractGameManager() {
+	public AbstractGameService() {
 		GameServiceManager.registerService(this);
 	}
 }

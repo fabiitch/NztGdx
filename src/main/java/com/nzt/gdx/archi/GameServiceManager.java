@@ -6,11 +6,11 @@ import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.Disposable;
 
 public class GameServiceManager implements Disposable {
-	private static Array<AbstractGameManager> serviceList = new Array<AbstractGameManager>();
+	private static Array<AbstractGameService> serviceList = new Array<AbstractGameService>();
 
 	@SuppressWarnings("unchecked")
-	public static <S extends AbstractGameManager> S getGameService(Class<S> classAsk) {
-		for (AbstractGameManager service : serviceList) {
+	public static <S extends AbstractGameService> S getGameService(Class<S> classAsk) {
+		for (AbstractGameService service : serviceList) {
 			if (classAsk.isAssignableFrom(service.getClass())) {
 				return (S) service;
 			}
@@ -20,13 +20,13 @@ public class GameServiceManager implements Disposable {
 		return null;
 	}
 
-	public static void registerService(AbstractGameManager gameService) {
+	public static void registerService(AbstractGameService gameService) {
 		serviceList.add(gameService);
 	}
 
 	@Override
 	public void dispose() {
-		for (AbstractGameManager service : serviceList) {
+		for (AbstractGameService service : serviceList) {
 			service.dispose();
 		}
 	}
