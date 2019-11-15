@@ -6,7 +6,6 @@ import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.Shape;
 public class FixtureDefWrapper extends FixtureDef {
 	public BodyType bodyType;
-	// set rect in box2D metrics
 
 	public FixtureDefWrapper(BodyType bodyType) {
 		super();

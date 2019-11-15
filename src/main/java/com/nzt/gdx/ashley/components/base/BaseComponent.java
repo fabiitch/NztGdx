@@ -1,4 +1,4 @@
-package com.nzt.gdx.ash.components.base;
+package com.nzt.gdx.ashley.components.base;
 
 import com.badlogic.ashley.core.Component;
 

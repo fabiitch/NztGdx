@@ -10,11 +10,11 @@ import com.badlogic.gdx.physics.box2d.Fixture;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
-import com.nzt.gdx.archi.AbstractGameManager;
+import com.nzt.gdx.archi.AbstractGameService;
 import com.nzt.gdx.box2D.FixtureDefWrapper;
 import com.nzt.gdx.box2D.helpers.Box2DConverter;
 
-public class AbstractBodyCreatorService extends AbstractGameManager {
+public class AbstractBodyFactoryService extends AbstractGameService {
 
 	private World world;
 	private float PPM;
@@ -22,8 +22,8 @@ public class AbstractBodyCreatorService extends AbstractGameManager {
 	@Override
 	public void dispose() {
 	}
-	
-	public AbstractBodyCreatorService(World world, float ppm) {
+
+	public AbstractBodyFactoryService(World world, float ppm) {
 		super();
 //		new Box2DJointCreator(world, ppm);
 		this.world = world;
@@ -31,7 +31,7 @@ public class AbstractBodyCreatorService extends AbstractGameManager {
 		Box2DConverter.initMetrics(ppm);
 	}
 
-	public  Body createRectangleBody(Rectangle rectangle, FixtureDefWrapper fixtureDefWrapper) {
+	public Body createRectangleBody(Rectangle rectangle, FixtureDefWrapper fixtureDefWrapper) {
 		BodyDef bdef = new BodyDef();
 		PolygonShape shape = new PolygonShape();
 		FixtureDef fdef = fixtureDefWrapper.apply();
@@ -44,8 +44,7 @@ public class AbstractBodyCreatorService extends AbstractGameManager {
 		return body;
 	}
 
-	public  Body createRectangleBody(Vector2 position, float witdh, float height,
-			FixtureDefWrapper fixtureDefWrapper) {
+	public Body createRectangleBody(Vector2 position, float witdh, float height, FixtureDefWrapper fixtureDefWrapper) {
 		BodyDef bdef = new BodyDef();
 		PolygonShape shape = new PolygonShape();
 		FixtureDef fdef = fixtureDefWrapper.apply();
@@ -65,7 +64,7 @@ public class AbstractBodyCreatorService extends AbstractGameManager {
 	 * @param bodyType
 	 * @return
 	 */
-	public  Body createCircleBody(Rectangle rect, FixtureDefWrapper fixtureDefWrapper) {
+	public Body createCircleBody(Rectangle rect, FixtureDefWrapper fixtureDefWrapper) {
 		Body body = createBody(rect.getX(), rect.getY(), fixtureDefWrapper.bodyType);
 		FixtureDef fdef = fixtureDefWrapper.apply();
 
@@ -85,7 +84,7 @@ public class AbstractBodyCreatorService extends AbstractGameManager {
 	 * @param bodyType
 	 * @return
 	 */
-	public  Body createCircleBody(Vector2 position, float rayon, FixtureDefWrapper fixtureDefWrapper) {
+	public Body createCircleBody(Vector2 position, float rayon, FixtureDefWrapper fixtureDefWrapper) {
 		Body body = createBody(position.x, position.y, fixtureDefWrapper.bodyType);
 		FixtureDef fdef = fixtureDefWrapper.apply();
 		CircleShape shape = new CircleShape();
@@ -97,7 +96,7 @@ public class AbstractBodyCreatorService extends AbstractGameManager {
 		return body;
 	}
 
-	private  Body createBody(float x, float y, BodyType bodyType) {
+	private Body createBody(float x, float y, BodyType bodyType) {
 		BodyDef bodyDef = new BodyDef();
 		bodyDef.position.set(x, y);
 		bodyDef.type = bodyType;
@@ -105,7 +104,7 @@ public class AbstractBodyCreatorService extends AbstractGameManager {
 		return body;
 	}
 
-	private  Body createPolygonBody(Vector2[] vertices, FixtureDefWrapper fixtureDefWrapper) {
+	private Body createPolygonBody(Vector2[] vertices, FixtureDefWrapper fixtureDefWrapper) {
 		Body body = createBody(0, 0, fixtureDefWrapper.bodyType);
 		FixtureDef fdef = fixtureDefWrapper.apply();
 		PolygonShape shape = new PolygonShape();
@@ -116,7 +115,5 @@ public class AbstractBodyCreatorService extends AbstractGameManager {
 		body.setActive(false);
 		return body;
 	}
-
-
 
 }
