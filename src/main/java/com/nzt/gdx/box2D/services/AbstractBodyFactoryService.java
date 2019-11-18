@@ -16,8 +16,8 @@ import com.nzt.gdx.box2D.helpers.Box2DConverter;
 
 public class AbstractBodyFactoryService extends AbstractGameService {
 
-	private World world;
-	private float PPM;
+	protected World world;
+	protected float PPM;
 
 	@Override
 	public void dispose() {

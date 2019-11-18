@@ -1,4 +1,4 @@
-package com.nzt.gdx.ashley.entitys;
+package com.nzt.gdx.ashley.entities;
 
 import com.badlogic.ashley.core.Entity;
 

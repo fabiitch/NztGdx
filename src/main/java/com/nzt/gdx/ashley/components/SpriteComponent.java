@@ -10,7 +10,18 @@ public class SpriteComponent implements Component {
 
 	public SpriteComponent(Texture texture) {
 		this.sprite = new Sprite(texture);
-		sprite.setSize(100, 100);
+		sprite.setOriginCenter();
 	}
 
+	public SpriteComponent(Texture texture, float width, float height) {
+		this.sprite = new Sprite(texture);
+		sprite.setSize(width, height);
+		sprite.setOriginCenter();
+	}
+	
+	public SpriteComponent(Texture texture, float size) {
+		this.sprite = new Sprite(texture);
+		sprite.setSize(size *2 , size *2 );
+		sprite.setOriginCenter();
+	}
 }

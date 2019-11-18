@@ -15,12 +15,12 @@ import com.nzt.gdx.ashley.components.TransformComponent;
 import com.nzt.gdx.ashley.comparators.ZComparator;
 import com.nzt.gdx.ashley.components.SpriteComponent;
 
-public class Rendering2DSystem extends SortedIteratingSystem {
+public class RenderingBox2DSystem extends SortedIteratingSystem {
 
 	private SpriteBatch batch; // a reference to our spritebatch
 	private Array<Entity> renderQueue; // an array used to allow sorting of images allowing us to draw images on top of
 										// each other
-	private Comparator<Entity> comparator = new ZComparator(); // a comparator to sort images based on the z position of the
+	private Comparator<Entity> comparator; // a comparator to sort images based on the z position of the
 											// transfromComponent
 	private OrthographicCamera cam; // a reference to our camera
 
@@ -28,7 +28,7 @@ public class Rendering2DSystem extends SortedIteratingSystem {
 	private ComponentMapper<SpriteComponent> spriteM;
 	private ComponentMapper<TransformComponent> transformM;
 
-	public Rendering2DSystem(OrthographicCamera camera, SpriteBatch sb) {
+	public RenderingBox2DSystem(OrthographicCamera camera, SpriteBatch sb) {
 		super(Family.all(TransformComponent.class, SpriteComponent.class).get(), new ZComparator());
 
 		this.cam = camera;

@@ -6,4 +6,12 @@ import com.nzt.gdx.ashley.components.base.BaseComponent;
 public class Box2DBodyComponent extends BaseComponent {
 
 	public Body body;
+
+	public Box2DBodyComponent(Body body) {
+		super();
+		this.body = body;
+	}
+
+
+	
 }
