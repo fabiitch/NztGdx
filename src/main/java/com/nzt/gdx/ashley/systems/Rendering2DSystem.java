@@ -20,7 +20,7 @@ public class Rendering2DSystem extends SortedIteratingSystem {
 	private SpriteBatch batch; // a reference to our spritebatch
 	private Array<Entity> renderQueue; // an array used to allow sorting of images allowing us to draw images on top of
 										// each other
-	private Comparator<Entity> comparator; // a comparator to sort images based on the z position of the
+	private Comparator<Entity> comparator = new ZComparator(); // a comparator to sort images based on the z position of the
 											// transfromComponent
 	private OrthographicCamera cam; // a reference to our camera
 
@@ -63,7 +63,6 @@ public class Rendering2DSystem extends SortedIteratingSystem {
 			sprite.setPosition(position.x - sprite.getWidth() / 2, position.y - sprite.getHeight() / 2);
 //			sprite.setRotation((float) Math.toDegrees(body.getAngle()));
 			sprite.draw(batch);
-			position.x = position.x +1;
 		}
 		batch.end();
 		renderQueue.clear();

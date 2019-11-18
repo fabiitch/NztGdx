@@ -25,21 +25,20 @@ public class PhysicsSystem extends IteratingSystem {
 	public PhysicsSystem(World world) {
         super(Family.all(Box2DBodyComponent.class, TransformComponent.class).get());
         this.world = world;
-        this.bodiesQueue = new Array<Entity>();
-    }
- 
-    @Override
-    public void update(float deltaTime) {
-        super.update(deltaTime);
-        float frameTime = Math.min(deltaTime, 0.25f);
-        accumulator += frameTime;
-        System.out.println("passe 1 :" + deltaTime + " " + accumulator);
-        if(accumulator >= MAX_STEP_TIME) {
-        	System.out.println("step physics");
-            world.step(MAX_STEP_TIME, 6, 2);
-            accumulator -= MAX_STEP_TIME;
- 
-            //Entity Queue
+		this.bodiesQueue = new Array<Entity>();
+	}
+
+	@Override
+	public void update(float deltaTime) {
+		super.update(deltaTime);
+		float frameTime = Math.min(deltaTime, 0.25f);
+		accumulator += frameTime;
+		if (accumulator >= MAX_STEP_TIME) {
+			while (accumulator >= MAX_STEP_TIME) {
+				world.step(MAX_STEP_TIME, 6, 2);
+				accumulator -= MAX_STEP_TIME;
+			}
+			// Entity Queue
             for (Entity entity : bodiesQueue) {
                 TransformComponent tfm = tm.get(entity);
                 Box2DBodyComponent bodyComp = bm.get(entity);
