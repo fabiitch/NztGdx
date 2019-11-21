@@ -6,7 +6,7 @@ import com.badlogic.ashley.systems.IteratingSystem;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.World;
-
+import com.nzt.gdx.utils.TagLogger;
 public class PhysicsDebugSystem extends IteratingSystem {
 	private Box2DDebugRenderer debugRenderer;
 	private World world;
@@ -22,6 +22,7 @@ public class PhysicsDebugSystem extends IteratingSystem {
 	@Override
 	public void update(float deltaTime) {
 		super.update(deltaTime);
+		TagLogger.use.logMessage("physicsDebug", "order");
 		debugRenderer.render(world, camera.combined);
 	}
 

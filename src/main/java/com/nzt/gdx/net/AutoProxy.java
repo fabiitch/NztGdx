@@ -7,6 +7,8 @@ import java.net.URI;
 import java.util.Iterator;
 import java.util.List;
 
+import com.badlogic.gdx.Gdx;
+
 public class AutoProxy {
 
 	
@@ -19,17 +21,13 @@ public class AutoProxy {
             for (Iterator<Proxy> iter = l.iterator(); iter.hasNext(); ) {
 
                 Proxy proxy = iter.next();
-
-                System.out.println("proxy hostname : " + proxy.type());
-
+            	Gdx.app.log("AutoProxy", "proxy hostname : " + proxy.type());
+            	
                 InetSocketAddress addr = (InetSocketAddress)proxy.address();
-
                 if(addr == null) {
-
-                    System.out.println("No Proxy");
-
+                	Gdx.app.log("AutoProxy", "No Proxy");
                 } else {
-                    System.out.println("proxy hostname : " + addr.getHostName());
+                  	Gdx.app.log("AutoProxy","proxy hostname : " + addr.getHostName());
                     System.out.println("proxy port : " + addr.getPort());
                 }
             }

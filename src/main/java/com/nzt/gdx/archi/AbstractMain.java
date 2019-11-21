@@ -16,7 +16,7 @@ public abstract class AbstractMain extends Game {
 	public abstract void doCreate();
 	
 	public abstract AbstractAssetsManager createAssetsManager();
-
+	
 	@Override
 	public void create() {
 		this.sb = new SpriteBatch();
