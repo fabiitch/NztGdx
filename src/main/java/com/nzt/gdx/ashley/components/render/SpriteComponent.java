@@ -1,4 +1,4 @@
-package com.nzt.gdx.ashley.components;
+package com.nzt.gdx.ashley.components.render;
 
 import com.badlogic.ashley.core.Component;
 import com.badlogic.gdx.graphics.Texture;
@@ -14,14 +14,14 @@ public class SpriteComponent implements Component {
 	}
 
 	public SpriteComponent(Texture texture, float width, float height) {
-		this.sprite = new Sprite(texture);
+		this(texture);
 		sprite.setSize(width, height);
 		sprite.setOriginCenter();
 	}
-	
+
 	public SpriteComponent(Texture texture, float size) {
-		this.sprite = new Sprite(texture);
-		sprite.setSize(size *2 , size *2 );
+		this(texture);
+		sprite.setSize(size * 2, size * 2);
 		sprite.setOriginCenter();
 	}
 }

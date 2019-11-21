@@ -11,9 +11,10 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.utils.Array;
-import com.nzt.gdx.ashley.components.TransformComponent;
 import com.nzt.gdx.ashley.comparators.ZComparator;
-import com.nzt.gdx.ashley.components.SpriteComponent;
+import com.nzt.gdx.ashley.components.TransformComponent;
+import com.nzt.gdx.ashley.components.render.SpriteComponent;
+import com.nzt.gdx.utils.TagLogger;
 
 public class Rendering2DSystem extends SortedIteratingSystem {
 
@@ -45,6 +46,7 @@ public class Rendering2DSystem extends SortedIteratingSystem {
 	@Override
 	public void update(float deltaTime) {
 		super.update(deltaTime);
+		TagLogger.use.logMessage("render2D", "order");
 		renderQueue.sort(comparator);
 		cam.update();
 		batch.setProjectionMatrix(cam.combined);

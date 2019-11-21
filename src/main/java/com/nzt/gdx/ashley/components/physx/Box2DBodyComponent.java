@@ -1,4 +1,4 @@
-package com.nzt.gdx.ashley.components;
+package com.nzt.gdx.ashley.components.physx;
 
 import com.badlogic.gdx.physics.box2d.Body;
 import com.nzt.gdx.ashley.components.base.BaseComponent;
