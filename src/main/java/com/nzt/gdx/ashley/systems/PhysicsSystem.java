@@ -32,7 +32,7 @@ public class PhysicsSystem extends IteratingSystem {
 	@Override
 	public void update(float deltaTime) {
 		super.update(deltaTime);
-		TagLogger.use.logMessage("physics", "order");
+		TagLogger.use.log("SystemOrder", "physics");
 		float frameTime = Math.min(deltaTime, 0.25f);
 		accumulator += frameTime;
 		if (accumulator >= MAX_STEP_TIME) {

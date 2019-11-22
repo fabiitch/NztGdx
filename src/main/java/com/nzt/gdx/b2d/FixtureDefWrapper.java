@@ -1,4 +1,4 @@
-package com.nzt.gdx.box2D;
+package com.nzt.gdx.b2d;
 
 import com.badlogic.gdx.physics.box2d.BodyDef.BodyType;
 import com.badlogic.gdx.physics.box2d.FixtureDef;

@@ -12,8 +12,10 @@ public abstract class BaseEntity {
 		this.entity = e;
 	}
 
-	public <T extends BaseEntity> void contact(T entity) {
-		System.out.println("base contact with :" + entity.getClass());
-	}
+	public abstract void contact(BaseEntity e);
+//	public void contact(BaseEntity entity) {
+//		System.out.println(name +" base contact with :" + entity.getClass());
+//	}
+
 
 }
