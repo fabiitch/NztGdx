@@ -22,7 +22,7 @@ public class PhysicsDebugSystem extends IteratingSystem {
 	@Override
 	public void update(float deltaTime) {
 		super.update(deltaTime);
-		TagLogger.use.logMessage("physicsDebug", "order");
+		TagLogger.use.log("SystemOrder", "physicsDebug");
 		debugRenderer.render(world, camera.combined);
 	}
 

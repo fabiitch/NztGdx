@@ -46,7 +46,7 @@ public class Rendering2DSystem extends SortedIteratingSystem {
 	@Override
 	public void update(float deltaTime) {
 		super.update(deltaTime);
-		TagLogger.use.logMessage("render2D", "order");
+		TagLogger.use.log("SystemOrder", "render");
 		renderQueue.sort(comparator);
 		cam.update();
 		batch.setProjectionMatrix(cam.combined);

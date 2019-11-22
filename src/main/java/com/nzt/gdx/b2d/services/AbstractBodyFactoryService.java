@@ -1,4 +1,4 @@
-package com.nzt.gdx.box2D.services;
+package com.nzt.gdx.b2d.services;
 
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
@@ -11,7 +11,7 @@ import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
 import com.nzt.gdx.archi.AbstractGameService;
-import com.nzt.gdx.box2D.FixtureDefWrapper;
+import com.nzt.gdx.b2d.FixtureDefWrapper;
 import com.nzt.gdx.box2D.helpers.Box2DConverter;
 
 public class AbstractBodyFactoryService extends AbstractGameService {

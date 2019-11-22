@@ -9,72 +9,85 @@ public class TagLogger {
 
 	public static TagLogger use = new TagLogger();
 	private HashMap<String, LogTagValues> tagMap;
-	public static boolean bLog = false;
+	public static boolean bDontLog = false;
 
 	private TagLogger() {
 		tagMap = new HashMap<String, LogTagValues>();
 	}
 
-	public void createTag(String tag) {
-
+	public void log(String tag, String message) {
+		LogTagValues logTagValues = getTag(tag);
+		log(message, logTagValues);
 	}
+
+	public void createTag(String tag) {
+		tagMap.put(tag, new LogTagValues(tag));
+	}
+
+	public void createTag(String tag, int level) {
+		tagMap.put(tag, new LogTagValues(tag, level));
+	}
+
+	public void resetTag(String tag) {
+		LogTagValues logTagValues = getTag(tag);
+		logTagValues.count = 0;
+		log("reset tag", logTagValues);
+	}
+
 	public void activeTag(String tag) {
 		LogTagValues logTagValues = tagMap.get(tag);
 		if (logTagValues != null)
 			logTagValues.bactive = true;
 	}
+
 	public void desactiveTag(String tag) {
 		LogTagValues logTagValues = tagMap.get(tag);
 		if (logTagValues != null)
 			logTagValues.bactive = false;
 	}
 
-	public void activeAllTag(String tag) {
+	public void activeAllTag() {
 		for (LogTagValues logTagValues : tagMap.values()) {
 			logTagValues.bactive = true;
 		}
 	}
-	public void desactiveAllTag(String tag) {
+
+	public void desactiveAllTag() {
 		for (LogTagValues logTagValues : tagMap.values()) {
 			logTagValues.bactive = false;
 		}
 	}
 
-	public void stopLog() {
-		Gdx.app.setLogLevel(Application.LOG_DEBUG);
-		for (LogTagValues logTag : tagMap.values()) {
-			logTag.bactive = false;
-		}
-	}
-
-	public void logOnTag(String tag, String message) {
-		LogTagValues logTagValues = getTag(tag);
-		if (logTagValues == null) {
-
-		}
-	}
-
-	public void resetTag(String tag) {
-		LogTagValues logTag = getTag(tag);
-		counterMap.put(tag, logTag);
-		if (logTag.bactive && bLog) {
-			System.err.println("GetOrderOf : " + tag + ": reset");
-		}
-
-	}
-
-	public void activeTag(String tag, boolean active) {
-		LogTagValues logTag = getTag(tag);
-		logTag.bactive = false;
-	}
-
 	private LogTagValues getTag(String tag) {
-		LogTagValues logTag = counterMap.get(tag);
+		LogTagValues logTag = tagMap.get(tag);
 		if (logTag == null) {
 			logTag = new LogTagValues(tag);
-			counterMap.put(tag, logTag);
+			tagMap.put(tag, logTag);
 		}
 		return logTag;
+	}
+
+	private void log(String message, LogTagValues logTagValues) {
+		if (!bDontLog) {
+			switch (logTagValues.level) {
+			case Application.LOG_NONE:
+
+				break;
+			case Application.LOG_ERROR:
+				Gdx.app.error(logTagValues.tag + " " + logTagValues.count, message);
+				break;
+			case Application.LOG_INFO:
+				Gdx.app.log(logTagValues.tag + " " + logTagValues.count, message);
+				break;
+			case Application.LOG_DEBUG:
+				Gdx.app.debug(logTagValues.tag + " " + logTagValues.count, message);
+				break;
+
+			default:
+				break;
+			}
+			logTagValues.count++;
+		}
 	}
 }
 
@@ -85,17 +98,18 @@ class LogTagValues {
 	public int level;
 	public boolean bactive;
 
-	public LogTagValues(String tag) {
+	public LogTagValues(String tag, int level) {
 		this.tag = tag;
 		this.count = 0;
-		this.level = 0;
+		this.level = level;
 		this.bactive = true;
 	}
 
-	public LogTagValues(String tag, boolean active) {
+	public LogTagValues(String tag) {
 		this.tag = tag;
+		this.level = Application.LOG_INFO;
 		this.count = 0;
-		this.bactive = active;
+		this.bactive = true;
 	}
 
 }
