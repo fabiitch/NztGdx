@@ -11,26 +11,24 @@ import com.badlogic.gdx.Gdx;
 
 public class AutoProxy {
 
-	
 	public static void init() {
-	    try {
-            System.setProperty("java.net.useSystemProxies","true");
-            List<Proxy> l = ProxySelector.getDefault().select(
-                        new URI("http://www.yahoo.com/"));
+		try {
+			System.setProperty("java.net.useSystemProxies", "true");
+			List<Proxy> l = ProxySelector.getDefault().select(new URI("http://www.yahoo.com/"));
 
-            for (Iterator<Proxy> iter = l.iterator(); iter.hasNext(); ) {
+			for (Iterator<Proxy> iter = l.iterator(); iter.hasNext();) {
 
-                Proxy proxy = iter.next();
-            	Gdx.app.log("AutoProxy", "proxy hostname : " + proxy.type());
-            	
-                InetSocketAddress addr = (InetSocketAddress)proxy.address();
-                if(addr == null) {
-                	Gdx.app.log("AutoProxy", "No Proxy");
-                } else {
-                  	Gdx.app.log("AutoProxy","proxy hostname : " + addr.getHostName());
-                    System.out.println("proxy port : " + addr.getPort());
-                }
-            }
+				Proxy proxy = iter.next();
+				Gdx.app.log("AutoProxy", "proxy hostname : " + proxy.type());
+
+				InetSocketAddress addr = (InetSocketAddress) proxy.address();
+				if (addr == null) {
+					Gdx.app.log("AutoProxy", "No Proxy");
+				} else {
+					Gdx.app.log("AutoProxy", "proxy hostname : " + addr.getHostName());
+					Gdx.app.log("AutoProxy", "proxy port : " + addr.getPort());
+				}
+			}
         } catch (Exception e) {
             e.printStackTrace();
         }
