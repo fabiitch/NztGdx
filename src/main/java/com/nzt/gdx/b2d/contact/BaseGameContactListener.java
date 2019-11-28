@@ -2,11 +2,12 @@ package com.nzt.gdx.b2d.contact;
 
 import com.badlogic.gdx.physics.box2d.Contact;
 import com.badlogic.gdx.physics.box2d.ContactImpulse;
+import com.badlogic.gdx.physics.box2d.ContactListener;
 import com.badlogic.gdx.physics.box2d.Fixture;
 import com.badlogic.gdx.physics.box2d.Manifold;
 import com.nzt.gdx.ashley.entities.BaseEntity;
 
-public abstract class BaseGameContactListener<E extends BaseEntity> implements com.badlogic.gdx.physics.box2d.ContactListener {
+public abstract class BaseGameContactListener<E extends BaseEntity> implements ContactListener {
 	public boolean debugContact = true;
 
 	@SuppressWarnings("unchecked")
@@ -53,4 +54,13 @@ public abstract class BaseGameContactListener<E extends BaseEntity> implements c
 			System.out.println("--------------------------------------");
 		}
 	}
+
+	public boolean testContact(Class<? extends E> class1, Class<? extends E> class2, E entityA, E entityB) {
+		if (entityA.getClass() == class1 && entityB.getClass() == class2
+				|| entityB.getClass() == class1 && entityA.getClass() == class2) {
+			return true;
+		}
+		return false;
+	}
+
 }
