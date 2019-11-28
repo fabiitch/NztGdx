@@ -10,7 +10,7 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.Array;
 import com.nzt.gdx.ashley.components.TransformComponent;
 import com.nzt.gdx.ashley.components.physx.Box2DBodyComponent;
-import com.nzt.gdx.utils.TagLogger;
+import com.nzt.gdx.utils.logger.TagCountLogger;
 
 public class PhysicsSystem extends IteratingSystem {
 	 
@@ -32,7 +32,7 @@ public class PhysicsSystem extends IteratingSystem {
 	@Override
 	public void update(float deltaTime) {
 		super.update(deltaTime);
-		TagLogger.use.log("SystemOrder", "physics");
+		TagCountLogger.log("SystemOrder", "physics");
 		float frameTime = Math.min(deltaTime, 0.25f);
 		accumulator += frameTime;
 		if (accumulator >= MAX_STEP_TIME) {
