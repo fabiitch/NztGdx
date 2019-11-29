@@ -14,48 +14,49 @@ import com.badlogic.gdx.Gdx;
  */
 public class TagLogger {
 
-	public static Map<String, Boolean> tagMap = new HashMap<String, Boolean>();
+	public static Map<Enum<?>, Boolean> tagMap = new HashMap<Enum<?>, Boolean>();
+	public static boolean DONT_LOG = false;
 
 	public static void clear() {
-		tagMap = new HashMap<String, Boolean>();
+		tagMap = new HashMap<Enum<?>, Boolean>();
 	}
 
-	public static void debug(String tag, String message) {
-		if (getTag(tag))
-			Gdx.app.debug(tag, message);
+	public static <E extends Enum<E>> void debug(E tag, String message) {
+		if (!DONT_LOG && getTag(tag))
+			Gdx.app.debug(tag.name(), message);
 	}
 
-	public static void log(String tag, String message) {
-		if (getTag(tag))
-			Gdx.app.log(tag, message);
+	public static <E extends Enum<E>> void log(E tag, String message) {
+		if (!DONT_LOG && getTag(tag))
+			Gdx.app.log(tag.name(), message);
 	}
 
-	public static void error(String tag, String message) {
-		if (getTag(tag))
-			Gdx.app.error(tag, message);
+	public static <E extends Enum<E>> void error(E tag, String message) {
+		if (!DONT_LOG && getTag(tag))
+			Gdx.app.error(tag.name(), message);
 	}
 
-	public static void activeTag(String tag) {
+	public static <E extends Enum<E>> void activeTag(E tag) {
 		tagMap.put(tag, true);
 	}
 
-	public static void desactiveTag(String tag) {
+	public static <E extends Enum<E>> void desactiveTag(E tag) {
 		tagMap.put(tag, false);
 	}
 
-	public static void activeAllTag() {
-		for (String key : tagMap.keySet()) {
-			tagMap.put(key, true);
+	public static <E extends Enum<?>> void activeAllTag(Class<E> enumTag) {
+		for (E o : enumTag.getEnumConstants()) {
+			tagMap.put(o, true);
 		}
 	}
 
-	public static void desactiveAllTag() {
-		for (String key : tagMap.keySet()) {
-			tagMap.put(key, false);
+	public static <E extends Enum<?>> void desactiveAllTag(Class<E> enumTag) {
+		for (E o : enumTag.getEnumConstants()) {
+			tagMap.put(o, false);
 		}
 	}
 
-	private static Boolean getTag(String tag) {
+	private static <E extends Enum<E>> Boolean getTag(E tag) {
 		Boolean activeTag = tagMap.get(tag);
 		if (activeTag == null) {
 			activeTag(tag);
@@ -63,4 +64,5 @@ public class TagLogger {
 		}
 		return activeTag;
 	}
+
 }

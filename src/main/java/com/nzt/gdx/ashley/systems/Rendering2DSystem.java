@@ -14,6 +14,7 @@ import com.badlogic.gdx.utils.Array;
 import com.nzt.gdx.ashley.comparators.ZComparator;
 import com.nzt.gdx.ashley.components.TransformComponent;
 import com.nzt.gdx.ashley.components.render.SpriteComponent;
+import com.nzt.gdx.utils.logger.LogTagBase;
 import com.nzt.gdx.utils.logger.TagCountLogger;
 
 public class Rendering2DSystem extends SortedIteratingSystem {
@@ -46,7 +47,7 @@ public class Rendering2DSystem extends SortedIteratingSystem {
 	@Override
 	public void update(float deltaTime) {
 		super.update(deltaTime);
-		TagCountLogger.log("SystemOrder", "render");
+		TagCountLogger.log(LogTagBase.SYSTEMS, "render");
 		renderQueue.sort(comparator);
 		cam.update();
 		batch.setProjectionMatrix(cam.combined);

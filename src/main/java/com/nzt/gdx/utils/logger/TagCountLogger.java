@@ -2,61 +2,59 @@ package com.nzt.gdx.utils.logger;
 
 import java.util.HashMap;
 
-import com.badlogic.gdx.Application;
-
 /**
- * Just and extends of TagLogger with a count of log
- * use clear for delete all tag
+ * Just and extends of TagLogger with a count of log use clear for delete all
+ * tag
+ * 
  * @author foccelli
  *
  */
 public class TagCountLogger {
 
-	public static HashMap<String, LogTagValues> tagCountMap = new HashMap<String, LogTagValues>();
-	public static boolean bDontLog = false;
+	public static HashMap<Enum<?>, LogTagValues> tagCountMap = new HashMap<Enum<?>, LogTagValues>();
 
 	public static void clear() {
-		tagCountMap = new HashMap<String, LogTagValues>();
+		tagCountMap = new HashMap<Enum<?>, LogTagValues>();
 	}
 
-	public static void debug(String tag, String message) {
+	public static <E extends Enum<E>> void debug(E tag, String message) {
 		LogTagValues logTagValues = getTag(tag);
-		TagLogger.debug(logTagValues.tag, "count:" + logTagValues.count + " " + message);
+		TagLogger.debug(tag, "count:" + logTagValues.count + " " + message);
 	}
 
-	public static void log(String tag, String message) {
+	public static <E extends Enum<E>> void log(E tag, String message) {
 		LogTagValues logTagValues = getTag(tag);
-		TagLogger.log(logTagValues.tag, "count:" + logTagValues.count + " " + message);
+		TagLogger.log(tag, "count:" + logTagValues.count + " " + message);
 	}
 
-	public static void error(String tag, String message) {
+	public static <E extends Enum<E>> void error(E tag, String message) {
 		LogTagValues logTagValues = getTag(tag);
-		TagLogger.error(logTagValues.tag, "count:" + logTagValues.count + " " + message);
+		TagLogger.error(tag, "count:" + logTagValues.count + " " + message);
 	}
 
-	public static void resetTag(String tag) {
+	public static <E extends Enum<E>> void resetTag(E tag) {
 		LogTagValues logTagValues = getTag(tag);
 		logTagValues.count = 0;
 		TagLogger.log(tag, "reset tag count");
 	}
 
-	public static void activeTag(String tag) {
+	public static <E extends Enum<E>> void activeTag(E tag) {
 		TagLogger.activeTag(tag);
 	}
 
-	public static void desactiveTag(String tag) {
+	public static <E extends Enum<E>> void desactiveTag(E tag) {
 		TagLogger.desactiveTag(tag);
 	}
 
-	public static void activeAllTag() {
-		TagLogger.activeAllTag();
+	public static <E extends Enum<E>> void activeAllTag(Class<E> enumTag) {
+		TagLogger.activeAllTag(enumTag);
 	}
 
-	public static void desactiveAllTag() {
-		TagLogger.desactiveAllTag();
+	public static <E extends Enum<?>> void desactiveAllTag(Class<E> enumTag) {
+		TagLogger.desactiveAllTag(enumTag);
 	}
 
-	private static LogTagValues getTag(String tag) {
+	private static <E extends Enum<E>> LogTagValues getTag(E tag) {
 		LogTagValues logTag = tagCountMap.get(tag);
 		if (logTag == null) {
 			logTag = new LogTagValues(tag);
@@ -72,17 +70,9 @@ class LogTagValues {
 
 	public String tag;
 	public int count;
-	public int level;
 
-	public LogTagValues(String tag, int level) {
-		this.tag = tag;
-		this.count = 0;
-		this.level = level;
-	}
-
-	public LogTagValues(String tag) {
-		this.tag = tag;
-		this.level = Application.LOG_INFO;
+	public <E extends Enum<E>> LogTagValues(E tag) {
+		this.tag = tag.name();
 		this.count = 0;
 	}
 
