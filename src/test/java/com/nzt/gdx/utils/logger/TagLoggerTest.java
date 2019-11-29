@@ -9,9 +9,6 @@ import org.junit.Test;
 
 public class TagLoggerTest {
 
-	private static String TAG_1 = "Tag_1";
-	private static String TAG_2 = "Tag_2";
-
 	@Before
 	public void initTagLogger() {
 		TagLogger.clear();
@@ -19,39 +16,39 @@ public class TagLoggerTest {
 
 	@Test
 	public void activeAndDesactiveTagTest() {
-		TagLogger.activeTag(TAG_1);
+		TagLogger.activeTag(LogTagBase.PERFORMANCE);
 		assertEquals(TagLogger.tagMap.size(), 1);
-		Boolean tagActive = TagLogger.tagMap.get(TAG_1);
+		Boolean tagActive = TagLogger.tagMap.get(LogTagBase.PERFORMANCE);
 		assertTrue(tagActive);
 
-		TagLogger.desactiveTag(TAG_1);
-		tagActive = TagLogger.tagMap.get(TAG_1);
+		TagLogger.desactiveTag(LogTagBase.PERFORMANCE);
+		tagActive = TagLogger.tagMap.get(LogTagBase.PERFORMANCE);
 		assertFalse(tagActive);
 
-		TagLogger.activeTag(TAG_1);
-		tagActive = TagLogger.tagMap.get(TAG_1);
+		TagLogger.activeTag(LogTagBase.PERFORMANCE);
+		tagActive = TagLogger.tagMap.get(LogTagBase.PERFORMANCE);
 		assertTrue(tagActive);
 	}
 
 	@Test
 	public void desactiveAndActiveAllTagsTest() {
-		TagLogger.activeTag(TAG_1);
-		TagLogger.activeTag(TAG_2);
+		TagLogger.activeTag(LogTagBase.PERFORMANCE);
+		TagLogger.activeTag(LogTagBase.INPUT);
 		assertEquals(TagLogger.tagMap.size(), 2);
-		Boolean tag1Active = TagLogger.tagMap.get(TAG_1);
-		Boolean tag2Active = TagLogger.tagMap.get(TAG_2);
+		Boolean tag1Active = TagLogger.tagMap.get(LogTagBase.PERFORMANCE);
+		Boolean tag2Active = TagLogger.tagMap.get(LogTagBase.PERFORMANCE);
 		assertTrue(tag1Active);
 		assertTrue(tag2Active);
 
-		TagLogger.desactiveAllTag();
-		tag1Active = TagLogger.tagMap.get(TAG_1);
-		tag2Active = TagLogger.tagMap.get(TAG_2);
+		TagLogger.desactiveAllTag(LogTagBase.class);
+		tag1Active = TagLogger.tagMap.get(LogTagBase.PERFORMANCE);
+		tag2Active = TagLogger.tagMap.get(LogTagBase.PERFORMANCE);
 		assertFalse(tag1Active);
 		assertFalse(tag2Active);
 
-		TagLogger.activeAllTag();
-		tag1Active = TagLogger.tagMap.get(TAG_1);
-		tag2Active = TagLogger.tagMap.get(TAG_2);
+		TagLogger.activeAllTag(LogTagBase.class);
+		tag1Active = TagLogger.tagMap.get(LogTagBase.PERFORMANCE);
+		tag2Active = TagLogger.tagMap.get(LogTagBase.PERFORMANCE);
 		assertTrue(tag1Active);
 		assertTrue(tag2Active);
 	}
