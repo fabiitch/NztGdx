@@ -11,9 +11,6 @@ plugins {
     id 'java-library'
 }
 sourceCompatibility = 1.7
-sourceSets.main.java.srcDirs = ["src"]
-sourceSets.main.resources.srcDirs = ["src"]
-sourceSets.test.java.srcDirs = ["test"]
 
 [compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
 
