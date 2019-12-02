@@ -18,9 +18,9 @@ public class VisitorFloor extends VisitorBaseEntity {
 
 	public VisitorFloor(Entity e, Texture texture, Body body) {
 		super("floor", e);
-		e.add(new TransformComponent());
-		e.add(new SpriteComponent(texture, 200, 10));
-		e.add(new Box2DBodyComponent(body));
+		e.add(new TransformComponent(e));
+		e.add(new SpriteComponent(e, texture, 200, 10));
+		e.add(new Box2DBodyComponent(e, body));
 	}
 
 	@Override
