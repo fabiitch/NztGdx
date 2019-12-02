@@ -6,9 +6,10 @@ import com.badlogic.gdx.physics.box2d.ContactListener;
 import com.badlogic.gdx.physics.box2d.Fixture;
 import com.badlogic.gdx.physics.box2d.Manifold;
 import com.nzt.gdx.ashley.entities.BaseEntity;
+import com.nzt.gdx.utils.logger.LogTagBase;
+import com.nzt.gdx.utils.logger.TagLogger;
 
 public abstract class BaseGameContactListener<E extends BaseEntity> implements ContactListener {
-	public boolean debugContact = true;
 
 	@SuppressWarnings("unchecked")
 	@Override
@@ -47,15 +48,10 @@ public abstract class BaseGameContactListener<E extends BaseEntity> implements C
 	}
 
 	private void debugEvent(String eventName, BaseEntity entityA, BaseEntity entityB) {
-		if (debugContact) {
-			System.out.println("-----------" + eventName + "-----------");
-			System.out.println("entityA :" + entityA.name);
-			System.out.println("entityB :" + entityB.name);
-			System.out.println("--------------------------------------");
-		}
+		TagLogger.log(LogTagBase.CONTACT, eventName + " | entityA:" + entityA.name + " / entityB:" + entityB.name);
 	}
 
-	public boolean testContact(Class<? extends E> class1, Class<? extends E> class2, E entityA, E entityB) {
+	protected boolean testContact(Class<? extends E> class1, Class<? extends E> class2, E entityA, E entityB) {
 		if (entityA.getClass() == class1 && entityB.getClass() == class2
 				|| entityB.getClass() == class1 && entityA.getClass() == class2) {
 			return true;

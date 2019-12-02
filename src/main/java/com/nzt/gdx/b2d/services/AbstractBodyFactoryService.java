@@ -13,6 +13,9 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.nzt.gdx.archi.AbstractGameService;
 import com.nzt.gdx.b2d.FixtureDefWrapper;
 import com.nzt.gdx.box2D.helpers.Box2DConverter;
+import com.nzt.gdx.utils.logger.LogTagBase;
+import com.nzt.gdx.utils.logger.NzLoggableUtils;
+import com.nzt.gdx.utils.logger.TagLogger;
 
 public class AbstractBodyFactoryService extends AbstractGameService {
 
@@ -31,6 +34,13 @@ public class AbstractBodyFactoryService extends AbstractGameService {
 		Box2DConverter.initMetrics(ppm);
 	}
 
+	/**
+	 * create rectangle body from rect position
+	 * 
+	 * @param rectangle
+	 * @param fixtureDefWrapper
+	 * @return
+	 */
 	public Body createRectangleBody(Rectangle rectangle, FixtureDefWrapper fixtureDefWrapper) {
 		BodyDef bdef = new BodyDef();
 		PolygonShape shape = new PolygonShape();
@@ -41,9 +51,18 @@ public class AbstractBodyFactoryService extends AbstractGameService {
 		shape.setAsBox(rectangle.getWidth() / 2, rectangle.getHeight() / 2);
 		fdef.shape = shape;
 		body.createFixture(fdef);
+		TagLogger.logBlock(LogTagBase.BODY_CREATION, NzLoggableUtils.create(rectangle), fixtureDefWrapper);
 		return body;
 	}
 
+	/**
+	 * create rect body from position
+	 * @param position
+	 * @param witdh
+	 * @param height
+	 * @param fixtureDefWrapper
+	 * @return
+	 */
 	public Body createRectangleBody(Vector2 position, float witdh, float height, FixtureDefWrapper fixtureDefWrapper) {
 		BodyDef bdef = new BodyDef();
 		PolygonShape shape = new PolygonShape();
@@ -54,44 +73,26 @@ public class AbstractBodyFactoryService extends AbstractGameService {
 		fdef.shape = shape;
 		Body body = world.createBody(bdef);
 		body.createFixture(fdef);
+		TagLogger.logBlock(LogTagBase.BODY_CREATION, NzLoggableUtils.create(bdef.position), fixtureDefWrapper);
 		return body;
 	}
 
 	/**
-	 * circle body from rectangle
+	 * create circle body
 	 * 
-	 * @param rect
-	 * @param bodyType
-	 * @return
-	 */
-	public Body createCircleBody(Rectangle rect, FixtureDefWrapper fixtureDefWrapper) {
-		Body body = createBody(rect.getX(), rect.getY(), fixtureDefWrapper.bodyType);
-		FixtureDef fdef = fixtureDefWrapper.apply();
-
-		CircleShape shape = new CircleShape();
-		shape.setRadius(rect.getWidth() / 2);
-		fdef.shape = shape;
-		// fixtureDef.isSensor = true;
-		Fixture fixture = body.createFixture(fdef);
-		// fixture.setUserData(gameObjectType.toString().toLowerCase());
-		return body;
-	}
-
-	/**
-	 * circle body from rectangle
-	 * 
-	 * @param rect
-	 * @param bodyType
+	 * @param position
+	 * @param rayon
+	 * @param fixtureDefWrapper
 	 * @return
 	 */
 	public Body createCircleBody(Vector2 position, float rayon, FixtureDefWrapper fixtureDefWrapper) {
 		Body body = createBody(position.x, position.y, fixtureDefWrapper.bodyType);
 		FixtureDef fdef = fixtureDefWrapper.apply();
 		CircleShape shape = new CircleShape();
-		System.out.println("createCircleBody rayon" + rayon);
 		shape.setRadius(rayon);
 		fdef.shape = shape;
-		fdef.friction = 0;
+
+		TagLogger.logBlock(LogTagBase.BODY_CREATION, NzLoggableUtils.create(position), fixtureDefWrapper);
 		Fixture fixture = body.createFixture(fdef);
 		return body;
 	}
