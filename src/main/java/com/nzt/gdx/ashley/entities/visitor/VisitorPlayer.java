@@ -11,9 +11,9 @@ public class VisitorPlayer extends VisitorBaseEntity {
 
 	public VisitorPlayer(Entity e, Texture texture, Body body) {
 		super("player", e);
-		e.add(new TransformComponent());
-		e.add(new SpriteComponent(texture, 200));
-		e.add(new Box2DBodyComponent(body));
+		e.add(new TransformComponent(e));
+		e.add(new SpriteComponent(e, texture, 200));
+		e.add(new Box2DBodyComponent(e, body));
 	}
 
 	@Override

@@ -1,9 +1,14 @@
 package com.nzt.gdx.ashley.components;
 
+import com.badlogic.ashley.core.Entity;
 import com.badlogic.gdx.math.Vector3;
 import com.nzt.gdx.ashley.components.base.BasePoolableComponent;
 
 public class TransformComponent extends BasePoolableComponent {
+	public TransformComponent(Entity e) {
+		super(e);
+	}
+
 	public final Vector3 position = new Vector3();
 	public float rotation = 0.0f;
 
