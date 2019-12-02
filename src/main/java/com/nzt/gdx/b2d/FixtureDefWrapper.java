@@ -1,10 +1,14 @@
 package com.nzt.gdx.b2d;
 
+import org.apache.commons.math3.util.Pair;
+
 import com.badlogic.gdx.physics.box2d.BodyDef.BodyType;
+import com.nzt.gdx.utils.logger.NzLoggable;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.Shape;
-public class FixtureDefWrapper extends FixtureDef {
+
+public class FixtureDefWrapper extends FixtureDef implements NzLoggable {
 	public BodyType bodyType;
 
 	public FixtureDefWrapper(BodyType bodyType) {
@@ -80,6 +84,17 @@ public class FixtureDefWrapper extends FixtureDef {
 	public FixtureDefWrapper setBodyType(BodyType bodyType) {
 		this.bodyType = bodyType;
 		return this;
+	}
+
+	@Override
+	public String gdxLogTag() {
+		return "FixtureDefWrapper";
+	}
+
+	@Override
+	public String gdxLogValue() {
+		return "bodyType=" + bodyType + ", shape=" + shape + ", friction=" + friction + ", restitution=" + restitution
+				+ ", density=" + density + ", isSensor=" + isSensor + ", filter=" + filter;
 	}
 
 }

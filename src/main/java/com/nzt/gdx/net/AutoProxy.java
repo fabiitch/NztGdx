@@ -19,18 +19,18 @@ public class AutoProxy {
 			for (Iterator<Proxy> iter = l.iterator(); iter.hasNext();) {
 
 				Proxy proxy = iter.next();
-				Gdx.app.log("AutoProxy", "proxy hostname : " + proxy.type());
+				Gdx.app.log("AutoProxy", "type : " + proxy.type());
 
 				InetSocketAddress addr = (InetSocketAddress) proxy.address();
 				if (addr == null) {
 					Gdx.app.log("AutoProxy", "No Proxy");
 				} else {
-					Gdx.app.log("AutoProxy", "proxy hostname : " + addr.getHostName());
-					Gdx.app.log("AutoProxy", "proxy port : " + addr.getPort());
+					Gdx.app.log("AutoProxy", "hostname : " + addr.getHostName());
+					Gdx.app.log("AutoProxy", "port : " + addr.getPort());
 				}
 			}
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 }
