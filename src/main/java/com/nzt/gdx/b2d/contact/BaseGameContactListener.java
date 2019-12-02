@@ -48,15 +48,32 @@ public abstract class BaseGameContactListener<E extends BaseEntity> implements C
 	}
 
 	private void debugEvent(String eventName, BaseEntity entityA, BaseEntity entityB) {
-		TagLogger.log(LogTagBase.CONTACT, eventName + " | entityA:" + entityA.name + " / entityB:" + entityB.name);
+		TagLogger.log(LogTagBase.B2D_CONTACT, eventName, entityA.name + " / " + entityB.name);
 	}
 
+	/**
+	 * test contact between object
+	 * 
+	 * @param class1
+	 * @param class2
+	 * @param entityA
+	 * @param entityB
+	 * @return
+	 */
 	protected boolean testContact(Class<? extends E> class1, Class<? extends E> class2, E entityA, E entityB) {
 		if (entityA.getClass() == class1 && entityB.getClass() == class2
 				|| entityB.getClass() == class1 && entityA.getClass() == class2) {
 			return true;
 		}
 		return false;
+	}
+
+	protected <W extends E> W getGameObject(Class<W> classAsk, E userData1, Object userData2) {
+		if (userData1.getClass() == classAsk) {
+			return classAsk.cast(userData1);
+		} else {
+			return classAsk.cast(userData2);
+		}
 	}
 
 }
