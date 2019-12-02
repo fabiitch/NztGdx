@@ -5,7 +5,7 @@ import com.nzt.gdx.utils.logger.LogTagBase;
 import com.nzt.gdx.utils.logger.TagLogger;
 
 public abstract class BaseGameInputHandler implements InputProcessor {
-	private final boolean FORCE_MOBILE = false;
+	public final boolean FORCE_MOBILE = false;
 
 	@Override
 	public boolean keyDown(int keycode) {
@@ -42,7 +42,7 @@ public abstract class BaseGameInputHandler implements InputProcessor {
 
 	@Override
 	public boolean touchUp(int screenX, int screenY, int pointer, int button) {
-		TagLogger.log(LogTagBase.INPUT, "touchDown",
+		TagLogger.log(LogTagBase.INPUT, "touchUp",
 				"screenX: " + screenX + " / screenY:" + screenY + " / pointer:" + pointer + " / button:" + button);
 		return doTouchUp(screenX, screenY, pointer, button);
 	}
