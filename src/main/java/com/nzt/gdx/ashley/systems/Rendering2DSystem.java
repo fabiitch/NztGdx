@@ -49,7 +49,7 @@ public class Rendering2DSystem extends SortedIteratingSystem {
 		super.update(deltaTime);
 		TagCountLogger.log(LogTagBase.SYSTEMS, "render");
 		renderQueue.sort(comparator);
-		cam.update();
+//		cam.update();
 		batch.setProjectionMatrix(cam.combined);
 		batch.enableBlending();
 		batch.begin();
