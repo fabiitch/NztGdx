@@ -18,7 +18,17 @@ matrix:
         - true
       script:
         - ant -f build-mac-ios.xml
-    - name: "Unit Tests"
+    - name: "Unit test java build"
+      if: type != pull_request
+      language: java
+      os: linux
+      before_install:
+      - true
+      install:
+      - ./gradlew assemble
+      script:
+      - ./gradlew build
+    - name: "Unit Tests Android"
       language: android
       android:
         components:
