@@ -5,11 +5,11 @@ import com.badlogic.gdx.physics.box2d.ContactImpulse;
 import com.badlogic.gdx.physics.box2d.ContactListener;
 import com.badlogic.gdx.physics.box2d.Fixture;
 import com.badlogic.gdx.physics.box2d.Manifold;
-import com.nzt.gdx.ashley.entities.BaseEntity;
+import com.nzt.gdx.ashley.entities.BaseGameObject;
 import com.nzt.gdx.utils.logger.LogTagBase;
 import com.nzt.gdx.utils.logger.TagLogger;
 
-public abstract class BaseGameContactListener<E extends BaseEntity> implements ContactListener {
+public abstract class BaseGameContactListener<E extends BaseGameObject> implements ContactListener {
 
 	@SuppressWarnings("unchecked")
 	@Override
@@ -30,8 +30,8 @@ public abstract class BaseGameContactListener<E extends BaseEntity> implements C
 	public void endContact(Contact contact) {
 		Fixture fa = contact.getFixtureA();
 		Fixture fb = contact.getFixtureB();
-		BaseEntity entityA = (BaseEntity) fa.getBody().getUserData();
-		BaseEntity entityB = (BaseEntity) fb.getBody().getUserData();
+		BaseGameObject entityA = (BaseGameObject) fa.getBody().getUserData();
+		BaseGameObject entityB = (BaseGameObject) fb.getBody().getUserData();
 		debugEvent("End Contact", entityA, entityB);
 	}
 
@@ -47,7 +47,7 @@ public abstract class BaseGameContactListener<E extends BaseEntity> implements C
 
 	}
 
-	private void debugEvent(String eventName, BaseEntity entityA, BaseEntity entityB) {
+	private void debugEvent(String eventName, BaseGameObject entityA, BaseGameObject entityB) {
 		TagLogger.log(LogTagBase.B2D_CONTACT, eventName, entityA.name + " / " + entityB.name);
 	}
 
