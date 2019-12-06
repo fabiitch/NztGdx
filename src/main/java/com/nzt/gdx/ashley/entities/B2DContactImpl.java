@@ -6,7 +6,7 @@ package com.nzt.gdx.ashley.entities;
  *
  * @param <C>
  */
-public interface B2DContactImpl<C extends BaseEntity> {
+public interface B2DContactImpl<C extends BaseGameObject> {
 
 	void accept(C baseEntity);
 

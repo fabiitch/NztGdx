@@ -4,7 +4,7 @@ import com.badlogic.gdx.physics.box2d.Contact;
 import com.badlogic.gdx.physics.box2d.ContactImpulse;
 import com.badlogic.gdx.physics.box2d.Fixture;
 import com.badlogic.gdx.physics.box2d.Manifold;
-import com.nzt.gdx.ashley.entities.BaseEntity;
+import com.nzt.gdx.ashley.entities.BaseGameObject;
 
 public class VisitorContactListener extends BaseVisitorGameContactListener<VisitorBaseEntity> {
 	/**
@@ -22,7 +22,7 @@ public class VisitorContactListener extends BaseVisitorGameContactListener<Visit
 
 }
 
-abstract class BaseVisitorGameContactListener<E extends BaseEntity>
+abstract class BaseVisitorGameContactListener<E extends BaseGameObject>
 		implements com.badlogic.gdx.physics.box2d.ContactListener {
 	public boolean debugContact = true;
 
@@ -45,8 +45,8 @@ abstract class BaseVisitorGameContactListener<E extends BaseEntity>
 	public void endContact(Contact contact) {
 		Fixture fa = contact.getFixtureA();
 		Fixture fb = contact.getFixtureB();
-		BaseEntity entityA = (BaseEntity) fa.getBody().getUserData();
-		BaseEntity entityB = (BaseEntity) fb.getBody().getUserData();
+		BaseGameObject entityA = (BaseGameObject) fa.getBody().getUserData();
+		BaseGameObject entityB = (BaseGameObject) fb.getBody().getUserData();
 		debugEvent("End Contact", entityA, entityB);
 	}
 
@@ -62,7 +62,7 @@ abstract class BaseVisitorGameContactListener<E extends BaseEntity>
 
 	}
 
-	private void debugEvent(String eventName, BaseEntity entityA, BaseEntity entityB) {
+	private void debugEvent(String eventName, BaseGameObject entityA, BaseGameObject entityB) {
 		if (debugContact) {
 			System.out.println("-----------" + eventName + "-----------");
 			System.out.println("entityA :" + entityA.name);
