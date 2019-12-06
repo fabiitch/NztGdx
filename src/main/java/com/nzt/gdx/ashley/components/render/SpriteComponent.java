@@ -9,20 +9,20 @@ public class SpriteComponent extends BaseComponent {
 
 	public Sprite sprite;
 
-	public SpriteComponent(Entity e, Texture texture) {
-		super(e);
+	public SpriteComponent(Entity entity, Texture texture) {
+		super(entity);
 		this.sprite = new Sprite(texture);
 		sprite.setOriginCenter();
 	}
 
-	public SpriteComponent(Entity e, Texture texture, float width, float height) {
-		this(e, texture);
+	public SpriteComponent(Entity entity, Texture texture, float width, float height) {
+		this(entity, texture);
 		sprite.setSize(width, height);
 		sprite.setOriginCenter();
 	}
 
-	public SpriteComponent(Entity e, Texture texture, float size) {
-		this(e, texture);
+	public SpriteComponent(Entity entity, Texture texture, float size) {
+		this(entity, texture);
 		sprite.setSize(size * 2, size * 2);
 		sprite.setOriginCenter();
 	}
