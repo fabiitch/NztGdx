@@ -8,8 +8,8 @@ public class Box2DBodyComponent extends BaseComponent {
 
 	public Body body;
 
-	public Box2DBodyComponent(Entity e, Body body) {
-		super(e);
+	public Box2DBodyComponent(Entity entity, Body body) {
+		super(entity);
 		this.body = body;
 	}
 

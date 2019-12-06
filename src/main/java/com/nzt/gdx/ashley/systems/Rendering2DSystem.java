@@ -54,14 +54,16 @@ public class Rendering2DSystem extends SortedIteratingSystem {
 		batch.enableBlending();
 		batch.begin();
 
+		Sprite sprite ;
+		Vector3 position;
 		for (Entity entity : renderQueue) {
 			SpriteComponent spriteC = spriteM.get(entity);
 			TransformComponent p = transformM.get(entity);
 			if (spriteC == null) {
 				continue;
 			}
-			Sprite sprite = spriteC.sprite;
-			Vector3 position = p.position;
+			sprite = spriteC.sprite;
+			position = p.position;
 
 			sprite.setPosition(position.x - sprite.getWidth() / 2, position.y - sprite.getHeight() / 2);
 //			sprite.setRotation((float) Math.toDegrees(body.getAngle()));

@@ -66,8 +66,8 @@ public class FixtureDefWrapper extends FixtureDef implements NzLoggable {
 		return this;
 	}
 
-	public FixtureDefWrapper setDensity(float friction) {
-		this.friction = friction;
+	public FixtureDefWrapper setDensity(float density) {
+		this.density = density;
 		return this;
 	}
 
