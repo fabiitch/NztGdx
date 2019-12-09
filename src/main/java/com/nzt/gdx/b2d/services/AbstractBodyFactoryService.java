@@ -41,7 +41,7 @@ public class AbstractBodyFactoryService extends AbstractGameService {
 	 * @param fixtureDefWrapper
 	 * @return
 	 */
-	public Body createRectangleBody(Rectangle rectangle, FixtureDefWrapper fixtureDefWrapper) {
+	protected Body createRectangleBody(Rectangle rectangle, FixtureDefWrapper fixtureDefWrapper) {
 		BodyDef bdef = new BodyDef();
 		PolygonShape shape = new PolygonShape();
 		FixtureDef fdef = fixtureDefWrapper.apply();
@@ -63,7 +63,7 @@ public class AbstractBodyFactoryService extends AbstractGameService {
 	 * @param fixtureDefWrapper
 	 * @return
 	 */
-	public Body createRectangleBody(Vector2 position, float witdh, float height, FixtureDefWrapper fixtureDefWrapper) {
+	protected Body createRectangleBody(Vector2 position, float witdh, float height, FixtureDefWrapper fixtureDefWrapper) {
 		BodyDef bdef = new BodyDef();
 		PolygonShape shape = new PolygonShape();
 		FixtureDef fdef = fixtureDefWrapper.apply();
@@ -85,7 +85,7 @@ public class AbstractBodyFactoryService extends AbstractGameService {
 	 * @param fixtureDefWrapper
 	 * @return
 	 */
-	public Body createCircleBody(Vector2 position, float rayon, FixtureDefWrapper fixtureDefWrapper) {
+	protected Body createCircleBody(Vector2 position, float rayon, FixtureDefWrapper fixtureDefWrapper) {
 		Body body = createBody(position.x, position.y, fixtureDefWrapper.bodyType);
 		FixtureDef fdef = fixtureDefWrapper.apply();
 		CircleShape shape = new CircleShape();
@@ -97,7 +97,7 @@ public class AbstractBodyFactoryService extends AbstractGameService {
 		return body;
 	}
 
-	private Body createBody(float x, float y, BodyType bodyType) {
+	protected Body createBody(float x, float y, BodyType bodyType) {
 		BodyDef bodyDef = new BodyDef();
 		bodyDef.position.set(x, y);
 		bodyDef.type = bodyType;
@@ -105,7 +105,7 @@ public class AbstractBodyFactoryService extends AbstractGameService {
 		return body;
 	}
 
-	private Body createPolygonBody(Vector2[] vertices, FixtureDefWrapper fixtureDefWrapper) {
+	protected Body createPolygonBody(Vector2[] vertices, FixtureDefWrapper fixtureDefWrapper) {
 		Body body = createBody(0, 0, fixtureDefWrapper.bodyType);
 		FixtureDef fdef = fixtureDefWrapper.apply();
 		PolygonShape shape = new PolygonShape();

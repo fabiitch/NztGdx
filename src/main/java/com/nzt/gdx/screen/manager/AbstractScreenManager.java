@@ -23,6 +23,7 @@ public abstract class AbstractScreenManager<M extends AbstractMain> {
 			@Override
 			public void doAfterLoading() {
 				afterSplashScreen();
+				loadingScreen.dispose();
 			}
 		};
 		loadingScreen = new SimpleProgressBarScreen<M>(mainClass, after, 0.5f, assetsManager);

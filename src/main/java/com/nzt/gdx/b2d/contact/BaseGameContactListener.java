@@ -17,11 +17,11 @@ public abstract class BaseGameContactListener<E extends BaseGameObject> implemen
 		Fixture fa = contact.getFixtureA();
 		Fixture fb = contact.getFixtureB();
 
-		E entityA = (E) fa.getBody().getUserData();
-		E entityB = (E) fb.getBody().getUserData();
-		debugEvent("Begin Contact", entityA, entityB);
-
-		doBeginContact(entityA, entityB);
+//		E entityA = (E) fa.getBody().getUserData();
+//		E entityB = (E) fb.getBody().getUserData();
+//		debugEvent("Begin Contact", entityA, entityB);
+//
+//		doBeginContact(entityA, entityB);
 	}
 
 	public abstract void doBeginContact(E entityA, E entityB);
