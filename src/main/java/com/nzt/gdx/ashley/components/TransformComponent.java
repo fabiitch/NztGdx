@@ -1,12 +1,11 @@
 package com.nzt.gdx.ashley.components;
 
-import com.badlogic.ashley.core.Entity;
 import com.badlogic.gdx.math.Vector3;
 import com.nzt.gdx.ashley.components.base.BasePoolableComponent;
 
 public class TransformComponent extends BasePoolableComponent {
-	public TransformComponent(Entity entity) {
-		super(entity);
+	public TransformComponent() {
+		super();
 	}	
 
 	public final Vector3 position = new Vector3();

@@ -20,11 +20,13 @@ import com.nzt.gdx.utils.logger.TagCountLogger;
 public class Rendering2DSystem extends SortedIteratingSystem {
 
 	private SpriteBatch batch; // a reference to our spritebatch
+	private OrthographicCamera cam; // a reference to our camera
+
 	private Array<Entity> renderQueue; // an array used to allow sorting of images allowing us to draw images on top of
 										// each other
-	private Comparator<Entity> comparator = new ZComparator(); // a comparator to sort images based on the z position of the
-											// transfromComponent
-	private OrthographicCamera cam; // a reference to our camera
+	private Comparator<Entity> comparator = new ZComparator(); // a comparator to sort images based on the z position of
+																// the
+	// transfromComponent
 
 	// component mappers to get components from entities
 	private ComponentMapper<SpriteComponent> spriteM;
@@ -54,7 +56,7 @@ public class Rendering2DSystem extends SortedIteratingSystem {
 		batch.enableBlending();
 		batch.begin();
 
-		Sprite sprite ;
+		Sprite sprite;
 		Vector3 position;
 		for (Entity entity : renderQueue) {
 			SpriteComponent spriteC = spriteM.get(entity);

@@ -1,6 +1,5 @@
 package com.nzt.gdx.ashley.components.render;
 
-import com.badlogic.ashley.core.Entity;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.nzt.gdx.ashley.components.base.BaseComponent;
@@ -9,20 +8,20 @@ public class SpriteComponent extends BaseComponent {
 
 	public Sprite sprite;
 
-	public SpriteComponent(Entity entity, Texture texture) {
-		super(entity);
+	public SpriteComponent(Texture texture) {
+		super();
 		this.sprite = new Sprite(texture);
 		sprite.setOriginCenter();
 	}
 
-	public SpriteComponent(Entity entity, Texture texture, float width, float height) {
-		this(entity, texture);
+	public SpriteComponent(Texture texture, float width, float height) {
+		this(texture);
 		sprite.setSize(width, height);
 		sprite.setOriginCenter();
 	}
 
-	public SpriteComponent(Entity entity, Texture texture, float size) {
-		this(entity, texture);
+	public SpriteComponent(Texture texture, float size) {
+		this(texture);
 		sprite.setSize(size * 2, size * 2);
 		sprite.setOriginCenter();
 	}
