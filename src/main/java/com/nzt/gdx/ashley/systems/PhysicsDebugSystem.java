@@ -6,8 +6,8 @@ import com.badlogic.ashley.systems.IteratingSystem;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.World;
-import com.nzt.gdx.utils.logger.LogTagBase;
-import com.nzt.gdx.utils.logger.TagCountLogger;
+import com.nzt.gdx.logger.LogTagBase;
+import com.nzt.gdx.logger.count.TagCountLogger;
 
 public class PhysicsDebugSystem extends IteratingSystem {
 	private Box2DDebugRenderer debugRenderer;

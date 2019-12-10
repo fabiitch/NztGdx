@@ -1,12 +1,10 @@
 package com.nzt.gdx.b2d;
 
-import org.apache.commons.math3.util.Pair;
-
 import com.badlogic.gdx.physics.box2d.BodyDef.BodyType;
-import com.nzt.gdx.utils.logger.NzLoggable;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.Shape;
+import com.nzt.gdx.logger.utils.NzLoggable;
 
 public class FixtureDefWrapper extends FixtureDef implements NzLoggable {
 	public BodyType bodyType;

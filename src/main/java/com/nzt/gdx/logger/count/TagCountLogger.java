@@ -1,6 +1,8 @@
-package com.nzt.gdx.utils.logger;
+package com.nzt.gdx.logger.count;
 
 import java.util.HashMap;
+
+import com.nzt.gdx.logger.TagLogger;
 
 /**
  * Just and extends of TagLogger with a count of log use clear for delete all
@@ -11,29 +13,29 @@ import java.util.HashMap;
  */
 public class TagCountLogger {
 
-	public static HashMap<Enum<?>, LogTagValues> tagCountMap = new HashMap<Enum<?>, LogTagValues>();
+	public static HashMap<Enum<?>, LogCountTagValues> tagCountMap = new HashMap<Enum<?>, LogCountTagValues>();
 
 	public static void clear() {
-		tagCountMap = new HashMap<Enum<?>, LogTagValues>();
+		tagCountMap = new HashMap<Enum<?>, LogCountTagValues>();
 	}
 
 	public static <E extends Enum<E>> void debug(E tag, String message) {
-		LogTagValues logTagValues = getTag(tag);
+		LogCountTagValues logTagValues = getTag(tag);
 		TagLogger.debug(tag, "count:" + logTagValues.count + " " + message);
 	}
 
 	public static <E extends Enum<E>> void log(E tag, String message) {
-		LogTagValues logTagValues = getTag(tag);
+		LogCountTagValues logTagValues = getTag(tag);
 		TagLogger.log(tag, "count:" + logTagValues.count + " " + message);
 	}
 
 	public static <E extends Enum<E>> void error(E tag, String message) {
-		LogTagValues logTagValues = getTag(tag);
+		LogCountTagValues logTagValues = getTag(tag);
 		TagLogger.error(tag, "count:" + logTagValues.count + " " + message);
 	}
 
 	public static <E extends Enum<E>> void resetTag(E tag) {
-		LogTagValues logTagValues = getTag(tag);
+		LogCountTagValues logTagValues = getTag(tag);
 		logTagValues.count = 0;
 		TagLogger.log(tag, "reset tag count");
 	}
@@ -54,10 +56,10 @@ public class TagCountLogger {
 		TagLogger.desactiveAllTag(enumTag);
 	}
 
-	private static <E extends Enum<E>> LogTagValues getTag(E tag) {
-		LogTagValues logTag = tagCountMap.get(tag);
+	private static <E extends Enum<E>> LogCountTagValues getTag(E tag) {
+		LogCountTagValues logTag = tagCountMap.get(tag);
 		if (logTag == null) {
-			logTag = new LogTagValues(tag);
+			logTag = new LogCountTagValues(tag);
 			tagCountMap.put(tag, logTag);
 		}
 		logTag.count++;
@@ -66,14 +68,3 @@ public class TagCountLogger {
 
 }
 
-class LogTagValues {
-
-	public String tag;
-	public int count;
-
-	public <E extends Enum<E>> LogTagValues(E tag) {
-		this.tag = tag.name();
-		this.count = 0;
-	}
-
-}

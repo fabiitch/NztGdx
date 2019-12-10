@@ -1,4 +1,4 @@
-package com.nzt.gdx.utils.logger;
+package com.nzt.gdx.logger;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -6,6 +6,9 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
 import org.junit.Test;
+
+import com.nzt.gdx.logger.LogTagBase;
+import com.nzt.gdx.logger.TagLogger;
 
 public class TagLoggerTest {
 

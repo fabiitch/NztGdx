@@ -1,4 +1,4 @@
-package com.nzt.gdx.utils.logger;
+package com.nzt.gdx.logger.utils;
 
 public interface NzLoggable {
 

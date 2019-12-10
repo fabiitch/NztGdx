@@ -6,8 +6,8 @@ import com.badlogic.gdx.physics.box2d.ContactListener;
 import com.badlogic.gdx.physics.box2d.Fixture;
 import com.badlogic.gdx.physics.box2d.Manifold;
 import com.nzt.gdx.ashley.entities.BaseGameObject;
-import com.nzt.gdx.utils.logger.LogTagBase;
-import com.nzt.gdx.utils.logger.TagLogger;
+import com.nzt.gdx.logger.LogTagBase;
+import com.nzt.gdx.logger.TagLogger;
 
 public abstract class BaseGameContactListener<E extends BaseGameObject> implements ContactListener {
 
@@ -17,11 +17,11 @@ public abstract class BaseGameContactListener<E extends BaseGameObject> implemen
 		Fixture fa = contact.getFixtureA();
 		Fixture fb = contact.getFixtureB();
 
-//		E entityA = (E) fa.getBody().getUserData();
-//		E entityB = (E) fb.getBody().getUserData();
-//		debugEvent("Begin Contact", entityA, entityB);
+		E entityA = (E) fa.getBody().getUserData();
+		E entityB = (E) fb.getBody().getUserData();
+		debugEvent("Begin Contact", entityA, entityB);
 //
-//		doBeginContact(entityA, entityB);
+		doBeginContact(entityA, entityB);
 	}
 
 	public abstract void doBeginContact(E entityA, E entityB);
