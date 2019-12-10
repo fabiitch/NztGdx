@@ -13,9 +13,9 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.nzt.gdx.archi.AbstractGameService;
 import com.nzt.gdx.b2d.FixtureDefWrapper;
 import com.nzt.gdx.box2D.helpers.Box2DConverter;
-import com.nzt.gdx.utils.logger.LogTagBase;
-import com.nzt.gdx.utils.logger.NzLoggableUtils;
-import com.nzt.gdx.utils.logger.TagLogger;
+import com.nzt.gdx.logger.LogTagBase;
+import com.nzt.gdx.logger.TagLogger;
+import com.nzt.gdx.logger.utils.NzLoggableUtils;
 
 public class AbstractBodyFactoryService extends AbstractGameService {
 
@@ -97,7 +97,7 @@ public class AbstractBodyFactoryService extends AbstractGameService {
 		return body;
 	}
 
-	protected Body createBody(float x, float y, BodyType bodyType) {
+	private Body createBody(float x, float y, BodyType bodyType) {
 		BodyDef bodyDef = new BodyDef();
 		bodyDef.position.set(x, y);
 		bodyDef.type = bodyType;

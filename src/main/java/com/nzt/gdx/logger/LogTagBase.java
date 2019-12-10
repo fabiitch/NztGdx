@@ -1,7 +1,7 @@
-package com.nzt.gdx.utils.logger;
+package com.nzt.gdx.logger;
 
 public enum LogTagBase {
-	PERFORMANCE, SYSTEMS, INPUT, B2D_CONTACT, B2D_CREATION, SCREEN_ACTIONS;
+	PROXY, PERFORMANCE, SYSTEMS, INPUT, B2D_CONTACT, B2D_CREATION, SCREEN_ACTIONS;
 
 	//SCREEN_ACTIONS is all except render(show, resize, pause, resume, hide
 	

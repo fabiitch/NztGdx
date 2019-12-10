@@ -1,8 +1,8 @@
 package com.nzt.gdx.screen;
 
 import com.nzt.gdx.archi.AbstractMain;
-import com.nzt.gdx.utils.logger.LogTagBase;
-import com.nzt.gdx.utils.logger.TagLogger;
+import com.nzt.gdx.logger.LogTagBase;
+import com.nzt.gdx.logger.TagLogger;
 
 public abstract class BaseScreen extends AbstractScreen<AbstractMain> {
 

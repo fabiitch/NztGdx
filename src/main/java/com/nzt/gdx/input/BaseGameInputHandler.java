@@ -1,8 +1,8 @@
 package com.nzt.gdx.input;
 
 import com.badlogic.gdx.InputProcessor;
-import com.nzt.gdx.utils.logger.LogTagBase;
-import com.nzt.gdx.utils.logger.TagLogger;
+import com.nzt.gdx.logger.LogTagBase;
+import com.nzt.gdx.logger.TagLogger;
 
 public abstract class BaseGameInputHandler implements InputProcessor {
 	public final boolean FORCE_MOBILE = false;

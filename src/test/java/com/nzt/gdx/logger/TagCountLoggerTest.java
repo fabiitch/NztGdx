@@ -1,4 +1,4 @@
-package com.nzt.gdx.utils.logger;
+package com.nzt.gdx.logger;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -7,6 +7,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.nzt.gdx.init.GdxHeadLessInitialiser;
+import com.nzt.gdx.logger.count.LogCountTagValues;
+import com.nzt.gdx.logger.count.TagCountLogger;
 
 public class TagCountLoggerTest extends GdxHeadLessInitialiser {
 	private enum LogTagEnum {
@@ -27,7 +29,7 @@ public class TagCountLoggerTest extends GdxHeadLessInitialiser {
 		assertEquals(TagCountLogger.tagCountMap.size(), 1);
 		assertEquals(TagLogger.tagMap.size(), 1);
 
-		LogTagValues logTagValues = TagCountLogger.tagCountMap.get(LogTagEnum.PERFORMANCE);
+		LogCountTagValues logTagValues = TagCountLogger.tagCountMap.get(LogTagEnum.PERFORMANCE);
 		assertTrue(logTagValues != null);
 		assertEquals(logTagValues.count, 3);
 	}
@@ -38,7 +40,7 @@ public class TagCountLoggerTest extends GdxHeadLessInitialiser {
 		TagCountLogger.log(LogTagEnum.PERFORMANCE, "log 2");
 		TagCountLogger.log(LogTagEnum.PERFORMANCE, "log 3");
 		// test map of TagLogger and TagCounter logger
-		LogTagValues logTagValues = TagCountLogger.tagCountMap.get(LogTagEnum.PERFORMANCE);
+		LogCountTagValues logTagValues = TagCountLogger.tagCountMap.get(LogTagEnum.PERFORMANCE);
 		assertTrue(logTagValues != null);
 		assertEquals(logTagValues.count, 3);
 		TagCountLogger.resetTag(LogTagEnum.PERFORMANCE);

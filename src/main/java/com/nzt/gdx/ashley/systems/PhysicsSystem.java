@@ -10,8 +10,8 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.Array;
 import com.nzt.gdx.ashley.components.TransformComponent;
 import com.nzt.gdx.ashley.components.physx.Box2DBodyComponent;
-import com.nzt.gdx.utils.logger.LogTagBase;
-import com.nzt.gdx.utils.logger.TagCountLogger;
+import com.nzt.gdx.logger.LogTagBase;
+import com.nzt.gdx.logger.count.TagCountLogger;
 
 public class PhysicsSystem extends IteratingSystem {
 

@@ -4,8 +4,8 @@ import com.badlogic.ashley.core.Entity;
 
 public abstract class BaseGameObject {
 
-	public String name;
 	public Entity entity;
+	public String name;
 
 	public BaseGameObject(String name, Entity entity) {
 		this.name = name;

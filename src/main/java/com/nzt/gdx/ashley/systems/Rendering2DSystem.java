@@ -14,8 +14,8 @@ import com.badlogic.gdx.utils.Array;
 import com.nzt.gdx.ashley.comparators.ZComparator;
 import com.nzt.gdx.ashley.components.TransformComponent;
 import com.nzt.gdx.ashley.components.render.SpriteComponent;
-import com.nzt.gdx.utils.logger.LogTagBase;
-import com.nzt.gdx.utils.logger.TagCountLogger;
+import com.nzt.gdx.logger.LogTagBase;
+import com.nzt.gdx.logger.count.TagCountLogger;
 
 public class Rendering2DSystem extends SortedIteratingSystem {
 
