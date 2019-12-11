@@ -4,6 +4,7 @@ git:
 branches:
   only:
     - master
+    - worktest
 
 matrix:
   include:
@@ -18,6 +19,8 @@ matrix:
         - true
       script:
         - ant -f build-mac-ios.xml
+      after_failure:
+        - cat MSBuild_*.failure.txt
     - name: "Unit test java build"
       if: type != pull_request
       language: java
@@ -28,6 +31,8 @@ matrix:
       - ./gradlew assemble
       script:
       - ./gradlew build
+      after_failure:
+      - cat MSBuild_*.failure.txt
     - name: "Unit Tests Android"
       language: android
       android:
@@ -42,6 +47,8 @@ matrix:
         - ./gradlew assemble
       script:
         - ./gradlew test
+        after_failure:
+        - cat MSBuild_*.failure.txt
       before_cache:
         - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
         - rm -fr $HOME/.gradle/caches/*/plugin-resolution/

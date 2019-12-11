@@ -6,6 +6,9 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
+/**
+ * progress bar with ShapeRenderer (rectangle bar)
+ */
 public class ProgressBar_SR {
 	private Rectangle rect;
 	private float percent;
@@ -27,9 +30,12 @@ public class ProgressBar_SR {
 		this.borderColor = borderColor;
 	}
 
+	public ProgressBar_SR(Rectangle rect) {
+		this(rect, Color.RED, Color.BLUE);
+	}
+
 	/**
-	 * @param percent
-	 *            : <1
+	 * @param percent : <1
 	 * 
 	 */
 	public void updatePercent(float percent) {
