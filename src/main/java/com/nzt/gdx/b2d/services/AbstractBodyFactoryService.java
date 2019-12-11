@@ -42,6 +42,7 @@ public class AbstractBodyFactoryService extends AbstractGameService {
 	 * @return
 	 */
 	protected Body createRectangleBody(Rectangle rectangle, FixtureDefWrapper fixtureDefWrapper) {
+		rectangle = Box2DConverter.toPPM(rectangle);
 		BodyDef bdef = new BodyDef();
 		PolygonShape shape = new PolygonShape();
 		FixtureDef fdef = fixtureDefWrapper.apply();
@@ -57,13 +58,19 @@ public class AbstractBodyFactoryService extends AbstractGameService {
 
 	/**
 	 * create rect body from position
+	 * 
 	 * @param position
 	 * @param witdh
 	 * @param height
 	 * @param fixtureDefWrapper
 	 * @return
 	 */
-	protected Body createRectangleBody(Vector2 position, float witdh, float height, FixtureDefWrapper fixtureDefWrapper) {
+	protected Body createRectangleBody(Vector2 position, float witdh, float height,
+			FixtureDefWrapper fixtureDefWrapper) {
+		witdh = Box2DConverter.toPPM(witdh);
+		height = Box2DConverter.toPPM(height);
+		position = Box2DConverter.newToPPM(position);
+		
 		BodyDef bdef = new BodyDef();
 		PolygonShape shape = new PolygonShape();
 		FixtureDef fdef = fixtureDefWrapper.apply();
@@ -86,6 +93,10 @@ public class AbstractBodyFactoryService extends AbstractGameService {
 	 * @return
 	 */
 	protected Body createCircleBody(Vector2 position, float rayon, FixtureDefWrapper fixtureDefWrapper) {
+		rayon = Box2DConverter.toPPM(rayon);
+		position = Box2DConverter.newToPPM(position);
+		
+		
 		Body body = createBody(position.x, position.y, fixtureDefWrapper.bodyType);
 		FixtureDef fdef = fixtureDefWrapper.apply();
 		CircleShape shape = new CircleShape();
