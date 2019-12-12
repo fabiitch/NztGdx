@@ -2,6 +2,7 @@ package com.nzt.gdx.logger;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 import com.badlogic.gdx.Gdx;
 import com.nzt.gdx.logger.utils.NzLoggable;
@@ -15,11 +16,15 @@ import com.nzt.gdx.logger.utils.NzLoggable;
  */
 public class TagLogger {
 
-	public static Map<Enum<?>, Boolean> tagMap = new HashMap<Enum<?>, Boolean>();
+	private static Map<Enum<?>, Boolean> tagMap = new HashMap<Enum<?>, Boolean>();
 	public static boolean DONT_LOG = false;
 
-	public static void clear() {
+	public static void clearTags() {
 		tagMap = new HashMap<Enum<?>, Boolean>();
+	}
+	
+	public static Set<Enum<?>> getTags() {
+		return tagMap.keySet();
 	}
 
 	// ============= active/desactive
@@ -106,6 +111,12 @@ public class TagLogger {
 		}
 	}
 
+	/**
+	 * give tags, if not exist , create it
+	 * @param <E>
+	 * @param tag
+	 * @return
+	 */
 	private static <E extends Enum<E>> Boolean getTag(E tag) {
 		Boolean activeTag = tagMap.get(tag);
 		if (activeTag == null) {
