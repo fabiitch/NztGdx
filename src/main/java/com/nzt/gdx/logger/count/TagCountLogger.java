@@ -1,6 +1,7 @@
 package com.nzt.gdx.logger.count;
 
 import java.util.HashMap;
+import java.util.Map;
 
 import com.nzt.gdx.logger.TagLogger;
 
@@ -8,14 +9,14 @@ import com.nzt.gdx.logger.TagLogger;
  * Just and extends of TagLogger with a count of log use clear for delete all
  * tag
  * 
- * @author foccelli
+ * @author fabiitch
  *
  */
 public class TagCountLogger {
 
-	public static HashMap<Enum<?>, LogCountTagValues> tagCountMap = new HashMap<Enum<?>, LogCountTagValues>();
+	private static Map<Enum<?>, LogCountTagValues> tagCountMap = new HashMap<Enum<?>, LogCountTagValues>();
 
-	public static void clear() {
+	public static void clearTags() {
 		tagCountMap = new HashMap<Enum<?>, LogCountTagValues>();
 	}
 
@@ -67,4 +68,3 @@ public class TagCountLogger {
 	}
 
 }
-
