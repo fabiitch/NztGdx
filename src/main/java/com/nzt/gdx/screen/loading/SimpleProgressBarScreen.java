@@ -8,15 +8,15 @@ import com.nzt.gdx.assets.IntAssetsManager;
 import com.nzt.gdx.graphics.ProgressBar_SR;
 import com.nzt.gdx.screen.manager.AbstractScreenManager.AfterLoading;
 
-public class SimpleProgressBarScreen<M extends AbstractMain> extends BaseLoadingScreen<M> {
+public class SimpleProgressBarScreen extends BaseLoadingScreen {
 	protected ProgressBar_SR doubleRectangle;
 
-	public SimpleProgressBarScreen(M main, AfterLoading afterloading, float minDisplayTime) {
+	public SimpleProgressBarScreen(AbstractMain main, AfterLoading afterloading, float minDisplayTime) {
 		super(main, afterloading, minDisplayTime);
 		createRectangles();
 	}
 
-	public SimpleProgressBarScreen(M main, AfterLoading afterloading, float minDisplayTime,
+	public SimpleProgressBarScreen(AbstractMain main, AfterLoading afterloading, float minDisplayTime,
 			IntAssetsManager assetsManager) {
 		super(main, afterloading, minDisplayTime, assetsManager);
 		createRectangles();

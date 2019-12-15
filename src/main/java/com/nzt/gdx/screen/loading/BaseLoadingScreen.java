@@ -5,16 +5,16 @@ import com.nzt.gdx.assets.IntAssetsManager;
 import com.nzt.gdx.screen.BaseScreen;
 import com.nzt.gdx.screen.manager.AbstractScreenManager.AfterLoading;
 
-public abstract class BaseLoadingScreen<M extends AbstractMain> extends BaseScreen {
+public abstract class BaseLoadingScreen extends BaseScreen {
 
-	public BaseLoadingScreen(M main, AfterLoading afterloading, float minDisplayTime) {
+	public BaseLoadingScreen(AbstractMain main, AfterLoading afterloading, float minDisplayTime) {
 		super(main);
 		this.afterLoading = afterloading;
 		this.minDisplayTime = minDisplayTime;
 
 	}
 
-	public BaseLoadingScreen(M main, AfterLoading afterloading, float minDisplayTime, IntAssetsManager assetsManager) {
+	public BaseLoadingScreen(AbstractMain main , AfterLoading afterloading, float minDisplayTime, IntAssetsManager assetsManager) {
 		this(main, afterloading, minDisplayTime);
 		this.assetsManager = assetsManager;
 	}
