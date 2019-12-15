@@ -14,7 +14,7 @@ public abstract class AbstractMain extends Game {
 	public ModelBatch modelBatch;
 	public AbstractAssetsManager assetsManager;
 	public AbstractScreenManager screenManager;
-
+	 
 	public abstract void doCreate();
 
 	public abstract AbstractScreenManager createScreenManager();

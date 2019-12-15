@@ -19,6 +19,13 @@ public class PhysicsDebugSystem extends IteratingSystem {
 		debugRenderer = new Box2DDebugRenderer();
 		this.world = world;
 		this.camera = camera;
+		
+		debugRenderer.setDrawBodies(true);
+		debugRenderer.setDrawVelocities(true);
+		debugRenderer.setDrawJoints(true);
+		debugRenderer.setDrawAABBs(true);
+		debugRenderer.setDrawContacts(true);
+		debugRenderer.setDrawInactiveBodies(true);
 	}
 
 	@Override
