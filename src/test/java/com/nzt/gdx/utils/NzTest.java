@@ -5,6 +5,11 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
+/**
+ * Test class for {@link NZ}
+ * @author fabiitch
+ *
+ */
 public class NzTest {
 	@Test
 	public void isNullTest() {

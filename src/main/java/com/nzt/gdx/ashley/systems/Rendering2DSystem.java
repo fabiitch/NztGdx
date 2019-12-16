@@ -17,6 +17,11 @@ import com.nzt.gdx.ashley.components.render.SpriteComponent;
 import com.nzt.gdx.logger.LogTagBase;
 import com.nzt.gdx.logger.count.TagCountLogger;
 
+/**
+ * used for rendering with SB
+ * @author fabiitch
+ *
+ */
 public class Rendering2DSystem extends SortedIteratingSystem {
 
 	private SpriteBatch batch; // a reference to our spritebatch

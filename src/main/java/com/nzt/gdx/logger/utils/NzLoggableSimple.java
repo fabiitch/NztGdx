@@ -1,9 +1,21 @@
 package com.nzt.gdx.logger.utils;
 
-public class NzLoggableSimple implements NzLoggable {
+import com.badlogic.gdx.utils.Pool.Poolable;
 
-	private final String tag;
-	private final String value;
+/**
+ * Simple wrapper for {@link NzLoggable}
+ * 
+ * @author fabiitch
+ *
+ */
+public class NzLoggableSimple implements NzLoggable, Poolable {
+
+	public String tag;
+	public String value;
+
+	public NzLoggableSimple() {
+
+	}
 
 	public NzLoggableSimple(String tag, String value) {
 		this.tag = tag;
@@ -18,6 +30,12 @@ public class NzLoggableSimple implements NzLoggable {
 	@Override
 	public String gdxLogValue() {
 		return value;
+	}
+
+	@Override
+	public void reset() {
+		tag = null;
+		value = null;
 	}
 
 }

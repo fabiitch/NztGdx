@@ -13,6 +13,11 @@ import com.nzt.gdx.init.GdxHeadLessInitialiser;
 import com.nzt.gdx.logger.count.LogCountTagValues;
 import com.nzt.gdx.logger.count.TagCountLogger;
 
+/**
+ * test class for {@link TagCountLogger}
+ * @author fabiitch
+ *
+ */
 public class TagCountLoggerTest extends GdxHeadLessInitialiser {
 	private enum LogTagEnum {
 		PERFORMANCE, INPUT

@@ -8,6 +8,15 @@ import com.badlogic.gdx.graphics.g3d.ModelBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.nzt.gdx.archi.AbstractMain;
 
+/**
+ * Abstract screen for {@link #AbstractScreen(AbstractMain)} 
+ * Wrapper for acces main, render object
+ * 
+ * See {@link #BaseScreen} for 
+ * @author fabiitch
+ *
+ * @param <M>
+ */
 public abstract class AbstractScreen<M extends AbstractMain> implements Screen {
 
 	protected M main;

@@ -1,5 +1,10 @@
 package com.nzt.gdx.utils;
 
+/**
+ * Utiliy class for Gdx WIP
+ * @author fabiitch
+ *
+ */
 public class NZ {
 
 	public static boolean isNull(Object object) {

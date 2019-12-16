@@ -5,6 +5,12 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.backends.headless.HeadlessApplication;
 import com.badlogic.gdx.backends.headless.HeadlessApplicationConfiguration;
 
+
+/**
+ * base main for test, see HeadlessApplication
+ * @author foccelli
+ *
+ */
 public abstract class GdxHeadLessInitialiser {
 	public GdxHeadLessInitialiser() {
 

@@ -1,7 +1,5 @@
 package com.nzt.gdx.tester;
 
-import org.junit.Test;
-
 import com.badlogic.gdx.Files;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
@@ -9,6 +7,11 @@ import com.nzt.gdx.archi.AbstractMain;
 import com.nzt.gdx.assets.AbstractAssetsManager;
 import com.nzt.gdx.screen.manager.AbstractScreenManager;
 
+/**
+ * WIP, test class for launch fast iteration dev on lib
+ * @author fabiitch
+ *
+ */
 public class Tester extends AbstractMain {
 
 	@Override

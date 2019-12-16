@@ -8,13 +8,20 @@ import com.nzt.gdx.assets.AbstractAssetsManager;
 import com.nzt.gdx.net.AutoProxy;
 import com.nzt.gdx.screen.manager.AbstractScreenManager;
 
+/**
+ * Base main, extends to your main SpriteBatch, ShapeRenderer and ModelBatch
+ * preinit (reimplement createRenderObjects for change it)
+ * 
+ * @author fabiitch
+ *
+ */
 public abstract class AbstractMain extends Game {
 	public SpriteBatch sb;
 	public ShapeRenderer shapeRenderer;
 	public ModelBatch modelBatch;
 	public AbstractAssetsManager assetsManager;
 	public AbstractScreenManager screenManager;
-	 
+
 	public abstract void doCreate();
 
 	public abstract AbstractScreenManager createScreenManager();
@@ -23,17 +30,21 @@ public abstract class AbstractMain extends Game {
 
 	@Override
 	public void create() {
+		createRenderObjects();
+		this.assetsManager = createAssetsManager();
+		this.screenManager = createScreenManager();
+		AutoProxy.init();
+		doCreate();
+		screenManager.startApplication(this);
+	}
+
+	public void createRenderObjects() {
 		this.sb = new SpriteBatch();
 		this.shapeRenderer = new ShapeRenderer();
 		this.shapeRenderer.setAutoShapeType(true);
 		this.modelBatch = new ModelBatch();
 		// this.modelBatch = new ModelBatch(new DepthShaderProvider()); // effet rigolo
 
-		this.assetsManager = createAssetsManager();
-		this.screenManager = createScreenManager();
-		AutoProxy.init();
-		doCreate();
-		screenManager.startApplication(this);
 	}
 
 	@Override

@@ -1,5 +1,14 @@
 package com.nzt.gdx.logger.count;
 
+import com.nzt.gdx.logger.TagLogger;
+
+/**
+ * Values Object for {@link TagLogger}
+ * contains the tag and count of call it
+ * 
+ * @author fabiitch
+ *
+ */
 public class LogCountTagValues {
 
 	public String tag;

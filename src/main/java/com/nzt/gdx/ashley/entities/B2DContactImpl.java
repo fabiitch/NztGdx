@@ -1,7 +1,7 @@
 package com.nzt.gdx.ashley.entities;
 
 /**
- * visitor pattern
+ * visitor pattern To remove !
  * @author foccelli
  *
  * @param <C>

@@ -4,6 +4,12 @@ import com.nzt.gdx.archi.AbstractMain;
 import com.nzt.gdx.logger.LogTagBase;
 import com.nzt.gdx.logger.TagLogger;
 
+/**
+ * Base screen with log on screenAction
+ * See LogTagBase for logs.
+ * @author fabiitch
+ *
+ */
 public abstract class BaseScreen extends AbstractScreen<AbstractMain> {
 
 	public BaseScreen(AbstractMain main) {

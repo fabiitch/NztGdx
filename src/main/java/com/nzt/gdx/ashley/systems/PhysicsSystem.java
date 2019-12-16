@@ -13,6 +13,12 @@ import com.nzt.gdx.ashley.components.physx.Box2DBodyComponent;
 import com.nzt.gdx.logger.LogTagBase;
 import com.nzt.gdx.logger.count.TagCountLogger;
 
+/**
+ * System for box2D world it do the world.step
+ * 
+ * @author fabiitch
+ *
+ */
 public class PhysicsSystem extends IteratingSystem {
 
 	private static final float MAX_STEP_TIME = 1 / 45f;
@@ -24,11 +30,13 @@ public class PhysicsSystem extends IteratingSystem {
 	private ComponentMapper<Box2DBodyComponent> bm = ComponentMapper.getFor(Box2DBodyComponent.class);
 	private ComponentMapper<TransformComponent> tm = ComponentMapper.getFor(TransformComponent.class);
 
-	private boolean rotationCalculed;
-	public PhysicsSystem(World world, boolean rotationCalculed) {
+	private boolean calculRotation;
+
+	public PhysicsSystem(World world, boolean calculRotation) {
 		super(Family.all(Box2DBodyComponent.class, TransformComponent.class).get());
 		this.world = world;
 		this.bodiesQueue = new Array<Entity>();
+		this.calculRotation = calculRotation;
 	}
 
 	@Override
@@ -49,8 +57,9 @@ public class PhysicsSystem extends IteratingSystem {
 				Vector2 position = bodyComp.body.getPosition();
 				tfm.position.x = position.x;
 				tfm.position.y = position.y;
-				if(rotationCalculed)
-				tfm.angle = bodyComp.body.getAngle() * MathUtils.radiansToDegrees;
+
+				if (calculRotation)
+					tfm.angle = bodyComp.body.getAngle() * MathUtils.radiansToDegrees;
 			}
 		}
 		bodiesQueue.clear();
