@@ -4,6 +4,11 @@ import com.badlogic.gdx.InputProcessor;
 import com.nzt.gdx.logger.LogTagBase;
 import com.nzt.gdx.logger.TagLogger;
 
+/**
+ * Simple InputProcessor with TagLogger on events
+ * @author fabiitch
+ *
+ */
 public abstract class BaseGameInputHandler implements InputProcessor {
 	public final boolean FORCE_MOBILE = false;
 

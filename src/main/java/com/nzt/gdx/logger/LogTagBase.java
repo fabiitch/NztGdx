@@ -1,5 +1,12 @@
 package com.nzt.gdx.logger;
 
+/**
+ * All Base tag for {@link TagLogger}
+ * Don't need enum for taglogger, but easyly to use enum
+ * create an enum in your game for tag 
+ * @author fabiitch
+ *
+ */
 public enum LogTagBase {
 	INIT, PROXY, PERFORMANCE, SYSTEMS, INPUT, B2D_CONTACT, B2D_CREATION, SCREEN_ACTIONS;
 

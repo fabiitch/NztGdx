@@ -9,6 +9,11 @@ import java.util.List;
 
 import com.badlogic.gdx.Gdx;
 
+/**
+ * Used to detect and add proxy on net modules
+ * @author fabiitch
+ *
+ */
 public class AutoProxy {
 
 	public static void init() {

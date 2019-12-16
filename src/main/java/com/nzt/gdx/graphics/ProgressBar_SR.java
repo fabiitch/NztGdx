@@ -7,7 +7,10 @@ import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
 /**
- * progress bar with ShapeRenderer (rectangle bar)
+ *  progress bar with ShapeRenderer (rectangle bar)
+ *  it use 2 rectangle, one as border(ShapeType.Filled) and one inside(ShapeType.Line)
+ * @author fabiitch
+ *
  */
 public class ProgressBar_SR {
 	private Rectangle rect;

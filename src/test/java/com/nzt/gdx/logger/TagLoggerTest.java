@@ -10,6 +10,11 @@ import java.util.Map;
 import org.junit.Before;
 import org.junit.Test;
 
+/**
+ * test class for{@link TagLogger}
+ * @author fabiitch
+ *
+ */
 public class TagLoggerTest {
 
 	private static Map<Enum<?>, Boolean> tagMap;

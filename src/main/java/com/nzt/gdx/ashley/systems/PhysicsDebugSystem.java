@@ -9,6 +9,11 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.nzt.gdx.logger.LogTagBase;
 import com.nzt.gdx.logger.count.TagCountLogger;
 
+/**
+ * System for Box2D, debugRender 
+ * @author fabiitch
+ *
+ */
 public class PhysicsDebugSystem extends IteratingSystem {
 	private Box2DDebugRenderer debugRenderer;
 	private World world;

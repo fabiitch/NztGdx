@@ -8,6 +8,11 @@ import com.nzt.gdx.assets.IntAssetsManager;
 import com.nzt.gdx.graphics.ProgressBar_SR;
 import com.nzt.gdx.screen.manager.AbstractScreenManager.AfterLoading;
 
+/**
+ * loading screen with rectangle bar in middle
+ * @author fabiitch
+ *
+ */
 public class SimpleProgressBarScreen extends BaseLoadingScreen {
 	protected ProgressBar_SR doubleRectangle;
 
