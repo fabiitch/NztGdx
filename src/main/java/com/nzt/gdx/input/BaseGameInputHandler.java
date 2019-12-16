@@ -5,7 +5,9 @@ import com.nzt.gdx.logger.LogTagBase;
 import com.nzt.gdx.logger.TagLogger;
 
 /**
- * Simple InputProcessor with TagLogger on events
+ * Simple InputProcessor with TagLogger on events, see {@link LogTagBase#INPUT}
+ * and {@link TagLogger}
+ * 
  * @author fabiitch
  *
  */

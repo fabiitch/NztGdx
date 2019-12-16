@@ -17,6 +17,12 @@ import com.nzt.gdx.logger.LogTagBase;
 import com.nzt.gdx.logger.TagLogger;
 import com.nzt.gdx.logger.utils.NzLoggableUtils;
 
+/**
+ * base body factory service with service for create circle/rect body
+ * //TODO less new BodyDef
+ * @author fabiitch
+ *
+ */
 public class AbstractBodyFactoryService extends AbstractGameService {
 
 	protected World world;

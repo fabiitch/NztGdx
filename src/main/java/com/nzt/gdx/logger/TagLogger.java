@@ -15,14 +15,14 @@ import com.nzt.gdx.logger.utils.NzLoggable;
  *
  */
 public class TagLogger {
-
+	
 	private static Map<Enum<?>, Boolean> tagMap = new HashMap<Enum<?>, Boolean>();
 	public static boolean DONT_LOG = false;
 
 	public static void clearTags() {
 		tagMap = new HashMap<Enum<?>, Boolean>();
 	}
-	
+
 	public static Set<Enum<?>> getTags() {
 		return tagMap.keySet();
 	}
@@ -113,6 +113,7 @@ public class TagLogger {
 
 	/**
 	 * give tags, if not exist , create it
+	 * 
 	 * @param <E>
 	 * @param tag
 	 * @return
