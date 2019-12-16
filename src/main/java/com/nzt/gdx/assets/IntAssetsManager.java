@@ -1,5 +1,11 @@
 package com.nzt.gdx.assets;
 
+
+/**
+ * interface for assets manager
+ * @author fabiitch
+ *
+ */
 public interface IntAssetsManager {
 
 	/**

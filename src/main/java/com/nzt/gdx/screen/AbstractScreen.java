@@ -12,7 +12,7 @@ import com.nzt.gdx.archi.AbstractMain;
  * Abstract screen for {@link #AbstractScreen(AbstractMain)} 
  * Wrapper for acces main, render object
  * 
- * See {@link #BaseScreen} for 
+ * See {@link #BaseScreen} for next implementation
  * @author fabiitch
  *
  * @param <M>
