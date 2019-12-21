@@ -86,7 +86,7 @@ public class AbstractBodyFactoryService extends AbstractGameService {
 		fdef.shape = shape;
 		Body body = world.createBody(bdef);
 		body.createFixture(fdef);
-		TagLogger.logBlock(LogTagBase.B2D_CREATION, NzLoggableUtils.create(bdef.position), fixtureDefWrapper);
+		TagLogger.logBlock(LogTagBase.B2D_CREATION, NzLoggableUtils.create(bdef.position, witdh, height), fixtureDefWrapper);
 		return body;
 	}
 
@@ -109,7 +109,7 @@ public class AbstractBodyFactoryService extends AbstractGameService {
 		shape.setRadius(rayon);
 		fdef.shape = shape;
 
-		TagLogger.logBlock(LogTagBase.B2D_CREATION, NzLoggableUtils.create(position), fixtureDefWrapper);
+		TagLogger.logBlock(LogTagBase.B2D_CREATION, NzLoggableUtils.create(position, rayon), fixtureDefWrapper);
 		Fixture fixture = body.createFixture(fdef);
 		return body;
 	}

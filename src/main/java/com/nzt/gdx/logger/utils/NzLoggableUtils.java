@@ -1,8 +1,9 @@
 package com.nzt.gdx.logger.utils;
 
 /**
- * Utils class for get {@link NzLoggable} 
- * Not thread safe, return same instance of NzLoggable
+ * Utils class for get {@link NzLoggable} Not thread safe, return same instance
+ * of NzLoggable
+ * 
  * @author fabiitch
  *
  */
@@ -19,6 +20,17 @@ public class NzLoggableUtils {
 	public static NzLoggable create(Object object) {
 		temp.tag = object.getClass().getSimpleName();
 		temp.value = object.toString();
+		return temp;
+	}
+
+	public static NzLoggable create(Object... objects) {
+		temp.tag = "";
+		temp.value = "";
+		for (int i = 0, n = objects.length; i < n; i++) {
+			temp.tag += objects[i].getClass().getSimpleName();
+			temp.value += objects[i].toString();
+		}
+
 		return temp;
 	}
 }

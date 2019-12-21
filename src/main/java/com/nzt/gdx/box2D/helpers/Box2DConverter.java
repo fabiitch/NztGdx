@@ -11,7 +11,7 @@ public class Box2DConverter {
 
 	public static void initMetrics(float ppm) {
 		Box2DConverter.PPM = ppm;
-		TagLogger.log(LogTagBase.INIT, "Box2dUtilsMetrics PPM = " + PPM);
+		TagLogger.log(LogTagBase.INIT, "Box2DConverter PPM = " + PPM);
 	}
 
 	public static float toPPM(float x) {

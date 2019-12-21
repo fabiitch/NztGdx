@@ -15,7 +15,7 @@ import com.nzt.gdx.logger.utils.NzLoggable;
  *
  */
 public class TagLogger {
-	
+
 	private static Map<Enum<?>, Boolean> tagMap = new HashMap<Enum<?>, Boolean>();
 	public static boolean DONT_LOG = false;
 
@@ -62,8 +62,8 @@ public class TagLogger {
 	public static <E extends Enum<E>> void debugBlock(E tag, NzLoggable... objectToLogs) {
 		if (!DONT_LOG && getTag(tag)) {
 			Gdx.app.debug(tag.name(), "======== Start ============");
-			for (NzLoggable loggable : objectToLogs) {
-				Gdx.app.debug(loggable.gdxLogTag(), loggable.gdxLogValue());
+			for (int i = 0, n = objectToLogs.length; i < n; i++) {
+				Gdx.app.debug(objectToLogs[i].gdxLogTag(), objectToLogs[i].gdxLogValue());
 			}
 			Gdx.app.debug(tag.name(), "======== End ============");
 		}
@@ -83,8 +83,8 @@ public class TagLogger {
 	public static <E extends Enum<E>> void logBlock(E tag, NzLoggable... objectToLogs) {
 		if (!DONT_LOG && getTag(tag)) {
 			Gdx.app.log(tag.name(), "======== Start ============");
-			for (NzLoggable loggable : objectToLogs) {
-				Gdx.app.log(loggable.gdxLogTag(), loggable.gdxLogValue());
+			for (int i = 0, n = objectToLogs.length; i < n; i++) {
+				Gdx.app.log(objectToLogs[i].gdxLogTag(), objectToLogs[i].gdxLogValue());
 			}
 			Gdx.app.log(tag.name(), "======== End ============");
 		}
@@ -104,8 +104,8 @@ public class TagLogger {
 	public static <E extends Enum<E>> void errorBlock(E tag, NzLoggable... objectToLogs) {
 		if (!DONT_LOG && getTag(tag)) {
 			Gdx.app.error(tag.name(), "======== Start ============");
-			for (NzLoggable loggable : objectToLogs) {
-				Gdx.app.error(loggable.gdxLogTag(), loggable.gdxLogValue());
+			for (int i = 0, n = objectToLogs.length; i < n; i++) {
+				Gdx.app.error(objectToLogs[i].gdxLogTag(), objectToLogs[i].gdxLogValue());
 			}
 			Gdx.app.error(tag.name(), "======== End ============");
 		}

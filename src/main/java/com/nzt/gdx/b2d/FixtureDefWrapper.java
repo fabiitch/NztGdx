@@ -92,7 +92,7 @@ public class FixtureDefWrapper extends FixtureDef implements NzLoggable {
 	@Override
 	public String gdxLogValue() {
 		return "bodyType=" + bodyType + ", shape=" + shape + ", friction=" + friction + ", restitution=" + restitution
-				+ ", density=" + density + ", isSensor=" + isSensor + ", filter=" + filter;
+				+ ", density=" + density + ", isSensor=" + isSensor + ", filter : categoryBits:"+filter.categoryBits +"|maskBits:"+filter.maskBits+"|groupIndex="+filter.groupIndex ;
 	}
 
 }
