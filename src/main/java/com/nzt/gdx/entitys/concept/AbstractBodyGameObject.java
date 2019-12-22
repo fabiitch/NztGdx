@@ -3,7 +3,7 @@ package com.nzt.gdx.entitys.concept;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.Array;
-import com.nzt.gdx.box2D.events.Box2DEvent;
+import com.nzt.gdx.b2d.Box2DEvent;
 
 public abstract class AbstractBodyGameObject extends AbstractGameObject {
 	public Body body;

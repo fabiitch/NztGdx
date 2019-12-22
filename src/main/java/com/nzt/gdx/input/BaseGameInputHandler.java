@@ -14,7 +14,6 @@ import com.nzt.gdx.logger.TagLogger;
  */
 public abstract class BaseGameInputHandler implements InputProcessor {
 	public final boolean FORCE_MOBILE = false;
-
 	private InputLoggerConfig loggerConfig;
 
 	public BaseGameInputHandler() {
