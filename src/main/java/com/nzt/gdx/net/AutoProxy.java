@@ -7,12 +7,13 @@ import java.net.URI;
 import java.util.Iterator;
 import java.util.List;
 
-import com.badlogic.gdx.Gdx;
+import com.nzt.gdx.logger.LogTagBase;
+import com.nzt.gdx.logger.TagLogger;
 
 /**
- * Used to detect and add proxy on net modules
+ * Used to detect and add proxy on net modules only for desktop ?
+ * 
  * @author fabiitch
- *
  */
 public class AutoProxy {
 
@@ -24,14 +25,14 @@ public class AutoProxy {
 			for (Iterator<Proxy> iter = l.iterator(); iter.hasNext();) {
 
 				Proxy proxy = iter.next();
-				Gdx.app.log("AutoProxy", "type : " + proxy.type());
+				TagLogger.error(LogTagBase.NET, "Proxy", "type : " + proxy.type());
 
 				InetSocketAddress addr = (InetSocketAddress) proxy.address();
 				if (addr == null) {
-					Gdx.app.log("AutoProxy", "No Proxy");
+					TagLogger.error(LogTagBase.NET, "Proxy", "no proxy");
 				} else {
-					Gdx.app.log("AutoProxy", "hostname : " + addr.getHostName());
-					Gdx.app.log("AutoProxy", "port : " + addr.getPort());
+					TagLogger.error(LogTagBase.NET, "Proxy", "hostname : " + addr.getHostName());
+					TagLogger.error(LogTagBase.NET, "port : " + addr.getPort());
 				}
 			}
 		} catch (Exception e) {

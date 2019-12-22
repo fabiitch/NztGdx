@@ -13,10 +13,13 @@ import com.nzt.gdx.logger.TagLogger;
  */
 public abstract class BaseGameInputHandler implements InputProcessor {
 	public final boolean FORCE_MOBILE = false;
+	public boolean logKeyDown = true, logKeyUp = true, logKeyTyped = true, logTouchDown = true, logTouchUp = true,
+			logTouchDragged = true, logMouseMoved = true, logScrolled = true;
 
 	@Override
 	public boolean keyDown(int keycode) {
-		TagLogger.log(LogTagBase.INPUT, "keyDown", "keycode:" + keycode);
+		if (logKeyDown)
+			TagLogger.log(LogTagBase.INPUT, "keyDown", "keycode:" + keycode);
 		return doKeyDown(keycode);
 	}
 
@@ -24,7 +27,8 @@ public abstract class BaseGameInputHandler implements InputProcessor {
 
 	@Override
 	public boolean keyUp(int keycode) {
-		TagLogger.log(LogTagBase.INPUT, "keyUp", "keycode: " + keycode);
+		if (logKeyUp)
+			TagLogger.log(LogTagBase.INPUT, "keyUp", "keycode: " + keycode);
 		return doKeyUp(keycode);
 	}
 
@@ -32,7 +36,8 @@ public abstract class BaseGameInputHandler implements InputProcessor {
 
 	@Override
 	public boolean keyTyped(char character) {
-		TagLogger.log(LogTagBase.INPUT, "keyTyped", "character: " + character);
+		if (logKeyTyped)
+			TagLogger.log(LogTagBase.INPUT, "keyTyped", "character: " + character);
 		return doKeyTyped(character);
 	}
 
@@ -40,8 +45,9 @@ public abstract class BaseGameInputHandler implements InputProcessor {
 
 	@Override
 	public boolean touchDown(int screenX, int screenY, int pointer, int button) {
-		TagLogger.log(LogTagBase.INPUT, "touchDown",
-				"screenX: " + screenX + " / screenY:" + screenY + " /Â pointer:" + pointer + " /Â button:" + button);
+		if (logTouchDown)
+			TagLogger.log(LogTagBase.INPUT, "touchDown", "screenX: " + screenX + " / screenY:" + screenY
+					+ " / pointer:" + pointer + " / button:" + button);
 		return doTouchDown(screenX, screenY, pointer, button);
 	}
 
@@ -49,8 +55,9 @@ public abstract class BaseGameInputHandler implements InputProcessor {
 
 	@Override
 	public boolean touchUp(int screenX, int screenY, int pointer, int button) {
-		TagLogger.log(LogTagBase.INPUT, "touchUp",
-				"screenX: " + screenX + " / screenY:" + screenY + " /Â pointer:" + pointer + " /Â button:" + button);
+		if (logTouchUp)
+			TagLogger.log(LogTagBase.INPUT, "touchUp", "screenX: " + screenX + " / screenY:" + screenY + " / pointer:"
+					+ pointer + " / button:" + button);
 		return doTouchUp(screenX, screenY, pointer, button);
 	}
 
@@ -58,8 +65,9 @@ public abstract class BaseGameInputHandler implements InputProcessor {
 
 	@Override
 	public boolean touchDragged(int screenX, int screenY, int pointer) {
-		TagLogger.log(LogTagBase.INPUT, "touchDragged",
-				"screenX: " + screenX + " / screenY:" + screenY + " /Â pointer:" + pointer);
+		if (logTouchDragged)
+			TagLogger.log(LogTagBase.INPUT, "touchDragged",
+					"screenX: " + screenX + " / screenY:" + screenY + " / pointer:" + pointer);
 		return doTouchDragged(screenX, screenY, pointer);
 	}
 
@@ -67,7 +75,8 @@ public abstract class BaseGameInputHandler implements InputProcessor {
 
 	@Override
 	public boolean mouseMoved(int screenX, int screenY) {
-		TagLogger.log(LogTagBase.INPUT, "mouseMoved", "screenX: " + screenX + " / screenY:" + screenY);
+		if (logMouseMoved)
+			TagLogger.log(LogTagBase.INPUT, "mouseMoved", "screenX: " + screenX + " / screenY:" + screenY);
 		return doMouseMoved(screenX, screenY);
 	}
 
@@ -75,7 +84,8 @@ public abstract class BaseGameInputHandler implements InputProcessor {
 
 	@Override
 	public boolean scrolled(int amount) {
-		TagLogger.log(LogTagBase.INPUT, "scrolled", "amount:" + amount);
+		if (logScrolled)
+			TagLogger.log(LogTagBase.INPUT, "scrolled", "amount:" + amount);
 		return doScrolled(amount);
 	}
 

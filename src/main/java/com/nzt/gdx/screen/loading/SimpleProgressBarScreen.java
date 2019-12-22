@@ -5,7 +5,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
 import com.nzt.gdx.archi.AbstractMain;
 import com.nzt.gdx.assets.IntAssetsManager;
-import com.nzt.gdx.graphics.ProgressBar_SR;
+import com.nzt.gdx.graphics.components.ProgressBar_SR;
 import com.nzt.gdx.screen.manager.AbstractScreenManager.AfterLoading;
 
 /**
