@@ -18,9 +18,11 @@ import com.nzt.gdx.screen.manager.AbstractScreenManager;
  *
  */
 public abstract class AbstractMain extends Game {
+	public LoggerConfig loggerConfig;
 	public SpriteBatch sb;
 	public NzShapeRenderer shapeRenderer;
 	public ModelBatch modelBatch;
+	
 	public AbstractAssetsManager assetsManager;
 	public AbstractScreenManager screenManager;
 
