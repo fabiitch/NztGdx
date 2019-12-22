@@ -1,4 +1,4 @@
-package com.nzt.gdx.box2D.events;
+package com.nzt.gdx.b2d;
 
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.World;

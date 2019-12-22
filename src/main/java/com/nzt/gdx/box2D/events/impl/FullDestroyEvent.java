@@ -3,7 +3,7 @@ package com.nzt.gdx.box2D.events.impl;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.Array;
-import com.nzt.gdx.box2D.events.Box2DEvent;
+import com.nzt.gdx.b2d.Box2DEvent;
 import com.nzt.gdx.entitys.concept.AbstractBodyGameObject;
 import com.nzt.gdx.entitys.concept.UserDataWrapper;
 import com.nzt.gdx.entitys.effects.impl.DestroyGameObjectEffect;
