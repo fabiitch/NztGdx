@@ -3,8 +3,10 @@ package com.nzt.gdx.archi;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g3d.ModelBatch;
-import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.nzt.gdx.assets.AbstractAssetsManager;
+import com.nzt.gdx.graphics.NzShapeRenderer;
+import com.nzt.gdx.logger.LogApplicationInfo;
+import com.nzt.gdx.logger.LoggerConfig;
 import com.nzt.gdx.net.AutoProxy;
 import com.nzt.gdx.screen.manager.AbstractScreenManager;
 
@@ -17,7 +19,7 @@ import com.nzt.gdx.screen.manager.AbstractScreenManager;
  */
 public abstract class AbstractMain extends Game {
 	public SpriteBatch sb;
-	public ShapeRenderer shapeRenderer;
+	public NzShapeRenderer shapeRenderer;
 	public ModelBatch modelBatch;
 	public AbstractAssetsManager assetsManager;
 	public AbstractScreenManager screenManager;
@@ -27,12 +29,15 @@ public abstract class AbstractMain extends Game {
 	public abstract AbstractScreenManager createScreenManager();
 
 	public abstract AbstractAssetsManager createAssetsManager();
+	
+	public abstract LoggerConfig createLoggerConfig();
 
 	@Override
 	public void create() {
 		createRenderObjects();
 		this.assetsManager = createAssetsManager();
 		this.screenManager = createScreenManager();
+		LogApplicationInfo.logInit();
 		AutoProxy.init();
 		doCreate();
 		screenManager.startApplication(this);
@@ -40,7 +45,7 @@ public abstract class AbstractMain extends Game {
 
 	public void createRenderObjects() {
 		this.sb = new SpriteBatch();
-		this.shapeRenderer = new ShapeRenderer();
+		this.shapeRenderer = new NzShapeRenderer();
 		this.shapeRenderer.setAutoShapeType(true);
 		this.modelBatch = new ModelBatch();
 		// this.modelBatch = new ModelBatch(new DepthShaderProvider()); // effet rigolo

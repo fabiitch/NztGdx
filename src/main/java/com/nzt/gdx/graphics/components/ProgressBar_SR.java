@@ -1,4 +1,4 @@
-package com.nzt.gdx.graphics;
+package com.nzt.gdx.graphics.components;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
