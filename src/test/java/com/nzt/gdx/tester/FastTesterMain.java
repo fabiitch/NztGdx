@@ -40,7 +40,11 @@ public class FastTesterMain extends AbstractMain {
 	public AbstractAssetsManager createAssetsManager() {
 		return null;
 	}
-	
+
+	@Override
+	public LoggerConfig createLoggerConfig() {
+		return null;
+	}
 
 	public static void main(String args[]) {
 		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
@@ -53,8 +57,4 @@ public class FastTesterMain extends AbstractMain {
 		new LwjglApplication(new FastTesterMain(), config);
 	}
 
-	@Override
-	public LoggerConfig createLoggerConfig() {
-		return null;
-	}
 }
