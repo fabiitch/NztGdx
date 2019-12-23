@@ -1,10 +1,13 @@
 package com.nzt.gdx.tester.screen;
 
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.Rectangle;
 import com.nzt.gdx.archi.AbstractMain;
 import com.nzt.gdx.screen.BaseScreen;
 
 public class TriangleTestScreen extends BaseScreen {
+
+	Texture tt = new Texture("mur.jpg");
 
 	public TriangleTestScreen(AbstractMain main) {
 		super(main);
@@ -18,6 +21,10 @@ public class TriangleTestScreen extends BaseScreen {
 		shapeRenderer.begin();
 		shapeRenderer.rect(100, 200, 40, 40);
 		shapeRenderer.end();
+
+		sb.begin();
+		sb.draw(tt, 0, 0);
+		sb.end();
 	}
 
 }
