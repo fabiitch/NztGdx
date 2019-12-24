@@ -31,6 +31,10 @@ public abstract class AbstractScreenManager {
 	}
 
 	public void setScreen(BaseScreen screen) {
+		if (currentScreen != null) {
+			currentScreen.dispose();
+			currentScreen = null;
+		}
 		mainClass.setScreen(screen);
 		currentScreen = screen;
 	}

@@ -15,9 +15,7 @@ import com.nzt.gdx.tester.screen.TriangleTestScreen;
 /**
  * WIP, test class for launch fast iteration dev on lib change
  * returnScreenToLaunch for test your screen
- * 
  * @author fabiitch
- *
  */
 public class FastTesterMain extends AbstractMain {
 

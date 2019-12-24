@@ -1,4 +1,4 @@
-package com.nzt.gdx.math.triangle;
+package com.nzt.gdx.math.shape.triangles;
 
 import com.badlogic.gdx.math.Shape2D;
 import com.badlogic.gdx.math.Vector2;
