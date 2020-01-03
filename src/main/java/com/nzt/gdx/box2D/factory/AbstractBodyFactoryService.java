@@ -1,4 +1,4 @@
-package com.nzt.gdx.b2d.services;
+package com.nzt.gdx.box2D.factory;
 
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
@@ -11,7 +11,7 @@ import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
 import com.nzt.gdx.archi.AbstractGameService;
-import com.nzt.gdx.b2d.FixtureDefWrapper;
+import com.nzt.gdx.box2D.FixtureDefWrapper;
 import com.nzt.gdx.box2D.helpers.Box2DConverter;
 import com.nzt.gdx.logger.LogTagBase;
 import com.nzt.gdx.logger.TagLogger;
@@ -75,7 +75,7 @@ public class AbstractBodyFactoryService extends AbstractGameService {
 			FixtureDefWrapper fixtureDefWrapper) {
 		witdh = Box2DConverter.toPPM(witdh);
 		height = Box2DConverter.toPPM(height);
-		position = Box2DConverter.newToPPM(position);
+//		position = Box2DConverter.newToPPM(position);
 		
 		BodyDef bdef = new BodyDef();
 		PolygonShape shape = new PolygonShape();
@@ -100,7 +100,6 @@ public class AbstractBodyFactoryService extends AbstractGameService {
 	 */
 	protected Body createCircleBody(Vector2 position, float rayon, FixtureDefWrapper fixtureDefWrapper) {
 		rayon = Box2DConverter.toPPM(rayon);
-		position = Box2DConverter.newToPPM(position);
 		
 		
 		Body body = createBody(position.x, position.y, fixtureDefWrapper.bodyType);

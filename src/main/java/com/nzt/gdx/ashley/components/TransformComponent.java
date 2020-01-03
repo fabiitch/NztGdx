@@ -9,12 +9,12 @@ import com.nzt.gdx.ashley.components.base.BasePoolableComponent;
  *
  */
 public class TransformComponent extends BasePoolableComponent {
-	public TransformComponent() {
-		super();
-	}	
-
 	public final Vector3 position = new Vector3();
 	public float angle = 0.0f;
+
+	public TransformComponent() {
+		super();
+	}
 
 	@Override
 	public void reset() {
