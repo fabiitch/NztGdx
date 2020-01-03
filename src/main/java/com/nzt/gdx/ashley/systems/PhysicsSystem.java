@@ -29,7 +29,6 @@ public class PhysicsSystem extends IteratingSystem {
 
 	private ComponentMapper<Box2DBodyComponent> bm = ComponentMapper.getFor(Box2DBodyComponent.class);
 	private ComponentMapper<TransformComponent> tm = ComponentMapper.getFor(TransformComponent.class);
-
 	private boolean calculRotation;
 
 	public PhysicsSystem(World world, boolean calculRotation) {
@@ -60,6 +59,8 @@ public class PhysicsSystem extends IteratingSystem {
 
 				if (calculRotation)
 					tfm.angle = bodyComp.body.getAngle() * MathUtils.radiansToDegrees;
+
+				bodyComp.processAllEvents(world);
 			}
 		}
 		bodiesQueue.clear();

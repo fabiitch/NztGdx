@@ -1,22 +1,22 @@
 package com.nzt.gdx.box2D.events.impl;
 
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
-import com.badlogic.gdx.physics.box2d.BodyDef.BodyType;
-import com.nzt.gdx.box2D.events.Box2DEvent;
 import com.badlogic.gdx.physics.box2d.World;
+import com.nzt.gdx.box2D.events.Box2DEvent;
 
-public class BodyTypeEvent implements Box2DEvent {
+public class TransformBodyEvent implements Box2DEvent {
 
-	public BodyType bodyType;
+	public Vector2 positionTo;
 
 	@Override
 	public void apply(World world, Body body) {
-		body.setType(bodyType);
+
 	}
 
 	@Override
 	public void reset() {
-		bodyType = null;
+		positionTo = null;
 	}
 
 }

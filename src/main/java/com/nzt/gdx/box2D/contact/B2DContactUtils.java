@@ -1,3 +1,4 @@
+package com.nzt.gdx.box2D.contact;
 //package com.nzt.gdx.b2d.contact;
 //
 //import com.nzt.gdx.entitys.concept.AbstractBodyGameObject;

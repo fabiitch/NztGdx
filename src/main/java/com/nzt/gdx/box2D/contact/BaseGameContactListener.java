@@ -1,4 +1,4 @@
-package com.nzt.gdx.b2d.contact;
+package com.nzt.gdx.box2D.contact;
 
 import com.badlogic.gdx.physics.box2d.Contact;
 import com.badlogic.gdx.physics.box2d.ContactImpulse;
@@ -20,7 +20,7 @@ public abstract class BaseGameContactListener<E extends BaseGameObject> implemen
 		E entityA = (E) fa.getBody().getUserData();
 		E entityB = (E) fb.getBody().getUserData();
 		debugEvent("Begin Contact", entityA, entityB);
-//
+		
 		doBeginContact(entityA, entityB);
 	}
 

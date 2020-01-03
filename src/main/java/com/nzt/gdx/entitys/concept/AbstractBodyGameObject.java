@@ -3,7 +3,7 @@ package com.nzt.gdx.entitys.concept;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.Array;
-import com.nzt.gdx.b2d.Box2DEvent;
+import com.nzt.gdx.box2D.events.Box2DEvent;
 
 public abstract class AbstractBodyGameObject extends AbstractGameObject {
 	public Body body;
@@ -24,7 +24,7 @@ public abstract class AbstractBodyGameObject extends AbstractGameObject {
 
 	public void doAllBox2DEvent(World world, Array<AbstractBodyGameObject> arrayBodyGO) {
 		for (Box2DEvent event : box2DEventArray) {
-			event.apply(world, this.body, arrayBodyGO);
+//			event.apply(world, this.body, arrayBodyGO);
 		}
 		box2DEventArray.clear();
 	}

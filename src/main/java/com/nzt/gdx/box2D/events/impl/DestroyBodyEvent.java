@@ -1,22 +1,20 @@
 package com.nzt.gdx.box2D.events.impl;
 
 import com.badlogic.gdx.physics.box2d.Body;
-import com.badlogic.gdx.physics.box2d.BodyDef.BodyType;
-import com.nzt.gdx.box2D.events.Box2DEvent;
 import com.badlogic.gdx.physics.box2d.World;
+import com.nzt.gdx.box2D.events.Box2DEvent;
 
-public class BodyTypeEvent implements Box2DEvent {
-
-	public BodyType bodyType;
+public class DestroyBodyEvent implements Box2DEvent {
 
 	@Override
 	public void apply(World world, Body body) {
-		body.setType(bodyType);
+		world.destroyBody(body);
+		body = null;
 	}
 
 	@Override
 	public void reset() {
-		bodyType = null;
+		
 	}
 
 }
