@@ -13,7 +13,6 @@ public enum LogTagBase {
 	// SCREEN_ACTIONS is all except render(show, resize, pause, resume, hide)
 
 	public static void desactiveBasesTags() {
-
 		for (LogTagBase tag : LogTagBase.values()) {
 			TagLogger.desactiveTag(tag);
 		}

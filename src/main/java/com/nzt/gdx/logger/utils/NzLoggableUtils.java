@@ -29,6 +29,10 @@ public class NzLoggableUtils {
 		for (int i = 0, n = objects.length; i < n; i++) {
 			temp.tag += objects[i].getClass().getSimpleName();
 			temp.value += objects[i].toString();
+			if (i < n - 1) {
+				temp.tag += ",";
+				temp.value += ",";
+			}
 		}
 
 		return temp;
