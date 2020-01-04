@@ -101,7 +101,6 @@ public class AbstractBodyFactoryService extends AbstractGameService {
 	protected Body createCircleBody(Vector2 position, float rayon, FixtureDefWrapper fixtureDefWrapper) {
 		rayon = Box2DConverter.toPPM(rayon);
 		
-		
 		Body body = createBody(position.x, position.y, fixtureDefWrapper.bodyType);
 		FixtureDef fdef = fixtureDefWrapper.apply();
 		CircleShape shape = new CircleShape();

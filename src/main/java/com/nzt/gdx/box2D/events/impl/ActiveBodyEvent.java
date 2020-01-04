@@ -1,6 +1,7 @@
 package com.nzt.gdx.box2D.events.impl;
 
 import com.badlogic.gdx.physics.box2d.Body;
+import com.badlogic.gdx.physics.box2d.DestructionListener;
 import com.badlogic.gdx.physics.box2d.World;
 import com.nzt.gdx.box2D.events.Box2DEvent;
 
@@ -16,7 +17,9 @@ public class ActiveBodyEvent implements Box2DEvent {
 
 	@Override
 	public void apply(World world, Body body) {
-
+		body.setActive(false);
+		world.setDestructionListener(new DestructionListener() {
+		});
 	}
 
 }

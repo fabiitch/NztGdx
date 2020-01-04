@@ -8,15 +8,18 @@ import com.nzt.gdx.box2D.events.Box2DEvent;
 public class TransformBodyEvent implements Box2DEvent {
 
 	public Vector2 positionTo;
+	public float angle;
 
 	@Override
 	public void apply(World world, Body body) {
 
+		body.setTransform(positionTo, angle);
 	}
 
 	@Override
 	public void reset() {
-		positionTo = null;
+		positionTo.setZero();
+		angle = 0;
 	}
 
 }
