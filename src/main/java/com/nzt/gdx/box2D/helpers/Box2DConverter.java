@@ -1,5 +1,6 @@
 package com.nzt.gdx.box2D.helpers;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
@@ -12,6 +13,14 @@ public class Box2DConverter {
 	public static void initMetrics(float ppm) {
 		Box2DConverter.PPM = ppm;
 		TagLogger.log(LogTagBase.INIT, "Box2DConverter PPM = " + PPM);
+	}
+
+	public static float heightScreenToPPM() {
+		return Gdx.graphics.getHeight() / PPM;
+	}
+
+	public static float widthScreenToPPM() {
+		return Gdx.graphics.getWidth() / PPM;
 	}
 
 	public static float toPPM(float x) {
@@ -63,7 +72,8 @@ public class Box2DConverter {
 	}
 
 	/**
-	 * Return la position relative d'un pointer par rapport a un body en unité box2D
+	 * Return la position relative d'un pointer par rapport a un body en unité
+	 * box2D
 	 * 
 	 * @param screenX
 	 * @param screenY
