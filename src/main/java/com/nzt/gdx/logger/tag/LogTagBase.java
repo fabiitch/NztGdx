@@ -1,4 +1,4 @@
-package com.nzt.gdx.logger;
+package com.nzt.gdx.logger.tag;
 
 /**
  * All Base tag for {@link TagLogger}

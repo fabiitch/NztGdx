@@ -6,8 +6,8 @@ import com.badlogic.gdx.physics.box2d.ContactListener;
 import com.badlogic.gdx.physics.box2d.Fixture;
 import com.badlogic.gdx.physics.box2d.Manifold;
 import com.nzt.gdx.ashley.entities.BaseGameObject;
-import com.nzt.gdx.logger.LogTagBase;
-import com.nzt.gdx.logger.TagLogger;
+import com.nzt.gdx.logger.tag.LogTagBase;
+import com.nzt.gdx.logger.tag.TagLogger;
 
 public abstract class BaseGameContactListener<E extends BaseGameObject> implements ContactListener {
 

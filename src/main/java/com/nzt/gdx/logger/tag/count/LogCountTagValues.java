@@ -1,6 +1,6 @@
-package com.nzt.gdx.logger.count;
+package com.nzt.gdx.logger.tag.count;
 
-import com.nzt.gdx.logger.TagLogger;
+import com.nzt.gdx.logger.tag.TagLogger;
 
 /**
  * Values Object for {@link TagLogger}

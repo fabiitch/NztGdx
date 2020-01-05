@@ -10,8 +10,9 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.nzt.gdx.init.GdxHeadLessInitialiser;
-import com.nzt.gdx.logger.count.LogCountTagValues;
-import com.nzt.gdx.logger.count.TagCountLogger;
+import com.nzt.gdx.logger.tag.TagLogger;
+import com.nzt.gdx.logger.tag.count.LogCountTagValues;
+import com.nzt.gdx.logger.tag.count.TagCountLogger;
 
 /**
  * test class for {@link TagCountLogger}
