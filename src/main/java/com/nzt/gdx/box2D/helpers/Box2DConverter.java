@@ -4,8 +4,8 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
-import com.nzt.gdx.logger.LogTagBase;
-import com.nzt.gdx.logger.TagLogger;
+import com.nzt.gdx.logger.tag.LogTagBase;
+import com.nzt.gdx.logger.tag.TagLogger;
 
 public class Box2DConverter {
 	private static float PPM;

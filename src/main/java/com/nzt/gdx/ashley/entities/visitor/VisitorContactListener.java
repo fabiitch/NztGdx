@@ -52,13 +52,11 @@
 //
 //	@Override
 //	public void preSolve(Contact contact, Manifold oldManifold) {
-//		// TODO Auto-generated method stub
 //
 //	}
 //
 //	@Override
 //	public void postSolve(Contact contact, ContactImpulse impulse) {
-//		// TODO Auto-generated method stub
 //
 //	}
 //

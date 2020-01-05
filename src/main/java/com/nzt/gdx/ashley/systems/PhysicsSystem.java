@@ -10,8 +10,8 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.Array;
 import com.nzt.gdx.ashley.components.TransformComponent;
 import com.nzt.gdx.ashley.components.physx.Box2DBodyComponent;
-import com.nzt.gdx.logger.LogTagBase;
-import com.nzt.gdx.logger.count.TagCountLogger;
+import com.nzt.gdx.logger.tag.LogTagBase;
+import com.nzt.gdx.logger.tag.count.TagCountLogger;
 
 /**
  * System for box2D world it do the world.step

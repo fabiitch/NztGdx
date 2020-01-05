@@ -13,8 +13,8 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.nzt.gdx.archi.AbstractGameService;
 import com.nzt.gdx.box2D.FixtureDefWrapper;
 import com.nzt.gdx.box2D.helpers.Box2DConverter;
-import com.nzt.gdx.logger.LogTagBase;
-import com.nzt.gdx.logger.TagLogger;
+import com.nzt.gdx.logger.tag.LogTagBase;
+import com.nzt.gdx.logger.tag.TagLogger;
 import com.nzt.gdx.logger.utils.NzLoggableUtils;
 
 /**
@@ -26,7 +26,7 @@ import com.nzt.gdx.logger.utils.NzLoggableUtils;
 public class AbstractBodyFactoryService extends AbstractGameService {
 
 	protected World world;
-	protected float PPM;
+	public float ppm;
 
 	@Override
 	public void dispose() {
@@ -36,7 +36,7 @@ public class AbstractBodyFactoryService extends AbstractGameService {
 		super();
 //		new Box2DJointCreator(world, ppm);
 		this.world = world;
-		this.PPM = ppm;
+		this.ppm = ppm;
 		Box2DConverter.initMetrics(ppm);
 	}
 

@@ -2,8 +2,8 @@ package com.nzt.gdx.input;
 
 import com.badlogic.gdx.InputProcessor;
 import com.nzt.gdx.logger.InputLoggerConfig;
-import com.nzt.gdx.logger.LogTagBase;
-import com.nzt.gdx.logger.TagLogger;
+import com.nzt.gdx.logger.tag.LogTagBase;
+import com.nzt.gdx.logger.tag.TagLogger;
 
 /**
  * Simple InputProcessor with TagLogger on events, see {@link LogTagBase#INPUT}

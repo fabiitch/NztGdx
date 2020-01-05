@@ -10,6 +10,9 @@ import java.util.Map;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.nzt.gdx.logger.tag.LogTagBase;
+import com.nzt.gdx.logger.tag.TagLogger;
+
 /**
  * test class for{@link TagLogger}
  * @author fabiitch

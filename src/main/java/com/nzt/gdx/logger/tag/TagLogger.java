@@ -1,4 +1,4 @@
-package com.nzt.gdx.logger;
+package com.nzt.gdx.logger.tag;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -110,6 +110,7 @@ public class TagLogger {
 			Gdx.app.error(tag.name(), "======== End ============");
 		}
 	}
+	
 
 	/**
 	 * give tags, if not exist , create it

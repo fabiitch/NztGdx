@@ -1,9 +1,9 @@
-package com.nzt.gdx.logger.count;
+package com.nzt.gdx.logger.tag.count;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import com.nzt.gdx.logger.TagLogger;
+import com.nzt.gdx.logger.tag.TagLogger;
 
 /**
  * Just and extends of TagLogger with a count of log use clear for delete all

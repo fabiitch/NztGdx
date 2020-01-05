@@ -1,6 +1,8 @@
 package com.nzt.gdx.logger;
 
 import com.badlogic.gdx.Gdx;
+import com.nzt.gdx.logger.tag.LogTagBase;
+import com.nzt.gdx.logger.tag.TagLogger;
 
 public class LogApplicationInfo {
 

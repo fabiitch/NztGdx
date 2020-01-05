@@ -14,8 +14,8 @@ import com.badlogic.gdx.utils.Array;
 import com.nzt.gdx.ashley.comparators.ZComparator;
 import com.nzt.gdx.ashley.components.TransformComponent;
 import com.nzt.gdx.ashley.components.render.SpriteComponent;
-import com.nzt.gdx.logger.LogTagBase;
-import com.nzt.gdx.logger.count.TagCountLogger;
+import com.nzt.gdx.logger.tag.LogTagBase;
+import com.nzt.gdx.logger.tag.count.TagCountLogger;
 
 /**
  * used for rendering with SB

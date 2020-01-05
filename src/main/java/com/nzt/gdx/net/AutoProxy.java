@@ -7,8 +7,8 @@ import java.net.URI;
 import java.util.Iterator;
 import java.util.List;
 
-import com.nzt.gdx.logger.LogTagBase;
-import com.nzt.gdx.logger.TagLogger;
+import com.nzt.gdx.logger.tag.LogTagBase;
+import com.nzt.gdx.logger.tag.TagLogger;
 
 /**
  * Used to detect and add proxy on net modules only for desktop ?
