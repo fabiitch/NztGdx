@@ -9,10 +9,11 @@ import com.nzt.gdx.archi.AbstractMain;
 import com.nzt.gdx.graphics.NzShapeRenderer;
 
 /**
- * Abstract screen for {@link #AbstractScreen(AbstractMain)} 
- * Wrapper for acces main, render object
+ * Abstract screen for {@link #AbstractScreen(AbstractMain)} Wrapper for acces
+ * main, render object
  * 
  * See {@link #BaseScreen} for next implementation
+ * 
  * @author fabiitch
  *
  * @param <M>
@@ -39,14 +40,15 @@ public abstract class AbstractScreen<M extends AbstractMain> implements Screen {
 
 	}
 
-	private final void showFPS() {
-		Gdx.graphics.setTitle("FPS : " + Gdx.graphics.getFramesPerSecond());
+	private final void showFPS(float dt) {
+		Gdx.graphics.setTitle("FPS : " + Gdx.graphics.getFramesPerSecond() + "| delta=" + dt);
+		
 	}
 
 	@Override
 	public void render(float dt) {
 		clearScreen();
-		showFPS();
+		showFPS(dt);
 		renderScreen(dt);
 	}
 
