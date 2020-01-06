@@ -74,7 +74,8 @@ public class Rendering2DSystem extends SortedIteratingSystem {
 
 			sprite.setPosition(position.x - sprite.getWidth() / 2, position.y - sprite.getHeight() / 2);
 //			sprite.setRotation((float) Math.toDegrees(body.getAngle()));
-			sprite.draw(batch);
+			if (spriteC.visible)
+				sprite.draw(batch);
 		}
 		batch.end();
 		renderQueue.clear();

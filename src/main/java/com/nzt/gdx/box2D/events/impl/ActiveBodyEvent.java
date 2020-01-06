@@ -7,17 +7,16 @@ import com.nzt.gdx.box2D.events.Box2DEvent;
 
 public class ActiveBodyEvent implements Box2DEvent {
 
-	boolean active;
+	public boolean active;
 
 	@Override
 	public void reset() {
-		// TODO Auto-generated method stub
-
+		active = false;
 	}
 
 	@Override
 	public void apply(World world, Body body) {
-		body.setActive(false);
+		body.setActive(active);
 		world.setDestructionListener(new DestructionListener() {
 		});
 	}

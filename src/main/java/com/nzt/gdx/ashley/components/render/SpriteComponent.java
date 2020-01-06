@@ -13,6 +13,7 @@ import com.nzt.gdx.ashley.systems.Rendering2DSystem;
 public class SpriteComponent extends BaseComponent {
 
 	public Sprite sprite;
+	public boolean visible = true;
 
 	public SpriteComponent(Texture texture) {
 		super();
