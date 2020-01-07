@@ -2,9 +2,9 @@ package com.nzt.gdx.box2D.events.impl;
 
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.World;
-import com.nzt.gdx.box2D.events.Box2DEvent;
+import com.nzt.gdx.box2D.events.B2DEvent;
 
-public class DestroyBodyEvent implements Box2DEvent {
+public class DestroyBodyEvent implements B2DEvent {
 
 	@Override
 	public void apply(World world, Body body) {
