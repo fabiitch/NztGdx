@@ -9,7 +9,7 @@ import com.nzt.gdx.ashley.entities.BaseGameObject;
 import com.nzt.gdx.logger.tag.LogTagBase;
 import com.nzt.gdx.logger.tag.TagLogger;
 
-public abstract class BaseGameContactListener<E extends BaseGameObject> implements ContactListener {
+public abstract class BaseB2DContactListener<E extends BaseGameObject> implements ContactListener {
 
 	@SuppressWarnings("unchecked")
 	@Override

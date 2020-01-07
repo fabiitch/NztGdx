@@ -1,4 +1,4 @@
-package com.nzt.gdx.box2D.helpers;
+package com.nzt.gdx.box2D.utils;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Rectangle;
@@ -7,11 +7,11 @@ import com.badlogic.gdx.math.Vector3;
 import com.nzt.gdx.logger.tag.LogTagBase;
 import com.nzt.gdx.logger.tag.TagLogger;
 
-public class Box2DConverter {
+public class B2DConverter {
 	private static float PPM;
 
 	public static void initMetrics(float ppm) {
-		Box2DConverter.PPM = ppm;
+		B2DConverter.PPM = ppm;
 		TagLogger.log(LogTagBase.INIT, "Box2DConverter PPM = " + PPM);
 	}
 

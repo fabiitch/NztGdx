@@ -12,14 +12,15 @@ import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
 import com.nzt.gdx.archi.AbstractGameService;
 import com.nzt.gdx.box2D.FixtureDefWrapper;
-import com.nzt.gdx.box2D.helpers.Box2DConverter;
+import com.nzt.gdx.box2D.utils.B2DConverter;
 import com.nzt.gdx.logger.tag.LogTagBase;
 import com.nzt.gdx.logger.tag.TagLogger;
 import com.nzt.gdx.logger.utils.NzLoggableUtils;
 
 /**
- * base body factory service with service for create circle/rect body
- * //TODO less new BodyDef
+ * base body factory service with service for create circle/rect body //TODO
+ * less new BodyDef
+ * 
  * @author fabiitch
  *
  */
@@ -34,10 +35,11 @@ public class AbstractBodyFactoryService extends AbstractGameService {
 
 	public AbstractBodyFactoryService(World world, float ppm) {
 		super();
+		System.err.println("PAPPS" + ppm);
 //		new Box2DJointCreator(world, ppm);
 		this.world = world;
 		this.ppm = ppm;
-		Box2DConverter.initMetrics(ppm);
+		B2DConverter.initMetrics(ppm);
 	}
 
 	/**
@@ -48,7 +50,9 @@ public class AbstractBodyFactoryService extends AbstractGameService {
 	 * @return
 	 */
 	protected Body createRectangleBody(Rectangle rectangle, FixtureDefWrapper fixtureDefWrapper) {
-		rectangle = Box2DConverter.toPPM(rectangle);
+		if (fixtureDefWrapper.toPPM)
+			rectangle = B2DConverter.toPPM(rectangle);
+
 		BodyDef bdef = new BodyDef();
 		PolygonShape shape = new PolygonShape();
 		FixtureDef fdef = fixtureDefWrapper.apply();
@@ -73,10 +77,12 @@ public class AbstractBodyFactoryService extends AbstractGameService {
 	 */
 	protected Body createRectangleBody(Vector2 position, float witdh, float height,
 			FixtureDefWrapper fixtureDefWrapper) {
-		witdh = Box2DConverter.toPPM(witdh);
-		height = Box2DConverter.toPPM(height);
-//		position = Box2DConverter.newToPPM(position);
-		
+
+		if (fixtureDefWrapper.toPPM) {
+			witdh = B2DConverter.toPPM(witdh);
+			height = B2DConverter.toPPM(height);
+		}
+
 		BodyDef bdef = new BodyDef();
 		PolygonShape shape = new PolygonShape();
 		FixtureDef fdef = fixtureDefWrapper.apply();
@@ -86,7 +92,8 @@ public class AbstractBodyFactoryService extends AbstractGameService {
 		fdef.shape = shape;
 		Body body = world.createBody(bdef);
 		body.createFixture(fdef);
-		TagLogger.logBlock(LogTagBase.B2D_CREATION, NzLoggableUtils.create(bdef.position, witdh, height), fixtureDefWrapper);
+		TagLogger.logBlock(LogTagBase.B2D_CREATION, NzLoggableUtils.create(bdef.position, witdh, height),
+				fixtureDefWrapper);
 		return body;
 	}
 
@@ -99,8 +106,9 @@ public class AbstractBodyFactoryService extends AbstractGameService {
 	 * @return
 	 */
 	protected Body createCircleBody(Vector2 position, float rayon, FixtureDefWrapper fixtureDefWrapper) {
-		rayon = Box2DConverter.toPPM(rayon);
-		
+		if (fixtureDefWrapper.toPPM)
+			rayon = B2DConverter.toPPM(rayon);
+
 		Body body = createBody(position.x, position.y, fixtureDefWrapper.bodyType);
 		FixtureDef fdef = fixtureDefWrapper.apply();
 		CircleShape shape = new CircleShape();
@@ -120,6 +128,7 @@ public class AbstractBodyFactoryService extends AbstractGameService {
 		return body;
 	}
 
+	// TODO not rfinish
 	protected Body createPolygonBody(Vector2[] vertices, FixtureDefWrapper fixtureDefWrapper) {
 		Body body = createBody(0, 0, fixtureDefWrapper.bodyType);
 		FixtureDef fdef = fixtureDefWrapper.apply();

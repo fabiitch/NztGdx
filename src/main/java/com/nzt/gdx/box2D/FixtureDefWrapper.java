@@ -8,6 +8,7 @@ import com.nzt.gdx.logger.utils.NzLoggable;
 
 public class FixtureDefWrapper extends FixtureDef implements NzLoggable {
 	public BodyType bodyType;
+	public boolean toPPM = false;
 
 	public FixtureDefWrapper(BodyType bodyType) {
 		super();
@@ -84,6 +85,11 @@ public class FixtureDefWrapper extends FixtureDef implements NzLoggable {
 		return this;
 	}
 
+	public FixtureDefWrapper setToPPM(boolean toPPM) {
+		this.toPPM = toPPM;
+		return this;
+	}
+
 	@Override
 	public String gdxLogTag() {
 		return "FixtureDefWrapper";
@@ -92,7 +98,8 @@ public class FixtureDefWrapper extends FixtureDef implements NzLoggable {
 	@Override
 	public String gdxLogValue() {
 		return "bodyType=" + bodyType + ", shape=" + shape + ", friction=" + friction + ", restitution=" + restitution
-				+ ", density=" + density + ", isSensor=" + isSensor + ", filter : categoryBits:"+filter.categoryBits +"|maskBits:"+filter.maskBits+"|groupIndex="+filter.groupIndex ;
+				+ ", density=" + density + ", isSensor=" + isSensor + ", filter : categoryBits:" + filter.categoryBits
+				+ "|maskBits:" + filter.maskBits + "|groupIndex=" + filter.groupIndex;
 	}
 
 }

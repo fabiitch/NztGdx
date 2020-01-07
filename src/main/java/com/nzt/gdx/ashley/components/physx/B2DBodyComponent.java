@@ -7,7 +7,7 @@ import com.badlogic.gdx.utils.Pools;
 import com.nzt.gdx.ashley.components.base.BaseComponent;
 import com.nzt.gdx.ashley.systems.PhysicsDebugSystem;
 import com.nzt.gdx.ashley.systems.PhysicsSystem;
-import com.nzt.gdx.box2D.events.Box2DEvent;
+import com.nzt.gdx.box2D.events.B2DEvent;
 
 /**
  * Box2D body component used by system : {@link PhysicsSystem} and
@@ -16,22 +16,22 @@ import com.nzt.gdx.box2D.events.Box2DEvent;
  * @author fabiitch
  *
  */
-public class Box2DBodyComponent extends BaseComponent {
+public class B2DBodyComponent extends BaseComponent {
 
 	public Body body;
-	public Array<Box2DEvent> eventArray;
+	public Array<B2DEvent> eventArray;
 
-	public Box2DBodyComponent() {
+	public B2DBodyComponent() {
 		super();
-		eventArray = new Array<Box2DEvent>();
+		eventArray = new Array<B2DEvent>();
 	}
 
-	public void addBox2DEvent(Box2DEvent event) {
+	public void addBox2DEvent(B2DEvent event) {
 		eventArray.add(event);
 	}
 
 	public void processAllEvents(World world) {
-		for (Box2DEvent event : eventArray) {
+		for (B2DEvent event : eventArray) {
 			event.apply(world, body);
 		}
 		Pools.freeAll(eventArray);
