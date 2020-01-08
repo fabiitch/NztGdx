@@ -12,7 +12,7 @@ import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
 import com.nzt.gdx.archi.AbstractGameService;
 import com.nzt.gdx.box2D.FixtureDefWrapper;
-import com.nzt.gdx.box2D.utils.B2DConverter;
+import com.nzt.gdx.box2D.utils.B2DConverterHelper;
 import com.nzt.gdx.logger.tag.LogTagBase;
 import com.nzt.gdx.logger.tag.TagLogger;
 import com.nzt.gdx.logger.utils.NzLoggableUtils;
@@ -28,6 +28,7 @@ public class AbstractBodyFactoryService extends AbstractGameService {
 
 	protected World world;
 	public float ppm;
+	public B2DConverterHelper b2DConverter;
 
 	@Override
 	public void dispose() {
@@ -35,11 +36,9 @@ public class AbstractBodyFactoryService extends AbstractGameService {
 
 	public AbstractBodyFactoryService(World world, float ppm) {
 		super();
-		System.err.println("PAPPS" + ppm);
-//		new Box2DJointCreator(world, ppm);
 		this.world = world;
 		this.ppm = ppm;
-		B2DConverter.initMetrics(ppm);
+		this.b2DConverter = new B2DConverterHelper(ppm);
 	}
 
 	/**
@@ -51,7 +50,7 @@ public class AbstractBodyFactoryService extends AbstractGameService {
 	 */
 	protected Body createRectangleBody(Rectangle rectangle, FixtureDefWrapper fixtureDefWrapper) {
 		if (fixtureDefWrapper.toPPM)
-			rectangle = B2DConverter.toPPM(rectangle);
+			rectangle = b2DConverter.toPPM(rectangle);
 
 		BodyDef bdef = new BodyDef();
 		PolygonShape shape = new PolygonShape();
@@ -79,8 +78,8 @@ public class AbstractBodyFactoryService extends AbstractGameService {
 			FixtureDefWrapper fixtureDefWrapper) {
 
 		if (fixtureDefWrapper.toPPM) {
-			witdh = B2DConverter.toPPM(witdh);
-			height = B2DConverter.toPPM(height);
+			witdh = b2DConverter.toPPM(witdh);
+			height = b2DConverter.toPPM(height);
 		}
 
 		BodyDef bdef = new BodyDef();
@@ -107,7 +106,7 @@ public class AbstractBodyFactoryService extends AbstractGameService {
 	 */
 	protected Body createCircleBody(Vector2 position, float rayon, FixtureDefWrapper fixtureDefWrapper) {
 		if (fixtureDefWrapper.toPPM)
-			rayon = B2DConverter.toPPM(rayon);
+			rayon = b2DConverter.toPPM(rayon);
 
 		Body body = createBody(position.x, position.y, fixtureDefWrapper.bodyType);
 		FixtureDef fdef = fixtureDefWrapper.apply();

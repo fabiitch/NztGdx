@@ -4,85 +4,64 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
-import com.nzt.gdx.logger.tag.LogTagBase;
-import com.nzt.gdx.logger.tag.TagLogger;
 
+//TODO a voir si vraiement util 
 public class B2DConverter {
-	private static float PPM;
 
-	public static void initMetrics(float ppm) {
-		B2DConverter.PPM = ppm;
-		TagLogger.log(LogTagBase.INIT, "Box2DConverter PPM = " + PPM);
-	}
-
-	public static float heightScreenToPPM() {
+	public static float heightScreenToPPM(float PPM) {
 		return Gdx.graphics.getHeight() / PPM;
 	}
 
-	public static float widthScreenToPPM() {
+	public static float widthScreenToPPM(float PPM) {
 		return Gdx.graphics.getWidth() / PPM;
 	}
 
-	public static float toPPM(float x) {
+	public static float toPPM(float x, float PPM) {
 		return x / PPM;
 	}
 
-	public static Vector2 newToPPM(Vector2 vector) {
+	public static Vector2 newToPPM(Vector2 vector, float PPM) {
 		return new Vector2(vector.x / PPM, vector.y / PPM);
 	}
 
-	public static Vector2 toPPM(Vector2 vector) {
+	public static Vector2 toPPM(Vector2 vector, float PPM) {
 		return vector.set(vector.x / PPM, vector.y / PPM);
 	}
 
-	public static Vector3 newToPPM(Vector3 vector) {
+	public static Vector3 newToPPM(Vector3 vector, float PPM) {
 		return new Vector3(vector.x / PPM, vector.y / PPM, vector.z / PPM);
 	}
 
-	public static Vector3 toPPM(Vector3 vector) {
+	public static Vector3 toPPM(Vector3 vector, float PPM) {
 		return vector.set(vector.x / PPM, vector.y / PPM, vector.z / PPM);
 	}
 
-	public static Rectangle toPPM(Rectangle rect) {
+	public static Rectangle toPPM(Rectangle rect, float PPM) {
 		return rect.set(rect.getX() / PPM, rect.getY() / PPM, rect.getWidth() / PPM, rect.getHeight() / PPM);
 	}
 
-	public static float toScreen(float x) {
+	public static float toScreen(float x, float PPM) {
 		return x * PPM;
 	}
 
-	public static Vector2 newToScreen(Vector2 vector) {
+	public static Vector2 newToScreen(Vector2 vector, float PPM) {
 		return new Vector2(vector.x * PPM, vector.y * PPM);
 	}
 
-	public static Vector2 newToToScreen(Vector2 vector) {
+	public static Vector2 newToToScreen(Vector2 vector, float PPM) {
 		return new Vector2(vector.x * PPM, vector.y * PPM);
 	}
 
-	public static Vector2 toScreen(Vector2 vector) {
+	public static Vector2 toScreen(Vector2 vector, float PPM) {
 		return vector.set(vector.x * PPM, vector.y * PPM);
 	}
 
-	public static Vector3 newToScreen(Vector3 vector) {
+	public static Vector3 newToScreen(Vector3 vector, float PPM) {
 		return new Vector3(vector.x * PPM, vector.y * PPM, vector.z * PPM);
 	}
 
-	public static Vector3 toScreen(Vector3 vector) {
+	public static Vector3 toScreen(Vector3 vector, float PPM) {
 		return vector.set(vector.x * PPM, vector.y * PPM, vector.z * PPM);
 	}
 
-	/**
-	 * Return la position relative d'un pointer par rapport a un body en unité
-	 * box2D
-	 * 
-	 * @param screenX
-	 * @param screenY
-	 * @param body
-	 * @return
-	 */
-//	public static Vector2 relativePositionMouseFromOtherPoint(int screenX, int screenY, Vector2 position) {
-//		Vector2 screenMetricsBody = toScreenMetrics(position);
-//		Vector2 mousePosition = InputCalculUtils.relativePositionPointerFromPoint(screenX, screenY, screenMetricsBody);
-//		return toBox2DMetrics(mousePosition);
-//	}
 }
