@@ -1,4 +1,4 @@
-package com.nzt.gdx.box2D.factory;
+package com.nzt.gdx.b2D.factory;
 
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
@@ -11,8 +11,8 @@ import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
 import com.nzt.gdx.archi.AbstractGameService;
-import com.nzt.gdx.box2D.FixtureDefWrapper;
-import com.nzt.gdx.box2D.utils.B2DConverterHelper;
+import com.nzt.gdx.b2D.FixtureDefWrapper;
+import com.nzt.gdx.b2D.utils.B2DConverterHelper;
 import com.nzt.gdx.logger.tag.LogTagBase;
 import com.nzt.gdx.logger.tag.TagLogger;
 import com.nzt.gdx.logger.utils.NzLoggableUtils;
@@ -20,6 +20,8 @@ import com.nzt.gdx.logger.utils.NzLoggableUtils;
 /**
  * base body factory service with service for create circle/rect body //TODO
  * less new BodyDef
+ * TODO  public static BodyDef set(BodyDef bodyDef, Body body) { demertfan
+ * bloquer rotation sur les body direct body.isFixedRotation();
  * 
  * @author fabiitch
  *

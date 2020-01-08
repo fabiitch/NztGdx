@@ -28,24 +28,20 @@ public class FastTesterScreenManager extends AbstractScreenManager {
 
 	@Override
 	protected void doPause() {
-
 	}
 
 	@Override
 	protected void doResume() {
-		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	protected void doResize(int width, int height) {
-		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	protected void doDispose() {
-		// TODO Auto-generated method stub
 
 	}
 

@@ -1,4 +1,4 @@
-package com.nzt.gdx.box2D.events;
+package com.nzt.gdx.b2D.events;
 
 public enum B2DEventsEnum {
 
