@@ -7,7 +7,7 @@ import com.badlogic.gdx.utils.Pools;
 import com.nzt.gdx.ashley.components.base.BaseComponent;
 import com.nzt.gdx.ashley.systems.PhysicsDebugSystem;
 import com.nzt.gdx.ashley.systems.PhysicsSystem;
-import com.nzt.gdx.box2D.events.B2DEvent;
+import com.nzt.gdx.b2D.events.B2DEvent;
 
 /**
  * Box2D body component used by system : {@link PhysicsSystem} and
@@ -17,7 +17,7 @@ import com.nzt.gdx.box2D.events.B2DEvent;
  *
  */
 public class B2DBodyComponent extends BaseComponent {
-
+	
 	public Body body;
 	public Array<B2DEvent> eventArray;
 

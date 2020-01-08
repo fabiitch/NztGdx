@@ -1,18 +1,18 @@
-package com.nzt.gdx.box2D.factory;
+package com.nzt.gdx.b2D.factory;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.BodyDef.BodyType;
 import com.badlogic.gdx.utils.Pools;
-import com.nzt.gdx.box2D.events.B2DEvent;
-import com.nzt.gdx.box2D.events.B2DEventsEnum;
-import com.nzt.gdx.box2D.events.impl.ActiveBodyEvent;
-import com.nzt.gdx.box2D.events.impl.BodyTypeEvent;
-import com.nzt.gdx.box2D.events.impl.DestroyBodyEvent;
-import com.nzt.gdx.box2D.events.impl.LinearVelocityEvent;
-import com.nzt.gdx.box2D.events.impl.TransformBodyEvent;
+import com.nzt.gdx.b2D.events.B2DEvent;
+import com.nzt.gdx.b2D.events.B2DEventsEnum;
+import com.nzt.gdx.b2D.events.impl.ActiveBodyEvent;
+import com.nzt.gdx.b2D.events.impl.BodyTypeEvent;
+import com.nzt.gdx.b2D.events.impl.DestroyBodyEvent;
+import com.nzt.gdx.b2D.events.impl.LinearVelocityEvent;
+import com.nzt.gdx.b2D.events.impl.TransformBodyEvent;
 
-public class Box2DEventFactory {
+public class B2DEventFactory {
 
 	@SuppressWarnings("unchecked")
 	public static <E extends B2DEvent> E getEvent(B2DEventsEnum eventType) {

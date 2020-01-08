@@ -1,11 +1,10 @@
-package com.nzt.gdx.box2D.utils;
+package com.nzt.gdx.b2D.utils;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
 
-//TODO a voir si vraiement util 
 public class B2DConverter {
 
 	public static float heightScreenToPPM(float PPM) {
