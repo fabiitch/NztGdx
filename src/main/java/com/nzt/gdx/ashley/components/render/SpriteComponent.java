@@ -7,6 +7,7 @@ import com.nzt.gdx.ashley.systems.Rendering2DSystem;
 
 /**
  * Base component for sprite used by {@link Rendering2DSystem}
+ * 
  * @author fabiitch
  *
  */
@@ -27,9 +28,9 @@ public class SpriteComponent extends BaseComponent {
 		sprite.setOriginCenter();
 	}
 
-	public SpriteComponent(Texture texture, float size) {
+	public SpriteComponent(Texture texture, float rayon) {
 		this(texture);
-		sprite.setSize(size * 2, size * 2);
+		sprite.setSize(rayon * 2, rayon * 2);
 		sprite.setOriginCenter();
 	}
 }

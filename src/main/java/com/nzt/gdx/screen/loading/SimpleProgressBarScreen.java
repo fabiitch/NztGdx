@@ -10,6 +10,7 @@ import com.nzt.gdx.screen.manager.AbstractScreenManager.AfterLoading;
 
 /**
  * loading screen with rectangle bar in middle
+ * 
  * @author fabiitch
  *
  */

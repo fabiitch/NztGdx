@@ -7,30 +7,47 @@ import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
 /**
- *  progress bar with ShapeRenderer (rectangle bar)
- *  it use 2 rectangle, one as border(ShapeType.Filled) and one inside(ShapeType.Line)
+ * progress bar with ShapeRenderer (rectangle bar) it use 2 rectangle, one as
+ * border(ShapeType.Filled) and one inside(ShapeType.Line)
+ * 
  * @author fabiitch
- *
  */
-public class ProgressBar_SR {
+public class ProgressBar_SR implements ShapeRenderable {
 	private Rectangle rect;
-	private float percent;
+	public float percent;
+	public Color borderColor;
+	public Color insideColor;
+	public boolean horizontal;
 
-	private Color borderColor;
-	private Color insideColor;
-
-	public ProgressBar_SR(float x, float y, float witdh, float height, Color insideColor, Color borderColor) {
+	public ProgressBar_SR(boolean vertical, float x, float y, float witdh, float height, Color insideColor,
+			Color borderColor, float percent) {
 		super();
-		rect = new Rectangle(x, y, witdh, height);
+		this.rect = new Rectangle(x, y, witdh, height);
 		this.insideColor = insideColor;
 		this.borderColor = borderColor;
+		this.horizontal = !vertical;
+		this.percent = percent;
 	}
 
-	public ProgressBar_SR(Rectangle rect, Color insideColor, Color borderColor) {
+	public ProgressBar_SR(float x, float y, float witdh, float height, Color insideColor, Color borderColor,
+			float percent) {
+		this(false, x, y, witdh, height, insideColor, borderColor, percent);
+	}
+
+	public ProgressBar_SR(float x, float y, float witdh, float height, Color insideColor, Color borderColor) {
+		this(false, x, y, witdh, height, insideColor, borderColor, 0);
+	}
+
+	public ProgressBar_SR(Rectangle rect, Color insideColor, Color borderColor, float percent) {
 		super();
 		this.rect = rect;
 		this.insideColor = insideColor;
 		this.borderColor = borderColor;
+		this.horizontal = true;
+	}
+
+	public ProgressBar_SR(Rectangle rect, Color insideColor, Color borderColor) {
+		this(rect, insideColor, borderColor, 0);
 	}
 
 	public ProgressBar_SR(Rectangle rect) {
@@ -42,7 +59,7 @@ public class ProgressBar_SR {
 	 * 
 	 */
 	public void updatePercent(float percent) {
-		this.percent = percent;
+			this.percent = percent;
 	}
 
 	public void updatePosition(Vector2 pos) {
@@ -63,10 +80,15 @@ public class ProgressBar_SR {
 		this.rect.setSize(witdh, height);
 	}
 
+	@Override
 	public void render(ShapeRenderer shapeRenderer) {
 		shapeRenderer.set(ShapeType.Filled);
 		shapeRenderer.setColor(insideColor);
-		shapeRenderer.rect(rect.x, rect.y, percent * rect.width, rect.height);
+		if (horizontal) {
+			shapeRenderer.rect(rect.x, rect.y, percent * rect.width, rect.height);
+		} else {
+			shapeRenderer.rect(rect.x, rect.y, rect.width, percent * rect.height);
+		}
 		shapeRenderer.set(ShapeType.Line);
 		shapeRenderer.setColor(borderColor);
 		shapeRenderer.rect(rect.x, rect.y, rect.width, rect.height);
