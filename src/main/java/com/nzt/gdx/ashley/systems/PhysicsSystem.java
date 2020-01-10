@@ -27,8 +27,8 @@ public class PhysicsSystem extends IteratingSystem {
 	private World world;
 	private Array<Entity> bodiesQueue;
 
-	private ComponentMapper<B2DBodyComponent> bm = ComponentMapper.getFor(B2DBodyComponent.class);
-	private ComponentMapper<TransformComponent> tm = ComponentMapper.getFor(TransformComponent.class);
+	private ComponentMapper<B2DBodyComponent> b2dMapper = ComponentMapper.getFor(B2DBodyComponent.class);
+	private ComponentMapper<TransformComponent> transformMapper = ComponentMapper.getFor(TransformComponent.class);
 	private boolean calculRotation;
 
 	public PhysicsSystem(World world, boolean calculRotation) {
@@ -51,8 +51,8 @@ public class PhysicsSystem extends IteratingSystem {
 			}
 			// Entity Queue
 			for (Entity entity : bodiesQueue) {
-				TransformComponent tfm = tm.get(entity);
-				B2DBodyComponent bodyComp = bm.get(entity);
+				TransformComponent tfm = transformMapper.get(entity);
+				B2DBodyComponent bodyComp = b2dMapper.get(entity);
 				Vector2 position = bodyComp.body.getPosition();
 				tfm.position.x = position.x;
 				tfm.position.y = position.y;

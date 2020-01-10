@@ -8,9 +8,9 @@ import com.badlogic.gdx.utils.Pool.Poolable;
  * @author fabiitch
  *
  */
-public abstract class BasePoolableComponent extends BaseComponent implements Poolable {
+public abstract class PoolableComponent extends BaseComponent implements Poolable {
 
-	public BasePoolableComponent() {
+	public PoolableComponent() {
 		super();
 	}
 
