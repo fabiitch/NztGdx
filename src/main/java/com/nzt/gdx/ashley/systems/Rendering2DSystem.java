@@ -34,16 +34,16 @@ public class Rendering2DSystem extends SortedIteratingSystem {
 	// transfromComponent
 
 	// component mappers to get components from entities
-	private ComponentMapper<SpriteComponent> spriteM;
-	private ComponentMapper<TransformComponent> transformM;
+	private ComponentMapper<SpriteComponent> spriteMapper;
+	private ComponentMapper<TransformComponent> transformMapper;
 
 	public Rendering2DSystem(OrthographicCamera camera, SpriteBatch sb) {
 		super(Family.all(TransformComponent.class, SpriteComponent.class).get(), new ZComparator());
 
 		this.cam = camera;
 		// creates out componentMappers
-		spriteM = ComponentMapper.getFor(SpriteComponent.class);
-		transformM = ComponentMapper.getFor(TransformComponent.class);
+		spriteMapper = ComponentMapper.getFor(SpriteComponent.class);
+		transformMapper = ComponentMapper.getFor(TransformComponent.class);
 
 		// create the array for sorting entities
 		renderQueue = new Array<Entity>();
@@ -64,8 +64,8 @@ public class Rendering2DSystem extends SortedIteratingSystem {
 		Sprite sprite;
 		Vector3 position;
 		for (Entity entity : renderQueue) {
-			SpriteComponent spriteC = spriteM.get(entity);
-			TransformComponent p = transformM.get(entity);
+			SpriteComponent spriteC = spriteMapper.get(entity);
+			TransformComponent p = transformMapper.get(entity);
 			if (spriteC == null) {
 				continue;
 			}

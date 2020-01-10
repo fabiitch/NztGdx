@@ -12,7 +12,7 @@ public class RenderShapeSystem extends IteratingSystem {
 
 	private ShapeRenderer shapeRenderer;
 	private Array<Entity> queue;
-	private ComponentMapper<ShapeArrayComponent> srm = ComponentMapper.getFor(ShapeArrayComponent.class);
+	private ComponentMapper<ShapeArrayComponent> shapeArrayMapper = ComponentMapper.getFor(ShapeArrayComponent.class);
 
 	public RenderShapeSystem(ShapeRenderer shapeRenderer) {
 		super(Family.one(ShapeArrayComponent.class).get());
@@ -29,7 +29,7 @@ public class RenderShapeSystem extends IteratingSystem {
 
 	@Override
 	protected void processEntity(Entity entity, float deltaTime) {
-		ShapeArrayComponent shapeComponent = srm.get(entity);
+		ShapeArrayComponent shapeComponent = shapeArrayMapper.get(entity);
 		shapeComponent.render(shapeRenderer);
 	}
 

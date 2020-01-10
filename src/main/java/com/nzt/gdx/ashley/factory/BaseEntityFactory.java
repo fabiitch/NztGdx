@@ -1,4 +1,4 @@
-package com.nzt.gdx.ashley;
+package com.nzt.gdx.ashley.factory;
 
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.ashley.core.PooledEngine;
@@ -13,7 +13,6 @@ import com.nzt.gdx.graphics.components.ShapeRenderable;
 //TODO a voir si bien fait la factory commesa
 public class BaseEntityFactory {
 	protected PooledEngine engine;
-
 	private Entity nextEntity;
 
 	public BaseEntityFactory(PooledEngine engine) {

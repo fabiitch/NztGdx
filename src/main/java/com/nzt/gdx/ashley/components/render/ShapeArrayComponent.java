@@ -2,10 +2,10 @@ package com.nzt.gdx.ashley.components.render;
 
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.utils.Array;
-import com.nzt.gdx.ashley.components.base.BasePoolableComponent;
+import com.nzt.gdx.ashley.components.base.PoolableComponent;
 import com.nzt.gdx.graphics.components.ShapeRenderable;
 
-public class ShapeArrayComponent extends BasePoolableComponent {
+public class ShapeArrayComponent extends PoolableComponent {
 
 	public Array<ShapeRenderable> renderableArray;
 
