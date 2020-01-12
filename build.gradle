@@ -49,7 +49,7 @@ dependencies {
     implementation 'com.google.guava:guava:27.0.1-jre'
 
     // Use JUnit test framework
-			testImplementation "junit:junit:$junitVersion"
+		testImplementation "junit:junit:$junitVersion"
 		testImplementation "org.mockito:mockito-core:$mockitoVersion" 
 		testImplementation "com.badlogicgames.gdx:gdx-backend-headless:$gdxVersion"
 		testImplementation "com.badlogicgames.gdx:gdx-backend-lwjgl:$gdxVersion"

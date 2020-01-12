@@ -13,7 +13,6 @@ import com.badlogic.gdx.backends.headless.HeadlessApplicationConfiguration;
  */
 public abstract class GdxHeadLessInitialiser {
 	public GdxHeadLessInitialiser() {
-
 		HeadlessApplicationConfiguration conf = new HeadlessApplicationConfiguration();
 		HeadlessApplication application = new HeadlessApplication(new FakeMain(), conf);
 		application.setLogLevel(Application.LOG_NONE);

@@ -7,7 +7,9 @@ import java.lang.reflect.Field;
 import java.util.Map;
 
 import org.junit.Before;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.junit.runners.MethodSorters;
 
 import com.nzt.gdx.init.GdxHeadLessInitialiser;
 import com.nzt.gdx.logger.tag.TagLogger;
@@ -19,6 +21,7 @@ import com.nzt.gdx.logger.tag.count.TagCountLogger;
  * @author fabiitch
  *
  */
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class TagCountLoggerTest extends GdxHeadLessInitialiser {
 	private enum LogTagEnum {
 		PERFORMANCE, INPUT
