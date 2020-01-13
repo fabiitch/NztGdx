@@ -1,9 +1,8 @@
 package com.nzt.gdx.graphics;
 
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
-import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Rectangle;
+import com.nzt.gdx.random.Randoms;
 
 public class NzShapeRenderer extends ShapeRenderer {
 
@@ -12,10 +11,6 @@ public class NzShapeRenderer extends ShapeRenderer {
 	}
 
 	public void randomColor() {
-		float r = MathUtils.random();
-		float g = MathUtils.random();
-		float b = MathUtils.random();
-		Color randomColor = new Color(r, g, b, 1);
-		this.setColor(randomColor);
+		this.setColor(Randoms.toRandom(this.getColor()));
 	}
 }
