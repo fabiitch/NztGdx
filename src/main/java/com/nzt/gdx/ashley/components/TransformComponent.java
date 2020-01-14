@@ -18,7 +18,6 @@ public class TransformComponent extends PoolableComponent {
 
 	@Override
 	public void reset() {
-		System.out.println("reset");
 		this.position.set(0, 0, 0);
 		this.angle = 0f;
 

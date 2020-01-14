@@ -16,11 +16,11 @@ import com.nzt.gdx.logger.utils.NzLoggable;
  */
 public class TagLogger {
 
-	private static Map<Enum<?>, Boolean> tagMap = new HashMap<Enum<?>, Boolean>();
+	private final static Map<Enum<?>, Boolean> tagMap = new HashMap<Enum<?>, Boolean>();
 	public static boolean DONT_LOG = false;
 
 	public static void clearTags() {
-		tagMap = new HashMap<Enum<?>, Boolean>();
+		tagMap.clear();
 	}
 
 	public static Set<Enum<?>> getTags() {
@@ -110,7 +110,6 @@ public class TagLogger {
 			Gdx.app.error(tag.name(), "======== End ============");
 		}
 	}
-	
 
 	/**
 	 * give tags, if not exist , create it

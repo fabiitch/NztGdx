@@ -56,7 +56,6 @@ public class Rendering2DSystem extends SortedIteratingSystem {
 		super.update(deltaTime);
 		TagCountLogger.log(LogTagBase.SYSTEMS, "render");
 		renderQueue.sort(comparator);
-//		cam.update();
 		batch.setProjectionMatrix(cam.combined);
 		batch.enableBlending();
 		batch.begin();
@@ -73,7 +72,6 @@ public class Rendering2DSystem extends SortedIteratingSystem {
 			position = p.position;
 
 			sprite.setPosition(position.x - sprite.getWidth() / 2, position.y - sprite.getHeight() / 2);
-//			sprite.setRotation((float) Math.toDegrees(body.getAngle()));
 			if (spriteC.visible)
 				sprite.draw(batch);
 		}

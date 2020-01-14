@@ -1,7 +1,7 @@
 package com.nzt.gdx.input;
 
 import com.badlogic.gdx.InputProcessor;
-import com.nzt.gdx.logger.InputLoggerConfig;
+import com.nzt.gdx.logger.config.InputLoggerConfig;
 import com.nzt.gdx.logger.tag.LogTagBase;
 import com.nzt.gdx.logger.tag.TagLogger;
 
@@ -55,7 +55,7 @@ public abstract class BaseGameInputHandler implements InputProcessor {
 	public boolean touchDown(int screenX, int screenY, int pointer, int button) {
 		if (loggerConfig.logTouchDown)
 			TagLogger.log(LogTagBase.INPUT, "touchDown",
-					"screenX: " + screenX + " / screenY:" + screenY + " / pointer:" + pointer + " / button:" + button);
+					"screenX: " + screenX + " / screenY:" + screenY + " /ï¿½pointer:" + pointer + " /ï¿½button:" + button);
 		return doTouchDown(screenX, screenY, pointer, button);
 	}
 
@@ -65,7 +65,7 @@ public abstract class BaseGameInputHandler implements InputProcessor {
 	public boolean touchUp(int screenX, int screenY, int pointer, int button) {
 		if (loggerConfig.logTouchUp)
 			TagLogger.log(LogTagBase.INPUT, "touchUp",
-					"screenX: " + screenX + " / screenY:" + screenY + " / pointer:" + pointer + " / button:" + button);
+					"screenX: " + screenX + " / screenY:" + screenY + " /ï¿½pointer:" + pointer + " /ï¿½button:" + button);
 		return doTouchUp(screenX, screenY, pointer, button);
 	}
 
@@ -75,7 +75,7 @@ public abstract class BaseGameInputHandler implements InputProcessor {
 	public boolean touchDragged(int screenX, int screenY, int pointer) {
 		if (loggerConfig.logTouchDragged)
 			TagLogger.log(LogTagBase.INPUT, "touchDragged",
-					"screenX: " + screenX + " / screenY:" + screenY + " / pointer:" + pointer);
+					"screenX: " + screenX + " / screenY:" + screenY + " /ï¿½pointer:" + pointer);
 		return doTouchDragged(screenX, screenY, pointer);
 	}
 

@@ -1,4 +1,4 @@
-package com.nzt.gdx.logger;
+package com.nzt.gdx.logger.config;
 
 public class InputLoggerConfig {
 

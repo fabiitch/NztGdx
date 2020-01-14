@@ -5,6 +5,7 @@ import com.badlogic.ashley.core.PooledEngine;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.nzt.gdx.ashley.components.TransformComponent;
+import com.nzt.gdx.ashley.components.TransformersComponent;
 import com.nzt.gdx.ashley.components.physx.B2DBodyComponent;
 import com.nzt.gdx.ashley.components.render.ShapeArrayComponent;
 import com.nzt.gdx.ashley.components.render.SpriteComponent;
@@ -58,6 +59,12 @@ public class BaseEntityFactory {
 		ShapeArrayComponent shapeArrayComponent = engine.createComponent(ShapeArrayComponent.class);
 		shapeArrayComponent.addShape(shapeRenderable);
 		nextEntity.add(shapeArrayComponent);
+		return this;
+	}
+
+	public BaseEntityFactory addTransformers() {
+		TransformersComponent transformerComponent = engine.createComponent(TransformersComponent.class);
+		nextEntity.add(transformerComponent);
 		return this;
 	}
 }

@@ -1,4 +1,4 @@
-package com.nzt.gdx.logger;
+package com.nzt.gdx.logger.config;
 
 import com.badlogic.gdx.Gdx;
 
@@ -12,5 +12,5 @@ public abstract class LoggerConfig {
 
 	public abstract void configureTags();
 
-	public abstract InputLoggerConfig  configureInputLog();
+	public abstract InputLoggerConfig configureInputLog();
 }

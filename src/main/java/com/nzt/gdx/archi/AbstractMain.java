@@ -6,7 +6,7 @@ import com.badlogic.gdx.graphics.g3d.ModelBatch;
 import com.nzt.gdx.assets.AbstractAssetsManager;
 import com.nzt.gdx.graphics.NzShapeRenderer;
 import com.nzt.gdx.logger.LogApplicationInfo;
-import com.nzt.gdx.logger.LoggerConfig;
+import com.nzt.gdx.logger.config.LoggerConfig;
 import com.nzt.gdx.net.AutoProxy;
 import com.nzt.gdx.screen.manager.AbstractScreenManager;
 

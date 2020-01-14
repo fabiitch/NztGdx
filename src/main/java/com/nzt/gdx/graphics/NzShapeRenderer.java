@@ -2,7 +2,7 @@ package com.nzt.gdx.graphics;
 
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Rectangle;
-import com.nzt.gdx.random.Randoms;
+import com.nzt.gdx.math.random.Randoms;
 
 public class NzShapeRenderer extends ShapeRenderer {
 

@@ -34,6 +34,10 @@ public class LoggerUtils {
 		logSeparator();
 	}
 
+	public static void logSeparator(String name) {
+		Gdx.app.log("==================", name);
+	}
+
 	public static void logSeparator() {
 		Gdx.app.log("==================", "==================");
 	}
