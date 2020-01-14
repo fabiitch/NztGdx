@@ -7,7 +7,7 @@ import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
 import com.nzt.gdx.archi.AbstractMain;
 import com.nzt.gdx.assets.AbstractAssetsManager;
-import com.nzt.gdx.logger.LoggerConfig;
+import com.nzt.gdx.logger.config.LoggerConfig;
 import com.nzt.gdx.screen.BaseScreen;
 import com.nzt.gdx.screen.manager.AbstractScreenManager;
 import com.nzt.gdx.tester.screen.TriangleTestScreen;

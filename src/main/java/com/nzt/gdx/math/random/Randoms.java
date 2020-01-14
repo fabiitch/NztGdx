@@ -1,4 +1,4 @@
-package com.nzt.gdx.random;
+package com.nzt.gdx.math.random;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.math.MathUtils;
@@ -12,6 +12,7 @@ public class Randoms {
 		Color randomColor = new Color(r, g, b, 1);
 		return randomColor;
 	}
+
 	public static Color toRandom(Color color) {
 		float r = MathUtils.random();
 		float g = MathUtils.random();

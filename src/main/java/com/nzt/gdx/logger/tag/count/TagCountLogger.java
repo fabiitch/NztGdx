@@ -14,10 +14,10 @@ import com.nzt.gdx.logger.tag.TagLogger;
  */
 public class TagCountLogger {
 
-	private static Map<Enum<?>, LogCountTagValues> tagCountMap = new HashMap<Enum<?>, LogCountTagValues>();
+	private static final Map<Enum<?>, LogCountTagValues> tagCountMap = new HashMap<Enum<?>, LogCountTagValues>();
 
 	public static void clearTags() {
-		tagCountMap = new HashMap<Enum<?>, LogCountTagValues>();
+		tagCountMap.clear();
 	}
 
 	public static <E extends Enum<E>> void debug(E tag, String message) {
