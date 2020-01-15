@@ -34,6 +34,7 @@ public class TagCountLoggerTest extends GdxHeadLessInitialiser {
 	public void initTagLogger()
 			throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
 		TagCountLogger.clearTags();
+		TagLogger.clearTags();
 		Field fieldTagCountMap = TagCountLogger.class.getDeclaredField("tagCountMap");
 		fieldTagCountMap.setAccessible(true);
 		tagCountMap = (Map<Enum<?>, LogCountTagValues>) fieldTagCountMap.get(null);

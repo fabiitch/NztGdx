@@ -1,6 +1,9 @@
 package com.nzt.gdx.transformer;
 
+import static com.badlogic.gdx.utils.Pools.obtain;
+
 import com.badlogic.gdx.math.Interpolation;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Pool.Poolable;
 
 public abstract class BaseTransformer<T> implements Poolable {
@@ -9,6 +12,24 @@ public abstract class BaseTransformer<T> implements Poolable {
 	public boolean reverse, began, complete;
 	public T value, target;
 
+	
+	//TODO a finir
+	public static <T extends BaseTransformer<V>, V> T getTransformer(Class<T> cl, float duration, V value,
+			V target, Interpolation interpolation) {
+		T transformer = obtain(cl);
+		initTransformer(transformer, duration, value, target, interpolation);
+		return transformer;
+	}
+	private static <T extends BaseTransformer<V>, V> void initTransformer(T transformer, float duration, V value,
+			V target, Interpolation interpolation) {
+		transformer.value = value;
+		transformer.target = target;
+		transformer.duration = duration;
+		transformer.interpolation = interpolation;
+	}
+	//TODO a finir
+	
+	
 	public boolean update(float delta) {
 		if (complete)
 			return true;
