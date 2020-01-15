@@ -5,7 +5,7 @@ import com.badlogic.gdx.math.Interpolation;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Pools;
 import com.nzt.gdx.transformer.BaseTransformer;
-import com.nzt.gdx.transformer.impl.ColorTransfomer;
+import com.nzt.gdx.transformer.impl.ColorGradientTransfomer;
 import com.nzt.gdx.transformer.impl.MoveToTransformer;
 
 public class TransformerFactory {
@@ -20,8 +20,8 @@ public class TransformerFactory {
 		return aa;
 	}
 
-	public static ColorTransfomer color(float duration, Color value, Color target, Interpolation interpolation) {
-		ColorTransfomer aa = getTransformer(ColorTransfomer.class);
+	public static ColorGradientTransfomer colorGradient(float duration, Color value, Color target, Interpolation interpolation) {
+		ColorGradientTransfomer aa = getTransformer(ColorGradientTransfomer.class);
 		initTransformer(aa, duration, value, target, interpolation);
 		return aa;
 	}

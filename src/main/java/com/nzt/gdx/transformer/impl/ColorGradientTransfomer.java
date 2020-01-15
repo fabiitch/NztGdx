@@ -3,7 +3,7 @@ package com.nzt.gdx.transformer.impl;
 import com.badlogic.gdx.graphics.Color;
 import com.nzt.gdx.transformer.BaseTransformer;
 
-public class ColorTransfomer extends BaseTransformer<Color> {
+public class ColorGradientTransfomer extends BaseTransformer<Color> {
 
 	private float r, g, b;
 
