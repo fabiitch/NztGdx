@@ -4,6 +4,11 @@ import com.badlogic.gdx.Gdx;
 import com.nzt.gdx.logger.tag.LogTagBase;
 import com.nzt.gdx.logger.tag.TagLogger;
 
+/**
+ * Log les info de l'appli
+ * @author fabiitch
+ *
+ */
 public class LogApplicationInfo {
 
 	public static void logInit() {

@@ -1,8 +1,10 @@
 package com.nzt.gdx.ashley.factory;
 
+import com.badlogic.ashley.core.Component;
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.ashley.core.PooledEngine;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.nzt.gdx.ashley.components.TransformComponent;
 import com.nzt.gdx.ashley.components.TransformersComponent;
@@ -24,47 +26,67 @@ public class BaseEntityFactory {
 		return nextEntity;
 	}
 
-	public BaseEntityFactory createSimpleEntity() {
+	protected Entity createSimpleEntity() {
 		nextEntity = this.engine.createEntity();
 		engine.addEntity(nextEntity);
-		return this;
+		return nextEntity;
 	}
 
-	public BaseEntityFactory createTransformEntity() {
+	protected Entity createTransformEntity() {
 		nextEntity = this.engine.createEntity();
 		engine.addEntity(nextEntity);
 		TransformComponent transformComponent = engine.createComponent(TransformComponent.class);
 		nextEntity.add(transformComponent);
-		return this;
+		return nextEntity;
 	}
 
-	public BaseEntityFactory addSprite(Texture texture, float width, float height) {
+	protected Entity createTransformEntity(float x, float y, float angle) {
+		nextEntity = this.engine.createEntity();
+		engine.addEntity(nextEntity);
+		TransformComponent transformComponent = engine.createComponent(TransformComponent.class);
+		transformComponent.position.x = x;
+		transformComponent.position.y = y;
+		transformComponent.angle = angle;
+		nextEntity.add(transformComponent);
+		return nextEntity;
+	}
+
+	protected Entity createTransformEntity(Vector2 position, float angle) {
+		nextEntity = this.engine.createEntity();
+		engine.addEntity(nextEntity);
+		TransformComponent transformComponent = engine.createComponent(TransformComponent.class);
+		transformComponent.position.x = position.x;
+		transformComponent.position.y = position.y;
+		transformComponent.angle = angle;
+		nextEntity.add(transformComponent);
+		return nextEntity;
+	}
+
+	protected Component sprite(Texture texture, float width, float height) {
 		SpriteComponent spriteComponent = new SpriteComponent(texture, width, height);
-		nextEntity.add(spriteComponent);
-		return this;
+		return spriteComponent;
 	}
 
-	public BaseEntityFactory addSprite(Texture texture, float rayon) {
-		return addSprite(texture, rayon, rayon);
+	protected Component sprite(Texture texture, float rayon) {
+		return sprite(texture, rayon, rayon);
 	}
 
-	public BaseEntityFactory addB2D(Body body) {
+	protected Component b2D(Body body) {
 		B2DBodyComponent box2dBodyComponent = engine.createComponent(B2DBodyComponent.class);
 		box2dBodyComponent.body = body;
-		nextEntity.add(box2dBodyComponent);
-		return this;
+		return box2dBodyComponent;
 	}
 
-	public BaseEntityFactory addShape(ShapeRenderable shapeRenderable) {
+	protected Component shapeArray(ShapeRenderable shapeRenderable) {
 		ShapeArrayComponent shapeArrayComponent = engine.createComponent(ShapeArrayComponent.class);
 		shapeArrayComponent.addShape(shapeRenderable);
 		nextEntity.add(shapeArrayComponent);
-		return this;
+		return shapeArrayComponent;
 	}
 
-	public BaseEntityFactory addTransformers() {
+	protected Component transformers() {
 		TransformersComponent transformerComponent = engine.createComponent(TransformersComponent.class);
 		nextEntity.add(transformerComponent);
-		return this;
+		return transformerComponent;
 	}
 }
