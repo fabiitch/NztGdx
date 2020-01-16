@@ -3,7 +3,7 @@ package com.nzt.gdx.transformer;
 import static com.badlogic.gdx.utils.Pools.obtain;
 
 import com.badlogic.gdx.math.Interpolation;
-import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.utils.Pools;
 import com.badlogic.gdx.utils.Pool.Poolable;
 
 public abstract class BaseTransformer<T> implements Poolable {
@@ -27,8 +27,6 @@ public abstract class BaseTransformer<T> implements Poolable {
 		transformer.duration = duration;
 		transformer.interpolation = interpolation;
 	}
-	//TODO a finir
-	
 	
 	public boolean update(float delta) {
 		if (complete)
