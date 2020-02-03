@@ -1,6 +1,8 @@
 # NztGdx
 Libgdx wrapper to use it easly
 
+Abstract = Really abstract 
+BaseXX = class to use
 not finish at all ^^
 
 [![Build](https://github.com/fabiitch/NztGdx/workflows/Java%20CI/badge.svg?branch=master)](https://github.com/fabiitch/NztGdx/actions) (Java CI)  

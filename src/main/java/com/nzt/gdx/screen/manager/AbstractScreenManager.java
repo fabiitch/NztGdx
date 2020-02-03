@@ -6,16 +6,16 @@ import com.nzt.gdx.screen.BaseScreen;
 import com.nzt.gdx.screen.loading.BaseLoadingScreen;
 import com.nzt.gdx.screen.loading.SimpleProgressBarScreen;
 
-public abstract class AbstractScreenManager {
+public abstract class AbstractScreenManager<M extends AbstractMain> {
 
 	protected BaseScreen currentScreen;
-	protected AbstractMain mainClass;
+	protected M mainClass;
 	protected BaseLoadingScreen loadingScreen;
 	public AbstractAssetsManager assetsManager;
 
 	protected abstract void afterSplashScreen();
 
-	public void startApplication(AbstractMain mainClass) {
+	public void startApplication(M mainClass) {
 		this.mainClass = mainClass;
 		this.assetsManager = mainClass.assetsManager;
 		doStartApplication();

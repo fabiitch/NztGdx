@@ -7,44 +7,44 @@ import com.nzt.gdx.logger.tag.TagLogger;
 /**
  * Base screen with log on screenAction
  * See LogTagBase for logs.
- * @author fabiitch
  *
+ * @author fabiitch
  */
-public abstract class BaseScreen extends AbstractScreen<AbstractMain> {
+public abstract class BaseScreen<M extends AbstractMain> extends AbstractScreen<M> {
 
-	public BaseScreen(AbstractMain main) {
-		super(main);
-	}
+    public BaseScreen(M main) {
+        super(main);
+    }
 
-	@Override
-	public void show() {
-		TagLogger.log(LogTagBase.SCREEN_ACTIONS, this.getClass().getSimpleName(), "show()");
-	}
+    @Override
+    public void show() {
+        TagLogger.log(LogTagBase.SCREEN_ACTIONS, this.getClass().getSimpleName(), "show()");
+    }
 
-	@Override
-	public void resize(int width, int height) {
-		TagLogger.log(LogTagBase.SCREEN_ACTIONS, this.getClass().getSimpleName(),
-				"resize(" + width + ", " + height + ")");
-	}
+    @Override
+    public void resize(int width, int height) {
+        TagLogger.log(LogTagBase.SCREEN_ACTIONS, this.getClass().getSimpleName(),
+                "resize(" + width + ", " + height + ")");
+    }
 
-	@Override
-	public void pause() {
-		TagLogger.log(LogTagBase.SCREEN_ACTIONS, this.getClass().getSimpleName(), "pause()");
-	}
+    @Override
+    public void pause() {
+        TagLogger.log(LogTagBase.SCREEN_ACTIONS, this.getClass().getSimpleName(), "pause()");
+    }
 
-	@Override
-	public void resume() {
-		TagLogger.log(LogTagBase.SCREEN_ACTIONS, this.getClass().getSimpleName(), "resume()");
-	}
+    @Override
+    public void resume() {
+        TagLogger.log(LogTagBase.SCREEN_ACTIONS, this.getClass().getSimpleName(), "resume()");
+    }
 
-	@Override
-	public void hide() {
-		TagLogger.log(LogTagBase.SCREEN_ACTIONS, this.getClass().getSimpleName(), "hide()");
-	}
+    @Override
+    public void hide() {
+        TagLogger.log(LogTagBase.SCREEN_ACTIONS, this.getClass().getSimpleName(), "hide()");
+    }
 
-	@Override
-	public void dispose() {
-		TagLogger.log(LogTagBase.SCREEN_ACTIONS, this.getClass().getSimpleName(), "dispose()");
-	}
+    @Override
+    public void dispose() {
+        TagLogger.log(LogTagBase.SCREEN_ACTIONS, this.getClass().getSimpleName(), "dispose()");
+    }
 
 }
