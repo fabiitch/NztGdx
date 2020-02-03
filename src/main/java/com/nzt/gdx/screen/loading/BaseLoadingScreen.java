@@ -11,19 +11,19 @@ import com.nzt.gdx.screen.manager.AbstractScreenManager.AfterLoading;
  * @author fabiitch
  *
  */
-public abstract class BaseLoadingScreen extends BaseScreen {
+public abstract class BaseLoadingScreen<M extends AbstractMain>  extends BaseScreen<M> {
 	protected IntAssetsManager assetsManager;
 	protected AfterLoading afterLoading;
 	private float minDisplayTime;
 	private float timeCounter = 0;
 
-	public BaseLoadingScreen(AbstractMain main, AfterLoading afterloading, float minDisplayTime) {
+	public BaseLoadingScreen(M main, AfterLoading afterloading, float minDisplayTime) {
 		super(main);
 		this.afterLoading = afterloading;
 		this.minDisplayTime = minDisplayTime;
 	}
 
-	public BaseLoadingScreen(AbstractMain main, AfterLoading afterloading, float minDisplayTime,
+	public BaseLoadingScreen(M main, AfterLoading afterloading, float minDisplayTime,
 			IntAssetsManager assetsManager) {
 		this(main, afterloading, minDisplayTime);
 		this.assetsManager = assetsManager;
@@ -45,7 +45,7 @@ public abstract class BaseLoadingScreen extends BaseScreen {
 		if (assetsManager != null) {
 			float progressAssets = assetsManager.getProgress() / 100;
 			if (progressAssets < 1) {
-				progress = progressAssets < progress ? progressAssets : progress;
+				progress = Math.min(progressAssets, progress);
 			}
 		}
 		return progress;
