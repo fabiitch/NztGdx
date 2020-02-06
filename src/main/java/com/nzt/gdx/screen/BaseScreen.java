@@ -19,6 +19,7 @@ public abstract class BaseScreen<M extends AbstractMain> extends AbstractScreen<
     @Override
     public void show() {
         TagLogger.log(LogTagBase.SCREEN_ACTIONS, this.getClass().getSimpleName(), "show()");
+        doShow();
     }
 
     @Override

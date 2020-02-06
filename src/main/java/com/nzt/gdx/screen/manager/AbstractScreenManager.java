@@ -7,10 +7,10 @@ import com.nzt.gdx.screen.loading.BaseLoadingScreen;
 import com.nzt.gdx.screen.loading.SimpleProgressBarScreen;
 
 public abstract class AbstractScreenManager<M extends AbstractMain> {
-
-	protected BaseScreen currentScreen;
 	protected M mainClass;
-	protected BaseLoadingScreen loadingScreen;
+	
+	protected BaseScreen<M> currentScreen;
+	protected BaseLoadingScreen<M> loadingScreen;
 	public AbstractAssetsManager assetsManager;
 
 	protected abstract void afterSplashScreen();
@@ -19,18 +19,18 @@ public abstract class AbstractScreenManager<M extends AbstractMain> {
 		this.mainClass = mainClass;
 		this.assetsManager = mainClass.assetsManager;
 		doStartApplication();
-		AfterLoading after = new AfterLoading() {
+		AfterLoading afterloading = new AfterLoading() {
 			@Override
 			public void doAfterLoading() {
 				afterSplashScreen();
 				loadingScreen.dispose();
 			}
 		};
-		loadingScreen = new SimpleProgressBarScreen(mainClass, after, 0.5f, assetsManager);
+		loadingScreen = new SimpleProgressBarScreen<M>(mainClass, afterloading, 0.5f, assetsManager);
 		setScreen(loadingScreen);
 	}
 
-	public void setScreen(BaseScreen screen) {
+	public void setScreen(BaseScreen<M> screen) {
 		if (currentScreen != null) {
 			currentScreen.dispose();
 			currentScreen = null;

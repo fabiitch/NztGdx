@@ -6,7 +6,7 @@ public class InputLoggerConfig {
 			logScrolled;
 
 	public InputLoggerConfig() {
-
+		//all is false
 	}
 
 	public InputLoggerConfig(boolean logKey, boolean logTouch, boolean logTouchOrMouseMoved, boolean logScroll) {

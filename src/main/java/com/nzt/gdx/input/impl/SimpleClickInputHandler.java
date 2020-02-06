@@ -1,6 +1,8 @@
-package com.nzt.gdx.input;
+package com.nzt.gdx.input.impl;
 
-public abstract class SimpleClickInputHandler extends BaseGameInputHandler{
+import com.nzt.gdx.input.base.BaseInputHandler;
+
+public abstract class SimpleClickInputHandler extends BaseInputHandler{
 
 	@Override
 	public boolean doKeyDown(int keycode) {

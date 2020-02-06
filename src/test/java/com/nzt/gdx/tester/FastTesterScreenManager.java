@@ -11,7 +11,7 @@ import com.nzt.gdx.screen.manager.AbstractScreenManager;
  */
 public class FastTesterScreenManager extends AbstractScreenManager {
 
-	private BaseScreen screenToSet;
+	private BaseScreen<?> screenToSet;
 
 	public FastTesterScreenManager(BaseScreen screen) {
 		this.screenToSet = screen;

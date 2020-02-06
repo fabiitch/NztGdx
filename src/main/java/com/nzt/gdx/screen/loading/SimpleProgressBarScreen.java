@@ -5,7 +5,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
 import com.nzt.gdx.archi.AbstractMain;
 import com.nzt.gdx.assets.IntAssetsManager;
-import com.nzt.gdx.graphics.components.ProgressBar_SR;
+import com.nzt.gdx.graphics.renderables.ProgressBar_SR;
 import com.nzt.gdx.screen.manager.AbstractScreenManager.AfterLoading;
 
 /**
@@ -14,15 +14,20 @@ import com.nzt.gdx.screen.manager.AbstractScreenManager.AfterLoading;
  * @author fabiitch
  *
  */
-public class SimpleProgressBarScreen extends BaseLoadingScreen {
+public class SimpleProgressBarScreen<M extends AbstractMain>  extends BaseLoadingScreen<M> {
 	protected ProgressBar_SR doubleRectangle;
 
-	public SimpleProgressBarScreen(AbstractMain main, AfterLoading afterloading, float minDisplayTime) {
+	public SimpleProgressBarScreen(M main, AfterLoading afterloading, float minDisplayTime) {
 		super(main, afterloading, minDisplayTime);
 		createRectangles();
 	}
+	
+	@Override
+	public void doShow() {
+		
+	}
 
-	public SimpleProgressBarScreen(AbstractMain main, AfterLoading afterloading, float minDisplayTime,
+	public SimpleProgressBarScreen(M main, AfterLoading afterloading, float minDisplayTime,
 			IntAssetsManager assetsManager) {
 		super(main, afterloading, minDisplayTime, assetsManager);
 		createRectangles();
@@ -43,4 +48,6 @@ public class SimpleProgressBarScreen extends BaseLoadingScreen {
 		doubleRectangle.render(shapeRenderer);
 		shapeRenderer.end();
 	}
+
+
 }

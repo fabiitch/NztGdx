@@ -4,9 +4,9 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g3d.ModelBatch;
 import com.nzt.gdx.assets.AbstractAssetsManager;
-import com.nzt.gdx.graphics.NzShapeRenderer;
+import com.nzt.gdx.graphics.renderers.NzShapeRenderer;
 import com.nzt.gdx.logger.LogApplicationInfo;
-import com.nzt.gdx.logger.config.LoggerConfig;
+import com.nzt.gdx.logger.config.AbstractLogManager;
 import com.nzt.gdx.net.AutoProxy;
 import com.nzt.gdx.screen.manager.AbstractScreenManager;
 
@@ -18,21 +18,21 @@ import com.nzt.gdx.screen.manager.AbstractScreenManager;
  *
  */
 public abstract class AbstractMain extends Game {
-	public LoggerConfig loggerConfig;
+	public AbstractLogManager<AbstractMain> logManager;
 	public SpriteBatch sb;
 	public NzShapeRenderer shapeRenderer;
 	public ModelBatch modelBatch;
-	
+
 	public AbstractAssetsManager assetsManager;
-	public AbstractScreenManager screenManager;
+	public AbstractScreenManager<AbstractMain> screenManager;
 
 	public abstract void doCreate();
 
-	public abstract AbstractScreenManager createScreenManager();
+	public abstract AbstractScreenManager<AbstractMain> createScreenManager();
 
 	public abstract AbstractAssetsManager createAssetsManager();
-	
-	public abstract LoggerConfig createLoggerConfig();
+
+	public abstract AbstractLogManager<AbstractMain> createLoggerConfig();
 
 	@Override
 	public void create() {

@@ -6,7 +6,7 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g3d.ModelBatch;
 import com.nzt.gdx.archi.AbstractMain;
-import com.nzt.gdx.graphics.NzShapeRenderer;
+import com.nzt.gdx.graphics.renderers.NzShapeRenderer;
 
 /**
  * Abstract screen for {@link #AbstractScreen(AbstractMain)} Wrapper for acces
@@ -42,7 +42,9 @@ public abstract class AbstractScreen<M extends AbstractMain> implements Screen {
     private final void showFPS(float dt) {
         Gdx.graphics.setTitle("FPS : " + Gdx.graphics.getFramesPerSecond() + " | delta=" + dt);
 
-    }
+	}
+
+    public abstract void doShow() ;
 
     @Override
     public void render(float dt) {

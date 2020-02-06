@@ -1,4 +1,4 @@
-package com.nzt.gdx.input;
+package com.nzt.gdx.input.utils;
 
 import com.badlogic.gdx.Gdx;
 

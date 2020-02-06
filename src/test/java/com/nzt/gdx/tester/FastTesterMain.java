@@ -7,7 +7,7 @@ import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
 import com.nzt.gdx.archi.AbstractMain;
 import com.nzt.gdx.assets.AbstractAssetsManager;
-import com.nzt.gdx.logger.config.LoggerConfig;
+import com.nzt.gdx.logger.config.AbstractLogManager;
 import com.nzt.gdx.screen.BaseScreen;
 import com.nzt.gdx.screen.manager.AbstractScreenManager;
 import com.nzt.gdx.tester.screen.TriangleTestScreen;
@@ -15,6 +15,7 @@ import com.nzt.gdx.tester.screen.TriangleTestScreen;
 /**
  * WIP, test class for launch fast iteration dev on lib change
  * returnScreenToLaunch for test your screen
+ * 
  * @author fabiitch
  */
 public class FastTesterMain extends AbstractMain {
@@ -30,7 +31,7 @@ public class FastTesterMain extends AbstractMain {
 	}
 
 	@Override
-	public AbstractScreenManager createScreenManager() {
+	public AbstractScreenManager<AbstractMain> createScreenManager() {
 		return new FastTesterScreenManager(returnScreenToLaunch());
 	}
 
@@ -40,7 +41,7 @@ public class FastTesterMain extends AbstractMain {
 	}
 
 	@Override
-	public LoggerConfig createLoggerConfig() {
+	public AbstractLogManager<AbstractMain> createLoggerConfig() {
 		return null;
 	}
 
