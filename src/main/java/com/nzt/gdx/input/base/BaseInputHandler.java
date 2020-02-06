@@ -1,4 +1,4 @@
-package com.nzt.gdx.input;
+package com.nzt.gdx.input.base;
 
 import com.badlogic.gdx.InputProcessor;
 import com.nzt.gdx.logger.config.InputLoggerConfig;
@@ -12,15 +12,15 @@ import com.nzt.gdx.logger.tag.TagLogger;
  * @author fabiitch
  *
  */
-public abstract class BaseGameInputHandler implements InputProcessor {
+public abstract class BaseInputHandler implements InputProcessor {
 	public final boolean FORCE_MOBILE = false;
-	private InputLoggerConfig loggerConfig;
+	public InputLoggerConfig loggerConfig;
 
-	public BaseGameInputHandler() {
+	public BaseInputHandler() {
 		this.loggerConfig = new InputLoggerConfig();
 	}
 
-	public BaseGameInputHandler(InputLoggerConfig loggerConfig) {
+	public BaseInputHandler(InputLoggerConfig loggerConfig) {
 		this.loggerConfig = loggerConfig;
 	}
 

@@ -27,4 +27,10 @@ public class TriangleTestScreen extends BaseScreen {
 		sb.end();
 	}
 
+	@Override
+	public void doShow() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

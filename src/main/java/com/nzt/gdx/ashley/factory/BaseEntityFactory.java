@@ -11,7 +11,7 @@ import com.nzt.gdx.ashley.components.TransformersComponent;
 import com.nzt.gdx.ashley.components.physx.B2DBodyComponent;
 import com.nzt.gdx.ashley.components.render.ShapeArrayComponent;
 import com.nzt.gdx.ashley.components.render.SpriteComponent;
-import com.nzt.gdx.graphics.components.ShapeRenderable;
+import com.nzt.gdx.graphics.renderables.ShapeRenderable;
 
 //TODO a voir si bien fait la factory commesa
 public class BaseEntityFactory {

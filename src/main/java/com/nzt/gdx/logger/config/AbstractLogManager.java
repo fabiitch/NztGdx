@@ -1,14 +1,16 @@
 package com.nzt.gdx.logger.config;
 
 import com.badlogic.gdx.Gdx;
+import com.nzt.gdx.archi.AbstractMain;
 
-public abstract class LoggerConfig {
+public abstract class AbstractLogManager<M extends AbstractMain> {
 
 	public InputLoggerConfig inputLoggerConfig;
 
-	public LoggerConfig(int logLevel) {
+	public AbstractLogManager(int logLevel) {
 		Gdx.app.setLogLevel(logLevel);
 	}
+	
 
 	public abstract void configureTags();
 
