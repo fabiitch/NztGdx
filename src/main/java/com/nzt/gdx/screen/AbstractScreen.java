@@ -20,15 +20,15 @@ import com.nzt.gdx.graphics.renderers.NzShapeRenderer;
 public abstract class AbstractScreen<M extends AbstractMain> implements Screen {
 
     protected M main;
-    protected SpriteBatch sb;
+    protected SpriteBatch spriteBatch;
     protected NzShapeRenderer shapeRenderer;
-    protected ModelBatch mb;
+    protected ModelBatch modelBatch;
 
     public AbstractScreen(M main) {
         this.main = main;
-        this.sb = main.sb;
+        this.spriteBatch = main.sb;
         this.shapeRenderer = main.shapeRenderer;
-        this.mb = main.modelBatch;
+        this.modelBatch = main.modelBatch;
     }
 
     private final void clearScreen() {

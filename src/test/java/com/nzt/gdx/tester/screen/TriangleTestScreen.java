@@ -22,9 +22,9 @@ public class TriangleTestScreen extends BaseScreen {
 		shapeRenderer.rect(100, 200, 40, 40);
 		shapeRenderer.end();
 
-		sb.begin();
-		sb.draw(tt, 0, 0);
-		sb.end();
+		spriteBatch.begin();
+		spriteBatch.draw(tt, 0, 0);
+		spriteBatch.end();
 	}
 
 	@Override

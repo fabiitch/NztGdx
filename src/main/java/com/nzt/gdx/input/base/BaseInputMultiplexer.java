@@ -12,4 +12,8 @@ public class BaseInputMultiplexer extends InputMultiplexer{
 		queue = new InputEventQueue(inputHandler);
 		this.addProcessor(queue);
 	}
+
+	public void update() {
+		queue.drain();
+	}
 }
