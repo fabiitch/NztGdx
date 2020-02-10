@@ -1,11 +1,11 @@
 package com.nzt.gdx.utils;
 
 /**
- * Utiliy class for Gdx WIP
+ * Utility class for Gdx WIP
  * @author fabiitch
  *
  */
-public class NZ {
+public class NullChecker {
 
 	public static boolean isNull(Object object) {
 		return object == null;
