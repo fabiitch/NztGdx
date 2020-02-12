@@ -6,7 +6,7 @@ import com.badlogic.ashley.core.ComponentMapper;
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.ashley.core.Family;
 import com.badlogic.ashley.systems.SortedIteratingSystem;
-import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector3;
@@ -25,7 +25,7 @@ import com.nzt.gdx.logger.tag.count.TagCountLogger;
 public class Rendering2DSystem extends SortedIteratingSystem {
 
 	private SpriteBatch batch; // a reference to our spritebatch
-	private OrthographicCamera cam; // a reference to our camera
+	private Camera cam; // a reference to our camera
 
 	private Array<Entity> renderQueue; // an array used to allow sorting of images allowing us to draw images on top of
 										// each other
@@ -37,7 +37,7 @@ public class Rendering2DSystem extends SortedIteratingSystem {
 	private ComponentMapper<SpriteComponent> spriteMapper;
 	private ComponentMapper<TransformComponent> transformMapper;
 
-	public Rendering2DSystem(OrthographicCamera camera, SpriteBatch sb) {
+	public Rendering2DSystem(Camera camera, SpriteBatch sb) {
 		super(Family.all(TransformComponent.class, SpriteComponent.class).get(), new ZComparator());
 
 		this.cam = camera;

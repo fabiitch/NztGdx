@@ -5,6 +5,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.Disposable;
 
+//TODO revoir si c'est utile
 public class GameServiceManager implements Disposable {
 	private static Array<AbstractGameService> serviceList = new Array<AbstractGameService>();
 
