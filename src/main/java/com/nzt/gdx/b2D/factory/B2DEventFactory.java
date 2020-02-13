@@ -41,41 +41,41 @@ public class B2DEventFactory {
 		return (E) event;
 	}
 
-	public static BodyTypeEvent getBodyTypeEvent(BodyType bodyType) {
+	public static BodyTypeEvent bodyType(BodyType bodyType) {
 		BodyTypeEvent event = getEvent(B2DEventsEnum.BodyType);
 		event.bodyType = bodyType;
 		return event;
 	}
 
-	public static ActiveBodyEvent getActiveBodyEvent(boolean active) {
+	public static ActiveBodyEvent active(boolean active) {
 		ActiveBodyEvent event = getEvent(B2DEventsEnum.Active);
 		event.active = active;
 		return event;
 	}
 
-	public static DestroyBodyEvent getDestroyEvent() {
+	public static DestroyBodyEvent destroy() {
 		return getEvent(B2DEventsEnum.Destroy);
 	}
 
-	public static TransformBodyEvent getTransformBody(Vector2 position, float roation) {
+	public static TransformBodyEvent transform(Vector2 position, float roation) {
 		TransformBodyEvent event = getEvent(B2DEventsEnum.Transform);
 		event.positionTo = position;
 		return event;
 	}
 
-	public static TransformBodyEvent getTransformBody(float x, float y, float roation) {
+	public static TransformBodyEvent transform(float x, float y, float roation) {
 		TransformBodyEvent event = getEvent(B2DEventsEnum.Transform);
 		event.positionTo = new Vector2(x, y);
 		return event;
 	}
 
-	public static LinearVelocityEvent getLinearVelocity(Vector2 velocity) {
+	public static LinearVelocityEvent linearVelocity(Vector2 velocity) {
 		LinearVelocityEvent event = getEvent(B2DEventsEnum.LinearVelocity);
 		event.velocity = velocity;
 		return event;
 	}
 
-	public static LinearVelocityEvent getLinearVelocity(float velX, float velY) {
+	public static LinearVelocityEvent linearVelocity(float velX, float velY) {
 		LinearVelocityEvent event = getEvent(B2DEventsEnum.LinearVelocity);
 		event.velocity = new Vector2(velX, velY);
 		return event;

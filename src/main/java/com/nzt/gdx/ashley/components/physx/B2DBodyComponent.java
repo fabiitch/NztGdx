@@ -17,13 +17,18 @@ import com.nzt.gdx.b2D.events.B2DEvent;
  *
  */
 public class B2DBodyComponent extends BaseComponent {
-	
+
+	//TODO mettre la position en var pour eviter l'appel a la native
 	public Body body;
 	public Array<B2DEvent> eventArray;
 
 	public B2DBodyComponent() {
 		super();
 		eventArray = new Array<B2DEvent>();
+	}
+
+	public void addBox2DEvent(B2DEvent... events) {
+		eventArray.addAll(events);
 	}
 
 	public void addBox2DEvent(B2DEvent event) {
