@@ -12,6 +12,7 @@ public class TransformComponent extends PoolableComponent {
 	public final Vector3 position = new Vector3();
 	public float angle = 0.0f;
 
+	//TODO pas update pour les static (pas d'appel au native de B2D getposition
 	public TransformComponent() {
 		super();
 	}
