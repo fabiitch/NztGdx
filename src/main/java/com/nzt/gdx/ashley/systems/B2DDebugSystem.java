@@ -14,12 +14,12 @@ import com.nzt.gdx.logger.tag.count.TagCountLogger;
  * @author fabiitch
  *
  */
-public class PhysicsDebugSystem extends IteratingSystem {
+public class B2DDebugSystem extends IteratingSystem {
 	private Box2DDebugRenderer debugRenderer;
 	private World world;
 	private Camera camera;
 
-	public PhysicsDebugSystem(World world, Camera camera) {
+	public B2DDebugSystem(World world, Camera camera) {
 		super(Family.all().get());
 		debugRenderer = new Box2DDebugRenderer();
 		this.world = world;

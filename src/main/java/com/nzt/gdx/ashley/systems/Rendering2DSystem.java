@@ -12,7 +12,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.utils.Array;
 import com.nzt.gdx.ashley.comparators.ZComparator;
-import com.nzt.gdx.ashley.components.TransformComponent;
+import com.nzt.gdx.ashley.components.PositionComponent;
 import com.nzt.gdx.ashley.components.render.SpriteComponent;
 import com.nzt.gdx.logger.tag.LogTagBase;
 import com.nzt.gdx.logger.tag.count.TagCountLogger;
@@ -35,15 +35,15 @@ public class Rendering2DSystem extends SortedIteratingSystem {
 
 	// component mappers to get components from entities
 	private ComponentMapper<SpriteComponent> spriteMapper;
-	private ComponentMapper<TransformComponent> transformMapper;
+	private ComponentMapper<PositionComponent> transformMapper;
 
 	public Rendering2DSystem(Camera camera, SpriteBatch sb) {
-		super(Family.all(TransformComponent.class, SpriteComponent.class).get(), new ZComparator());
+		super(Family.all(PositionComponent.class, SpriteComponent.class).get(), new ZComparator());
 
 		this.cam = camera;
 		// creates out componentMappers
 		spriteMapper = ComponentMapper.getFor(SpriteComponent.class);
-		transformMapper = ComponentMapper.getFor(TransformComponent.class);
+		transformMapper = ComponentMapper.getFor(PositionComponent.class);
 
 		// create the array for sorting entities
 		renderQueue = new Array<Entity>();
@@ -64,7 +64,7 @@ public class Rendering2DSystem extends SortedIteratingSystem {
 		Vector3 position;
 		for (Entity entity : renderQueue) {
 			SpriteComponent spriteC = spriteMapper.get(entity);
-			TransformComponent p = transformMapper.get(entity);
+			PositionComponent p = transformMapper.get(entity);
 			if (spriteC == null) {
 				continue;
 			}
