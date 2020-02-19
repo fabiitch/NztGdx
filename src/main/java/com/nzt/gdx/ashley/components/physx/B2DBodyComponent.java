@@ -5,13 +5,13 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.Pools;
 import com.nzt.gdx.ashley.components.base.BaseComponent;
-import com.nzt.gdx.ashley.systems.PhysicsDebugSystem;
-import com.nzt.gdx.ashley.systems.PhysicsSystem;
+import com.nzt.gdx.ashley.systems.B2DDebugSystem;
+import com.nzt.gdx.ashley.systems.B2DSystem;
 import com.nzt.gdx.b2D.events.B2DEvent;
 
 /**
- * Box2D body component used by system : {@link PhysicsSystem} and
- * {@link PhysicsDebugSystem}
+ * Box2D body component used by system : {@link B2DSystem} and
+ * {@link B2DDebugSystem}
  * 
  * @author fabiitch
  *

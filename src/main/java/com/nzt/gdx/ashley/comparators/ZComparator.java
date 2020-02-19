@@ -4,13 +4,13 @@ import java.util.Comparator;
 
 import com.badlogic.ashley.core.ComponentMapper;
 import com.badlogic.ashley.core.Entity;
-import com.nzt.gdx.ashley.components.TransformComponent;
+import com.nzt.gdx.ashley.components.PositionComponent;
 
 public class ZComparator implements Comparator<Entity> {
-	private ComponentMapper<TransformComponent> transformM;
+	private ComponentMapper<PositionComponent> transformM;
 
 	public ZComparator() {
-		transformM = ComponentMapper.getFor(TransformComponent.class);
+		transformM = ComponentMapper.getFor(PositionComponent.class);
 	}
 
 	@Override

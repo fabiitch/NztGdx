@@ -4,11 +4,13 @@ import com.badlogic.ashley.core.Component;
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.ashley.core.PooledEngine;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g3d.ModelInstance;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
-import com.nzt.gdx.ashley.components.TransformComponent;
+import com.nzt.gdx.ashley.components.PositionComponent;
 import com.nzt.gdx.ashley.components.TransformersComponent;
 import com.nzt.gdx.ashley.components.physx.B2DBodyComponent;
+import com.nzt.gdx.ashley.components.render.ModelComponent;
 import com.nzt.gdx.ashley.components.render.ShapeArrayComponent;
 import com.nzt.gdx.ashley.components.render.SpriteComponent;
 import com.nzt.gdx.graphics.renderables.ShapeRenderable;
@@ -35,30 +37,30 @@ public class BaseEntityFactory {
 	protected Entity createTransformEntity() {
 		nextEntity = this.engine.createEntity();
 		engine.addEntity(nextEntity);
-		TransformComponent transformComponent = engine.createComponent(TransformComponent.class);
-		nextEntity.add(transformComponent);
+		PositionComponent positionComponent = engine.createComponent(PositionComponent.class);
+		nextEntity.add(positionComponent);
 		return nextEntity;
 	}
 
 	protected Entity createTransformEntity(float x, float y, float angle) {
 		nextEntity = this.engine.createEntity();
 		engine.addEntity(nextEntity);
-		TransformComponent transformComponent = engine.createComponent(TransformComponent.class);
-		transformComponent.position.x = x;
-		transformComponent.position.y = y;
-		transformComponent.angle = angle;
-		nextEntity.add(transformComponent);
+		PositionComponent positionComponent = engine.createComponent(PositionComponent.class);
+		positionComponent.position.x = x;
+		positionComponent.position.y = y;
+		positionComponent.angle = angle;
+		nextEntity.add(positionComponent);
 		return nextEntity;
 	}
 
 	protected Entity createTransformEntity(Vector2 position, float angle) {
 		nextEntity = this.engine.createEntity();
 		engine.addEntity(nextEntity);
-		TransformComponent transformComponent = engine.createComponent(TransformComponent.class);
-		transformComponent.position.x = position.x;
-		transformComponent.position.y = position.y;
-		transformComponent.angle = angle;
-		nextEntity.add(transformComponent);
+		PositionComponent positionComponent = engine.createComponent(PositionComponent.class);
+		positionComponent.position.x = position.x;
+		positionComponent.position.y = position.y;
+		positionComponent.angle = angle;
+		nextEntity.add(positionComponent);
 		return nextEntity;
 	}
 
@@ -82,6 +84,11 @@ public class BaseEntityFactory {
 		shapeArrayComponent.addShape(shapeRenderable);
 		nextEntity.add(shapeArrayComponent);
 		return shapeArrayComponent;
+	}
+
+	protected Component modelInstance(ModelInstance modelInstance) {
+		ModelComponent modelComponent = new ModelComponent(modelInstance);
+		return modelComponent;
 	}
 
 	protected Component transformers() {

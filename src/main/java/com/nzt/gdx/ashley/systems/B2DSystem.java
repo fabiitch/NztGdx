@@ -8,7 +8,7 @@ import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.Array;
-import com.nzt.gdx.ashley.components.TransformComponent;
+import com.nzt.gdx.ashley.components.PositionComponent;
 import com.nzt.gdx.ashley.components.physx.B2DBodyComponent;
 import com.nzt.gdx.logger.tag.LogTagBase;
 import com.nzt.gdx.logger.tag.count.TagCountLogger;
@@ -19,7 +19,7 @@ import com.nzt.gdx.logger.tag.count.TagCountLogger;
  * @author fabiitch
  *
  */
-public class PhysicsSystem extends IteratingSystem {
+public class B2DSystem extends IteratingSystem {
 
 	private static final float MAX_STEP_TIME = 1 / 60f;
 	private static float accumulator = 0f;
@@ -28,11 +28,11 @@ public class PhysicsSystem extends IteratingSystem {
 	private Array<Entity> bodiesQueue;
 
 	private ComponentMapper<B2DBodyComponent> b2dMapper = ComponentMapper.getFor(B2DBodyComponent.class);
-	private ComponentMapper<TransformComponent> transformMapper = ComponentMapper.getFor(TransformComponent.class);
+	private ComponentMapper<PositionComponent> transformMapper = ComponentMapper.getFor(PositionComponent.class);
 	private boolean calculRotation;
 
-	public PhysicsSystem(World world, boolean calculRotation) {
-		super(Family.all(B2DBodyComponent.class, TransformComponent.class).get());
+	public B2DSystem(World world, boolean calculRotation) {
+		super(Family.all(B2DBodyComponent.class, PositionComponent.class).get());
 		this.world = world;
 		this.bodiesQueue = new Array<Entity>();
 		this.calculRotation = calculRotation;
@@ -51,7 +51,7 @@ public class PhysicsSystem extends IteratingSystem {
 			}
 			// Entity Queue
 			for (Entity entity : bodiesQueue) {
-				TransformComponent tfm = transformMapper.get(entity);
+				PositionComponent tfm = transformMapper.get(entity);
 				B2DBodyComponent bodyComp = b2dMapper.get(entity);
 				Vector2 position = bodyComp.body.getPosition();
 				tfm.position.x = position.x;
