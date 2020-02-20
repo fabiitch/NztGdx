@@ -1,4 +1,4 @@
-package com.nzt.gdx.entitys.concept;
+package com.nzt.gdx.gameobjects.concept;
 
 public class UserDataWrapper {
 	

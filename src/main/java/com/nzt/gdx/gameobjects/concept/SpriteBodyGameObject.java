@@ -1,4 +1,4 @@
-package com.nzt.gdx.entitys.concept;
+package com.nzt.gdx.gameobjects.concept;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;

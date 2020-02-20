@@ -1,8 +1,8 @@
-package com.nzt.gdx.entitys.effects.impl;
+package com.nzt.gdx.gameobjects.effects.impl;
 
 import com.badlogic.gdx.utils.Array;
-import com.nzt.gdx.entitys.concept.AbstractGameObject;
-import com.nzt.gdx.entitys.effects.AbstractGameObjectEffect;
+import com.nzt.gdx.gameobjects.concept.AbstractGameObject;
+import com.nzt.gdx.gameobjects.effects.AbstractGameObjectEffect;
 
 public class DestroyGameObjectEffect implements AbstractGameObjectEffect{
 
