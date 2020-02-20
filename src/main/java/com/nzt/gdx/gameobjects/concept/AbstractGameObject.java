@@ -1,8 +1,8 @@
-package com.nzt.gdx.entitys.concept;
+package com.nzt.gdx.gameobjects.concept;
 
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.Disposable;
-import com.nzt.gdx.entitys.effects.AbstractGameObjectEffect;
+import com.nzt.gdx.gameobjects.effects.AbstractGameObjectEffect;
 
 public abstract class AbstractGameObject implements Disposable {
 	public String name;
