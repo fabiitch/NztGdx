@@ -13,10 +13,10 @@ not finish at all ^^
 
 ## Modules
 
-* **archi** : use it for
-* **ashley** : 
+* **archi** : use it for start project
+* **ecs** : ashley or artemis(not impl)
 * **assets** : 
-* **b2D** : 
+* **b2D** : box2D physics
 * **graphics** : 
 * **input** : 
 * **logger** : 
