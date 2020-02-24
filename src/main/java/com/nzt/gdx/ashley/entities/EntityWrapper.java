@@ -8,12 +8,12 @@ import com.badlogic.ashley.core.Entity;
  *
  */
 //TODO a voir l'utilité avec ashley
-public abstract class BaseGameObject {
+public abstract class EntityWrapper {
 
 	public Entity entity;
 	public String name;
 
-	public BaseGameObject(String name, Entity entity) {
+	public EntityWrapper(String name, Entity entity) {
 		this.name = name;
 		this.entity = entity;
 	}
