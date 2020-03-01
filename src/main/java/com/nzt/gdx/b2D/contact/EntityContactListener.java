@@ -21,13 +21,14 @@ public abstract class EntityContactListener implements ContactListener {
 	public void beginContact(Contact contact) {
 		Fixture fa = contact.getFixtureA();
 		Fixture fb = contact.getFixtureB();
-
 		Entity entityA = (Entity) fa.getBody().getUserData();
 		Entity entityB = (Entity) fb.getBody().getUserData();
-
 		TypeComponent typeA = typeCMapper.get(entityA);
 		TypeComponent typeB = typeCMapper.get(entityB);
-		debugEvent("Begin Contact", typeA, typeB);
+
+		final short maskA = typeA.mask;
+		final short maskB = typeB.mask;
+		debugEvent("Begin Contact",  typeA.name, typeB.name);
 
 		doBeginContact(entityA, entityB);
 	}
@@ -42,7 +43,10 @@ public abstract class EntityContactListener implements ContactListener {
 		Entity entityB = (Entity) fb.getBody().getUserData();
 		TypeComponent typeA = typeCMapper.get(entityA);
 		TypeComponent typeB = typeCMapper.get(entityB);
-		debugEvent("End Contact", typeA, typeB);
+
+		final short maskA = typeA.mask;
+		final short maskB = typeB.mask;
+		debugEvent("End Contact", typeA.name, typeB.name);
 	}
 
 	@Override
@@ -57,8 +61,8 @@ public abstract class EntityContactListener implements ContactListener {
 
 	}
 
-	private void debugEvent(String eventName, TypeComponent typeA, TypeComponent typeB) {
-		TagLogger.log(LogTagBase.B2D_CONTACT, eventName, typeA.name + " / " + typeB.name);
+	private void debugEvent(String eventName, String nameA, String nameB) {
+		TagLogger.log(LogTagBase.B2D_CONTACT, eventName, nameA + " / " + nameB);
 	}
 
 	/**
