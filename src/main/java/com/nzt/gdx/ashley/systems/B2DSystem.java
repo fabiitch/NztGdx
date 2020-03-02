@@ -32,7 +32,7 @@ public class B2DSystem extends IteratingSystem {
 	private boolean calculRotation;
 
 	public B2DSystem(World world, boolean calculRotation) {
-		super(Family.all(B2DBodyComponent.class, PositionComponent.class).get());
+		super(Family.all(B2DBodyComponent.class, PositionComponent.class).get(), BaseSystemsContants.B2D);
 		this.world = world;
 		this.bodiesQueue = new Array<Entity>();
 		this.calculRotation = calculRotation;

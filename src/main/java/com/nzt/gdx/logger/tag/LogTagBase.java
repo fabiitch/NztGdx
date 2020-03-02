@@ -14,6 +14,26 @@ public enum LogTagBase {
 
 	// SCREEN_ACTIONS is all except render(show, resize, pause, resume, hide)
 
+	public static void activeBasesTags() {
+		for (LogTagBase tag : LogTagBase.values()) {
+			TagLogger.activeTag(tag);
+		}
+	}
+
+	public static void activeBasesTagsExcept(LogTagBase... tags) {
+		Array<LogTagBase> array = new Array<LogTagBase>(tags);
+		for (LogTagBase tag : LogTagBase.values()) {
+			if (tags != null && !array.contains(tag, true))
+				TagLogger.activeTag(tag);
+		}
+	}
+
+	public static void activeBaseTag(LogTagBase... tags) {
+		for (LogTagBase tag : tags) {
+			TagLogger.activeTag(tag);
+		}
+	}
+
 	public static void desactiveBasesTags() {
 		for (LogTagBase tag : LogTagBase.values()) {
 			TagLogger.desactiveTag(tag);
@@ -28,7 +48,7 @@ public enum LogTagBase {
 		}
 	}
 
-	public static void desactive(LogTagBase... tags) {
+	public static void desactiveBaseTag(LogTagBase... tags) {
 		for (LogTagBase tag : tags) {
 			TagLogger.desactiveTag(tag);
 		}

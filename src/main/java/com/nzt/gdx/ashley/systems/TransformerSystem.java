@@ -11,7 +11,7 @@ public class TransformerSystem extends IteratingSystem {
 	private ComponentMapper<TransformersComponent> tcMapper = ComponentMapper.getFor(TransformersComponent.class);
 
 	public TransformerSystem() {
-		super(Family.one(TransformersComponent.class).get());
+		super(Family.one(TransformersComponent.class).get(),BaseSystemsContants.CALCUL);
 	}
 
 	@Override

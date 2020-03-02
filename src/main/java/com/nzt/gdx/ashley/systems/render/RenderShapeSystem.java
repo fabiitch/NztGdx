@@ -1,4 +1,4 @@
-package com.nzt.gdx.ashley.systems;
+package com.nzt.gdx.ashley.systems.render;
 
 import com.badlogic.ashley.core.ComponentMapper;
 import com.badlogic.ashley.core.Entity;

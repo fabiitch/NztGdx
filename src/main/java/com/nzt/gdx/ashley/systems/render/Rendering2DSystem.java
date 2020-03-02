@@ -1,4 +1,4 @@
-package com.nzt.gdx.ashley.systems;
+package com.nzt.gdx.ashley.systems.render;
 
 import java.util.Comparator;
 
@@ -11,9 +11,11 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.utils.Array;
+import com.badlogic.gdx.utils.compression.lzma.Base;
 import com.nzt.gdx.ashley.comparators.ZComparator;
 import com.nzt.gdx.ashley.components.PositionComponent;
 import com.nzt.gdx.ashley.components.render.SpriteComponent;
+import com.nzt.gdx.ashley.systems.BaseSystemsContants;
 import com.nzt.gdx.logger.tag.LogTagBase;
 import com.nzt.gdx.logger.tag.count.TagCountLogger;
 
@@ -38,7 +40,7 @@ public class Rendering2DSystem extends SortedIteratingSystem {
 	private ComponentMapper<PositionComponent> transformMapper;
 
 	public Rendering2DSystem(Camera camera, SpriteBatch sb) {
-		super(Family.all(PositionComponent.class, SpriteComponent.class).get(), new ZComparator());
+		super(Family.all(PositionComponent.class, SpriteComponent.class).get(), new ZComparator(), BaseSystemsContants.RENDER);
 
 		this.cam = camera;
 		// creates out componentMappers

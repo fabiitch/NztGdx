@@ -3,7 +3,7 @@ package com.nzt.gdx.ashley.components.render;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.nzt.gdx.ashley.components.base.BaseComponent;
-import com.nzt.gdx.ashley.systems.Rendering2DSystem;
+import com.nzt.gdx.ashley.systems.render.Rendering2DSystem;
 
 /**
  * Base component for sprite used by {@link Rendering2DSystem}
