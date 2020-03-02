@@ -1,52 +1,38 @@
 package com.nzt.gdx.b2D.contact;
 
-import com.badlogic.ashley.core.ComponentMapper;
-import com.badlogic.ashley.core.Entity;
 import com.badlogic.gdx.physics.box2d.Contact;
 import com.badlogic.gdx.physics.box2d.ContactImpulse;
 import com.badlogic.gdx.physics.box2d.ContactListener;
 import com.badlogic.gdx.physics.box2d.Fixture;
 import com.badlogic.gdx.physics.box2d.Manifold;
-import com.nzt.gdx.ashley.components.PositionComponent;
-import com.nzt.gdx.ashley.components.TypeComponent;
-import com.nzt.gdx.ashley.components.physx.B2DBodyComponent;
 import com.nzt.gdx.ashley.entities.EntityWrapper;
 import com.nzt.gdx.logger.tag.LogTagBase;
 import com.nzt.gdx.logger.tag.TagLogger;
 
-public abstract class EntityContactListener implements ContactListener {
-	protected ComponentMapper<TypeComponent> typeCMapper = ComponentMapper.getFor(TypeComponent.class);
+public abstract class EntityContactListener<E extends EntityWrapper> implements ContactListener {
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public void beginContact(Contact contact) {
 		Fixture fa = contact.getFixtureA();
 		Fixture fb = contact.getFixtureB();
-		Entity entityA = (Entity) fa.getBody().getUserData();
-		Entity entityB = (Entity) fb.getBody().getUserData();
-		TypeComponent typeA = typeCMapper.get(entityA);
-		TypeComponent typeB = typeCMapper.get(entityB);
 
-		final short maskA = typeA.mask;
-		final short maskB = typeB.mask;
-		debugEvent("Begin Contact",  typeA.name, typeB.name);
-
+		E entityA = (E) fa.getBody().getUserData();
+		E entityB = (E) fb.getBody().getUserData();
+		debugEvent("Begin Contact", entityA, entityB);
+		
 		doBeginContact(entityA, entityB);
 	}
 
-	public abstract void doBeginContact(Entity entityA, Entity entityB);
+	public abstract void doBeginContact(E entityA, E entityB);
 
 	@Override
 	public void endContact(Contact contact) {
 		Fixture fa = contact.getFixtureA();
 		Fixture fb = contact.getFixtureB();
-		Entity entityA = (Entity) fa.getBody().getUserData();
-		Entity entityB = (Entity) fb.getBody().getUserData();
-		TypeComponent typeA = typeCMapper.get(entityA);
-		TypeComponent typeB = typeCMapper.get(entityB);
-
-		final short maskA = typeA.mask;
-		final short maskB = typeB.mask;
-		debugEvent("End Contact", typeA.name, typeB.name);
+		EntityWrapper entityA = (EntityWrapper) fa.getBody().getUserData();
+		EntityWrapper entityB = (EntityWrapper) fb.getBody().getUserData();
+		debugEvent("End Contact", entityA, entityB);
 	}
 
 	@Override
@@ -61,8 +47,8 @@ public abstract class EntityContactListener implements ContactListener {
 
 	}
 
-	private void debugEvent(String eventName, String nameA, String nameB) {
-		TagLogger.log(LogTagBase.B2D_CONTACT, eventName, nameA + " / " + nameB);
+	private void debugEvent(String eventName, EntityWrapper entityA, EntityWrapper entityB) {
+		TagLogger.log(LogTagBase.B2D_CONTACT, eventName, entityA.name + " / " + entityB.name);
 	}
 
 	/**
@@ -82,7 +68,7 @@ public abstract class EntityContactListener implements ContactListener {
 		return false;
 	}
 
-	protected <W extends E> W getGameObject(Class<W> classAsk, E userData1, Object userData2) {
+	protected <W extends E> W getGameObject(Class<W> classAsk, E userData1, E userData2) {
 		if (userData1.getClass() == classAsk) {
 			return classAsk.cast(userData1);
 		} else {

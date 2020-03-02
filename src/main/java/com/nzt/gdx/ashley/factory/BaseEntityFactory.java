@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.g3d.ModelInstance;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.nzt.gdx.ashley.components.PositionComponent;
 import com.nzt.gdx.ashley.components.TransformersComponent;
+import com.nzt.gdx.ashley.components.TypeComponent;
 import com.nzt.gdx.ashley.components.physx.B2DBodyComponent;
 import com.nzt.gdx.ashley.components.render.ModelComponent;
 import com.nzt.gdx.ashley.components.render.ShapeArrayComponent;
@@ -17,7 +18,7 @@ import com.nzt.gdx.graphics.renderables.ShapeRenderable;
 //TODO a voir si bien fait la factory commesa
 public class BaseEntityFactory {
 	protected PooledEngine engine;
-	private Entity nextEntity; //TODO bof lui en private
+	private Entity nextEntity; // TODO bof lui en private
 
 	public BaseEntityFactory(PooledEngine engine) {
 		this.engine = engine;
@@ -25,6 +26,10 @@ public class BaseEntityFactory {
 
 	public Entity build() {
 		return nextEntity;
+	}
+
+	protected <T extends Component> T createComponent(Class<T> componentType) {
+		return this.engine.createComponent(componentType);
 	}
 
 	protected Entity createSimpleEntity() {
@@ -62,6 +67,13 @@ public class BaseEntityFactory {
 		positionComponent.position.z = z;
 		positionComponent.angle = angle;
 		return positionComponent;
+	}
+
+	protected TypeComponent type(short mask, String name) {
+		TypeComponent typeComponent = engine.createComponent(TypeComponent.class);
+		typeComponent.mask = mask;
+		typeComponent.name = name;
+		return typeComponent;
 	}
 
 	protected SpriteComponent sprite(Texture texture, float width, float height) {

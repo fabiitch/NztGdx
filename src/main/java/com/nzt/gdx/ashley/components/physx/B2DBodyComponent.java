@@ -5,8 +5,8 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.Pools;
 import com.nzt.gdx.ashley.components.base.BaseComponent;
-import com.nzt.gdx.ashley.systems.B2DDebugSystem;
 import com.nzt.gdx.ashley.systems.B2DSystem;
+import com.nzt.gdx.ashley.systems.render.B2DDebugSystem;
 import com.nzt.gdx.b2D.events.B2DEvent;
 
 /**
