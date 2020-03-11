@@ -7,7 +7,6 @@ import com.badlogic.ashley.core.Entity;
  * @author fabiitch
  *
  */
-//TODO a voir l'utilité avec ashley
 public abstract class EntityWrapper {
 
 	public Entity entity;
