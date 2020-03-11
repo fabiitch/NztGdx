@@ -16,7 +16,6 @@ package com.nzt.gdx.b2D.contact;
 //		}
 //		return false;
 //	}
-//
 //	public static boolean testContactSingle(GameObjectType type1, UserDataWrapper userData1,
 //			UserDataWrapper userData2) {
 //		if (type1 == userData1.bodyGameObject.gameObjectType || type1 == userData2.bodyGameObject.gameObjectType) {
