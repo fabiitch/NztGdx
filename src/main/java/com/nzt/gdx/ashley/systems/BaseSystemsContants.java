@@ -6,7 +6,8 @@ public class BaseSystemsContants {
 	public static final int CALCUL = 1;
 
 	// 20 render
-	public static final int B2D_DEBUG = 20;
 	public static final int RENDER = 21;
 
+	//debug
+	public static final int B2D_DEBUG = 30;
 }
