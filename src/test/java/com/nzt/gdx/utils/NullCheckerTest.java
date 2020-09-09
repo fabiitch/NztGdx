@@ -35,4 +35,5 @@ public class NullCheckerTest {
 		assertFalse(NullChecker.isNotNull(nullObject, nullObject));
 		assertTrue(NullChecker.isNotNull(notNullObject, notNullObject));
 	}
+	
 }
