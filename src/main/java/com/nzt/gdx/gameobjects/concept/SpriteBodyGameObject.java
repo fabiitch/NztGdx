@@ -12,6 +12,7 @@ import com.badlogic.gdx.physics.box2d.Body;
 
 import net.dermetfan.gdx.graphics.g2d.AnimatedSprite;
 
+
 public abstract class SpriteBodyGameObject extends AbstractBodyGameObject {
 	public Sprite sprite;
 	protected boolean isVisible = true;

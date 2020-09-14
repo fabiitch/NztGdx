@@ -65,4 +65,5 @@ dependencies {
     api "com.badlogicgames.gdx:gdx-bullet:$gdxVersion"
     api "com.badlogicgames.box2dlights:box2dlights:$box2DLightsVersion"
     api "com.esotericsoftware.spine:spine-libgdx:3.6.53.1"
+    api "net.dermetfan.libgdx-utils:libgdx-utils:0.13.4"
 }
