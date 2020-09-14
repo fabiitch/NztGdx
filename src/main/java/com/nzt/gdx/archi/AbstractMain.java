@@ -47,6 +47,7 @@ public abstract class AbstractMain extends Game {
 
 	public void createRenderObjects() {
 		this.sb = new SpriteBatch();
+		sb.enableBlending();
 		this.shapeRenderer = new NzShapeRenderer();
 		this.shapeRenderer.setAutoShapeType(true);
 		this.modelBatch = new ModelBatch();
