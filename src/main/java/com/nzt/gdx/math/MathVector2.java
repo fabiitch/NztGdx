@@ -19,4 +19,13 @@ public class MathVector2 {
 	public static Vector2 directionTo(Vector2 from, Vector2 to) {
 		return from.cpy().sub(to).nor();
 	}
+	
+	public static double getAngleDegreesOfVector(Vector2 vector) {
+		return Math.atan2(vector.y, vector.x) * 180.0d / Math.PI;
+	}
+
+	public static double getAngleRadianOfVector(Vector2 vector) {
+		return Math.atan2(vector.y, vector.x);
+	}
+
 }
