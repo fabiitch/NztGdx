@@ -22,7 +22,6 @@ public abstract class EntityContactListener implements ContactListener {
 		Entity entityA = (Entity) fa.getBody().getUserData();
 		Entity entityB = (Entity) fb.getBody().getUserData();
 		debugEvent("Begin Contact", entityA, entityB);
-
 		doBeginContact(entityA, entityB);
 	}
 

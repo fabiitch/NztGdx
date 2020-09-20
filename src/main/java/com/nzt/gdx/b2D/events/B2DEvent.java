@@ -6,5 +6,5 @@ import com.badlogic.gdx.utils.Pool.Poolable;
 
 public interface B2DEvent extends Poolable {
 
-	public void apply(World world, Body body);
+    void apply(World world, Body body);
 }

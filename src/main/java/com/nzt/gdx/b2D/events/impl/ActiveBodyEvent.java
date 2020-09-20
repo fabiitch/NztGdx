@@ -17,8 +17,6 @@ public class ActiveBodyEvent implements B2DEvent {
 	@Override
 	public void apply(World world, Body body) {
 		body.setActive(active);
-		world.setDestructionListener(new DestructionListener() {
-		});
 	}
 
 }
