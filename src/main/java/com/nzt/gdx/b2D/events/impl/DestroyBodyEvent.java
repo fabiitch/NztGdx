@@ -10,6 +10,7 @@ public class DestroyBodyEvent implements B2DEvent {
 	public void apply(World world, Body body) {
 		world.destroyBody(body);
 		body = null;
+		System.err.println("DESTROY");
 	}
 
 	@Override
