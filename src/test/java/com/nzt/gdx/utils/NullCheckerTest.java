@@ -7,6 +7,7 @@ import org.junit.Test;
 
 /**
  * Test class for {@link NullChecker}
+ * 
  * @author fabiitch
  *
  */

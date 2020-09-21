@@ -65,7 +65,7 @@ public class BaseEntityFactory {
 		positionComponent.position.x = x;
 		positionComponent.position.y = y;
 		positionComponent.position.z = z;
-		positionComponent.angle = angle;
+		positionComponent.angleRadian = angle;
 		return positionComponent;
 	}
 
