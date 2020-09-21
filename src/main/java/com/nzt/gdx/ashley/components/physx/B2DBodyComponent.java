@@ -1,6 +1,6 @@
 package com.nzt.gdx.ashley.components.physx;
 
-import com.badlogic.ashley.core.Entity;
+import com.badlogic.ashley.core.ComponentMapper;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.Array;
@@ -18,12 +18,14 @@ import com.nzt.gdx.b2D.events.B2DEvent;
  */
 public class B2DBodyComponent extends PoolableComponent {
 
-    public Body body;
-    public Array<B2DEvent> eventArray;
+	public static ComponentMapper<B2DBodyComponent> mapper = ComponentMapper.getFor(B2DBodyComponent.class);
+	
+	public Body body;
+	public Array<B2DEvent> eventArray;
 
-    public B2DBodyComponent() {
-        super();
-        eventArray = new Array<>();
+	public B2DBodyComponent() {
+		super();
+		eventArray = new Array<>();
     }
 
     @Override

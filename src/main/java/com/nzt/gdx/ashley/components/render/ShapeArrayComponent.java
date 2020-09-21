@@ -1,5 +1,6 @@
 package com.nzt.gdx.ashley.components.render;
 
+import com.badlogic.ashley.core.ComponentMapper;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.utils.Array;
 import com.nzt.gdx.ashley.components.base.PoolableComponent;
@@ -7,6 +8,8 @@ import com.nzt.gdx.graphics.renderables.ShapeRenderable;
 
 public class ShapeArrayComponent extends PoolableComponent {
 
+	public static ComponentMapper<ShapeArrayComponent> mapper = ComponentMapper.getFor(ShapeArrayComponent.class);
+	
 	public Array<ShapeRenderable> renderableArray;
 
 	public ShapeArrayComponent() {

@@ -8,15 +8,15 @@ import com.nzt.gdx.ashley.components.TransformersComponent;
 
 public class TransformerSystem extends IteratingSystem {
 
-	private ComponentMapper<TransformersComponent> tcMapper = ComponentMapper.getFor(TransformersComponent.class);
+	private ComponentMapper<TransformersComponent> transformMapper = TransformersComponent.mapper;
 
 	public TransformerSystem() {
-		super(Family.one(TransformersComponent.class).get(),BaseSystemsContants.CALCUL);
+		super(Family.one(TransformersComponent.class).get(), BaseSystemsContants.CALCUL);
 	}
 
 	@Override
 	protected void processEntity(Entity entity, float deltaTime) {
-		tcMapper.get(entity).update(deltaTime);
+		transformMapper.get(entity).update(deltaTime);
 	}
 
 }

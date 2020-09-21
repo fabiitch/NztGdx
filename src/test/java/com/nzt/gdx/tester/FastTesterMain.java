@@ -41,7 +41,7 @@ public class FastTesterMain extends AbstractMain {
 	}
 
 	@Override
-	public AbstractLogManager<AbstractMain> createLoggerConfig() {
+	public AbstractLogManager<AbstractMain> createLogManager() {
 		return null;
 	}
 
