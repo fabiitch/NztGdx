@@ -43,13 +43,6 @@ public class AbstractBodyFactoryService extends AbstractGameService {
 		this.b2DConverter = new B2DConverterHelper(ppm);
 	}
 
-	/**
-	 * create rectangle body from rect position
-	 * 
-	 * @param rectangle
-	 * @param fixtureDefWrapper
-	 * @return
-	 */
 	protected Body createRectangleBody(Rectangle rectangle, FixtureDefWrapper fixtureDefWrapper) {
 		if (fixtureDefWrapper.toPPM)
 			rectangle = b2DConverter.toPPM(rectangle);
@@ -67,22 +60,13 @@ public class AbstractBodyFactoryService extends AbstractGameService {
 		return body;
 	}
 
-	/**
-	 * create rect body from position
-	 * 
-	 * @param position
-	 * @param witdh
-	 * @param height
-	 * @param fixtureDefWrapper
-	 * @return
-	 */
 	protected Body createRectangleBody(Vector2 position, float witdh, float height,
 			FixtureDefWrapper fixtureDefWrapper) {
 		if (fixtureDefWrapper.toPPM) {
 			witdh = b2DConverter.toPPM(witdh);
 			height = b2DConverter.toPPM(height);
 		}
-		
+
 		BodyDef bdef = new BodyDef();
 		PolygonShape shape = new PolygonShape();
 		FixtureDef fdef = fixtureDefWrapper.apply();
@@ -91,20 +75,12 @@ public class AbstractBodyFactoryService extends AbstractGameService {
 		shape.setAsBox(witdh / 2, height / 2);
 		fdef.shape = shape;
 		Body body = world.createBody(bdef);
-		body.createFixture(fdef);
+//		body.createFixture(fdef);
 		TagLogger.logBlock(LogTagBase.B2D_CREATION, NzLoggableUtils.create(bdef.position, witdh, height),
 				fixtureDefWrapper);
 		return body;
 	}
 
-	/**
-	 * create circle body
-	 * 
-	 * @param position
-	 * @param rayon
-	 * @param fixtureDefWrapper
-	 * @return
-	 */
 	protected Body createCircleBody(Vector2 position, float rayon, FixtureDefWrapper fixtureDefWrapper) {
 		if (fixtureDefWrapper.toPPM) {
 			rayon = b2DConverter.toPPM(rayon);

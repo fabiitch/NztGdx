@@ -9,6 +9,7 @@ import com.nzt.gdx.logger.utils.NzLoggable;
 public class FixtureDefWrapper extends FixtureDef implements NzLoggable {
 	public BodyType bodyType;
 	public boolean toPPM = false;
+	public float rotation = 0f;
 
 	public FixtureDefWrapper(BodyType bodyType) {
 		super();
@@ -87,6 +88,11 @@ public class FixtureDefWrapper extends FixtureDef implements NzLoggable {
 
 	public FixtureDefWrapper setToPPM(boolean toPPM) {
 		this.toPPM = toPPM;
+		return this;
+	}
+
+	public FixtureDefWrapper setRotation(float rotation) {
+		this.rotation = rotation;
 		return this;
 	}
 
