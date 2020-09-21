@@ -1,19 +1,30 @@
 package com.nzt.gdx.b2D.contact;
 
 import com.badlogic.ashley.core.ComponentMapper;
+import com.badlogic.ashley.core.Engine;
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.gdx.physics.box2d.Contact;
 import com.badlogic.gdx.physics.box2d.ContactImpulse;
 import com.badlogic.gdx.physics.box2d.ContactListener;
 import com.badlogic.gdx.physics.box2d.Fixture;
 import com.badlogic.gdx.physics.box2d.Manifold;
+import com.nzt.gdx.ashley.components.RemoveEntityComponent;
 import com.nzt.gdx.ashley.components.TypeComponent;
+import com.nzt.gdx.ashley.components.physx.B2DBodyComponent;
+import com.nzt.gdx.b2D.factory.B2DEventFactory;
 import com.nzt.gdx.logger.tag.LogTagBase;
 import com.nzt.gdx.logger.tag.TagLogger;
 
 public abstract class EntityContactListener implements ContactListener {
 
-	private ComponentMapper<TypeComponent> typeMapper = ComponentMapper.getFor(TypeComponent.class);
+	public ComponentMapper<TypeComponent> typeMapper = TypeComponent.mapper;
+	public ComponentMapper<B2DBodyComponent> b2dMapper = B2DBodyComponent.mapper;
+	
+	public Engine engine;
+
+	public EntityContactListener(Engine engine) {
+		this.engine = engine;
+	}
 
 	public void beginContact(Contact contact) {
 		Fixture fa = contact.getFixtureA();
@@ -31,6 +42,7 @@ public abstract class EntityContactListener implements ContactListener {
 	public void endContact(Contact contact) {
 		Fixture fa = contact.getFixtureA();
 		Fixture fb = contact.getFixtureB();
+
 		Entity entityA = (Entity) fa.getBody().getUserData();
 		Entity entityB = (Entity) fb.getBody().getUserData();
 		debugEvent("End Contact", entityA, entityB);
@@ -76,6 +88,12 @@ public abstract class EntityContactListener implements ContactListener {
 		} else {
 			return userData2;
 		}
+	}
+
+	public void destroyEntity(Entity entity){
+		this.engine.createComponent(RemoveEntityComponent.class);
+		entity.add(this.engine.createComponent(RemoveEntityComponent.class));
+		b2dMapper.get(entity).addBox2DEvent(B2DEventFactory.destroy());
 	}
 
 }
