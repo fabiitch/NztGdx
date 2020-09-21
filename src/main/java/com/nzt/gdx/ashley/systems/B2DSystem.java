@@ -27,8 +27,8 @@ public class B2DSystem extends IteratingSystem {
 	private World world;
 	private Array<Entity> bodiesQueue;
 
-	private ComponentMapper<B2DBodyComponent> b2dMapper = ComponentMapper.getFor(B2DBodyComponent.class);
-	private ComponentMapper<PositionComponent> transformMapper = ComponentMapper.getFor(PositionComponent.class);
+	private ComponentMapper<B2DBodyComponent> b2dMapper = B2DBodyComponent.mapper;
+	private ComponentMapper<PositionComponent> positionMapper = PositionComponent.mapper;
 	private boolean calculRotation;
 
 	public B2DSystem(World world, boolean calculRotation) {
@@ -51,7 +51,7 @@ public class B2DSystem extends IteratingSystem {
 			}
 			// Entity Queue
 			for (Entity entity : bodiesQueue) {
-				PositionComponent tfm = transformMapper.get(entity);
+				PositionComponent tfm = positionMapper.get(entity);
 				B2DBodyComponent bodyComp = b2dMapper.get(entity);
 				Vector2 position = bodyComp.body.getPosition();
 				tfm.position.x = position.x;

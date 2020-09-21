@@ -12,7 +12,7 @@ public class RenderShapeSystem extends IteratingSystem {
 
 	private ShapeRenderer shapeRenderer;
 	private Array<Entity> queue;
-	private ComponentMapper<ShapeArrayComponent> shapeArrayMapper = ComponentMapper.getFor(ShapeArrayComponent.class);
+	private ComponentMapper<ShapeArrayComponent> shapeArrayMapper = ShapeArrayComponent.mapper;
 
 	public RenderShapeSystem(ShapeRenderer shapeRenderer) {
 		super(Family.one(ShapeArrayComponent.class).get());

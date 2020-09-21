@@ -35,16 +35,13 @@ public class Rendering2DSystem extends SortedIteratingSystem {
 	// transfromComponent
 
 	// component mappers to get components from entities
-	private ComponentMapper<SpriteComponent> spriteMapper;
-	private ComponentMapper<PositionComponent> transformMapper;
+	private ComponentMapper<SpriteComponent> spriteMapper = SpriteComponent.mapper;
+	private ComponentMapper<PositionComponent> positionMapper = PositionComponent.mapper;
 
 	public Rendering2DSystem(Camera camera, SpriteBatch sb) {
 		super(Family.all(PositionComponent.class, SpriteComponent.class).get(), new ZComparator(), BaseSystemsContants.RENDER);
 
 		this.cam = camera;
-		// creates out componentMappers
-		spriteMapper = ComponentMapper.getFor(SpriteComponent.class);
-		transformMapper = ComponentMapper.getFor(PositionComponent.class);
 
 		// create the array for sorting entities
 		renderQueue = new Array<Entity>();
@@ -65,7 +62,7 @@ public class Rendering2DSystem extends SortedIteratingSystem {
 		Vector3 position;
 		for (Entity entity : renderQueue) {
 			SpriteComponent spriteC = spriteMapper.get(entity);
-			PositionComponent p = transformMapper.get(entity);
+			PositionComponent p = positionMapper.get(entity);
 			if (spriteC == null) {
 				continue;
 			}
