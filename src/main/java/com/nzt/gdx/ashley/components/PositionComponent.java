@@ -23,6 +23,7 @@ public class PositionComponent extends PoolableComponent {
 
 	@Override
 	public void reset() {
+		System.err.println("calleeed");
 		this.position.set(0, 0, 0);
 		this.angleRadian = 0f;
 

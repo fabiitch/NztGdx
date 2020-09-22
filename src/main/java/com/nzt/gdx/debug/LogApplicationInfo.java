@@ -1,4 +1,4 @@
-package com.nzt.gdx.logger;
+package com.nzt.gdx.debug;
 
 import com.badlogic.gdx.Gdx;
 import com.nzt.gdx.logger.tag.LogTagBase;
