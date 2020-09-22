@@ -20,6 +20,7 @@ not finish at all ^^
 * **graphics** : 
 * **input** : 
 * **logger** : 
+* **debug** : Java heap, OpenGl, Box2D
 * **math** : 
 * **net** : 
 * **screen** : 
