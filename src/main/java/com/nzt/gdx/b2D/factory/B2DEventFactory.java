@@ -7,6 +7,7 @@ import com.badlogic.gdx.utils.Pools;
 import com.nzt.gdx.b2D.events.B2DEvent;
 import com.nzt.gdx.b2D.events.B2DEventsEnum;
 import com.nzt.gdx.b2D.events.impl.ActiveBodyEvent;
+import com.nzt.gdx.b2D.events.impl.AngularVelocityEvent;
 import com.nzt.gdx.b2D.events.impl.BodyTypeEvent;
 import com.nzt.gdx.b2D.events.impl.DestroyBodyEvent;
 import com.nzt.gdx.b2D.events.impl.LinearVelocityEvent;
@@ -33,6 +34,9 @@ public class B2DEventFactory {
 		case LinearVelocity:
 			event = Pools.obtain(LinearVelocityEvent.class);
 			break;
+		case AngularVelocity:
+			event = Pools.obtain(AngularVelocityEvent.class);
+			break;
 		default:
 			event = null;
 			Gdx.app.error("Box2DEvent", eventType + "not impl");
@@ -57,15 +61,17 @@ public class B2DEventFactory {
 		return getEvent(B2DEventsEnum.Destroy);
 	}
 
-	public static TransformBodyEvent transform(Vector2 position, float roation) {
+	public static TransformBodyEvent transform(Vector2 position, float rotation) {
 		TransformBodyEvent event = getEvent(B2DEventsEnum.Transform);
 		event.positionTo = position;
+		event.rotation = rotation;
 		return event;
 	}
 
-	public static TransformBodyEvent transform(float x, float y, float roation) {
+	public static TransformBodyEvent transform(float x, float y, float rotation) {
 		TransformBodyEvent event = getEvent(B2DEventsEnum.Transform);
 		event.positionTo = new Vector2(x, y);
+		event.rotation = rotation;
 		return event;
 	}
 
@@ -78,6 +84,12 @@ public class B2DEventFactory {
 	public static LinearVelocityEvent linearVelocity(float velX, float velY) {
 		LinearVelocityEvent event = getEvent(B2DEventsEnum.LinearVelocity);
 		event.velocity = new Vector2(velX, velY);
+		return event;
+	}
+
+	public static AngularVelocityEvent angularVelocity(float velocity) {
+		AngularVelocityEvent event = getEvent(B2DEventsEnum.AngularVelocity);
+		event.velocity = velocity;
 		return event;
 	}
 }

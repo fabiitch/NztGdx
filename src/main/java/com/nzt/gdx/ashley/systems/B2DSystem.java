@@ -58,7 +58,7 @@ public class B2DSystem extends IteratingSystem {
 				tfm.position.y = position.y;
 
 				if (calculRotation)
-					tfm.angleRadian = bodyComp.body.getAngle() * MathUtils.radiansToDegrees;
+					tfm.angleRadian = bodyComp.body.getAngle();
 
 				bodyComp.processAllEvents(world);
 			}

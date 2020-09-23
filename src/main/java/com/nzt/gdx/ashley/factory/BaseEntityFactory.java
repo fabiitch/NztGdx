@@ -18,7 +18,7 @@ import com.nzt.gdx.graphics.renderables.ShapeRenderable;
 //TODO a voir si bien fait la factory commesa
 public class BaseEntityFactory {
 	protected PooledEngine engine;
-	private Entity nextEntity; // TODO bof lui en private
+	protected Entity nextEntity; // TODO bof lui en private
 
 	public BaseEntityFactory(PooledEngine engine) {
 		this.engine = engine;
