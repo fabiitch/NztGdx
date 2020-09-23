@@ -5,8 +5,10 @@ public class InputLoggerConfig {
 	public boolean logKeyDown, logKeyUp, logKeyTyped, logTouchDown, logTouchUp, logTouchDragged, logMouseMoved,
 			logScrolled;
 
+	public boolean debugKeyActivated = false;
+
 	public InputLoggerConfig() {
-		//all is false
+		// all is false
 	}
 
 	public InputLoggerConfig(boolean logKey, boolean logTouch, boolean logTouchOrMouseMoved, boolean logScroll) {

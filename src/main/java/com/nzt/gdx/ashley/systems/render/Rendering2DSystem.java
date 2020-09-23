@@ -9,6 +9,7 @@ import com.badlogic.ashley.systems.SortedIteratingSystem;
 import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.utils.Array;
 import com.nzt.gdx.ashley.comparators.ZComparator;
@@ -20,6 +21,7 @@ import com.nzt.gdx.logger.tag.count.TagCountLogger;
 
 /**
  * used for rendering with SB
+ * 
  * @author fabiitch
  *
  */
@@ -39,7 +41,8 @@ public class Rendering2DSystem extends SortedIteratingSystem {
 	private ComponentMapper<PositionComponent> positionMapper = PositionComponent.mapper;
 
 	public Rendering2DSystem(Camera camera, SpriteBatch sb) {
-		super(Family.all(PositionComponent.class, SpriteComponent.class).get(), new ZComparator(), BaseSystemsContants.RENDER);
+		super(Family.all(PositionComponent.class, SpriteComponent.class).get(), new ZComparator(),
+				BaseSystemsContants.RENDER);
 
 		this.cam = camera;
 
@@ -70,6 +73,7 @@ public class Rendering2DSystem extends SortedIteratingSystem {
 			position = p.position;
 
 			sprite.setPosition(position.x - sprite.getWidth() / 2, position.y - sprite.getHeight() / 2);
+			sprite.setRotation(MathUtils.radiansToDegrees * p.angleRadian);
 			if (spriteC.visible)
 				sprite.draw(batch);
 		}
