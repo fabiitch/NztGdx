@@ -1,8 +1,8 @@
 package com.nzt.gdx.debug;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.physics.box2d.World;
-import com.nzt.gdx.logger.tag.LogTagBase;
-import com.nzt.gdx.logger.tag.TagLogger;
+import com.nzt.gdx.logger.LoggerUtils;
 
 //TODO a revoir le champ world en static
 public class B2DDebug {
@@ -14,12 +14,15 @@ public class B2DDebug {
 	}
 
 	public static void logInfo() {
-		TagLogger.error(LogTagBase.B2D_INFO, "Body count =" + world.getBodyCount());
-		TagLogger.error(LogTagBase.B2D_INFO, "Contact Count = " + world.getContactCount());
-		TagLogger.error(LogTagBase.B2D_INFO, "Fixture count = " + world.getFixtureCount());
-		TagLogger.error(LogTagBase.B2D_INFO, "Joint count = " + world.getJointCount());
-		TagLogger.error(LogTagBase.B2D_INFO, "Proxy Count = " + world.getProxyCount());
-		TagLogger.error(LogTagBase.B2D_INFO, "World VelocityThreshold = " + World.getVelocityThreshold());
+		LoggerUtils.logSeparator("Box2D Debug");
+		Gdx.app.log("Body count", world.getBodyCount() + "");
+		Gdx.app.log("Contact count", world.getContactCount() + "");
+		Gdx.app.log("Fixture count", world.getFixtureCount() + "");
+		Gdx.app.log("Joint count", world.getJointCount() + "");
+		Gdx.app.log("Proxy count", world.getProxyCount() + "");
+		Gdx.app.log("World VelocityThreshold", World.getVelocityThreshold() + "");
+		
+		LoggerUtils.logSeparator("Box2D Debug End");
 	}
 
 }
