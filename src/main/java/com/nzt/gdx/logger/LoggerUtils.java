@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 
 //TODO pourri
 public class LoggerUtils {
+	
 	public static void debugBlock(String blockName, String... objectToLogs) {
 		Gdx.app.debug(blockName, "Start == " + blockName);
 		for (int i = 0, n = objectToLogs.length; i < n; i += 2) {
@@ -35,7 +36,7 @@ public class LoggerUtils {
 	}
 
 	public static void logSeparator(String name) {
-		Gdx.app.log("==================", name);
+		Gdx.app.log("========  " + name + "  =======", "");
 	}
 
 	public static void logSeparator() {
@@ -45,6 +46,12 @@ public class LoggerUtils {
 	public static void logSeparator(int number) {
 		for (int i = 0; i < number; i++) {
 			Gdx.app.log("==================", "==================");
+		}
+	}
+
+	public static void logSeparator(String name, int number) {
+		for (int i = 0; i < number; i++) {
+			Gdx.app.log("========  " + name + "  =======", "");
 		}
 	}
 }

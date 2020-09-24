@@ -14,21 +14,21 @@ public class PoolsDebug {
 	/**
 	 * debug pools
 	 */
-	public static void debugPools() {
-		ObjectMap<Class, Pool> typePools = null;
+	public static <T> void debugPools() {
+		ObjectMap<Class<T>, Pool<T>> typePools = null;
 		try {
 			Field poolsMap = Pools.class.getDeclaredField("typePools");
 			poolsMap.setAccessible(true);
-			typePools = (ObjectMap<Class, Pool>) poolsMap.get(null);
+			typePools = (ObjectMap<Class<T>, Pool<T>>) poolsMap.get(null);
 		} catch (Exception e) {
 			Gdx.app.error("PoolsDebug", "error when get pools");
 		}
 		LoggerUtils.logSeparator("Pools Debug");
-		for (Entry<Class, Pool> entry : typePools.entries()) {
-			Class key = entry.key;
-			Pool pool = entry.value;
+		for (Entry<Class<T>, Pool<T>> entry : typePools.entries()) {
+			Class<T> key = entry.key;
+			Pool<T> pool = entry.value;
 			Gdx.app.log(key.getSimpleName(), "max=" + pool.max + ", peak=" + pool.peak);
 		}
-		LoggerUtils.logSeparator("Pools Debug");
+		LoggerUtils.logSeparator("Pools Debug End");
 	}
 }
