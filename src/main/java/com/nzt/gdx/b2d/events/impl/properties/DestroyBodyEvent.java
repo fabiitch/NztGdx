@@ -1,8 +1,8 @@
-package com.nzt.gdx.b2D.events.impl;
+package com.nzt.gdx.b2d.events.impl.properties;
 
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.World;
-import com.nzt.gdx.b2D.events.B2DEvent;
+import com.nzt.gdx.b2d.events.B2DEvent;
 
 public class DestroyBodyEvent implements B2DEvent {
 
@@ -10,7 +10,6 @@ public class DestroyBodyEvent implements B2DEvent {
 	public void apply(World world, Body body) {
 		world.destroyBody(body);
 		body = null;
-		System.err.println("DESTROY");
 	}
 
 	@Override

@@ -1,4 +1,4 @@
-package com.nzt.gdx.b2D.utils;
+package com.nzt.gdx.b2d.utils;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Rectangle;

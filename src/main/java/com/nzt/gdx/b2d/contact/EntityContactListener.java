@@ -1,4 +1,4 @@
-package com.nzt.gdx.b2D.contact;
+package com.nzt.gdx.b2d.contact;
 
 import com.badlogic.ashley.core.ComponentMapper;
 import com.badlogic.ashley.core.Engine;
@@ -11,7 +11,7 @@ import com.badlogic.gdx.physics.box2d.Manifold;
 import com.nzt.gdx.ashley.components.RemoveEntityComponent;
 import com.nzt.gdx.ashley.components.TypeComponent;
 import com.nzt.gdx.ashley.components.physx.B2DBodyComponent;
-import com.nzt.gdx.b2D.factory.B2DEventFactory;
+import com.nzt.gdx.b2d.factory.B2DEventFactory;
 import com.nzt.gdx.logger.tag.LogTagBase;
 import com.nzt.gdx.logger.tag.TagLogger;
 

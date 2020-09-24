@@ -1,4 +1,4 @@
-package com.nzt.gdx.b2D.contact;
+package com.nzt.gdx.b2d.contact;
 
 import com.badlogic.gdx.physics.box2d.Contact;
 import com.badlogic.gdx.physics.box2d.ContactImpulse;
