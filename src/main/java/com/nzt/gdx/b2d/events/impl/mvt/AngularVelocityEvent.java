@@ -1,8 +1,8 @@
-package com.nzt.gdx.b2D.events.impl;
+package com.nzt.gdx.b2d.events.impl.mvt;
 
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.World;
-import com.nzt.gdx.b2D.events.B2DEvent;
+import com.nzt.gdx.b2d.events.B2DEvent;
 
 public class AngularVelocityEvent implements B2DEvent {
 
@@ -10,7 +10,7 @@ public class AngularVelocityEvent implements B2DEvent {
 
 	@Override
 	public void reset() {
-		velocity = 0f;
+		this.velocity = 0f;
 	}
 
 	@Override
