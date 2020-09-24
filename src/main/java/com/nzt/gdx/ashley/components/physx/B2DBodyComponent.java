@@ -8,7 +8,7 @@ import com.badlogic.gdx.utils.Pools;
 import com.nzt.gdx.ashley.components.base.PoolableComponent;
 import com.nzt.gdx.ashley.systems.B2DSystem;
 import com.nzt.gdx.ashley.systems.render.B2DDebugSystem;
-import com.nzt.gdx.b2D.events.B2DEvent;
+import com.nzt.gdx.b2d.events.B2DEvent;
 
 /**
  * Box2D body component used by system : {@link B2DSystem} and

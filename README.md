@@ -14,12 +14,12 @@ not finish at all ^^
 ## Modules
 
 * **archi** : use it for start project
-* **ecs** : ashley or artemis(not impl)
+* **ecs** : ashley    //artemis soon ?
 * **assets** : 
-* **b2D** : box2D physics
+* **b2d** : Box2D physics
 * **graphics** : 
 * **input** : 
-* **logger** : 
+* **logger** : utils for log (TagLogger)
 * **debug** : Java heap, OpenGl, Box2D
 * **math** : 
 * **net** : 
