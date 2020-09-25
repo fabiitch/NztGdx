@@ -10,6 +10,10 @@ public class TransformBodyEvent implements B2DEvent {
 	public Vector2 positionTo;
 	public float rotation;
 
+	public TransformBodyEvent() {
+		positionTo = new Vector2();
+	}
+
 	@Override
 	public void apply(World world, Body body) {
 		body.setTransform(positionTo, rotation);

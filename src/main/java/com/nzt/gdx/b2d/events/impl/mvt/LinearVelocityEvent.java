@@ -9,6 +9,10 @@ public class LinearVelocityEvent implements B2DEvent {
 
 	public Vector2 velocity;
 
+	public LinearVelocityEvent() {
+		velocity = new Vector2();
+	}
+
 	@Override
 	public void reset() {
 		this.velocity.setZero();

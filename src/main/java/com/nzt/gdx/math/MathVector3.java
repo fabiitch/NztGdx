@@ -1,5 +1,6 @@
 package com.nzt.gdx.math;
 
+import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector3;
 
 public class MathVector3 {
@@ -20,11 +21,11 @@ public class MathVector3 {
 		return from.cpy().sub(to).nor();
 	}
 	
-	public static double getAngleDegreesOfVector(Vector3 vector) {
-		return Math.atan2(vector.y, vector.x) * 180.0d / Math.PI;
+	public static float getAngleDegreesOfVector(Vector3 vector) {
+		return MathUtils.atan2(vector.y, vector.x) * MathUtils.radDeg;
 	}
 
-	public static double getAngleRadianOfVector(Vector3 vector) {
-		return Math.atan2(vector.y, vector.x);
+	public static float getAngleRadianOfVector(Vector3 vector) {
+		return MathUtils.atan2(vector.y, vector.x);
 	}
 }
