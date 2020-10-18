@@ -16,23 +16,23 @@ import com.nzt.gdx.screen.manager.AbstractScreenManager;
  *
  * @author fabiitch
  */
-public abstract class AbstractMain extends Game {
+public abstract class AbstractMain<M extends AbstractMain> extends Game {
 
     public SpriteBatch sb;
     public NzShapeRenderer shapeRenderer;
     public ModelBatch modelBatch;
 
     public AbstractAssetsManager assetsManager;
-    public AbstractScreenManager<AbstractMain> screenManager;
-    public AbstractLogManager<AbstractMain> logManager;
+    public AbstractScreenManager<M> screenManager;
+    public AbstractLogManager<M> logManager;
 
     public abstract void doCreate();
 
-    public abstract AbstractScreenManager<AbstractMain> createScreenManager();
+    public abstract AbstractScreenManager<M> createScreenManager();
 
     public abstract AbstractAssetsManager createAssetsManager();
 
-    public abstract AbstractLogManager<AbstractMain> createLogManager();
+    public abstract AbstractLogManager<M> createLogManager();
 
     @Override
     public void create() {
@@ -43,7 +43,7 @@ public abstract class AbstractMain extends Game {
         LogApplicationInfo.logInit();
         AutoProxy.init();
         doCreate();
-        screenManager.startApplication(this);
+        screenManager.startApplication((M) this);
     }
 
     public void createRenderObjects() {
