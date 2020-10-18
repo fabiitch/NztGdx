@@ -15,13 +15,16 @@ public class B2DDebug {
 
 	public static void logInfo() {
 		LoggerUtils.logSeparator("Box2D Debug");
-		Gdx.app.log("Body count", world.getBodyCount() + "");
-		Gdx.app.log("Contact count", world.getContactCount() + "");
-		Gdx.app.log("Fixture count", world.getFixtureCount() + "");
-		Gdx.app.log("Joint count", world.getJointCount() + "");
-		Gdx.app.log("Proxy count", world.getProxyCount() + "");
-		Gdx.app.log("World VelocityThreshold", World.getVelocityThreshold() + "");
-		
+		if (world != null) {
+			Gdx.app.log("Body count", world.getBodyCount() + "");
+			Gdx.app.log("Contact count", world.getContactCount() + "");
+			Gdx.app.log("Fixture count", world.getFixtureCount() + "");
+			Gdx.app.log("Joint count", world.getJointCount() + "");
+			Gdx.app.log("Proxy count", world.getProxyCount() + "");
+			Gdx.app.log("World VelocityThreshold", World.getVelocityThreshold() + "");
+		}else {
+			Gdx.app.log("Box2D Debug", "No World Created");
+		}
 		LoggerUtils.logSeparator("Box2D Debug End");
 	}
 
