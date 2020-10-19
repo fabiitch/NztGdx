@@ -4,7 +4,7 @@ import java.util.Comparator;
 
 import com.badlogic.ashley.core.ComponentMapper;
 import com.badlogic.ashley.core.Entity;
-import com.nzt.gdx.ashley.components.PositionComponent;
+import com.nzt.gdx.ashley.components.mvt.PositionComponent;
 
 public class ZComparator implements Comparator<Entity> {
 	private ComponentMapper<PositionComponent> transformM;

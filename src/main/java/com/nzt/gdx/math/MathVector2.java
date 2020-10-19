@@ -27,5 +27,6 @@ public class MathVector2 {
 	public static double getAngleRadianOfVector(Vector2 vector) {
 		return Math.atan2(vector.y, vector.x);
 	}
+	
 
 }

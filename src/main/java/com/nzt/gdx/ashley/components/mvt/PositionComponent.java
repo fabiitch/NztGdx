@@ -1,8 +1,8 @@
-package com.nzt.gdx.ashley.components;
+package com.nzt.gdx.ashley.components.mvt;
 
 import com.badlogic.ashley.core.ComponentMapper;
 import com.badlogic.gdx.math.Vector3;
-import com.nzt.gdx.ashley.components.base.PoolableComponent;
+import com.nzt.gdx.ashley.components.abstracts.PoolableComponent;
 
 /**
  * Position component, contains V3 position and rotation.
@@ -23,8 +23,7 @@ public class PositionComponent extends PoolableComponent {
 
 	@Override
 	public void reset() {
-		System.err.println("calleeed");
-		this.position.set(0, 0, 0);
+		this.position.setZero();
 		this.angleRadian = 0f;
 
 	}
