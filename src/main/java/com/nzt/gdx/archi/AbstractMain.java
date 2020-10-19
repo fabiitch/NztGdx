@@ -16,7 +16,7 @@ import com.nzt.gdx.screen.manager.AbstractScreenManager;
  *
  * @author fabiitch
  */
-public abstract class AbstractMain<M extends AbstractMain> extends Game {
+public abstract class AbstractMain<M extends AbstractMain<?>> extends Game {
 
     public SpriteBatch sb;
     public NzShapeRenderer shapeRenderer;
