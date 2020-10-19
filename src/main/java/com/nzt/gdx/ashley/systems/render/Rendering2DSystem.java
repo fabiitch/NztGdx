@@ -13,7 +13,7 @@ import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.utils.Array;
 import com.nzt.gdx.ashley.comparators.ZComparator;
-import com.nzt.gdx.ashley.components.PositionComponent;
+import com.nzt.gdx.ashley.components.mvt.PositionComponent;
 import com.nzt.gdx.ashley.components.render.SpriteComponent;
 import com.nzt.gdx.ashley.systems.BaseSystemsContants;
 import com.nzt.gdx.logger.tag.LogTagBase;
