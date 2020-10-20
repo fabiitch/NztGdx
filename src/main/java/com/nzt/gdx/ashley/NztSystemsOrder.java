@@ -1,6 +1,6 @@
-package com.nzt.gdx.ashley.systems;
+package com.nzt.gdx.ashley;
 
-public class BaseSystemsContants {
+public class NztSystemsOrder {
 	//1 calcul
 	public static final int B2D = 1;
 	public static final int CALCUL = 2;

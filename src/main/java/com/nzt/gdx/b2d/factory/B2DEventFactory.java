@@ -32,7 +32,7 @@ public class B2DEventFactory {
 	//TODO reflechir au destroy, oblige a passé le world pour tous les autre event
 
 	@SuppressWarnings("unchecked")
-	public static <E extends B2DEvent> E getEvent(B2DEventsEnum eventType) {
+	private static <E extends B2DEvent> E getEvent(B2DEventsEnum eventType) {
 		B2DEvent event;
 		switch (eventType) {
 		case Active:
@@ -66,7 +66,7 @@ public class B2DEventFactory {
 			event = Pools.obtain(AngularImpulseBodyEvent.class);
 			break;
 		case AngularDamping:
-			event = Pools.obtain(AngularVelocityEvent.class);
+			event = Pools.obtain(AngularDampingBodyEvent.class);
 			break;
 		case Torque:
 			event = Pools.obtain(TorqueBodyEvent.class);
