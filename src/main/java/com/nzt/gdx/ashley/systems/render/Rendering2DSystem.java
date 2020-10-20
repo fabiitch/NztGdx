@@ -15,7 +15,7 @@ import com.badlogic.gdx.utils.Array;
 import com.nzt.gdx.ashley.comparators.ZComparator;
 import com.nzt.gdx.ashley.components.mvt.PositionComponent;
 import com.nzt.gdx.ashley.components.render.SpriteComponent;
-import com.nzt.gdx.ashley.systems.BaseSystemsContants;
+import com.nzt.gdx.ashley.NztSystemsOrder;
 import com.nzt.gdx.logger.tag.LogTagBase;
 import com.nzt.gdx.logger.tag.count.TagCountLogger;
 
@@ -39,17 +39,18 @@ public class Rendering2DSystem extends SortedIteratingSystem {
 	// component mappers to get components from entities
 	private ComponentMapper<SpriteComponent> spriteMapper = SpriteComponent.mapper;
 	private ComponentMapper<PositionComponent> positionMapper = PositionComponent.mapper;
-
-	public Rendering2DSystem(Camera camera, SpriteBatch sb) {
+	public Rendering2DSystem(Camera camera, SpriteBatch sb, int order) {
 		super(Family.all(PositionComponent.class, SpriteComponent.class).get(), new ZComparator(),
-				BaseSystemsContants.RENDER);
-
+				order);
 		this.cam = camera;
-
 		// create the array for sorting entities
 		renderQueue = new Array<Entity>();
 
 		this.batch = sb; // set our batch to the one supplied in constructor
+	}
+
+	public Rendering2DSystem(Camera camera, SpriteBatch sb) {
+		this(camera, sb, NztSystemsOrder.RENDER);
 	}
 
 	@Override
