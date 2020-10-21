@@ -28,10 +28,10 @@ public class B2DCalcul {
 		return fromPos.cpy().sub(to).nor();
 	}
 
-	public static float getBodySpeed(Body body) {
+	public static double getBodySpeed(Body body) {
 		float x = body.getLinearVelocity().x;
 		float y = body.getLinearVelocity().y;
-		return (float) Math.sqrt(x * x + y * y);
+		return Math.sqrt(x * x + y * y);
 	}
 
 	public static float dst(Body body1, Body body2) {
