@@ -31,7 +31,7 @@ public abstract class SimpleClickInputHandler extends BaseInputHandler{
 	}
 
 	@Override
-	public boolean doScrolled(int amount) {
+	public boolean doScrolled(float amountX, float amountY) {
 		return false;
 	}
 

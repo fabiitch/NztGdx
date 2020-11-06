@@ -106,11 +106,11 @@ public abstract class BaseInputHandler implements InputProcessor {
 	public abstract boolean doMouseMoved(int screenX, int screenY);
 
 	@Override
-	public boolean scrolled(int amount) {
+	public boolean scrolled(float amountX, float amountY) {
 		if (loggerConfig.logScrolled)
-			TagLogger.log(LogTagBase.INPUT, "scrolled", "amount:" + amount);
-		return doScrolled(amount);
+			TagLogger.log(LogTagBase.INPUT, "scrolled", "amountX:" + amountX + " / amoutY:" + amountY);
+		return doScrolled(amountX, amountY);
 	}
 
-	public abstract boolean doScrolled(int amount);
+	public abstract boolean doScrolled(float amountX, float amountY);
 }
