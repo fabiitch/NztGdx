@@ -9,47 +9,47 @@ import com.badlogic.gdx.utils.Array;
  * @author fabiitch
  *
  */
-public enum LogTagBase {
+public enum LogTagsBase {
 	INIT, NET, PERFORMANCE, SYSTEMS, INPUT, B2D_INFO, B2D_CONTACT, B2D_CREATION, SCREEN_ACTIONS;
 
 	// SCREEN_ACTIONS is all except render(show, resize, pause, resume, hide)
 
 	public static void activeBasesTags() {
-		for (LogTagBase tag : LogTagBase.values()) {
+		for (LogTagsBase tag : LogTagsBase.values()) {
 			TagLogger.activeTag(tag);
 		}
 	}
 
-	public static void activeBasesTagsExcept(LogTagBase... tags) {
-		Array<LogTagBase> array = new Array<LogTagBase>(tags);
-		for (LogTagBase tag : LogTagBase.values()) {
+	public static void activeBasesTagsExcept(LogTagsBase... tags) {
+		Array<LogTagsBase> array = new Array<LogTagsBase>(tags);
+		for (LogTagsBase tag : LogTagsBase.values()) {
 			if (tags != null && !array.contains(tag, true))
 				TagLogger.activeTag(tag);
 		}
 	}
 
-	public static void activeBaseTag(LogTagBase... tags) {
-		for (LogTagBase tag : tags) {
+	public static void activeBaseTag(LogTagsBase... tags) {
+		for (LogTagsBase tag : tags) {
 			TagLogger.activeTag(tag);
 		}
 	}
 
 	public static void desactiveBasesTags() {
-		for (LogTagBase tag : LogTagBase.values()) {
+		for (LogTagsBase tag : LogTagsBase.values()) {
 			TagLogger.desactiveTag(tag);
 		}
 	}
 
-	public static void desactiveBasesTagsExcept(LogTagBase... tags) {
-		Array<LogTagBase> array = new Array<LogTagBase>(tags);
-		for (LogTagBase tag : LogTagBase.values()) {
+	public static void desactiveBasesTagsExcept(LogTagsBase... tags) {
+		Array<LogTagsBase> array = new Array<LogTagsBase>(tags);
+		for (LogTagsBase tag : LogTagsBase.values()) {
 			if (tags != null && !array.contains(tag, true))
 				TagLogger.desactiveTag(tag);
 		}
 	}
 
-	public static void desactiveBaseTag(LogTagBase... tags) {
-		for (LogTagBase tag : tags) {
+	public static void desactiveBaseTag(LogTagsBase... tags) {
+		for (LogTagsBase tag : tags) {
 			TagLogger.desactiveTag(tag);
 		}
 	}

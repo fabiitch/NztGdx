@@ -10,6 +10,7 @@ public abstract class AbstractLogManager<M extends AbstractMain> {
 	public AbstractLogManager(int logLevel) {
 		Gdx.app.setLogLevel(logLevel);
 		this.inputLoggerConfig = configureInputLog();
+		configureTags();
 	}
 
 	public abstract void configureTags();

@@ -6,7 +6,7 @@ import com.badlogic.gdx.physics.box2d.ContactListener;
 import com.badlogic.gdx.physics.box2d.Fixture;
 import com.badlogic.gdx.physics.box2d.Manifold;
 import com.nzt.gdx.ashley.entities.EntityWrapper;
-import com.nzt.gdx.logger.tag.LogTagBase;
+import com.nzt.gdx.logger.tag.LogTagsBase;
 import com.nzt.gdx.logger.tag.TagLogger;
 
 public abstract class EntityContactListenerOld<E extends EntityWrapper> implements ContactListener {
@@ -48,7 +48,7 @@ public abstract class EntityContactListenerOld<E extends EntityWrapper> implemen
 	}
 
 	private void debugEvent(String eventName, EntityWrapper entityA, EntityWrapper entityB) {
-		TagLogger.log(LogTagBase.B2D_CONTACT, eventName, entityA.name + " / " + entityB.name);
+		TagLogger.log(LogTagsBase.B2D_CONTACT, eventName, entityA.name + " / " + entityB.name);
 	}
 
 	/**

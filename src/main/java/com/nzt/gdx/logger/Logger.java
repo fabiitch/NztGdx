@@ -4,29 +4,28 @@ import com.badlogic.gdx.Gdx;
 
 public class Logger {
 
-
     public static void startBlockDebug(String tag) {
-        Gdx.app.debug(tag, "Start == " + tag);
+        Gdx.app.debug(tag, "Start =======================");
     }
 
     public static void startBlockLog(String tag) {
-        Gdx.app.log(tag, "Start == " + tag);
+        Gdx.app.log(tag, "Start =======================");
     }
 
     public static void startBlockError(String tag) {
-        Gdx.app.error(tag, "Start == " + tag);
+        Gdx.app.error(tag, "Start =======================");
     }
 
     public static void endBlockDebug(String tag) {
-        Gdx.app.error(tag, "End == " + tag);
+        Gdx.app.error(tag, "End =======================");
     }
 
     public static void endBlockLog(String tag) {
-        Gdx.app.debug(tag, "End == " + tag);
+        Gdx.app.debug(tag, "End =======================");
     }
 
     public static void endBlockError(String tag) {
-        Gdx.app.log(tag, "End == " + tag);
+        Gdx.app.log(tag, "End =======================");
     }
 
 

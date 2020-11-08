@@ -4,7 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
-import com.nzt.gdx.logger.tag.LogTagBase;
+import com.nzt.gdx.logger.tag.LogTagsBase;
 import com.nzt.gdx.logger.tag.TagLogger;
 
 public class B2DConverterHelper {
@@ -12,7 +12,7 @@ public class B2DConverterHelper {
 
 	public B2DConverterHelper(float ppm) {
 		this.PPM = ppm;
-		TagLogger.log(LogTagBase.INIT, "Box2DConverter PPM = " + PPM);
+		TagLogger.log(LogTagsBase.INIT, "Box2DConverter PPM = " + PPM);
 	}
 
 	public float heightScreenToPPM() {

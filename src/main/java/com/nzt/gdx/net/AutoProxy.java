@@ -7,7 +7,7 @@ import java.net.URI;
 import java.util.Iterator;
 import java.util.List;
 
-import com.nzt.gdx.logger.tag.LogTagBase;
+import com.nzt.gdx.logger.tag.LogTagsBase;
 import com.nzt.gdx.logger.tag.TagLogger;
 
 /**
@@ -25,14 +25,14 @@ public class AutoProxy {
 			for (Iterator<Proxy> iter = l.iterator(); iter.hasNext();) {
 
 				Proxy proxy = iter.next();
-				TagLogger.error(LogTagBase.NET, "Proxy", "type : " + proxy.type());
+				TagLogger.error(LogTagsBase.NET, "Proxy", "type : " + proxy.type());
 
 				InetSocketAddress addr = (InetSocketAddress) proxy.address();
 				if (addr == null) {
-					TagLogger.error(LogTagBase.NET, "Proxy", "no proxy");
+					TagLogger.error(LogTagsBase.NET, "Proxy", "no proxy");
 				} else {
-					TagLogger.error(LogTagBase.NET, "Proxy", "hostname : " + addr.getHostName());
-					TagLogger.error(LogTagBase.NET, "port : " + addr.getPort());
+					TagLogger.error(LogTagsBase.NET, "Proxy", "hostname : " + addr.getHostName());
+					TagLogger.error(LogTagsBase.NET, "port : " + addr.getPort());
 				}
 			}
 		} catch (Exception e) {

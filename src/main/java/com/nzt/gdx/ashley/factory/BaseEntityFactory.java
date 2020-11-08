@@ -16,7 +16,7 @@ import com.nzt.gdx.ashley.components.render.ShapeArrayComponent;
 import com.nzt.gdx.ashley.components.render.SpriteComponent;
 import com.nzt.gdx.graphics.renderables.ShapeRenderable;
 
-//TODO a voir si bien fait la factory commesa
+//TODO a voir si bien fait la factory comme sa
 public class BaseEntityFactory {
 	protected PooledEngine engine;
 	protected Entity nextEntity; // TODO bof lui en private
