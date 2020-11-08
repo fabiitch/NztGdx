@@ -12,88 +12,95 @@ import com.nzt.gdx.ashley.components.RemoveEntityComponent;
 import com.nzt.gdx.ashley.components.TypeComponent;
 import com.nzt.gdx.ashley.components.physx.B2DBodyComponent;
 import com.nzt.gdx.b2d.factory.B2DEventFactory;
-import com.nzt.gdx.logger.tag.LogTagBase;
+import com.nzt.gdx.b2d.utils.B2DUtils;
+import com.nzt.gdx.logger.tag.LogTagsBase;
 import com.nzt.gdx.logger.tag.TagLogger;
 
 public abstract class EntityContactListener implements ContactListener {
 
-	public ComponentMapper<TypeComponent> typeMapper = TypeComponent.mapper;
-	public ComponentMapper<B2DBodyComponent> b2dMapper = B2DBodyComponent.mapper;
-	
-	public Engine engine;
+    public ComponentMapper<TypeComponent> typeMapper = TypeComponent.mapper;
+    public ComponentMapper<B2DBodyComponent> b2dMapper = B2DBodyComponent.mapper;
 
-	public EntityContactListener(Engine engine) {
-		this.engine = engine;
-	}
+    public Engine engine;
 
-	public void beginContact(Contact contact) {
-		Fixture fa = contact.getFixtureA();
-		Fixture fb = contact.getFixtureB();
+    public EntityContactListener(Engine engine) {
+        this.engine = engine;
+    }
 
-		Entity entityA = (Entity) fa.getBody().getUserData();
-		Entity entityB = (Entity) fb.getBody().getUserData();
-		debugEvent("Begin Contact", entityA, entityB);
-		doBeginContact(entityA, entityB);
-	}
+    public void beginContact(Contact contact) {
+        Fixture fa = contact.getFixtureA();
+        Fixture fb = contact.getFixtureB();
 
-	public abstract void doBeginContact(Entity entityA, Entity entityB);
+        Entity entityA = (Entity) fa.getBody().getUserData();
+        Entity entityB = (Entity) fb.getBody().getUserData();
+        debugEvent("Begin Contact", entityA, entityB);
+        debugContact(contact);
+        doBeginContact(contact, entityA, entityB);
+    }
 
-	@Override
-	public void endContact(Contact contact) {
-		Fixture fa = contact.getFixtureA();
-		Fixture fb = contact.getFixtureB();
+    public abstract void doBeginContact(Contact contact, Entity entityA, Entity entityB);
 
-		Entity entityA = (Entity) fa.getBody().getUserData();
-		Entity entityB = (Entity) fb.getBody().getUserData();
-		debugEvent("End Contact", entityA, entityB);
-	}
+    @Override
+    public void endContact(Contact contact) {
+        Fixture fa = contact.getFixtureA();
+        Fixture fb = contact.getFixtureB();
 
-	@Override
-	public void preSolve(Contact contact, Manifold oldManifold) {
-		// TODO Auto-generated method stub
+        Entity entityA = (Entity) fa.getBody().getUserData();
+        Entity entityB = (Entity) fb.getBody().getUserData();
+        debugEvent("End Contact", entityA, entityB);
+    }
 
-	}
+    @Override
+    public void preSolve(Contact contact, Manifold oldManifold) {
+        // TODO Auto-generated method stub
 
-	@Override
-	public void postSolve(Contact contact, ContactImpulse impulse) {
-		// TODO Auto-generated method stub
+    }
 
-	}
+    @Override
+    public void postSolve(Contact contact, ContactImpulse impulse) {
+        // TODO Auto-generated method stub
 
-	private void debugEvent(String eventName, Entity entityA, Entity entityB) {
-		TagLogger.log(LogTagBase.B2D_CONTACT, eventName,
-				typeMapper.get(entityA).name + " / " + typeMapper.get(entityB).name);
-	}
+    }
 
-	/**
-	 * test contact between object
-	 * 
-	 * @param class1
-	 * @param class2
-	 * @param entityA
-	 * @param entityB
-	 * @return
-	 */
-	protected boolean testContact(int type1, int type2, Entity entityA, Entity entityB) {
-		if ((typeMapper.get(entityA).mask == type1 && typeMapper.get(entityB).mask == type2)
-				|| (typeMapper.get(entityA).mask == type2 && typeMapper.get(entityB).mask == type1)) {
-			return true;
-		}
-		return false;
-	}
 
-	protected Entity getEntity(int type, Entity userData1, Entity userData2) {
-		if (typeMapper.get(userData1).mask == type) {
-			return userData1;
-		} else {
-			return userData2;
-		}
-	}
+    protected void debugEvent(String eventName, Entity entityA, Entity entityB) {
+        TagLogger.log(LogTagsBase.B2D_CONTACT, eventName,
+                typeMapper.get(entityA).name + " / " + typeMapper.get(entityB).name);
+    }
 
-	public void destroyEntity(Entity entity){
-		this.engine.createComponent(RemoveEntityComponent.class);
-		entity.add(this.engine.createComponent(RemoveEntityComponent.class));
-		b2dMapper.get(entity).addBox2DEvent(B2DEventFactory.destroy());
-	}
+    /**
+     * test contact between object
+     *
+     * @param type1
+     * @param type2
+     * @param entityA
+     * @param entityB
+     * @return
+     */
+    protected boolean testContact(int type1, int type2, Entity entityA, Entity entityB) {
+        if ((typeMapper.get(entityA).mask == type1 && typeMapper.get(entityB).mask == type2)
+                || (typeMapper.get(entityA).mask == type2 && typeMapper.get(entityB).mask == type1)) {
+            return true;
+        }
+        return false;
+    }
+
+    protected Entity getEntity(int type, Entity userData1, Entity userData2) {
+        if (typeMapper.get(userData1).mask == type) {
+            return userData1;
+        } else {
+            return userData2;
+        }
+    }
+
+    protected void debugContact(Contact contact) {
+        B2DUtils.debugContact(contact);
+    }
+
+    public void destroyEntity(Entity entity) {
+        this.engine.createComponent(RemoveEntityComponent.class);
+        entity.add(this.engine.createComponent(RemoveEntityComponent.class));
+        b2dMapper.get(entity).addBox2DEvent(B2DEventFactory.destroy());
+    }
 
 }

@@ -1,7 +1,7 @@
 package com.nzt.gdx.screen;
 
 import com.nzt.gdx.archi.AbstractMain;
-import com.nzt.gdx.logger.tag.LogTagBase;
+import com.nzt.gdx.logger.tag.LogTagsBase;
 import com.nzt.gdx.logger.tag.TagLogger;
 
 /**
@@ -18,34 +18,34 @@ public abstract class BaseScreen<M extends AbstractMain> extends AbstractScreen<
 
     @Override
     public void show() {
-        TagLogger.log(LogTagBase.SCREEN_ACTIONS, this.getClass().getSimpleName(), "show()");
+        TagLogger.log(LogTagsBase.SCREEN_ACTIONS, this.getClass().getSimpleName(), "show()");
         doShow();
     }
 
     @Override
     public void resize(int width, int height) {
-        TagLogger.log(LogTagBase.SCREEN_ACTIONS, this.getClass().getSimpleName(),
+        TagLogger.log(LogTagsBase.SCREEN_ACTIONS, this.getClass().getSimpleName(),
                 "resize(" + width + ", " + height + ")");
     }
 
     @Override
     public void pause() {
-        TagLogger.log(LogTagBase.SCREEN_ACTIONS, this.getClass().getSimpleName(), "pause()");
+        TagLogger.log(LogTagsBase.SCREEN_ACTIONS, this.getClass().getSimpleName(), "pause()");
     }
 
     @Override
     public void resume() {
-        TagLogger.log(LogTagBase.SCREEN_ACTIONS, this.getClass().getSimpleName(), "resume()");
+        TagLogger.log(LogTagsBase.SCREEN_ACTIONS, this.getClass().getSimpleName(), "resume()");
     }
 
     @Override
     public void hide() {
-        TagLogger.log(LogTagBase.SCREEN_ACTIONS, this.getClass().getSimpleName(), "hide()");
+        TagLogger.log(LogTagsBase.SCREEN_ACTIONS, this.getClass().getSimpleName(), "hide()");
     }
 
     @Override
     public void dispose() {
-        TagLogger.log(LogTagBase.SCREEN_ACTIONS, this.getClass().getSimpleName(), "dispose()");
+        TagLogger.log(LogTagsBase.SCREEN_ACTIONS, this.getClass().getSimpleName(), "dispose()");
     }
 
 }

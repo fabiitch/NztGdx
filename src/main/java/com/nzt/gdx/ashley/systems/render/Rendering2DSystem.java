@@ -16,7 +16,7 @@ import com.nzt.gdx.ashley.comparators.ZComparator;
 import com.nzt.gdx.ashley.components.mvt.PositionComponent;
 import com.nzt.gdx.ashley.components.render.SpriteComponent;
 import com.nzt.gdx.ashley.NztSystemsOrder;
-import com.nzt.gdx.logger.tag.LogTagBase;
+import com.nzt.gdx.logger.tag.LogTagsBase;
 import com.nzt.gdx.logger.tag.count.TagCountLogger;
 
 /**
@@ -56,7 +56,7 @@ public class Rendering2DSystem extends SortedIteratingSystem {
 	@Override
 	public void update(float deltaTime) {
 		super.update(deltaTime);
-		TagCountLogger.log(LogTagBase.SYSTEMS, "render");
+		TagCountLogger.log(LogTagsBase.SYSTEMS, "render");
 		renderQueue.sort(comparator);
 		batch.setProjectionMatrix(cam.combined);
 		batch.enableBlending();

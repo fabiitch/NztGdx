@@ -1,4 +1,4 @@
-package com.nzt.gdx.ashley.systems.b2D;
+package com.nzt.gdx.ashley.systems.b2d;
 
 import com.badlogic.ashley.core.ComponentMapper;
 import com.badlogic.ashley.core.Entity;
@@ -11,7 +11,7 @@ import com.nzt.gdx.ashley.components.mvt.PositionComponent;
 import com.nzt.gdx.ashley.components.mvt.Velocity2DComponent;
 import com.nzt.gdx.ashley.components.physx.B2DBodyComponent;
 import com.nzt.gdx.ashley.NztSystemsOrder;
-import com.nzt.gdx.logger.tag.LogTagBase;
+import com.nzt.gdx.logger.tag.LogTagsBase;
 import com.nzt.gdx.logger.tag.count.TagCountLogger;
 
 /**
@@ -46,7 +46,7 @@ public class B2DWorldSystem extends IteratingSystem {
     @Override
     public void update(float deltaTime) {
         super.update(deltaTime);
-        TagCountLogger.log(LogTagBase.SYSTEMS, "physics");
+        TagCountLogger.log(LogTagsBase.SYSTEMS, "physics");
         float frameTime = Math.min(deltaTime, 0.25f);
         accumulator += frameTime;
         if (accumulator >= MAX_STEP_TIME) {

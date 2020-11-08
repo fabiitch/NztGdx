@@ -5,7 +5,7 @@ import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.World;
 import com.nzt.gdx.ashley.NztSystemsOrder;
-import com.nzt.gdx.logger.tag.LogTagBase;
+import com.nzt.gdx.logger.tag.LogTagsBase;
 import com.nzt.gdx.logger.tag.count.TagCountLogger;
 
 /**
@@ -40,7 +40,7 @@ public class B2DDebugSystem extends EntitySystem {
     @Override
     public void update(float deltaTime) {
         super.update(deltaTime);
-        TagCountLogger.log(LogTagBase.SYSTEMS, "physicsDebug");
+        TagCountLogger.log(LogTagsBase.SYSTEMS, "physicsDebug");
         debugRenderer.render(world, camera.combined);
     }
 }

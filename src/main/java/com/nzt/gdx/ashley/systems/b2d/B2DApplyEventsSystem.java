@@ -1,4 +1,4 @@
-package com.nzt.gdx.ashley.systems.b2D;
+package com.nzt.gdx.ashley.systems.b2d;
 
 import com.badlogic.ashley.core.ComponentMapper;
 import com.badlogic.ashley.core.Entity;
