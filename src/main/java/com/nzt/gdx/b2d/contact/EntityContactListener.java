@@ -17,6 +17,7 @@ import com.nzt.gdx.logger.tag.LogTagsBase;
 import com.nzt.gdx.logger.tag.TagLogger;
 
 public abstract class EntityContactListener implements ContactListener {
+    //TODO conditions debug contact
 
     public ComponentMapper<TypeComponent> typeMapper = TypeComponent.mapper;
     public ComponentMapper<B2DBodyComponent> b2dMapper = B2DBodyComponent.mapper;
@@ -34,7 +35,7 @@ public abstract class EntityContactListener implements ContactListener {
         Entity entityA = (Entity) fa.getBody().getUserData();
         Entity entityB = (Entity) fb.getBody().getUserData();
         debugEvent("Begin Contact", entityA, entityB);
-        debugContact(contact);
+//        debugContact(contact);
         doBeginContact(contact, entityA, entityB);
     }
 
@@ -98,8 +99,7 @@ public abstract class EntityContactListener implements ContactListener {
     }
 
     public void destroyEntity(Entity entity) {
-        this.engine.createComponent(RemoveEntityComponent.class);
-        entity.add(this.engine.createComponent(RemoveEntityComponent.class));
+        entity.add(RemoveEntityComponent.getNew());
         b2dMapper.get(entity).addBox2DEvent(B2DEventFactory.destroy());
     }
 

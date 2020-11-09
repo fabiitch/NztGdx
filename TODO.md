@@ -1,0 +1,1 @@
+Pools utilisation ...  la méthode free n'est pas appelé
