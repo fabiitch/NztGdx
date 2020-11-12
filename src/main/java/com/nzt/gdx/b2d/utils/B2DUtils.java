@@ -6,22 +6,22 @@ import com.nzt.gdx.logger.Logger;
 
 public class B2DUtils {
 
-    public static void debugContact(Contact contact) {
-        Logger.startBlockLog("Contact Debug");
-        Gdx.app.log("getChildIndexA", "" + contact.getChildIndexA());
-        Gdx.app.log("getChildIndexB", "" + contact.getChildIndexB());
+    public static void debugContact(String eventName, Contact contact) {
+        Logger.startBlockDebug("Contact Debug - " + eventName);
+        Gdx.app.debug("getChildIndexA", "" + contact.getChildIndexA());
+        Gdx.app.debug("getChildIndexB", "" + contact.getChildIndexB());
 
-        Gdx.app.log("getFriction", "" + contact.getFriction());
-        Gdx.app.log("getRestitution", "" + contact.getRestitution());
-        Gdx.app.log("getTangentSpeed", "" + contact.getTangentSpeed());
-        Gdx.app.log("isTouching", "" + contact.isTouching());
+        Gdx.app.debug("getFriction", "" + contact.getFriction());
+        Gdx.app.debug("getRestitution", "" + contact.getRestitution());
+        Gdx.app.debug("getTangentSpeed", "" + contact.getTangentSpeed());
+        Gdx.app.debug("isTouching", "" + contact.isTouching());
 
-        Gdx.app.log("getWorldManifold().getNormal()", "" + contact.getWorldManifold().getNormal());
+        Gdx.app.debug("getWorldManifold().getNormal()", "" + contact.getWorldManifold().getNormal());
         int numberOfContactPoints = contact.getWorldManifold().getNumberOfContactPoints();
-        Gdx.app.log("getWorldManifold().getNumberOfContactPoints()", "" + numberOfContactPoints);
+        Gdx.app.debug("getWorldManifold().getNumberOfContactPoints()", "" + numberOfContactPoints);
         for (int i = 0, n = numberOfContactPoints; i < n; i++) {
-            Gdx.app.log("contact point " + (i + 1), "" + contact.getWorldManifold().getPoints()[i]);
+            Gdx.app.debug("contact point " + (i + 1), "" + contact.getWorldManifold().getPoints()[i]);
         }
-        Logger.endBlockLog("Contact Debug");
+        Logger.endBlockDebug("Contact Debug");
     }
 }

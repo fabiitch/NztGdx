@@ -24,6 +24,10 @@ public abstract class EntityContactListener implements ContactListener {
 
     public Engine engine;
 
+
+    public static boolean LOG_EVENT = true;
+    public static boolean LOG_DETAILS = false;
+
     public EntityContactListener(Engine engine) {
         this.engine = engine;
     }
@@ -34,26 +38,34 @@ public abstract class EntityContactListener implements ContactListener {
 
         Entity entityA = (Entity) fa.getBody().getUserData();
         Entity entityB = (Entity) fb.getBody().getUserData();
-        debugEvent("Begin Contact", entityA, entityB);
-//        debugContact(contact);
+
+        logContactEvent("Begin Contact", entityA, entityB);
+//        logContactDetails("Begin Contact", contact);
+
         doBeginContact(contact, entityA, entityB);
     }
 
     public abstract void doBeginContact(Contact contact, Entity entityA, Entity entityB);
 
+    public abstract void doEndContact(Contact contact, Entity entityA, Entity entityB);
+
+
     @Override
     public void endContact(Contact contact) {
         Fixture fa = contact.getFixtureA();
         Fixture fb = contact.getFixtureB();
-
         Entity entityA = (Entity) fa.getBody().getUserData();
         Entity entityB = (Entity) fb.getBody().getUserData();
-        debugEvent("End Contact", entityA, entityB);
+
+        logContactEvent("End Contact", entityA, entityB);
+//        logContactDetails("End Contact", contact);
+
+        doEndContact(contact, entityA, entityB);
+
     }
 
     @Override
     public void preSolve(Contact contact, Manifold oldManifold) {
-        // TODO Auto-generated method stub
 
     }
 
@@ -61,12 +73,6 @@ public abstract class EntityContactListener implements ContactListener {
     public void postSolve(Contact contact, ContactImpulse impulse) {
         // TODO Auto-generated method stub
 
-    }
-
-
-    protected void debugEvent(String eventName, Entity entityA, Entity entityB) {
-        TagLogger.log(LogTagsBase.B2D_CONTACT, eventName,
-                typeMapper.get(entityA).name + " / " + typeMapper.get(entityB).name);
     }
 
     /**
@@ -94,8 +100,13 @@ public abstract class EntityContactListener implements ContactListener {
         }
     }
 
-    protected void debugContact(Contact contact) {
-        B2DUtils.debugContact(contact);
+    protected void logContactEvent(String eventName, Entity entityA, Entity entityB) {
+        TagLogger.log(LogTagsBase.B2D_CONTACT, eventName,
+                typeMapper.get(entityA).name + " / " + typeMapper.get(entityB).name);
+    }
+
+    protected void logContactDetails(String eventName, Contact contact) {
+        B2DUtils.debugContact(eventName, contact);
     }
 
     public void destroyEntity(Entity entity) {
