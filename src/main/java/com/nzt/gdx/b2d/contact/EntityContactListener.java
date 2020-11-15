@@ -3,16 +3,12 @@ package com.nzt.gdx.b2d.contact;
 import com.badlogic.ashley.core.ComponentMapper;
 import com.badlogic.ashley.core.Engine;
 import com.badlogic.ashley.core.Entity;
-import com.badlogic.gdx.physics.box2d.Contact;
-import com.badlogic.gdx.physics.box2d.ContactImpulse;
-import com.badlogic.gdx.physics.box2d.ContactListener;
-import com.badlogic.gdx.physics.box2d.Fixture;
-import com.badlogic.gdx.physics.box2d.Manifold;
+import com.badlogic.gdx.physics.box2d.*;
 import com.nzt.gdx.ashley.components.RemoveEntityComponent;
 import com.nzt.gdx.ashley.components.TypeComponent;
 import com.nzt.gdx.ashley.components.physx.B2DBodyComponent;
 import com.nzt.gdx.b2d.factory.B2DEventFactory;
-import com.nzt.gdx.b2d.utils.B2DUtils;
+import com.nzt.gdx.debug.B2DDebug;
 import com.nzt.gdx.logger.tag.LogTagsBase;
 import com.nzt.gdx.logger.tag.TagLogger;
 
@@ -106,7 +102,7 @@ public abstract class EntityContactListener implements ContactListener {
     }
 
     protected void logContactDetails(String eventName, Contact contact) {
-        B2DUtils.debugContact(eventName, contact);
+        B2DDebug.debugContact(eventName, contact);
     }
 
     public void destroyEntity(Entity entity) {

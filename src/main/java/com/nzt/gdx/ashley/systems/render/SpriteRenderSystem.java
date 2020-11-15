@@ -25,7 +25,7 @@ import com.nzt.gdx.logger.tag.count.TagCountLogger;
  * @author fabiitch
  *
  */
-public class Rendering2DSystem extends SortedIteratingSystem {
+public class SpriteRenderSystem extends SortedIteratingSystem {
 
 	private SpriteBatch batch; // a reference to our spritebatch
 	private Camera cam; // a reference to our camera
@@ -39,7 +39,7 @@ public class Rendering2DSystem extends SortedIteratingSystem {
 	// component mappers to get components from entities
 	private ComponentMapper<SpriteComponent> spriteMapper = SpriteComponent.mapper;
 	private ComponentMapper<PositionComponent> positionMapper = PositionComponent.mapper;
-	public Rendering2DSystem(Camera camera, SpriteBatch sb, int order) {
+	public SpriteRenderSystem(Camera camera, SpriteBatch sb, int order) {
 		super(Family.all(PositionComponent.class, SpriteComponent.class).get(), new ZComparator(),
 				order);
 		this.cam = camera;
@@ -49,7 +49,7 @@ public class Rendering2DSystem extends SortedIteratingSystem {
 		this.batch = sb; // set our batch to the one supplied in constructor
 	}
 
-	public Rendering2DSystem(Camera camera, SpriteBatch sb) {
+	public SpriteRenderSystem(Camera camera, SpriteBatch sb) {
 		this(camera, sb, NztSystemsOrder.RENDER);
 	}
 
