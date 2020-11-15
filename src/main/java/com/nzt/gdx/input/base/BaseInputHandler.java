@@ -4,7 +4,7 @@ import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.Input.Keys;
 import com.nzt.gdx.debug.B2DDebug;
 import com.nzt.gdx.logger.config.InputLoggerConfig;
-import com.nzt.gdx.logger.debug.PoolsDebug;
+import com.nzt.gdx.debug.PoolsDebug;
 import com.nzt.gdx.logger.tag.LogTagsBase;
 import com.nzt.gdx.logger.tag.TagLogger;
 
@@ -35,12 +35,11 @@ public abstract class BaseInputHandler implements InputProcessor {
 		if (keycode == Keys.P) {
 			B2DDebug.logInfo();
 			return true;
-		}
-		else if (keycode == Keys.O) {
+		} else if (keycode == Keys.O) {
 			PoolsDebug.debugPools();
 			return true;
-		}else if (keycode == Keys.O) {
-			PoolsDebug.debugPools();
+		} else if (keycode == Keys.O) {
+			PoolsDebug.debugPools();//TODO debug openGL
 			return true;
 		}
 		return doKeyDown(keycode);

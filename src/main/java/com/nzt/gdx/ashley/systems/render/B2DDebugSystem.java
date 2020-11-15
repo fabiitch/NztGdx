@@ -39,7 +39,7 @@ public class B2DDebugSystem extends EntitySystem {
 
     @Override
     public void update(float deltaTime) {
-        super.update(deltaTime);
+        super.update(deltaTime);//TODO vraiement utile ?
         TagCountLogger.log(LogTagsBase.SYSTEMS, "physicsDebug");
         debugRenderer.render(world, camera.combined);
     }

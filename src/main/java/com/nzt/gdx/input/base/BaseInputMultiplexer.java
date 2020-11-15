@@ -3,20 +3,35 @@ package com.nzt.gdx.input.base;
 import com.badlogic.gdx.InputEventQueue;
 import com.badlogic.gdx.InputMultiplexer;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.utils.Array;
 
+//TODO a revoir
 public class BaseInputMultiplexer extends InputMultiplexer {
 
-	public InputEventQueue queue;
-	public BaseInputHandler inputHandler;
+    public Array<InputEventQueue> queues;
+    public BaseInputHandler inputHandler;
 
-	public BaseInputMultiplexer(Stage stage, BaseInputHandler inputHandler) {
-		super(stage);
-		queue = new InputEventQueue(inputHandler);
-		this.addProcessor(queue);
+    public BaseInputMultiplexer() {
+        super();
+        queues = new Array<>();
+    }
 
-	}
+    public BaseInputMultiplexer(Stage stage) {
+        super(stage);
+        queues = new Array<>();
+    }
 
-	public void update() {
-		queue.drain();
-	}
+    public BaseInputMultiplexer(Stage stage, BaseInputHandler inputHandler) {
+        super(stage);
+        queues = new Array<>();
+        InputEventQueue inputEventQueue = new InputEventQueue(inputHandler);
+        queues.add(inputEventQueue);
+        this.addProcessor(inputEventQueue);
+    }
+
+    public void update() {
+        for (int i = 0, n = queues.size; i < n; i++) {
+            queues.get(i).drain();
+        }
+    }
 }

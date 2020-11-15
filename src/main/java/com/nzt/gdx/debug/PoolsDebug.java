@@ -1,4 +1,4 @@
-package com.nzt.gdx.logger.debug;
+package com.nzt.gdx.debug;
 
 import java.lang.reflect.Field;
 
