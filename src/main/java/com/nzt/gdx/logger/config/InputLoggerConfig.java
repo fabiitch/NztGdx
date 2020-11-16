@@ -1,8 +1,12 @@
 package com.nzt.gdx.logger.config;
-
+//TODO a finir
 public class InputLoggerConfig {
 
-	public boolean logKeyDown, logKeyUp, logKeyTyped, logTouchDown, logTouchUp, logTouchDragged, logMouseMoved,
+	public boolean logKeyDown, logKeyUp,
+			logKeyTyped,
+			logTouchDown, logTouchUp,
+			logTouchDragged,
+			logMouseMoved,
 			logScrolled;
 
 	public boolean debugKeyActivated = false;

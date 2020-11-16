@@ -12,7 +12,7 @@ public class B2DConverterHelper {
 
 	public B2DConverterHelper(float ppm) {
 		this.PPM = ppm;
-		TagLogger.log(LogTagsBase.INIT, "Box2DConverter PPM = " + PPM);
+		TagLogger.log(LogTagsBase.B2D_INFO, "Box2DConverter PPM = " + PPM);
 	}
 
 	public float heightScreenToPPM() {

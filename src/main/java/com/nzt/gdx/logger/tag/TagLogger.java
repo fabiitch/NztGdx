@@ -13,6 +13,8 @@ import com.nzt.gdx.logger.utils.NzLoggable;
  *
  * @author fabiitch
  */
+
+//TODO voit avec l'interface ApplicationLogger si on peut pas simplement redéfinir
 public class TagLogger {
 
     private final static Map<Enum<?>, Boolean> tagMap = new HashMap<Enum<?>, Boolean>();
