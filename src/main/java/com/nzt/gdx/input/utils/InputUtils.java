@@ -9,16 +9,19 @@ import com.badlogic.gdx.math.collision.Ray;
 
 public abstract class InputUtils {
 
-	public static int yTo2DCoords(int y) {
-		return Gdx.graphics.getHeight() - 1 - y;
-	}
-	
-	
-	public static Vector3 getWorldCoord(int screenX, int screenY, Camera camera) {
-		Ray ray = camera.getPickRay(screenX, screenY);
-		final Plane xzPlane = new Plane(new Vector3(0, 0, 1), 0);
-		final Vector3 intersection = new Vector3();
-		Intersector.intersectRayPlane(ray, xzPlane, intersection);
-		return intersection;
-	}
+    public static int yTo2DCoords(int y) {
+        return Gdx.graphics.getHeight() - 1 - y;
+    }
+
+    public static float yTo2DCoords(float y) {
+        return Gdx.graphics.getHeight() - 1 - y;
+    }
+
+    public static Vector3 getWorldCoord(int screenX, int screenY, Camera camera) {
+        Ray ray = camera.getPickRay(screenX, screenY);
+        final Plane xzPlane = new Plane(new Vector3(0, 0, 1), 0);
+        final Vector3 intersection = new Vector3();
+        Intersector.intersectRayPlane(ray, xzPlane, intersection);
+        return intersection;
+    }
 }
