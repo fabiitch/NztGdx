@@ -69,7 +69,7 @@ public abstract class BaseInputHandler implements InputProcessor {
 	public boolean touchDown(int screenX, int screenY, int pointer, int button) {
 		if (loggerConfig.logTouchDown)
 			TagLogger.log(LogTagsBase.INPUT, "touchDown",
-					"screenX: " + screenX + " / screenY:" + screenY + " /�pointer:" + pointer + " /�button:" + button);
+					"screenX: " + screenX + " / screenY:" + screenY + " / pointer:" + pointer + " / button:" + button);
 		return doTouchDown(screenX, screenY, pointer, button);
 	}
 
@@ -79,7 +79,7 @@ public abstract class BaseInputHandler implements InputProcessor {
 	public boolean touchUp(int screenX, int screenY, int pointer, int button) {
 		if (loggerConfig.logTouchUp)
 			TagLogger.log(LogTagsBase.INPUT, "touchUp",
-					"screenX: " + screenX + " / screenY:" + screenY + " /�pointer:" + pointer + " /�button:" + button);
+					"screenX: " + screenX + " / screenY:" + screenY + " / pointer:" + pointer + " / button:" + button);
 		return doTouchUp(screenX, screenY, pointer, button);
 	}
 
@@ -89,7 +89,7 @@ public abstract class BaseInputHandler implements InputProcessor {
 	public boolean touchDragged(int screenX, int screenY, int pointer) {
 		if (loggerConfig.logTouchDragged)
 			TagLogger.log(LogTagsBase.INPUT, "touchDragged",
-					"screenX: " + screenX + " / screenY:" + screenY + " /�pointer:" + pointer);
+					"screenX: " + screenX + " / screenY:" + screenY + " / pointer:" + pointer);
 		return doTouchDragged(screenX, screenY, pointer);
 	}
 

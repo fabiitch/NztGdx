@@ -41,6 +41,7 @@ public abstract class AbstractMain<M extends AbstractMain<?>> extends Game {
         this.screenManager = createScreenManager();
         this.logManager = createLogManager();
         LogApplicationInfo.logInit();
+        LogApplicationInfo.logGraphics();
         AutoProxy.init();
         doCreate();
         screenManager.startApplication((M) this);

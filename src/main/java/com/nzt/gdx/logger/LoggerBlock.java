@@ -2,7 +2,7 @@ package com.nzt.gdx.logger;
 
 import com.badlogic.gdx.Gdx;
 
-public class Logger {
+public class LoggerBlock {
 
     public static void startBlockDebug(String tag) {
         Gdx.app.debug(tag, "Start =======================");
