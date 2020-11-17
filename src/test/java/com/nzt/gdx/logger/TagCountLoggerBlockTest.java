@@ -22,7 +22,7 @@ import com.nzt.gdx.logger.tag.count.TagCountLogger;
  *
  */
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class TagCountLoggerTest extends GdxHeadLessInitialiser {
+public class TagCountLoggerBlockTest extends GdxHeadLessInitialiser {
 	private enum LogTagEnum {
 		PERFORMANCE, INPUT
 	}

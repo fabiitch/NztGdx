@@ -18,7 +18,7 @@ import com.nzt.gdx.logger.tag.TagLogger;
  * @author fabiitch
  *
  */
-public class TagLoggerTest {
+public class TagLoggerBlockTest {
 
 	private static Map<Enum<?>, Boolean> tagMap;
 

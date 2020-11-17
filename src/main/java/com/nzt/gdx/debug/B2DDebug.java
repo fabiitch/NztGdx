@@ -3,7 +3,7 @@ package com.nzt.gdx.debug;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.physics.box2d.Contact;
 import com.badlogic.gdx.physics.box2d.World;
-import com.nzt.gdx.logger.Logger;
+import com.nzt.gdx.logger.LoggerBlock;
 import com.nzt.gdx.logger.LoggerUtils;
 
 //TODO a revoir le champ world en static
@@ -31,7 +31,7 @@ public class B2DDebug {
     }
 
     public static void debugContact(String eventName, Contact contact) {
-        Logger.startBlockDebug("Contact Debug - " + eventName);
+        LoggerBlock.startBlockDebug("Contact Debug - " + eventName);
         Gdx.app.debug("getChildIndexA", "" + contact.getChildIndexA());
         Gdx.app.debug("getChildIndexB", "" + contact.getChildIndexB());
 
@@ -46,6 +46,6 @@ public class B2DDebug {
         for (int i = 0, n = numberOfContactPoints; i < n; i++) {
             Gdx.app.debug("contact point " + (i + 1), "" + contact.getWorldManifold().getPoints()[i]);
         }
-        Logger.endBlockDebug("Contact Debug");
+        LoggerBlock.endBlockDebug("Contact Debug");
     }
 }
