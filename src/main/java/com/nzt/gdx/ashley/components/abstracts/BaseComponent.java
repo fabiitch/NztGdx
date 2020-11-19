@@ -7,6 +7,7 @@ import com.badlogic.ashley.core.Component;
  * @author fabiitch
  *
  */
+//TODO sers a rien non ?
 public abstract class BaseComponent implements Component {
 
 	public BaseComponent() {
