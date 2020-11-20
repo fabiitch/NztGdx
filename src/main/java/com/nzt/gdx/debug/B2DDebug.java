@@ -15,7 +15,7 @@ public class B2DDebug {
         B2DDebug.world = world;
     }
 
-    public static void logInfo() {
+    public static void debugInfo() {
         LoggerUtils.logSeparator("Box2D Debug");
         if (world != null) {
             Gdx.app.log("Body count", world.getBodyCount() + "");
@@ -31,6 +31,7 @@ public class B2DDebug {
     }
 
     public static void debugContact(String eventName, Contact contact) {
+
         LoggerBlock.startBlockDebug("Contact Debug - " + eventName);
         Gdx.app.debug("getChildIndexA", "" + contact.getChildIndexA());
         Gdx.app.debug("getChildIndexB", "" + contact.getChildIndexB());

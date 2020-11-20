@@ -5,15 +5,16 @@ import com.nzt.gdx.archi.AbstractMain;
 
 public abstract class AbstractLogManager<M extends AbstractMain> {
 
-	public InputLoggerConfig inputLoggerConfig;
+    public InputLoggerConfig inputLoggerConfig;
 
-	public AbstractLogManager(int logLevel) {
-		Gdx.app.setLogLevel(logLevel);
-		this.inputLoggerConfig = configureInputLog();
-		configureTags();
-	}
+    //log level 0,1,2,3
+    public AbstractLogManager(int logLevel) {
+        Gdx.app.setLogLevel(logLevel);
+        this.inputLoggerConfig = configureInputLog();
+        configureTags();
+    }
 
-	public abstract void configureTags();
+    public abstract void configureTags();
 
-	public abstract InputLoggerConfig configureInputLog();
+    public abstract InputLoggerConfig configureInputLog();
 }

@@ -15,6 +15,7 @@ import com.nzt.gdx.logger.utils.NzLoggable;
  */
 
 //TODO voit avec l'interface ApplicationLogger si on peut pas simplement redéfinir
+//TODO voir si  autorisé des tag selon le log level (utile ?)
 public class TagLogger {
 
     private final static Map<Enum<?>, Boolean> tagMap = new HashMap<Enum<?>, Boolean>();
@@ -121,6 +122,11 @@ public class TagLogger {
             }
             Gdx.app.error(tag.name(), "======== End ============");
         }
+    }
+
+    public static <E extends Enum<E>> boolean isTagActive(E tag) {
+        Boolean activeTag = tagMap.get(tag);
+        return activeTag != null ? activeTag : false;
     }
 
     /**
