@@ -4,7 +4,7 @@ import com.badlogic.ashley.core.EntitySystem;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.nzt.gdx.ashley.NztSystemsOrder;
 
-public class BaseHudSystem extends EntitySystem {
+public abstract class BaseHudSystem extends EntitySystem {
 
     public Stage stage;
 
@@ -17,9 +17,12 @@ public class BaseHudSystem extends EntitySystem {
         this.stage = stage;
     }
 
+    public abstract void doUpdate(float dt);
+
     @Override
     public void update(float dt) {
         super.update(dt);//TODO vraiement utile ?
+        doUpdate(dt);
         stage.act(dt);
         stage.draw();
     }
