@@ -17,6 +17,8 @@ public class PositionComponent extends PoolableComponent {
     public static ComponentMapper<PositionComponent> mapper = ComponentMapper.getFor(PositionComponent.class);
 
     public final Vector3 position = new Vector3();
+    private final Vector2 positionV2 = new Vector2();
+
     public float angleRadian = 0.0f;
 
     public PositionComponent() {
@@ -26,8 +28,13 @@ public class PositionComponent extends PoolableComponent {
     @Override
     public void reset() {
         this.position.setZero();
+        this.positionV2.setZero();
         this.angleRadian = 0f;
 
+    }
+
+    public Vector2 getPosition() {
+        return positionV2.set(position.x, position.y);
     }
 
     public static void updatePositionFromBody(Entity entity) {

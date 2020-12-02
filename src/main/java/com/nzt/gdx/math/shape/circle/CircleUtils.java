@@ -13,7 +13,7 @@ public class CircleUtils {
 		position.y = positionStart.y + rayon * MathUtils.sin(angleRadian);
 		return position;
 	}
-
+	// TODO remove new Vector2
 	public static Vector3 positionOnACircleWithAngle(Vector3 positionStart, float rayon, float angleRadian) {
 		Vector3 position = new Vector3();
 		position.x = positionStart.x + rayon * MathUtils.cos(angleRadian);
