@@ -14,8 +14,8 @@ import com.badlogic.gdx.math.Vector2;
  */
 public class Vector2Try {
 
-	Vector2 v1;
-	Vector2 v2;
+	private Vector2 v1;
+	private Vector2 v2;
 
 	@Test
 	public void epsilonEquals() {

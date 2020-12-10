@@ -16,15 +16,11 @@ public class TriangleTestScreen extends BaseScreen {
 	@Override
 	protected void renderScreen(float dt) {
 
-		Rectangle rect = new Rectangle(100, 200, 50, 50);
+		Rectangle rect = new Rectangle(100, 200, 200, 50);
 
 		shapeRenderer.begin();
-		shapeRenderer.rect(100, 200, 40, 40);
+		shapeRenderer.rect(rect);
 		shapeRenderer.end();
-
-		spriteBatch.begin();
-		spriteBatch.draw(tt, 0, 0);
-		spriteBatch.end();
 	}
 
 	@Override

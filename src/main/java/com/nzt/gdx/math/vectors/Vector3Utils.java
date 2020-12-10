@@ -1,9 +1,9 @@
-package com.nzt.gdx.math;
+package com.nzt.gdx.math.vectors;
 
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector3;
 
-public class MathVector3 {
+public class Vector3Utils {
 
 	private static Vector3 tmp; // TODO use ? server pb?
 

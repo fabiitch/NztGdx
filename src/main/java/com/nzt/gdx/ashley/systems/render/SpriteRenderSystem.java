@@ -67,7 +67,7 @@ public class SpriteRenderSystem extends SortedIteratingSystem {
 		for (Entity entity : renderQueue) {
 			SpriteComponent spriteC = spriteMapper.get(entity);
 			PositionComponent p = positionMapper.get(entity);
-			if (spriteC == null) {
+			if (spriteC == null || !spriteC.visible) {
 				continue;
 			}
 			sprite = spriteC.sprite;
@@ -75,8 +75,7 @@ public class SpriteRenderSystem extends SortedIteratingSystem {
 
 			sprite.setPosition(position.x - sprite.getWidth() / 2, position.y - sprite.getHeight() / 2);
 			sprite.setRotation(MathUtils.radiansToDegrees * p.angleRadian);
-			if (spriteC.visible)
-				sprite.draw(batch);
+			sprite.draw(batch);
 		}
 		batch.end();
 		renderQueue.clear();
