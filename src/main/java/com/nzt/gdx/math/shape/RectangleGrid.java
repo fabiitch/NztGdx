@@ -1,9 +1,10 @@
-package com.nzt.gdx.math.shape.rectangles;
+package com.nzt.gdx.math.shape;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.utils.Array;
 
+//TODO ??? sers a quoi ? mdr
 public class RectangleGrid {
 
 	public static Array<Rectangle> createGrid(int nbCaseWidth, int nbCaseHeight) {

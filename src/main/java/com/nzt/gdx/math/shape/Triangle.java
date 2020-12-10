@@ -1,8 +1,9 @@
-package com.nzt.gdx.math.shape.triangles;
+package com.nzt.gdx.math.shape;
 
 import com.badlogic.gdx.math.Shape2D;
 import com.badlogic.gdx.math.Vector2;
 
+//TODO a viré je crois
 public class Triangle implements Shape2D {
 
 	private float x, y, z;
