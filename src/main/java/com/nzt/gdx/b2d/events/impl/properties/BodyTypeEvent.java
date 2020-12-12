@@ -10,7 +10,7 @@ public class BodyTypeEvent implements B2DEvent {
 	public BodyType bodyType;
 
 	@Override
-	public void apply(World world, Body body) {
+	public void apply(Body body) {
 		body.setType(bodyType);
 	}
 

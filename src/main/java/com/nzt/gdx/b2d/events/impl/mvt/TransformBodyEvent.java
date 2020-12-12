@@ -15,7 +15,7 @@ public class TransformBodyEvent implements B2DEvent {
 	}
 
 	@Override
-	public void apply(World world, Body body) {
+	public void apply(Body body) {
 		body.setTransform(positionTo, rotation);
 	}
 

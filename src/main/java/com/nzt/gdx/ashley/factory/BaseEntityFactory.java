@@ -19,14 +19,14 @@ import com.nzt.gdx.graphics.renderables.ShapeRenderable;
 //TODO a voir si bien fait la factory comme sa
 public class BaseEntityFactory {
 	protected PooledEngine engine;
-	protected Entity nextEntity; // TODO bof lui en private
+	protected Entity newEntity; // TODO bof lui en private
 
 	public BaseEntityFactory(PooledEngine engine) {
 		this.engine = engine;
 	}
 
 	public Entity build() {
-		return nextEntity;
+		return newEntity;
 	}
 
 	protected <T extends Component> T createComponent(Class<T> componentType) {
@@ -34,33 +34,33 @@ public class BaseEntityFactory {
 	}
 
 	protected Entity createSimpleEntity() {
-		nextEntity = this.engine.createEntity();
-		engine.addEntity(nextEntity);
-		return nextEntity;
+		newEntity = this.engine.createEntity();
+		engine.addEntity(newEntity);
+		return newEntity;
 	}
 
 	protected Entity createTransformEntity() {
-		nextEntity = this.engine.createEntity();
-		engine.addEntity(nextEntity);
+		newEntity = this.engine.createEntity();
+		engine.addEntity(newEntity);
 		PositionComponent positionComponent = engine.createComponent(PositionComponent.class);
-		nextEntity.add(positionComponent);
-		return nextEntity;
+		newEntity.add(positionComponent);
+		return newEntity;
 	}
 
 	protected Entity createTransformAndVelEntity(float x, float y, float z, float angle) {
-		nextEntity = this.engine.createEntity();
-		engine.addEntity(nextEntity);
-		nextEntity.add(position(x, y, z, angle));
-		nextEntity.add(velocity());
-		return nextEntity;
+		newEntity = this.engine.createEntity();
+		engine.addEntity(newEntity);
+		newEntity.add(position(x, y, z, angle));
+		newEntity.add(velocity());
+		return newEntity;
 	}
 
 	protected Entity createTransformAndVelEntity(float x, float y, float angle) {
-		nextEntity = this.engine.createEntity();
-		engine.addEntity(nextEntity);
-		nextEntity.add(position(x, y, 0, angle));
-		nextEntity.add(velocity());
-		return nextEntity;
+		newEntity = this.engine.createEntity();
+		engine.addEntity(newEntity);
+		newEntity.add(position(x, y, 0, angle));
+		newEntity.add(velocity());
+		return newEntity;
 	}
 
 	protected PositionComponent position(float x, float y, float z, float angle) {
@@ -102,7 +102,7 @@ public class BaseEntityFactory {
 	protected ShapeArrayComponent shapeArray(ShapeRenderable shapeRenderable) {
 		ShapeArrayComponent shapeArrayComponent = engine.createComponent(ShapeArrayComponent.class);
 		shapeArrayComponent.addShape(shapeRenderable);
-		nextEntity.add(shapeArrayComponent);
+		newEntity.add(shapeArrayComponent);
 		return shapeArrayComponent;
 	}
 
@@ -113,7 +113,7 @@ public class BaseEntityFactory {
 
 	protected TransformersComponent transformers() {
 		TransformersComponent transformerComponent = engine.createComponent(TransformersComponent.class);
-		nextEntity.add(transformerComponent);
+		newEntity.add(transformerComponent);
 		return transformerComponent;
 	}
 }

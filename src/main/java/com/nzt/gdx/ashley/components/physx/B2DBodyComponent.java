@@ -9,6 +9,7 @@ import com.nzt.gdx.ashley.components.abstracts.PoolableComponent;
 import com.nzt.gdx.ashley.systems.b2d.B2DWorldSystem;
 import com.nzt.gdx.ashley.systems.render.B2DDebugSystem;
 import com.nzt.gdx.b2d.events.B2DEvent;
+import com.nzt.gdx.b2d.events.impl.properties.DestroyBodyEvent;
 
 /**
  * Box2D body component used by system : {@link B2DWorldSystem} and
@@ -18,14 +19,14 @@ import com.nzt.gdx.b2d.events.B2DEvent;
  */
 public class B2DBodyComponent extends PoolableComponent {
 
-	public static ComponentMapper<B2DBodyComponent> mapper = ComponentMapper.getFor(B2DBodyComponent.class);
-	
-	public Body body;
-	public Array<B2DEvent> eventArray;
+    public static ComponentMapper<B2DBodyComponent> mapper = ComponentMapper.getFor(B2DBodyComponent.class);
 
-	public B2DBodyComponent() {
-		super();
-		eventArray = new Array<>();
+    public Body body;
+    public Array<B2DEvent> eventArray;
+
+    public B2DBodyComponent() {
+        super();
+        eventArray = new Array<>();
     }
 
     @Override
@@ -42,9 +43,23 @@ public class B2DBodyComponent extends PoolableComponent {
         eventArray.add(event);
     }
 
-    public void processAllEvents(World world) {
+    public boolean checkContainsDestroyEvent() {
         for (B2DEvent event : eventArray) {
-            event.apply(world, body);
+            if (event.getClass() == DestroyBodyEvent.class)
+                return true;
+        }
+        return false;
+    }
+
+    public void processAllEvents(World world) {
+        boolean destroy = checkContainsDestroyEvent();
+        if (destroy) {
+            world.destroyBody(body);
+            this.body = null;
+        } else {
+            for (B2DEvent event : eventArray) {
+                event.apply(body);
+            }
         }
         Pools.freeAll(eventArray);
         eventArray.clear();

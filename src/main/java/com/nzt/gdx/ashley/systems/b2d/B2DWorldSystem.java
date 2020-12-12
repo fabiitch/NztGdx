@@ -49,9 +49,17 @@ public class B2DWorldSystem extends IteratingSystem {
         if (accumulator >= MAX_STEP_TIME) {
             while (accumulator >= MAX_STEP_TIME) {
                 world.step(MAX_STEP_TIME, 6, 2);
+
                 for (Entity entity : bodiesQueue) {
                     B2DBodyComponent bodyComp = b2dMapper.get(entity);
-                    bodyComp.processAllEvents(world);
+                    if(bodyComp.checkContainsDestroyEvent()){ //TODO a revoir p-e
+                        world.destroyBody(bodyComp.body);
+                        bodyComp.body = null;
+                        bodiesQueue.removeValue(entity, true);
+                    }else{
+                        bodyComp.processAllEvents(world);
+                    }
+
                 }
                 accumulator -= MAX_STEP_TIME;
             }
