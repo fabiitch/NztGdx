@@ -7,8 +7,7 @@ import com.nzt.gdx.b2d.events.B2DEvent;
 public class DestroyBodyEvent implements B2DEvent {
 
 	@Override
-	public void apply(World world, Body body) {
-		world.destroyBody(body);
+	public void apply(Body body) {
 		body = null;
 	}
 
