@@ -37,9 +37,9 @@ public class SegmentUtilsTest {
     @Test
     public void getAngleReflexionTest2() {
         Segment2D s1 = s(0, 0, 50, 0);
-        Vector2 direction = v(1, -1).nor();
+        Vector2 direction = v(1, 1).nor();
         float angleReflexion = Segment2DUtils.getAngleReflexion(s1, direction);
-        Assert.assertEquals(45f, angleReflexion, 0.1f);
+        Assert.assertEquals(135f, angleReflexion, 0.1f);
     }
 
     private Segment2D s(float aX, float aY, float bX, float bY) {
