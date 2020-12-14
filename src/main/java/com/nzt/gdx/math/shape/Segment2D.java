@@ -11,7 +11,6 @@ public class Segment2D {
     public Vector2 a;
     public Vector2 b;
 
-
     private Vector2 dir = new Vector2();
     private Vector2 tmp = new Vector2();
 
