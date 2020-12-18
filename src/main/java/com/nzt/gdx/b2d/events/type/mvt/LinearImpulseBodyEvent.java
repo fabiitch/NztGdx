@@ -1,11 +1,11 @@
-package com.nzt.gdx.b2d.events.impl.mvt;
+package com.nzt.gdx.b2d.events.type.mvt;
 
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
-import com.nzt.gdx.b2d.events.B2DAbstractEvent;
+import com.nzt.gdx.b2d.events.B2DBaseEvent;
 import com.nzt.gdx.b2d.events.B2DEventsEnum;
 
-public class LinearImpulseBodyEvent extends B2DAbstractEvent {
+public class LinearImpulseBodyEvent extends B2DBaseEvent<LinearImpulseBodyEvent> {
 
     public Vector2 impulse;
     public Vector2 point;
@@ -13,6 +13,11 @@ public class LinearImpulseBodyEvent extends B2DAbstractEvent {
 
     public LinearImpulseBodyEvent() {
         super(B2DEventsEnum.LinearImpulse);
+    }
+
+    @Override
+    public boolean canConcat(LinearImpulseBodyEvent event) {
+        return false;
     }
 
     @Override
