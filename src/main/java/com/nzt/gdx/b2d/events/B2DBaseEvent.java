@@ -3,27 +3,26 @@ package com.nzt.gdx.b2d.events;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.utils.Pool.Poolable;
 
-public abstract class B2DAbstractEvent<E extends B2DAbstractEvent> implements Poolable {
+public abstract class B2DBaseEvent<E extends B2DBaseEvent> implements Poolable {
 
-    public short eventType;
+    public int eventType;
 
-    public B2DAbstractEvent(short eventType) {
+    public B2DBaseEvent(short eventType) {
         this.eventType = eventType;
     }
 
-    public B2DAbstractEvent(B2DEventsEnum event) {
-        this.eventType = event.eventType;
+    public B2DBaseEvent(B2DEventsEnum event) {
+        this.eventType = event.ordinal();
     }
 
-    abstract void add(Body body);
+    protected abstract boolean canConcat(E event);
 
     @Override
     public void reset() {
-        this.eventType = 0;
         doReset();
     }
 
-    public abstract void doReset();
+    protected abstract void doReset();
 
     public abstract void apply(Body body);
 }

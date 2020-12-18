@@ -4,23 +4,23 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.BodyDef.BodyType;
 import com.badlogic.gdx.utils.Pools;
-import com.nzt.gdx.b2d.events.B2DEvent;
+import com.nzt.gdx.b2d.events.B2DBaseEvent;
 import com.nzt.gdx.b2d.events.B2DEventsEnum;
-import com.nzt.gdx.b2d.events.impl.mvt.AngularDampingBodyEvent;
-import com.nzt.gdx.b2d.events.impl.mvt.AngularImpulseBodyEvent;
-import com.nzt.gdx.b2d.events.impl.mvt.AngularVelocityEvent;
-import com.nzt.gdx.b2d.events.impl.mvt.ApplyForceBodyEvent;
-import com.nzt.gdx.b2d.events.impl.mvt.ApplyForceCenterBodyEvent;
-import com.nzt.gdx.b2d.events.impl.mvt.LinearImpulseBodyEvent;
-import com.nzt.gdx.b2d.events.impl.mvt.LinearVelocityEvent;
-import com.nzt.gdx.b2d.events.impl.mvt.TorqueBodyEvent;
-import com.nzt.gdx.b2d.events.impl.mvt.TransformBodyEvent;
-import com.nzt.gdx.b2d.events.impl.properties.ActiveBodyEvent;
-import com.nzt.gdx.b2d.events.impl.properties.AwakeBodyEvent;
-import com.nzt.gdx.b2d.events.impl.properties.BodyTypeEvent;
-import com.nzt.gdx.b2d.events.impl.properties.BulletBodyEvent;
-import com.nzt.gdx.b2d.events.impl.properties.DestroyBodyEvent;
-import com.nzt.gdx.b2d.events.impl.properties.FixedRotationBodyEvent;
+import com.nzt.gdx.b2d.events.type.mvt.AngularDampingBodyEvent;
+import com.nzt.gdx.b2d.events.type.mvt.AngularImpulseBodyEvent;
+import com.nzt.gdx.b2d.events.type.mvt.AngularVelocityEvent;
+import com.nzt.gdx.b2d.events.type.mvt.ApplyForceBodyEvent;
+import com.nzt.gdx.b2d.events.type.mvt.ApplyForceCenterBodyEvent;
+import com.nzt.gdx.b2d.events.type.mvt.LinearImpulseBodyEvent;
+import com.nzt.gdx.b2d.events.type.mvt.LinearVelocityEvent;
+import com.nzt.gdx.b2d.events.type.mvt.TorqueBodyEvent;
+import com.nzt.gdx.b2d.events.type.mvt.TransformBodyEvent;
+import com.nzt.gdx.b2d.events.type.properties.ActiveBodyEvent;
+import com.nzt.gdx.b2d.events.type.properties.AwakeBodyEvent;
+import com.nzt.gdx.b2d.events.type.properties.BodyTypeEvent;
+import com.nzt.gdx.b2d.events.type.properties.BulletBodyEvent;
+import com.nzt.gdx.b2d.events.type.properties.DestroyBodyEvent;
+import com.nzt.gdx.b2d.events.type.properties.FixedRotationBodyEvent;
 
 public class B2DEventFactory {
 
@@ -29,11 +29,10 @@ public class B2DEventFactory {
 	// refléchir si le reset est vraiement utile, vu que l'on passe les param et =
 
 	// TODO reflechir au param wake si vraiement utile
-	//TODO reflechir au destroy, oblige a passé le world pour tous les autre event
 
 	@SuppressWarnings("unchecked")
-	private static <E extends B2DEvent> E getEvent(B2DEventsEnum eventType) {
-		B2DEvent event;
+	private static <E extends B2DBaseEvent> E getEvent(B2DEventsEnum eventType) {
+		B2DBaseEvent event;
 		switch (eventType) {
 		case Active:
 			event = Pools.obtain(ActiveBodyEvent.class);
@@ -144,7 +143,7 @@ public class B2DEventFactory {
 
 	public static AngularVelocityEvent angularVelocity(float velocity) {
 		AngularVelocityEvent event = getEvent(B2DEventsEnum.AngularVelocity);
-		event.velocity = velocity;
+		event.angularVelocity = velocity;
 		return event;
 	}
 

@@ -1,25 +1,31 @@
-package com.nzt.gdx.b2d.events.impl.mvt;
+package com.nzt.gdx.b2d.events.type.mvt;
 
 import com.badlogic.gdx.physics.box2d.Body;
-import com.nzt.gdx.b2d.events.B2DAbstractEvent;
+import com.nzt.gdx.b2d.events.B2DBaseEvent;
 import com.nzt.gdx.b2d.events.B2DEventsEnum;
 
-public class AngularVelocityEvent extends B2DAbstractEvent {
+public class AngularVelocityEvent extends B2DBaseEvent<AngularVelocityEvent> {
 
-    public float velocity;
+    public float angularVelocity;
 
     public AngularVelocityEvent() {
         super(B2DEventsEnum.AngularVelocity);
     }
 
     @Override
+    public boolean canConcat(AngularVelocityEvent event) {
+        this.angularVelocity += event.angularVelocity;
+        return true;
+    }
+
+    @Override
     public void doReset() {
-        this.velocity = 0f;
+        this.angularVelocity = 0f;
     }
 
     @Override
     public void apply(Body body) {
-        body.setAngularVelocity(velocity);
+        body.setAngularVelocity(angularVelocity);
     }
 
 }
