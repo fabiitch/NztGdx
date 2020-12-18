@@ -1,16 +1,21 @@
 package com.nzt.gdx.b2d.events.impl.mvt;
 
 import com.badlogic.gdx.physics.box2d.Body;
-import com.badlogic.gdx.physics.box2d.World;
-import com.nzt.gdx.b2d.events.B2DEvent;
+import com.nzt.gdx.b2d.events.B2DAbstractEvent;
+import com.nzt.gdx.b2d.events.B2DEventsEnum;
 
-public class AngularImpulseBodyEvent implements B2DEvent {
+public class AngularImpulseBodyEvent extends B2DAbstractEvent {
 
 	public float impulse;
 	public boolean wake;
 
+	public AngularImpulseBodyEvent() {
+		super(B2DEventsEnum.AngularImpulse);
+	}
+
+
 	@Override
-	public void reset() {
+	public void doReset() {
 		this.impulse = 0f;
 		this.wake = false;
 	}
