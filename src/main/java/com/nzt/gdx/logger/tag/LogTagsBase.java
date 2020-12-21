@@ -12,11 +12,10 @@ public enum LogTagsBase {
     INIT, NET, PERFORMANCE,
     SYSTEMS, INPUT,
     B2D_INFO, B2D_CONTACT, B2D_CREATION,
-    SCREEN_ACTIONS,
+    SCREEN_ACTIONS,    // SCREEN_ACTIONS is all except render(show, resize, pause, resume, hide)
+    TILED,
     UNKNOW,
     DEBUG;
-
-    // SCREEN_ACTIONS is all except render(show, resize, pause, resume, hide)
 
     public static void activeBasesTags() {
         for (LogTagsBase tag : LogTagsBase.values()) {

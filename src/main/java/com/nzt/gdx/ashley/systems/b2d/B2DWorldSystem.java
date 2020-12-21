@@ -20,7 +20,7 @@ import com.nzt.gdx.logger.tag.count.TagCountLogger;
  */
 public class B2DWorldSystem extends IteratingSystem {
 
-    private static final float MAX_STEP_TIME = 1 / 60f;
+    private static final float MAX_STEP_TIME = 1 / 80f;
     private static float accumulator = 0f;
 
     private World world;
@@ -49,17 +49,13 @@ public class B2DWorldSystem extends IteratingSystem {
         if (accumulator >= MAX_STEP_TIME) {
             while (accumulator >= MAX_STEP_TIME) {
                 world.step(MAX_STEP_TIME, 6, 2);
-
                 for (Entity entity : bodiesQueue) {
                     B2DBodyComponent bodyComp = b2dMapper.get(entity);
-                    if(bodyComp.checkContainsDestroyEvent()){ //TODO a revoir p-e
-                        world.destroyBody(bodyComp.body);
-                        bodyComp.body = null;
+                    if (bodyComp.checkContainsDestroyEventAndDo(world)) {
                         bodiesQueue.removeValue(entity, true);
-                    }else{
-                        bodyComp.processAllEvents(world);
+                    } else {
+                        bodyComp.processAllEvents();
                     }
-
                 }
                 accumulator -= MAX_STEP_TIME;
             }
@@ -67,7 +63,6 @@ public class B2DWorldSystem extends IteratingSystem {
             for (Entity entity : bodiesQueue) {
                 PositionComponent.updatePositionFromBody(entity);
                 Velocity2DComponent.updateVelocityFromBody(entity);
-
                 if (calculRotation)
                     PositionComponent.updateAngleFromBody(entity);
 

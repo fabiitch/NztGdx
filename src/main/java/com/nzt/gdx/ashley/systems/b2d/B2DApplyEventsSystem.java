@@ -5,8 +5,8 @@ import com.badlogic.ashley.core.Entity;
 import com.badlogic.ashley.core.Family;
 import com.badlogic.ashley.systems.IteratingSystem;
 import com.badlogic.gdx.physics.box2d.World;
-import com.nzt.gdx.ashley.components.physx.B2DBodyComponent;
 import com.nzt.gdx.ashley.NztSystemsOrder;
+import com.nzt.gdx.ashley.components.physx.B2DBodyComponent;
 
 /**
  * apply b2D event
@@ -28,6 +28,10 @@ public class B2DApplyEventsSystem extends IteratingSystem{
 	@Override
 	protected void processEntity(Entity entity, float deltaTime) {
 		B2DBodyComponent bodyComp = b2dMapper.get(entity);
-		bodyComp.processAllEvents(world);
+		if (bodyComp.checkContainsDestroyEvent()) {
+			bodyComp.destroyBody(world);
+		} else {
+			bodyComp.processAllEvents();
+		}
 	}
 }
