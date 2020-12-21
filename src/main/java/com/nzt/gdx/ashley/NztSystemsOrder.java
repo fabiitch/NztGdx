@@ -8,7 +8,9 @@ public class NztSystemsOrder {
 
 	public static final int CALCUL = 10;
 
+	public static final int CAMERA = 19;
 	// 20 render
+	public static final int TILED_MAP_RENDER = 20;
 	public static final int RENDER = 21;
 
 	public static final int HUD = 30;

@@ -42,19 +42,25 @@ public class B2DBodyComponent extends PoolableComponent {
         eventContainer.addEvent(event);
     }
 
+    public boolean checkContainsDestroyEventAndDo(World world) {
+        boolean b = eventContainer.checkContainsDestroyEvent();
+        if (b)
+            destroyBody(world);
+        return b;
+    }
+
     public boolean checkContainsDestroyEvent() {
         return eventContainer.checkContainsDestroyEvent();
     }
 
-    public void processAllEvents(World world) {
-        boolean destroy = checkContainsDestroyEvent();
-        if (destroy) {
-            world.destroyBody(body);
-            this.body = null;
-        } else {
-            for (B2DBaseEvent event : eventContainer.eventArray) {
-                event.apply(body);
-            }
+    public void destroyBody(World world) {
+        world.destroyBody(this.body);
+        this.body = null;
+    }
+
+    public void processAllEvents() {
+        for (B2DBaseEvent event : eventContainer.eventArray) {
+            event.apply(body);
         }
         Pools.freeAll(eventContainer.eventArray);
         eventContainer.reset();
