@@ -3,38 +3,44 @@ package com.nzt.gdx.utils;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
+import com.nzt.gdx.debug.DebugDisplayUtils;
 import org.junit.Test;
 
 /**
  * Test class for {@link NullChecker}
- * 
- * @author fabiitch
  *
+ * @author fabiitch
  */
 public class NullCheckerTest {
-	@Test
-	public void isNullTest() {
+    @Test
+    public void isNullTest() {
 
-		Object nullObject = null;
-		Object notNullObject = new Object();
+        System.out.println(DebugDisplayUtils.printValue(2.53213213123f));
+        System.out.println(DebugDisplayUtils.printValue(222));
+        System.out.println(DebugDisplayUtils.printValue(44l));
+        System.out.println(DebugDisplayUtils.printValue("ttt"));
 
-		assertTrue(NullChecker.isNull(nullObject));
-		assertFalse(NullChecker.isNull(notNullObject));
+        Object nullObject = null;
+        Object notNullObject = new Object();
 
-		assertTrue(NullChecker.isNull(nullObject, nullObject));
-		assertFalse(NullChecker.isNull(notNullObject, nullObject));
-	}
-	@Test
-	public void isNotNullTest() {
+        assertTrue(NullChecker.isNull(nullObject));
+        assertFalse(NullChecker.isNull(notNullObject));
 
-		Object nullObject = null;
-		Object notNullObject = new Object();
+        assertTrue(NullChecker.isNull(nullObject, nullObject));
+        assertFalse(NullChecker.isNull(notNullObject, nullObject));
+    }
 
-		assertFalse(NullChecker.isNotNull(nullObject));
-		assertTrue(NullChecker.isNotNull(notNullObject));
+    @Test
+    public void isNotNullTest() {
 
-		assertFalse(NullChecker.isNotNull(nullObject, nullObject));
-		assertTrue(NullChecker.isNotNull(notNullObject, notNullObject));
-	}
-	
+        Object nullObject = null;
+        Object notNullObject = new Object();
+
+        assertFalse(NullChecker.isNotNull(nullObject));
+        assertTrue(NullChecker.isNotNull(notNullObject));
+
+        assertFalse(NullChecker.isNotNull(nullObject, nullObject));
+        assertTrue(NullChecker.isNotNull(notNullObject, notNullObject));
+    }
+
 }
