@@ -25,7 +25,7 @@ public class LoggerBlock {
     }
 
     public static void endBlockError(String tag) {
-        Gdx.app.log(tag, "End =======================");
+        Gdx.app.error(tag, "End =======================");
     }
 
 

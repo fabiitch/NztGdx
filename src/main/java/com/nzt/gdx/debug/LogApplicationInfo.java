@@ -1,6 +1,7 @@
 package com.nzt.gdx.debug;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Graphics;
 import com.nzt.gdx.logger.LoggerBlock;
 import com.nzt.gdx.logger.LoggerUtils;
 import com.nzt.gdx.logger.tag.LogTagsBase;
@@ -65,6 +66,13 @@ public class LogApplicationInfo {
             TagLogger.error(LogTagsBase.INIT, "getSafeInsetTop", "" + Gdx.graphics.getSafeInsetTop());
             TagLogger.error(LogTagsBase.INIT, "getSafeInsetLeft", "" + Gdx.graphics.getSafeInsetLeft());
             TagLogger.error(LogTagsBase.INIT, "getSafeInsetRight", "" + Gdx.graphics.getSafeInsetRight());
+
+            Graphics.Monitor[] monitors = Gdx.graphics.getMonitors();
+            int monitorCount = 1;
+            for (Graphics.Monitor monitor : monitors) {
+                TagLogger.error(LogTagsBase.INIT, "Monitor " + monitorCount, "Name=" + monitor.name + " virtualX= " + monitor.virtualX + " virtualY= " + monitor.virtualY);
+                monitorCount++;
+            }
             LoggerBlock.endBlockError(LogTagsBase.INIT.name() + " Graphics Info");
         }
     }
