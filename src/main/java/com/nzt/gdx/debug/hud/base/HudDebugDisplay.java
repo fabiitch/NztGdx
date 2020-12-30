@@ -4,9 +4,6 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.Array;
 import com.nzt.gdx.debug.DebugDisplayUtils;
-import javafx.util.Pair;
-
-import java.util.Map;
 
 public class HudDebugDisplay {
     public static HudDebugDisplay instance;
@@ -26,7 +23,8 @@ public class HudDebugDisplay {
     }
 
     public static void update(String name, Object value) {
-        instance.container.update(name, value);
+        if (instance != null)
+            instance.container.update(name, value);
     }
 
     private static void addInitList(String name, Object value, Color color, int position) {

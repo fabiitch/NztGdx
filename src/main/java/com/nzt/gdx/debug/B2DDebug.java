@@ -1,12 +1,13 @@
 package com.nzt.gdx.debug;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.physics.box2d.Contact;
 import com.badlogic.gdx.physics.box2d.World;
+import com.nzt.gdx.debug.hud.base.HudDebugDisplay;
 import com.nzt.gdx.logger.LoggerBlock;
 import com.nzt.gdx.logger.LoggerUtils;
 
-//TODO a revoir le champ world en static
 public class B2DDebug {
 
     private static World world;
@@ -15,19 +16,37 @@ public class B2DDebug {
         B2DDebug.world = world;
     }
 
+    public static void displayHud() {
+        HudDebugDisplay.addTopRight("Body count", world.getBodyCount(), Color.RED);
+        HudDebugDisplay.addTopRight("Contact count", world.getContactCount(), Color.RED);
+        HudDebugDisplay.addTopRight("Fixture count", world.getFixtureCount(), Color.RED);
+        HudDebugDisplay.addTopRight("Joint count", world.getJointCount(), Color.RED);
+        HudDebugDisplay.addTopRight("Proxy count", world.getProxyCount(), Color.RED);
+        HudDebugDisplay.addTopRight("World VelocityThreshold", world.getVelocityThreshold(), Color.RED);
+    }
+
+    public static void updateHud() {
+        HudDebugDisplay.update("Body count", world.getBodyCount());
+        HudDebugDisplay.update("Contact count", world.getContactCount());
+        HudDebugDisplay.update("Fixture count", world.getFixtureCount());
+        HudDebugDisplay.update("Joint count", world.getJointCount());
+        HudDebugDisplay.update("Proxy count", world.getProxyCount());
+        HudDebugDisplay.update("World VelocityThreshold", world.getVelocityThreshold());
+    }
+
     public static void debugInfo() {
-        LoggerUtils.logSeparator("Box2D Debug");
         if (world != null) {
+            LoggerUtils.logSeparator("Box2D Debug");
             Gdx.app.log("Body count", world.getBodyCount() + "");
             Gdx.app.log("Contact count", world.getContactCount() + "");
             Gdx.app.log("Fixture count", world.getFixtureCount() + "");
             Gdx.app.log("Joint count", world.getJointCount() + "");
             Gdx.app.log("Proxy count", world.getProxyCount() + "");
             Gdx.app.log("World VelocityThreshold", World.getVelocityThreshold() + "");
+            LoggerUtils.logSeparator("Box2D Debug End");
         } else {
             Gdx.app.log("Box2D Debug", "No World Created");
         }
-        LoggerUtils.logSeparator("Box2D Debug End");
     }
 
     public static void debugContact(String eventName, Contact contact) {

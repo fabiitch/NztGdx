@@ -10,7 +10,7 @@ import com.nzt.gdx.debug.DebugDisplayUtils;
 import java.util.HashMap;
 import java.util.Map;
 
-public class HudDebugContainer {
+class HudDebugContainer {
 
     private Skin skin;
     private Stage stage;
@@ -56,7 +56,7 @@ public class HudDebugContainer {
         topR++;
         Label label = createLabel(name, value, color);
         float witdhMax = Math.max(label.getWidth(), standartRight);
-        label.setPosition(stage.getWidth() - witdhMax, stage.getHeight() - label.getHeight() * topR - 1);
+        label.setPosition(stage.getWidth() - witdhMax  -10, stage.getHeight() - label.getHeight() * topR - 1);
     }
 
 

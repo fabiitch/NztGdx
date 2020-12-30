@@ -7,12 +7,12 @@ import com.nzt.gdx.math.random.Randoms;
 
 public class NzShapeRenderer extends ShapeRenderer {
 
+	public void circle(Circle circle) {
+		this.circle(circle.x, circle.y, circle.radius);
+	}
+
 	public void rect(Rectangle rect) {
 		this.rect(rect.x, rect.y, rect.width, rect.height);
-	}
-	
-	public void circle(Circle circle ) {
-		this.circle(circle.x, circle.y, circle.radius);
 	}
 
 	public void randomColor() {
