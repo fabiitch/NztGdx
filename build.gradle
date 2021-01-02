@@ -22,9 +22,8 @@ sourceSets.test.resources.srcDirs = [ "src/test/resources" ]
 
     version = '1.0'
     ext {
-        gdxVersion = '1.9.12'
+        gdxVersion = '1.9.13'
         roboVMVersion = '2.3.7'
-        box2DLightsVersion = '1.5'
         ashleyVersion = '1.7.3'
         aiVersion = '1.8.2'
         mockitoVersion = "3.2.0"
@@ -46,7 +45,7 @@ dependencies {
     //api 'org.apache.commons:commons-math3:3.6.1'
 
     // This dependency is used internally, and not exposed to consumers on their own compile classpath.
-    implementation 'com.google.guava:guava:27.0.1-jre'
+//    implementation 'com.google.guava:guava:27.0.1-jre'
 
     // Use JUnit test framework
 		testImplementation "junit:junit:$junitVersion"
@@ -57,13 +56,9 @@ dependencies {
 		testImplementation "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
 
     api "com.badlogicgames.gdx:gdx:$gdxVersion"
-    api "com.badlogicgames.gdx:gdx-box2d:$gdxVersion"
-    api "com.badlogicgames.gdx:gdx-controllers:$gdxVersion"
-    api "com.badlogicgames.gdx:gdx-ai:$aiVersion"
     api "com.badlogicgames.ashley:ashley:$ashleyVersion"
+    api "com.badlogicgames.gdx:gdx-box2d:$gdxVersion"
+    api "com.badlogicgames.gdx:gdx-ai:$aiVersion"
     api "com.badlogicgames.gdx:gdx-freetype:$gdxVersion"
-    api "com.badlogicgames.gdx:gdx-bullet:$gdxVersion"
-    api "com.badlogicgames.box2dlights:box2dlights:$box2DLightsVersion"
     api "com.esotericsoftware.spine:spine-libgdx:3.6.53.1"
-    api "net.dermetfan.libgdx-utils:libgdx-utils:0.13.4"
 }
