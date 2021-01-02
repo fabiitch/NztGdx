@@ -24,14 +24,20 @@ public class DebugDisplayUtils {
     }
 
     public static String printFloat(float f) {
+        if (f == 0)
+            return "0";
         return df.format(f);
     }
 
     public static String printVector2(Vector2 v) {
+        if (v.isZero())
+            return Vector2.Zero.toString();
         return "(" + df.format(v.x) + " , " + df.format(v.y) + ")";
     }
 
     public static String printVector3(Vector3 v) {
+        if (v.isZero())
+            return Vector3.Zero.toString();
         return "(" + df.format(v.x) + " , " + df.format(v.y) + " , " + df.format(v.z) + ")";
     }
 }

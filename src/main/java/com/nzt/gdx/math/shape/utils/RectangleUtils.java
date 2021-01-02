@@ -1,11 +1,10 @@
 package com.nzt.gdx.math.shape.utils;
 
 import com.badlogic.gdx.math.Intersector;
-import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.nzt.gdx.math.shape.Segment2D;
-import com.nzt.gdx.math.vectors.Vector2Utils;
+import com.nzt.gdx.math.vectors.VectorUtils;
 
 public class RectangleUtils {
 
@@ -95,7 +94,7 @@ public class RectangleUtils {
 
         if (closestIntersection != null) {
             //TODO  closest devrait pas etre nul avec le check en haut
-            Vector2 closest = Vector2Utils.getClosest(p1Start, interHorizontalTop, interHorizontalBot, interVerticalRight, interVerticalLeft);
+            Vector2 closest = VectorUtils.getClosest(p1Start, interHorizontalTop, interHorizontalBot, interVerticalRight, interVerticalLeft);
             if (closest != null)
                 closestIntersection.set(closest);
         } else {

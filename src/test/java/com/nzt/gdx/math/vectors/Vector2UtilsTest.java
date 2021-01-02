@@ -11,7 +11,7 @@ public class Vector2UtilsTest {
         Vector2 v1 = v(0, 0);
         Vector2 v2 = v(10, 0);
         Vector2 v3 = v(5, 0);
-        Vector2 closest = Vector2Utils.getClosest(v1, v2, v3, null, null);
+        Vector2 closest = VectorUtils.getClosest(v1, v2, v3, null, null);
         Assert.assertEquals(closest, v3);
     }
     @Test

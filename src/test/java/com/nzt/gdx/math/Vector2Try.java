@@ -71,10 +71,10 @@ public class Vector2Try {
 
     @Test
     public void rotationTest() {
-        v1 = v(1, 0);
-        System.out.println("before : " + v1);
-        v1 = v1.rotateDeg(90).nor();
-        System.out.println("after : " + v1.nor());
+        Vector2 v1 = v(1.0f, 0.0f);
+        Vector2 v2 = v(0.99276555f, 0.120069146f);
+        System.out.println(v1.angleDeg());
+        System.out.println(v2.angleDeg());
     }
 
     private Vector2 v(float a, float b) {

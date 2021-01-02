@@ -10,7 +10,7 @@ import com.nzt.gdx.assets.AbstractAssetsManager;
 import com.nzt.gdx.logger.config.AbstractLogManager;
 import com.nzt.gdx.screen.BaseScreen;
 import com.nzt.gdx.screen.manager.AbstractScreenManager;
-import com.nzt.gdx.tester.screen.TriangleTestScreen;
+import com.nzt.gdx.tester.screen.VectorDirTestScreen;
 
 /**
  * WIP, test class for launch fast iteration dev on lib change
@@ -21,7 +21,7 @@ import com.nzt.gdx.tester.screen.TriangleTestScreen;
 public class FastTesterMain extends AbstractMain {
 
 	private BaseScreen returnScreenToLaunch() {
-		return new TriangleTestScreen(this);
+		return new VectorDirTestScreen(this);
 	}
 
 	@Override

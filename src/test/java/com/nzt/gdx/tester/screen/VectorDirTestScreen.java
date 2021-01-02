@@ -5,26 +5,25 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.Vector2;
 import com.nzt.gdx.archi.AbstractMain;
-import com.nzt.gdx.math.random.Randoms;
 import com.nzt.gdx.screen.BaseScreen;
 
-public class TriangleTestScreen extends BaseScreen {
+public class VectorDirTestScreen extends BaseScreen {
 
     Texture tt = new Texture("badlogic.jpg");
 
-    public TriangleTestScreen(AbstractMain main) {
+    public VectorDirTestScreen(AbstractMain main) {
         super(main);
     }
 
-    Vector2 midde = new Vector2(Gdx.graphics.getWidth() / 2, Gdx.graphics.getHeight() / 2);
+    Vector2 middle = new Vector2(Gdx.graphics.getWidth() / 2, Gdx.graphics.getHeight() / 2);
 
     Vector2 getV(Vector2 v) {
-        return v.cpy().nor().scl(150).add(midde);
+        return v.cpy().nor().scl(150).add(middle);
     }
 
     void draw(Vector2 v, Color color) {
         shapeRenderer.setColor(color);
-        shapeRenderer.line(midde, getV(v));
+        shapeRenderer.line(middle, getV(v));
     }
 
     @Override
