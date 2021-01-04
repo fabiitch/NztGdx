@@ -7,7 +7,7 @@ import org.junit.Test;
 public class PercentageTest {
 
 	private static float DELTA_0 = 0f;
-	private static float DELTA_001 = 0.1f;
+	private static float DELTA_01 = 0.1f;
 
 	@Test
 	public void getPercentTest() {
@@ -20,20 +20,20 @@ public class PercentageTest {
 	public void getValueTest() {
 		assertEquals(Percentage.getValue(50, 100), 50, DELTA_0);
 		assertEquals(Percentage.getValue(15, 300), 45, DELTA_0);
-		assertEquals(Percentage.getValue(685.52f, 2.39f), 16.38f, DELTA_001);
+		assertEquals(Percentage.getValue(685.52f, 2.39f), 16.38f, DELTA_01);
 	}
 
 	@Test
 	public void addXPercentOf() {
 		assertEquals(Percentage.addXPercentTo(50, 100), 150, DELTA_0);
 		assertEquals(Percentage.addXPercentTo(105, 500), 1025, DELTA_0);
-		assertEquals(Percentage.addXPercentTo(20, 44.66f), 53.59f, DELTA_001);
+		assertEquals(Percentage.addXPercentTo(20, 44.66f), 53.59f, DELTA_01);
 	}
 
 	@Test
 	public void removeXPercentOf() {
 		assertEquals(Percentage.removeXPercentTo(50, 100), 50, DELTA_0);
-		assertEquals(Percentage.removeXPercentTo(14.3f, 555), 475.63f, DELTA_001);
-		assertEquals(Percentage.removeXPercentTo(1055.3f, 255f), -2436.01f, DELTA_001);
+		assertEquals(Percentage.removeXPercentTo(14.3f, 555), 475.63f, DELTA_01);
+		assertEquals(Percentage.removeXPercentTo(1055.3f, 255f), -2436.01f, DELTA_01);
 	}
 }
