@@ -76,7 +76,6 @@ public class Vector2Try {
         System.out.println(v1.angleDeg());
         System.out.println(v2.angleDeg());
     }
-
     private Vector2 v(float a, float b) {
         return new Vector2(a, b);
     }

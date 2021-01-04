@@ -15,11 +15,13 @@ public class HudDebugDisplay {
         this.container = new HudDebugContainer(stage);
         this.instance = this;
 
-        for (HudDebugItem item : arrayBeforeInit) {
-            this.container.addItem(item);
+        if (arrayBeforeInit != null) {
+            for (HudDebugItem item : arrayBeforeInit) {
+                this.container.addItem(item);
+            }
+            this.arrayBeforeInit.clear();
+            this.arrayBeforeInit = null;
         }
-        this.arrayBeforeInit.clear();
-        this.arrayBeforeInit = null;
     }
 
     public static void update(String name, Object value) {
@@ -36,7 +38,7 @@ public class HudDebugDisplay {
 
     public static void addTopLeft(String name, Object value, Color color) {
         if (instance == null) {
-            addInitList(name, value, color, 1);
+            addInitList(name, value, color, PositionHudDebug.topLeft);
         } else {
             instance.container.addTopLeft(name, value, color);
         }
@@ -46,21 +48,21 @@ public class HudDebugDisplay {
         addTopLeft(name, value, Color.WHITE);
     }
 
-    public static void addBotLeft(String name, Object value, Color color) {
+    public static void addTopMiddle(String name, Object value, Color color) {
         if (instance == null) {
-            addInitList(name, value, color, 2);
+            addInitList(name, value, color, PositionHudDebug.topMiddle);
         } else {
-            instance.container.addBotLeft(name, value, color);
+            instance.container.addTopMiddle(name, value, color);
         }
     }
 
-    public static void addBotLeft(String name, Object value) {
-        addBotLeft(name, value, Color.WHITE);
+    public static void addTopMiddle(String name, Object value) {
+        addTopMiddle(name, value, Color.WHITE);
     }
 
     public static void addTopRight(String name, Object value, Color color) {
         if (instance == null) {
-            addInitList(name, value, color, 3);
+            addInitList(name, value, color, PositionHudDebug.topRight);
         } else {
             instance.container.addTopRight(name, value, color);
         }
@@ -70,9 +72,34 @@ public class HudDebugDisplay {
         addTopRight(name, value, Color.WHITE);
     }
 
+    public static void addBotLeft(String name, Object value, Color color) {
+        if (instance == null) {
+            addInitList(name, value, color, PositionHudDebug.botLeft);
+        } else {
+            instance.container.addBotLeft(name, value, color);
+        }
+    }
+
+    public static void addBotLeft(String name, Object value) {
+        addBotLeft(name, value, Color.WHITE);
+    }
+
+    public static void addBotMiddle(String name, Object value, Color color) {
+        if (instance == null) {
+            addInitList(name, value, color, PositionHudDebug.botMiddle);
+        } else {
+            instance.container.addBotMiddle(name, value, color);
+        }
+    }
+
+    public static void addBotMiddle(String name, Object value) {
+        addBotMiddle(name, value, Color.WHITE);
+    }
+
+
     public static void addBotRight(String name, Object value, Color color) {
         if (instance == null) {
-            addInitList(name, value, color, 4);
+            addInitList(name, value, color, PositionHudDebug.botRight);
         } else {
             instance.container.addBotRight(name, value, color);
         }
@@ -82,4 +109,61 @@ public class HudDebugDisplay {
         addBotRight(name, value, Color.WHITE);
     }
 
+
+    public static void addLeftMiddle(String name, Object value, Color color) {
+        if (instance == null) {
+            addInitList(name, value, color, PositionHudDebug.leftMiddle);
+        } else {
+            instance.container.addLeftMiddle(name, value, color);
+        }
+    }
+
+    public static void addLeftMiddle(String name, Object value) {
+        addLeftMiddle(name, value, Color.WHITE);
+    }
+
+    public static void addRightMiddle(String name, Object value, Color color) {
+        if (instance == null) {
+            addInitList(name, value, color, PositionHudDebug.rightMiddle);
+        } else {
+            instance.container.addRightMiddle(name, value, color);
+        }
+    }
+
+    public static void addRightMiddle(String name, Object value) {
+        addRightMiddle(name, value, Color.WHITE);
+    }
+
+    public void add(int position, String name, Object value, Color color) {
+        switch (position) {
+            case PositionHudDebug.topLeft:
+                this.addTopLeft(name, value, color);
+                break;
+            case PositionHudDebug.topMiddle:
+                this.addTopMiddle(name, value, color);
+                break;
+            case PositionHudDebug.topRight:
+                this.addTopRight(name, value, color);
+                break;
+            case PositionHudDebug.botLeft:
+                this.addBotLeft(name, value, color);
+                break;
+            case PositionHudDebug.botMiddle:
+                this.addBotMiddle(name, value, color);
+                break;
+            case PositionHudDebug.botRight:
+                this.addBotRight(name, value, color);
+                break;
+            case PositionHudDebug.leftMiddle:
+                this.addLeftMiddle(name, value, color);
+                break;
+            case PositionHudDebug.rightMiddle:
+                this.addRightMiddle(name, value, color);
+                break;
+        }
+    }
+
+    public void add(int position, String name, Object value) {
+        this.add(position, name, value, Color.WHITE);
+    }
 }
