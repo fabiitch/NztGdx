@@ -1,6 +1,7 @@
 package com.nzt.gdx.tester;
 
 import com.nzt.gdx.screen.BaseScreen;
+import com.nzt.gdx.screen.loading.BaseLoadingScreen;
 import com.nzt.gdx.screen.manager.AbstractScreenManager;
 
 /**
@@ -15,6 +16,10 @@ public class FastTesterScreenManager extends AbstractScreenManager {
 
 	public FastTesterScreenManager(BaseScreen screen) {
 		this.screenToSet = screen;
+	}
+
+	public BaseLoadingScreen createLoadingScreen() {
+		return null;
 	}
 
 	@Override

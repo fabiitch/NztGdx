@@ -6,7 +6,7 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
 import com.nzt.gdx.archi.AbstractMain;
 import com.nzt.gdx.assets.IntAssetsManager;
 import com.nzt.gdx.graphics.renderables.ProgressBar_SR;
-import com.nzt.gdx.screen.manager.AbstractScreenManager.AfterLoading;
+import com.nzt.gdx.screen.manager.AbstractScreenManager.IntAfterLoading;
 
 /**
  * loading screen with rectangle progress bar in middle
@@ -14,20 +14,30 @@ import com.nzt.gdx.screen.manager.AbstractScreenManager.AfterLoading;
  * @author fabiitch
  *
  */
-public class SimpleProgressBarScreen<M extends AbstractMain<?>>  extends BaseLoadingScreen<M> {
+public class SimpleProgressBarScreen<M extends AbstractMain<?>> extends BaseLoadingScreen<M> {
 	protected ProgressBar_SR doubleRectangle;
 
-	public SimpleProgressBarScreen(M main, AfterLoading afterloading, float minDisplayTime) {
+	public SimpleProgressBarScreen(M main, float minDisplayTime) {
+		super(main, minDisplayTime);
+		createRectangles();
+	}
+
+	public SimpleProgressBarScreen(M main, float minDisplayTime, Color colorBase, Color colorBorder) {
+		super(main, minDisplayTime);
+		createRectangles();
+	}
+
+	public SimpleProgressBarScreen(M main, float minDisplayTime, IntAssetsManager assetsManager) {
+		super(main, minDisplayTime, assetsManager);
+		createRectangles();
+	}
+
+	public SimpleProgressBarScreen(M main, IntAfterLoading afterloading, float minDisplayTime) {
 		super(main, afterloading, minDisplayTime);
 		createRectangles();
 	}
-	
-	@Override
-	public void doShow() {
-		
-	}
 
-	public SimpleProgressBarScreen(M main, AfterLoading afterloading, float minDisplayTime,
+	public SimpleProgressBarScreen(M main, IntAfterLoading afterloading, float minDisplayTime,
 			IntAssetsManager assetsManager) {
 		super(main, afterloading, minDisplayTime, assetsManager);
 		createRectangles();
@@ -48,6 +58,5 @@ public class SimpleProgressBarScreen<M extends AbstractMain<?>>  extends BaseLoa
 		doubleRectangle.render(shapeRenderer);
 		shapeRenderer.end();
 	}
-
 
 }
