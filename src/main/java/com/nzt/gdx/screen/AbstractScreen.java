@@ -26,7 +26,7 @@ public abstract class AbstractScreen<M extends AbstractMain> implements Screen {
     protected SpriteBatch spriteBatch;
     protected NzShapeRenderer shapeRenderer;
     protected ModelBatch modelBatch;
-    protected int countForPerformanceLog =0;
+    protected int countForPerformanceLog = 0;
 
     public AbstractScreen(M main) {
         this.main = main;
@@ -45,9 +45,19 @@ public abstract class AbstractScreen<M extends AbstractMain> implements Screen {
 
     private final void showFPS(float dt) {
         Gdx.graphics.setTitle("FPS : " + Gdx.graphics.getFramesPerSecond() + " | delta=" + dt);
-	}
+    }
 
-    public abstract void doShow() ;
+    public abstract void doShow();
+
+    public abstract void doResize(int width, int height);
+
+    public abstract void doPause();
+
+    public abstract void doResume();
+
+    public abstract void doHide();
+
+    public abstract void doDispose();
 
     @Override
     public void render(float dt) {
@@ -64,7 +74,7 @@ public abstract class AbstractScreen<M extends AbstractMain> implements Screen {
         if (countForPerformanceLog >= 1000) {//TODO ?? vraiement utile
             TagLogger.log(LogTagsBase.PERFORMANCE, "fps = " + Gdx.graphics.getFramesPerSecond());
             TagLogger.log(LogTagsBase.PERFORMANCE, "dt = " + dt);
-            countForPerformanceLog=0;
+            countForPerformanceLog = 0;
         }
     }
 }
