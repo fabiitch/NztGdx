@@ -9,12 +9,12 @@ import com.nzt.gdx.graphics.renderables.ProgressBar_SR;
 import com.nzt.gdx.screen.manager.AbstractScreenManager.AfterLoading;
 
 /**
- * loading screen with rectangle bar in middle
+ * loading screen with rectangle progress bar in middle
  * 
  * @author fabiitch
  *
  */
-public class SimpleProgressBarScreen<M extends AbstractMain>  extends BaseLoadingScreen<M> {
+public class SimpleProgressBarScreen<M extends AbstractMain<?>>  extends BaseLoadingScreen<M> {
 	protected ProgressBar_SR doubleRectangle;
 
 	public SimpleProgressBarScreen(M main, AfterLoading afterloading, float minDisplayTime) {
