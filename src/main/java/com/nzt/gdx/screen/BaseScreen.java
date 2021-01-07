@@ -26,26 +26,31 @@ public abstract class BaseScreen<M extends AbstractMain> extends AbstractScreen<
     public void resize(int width, int height) {
         TagLogger.log(LogTagsBase.SCREEN_ACTIONS, this.getClass().getSimpleName(),
                 "resize(" + width + ", " + height + ")");
+        doResize(width, height);
     }
 
     @Override
     public void pause() {
         TagLogger.log(LogTagsBase.SCREEN_ACTIONS, this.getClass().getSimpleName(), "pause()");
+        doPause();
     }
 
     @Override
     public void resume() {
         TagLogger.log(LogTagsBase.SCREEN_ACTIONS, this.getClass().getSimpleName(), "resume()");
+        doResume();
     }
 
     @Override
     public void hide() {
         TagLogger.log(LogTagsBase.SCREEN_ACTIONS, this.getClass().getSimpleName(), "hide()");
+        doHide();
     }
 
     @Override
     public void dispose() {
         TagLogger.log(LogTagsBase.SCREEN_ACTIONS, this.getClass().getSimpleName(), "dispose()");
+        doDispose();
     }
 
 }
