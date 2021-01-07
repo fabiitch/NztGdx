@@ -7,82 +7,114 @@ import com.nzt.gdx.screen.loading.BaseLoadingScreen;
 import com.nzt.gdx.screen.loading.SimpleProgressBarScreen;
 
 public abstract class AbstractScreenManager<M extends AbstractMain> {
-    protected M mainClass;
+	protected M mainClass;
 
-    protected BaseScreen<M> currentScreen;
-    protected BaseLoadingScreen<M> loadingScreen;
-    public AbstractAssetsManager assetsManager;
+	protected BaseScreen<M> currentScreen;
+	protected BaseLoadingScreen<M> loadingScreen;
+	public AbstractAssetsManager assetsManager;
 
-    protected abstract void afterSplashScreen();
+	public float minDisplayTime;
 
-    public void startApplication(M mainClass) {
-        this.mainClass = mainClass;
-        this.assetsManager = mainClass.assetsManager;
-        doStartApplication();
-        AfterLoading afterloading = new AfterLoading() {
-            @Override
-            public void doAfterLoading() {
-                afterSplashScreen();
-                loadingScreen.dispose();
-            }
-        };
-        loadingScreen = new SimpleProgressBarScreen<M>(mainClass, afterloading, 0.5f, assetsManager);
-        setScreen(loadingScreen);
-    }
+	protected abstract void afterSplashScreen();
 
-    public void setScreenWithLoadingTransition(final BaseScreen<M> screen) {
-        AfterLoading afterloading = new AfterLoading() {
-            @Override
-            public void doAfterLoading() {
-                setScreen(screen);
-            }
-        };
-        loadingScreen = new SimpleProgressBarScreen<M>(mainClass, afterloading, 3f, assetsManager);
-        setScreen(loadingScreen);
-    }
+	public AbstractScreenManager(float minDisplayTime) {
+		super();
+		this.minDisplayTime = minDisplayTime;
+		loadingScreen = createLoadingScreen();
+		if (loadingScreen == null) {
+			loadingScreen = new SimpleProgressBarScreen<M>(mainClass, this.minDisplayTime, assetsManager);
+		}
+	}
 
-    public void setScreen(BaseScreen<M> screen) {
-        if (currentScreen != null) {
-            currentScreen.dispose();
-            currentScreen = null;
-        }
-        mainClass.setScreen(screen);
-        currentScreen = screen;
-    }
+	public AbstractScreenManager() {
+		this(0.2f);
+	}
 
-    protected abstract void doStartApplication();
+	public abstract BaseLoadingScreen<M> createLoadingScreen();
 
-    // ===================== screen implements
-    public void pause() {
-        currentScreen.pause();
-        doPause();
-    }
+	public void startApplication(M mainClass) {
+		this.mainClass = mainClass;
+		this.assetsManager = mainClass.assetsManager;
+		doStartApplication();
+		IntAfterLoading afterloading = new IntAfterLoading() {
+			@Override
+			public void doAfterLoading() {
+				afterSplashScreen();
+				loadingScreen.dispose();
+			}
+		};
+		this.loadingScreen.setAfterLoading(afterloading);
+		setScreen(loadingScreen);
+	}
 
-    protected abstract void doPause();
+	void setLoadingScreen(BaseLoadingScreen<M> newLoadingScreen) {
+		this.loadingScreen = newLoadingScreen;
+	}
 
-    public void resume() {
-        currentScreen.resume();
-        doResume();
-    }
+	public void setScreenWithLoadingTransition(final BaseScreen<M> screen, float minTimeDisplay) {
+		IntAfterLoading afterloading = new IntAfterLoading() {
+			@Override
+			public void doAfterLoading() {
+				setScreen(screen);
+			}
+		};
+		this.loadingScreen.setAfterLoading(afterloading);
+		setScreen(loadingScreen);
+	}
 
-    protected abstract void doResume();
+	public void setScreenWithLoadingTransition(final BaseScreen<M> screen) {
+		IntAfterLoading afterloading = new IntAfterLoading() {
+			@Override
+			public void doAfterLoading() {
+				setScreen(screen);
+			}
+		};
+		loadingScreen = new SimpleProgressBarScreen<M>(mainClass, afterloading, minDisplayTime, assetsManager);
+		setScreen(loadingScreen);
+	}
 
-    public void resize(int width, int height) {
-        currentScreen.resize(width, height);
-        doResize(width, height);
-    }
+	public void setScreen(BaseScreen<M> screen) {
+		if (currentScreen != null) {
+			currentScreen.dispose();
+			currentScreen = null;
+		}
+		mainClass.setScreen(screen);
+		currentScreen = screen;
+	}
 
-    protected abstract void doResize(int width, int height);
+	protected abstract void doStartApplication();
 
-    public void dispose() {
-        currentScreen.dispose();
-        doDispose();
-    }
+	// ===================== screen implements
+	public void pause() {
+		currentScreen.pause();
+		doPause();
+	}
 
-    // =============
-    protected abstract void doDispose();
+	protected abstract void doPause();
 
-    public interface AfterLoading {
-        void doAfterLoading();
-    }
+	public void resume() {
+		currentScreen.resume();
+		doResume();
+	}
+
+	protected abstract void doResume();
+
+	public void resize(int width, int height) {
+		currentScreen.resize(width, height);
+		doResize(width, height);
+	}
+
+	protected abstract void doResize(int width, int height);
+
+	public void dispose() {
+		currentScreen.dispose();
+		doDispose();
+	}
+
+	// =============
+	protected abstract void doDispose();
+
+	public interface IntAfterLoading {
+		void doAfterLoading();
+	}
 }

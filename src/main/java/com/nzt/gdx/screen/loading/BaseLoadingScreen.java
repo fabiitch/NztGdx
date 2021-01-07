@@ -2,9 +2,8 @@ package com.nzt.gdx.screen.loading;
 
 import com.nzt.gdx.archi.AbstractMain;
 import com.nzt.gdx.assets.IntAssetsManager;
-import com.nzt.gdx.screen.BaseScreen;
 import com.nzt.gdx.screen.SimpleScreen;
-import com.nzt.gdx.screen.manager.AbstractScreenManager.AfterLoading;
+import com.nzt.gdx.screen.manager.AbstractScreenManager.IntAfterLoading;
 
 /**
  * Loading screen, 2 param mintime to display it,
@@ -12,66 +11,87 @@ import com.nzt.gdx.screen.manager.AbstractScreenManager.AfterLoading;
  * @author fabiitch
  */
 public abstract class BaseLoadingScreen<M extends AbstractMain> extends SimpleScreen<M> {
-    protected IntAssetsManager assetsManager;
-    protected AfterLoading afterLoading;
-    private float minDisplayTime;
-    private float timeCounter = 0;
+	protected IntAssetsManager assetsManager;
+	protected IntAfterLoading afterLoading;
+	private float minDisplayTime;
+	private float timeCounter = 0;
 
-    public BaseLoadingScreen(M main, AfterLoading afterloading, float minDisplayTime) {
-        super(main);
-        this.afterLoading = afterloading;
-        this.minDisplayTime = minDisplayTime;
-    }
+	public float progressPercentage = 0;
 
-    public BaseLoadingScreen(M main, AfterLoading afterloading, float minDisplayTime,
-                             IntAssetsManager assetsManager) {
-        this(main, afterloading, minDisplayTime);
-        this.assetsManager = assetsManager;
-    }
+	public BaseLoadingScreen(M main, float minDisplayTime) {
+		super(main);
+		this.minDisplayTime = minDisplayTime;
+	}
 
-    /**
-     * min 0 , max 1, min between minDisplayTime and assetsManager.getProgress()
-     *
-     * @param delta
-     * @return
-     */
-    private float getProgress(float delta) {
-        timeCounter += delta;
-        float progress = timeCounter / minDisplayTime;
-        if (timeCounter >= minDisplayTime) {
-            progress = 1;
-        }
+	public BaseLoadingScreen(M main, float minDisplayTime, IntAssetsManager assetsManager) {
+		this(main, minDisplayTime);
+		this.assetsManager = assetsManager;
+	}
 
-        if (assetsManager != null) {
-            float progressAssets = assetsManager.getProgress() / 100;
-            if (progressAssets < 1) {
-                progress = Math.min(progressAssets, progress);
-            }
-        }
-        return progress;
-    }
+	public BaseLoadingScreen(M main, IntAfterLoading afterloading, float minDisplayTime) {
+		super(main);
+		this.afterLoading = afterloading;
+		this.minDisplayTime = minDisplayTime;
+	}
 
-    /**
-     * override to render your screen
-     *
-     * @param delta
-     * @param progress
-     */
-    public abstract void renderScreen(float delta, float progress);
+	public BaseLoadingScreen(M main, IntAfterLoading afterloading, float minDisplayTime,
+			IntAssetsManager assetsManager) {
+		this(main, afterloading, minDisplayTime);
+		this.assetsManager = assetsManager;
+	}
 
-    /**
-     * method called by gdx, calcul time and render loadingscreen
-     */
-    @Override
-    protected void renderScreen(float delta) {
-        float progress = getProgress(delta);
-        if (progress == 1) {
-            afterLoading.doAfterLoading();
-        } else {
-            renderScreen(delta, progress);
-        }
+	/**
+	 * min 0 , max 1, min between minDisplayTime and assetsManager.getProgress()
+	 *
+	 * @param delta
+	 * @return
+	 */
+	private float getProgress(float delta) {
+		timeCounter += delta;
+		float progress = timeCounter / minDisplayTime;
+		if (timeCounter >= minDisplayTime) {
+			progress = 1;
+		}
 
-    }
+		if (assetsManager != null) {
+			float progressAssets = assetsManager.getProgress() / 100;
+			if (progressAssets < 1) {
+				progress = Math.min(progressAssets, progress);
+			}
+		}
+		return progress;
+	}
 
+	/**
+	 * override to render your screen
+	 *
+	 * @param delta
+	 * @param progress
+	 */
+	public abstract void renderScreen(float delta, float progress);
+
+	/**
+	 * method called by gdx, calcul time and render loadingscreen
+	 */
+	@Override
+	protected void renderScreen(float delta) {
+		float progress = getProgress(delta);
+		this.progressPercentage = progress * 100;
+		if (progress == 1) {
+			afterLoading.doAfterLoading();
+		} else {
+			renderScreen(delta, progress);
+		}
+	}
+
+
+	public void setAfterLoading(IntAfterLoading afterLoading) {
+		this.afterLoading = afterLoading;
+	}
+
+	public void setAssetsManager(IntAssetsManager assetsManager) {
+		this.assetsManager = assetsManager;
+	}
+	
 
 }

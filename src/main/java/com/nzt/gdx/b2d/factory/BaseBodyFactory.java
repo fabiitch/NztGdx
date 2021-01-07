@@ -10,7 +10,6 @@ import com.badlogic.gdx.physics.box2d.Fixture;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
-import com.nzt.gdx.archi.AbstractGameService;
 import com.nzt.gdx.b2d.FixtureDefWrapper;
 import com.nzt.gdx.b2d.utils.B2DConverterHelper;
 import com.nzt.gdx.logger.tag.LogTagsBase;
@@ -18,7 +17,7 @@ import com.nzt.gdx.logger.tag.TagLogger;
 import com.nzt.gdx.logger.utils.NzLoggableUtils;
 
 /**
- * base body factory service with service for create circle/rect body //TODO
+ * base body factory for create circle/rect body //TODO
  * less new BodyDef
  * TODO  public static BodyDef set(BodyDef bodyDef, Body body) { demertfan
  * bloquer rotation sur les body direct body.isFixedRotation();
@@ -26,17 +25,14 @@ import com.nzt.gdx.logger.utils.NzLoggableUtils;
  * @author fabiitch
  *
  */
-public class AbstractBodyFactoryService extends AbstractGameService {
+public class BaseBodyFactory {
 
 	protected World world;
 	public float ppm;
 	public B2DConverterHelper b2DConverter;
 
-	@Override
-	public void dispose() {
-	}
 
-	public AbstractBodyFactoryService(World world, float ppm) {
+	public BaseBodyFactory(World world, float ppm) {
 		super();
 		this.world = world;
 		this.ppm = ppm;
