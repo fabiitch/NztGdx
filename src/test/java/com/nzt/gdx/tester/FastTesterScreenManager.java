@@ -6,48 +6,52 @@ import com.nzt.gdx.screen.manager.AbstractScreenManager;
 
 /**
  * Fast Screen manager for test
- * 
- * @author fabiitch
  *
+ * @author fabiitch
  */
 public class FastTesterScreenManager extends AbstractScreenManager {
 
-	private BaseScreen<?> screenToSet;
+    private BaseScreen<?> screenToSet;
 
-	public FastTesterScreenManager(BaseScreen screen) {
-		this.screenToSet = screen;
-	}
+    public FastTesterScreenManager(BaseScreen screen) {
+        this.screenToSet = screen;
+    }
 
-	public BaseLoadingScreen createLoadingScreen() {
-		return null;
-	}
+    public BaseLoadingScreen createLoadingScreen() {
+        return null;
+    }
 
-	@Override
-	protected void afterSplashScreen() {
-		setScreen(screenToSet);
-	}
+    @Override
+    protected void afterSplashScreen() {
+        setScreen(screenToSet);
+    }
 
-	@Override
-	protected void doStartApplication() {
-	}
+    @Override
+    protected void doStartApplication() {
+    }
 
-	@Override
-	protected void doPause() {
-	}
+    @Override
+    protected void doPause() {
+    }
 
-	@Override
-	protected void doResume() {
+    @Override
+    protected void doResume() {
 
-	}
+    }
 
-	@Override
-	protected void doResize(int width, int height) {
+    @Override
+    protected void doResize(int width, int height) {
 
-	}
+    }
 
-	@Override
-	protected void doDispose() {
+    @Override
+    protected void doDispose() {
 
-	}
+    }
+
+    @Override
+    protected void doRender(float dt) {
+
+    }
 
 }

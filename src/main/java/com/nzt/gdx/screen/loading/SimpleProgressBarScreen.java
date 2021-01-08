@@ -14,32 +14,16 @@ import com.nzt.gdx.screen.manager.AbstractScreenManager.IntAfterLoading;
  * @author fabiitch
  *
  */
-public class SimpleProgressBarScreen<M extends AbstractMain<?>> extends BaseLoadingScreen<M> {
-	protected ProgressBar_SR doubleRectangle;
+public class SimpleProgressBarScreen<M extends AbstractMain> extends BaseLoadingScreen<M> {
+	public ProgressBar_SR doubleRectangle;
 
 	public SimpleProgressBarScreen(M main, float minDisplayTime) {
 		super(main, minDisplayTime);
 		createRectangles();
 	}
 
-	public SimpleProgressBarScreen(M main, float minDisplayTime, Color colorBase, Color colorBorder) {
-		super(main, minDisplayTime);
-		createRectangles();
-	}
-
 	public SimpleProgressBarScreen(M main, float minDisplayTime, IntAssetsManager assetsManager) {
 		super(main, minDisplayTime, assetsManager);
-		createRectangles();
-	}
-
-	public SimpleProgressBarScreen(M main, IntAfterLoading afterloading, float minDisplayTime) {
-		super(main, afterloading, minDisplayTime);
-		createRectangles();
-	}
-
-	public SimpleProgressBarScreen(M main, IntAfterLoading afterloading, float minDisplayTime,
-			IntAssetsManager assetsManager) {
-		super(main, afterloading, minDisplayTime, assetsManager);
 		createRectangles();
 	}
 

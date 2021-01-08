@@ -26,7 +26,7 @@ public abstract class AbstractScreen<M extends AbstractMain> implements Screen {
     protected SpriteBatch spriteBatch;
     protected NzShapeRenderer shapeRenderer;
     protected ModelBatch modelBatch;
-    protected int countForPerformanceLog = 0;
+    protected int countForPerformanceLog = 0; //TODO sure ?
 
     public AbstractScreen(M main) {
         this.main = main;
