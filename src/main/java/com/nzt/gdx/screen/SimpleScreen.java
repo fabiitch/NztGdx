@@ -40,7 +40,7 @@ public abstract class SimpleScreen<M extends AbstractMain> extends BaseScreen<M>
 
     @Override
     public void doDispose() {
-
+        System.out.println("doDispose");
     }
 
 }

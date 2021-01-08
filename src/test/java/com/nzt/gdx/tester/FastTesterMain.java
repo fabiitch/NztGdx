@@ -21,7 +21,7 @@ import com.nzt.gdx.tester.screen.Vector2TestScreen;
 public class FastTesterMain extends AbstractMain {
 
     private BaseScreen returnScreenToLaunch() {
-		return new Vector2TestScreen(this);
+        return new Vector2TestScreen(this);
 //        return new HudDebugDisplayScreen(this);
     }
 
@@ -33,7 +33,7 @@ public class FastTesterMain extends AbstractMain {
     }
 
     @Override
-    public AbstractScreenManager<AbstractMain> createScreenManager() {
+    public AbstractScreenManager createScreenManager() {
         return new FastTesterScreenManager(returnScreenToLaunch());
     }
 
@@ -45,6 +45,11 @@ public class FastTesterMain extends AbstractMain {
     @Override
     public AbstractLogManager<AbstractMain> createLogManager() {
         return null;
+    }
+
+    @Override
+    public void doExit() {
+
     }
 
     public static void main(String args[]) {

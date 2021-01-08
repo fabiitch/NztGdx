@@ -1,6 +1,8 @@
 package com.nzt.gdx.archi;
 
+import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Game;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g3d.ModelBatch;
 import com.nzt.gdx.assets.AbstractAssetsManager;
@@ -13,26 +15,31 @@ import com.nzt.gdx.screen.manager.AbstractScreenManager;
 /**
  * Base main, extends to your main SpriteBatch, ShapeRenderer and ModelBatch
  * preinit (reimplement createRenderObjects for change it)
- *
- * @author fabiitch
  */
-public abstract class AbstractMain<M extends AbstractMain<?>> extends Game {
-
+public abstract class AbstractMain implements ApplicationListener {
     public SpriteBatch sb;
     public NzShapeRenderer shapeRenderer;
     public ModelBatch modelBatch;
 
     public AbstractAssetsManager assetsManager;
-    public AbstractScreenManager<M> screenManager;
-    public AbstractLogManager<M> logManager;
+    public AbstractScreenManager screenManager;
+    public AbstractLogManager logManager;
 
     public abstract void doCreate();
 
-    public abstract AbstractScreenManager<M> createScreenManager();
+    public abstract AbstractScreenManager createScreenManager();
 
     public abstract AbstractAssetsManager createAssetsManager();
 
-    public abstract AbstractLogManager<M> createLogManager();
+    public abstract AbstractLogManager createLogManager();
+
+    public abstract void doExit();
+
+    public void exit() {
+        this.sb.dispose();
+        this.shapeRenderer.dispose();
+        this.modelBatch.dispose();
+    }
 
     @Override
     public void create() {
@@ -44,7 +51,7 @@ public abstract class AbstractMain<M extends AbstractMain<?>> extends Game {
         LogApplicationInfo.logGraphics();
         AutoProxy.init();
         doCreate();
-        screenManager.startApplication((M) this);
+        screenManager.startApplication(this);
     }
 
     public void createRenderObjects() {
@@ -54,22 +61,18 @@ public abstract class AbstractMain<M extends AbstractMain<?>> extends Game {
         this.shapeRenderer.setAutoShapeType(true);
         this.modelBatch = new ModelBatch();
         // this.modelBatch = new ModelBatch(new DepthShaderProvider()); // effet rigolo
-
     }
 
     @Override
     public void render() {
-        super.render();
+        screenManager.render(Gdx.graphics.getDeltaTime());
     }
 
     @Override
     public void dispose() {
-        super.dispose();
         this.screenManager.dispose();
-        this.sb.dispose();
-        this.shapeRenderer.dispose();
-        this.modelBatch.dispose();
     }
+
 
     @Override
     public void resize(int width, int height) {
