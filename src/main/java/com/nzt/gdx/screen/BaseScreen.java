@@ -1,14 +1,12 @@
 package com.nzt.gdx.screen;
 
-import com.nzt.gdx.archi.AbstractMain;
+import com.nzt.gdx.main.AbstractMain;
 import com.nzt.gdx.logger.tag.LogTagsBase;
 import com.nzt.gdx.logger.tag.TagLogger;
 
 /**
  * Base screen with log on screenAction
  * See LogTagBase for logs.
- *
- * @author fabiitch
  */
 public abstract class BaseScreen<M extends AbstractMain> extends AbstractScreen<M> {
 

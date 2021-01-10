@@ -1,14 +1,14 @@
 package com.nzt.gdx.screen.manager;
 
 import com.badlogic.gdx.Gdx;
-import com.nzt.gdx.archi.AbstractMain;
+import com.nzt.gdx.main.AbstractMain;
 import com.nzt.gdx.assets.AbstractAssetsManager;
 import com.nzt.gdx.screen.BaseScreen;
 import com.nzt.gdx.screen.loading.BaseLoadingScreen;
 import com.nzt.gdx.screen.loading.SimpleProgressBarScreen;
 
 /**
- * Abstract screen manager
+ * Abstract screen manager, extends it.
  */
 public abstract class AbstractScreenManager<M extends AbstractMain> {
     protected M main;

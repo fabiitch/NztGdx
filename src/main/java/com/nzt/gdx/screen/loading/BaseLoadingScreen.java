@@ -1,6 +1,6 @@
 package com.nzt.gdx.screen.loading;
 
-import com.nzt.gdx.archi.AbstractMain;
+import com.nzt.gdx.main.AbstractMain;
 import com.nzt.gdx.assets.IntAssetsManager;
 import com.nzt.gdx.screen.SimpleScreen;
 import com.nzt.gdx.screen.manager.AbstractScreenManager.IntAfterLoading;
