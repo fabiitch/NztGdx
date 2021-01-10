@@ -1,6 +1,6 @@
 package com.nzt.gdx.screen;
 
-import com.nzt.gdx.archi.AbstractMain;
+import com.nzt.gdx.main.AbstractMain;
 
 /**
  * simple screen , dont need to implements all methods of screen
@@ -40,7 +40,6 @@ public abstract class SimpleScreen<M extends AbstractMain> extends BaseScreen<M>
 
     @Override
     public void doDispose() {
-        System.out.println("doDispose");
     }
 
 }

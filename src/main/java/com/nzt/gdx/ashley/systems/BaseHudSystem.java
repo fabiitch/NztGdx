@@ -29,6 +29,6 @@ public abstract class BaseHudSystem extends EntitySystem {
 
     public void resize(int width, int height) {
         // See below for what true means.
-        stage.getViewport().update(width, height, true);
+        stage.getViewport().update(width, height);
     }
 }

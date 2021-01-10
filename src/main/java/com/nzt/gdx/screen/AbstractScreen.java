@@ -5,8 +5,7 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g3d.ModelBatch;
-import com.badlogic.gdx.utils.PerformanceCounter;
-import com.nzt.gdx.archi.AbstractMain;
+import com.nzt.gdx.main.AbstractMain;
 import com.nzt.gdx.graphics.renderers.NzShapeRenderer;
 import com.nzt.gdx.logger.tag.LogTagsBase;
 import com.nzt.gdx.logger.tag.TagLogger;
@@ -16,9 +15,7 @@ import com.nzt.gdx.logger.tag.TagLogger;
  * main, render object
  * <p>
  * See {@link BaseScreen} for next implementation
- *
  * @param <M>
- * @author fabiitch
  */
 public abstract class AbstractScreen<M extends AbstractMain> implements Screen {
 
@@ -35,7 +32,7 @@ public abstract class AbstractScreen<M extends AbstractMain> implements Screen {
         this.modelBatch = main.modelBatch;
     }
 
-    private final void clearScreen() {
+    public final void clearScreen() {
         // clear screen
         Gdx.gl.glClearColor(0, 0, 1, 0);
         // Gdx.gl.glClearColor(1, 1, 1, 1);

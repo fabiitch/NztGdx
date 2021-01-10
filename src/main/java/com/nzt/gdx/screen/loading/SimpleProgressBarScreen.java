@@ -3,10 +3,9 @@ package com.nzt.gdx.screen.loading;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
-import com.nzt.gdx.archi.AbstractMain;
+import com.nzt.gdx.main.AbstractMain;
 import com.nzt.gdx.assets.IntAssetsManager;
 import com.nzt.gdx.graphics.renderables.ProgressBar_SR;
-import com.nzt.gdx.screen.manager.AbstractScreenManager.IntAfterLoading;
 
 /**
  * loading screen with rectangle progress bar in middle

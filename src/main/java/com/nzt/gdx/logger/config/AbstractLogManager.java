@@ -1,8 +1,12 @@
 package com.nzt.gdx.logger.config;
 
 import com.badlogic.gdx.Gdx;
-import com.nzt.gdx.archi.AbstractMain;
+import com.nzt.gdx.main.AbstractMain;
 
+/**
+ * Abstract LogManager, used in {@link AbstractMain}
+ * @param <M>
+ */
 public abstract class AbstractLogManager<M extends AbstractMain> {
 
     public InputLoggerConfig inputLoggerConfig;
