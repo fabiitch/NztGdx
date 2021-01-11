@@ -5,13 +5,12 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.Array;
 import com.nzt.gdx.debug.DebugDisplayUtils;
 
-public class HudDebugDisplay {
-    public static HudDebugDisplay instance;
+public class HudDebug {
+    public static HudDebug instance;
     private static Array<HudDebugItem> arrayBeforeInit;
 
     private HudDebugContainer container;
-
-    public HudDebugDisplay(Stage stage) {
+    public HudDebug(Stage stage) {
         this.container = new HudDebugContainer(stage);
         this.instance = this;
 
