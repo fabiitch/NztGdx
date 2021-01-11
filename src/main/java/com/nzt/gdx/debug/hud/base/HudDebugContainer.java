@@ -34,21 +34,20 @@ class HudDebugContainer {
     public void addTopLeft(String name, Object value, Color color) {
         topL++;
         Label label = createLabel(name, value, color);
-        label.setPosition(1 + Gdx.graphics.getSafeInsetRight()
-                , stage.getHeight() - label.getHeight() * topL - 1 - Gdx.graphics.getSafeInsetTop());
+        label.setPosition(1, stage.getViewport().getWorldHeight() - label.getHeight() * topL - 1);
     }
 
     public void addTopMiddle(String name, Object value, Color color) {
         topM++;
         Label label = createLabel(name, value, color);
-        label.setPosition(stage.getWidth() / 2 - stage.getWidth() / 6, stage.getHeight() - label.getHeight() * topM - 1);
+        label.setPosition(stage.getViewport().getWorldWidth() / 2 - stage.getViewport().getWorldWidth() / 6, stage.getViewport().getWorldHeight() - label.getHeight() * topM - 1);
     }
 
     public void addTopRight(String name, Object value, Color color) {
         topR++;
         Label label = createLabel(name, value, color);
         float witdhMax = Math.max(label.getWidth(), standartRight);
-        label.setPosition(stage.getWidth() - witdhMax - 10, stage.getHeight() - label.getHeight() * topR - 1);
+        label.setPosition(stage.getViewport().getWorldWidth() - witdhMax - 10, stage.getViewport().getWorldHeight() - label.getHeight() * topR - 1);
     }
 
     public void addBotLeft(String name, Object value, Color color) {
@@ -61,29 +60,29 @@ class HudDebugContainer {
         botM++;
         Label label = createLabel(name, value, color);
         float x = Math.max(label.getWidth() + 2, standartRight);
-        label.setPosition(stage.getWidth() / 2 - stage.getWidth() / 6, label.getHeight() * (botM - 1) + 1);
+        label.setPosition(stage.getViewport().getWorldWidth() / 2 - stage.getViewport().getWorldWidth() / 6, label.getHeight() * (botM - 1) + 1);
     }
 
     public void addBotRight(String name, Object value, Color color) {
         botR++;
         Label label = createLabel(name, value, color);
         float x = Math.max(label.getWidth() + 2, standartRight);
-        label.setPosition(stage.getWidth() - x, label.getHeight() * (botR - 1) + 1);
+        label.setPosition(stage.getViewport().getWorldWidth() - x, label.getHeight() * (botR - 1) + 1);
     }
 
     public void addLeftMiddle(String name, Object value, Color color) {
         leftM++;
         Label label = createLabel(name, value, color);
-        label.setPosition(1 + Gdx.graphics.getSafeInsetRight(),
-                stage.getHeight() / 2 + stage.getHeight() / 6 - label.getHeight() * leftM - 1 - Gdx.graphics.getSafeInsetTop());
+        label.setPosition(1,
+                stage.getViewport().getWorldHeight() / 2 + stage.getViewport().getWorldHeight() / 6 - label.getHeight() * leftM - 1 - Gdx.graphics.getSafeInsetTop());
     }
 
     public void addRightMiddle(String name, Object value, Color color) {
         rightM++;
         Label label = createLabel(name, value, color);
         float x = Math.max(label.getWidth() + 2, standartRight);
-        label.setPosition(stage.getWidth() - x,
-                stage.getHeight() / 2 + stage.getHeight() / 6 - label.getHeight() * rightM - 1 - Gdx.graphics.getSafeInsetTop());
+        label.setPosition(stage.getViewport().getWorldWidth() - x,
+                stage.getViewport().getWorldHeight() / 2 + stage.getViewport().getWorldHeight() / 6 - label.getHeight() * rightM - 1 - Gdx.graphics.getSafeInsetTop());
 
     }
 

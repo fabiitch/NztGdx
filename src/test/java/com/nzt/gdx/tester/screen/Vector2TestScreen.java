@@ -4,7 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.Vector2;
-import com.nzt.gdx.archi.AbstractMain;
+import com.nzt.gdx.main.AbstractMain;
 import com.nzt.gdx.math.AngleUtils;
 import com.nzt.gdx.screen.SimpleScreen;
 

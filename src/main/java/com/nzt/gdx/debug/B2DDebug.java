@@ -4,7 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.physics.box2d.Contact;
 import com.badlogic.gdx.physics.box2d.World;
-import com.nzt.gdx.debug.hud.base.HudDebugDisplay;
+import com.nzt.gdx.debug.hud.base.HudDebug;
 import com.nzt.gdx.logger.LoggerBlock;
 import com.nzt.gdx.logger.LoggerUtils;
 
@@ -17,21 +17,21 @@ public class B2DDebug {
     }
 
     public static void displayHud() {
-        HudDebugDisplay.addTopRight("Body count", world.getBodyCount(), Color.RED);
-        HudDebugDisplay.addTopRight("Contact count", world.getContactCount(), Color.RED);
-        HudDebugDisplay.addTopRight("Fixture count", world.getFixtureCount(), Color.RED);
-        HudDebugDisplay.addTopRight("Joint count", world.getJointCount(), Color.RED);
-        HudDebugDisplay.addTopRight("Proxy count", world.getProxyCount(), Color.RED);
-        HudDebugDisplay.addTopRight("World VelocityThreshold", world.getVelocityThreshold(), Color.RED);
+        HudDebug.addTopRight("Body count", world.getBodyCount(), Color.RED);
+        HudDebug.addTopRight("Contact count", world.getContactCount(), Color.RED);
+        HudDebug.addTopRight("Fixture count", world.getFixtureCount(), Color.RED);
+        HudDebug.addTopRight("Joint count", world.getJointCount(), Color.RED);
+        HudDebug.addTopRight("Proxy count", world.getProxyCount(), Color.RED);
+        HudDebug.addTopRight("World VelocityThreshold", world.getVelocityThreshold(), Color.RED);
     }
 
     public static void updateHud() {
-        HudDebugDisplay.update("Body count", world.getBodyCount());
-        HudDebugDisplay.update("Contact count", world.getContactCount());
-        HudDebugDisplay.update("Fixture count", world.getFixtureCount());
-        HudDebugDisplay.update("Joint count", world.getJointCount());
-        HudDebugDisplay.update("Proxy count", world.getProxyCount());
-        HudDebugDisplay.update("World VelocityThreshold", world.getVelocityThreshold());
+        HudDebug.update("Body count", world.getBodyCount());
+        HudDebug.update("Contact count", world.getContactCount());
+        HudDebug.update("Fixture count", world.getFixtureCount());
+        HudDebug.update("Joint count", world.getJointCount());
+        HudDebug.update("Proxy count", world.getProxyCount());
+        HudDebug.update("World VelocityThreshold", world.getVelocityThreshold());
     }
 
     public static void debugInfo() {

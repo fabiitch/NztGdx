@@ -1,15 +1,19 @@
 package com.nzt.gdx.ashley.systems;
 
 import com.badlogic.ashley.core.EntitySystem;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.utils.viewport.Viewport;
 import com.nzt.gdx.ashley.NztSystemsOrder;
 
 public abstract class BaseHudSystem extends EntitySystem {
 
     public Stage stage;
+    public Viewport viewportStage;
 
     public BaseHudSystem(Stage stage) {
         this(stage, NztSystemsOrder.HUD);
+        this.viewportStage = stage.getViewport();
     }
 
     public BaseHudSystem(Stage stage, int order) {
@@ -27,8 +31,12 @@ public abstract class BaseHudSystem extends EntitySystem {
         stage.draw();
     }
 
+    public void dispose() {
+        stage.clear();
+        stage.dispose();
+    }
+
     public void resize(int width, int height) {
-        // See below for what true means.
-        stage.getViewport().update(width, height);
+//        stage.getViewport().setScreenSize(width, height); // update the size of ViewPort
     }
 }
