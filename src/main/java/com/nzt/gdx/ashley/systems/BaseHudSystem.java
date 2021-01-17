@@ -32,11 +32,12 @@ public abstract class BaseHudSystem extends EntitySystem {
     }
 
     public void dispose() {
-        stage.clear();
         stage.dispose();
     }
 
     public void resize(int width, int height) {
+        stage.getViewport().update(width, height, true);
+//        stage.getViewport().update(width, height, true);
 //        stage.getViewport().setScreenSize(width, height); // update the size of ViewPort
     }
 }
