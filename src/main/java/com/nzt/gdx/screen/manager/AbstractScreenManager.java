@@ -111,8 +111,8 @@ public abstract class AbstractScreenManager<M extends AbstractMain> {
 
     public void resize(int width, int height) {
         if (currentScreen != null) {
-//            currentScreen.resize(width, height);
-//            doResize(width, height);
+            currentScreen.resize(width, height);
+            doResize(width, height);
         }
     }
 
