@@ -39,9 +39,9 @@ public class SpriteRenderSystem extends SortedIteratingSystem {
 	// component mappers to get components from entities
 	private ComponentMapper<SpriteComponent> spriteMapper = SpriteComponent.mapper;
 	private ComponentMapper<PositionComponent> positionMapper = PositionComponent.mapper;
+
 	public SpriteRenderSystem(Camera camera, SpriteBatch sb, int order) {
-		super(Family.all(PositionComponent.class, SpriteComponent.class).get(), new ZComparator(),
-				order);
+		super(Family.all(PositionComponent.class, SpriteComponent.class).get(), new ZComparator(), order);
 		this.cam = camera;
 		// create the array for sorting entities
 		renderQueue = new Array<Entity>();
@@ -84,6 +84,12 @@ public class SpriteRenderSystem extends SortedIteratingSystem {
 	@Override
 	protected void processEntity(Entity entity, float deltaTime) {
 		renderQueue.add(entity);
+	}
+
+	public void dispose() {
+		this.comparator = null;
+		this.renderQueue.clear();
+		this.renderQueue = null;
 	}
 
 }

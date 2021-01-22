@@ -43,4 +43,8 @@ public class B2DDebugSystem extends EntitySystem {
         TagCountLogger.log(LogTagsBase.SYSTEMS, "physicsDebug");
         debugRenderer.render(world, camera.combined);
     }
+    
+    public void dispose() {
+    	this.debugRenderer.dispose();
+    }
 }

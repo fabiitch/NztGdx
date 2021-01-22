@@ -4,6 +4,7 @@ import com.badlogic.ashley.core.ComponentMapper;
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.ashley.core.Family;
 import com.badlogic.ashley.systems.IteratingSystem;
+import com.badlogic.gdx.physics.box2d.ContactListener;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.Array;
 import com.nzt.gdx.ashley.components.mvt.PositionComponent;
@@ -20,8 +21,8 @@ import com.nzt.gdx.logger.tag.count.TagCountLogger;
  */
 public class B2DWorldSystem extends IteratingSystem {
 
-    private static final float MAX_STEP_TIME = 1 / 80f;
-    private static float accumulator = 0f;
+	private static final float MAX_STEP_TIME = 1 / 80f;
+	private float accumulator = 0f;
 
     private World world;
     private Array<Entity> bodiesQueue;
@@ -37,8 +38,18 @@ public class B2DWorldSystem extends IteratingSystem {
     }
 
     public B2DWorldSystem(World world, boolean calculRotation) {
-        this(world, calculRotation, NztSystemsOrder.B2D);
-    }
+		this(world, calculRotation, NztSystemsOrder.B2D);
+	}
+
+	public void dispose() {
+		this.world.dispose();
+		this.bodiesQueue.clear();
+		this.bodiesQueue = null;
+	}
+	
+	public void setContactListener(ContactListener contactListener) {
+		world.setContactListener(contactListener);
+	}
 
     @Override
     public void update(float deltaTime) {
