@@ -11,9 +11,8 @@ import com.nzt.gdx.ashley.components.physx.B2DBodyComponent;
 /**
  * apply b2D event
  */
-public class B2DApplyEventsSystem extends IteratingSystem{
+public class B2DApplyEventsSystem extends IteratingSystem {
 	private World world;
-
 	private ComponentMapper<B2DBodyComponent> b2dMapper = B2DBodyComponent.mapper;
 
 	public B2DApplyEventsSystem(World world, int order) {

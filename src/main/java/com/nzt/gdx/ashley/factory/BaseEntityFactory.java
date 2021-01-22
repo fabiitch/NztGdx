@@ -1,8 +1,8 @@
 package com.nzt.gdx.ashley.factory;
 
 import com.badlogic.ashley.core.Component;
+import com.badlogic.ashley.core.Engine;
 import com.badlogic.ashley.core.Entity;
-import com.badlogic.ashley.core.PooledEngine;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g3d.ModelInstance;
 import com.badlogic.gdx.physics.box2d.Body;
@@ -18,10 +18,10 @@ import com.nzt.gdx.graphics.renderables.ShapeRenderable;
 
 //TODO a voir si bien fait la factory comme sa
 public class BaseEntityFactory {
-	protected PooledEngine engine;
+	protected Engine engine;
 	protected Entity newEntity; // TODO bof lui en private
 
-	public BaseEntityFactory(PooledEngine engine) {
+	public BaseEntityFactory(Engine engine) {
 		this.engine = engine;
 	}
 
