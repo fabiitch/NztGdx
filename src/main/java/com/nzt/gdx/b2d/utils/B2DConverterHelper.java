@@ -7,6 +7,7 @@ import com.badlogic.gdx.math.Vector3;
 import com.nzt.gdx.logger.tag.LogTagsBase;
 import com.nzt.gdx.logger.tag.TagLogger;
 
+//TODO a revoir complet (use pools
 public class B2DConverterHelper {
 	public float PPM;
 
