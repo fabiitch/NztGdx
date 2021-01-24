@@ -13,8 +13,6 @@ import com.nzt.gdx.ashley.systems.render.SpriteRenderSystem;
  *
  */
 public class SpriteComponent extends BaseComponent {
-
-
 	public static ComponentMapper<SpriteComponent> mapper = ComponentMapper.getFor(SpriteComponent.class);
 	
 	public Sprite sprite;

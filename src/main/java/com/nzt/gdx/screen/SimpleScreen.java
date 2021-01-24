@@ -20,7 +20,6 @@ public abstract class SimpleScreen<M extends AbstractMain> extends BaseScreen<M>
 
     @Override
     public void doResize(int width, int height) {
-        System.out.println("toto");
     }
 
     @Override
