@@ -1,6 +1,10 @@
 package com.nzt.gdx.ashley;
 
 public class NztSystemsOrder {
+
+	//TODO p-e faire des method pour get les nb
+
+
 	//1 calcul
 	public static final int B2D_EVENTS = 1;
 	public static final int B2D = 2;

@@ -22,8 +22,6 @@ import com.nzt.gdx.logger.tag.count.TagCountLogger;
 /**
  * used for rendering with SB
  * 
- * @author fabiitch
- *
  */
 public class SpriteRenderSystem extends SortedIteratingSystem {
 
