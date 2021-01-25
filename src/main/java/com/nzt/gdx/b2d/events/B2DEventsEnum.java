@@ -18,6 +18,4 @@ public enum B2DEventsEnum {
     AngularDamping,
     Torque,
     LinearImpulse,
-
-
 }
