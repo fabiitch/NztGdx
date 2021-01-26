@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.g3d.ModelInstance;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.nzt.gdx.ashley.components.TransformersComponent;
 import com.nzt.gdx.ashley.components.TypeComponent;
+import com.nzt.gdx.ashley.components.abstracts.BaseComponent;
 import com.nzt.gdx.ashley.components.mvt.PositionComponent;
 import com.nzt.gdx.ashley.components.mvt.Velocity2DComponent;
 import com.nzt.gdx.ashley.components.physx.B2DBodyComponent;
@@ -29,7 +30,7 @@ public class BaseEntityFactory {
 		return newEntity;
 	}
 
-	protected <T extends Component> T createComponent(Class<T> componentType) {
+	protected <T extends BaseComponent> T createComponent(Class<T> componentType) {
 		return this.engine.createComponent(componentType);
 	}
 
