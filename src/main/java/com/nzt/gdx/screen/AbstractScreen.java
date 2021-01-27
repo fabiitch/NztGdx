@@ -23,7 +23,6 @@ public abstract class AbstractScreen<M extends AbstractMain> implements Screen {
     protected SpriteBatch spriteBatch;
     protected NzShapeRenderer shapeRenderer;
     protected ModelBatch modelBatch;
-    protected int countForPerformanceLog = 0; //TODO sure ?
 
     public AbstractScreen(M main) {
         this.main = main;
@@ -67,11 +66,6 @@ public abstract class AbstractScreen<M extends AbstractMain> implements Screen {
     protected abstract void renderScreen(float dt);
 
     private void logScreenPerf(float dt) {
-        countForPerformanceLog++;
-        if (countForPerformanceLog >= 1000) {//TODO ?? vraiement utile
-            TagLogger.log(LogTagsBase.PERFORMANCE, "fps = " + Gdx.graphics.getFramesPerSecond());
-            TagLogger.log(LogTagsBase.PERFORMANCE, "dt = " + dt);
-            countForPerformanceLog = 0;
-        }
+    	
     }
 }
