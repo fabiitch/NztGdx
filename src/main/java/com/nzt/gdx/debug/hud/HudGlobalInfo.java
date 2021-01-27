@@ -7,10 +7,10 @@ import com.nzt.gdx.debug.hud.base.HudDebug;
 public class HudGlobalInfo {
 
     public HudGlobalInfo(Color color) {
-        HudDebug.instance.addBotLeft("FPS", Gdx.graphics.getFramesPerSecond(), color);
-        HudDebug.instance.addTopLeft("DT", 0, color);
-        HudDebug.instance.addTopLeft("NativeHeap", Gdx.app.getNativeHeap(), color);
-        HudDebug.instance.addTopLeft("JavaHeap", Gdx.app.getJavaHeap(), color);
+        HudDebug.addBotLeft("FPS", Gdx.graphics.getFramesPerSecond(), color);
+        HudDebug.addTopLeft("DT", 0, color);
+        HudDebug.addTopLeft("NativeHeap", Gdx.app.getNativeHeap(), color);
+        HudDebug.addTopLeft("JavaHeap", Gdx.app.getJavaHeap(), color);
     }
 
     public HudGlobalInfo() {
