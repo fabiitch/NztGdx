@@ -12,10 +12,11 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.utils.Array;
+import com.nzt.gdx.ashley.NztSystemsOrder;
 import com.nzt.gdx.ashley.comparators.ZComparator;
 import com.nzt.gdx.ashley.components.mvt.PositionComponent;
 import com.nzt.gdx.ashley.components.render.SpriteComponent;
-import com.nzt.gdx.ashley.NztSystemsOrder;
+import com.nzt.gdx.debug.perf.frame.PerformanceFrameUtils;
 import com.nzt.gdx.logger.tag.LogTagsBase;
 import com.nzt.gdx.logger.tag.count.TagCountLogger;
 
@@ -53,8 +54,10 @@ public class SpriteRenderSystem extends SortedIteratingSystem {
 
 	@Override
 	public void update(float deltaTime) {
-		super.update(deltaTime);
+		PerformanceFrameUtils.startSystem(this);
 		TagCountLogger.log(LogTagsBase.SYSTEMS, "render");
+
+		super.update(deltaTime);
 		renderQueue.sort(comparator);
 		batch.setProjectionMatrix(cam.combined);
 		batch.enableBlending();
@@ -77,6 +80,7 @@ public class SpriteRenderSystem extends SortedIteratingSystem {
 		}
 		batch.end();
 		renderQueue.clear();
+		PerformanceFrameUtils.endSystem(this);
 	}
 
 	@Override

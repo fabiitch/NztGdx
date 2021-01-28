@@ -1,6 +1,6 @@
-package com.nzt.gdx.debug.hud.base;
+package com.nzt.gdx.debug.hud;
 
- class PositionHudDebug {
+ public class HudDebugPosition {
 
 
     public static final int topLeft = 1;

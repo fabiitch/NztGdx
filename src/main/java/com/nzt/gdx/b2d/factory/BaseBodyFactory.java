@@ -17,10 +17,9 @@ import com.nzt.gdx.logger.tag.TagLogger;
 import com.nzt.gdx.logger.utils.NzLoggableUtils;
 
 /**
- * base body factory for create circle/rect body //TODO
- * less new BodyDef
- * TODO  public static BodyDef set(BodyDef bodyDef, Body body) { demertfan
- * bloquer rotation sur les body direct body.isFixedRotation();
+ * base body factory for create circle/rect body //TODO less new BodyDef TODO
+ * public static BodyDef set(BodyDef bodyDef, Body body) { demertfan bloquer
+ * rotation sur les body direct body.isFixedRotation();
  * 
  * @author fabiitch
  *
@@ -30,7 +29,6 @@ public class BaseBodyFactory {
 	protected World world;
 	public float ppm;
 	public B2DConverterHelper b2DConverter;
-
 
 	public BaseBodyFactory(World world, float ppm) {
 		super();
@@ -52,7 +50,8 @@ public class BaseBodyFactory {
 		shape.setAsBox(rectangle.getWidth() / 2, rectangle.getHeight() / 2);
 		fdef.shape = shape;
 		body.createFixture(fdef);
-		TagLogger.logBlock(LogTagsBase.B2D_CREATION, NzLoggableUtils.create(rectangle), fixtureDefWrapper);
+		TagLogger.logBlock(LogTagsBase.B2D_CREATION, "fixtureDefWrapper", NzLoggableUtils.create(rectangle),
+				fixtureDefWrapper);
 		return body;
 	}
 
@@ -72,8 +71,8 @@ public class BaseBodyFactory {
 		fdef.shape = shape;
 		Body body = world.createBody(bdef);
 //		body.createFixture(fdef);
-		TagLogger.logBlock(LogTagsBase.B2D_CREATION, NzLoggableUtils.create(bdef.position, witdh, height),
-				fixtureDefWrapper);
+		TagLogger.logBlock(LogTagsBase.B2D_CREATION, "fixtureDefWrapper",
+				NzLoggableUtils.create(bdef.position, witdh, height), fixtureDefWrapper);
 		return body;
 	}
 
@@ -88,7 +87,8 @@ public class BaseBodyFactory {
 		shape.setRadius(rayon);
 		fdef.shape = shape;
 
-		TagLogger.logBlock(LogTagsBase.B2D_CREATION, NzLoggableUtils.create(position, rayon), fixtureDefWrapper);
+		TagLogger.logBlock(LogTagsBase.B2D_CREATION, "fixtureDefWrapper", NzLoggableUtils.create(position, rayon),
+				fixtureDefWrapper);
 		Fixture fixture = body.createFixture(fdef);
 		return body;
 	}

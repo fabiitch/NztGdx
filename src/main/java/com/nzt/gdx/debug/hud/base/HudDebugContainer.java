@@ -1,14 +1,15 @@
 package com.nzt.gdx.debug.hud.base;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.nzt.gdx.debug.DebugDisplayUtils;
-
-import java.util.HashMap;
-import java.util.Map;
+import com.nzt.gdx.debug.hud.HudDebugPosition;
 
 //TODO padding on android
 class HudDebugContainer {
@@ -28,7 +29,11 @@ class HudDebugContainer {
 
     public void update(String name, Object value) {
         Label label = mapLabels.get(name);
-        label.setText(name + " : " + com.nzt.gdx.debug.DebugDisplayUtils.printValue(value));
+        if(label == null) {
+            System.out.println(name);
+        }
+
+        label.setText(name + " : " + DebugDisplayUtils.printValue(value));
     }
 
     public void addTopLeft(String name, Object value, Color color) {
@@ -96,28 +101,28 @@ class HudDebugContainer {
 
     public void addItem(HudDebugItem item) {
         switch (item.position) {
-            case PositionHudDebug.topLeft:
+            case HudDebugPosition.topLeft:
                 this.addTopLeft(item.name, item.value, item.color);
                 break;
-            case PositionHudDebug.topMiddle:
+            case HudDebugPosition.topMiddle:
                 this.addTopMiddle(item.name, item.value, item.color);
                 break;
-            case PositionHudDebug.topRight:
+            case HudDebugPosition.topRight:
                 this.addTopRight(item.name, item.value, item.color);
                 break;
-            case PositionHudDebug.botLeft:
+            case HudDebugPosition.botLeft:
                 this.addBotLeft(item.name, item.value, item.color);
                 break;
-            case PositionHudDebug.botMiddle:
+            case HudDebugPosition.botMiddle:
                 this.addBotMiddle(item.name, item.value, item.color);
                 break;
-            case PositionHudDebug.botRight:
+            case HudDebugPosition.botRight:
                 this.addBotRight(item.name, item.value, item.color);
                 break;
-            case PositionHudDebug.leftMiddle:
+            case HudDebugPosition.leftMiddle:
                 this.addLeftMiddle(item.name, item.value, item.color);
                 break;
-            case PositionHudDebug.rightMiddle:
+            case HudDebugPosition.rightMiddle:
                 this.addRightMiddle(item.name, item.value, item.color);
                 break;
         }
