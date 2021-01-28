@@ -6,8 +6,15 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.nzt.gdx.main.AbstractMain;
 import com.nzt.gdx.debug.hud.base.HudDebug;
 import com.nzt.gdx.screen.SimpleScreen;
+import com.nzt.gdx.tester.FastTesterMain;
+import com.nzt.gdx.tester.StarterConfigTest;
 
 public class HudDebugDisplayScreen extends SimpleScreen {
+
+	public static void main(String args[]) {
+		StarterConfigTest.startLwjgl(new FastTesterMain(HudDebugDisplayScreen.class));
+	}
+
 	private Stage stage;
 	private HudDebug debugHud;
 
