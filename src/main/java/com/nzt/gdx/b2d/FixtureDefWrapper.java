@@ -6,6 +6,7 @@ import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.Shape;
 import com.nzt.gdx.logger.utils.NzLoggable;
 
+//TODO a voir si poolable
 public class FixtureDefWrapper extends FixtureDef implements NzLoggable {
 	public BodyType bodyType;
 	public boolean toPPM = false;

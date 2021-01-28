@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.utils.Array;
 import com.nzt.gdx.ashley.NztSystemsOrder;
 import com.nzt.gdx.ashley.components.render.ShapeArrayComponent;
+import com.nzt.gdx.debug.perf.frame.PerformanceFrameUtils;
 
 //TODO reprendre ou suppr
 public class RenderShapeSystem extends IteratingSystem {
@@ -28,9 +29,11 @@ public class RenderShapeSystem extends IteratingSystem {
 
 	@Override
 	public void update(float deltaTime) {
+		PerformanceFrameUtils.startSystem(this);
 		super.update(deltaTime);
 		shapeRenderer.begin();
 		shapeRenderer.end();
+		PerformanceFrameUtils.endSystem(this);
 	}
 
 	@Override

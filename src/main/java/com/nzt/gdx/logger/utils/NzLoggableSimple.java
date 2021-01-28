@@ -1,5 +1,6 @@
 package com.nzt.gdx.logger.utils;
 
+import com.badlogic.gdx.utils.Pools;
 import com.badlogic.gdx.utils.Pool.Poolable;
 
 /**
@@ -38,4 +39,13 @@ public class NzLoggableSimple implements NzLoggable, Poolable {
 		value = null;
 	}
 
+	public static NzLoggableSimple getNew() {
+		return Pools.get(NzLoggableSimple.class).obtain();
+	}
+	public static NzLoggableSimple getNew(String tag, String value) {
+		NzLoggableSimple loggable = NzLoggableSimple.getNew();
+		loggable.tag= tag;
+		loggable.value = value;
+		return loggable;
+	}
 }
