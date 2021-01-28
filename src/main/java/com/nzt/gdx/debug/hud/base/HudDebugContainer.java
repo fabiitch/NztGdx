@@ -32,7 +32,6 @@ class HudDebugContainer {
         if(label == null) {
             System.out.println(name);
         }
-
         label.setText(name + " : " + DebugDisplayUtils.printValue(value));
     }
 

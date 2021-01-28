@@ -37,7 +37,7 @@ class PerformanceCounter implements Comparable<PerformanceCounter> {
 		averageTime = (averageTime + currentExecTime) / 2;
 
 		percentFrameCurrent = Percentage.getPercent(currentExecTime, timeLastFrame);
-		percentFrameAverage = Percentage.getPercent(averageTime, timeAverageFrame);
+		percentFrameAverage = (percentFrameAverage + percentFrameCurrent) / 2;
 		currentExecTime = 0;
 	}
 
