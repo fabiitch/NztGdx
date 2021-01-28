@@ -17,13 +17,19 @@ public class HudDebugPerformanceFrame {
 		}
 	}
 
+	float internalTimer = 0;
+
 	public void update(float dt) {
-		Array<NzLoggable> loggableAveragePercent = PerformanceFrameUtils.getLoggableAveragePercent();
-		loggableAveragePercent.setSize(10);
-		if (loggableAveragePercent != null) {
-			for (NzLoggable logbbale : loggableAveragePercent) {
-				HudDebug.update(logbbale.gdxLogTag(), logbbale.gdxLogValue());
+		internalTimer += dt;
+		if (internalTimer > 0.5) {
+			Array<NzLoggable> loggableAveragePercent = PerformanceFrameUtils.getLoggableAveragePercent();
+			loggableAveragePercent.setSize(10);
+			if (loggableAveragePercent != null) {
+				for (NzLoggable logbbale : loggableAveragePercent) {
+					HudDebug.update(logbbale.gdxLogTag(), logbbale.gdxLogValue());
+				}
 			}
+			internalTimer = 0;
 		}
 	}
 }
