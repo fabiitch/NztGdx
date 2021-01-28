@@ -1,7 +1,11 @@
 package com.nzt.gdx.debug.perf.frame;
 
+import com.badlogic.ashley.core.Engine;
+import com.badlogic.ashley.core.Entity;
 import com.badlogic.ashley.core.EntitySystem;
+import com.badlogic.ashley.utils.ImmutableArray;
 import com.badlogic.gdx.utils.Array;
+import com.badlogic.gdx.utils.Pools;
 import com.nzt.gdx.debug.DebugDisplayUtils;
 import com.nzt.gdx.logger.tag.LogTagsBase;
 import com.nzt.gdx.logger.tag.TagLogger;
@@ -16,6 +20,15 @@ public class PerformanceFrameUtils {
 	public static void init(PerformanceFrame performanceFrame) {
 		PerformanceFrameUtils.log = true;
 		PerformanceFrameUtils.performanceFrame = performanceFrame;
+	}
+
+	public static void registerAllSystems(Engine engine) {
+		if (!log)
+			return;
+		ImmutableArray<EntitySystem> systems = engine.getSystems();
+		for (EntitySystem system : systems) {
+			PerformanceFrame.instance.register(system.getClass().getSimpleName());
+		}
 	}
 
 	public static void startSystem(EntitySystem system) {
@@ -42,7 +55,7 @@ public class PerformanceFrameUtils {
 			return null;
 		Array<PerformanceCounter> arrayPerf = PerformanceFrame.getArray();
 
-//		Pools.freeAll(arrayLoggable);
+		Pools.freeAll(arrayLoggable);
 		arrayLoggable.clear();
 		for (PerformanceCounter perf : arrayPerf) {
 			NzLoggableSimple loggable = NzLoggableSimple.getNew(perf.action,

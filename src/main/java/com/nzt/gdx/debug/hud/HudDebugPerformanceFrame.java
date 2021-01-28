@@ -8,17 +8,7 @@ import com.nzt.gdx.logger.utils.NzLoggable;
 
 public class HudDebugPerformanceFrame {
 
-	private Color color;
-	private int positionHud;
-	private boolean init = false;
-
 	public HudDebugPerformanceFrame(Color color, int positionHud) {
-		this.color = color;
-		this.positionHud = positionHud;
-	}
-
-	public void init() {
-		init = false;
 		Array<NzLoggable> loggableAveragePercent = PerformanceFrameUtils.getLoggableAveragePercent();
 		if (loggableAveragePercent != null) {
 			for (NzLoggable logbbale : loggableAveragePercent) {
@@ -28,9 +18,8 @@ public class HudDebugPerformanceFrame {
 	}
 
 	public void update(float dt) {
-		if (!init)
-			init();
 		Array<NzLoggable> loggableAveragePercent = PerformanceFrameUtils.getLoggableAveragePercent();
+		loggableAveragePercent.setSize(10);
 		if (loggableAveragePercent != null) {
 			for (NzLoggable logbbale : loggableAveragePercent) {
 				HudDebug.update(logbbale.gdxLogTag(), logbbale.gdxLogValue());

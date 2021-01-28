@@ -36,7 +36,7 @@ public class PerformanceFrame {
 		return instance.arrayOrdered;
 	}
 
-	public void start(String action) {
+	public void register(String action) {
 		if (!active)
 			return;
 		PerformanceCounter perfAction = map.get(action);
@@ -45,6 +45,12 @@ public class PerformanceFrame {
 			map.put(action, perfAction);
 			arrayOrdered.add(perfAction);
 		}
+	}
+
+	public void start(String action) {
+		if (!active)
+			return;
+		PerformanceCounter perfAction = map.get(action);
 		perfAction.start();
 	}
 
