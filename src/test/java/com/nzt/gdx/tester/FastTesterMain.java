@@ -9,6 +9,7 @@ import com.nzt.gdx.logger.config.AbstractLogManager;
 import com.nzt.gdx.main.AbstractMain;
 import com.nzt.gdx.screen.BaseScreen;
 import com.nzt.gdx.screen.manager.AbstractScreenManager;
+import com.nzt.gdx.tester.screen.HudDebugDisplayScreen;
 
 /**
  * WIP, test class for launch fast iteration dev on lib change
@@ -17,6 +18,12 @@ import com.nzt.gdx.screen.manager.AbstractScreenManager;
  * @author fabiitch
  */
 public class FastTesterMain extends AbstractMain {
+
+	// To start
+	public static void main(String args[]) {
+		Class screentestClass = HudDebugDisplayScreen.class;
+		StarterConfigTest.startLwjgl(new FastTesterMain(screentestClass));
+	}
 
 	Class screenClass;
 
