@@ -6,9 +6,7 @@ import com.badlogic.gdx.utils.Array;
 
 public class PerformanceFrame {
 
-	public static PerformanceFrame instance;
-
-	public static boolean active = false;
+	private static PerformanceFrame instance;
 
 	private HashMap<String, PerformanceCounter> map;
 	private Array<PerformanceCounter> arrayOrdered;
@@ -26,19 +24,14 @@ public class PerformanceFrame {
 	public static void init() {
 		instance = new PerformanceFrame();
 		PerformanceFrameUtils.init(instance);
-		active = true;
 	}
 
-	public static Array<PerformanceCounter> getArray() {
-		if (!active)
-			return null;
+	public Array<PerformanceCounter> getArray() {
 		instance.arrayOrdered.sort();
 		return instance.arrayOrdered;
 	}
 
 	public void register(String action) {
-		if (!active)
-			return;
 		PerformanceCounter perfAction = map.get(action);
 		if (perfAction == null) {
 			perfAction = new PerformanceCounter(action);
@@ -48,29 +41,21 @@ public class PerformanceFrame {
 	}
 
 	public void start(String action) {
-		if (!active)
-			return;
 		PerformanceCounter perfAction = map.get(action);
 		perfAction.start();
 	}
 
 	public void end(String action) {
-		if (!active)
-			return;
 		PerformanceCounter perfAction = map.get(action);
 		perfAction.end();
 	}
 
 	public void startFrame() {
-		if (!active)
-			return;
 		tmpStart = System.nanoTime();
 		timeLastFrame = 0;
 	}
 
 	public void endFrame() {
-		if (!active)
-			return;
 		long stopTime = System.nanoTime();
 		timeLastFrame = stopTime - tmpStart;
 		timeFrameAverage = (timeFrameAverage + timeLastFrame) / 2;

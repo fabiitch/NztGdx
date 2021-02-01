@@ -1,7 +1,6 @@
 package com.nzt.gdx.debug.perf.frame;
 
 import com.badlogic.ashley.core.Engine;
-import com.badlogic.ashley.core.Entity;
 import com.badlogic.ashley.core.EntitySystem;
 import com.badlogic.ashley.utils.ImmutableArray;
 import com.badlogic.gdx.utils.Array;
@@ -22,12 +21,22 @@ public class PerformanceFrameUtils {
 		PerformanceFrameUtils.performanceFrame = performanceFrame;
 	}
 
+	public static void startFrame() {
+		if (log)
+			performanceFrame.startFrame();
+	}
+
+	public static void endFrame() {
+		if (log)
+			performanceFrame.endFrame();
+	}
+
 	public static void registerAllSystems(Engine engine) {
 		if (!log)
 			return;
 		ImmutableArray<EntitySystem> systems = engine.getSystems();
 		for (EntitySystem system : systems) {
-			PerformanceFrame.instance.register(system.getClass().getSimpleName());
+			performanceFrame.register(system.getClass().getSimpleName());
 		}
 	}
 
@@ -53,7 +62,7 @@ public class PerformanceFrameUtils {
 	public static Array<NzLoggable> getLoggableAveragePercent() {
 		if (!log)
 			return null;
-		Array<PerformanceCounter> arrayPerf = PerformanceFrame.getArray();
+		Array<PerformanceCounter> arrayPerf = performanceFrame.getArray();
 
 		Pools.freeAll(arrayLoggable);
 		arrayLoggable.clear();
