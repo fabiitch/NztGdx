@@ -44,7 +44,7 @@ class HudDebugContainer {
     public void addTopMiddle(String name, Object value, Color color) {
         topM++;
         Label label = createLabel(name, value, color);
-        label.setPosition(stage.getViewport().getWorldWidth() / 2 - stage.getViewport().getWorldWidth() / 6, stage.getViewport().getWorldHeight() - label.getHeight() * topM - 1);
+        label.setPosition(stage.getViewport().getWorldWidth() / 2 - stage.getViewport().getWorldWidth() / 20, stage.getViewport().getWorldHeight() - label.getHeight() * topM - 1);
     }
 
     public void addTopRight(String name, Object value, Color color) {
@@ -64,7 +64,7 @@ class HudDebugContainer {
         botM++;
         Label label = createLabel(name, value, color);
         float x = Math.max(label.getWidth() + 2, standartRight);
-        label.setPosition(stage.getViewport().getWorldWidth() / 2 - stage.getViewport().getWorldWidth() / 6, label.getHeight() * (botM - 1) + 1);
+        label.setPosition(stage.getViewport().getWorldWidth() / 2 - stage.getViewport().getWorldWidth() / 20, label.getHeight() * (botM - 1) + 1);
     }
 
     public void addBotRight(String name, Object value, Color color) {

@@ -18,11 +18,6 @@ public class NzStageTestScreen extends SimpleScreen<AbstractMain> {
 		StarterConfigTest.startLwjgl(new FastTesterMain(NzStageTestScreen.class));
 	}
 
-	float internalTimer = 0;
-
-//	private void changeScreenSize(int width, int height) {
-//		Gdx.graphics.setWindowedMode(width, height);
-//	}
 
 	private NzStage nzStage;
 	private Image img1;
@@ -33,7 +28,6 @@ public class NzStageTestScreen extends SimpleScreen<AbstractMain> {
 		Texture txt = new Texture("badlogic.jpg");
 //
 		img1 = new Image(txt);
-		nzStage.setSizeByPercent(img1, 50, 50);
 		nzStage.addActor(img1);
 		nzStage.setDebugAll(true);
 

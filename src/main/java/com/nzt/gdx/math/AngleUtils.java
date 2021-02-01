@@ -41,6 +41,4 @@ public class AngleUtils {
     public static float distanceSigned(Vector2 dir, Vector2 input) {
         return distanceSigned(dir.angleDeg(), input.angleDeg());
     }
-
-
 }
