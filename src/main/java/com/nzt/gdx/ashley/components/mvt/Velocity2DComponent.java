@@ -24,7 +24,7 @@ public class Velocity2DComponent extends PoolableComponent {
 
     public void setVelocity(Vector2 vel) {
         this.velocity.set(vel);
-        this.direction = vel.nor();
+        this.direction.set(vel).nor();
     }
 
     public static void updateVelocityFromBody(Entity entity) {
@@ -36,9 +36,8 @@ public class Velocity2DComponent extends PoolableComponent {
         }
     }
 
-    // TODO a voir si  pas crée une variable simple
-    public Vector2 getDir() {
-        return velocity.cpy().nor();
+    public Vector2 getDirection() {
+        return direction;
     }
 
     public float getSpeed() {

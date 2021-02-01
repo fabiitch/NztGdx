@@ -5,20 +5,21 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.nzt.gdx.ashley.NztSystemsOrder;
 import com.nzt.gdx.debug.perf.frame.PerformanceFrameUtils;
+import com.nzt.gdx.scene2D.nz.NzStage;
 
 public abstract class BaseHudSystem extends EntitySystem {
 
-	public Stage stage;
+	public NzStage nzStage;
 	public Viewport viewportStage;
 
-	public BaseHudSystem(Stage stage) {
+	public BaseHudSystem(NzStage stage) {
 		this(stage, NztSystemsOrder.HUD);
 		this.viewportStage = stage.getViewport();
 	}
 
-	public BaseHudSystem(Stage stage, int order) {
+	public BaseHudSystem(NzStage stage, int order) {
 		super(order);
-		this.stage = stage;
+		this.nzStage = stage;
 	}
 
 	public abstract void doUpdate(float dt);
@@ -28,16 +29,16 @@ public abstract class BaseHudSystem extends EntitySystem {
 		PerformanceFrameUtils.startSystem(this);
 		super.update(dt);
 		doUpdate(dt);
-		stage.act(dt);
-		stage.draw();
+		nzStage.act(dt);
+		nzStage.draw();
 		PerformanceFrameUtils.endSystem(this);
 	}
 
 	public void dispose() {
-		stage.dispose();
+		nzStage.dispose();
 	}
 
 	public void resize(int width, int height) {
-		stage.getViewport().update(width, height, true);
+		this.nzStage.resize(width, height);
 	}
 }

@@ -2,12 +2,13 @@ package com.nzt.gdx.logger.config;
 
 import com.badlogic.gdx.Gdx;
 import com.nzt.gdx.debug.perf.frame.PerformanceFrame;
+import com.nzt.gdx.logger.tag.LogTagsBase;
+import com.nzt.gdx.logger.tag.TagLogger;
 import com.nzt.gdx.main.AbstractMain;
 
 /**
  * Abstract LogManager, used in {@link AbstractMain}
  * 
- * @param <M>
  */
 public abstract class AbstractLogManager {
 
@@ -25,6 +26,7 @@ public abstract class AbstractLogManager {
 
 	public void activePerfFrame() {
 		PerformanceFrame.init();
+		TagLogger.activeTag(LogTagsBase.PERFORMANCE);
 	}
 
 	public abstract void configureTags();
