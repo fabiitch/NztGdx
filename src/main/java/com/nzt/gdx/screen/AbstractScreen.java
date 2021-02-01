@@ -5,10 +5,8 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g3d.ModelBatch;
-import com.nzt.gdx.main.AbstractMain;
 import com.nzt.gdx.graphics.renderers.NzShapeRenderer;
-import com.nzt.gdx.logger.tag.LogTagsBase;
-import com.nzt.gdx.logger.tag.TagLogger;
+import com.nzt.gdx.main.AbstractMain;
 
 /**
  * Abstract screen for {@link #AbstractScreen(AbstractMain)} Wrapper for access
