@@ -57,6 +57,8 @@ public class NzStage extends Stage {
     }
 
     public void resize(int width, int height) {
+        if (width == 0 || height == 0)
+            return;
         resizeAllActors(width, height);
         this.getViewport().update(width, height, true);
     }
