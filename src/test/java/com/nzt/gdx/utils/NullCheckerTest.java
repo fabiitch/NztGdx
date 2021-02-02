@@ -3,7 +3,7 @@ package com.nzt.gdx.utils;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-import com.nzt.gdx.debug.DebugDisplayUtils;
+import com.nzt.gdx.debug.utils.DebugDisplayUtils;
 import org.junit.Test;
 
 /**

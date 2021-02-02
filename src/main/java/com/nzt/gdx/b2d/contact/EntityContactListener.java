@@ -97,7 +97,7 @@ public abstract class EntityContactListener implements ContactListener {
     }
 
     protected void logContactEvent(String eventName, Entity entityA, Entity entityB) {
-        TagLogger.log(LogTagsBase.B2D_CONTACT, eventName,
+        TagLogger.info(LogTagsBase.B2D_CONTACT, eventName,
                 typeMapper.get(entityA).name + " / " + typeMapper.get(entityB).name);
     }
 

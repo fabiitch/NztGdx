@@ -8,7 +8,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
-import com.nzt.gdx.debug.DebugDisplayUtils;
+import com.nzt.gdx.debug.utils.DebugDisplayUtils;
 import com.nzt.gdx.debug.hud.HudDebugPosition;
 
 //TODO padding on android

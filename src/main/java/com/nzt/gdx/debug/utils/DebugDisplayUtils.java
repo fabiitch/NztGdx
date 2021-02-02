@@ -1,4 +1,4 @@
-package com.nzt.gdx.debug;
+package com.nzt.gdx.debug.utils;
 
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;

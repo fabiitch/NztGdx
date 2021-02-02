@@ -85,6 +85,7 @@ public abstract class AbstractScreenManager<M extends AbstractMain> {
             }
         }
         currentScreen = screen;
+        main.logManager.nzGlProfiler.setScreen(currentScreen);
         currentScreen.show();
         currentScreen.resize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
     }

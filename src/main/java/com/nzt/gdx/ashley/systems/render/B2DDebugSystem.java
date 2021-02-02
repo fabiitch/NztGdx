@@ -7,7 +7,6 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.nzt.gdx.ashley.NztSystemsOrder;
 import com.nzt.gdx.debug.perf.frame.PerformanceFrameUtils;
 import com.nzt.gdx.logger.tag.LogTagsBase;
-import com.nzt.gdx.logger.tag.count.TagCountLogger;
 
 /**
  * System for Box2D, debugRender
@@ -41,7 +40,6 @@ public class B2DDebugSystem extends EntitySystem {
     @Override
     public void update(float deltaTime) {
 		PerformanceFrameUtils.startSystem(this);
-        TagCountLogger.log(LogTagsBase.SYSTEMS, "physicsDebug");
         debugRenderer.render(world, camera.combined);
 		PerformanceFrameUtils.endSystem(this);
     }

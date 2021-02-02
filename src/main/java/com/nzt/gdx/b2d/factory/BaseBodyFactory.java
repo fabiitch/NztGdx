@@ -50,7 +50,7 @@ public class BaseBodyFactory {
 		shape.setAsBox(rectangle.getWidth() / 2, rectangle.getHeight() / 2);
 		fdef.shape = shape;
 		body.createFixture(fdef);
-		TagLogger.logBlock(LogTagsBase.B2D_CREATION, "fixtureDefWrapper", NzLoggableUtils.create(rectangle),
+		TagLogger.infoBlock(LogTagsBase.B2D_CREATION, "FixtureDefWrapper", NzLoggableUtils.create(rectangle),
 				fixtureDefWrapper);
 		return body;
 	}
@@ -71,7 +71,7 @@ public class BaseBodyFactory {
 		fdef.shape = shape;
 		Body body = world.createBody(bdef);
 //		body.createFixture(fdef);
-		TagLogger.logBlock(LogTagsBase.B2D_CREATION, "fixtureDefWrapper",
+		TagLogger.infoBlock(LogTagsBase.B2D_CREATION, "fixtureDefWrapper",
 				NzLoggableUtils.create(bdef.position, witdh, height), fixtureDefWrapper);
 		return body;
 	}
@@ -87,7 +87,7 @@ public class BaseBodyFactory {
 		shape.setRadius(rayon);
 		fdef.shape = shape;
 
-		TagLogger.logBlock(LogTagsBase.B2D_CREATION, "fixtureDefWrapper", NzLoggableUtils.create(position, rayon),
+		TagLogger.infoBlock(LogTagsBase.B2D_CREATION, "fixtureDefWrapper", NzLoggableUtils.create(position, rayon),
 				fixtureDefWrapper);
 		Fixture fixture = body.createFixture(fdef);
 		return body;

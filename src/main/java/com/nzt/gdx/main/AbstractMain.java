@@ -46,8 +46,8 @@ public abstract class AbstractMain implements ApplicationListener {
         this.assetsManager = createAssetsManager();
         this.screenManager = createScreenManager();
         this.logManager = createLogManager();
-        LogApplicationInfo.logInit();
-        LogApplicationInfo.logGraphics();
+        LogApplicationInfo.logInit(logManager.logLevel);
+        LogApplicationInfo.logGraphics(logManager.logLevel);
         AutoProxy.init();
         doCreate();
         screenManager.startApplication(this);
