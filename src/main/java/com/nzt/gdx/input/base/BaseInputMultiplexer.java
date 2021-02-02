@@ -24,14 +24,14 @@ public class BaseInputMultiplexer extends InputMultiplexer {
     public BaseInputMultiplexer(Stage stage, BaseInputHandler inputHandler) {
         super(stage);
         queues = new Array<>();
-        InputEventQueue inputEventQueue = new InputEventQueue(inputHandler);
+        InputEventQueue inputEventQueue = new InputEventQueue();
         queues.add(inputEventQueue);
-        this.addProcessor(inputEventQueue);
+        this.addProcessor(inputHandler);
     }
 
     public void update() {
         for (int i = 0, n = queues.size; i < n; i++) {
-            queues.get(i).drain();
+            queues.get(i).drain(this);
         }
     }
 }
