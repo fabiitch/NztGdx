@@ -1,7 +1,6 @@
 package com.nzt.gdx.ashley.systems;
 
 import com.badlogic.ashley.core.EntitySystem;
-import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.nzt.gdx.ashley.NztSystemsOrder;
 import com.nzt.gdx.debug.perf.frame.PerformanceFrameUtils;
