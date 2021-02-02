@@ -78,7 +78,7 @@ public class BaseEntityFactory {
 		return velocity;
 	}
 
-	protected TypeComponent type(short mask, String name) {
+	protected TypeComponent createTypeComponent(short mask, String name) {
 		TypeComponent typeComponent = engine.createComponent(TypeComponent.class);
 		typeComponent.mask = mask;
 		typeComponent.name = name;
