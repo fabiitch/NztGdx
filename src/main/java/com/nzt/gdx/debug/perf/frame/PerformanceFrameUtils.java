@@ -5,7 +5,7 @@ import com.badlogic.ashley.core.EntitySystem;
 import com.badlogic.ashley.utils.ImmutableArray;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.Pools;
-import com.nzt.gdx.debug.DebugDisplayUtils;
+import com.nzt.gdx.debug.utils.DebugDisplayUtils;
 import com.nzt.gdx.logger.tag.LogTagsBase;
 import com.nzt.gdx.logger.tag.TagLogger;
 import com.nzt.gdx.logger.utils.NzLoggable;

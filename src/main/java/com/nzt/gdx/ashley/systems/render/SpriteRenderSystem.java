@@ -18,7 +18,6 @@ import com.nzt.gdx.ashley.components.mvt.PositionComponent;
 import com.nzt.gdx.ashley.components.render.SpriteComponent;
 import com.nzt.gdx.debug.perf.frame.PerformanceFrameUtils;
 import com.nzt.gdx.logger.tag.LogTagsBase;
-import com.nzt.gdx.logger.tag.count.TagCountLogger;
 
 /**
  * used for rendering with SB
@@ -55,7 +54,6 @@ public class SpriteRenderSystem extends SortedIteratingSystem {
 	@Override
 	public void update(float deltaTime) {
 		PerformanceFrameUtils.startSystem(this);
-		TagCountLogger.log(LogTagsBase.SYSTEMS, "render");
 
 		super.update(deltaTime);
 		renderQueue.sort(comparator);

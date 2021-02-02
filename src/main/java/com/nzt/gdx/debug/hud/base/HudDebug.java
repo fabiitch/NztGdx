@@ -3,7 +3,7 @@ package com.nzt.gdx.debug.hud.base;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.Array;
-import com.nzt.gdx.debug.DebugDisplayUtils;
+import com.nzt.gdx.debug.utils.DebugDisplayUtils;
 import com.nzt.gdx.debug.hud.HudDebugPosition;
 
 public class HudDebug {

@@ -3,7 +3,7 @@ package com.nzt.gdx.ashley.components.abstracts;
 import com.badlogic.gdx.utils.Pool.Poolable;
 
 /**
- * base Poolable component, {@link Poolable}
+ * Base Poolable component, {@link Poolable}
  * 
  * @author fabiitch
  *

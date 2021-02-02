@@ -1,6 +1,7 @@
 package com.nzt.gdx.tiled;
 
 import com.badlogic.gdx.maps.MapObject;
+import com.badlogic.gdx.maps.MapProperties;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
@@ -38,5 +39,28 @@ public abstract class TiledMapLoader extends TmxMapLoader {
 
     public TiledMap getMap() {
         return this.map;
+    }
+
+    public Object getProperties(MapObject mapObject, String name) {
+        MapProperties properties = mapObject.getProperties();
+        return properties.get(name);
+    }
+
+    public String getStringProperties(MapObject mapObject, String name) {
+        MapProperties properties = mapObject.getProperties();
+        Object value = properties.get(name);
+        return value != null ? value.toString() : "";
+    }
+
+    public int getIntProperties(MapObject mapObject, String name) {
+        MapProperties properties = mapObject.getProperties();
+        Object value = properties.get(name);
+        return value != null ? Integer.parseInt(value.toString()) : 0;
+    }
+
+    public float getFloatProperties(MapObject mapObject, String name) {
+        MapProperties properties = mapObject.getProperties();
+        Object value = properties.get(name);
+        return value != null ? Float.parseFloat(value.toString()) : 0;
     }
 }

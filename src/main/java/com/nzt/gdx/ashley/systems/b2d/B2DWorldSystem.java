@@ -13,7 +13,6 @@ import com.nzt.gdx.ashley.components.mvt.Velocity2DComponent;
 import com.nzt.gdx.ashley.components.physx.B2DBodyComponent;
 import com.nzt.gdx.debug.perf.frame.PerformanceFrameUtils;
 import com.nzt.gdx.logger.tag.LogTagsBase;
-import com.nzt.gdx.logger.tag.count.TagCountLogger;
 
 /**
  * System for box2D world it do the world.step
@@ -56,7 +55,6 @@ public class B2DWorldSystem extends IteratingSystem {
 	public void update(float deltaTime) {
 		PerformanceFrameUtils.startSystem(this);
 		super.update(deltaTime);
-		TagCountLogger.log(LogTagsBase.SYSTEMS, "physics");
 		float frameTime = Math.min(deltaTime, 0.25f);
 		accumulator += frameTime;
 		if (accumulator >= MAX_STEP_TIME) {

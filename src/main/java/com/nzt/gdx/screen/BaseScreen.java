@@ -16,39 +16,39 @@ public abstract class BaseScreen<M extends AbstractMain> extends AbstractScreen<
 
     @Override
     public final void show() {
-        TagLogger.log(LogTagsBase.SCREEN_ACTIONS, this.getClass().getSimpleName(), "show()");
+        TagLogger.info(LogTagsBase.SCREEN_ACTIONS, this.getClass().getSimpleName(), "show()");
         doShow();
     }
 
     @Override
     public final void resize(int width, int height) {
-        TagLogger.log(LogTagsBase.SCREEN_ACTIONS, this.getClass().getSimpleName(),
+        TagLogger.info(LogTagsBase.SCREEN_ACTIONS, this.getClass().getSimpleName(),
                 "resize(" + width + ", " + height + ")");
         doResize(width, height);
     }
 
     @Override
     public final void pause() {
-        TagLogger.log(LogTagsBase.SCREEN_ACTIONS, this.getClass().getSimpleName(), "pause()");
+        TagLogger.info(LogTagsBase.SCREEN_ACTIONS, this.getClass().getSimpleName(), "pause()");
         doPause();
     }
 
     @Override
     public final void resume() {
-        TagLogger.log(LogTagsBase.SCREEN_ACTIONS, this.getClass().getSimpleName(), "resume()");
+        TagLogger.info(LogTagsBase.SCREEN_ACTIONS, this.getClass().getSimpleName(), "resume()");
         doResume();
     }
 
     @Override
     public final void hide() {
-        TagLogger.log(LogTagsBase.SCREEN_ACTIONS, this.getClass().getSimpleName(), "hide()");
+        TagLogger.info(LogTagsBase.SCREEN_ACTIONS, this.getClass().getSimpleName(), "hide()");
         doHide();
     }
 
 
     @Override
     public final void dispose() {
-        TagLogger.log(LogTagsBase.SCREEN_ACTIONS, this.getClass().getSimpleName(), "dispose()");
+        TagLogger.info(LogTagsBase.SCREEN_ACTIONS, this.getClass().getSimpleName(), "dispose()");
         doDispose();
     }
 }

@@ -1,6 +1,7 @@
 package com.nzt.gdx.logger.config;
 
 import com.badlogic.gdx.Gdx;
+import com.nzt.gdx.debug.NzGLProfiler;
 import com.nzt.gdx.debug.perf.frame.PerformanceFrame;
 import com.nzt.gdx.logger.tag.LogTagsBase;
 import com.nzt.gdx.logger.tag.TagLogger;
@@ -8,28 +9,40 @@ import com.nzt.gdx.main.AbstractMain;
 
 /**
  * Abstract LogManager, used in {@link AbstractMain}
- * 
  */
 public abstract class AbstractLogManager {
 
-	public static AbstractLogManager instance;
+    public static AbstractLogManager instance;
+    public InputLoggerConfig inputLoggerConfig;
+    public NzGLProfiler nzGlProfiler;
+    public int logLevel;
 
-	public InputLoggerConfig inputLoggerConfig;
+    // log level 0,1,2,3
+    public AbstractLogManager(int logLevel) {
+        this.logLevel = logLevel;
+        Gdx.app.setLogLevel(logLevel);
+        this.inputLoggerConfig = configureInputLog();
+        configureTags();
+        AbstractLogManager.instance = this;
+        this.nzGlProfiler = new NzGLProfiler(null);
+    }
 
-	// log level 0,1,2,3
-	public AbstractLogManager(int logLevel) {
-		Gdx.app.setLogLevel(logLevel);
-		this.inputLoggerConfig = configureInputLog();
-		configureTags();
-		AbstractLogManager.instance = this;
-	}
+    public void setLogLevel(int logLevel) {
+        this.logLevel = logLevel;
+        Gdx.app.setLogLevel(logLevel);
+    }
 
-	public void activePerfFrame() {
-		PerformanceFrame.init();
-		TagLogger.activeTag(LogTagsBase.PERFORMANCE);
-	}
+    public void activeGlProfiler() {
+        nzGlProfiler.active();
+        TagLogger.activeTag(LogTagsBase.OPEN_GL_PROFILER);
+    }
 
-	public abstract void configureTags();
+    public void activePerfFrame() {
+        PerformanceFrame.init();
+        TagLogger.activeTag(LogTagsBase.PERFORMANCE);
+    }
 
-	public abstract InputLoggerConfig configureInputLog();
+    public abstract void configureTags();
+
+    public abstract InputLoggerConfig configureInputLog();
 }

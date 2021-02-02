@@ -9,7 +9,8 @@ import com.badlogic.gdx.utils.Array;
  * @author fabiitch
  */
 public enum LogTagsBase {
-    INIT, NET, PERFORMANCE,
+    INIT, NET,
+    PERFORMANCE, MEMORY, OPEN_GL_PROFILER,
     SYSTEMS,
     INPUT,
     B2D_INFO, B2D_CONTACT, B2D_CREATION,
