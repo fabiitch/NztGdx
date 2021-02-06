@@ -21,6 +21,7 @@ import com.nzt.gdx.logger.tag.LogTagsBase;
 
 /**
  * used for rendering with SB
+ * //TODO revoir le sort fait surle ststem et la queue
  * 
  */
 public class SpriteRenderSystem extends SortedIteratingSystem {

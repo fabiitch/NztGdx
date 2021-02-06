@@ -7,6 +7,8 @@ import com.nzt.gdx.logger.tag.LogTagsBase;
 import com.nzt.gdx.logger.tag.TagLogger;
 import com.nzt.gdx.screen.AbstractScreen;
 
+
+//TODO boolean en constant pour enlevé les if a la compil
 public class NzGLProfiler {
     private GLProfiler profiler;
     private String screenName;
@@ -52,7 +54,7 @@ public class NzGLProfiler {
         Gdx.app.debug("getDrawCalls", profiler.getCalls() + "");
         Gdx.app.debug("getShaderSwitches", profiler.getShaderSwitches() + "");
         Gdx.app.debug("getTextureBindings", profiler.getTextureBindings() + "");
-        Gdx.app.debug("getVertexCount", profiler.getVertexCount() + "");//TODO float counter tostring
+        Gdx.app.debug("getVertexCount", profiler.getVertexCount() + "");
         Gdx.app.debug("getDrawCalls", profiler.getCalls() + "");
         LogUtils.debugEnd(LogTagsBase.B2D_INFO.name(), "NzGlProfiler " + screenName);
     }
