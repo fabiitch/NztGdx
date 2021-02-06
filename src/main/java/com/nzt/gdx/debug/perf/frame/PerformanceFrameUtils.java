@@ -10,7 +10,7 @@ import com.nzt.gdx.logger.tag.LogTagsBase;
 import com.nzt.gdx.logger.tag.TagLogger;
 import com.nzt.gdx.logger.utils.NzLoggable;
 import com.nzt.gdx.logger.utils.NzLoggableSimple;
-
+//TODO boolean en constant pour enlevé les if a la compil
 public class PerformanceFrameUtils {
 
 	public static boolean log = false;
