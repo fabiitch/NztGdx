@@ -44,8 +44,8 @@ public abstract class AbstractMain implements ApplicationListener {
     public void create() {
         createRenderObjects();
         this.assetsManager = createAssetsManager();
-        this.screenManager = createScreenManager();
         this.logManager = createLogManager();
+        this.screenManager = createScreenManager();
         LogApplicationInfo.logInit(logManager.logLevel);
         LogApplicationInfo.logGraphics(logManager.logLevel);
         AutoProxy.init();

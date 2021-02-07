@@ -7,12 +7,8 @@ import com.badlogic.gdx.utils.Pools;
 import com.nzt.gdx.b2d.events.B2DBaseEvent;
 import com.nzt.gdx.b2d.events.B2DEventsEnum;
 import com.nzt.gdx.b2d.events.type.mvt.*;
-import com.nzt.gdx.b2d.events.type.properties.ActiveBodyEvent;
-import com.nzt.gdx.b2d.events.type.properties.AwakeBodyEvent;
-import com.nzt.gdx.b2d.events.type.properties.BodyTypeEvent;
-import com.nzt.gdx.b2d.events.type.properties.BulletBodyEvent;
-import com.nzt.gdx.b2d.events.type.properties.DestroyBodyEvent;
-import com.nzt.gdx.b2d.events.type.properties.FixedRotationBodyEvent;
+import com.nzt.gdx.b2d.events.type.properties.*;
+import com.nzt.gdx.b2d.events.type.fixture.impl.ChangeFixtureEvent;
 
 public class B2DEventFactory {
 
@@ -34,6 +30,9 @@ public class B2DEventFactory {
                 break;
             case Bullet:
                 event = Pools.obtain(BulletBodyEvent.class);
+                break;
+            case Fixture:
+                event = Pools.obtain(ChangeFixtureEvent.class);
                 break;
             case FixedRotation:
                 event = Pools.obtain(FixedRotationBodyEvent.class);
@@ -205,4 +204,10 @@ public class B2DEventFactory {
         return event;
     }
 
+    public static ChangeFixtureEvent changeFixture(float density, int fixtureNumber) {
+        ChangeFixtureEvent event = getEvent(B2DEventsEnum.Fixture);
+        event.density = density;
+        event.fixtureNumber = fixtureNumber;
+        return event;
+    }
 }

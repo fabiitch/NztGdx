@@ -1,4 +1,4 @@
-package com.nzt.gdx.tester.screen;
+package com.nzt.gdx.screen;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
@@ -8,14 +8,13 @@ import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.nzt.gdx.main.AbstractMain;
 import com.nzt.gdx.scene2D.nz.NzStage;
-import com.nzt.gdx.screen.SimpleScreen;
-import com.nzt.gdx.tester.FastTesterMain;
-import com.nzt.gdx.tester.StarterConfigTest;
+import com.nzt.gdx.tester.main.FastTesterMain;
+import com.nzt.gdx.tester.main.StarterTestConfig;
 
 public class NzStageTestScreen extends SimpleScreen<AbstractMain> {
 
 	public static void main(String args[]) {
-		StarterConfigTest.startLwjgl(new FastTesterMain(NzStageTestScreen.class));
+//		StarterTestConfig.startLwjgl(new FastTesterMain(NzStageTestScreen.class),500,400);
 	}
 
 

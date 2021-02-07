@@ -1,4 +1,4 @@
-package com.nzt.gdx.tester;
+package com.nzt.gdx.tester.main;
 
 import com.nzt.gdx.screen.BaseScreen;
 import com.nzt.gdx.screen.loading.BaseLoadingScreen;
