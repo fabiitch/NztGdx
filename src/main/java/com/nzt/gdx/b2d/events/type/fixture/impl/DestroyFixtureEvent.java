@@ -9,7 +9,7 @@ import com.nzt.gdx.b2d.events.type.fixture.BaseApplyToFixtureEvent;
 public class DestroyFixtureEvent extends BaseApplyToFixtureEvent<DestroyFixtureEvent> {
 
     public DestroyFixtureEvent() {
-        super(B2DFixtureEventsEnum.Remove);
+        super(B2DFixtureEventsEnum.Destroy);
     }
 
     @Override

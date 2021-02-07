@@ -17,8 +17,6 @@ public class B2DEventFactory {
     // refléchir si le reset est vraiement utile, vu que l'on passe les param et =
 
     // TODO reflechir au param wake si vraiement utile
-
-    @SuppressWarnings("unchecked")
     private static <E extends B2DBaseEvent> E getEvent(B2DEventsEnum eventType) {
         B2DBaseEvent event;
         switch (eventType) {
@@ -30,9 +28,6 @@ public class B2DEventFactory {
                 break;
             case Bullet:
                 event = Pools.obtain(BulletBodyEvent.class);
-                break;
-            case Fixture:
-                event = Pools.obtain(ChangeFixtureEvent.class);
                 break;
             case FixedRotation:
                 event = Pools.obtain(FixedRotationBodyEvent.class);
@@ -201,13 +196,6 @@ public class B2DEventFactory {
         TorqueBodyEvent event = getEvent(B2DEventsEnum.Torque);
         event.torque = torque;
         event.wake = true;
-        return event;
-    }
-
-    public static ChangeFixtureEvent changeFixture(float density, int fixtureNumber) {
-        ChangeFixtureEvent event = getEvent(B2DEventsEnum.Fixture);
-        event.density = density;
-        event.fixtureNumber = fixtureNumber;
         return event;
     }
 }

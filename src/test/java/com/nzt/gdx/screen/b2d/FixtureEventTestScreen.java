@@ -7,7 +7,9 @@ import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.nzt.gdx.ashley.components.physx.B2DBodyComponent;
 import com.nzt.gdx.b2d.FixtureDefWrapper;
 import com.nzt.gdx.b2d.events.type.fixture.impl.ChangeFixtureEvent;
+import com.nzt.gdx.b2d.events.type.fixture.impl.SensorFixtureEvent;
 import com.nzt.gdx.b2d.factory.B2DEventFactory;
+import com.nzt.gdx.b2d.factory.B2DFixtureEventFactory;
 import com.nzt.gdx.main.AbstractMain;
 import com.nzt.gdx.tester.screen.BaseB2DScreen;
 
@@ -19,31 +21,31 @@ public class FixtureEventTestScreen extends BaseB2DScreen {
 
     public FixtureEventTestScreen(AbstractMain main) {
         super(main);
-        FixtureDefWrapper fixtureDefWrapper = new FixtureDefWrapper(BodyDef.BodyType.DynamicBody)
+        FixtureDefWrapper fixtureDefWrapper = new FixtureDefWrapper(BodyDef.BodyType.DynamicBody).setSensor(false)
                 .setDensity(1).setToPPM(false);
         circleBody = bodyFactory.createCircleBody(Vector2.Zero, 2, fixtureDefWrapper);
 
         entity = addEntityBody(circleBody);
 
-        addFunctionToCall(50, logFixture());
+        addFunctionToCall(50, logFixture("before"));
         addFunctionToCall(100, fireEvent());
-        addFunctionToCall(300, logFixture());
+        addFunctionToCall(300, logFixture("after"));
     }
 
     private Callable<Boolean> fireEvent() {
         return new Callable<Boolean>() {
             public Boolean call() {
-                ChangeFixtureEvent changeFixtureEvent = B2DEventFactory.changeFixture(15, 0);
-                entity.getComponent(B2DBodyComponent.class).addBox2DEvent(changeFixtureEvent);
+                SensorFixtureEvent sensorFixtureEvent = B2DFixtureEventFactory.sensor(-1, true);
+                entity.getComponent(B2DBodyComponent.class).addBox2DEvent(sensorFixtureEvent);
                 return true;
             }
         };
     }
 
-    private Callable<Boolean> logFixture() {
+    private Callable<Boolean> logFixture(String text) {
         return new Callable<Boolean>() {
             public Boolean call() {
-                System.out.println("Density Before =" + circleBody.getFixtureList().get(0).getDensity());
+                System.out.println(text + " isSensor =" + circleBody.getFixtureList().get(0).isSensor());
                 return true;
             }
         };
