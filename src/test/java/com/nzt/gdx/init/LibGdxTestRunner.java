@@ -12,6 +12,8 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
 
+//TODO sers a quoi
+//https://github.com/BinaryTweed/libgdx-test-runner
 public class LibGdxTestRunner extends BlockJUnit4ClassRunner
 {
    public LibGdxTestRunner(Class<?> klass) throws InitializationError

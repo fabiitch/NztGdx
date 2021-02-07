@@ -1,13 +1,11 @@
 package com.nzt.gdx.math;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-
-import org.junit.Test;
-
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Interpolation;
 import com.badlogic.gdx.math.Vector2;
+import org.junit.Test;
+
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 /*
  * pour test vite fait  les methode de Vector2
@@ -53,11 +51,11 @@ public class Vector2Try {
         printAngle(v(-1, -1));
         printAngle(v(-0.5f, -0.5f));
 
-        printAngle(v(1, 0).setAngle(350));
+        printAngle(v(1, 0).setAngleDeg(350));
     }
 
     private void printAngle(Vector2 v) {
-        System.out.println(v.toString() + " | " + v.angle());
+        System.out.println(v.toString() + " | " + v.angleDeg());
     }
 
     @Test
@@ -76,6 +74,7 @@ public class Vector2Try {
         System.out.println(v1.angleDeg());
         System.out.println(v2.angleDeg());
     }
+
     private Vector2 v(float a, float b) {
         return new Vector2(a, b);
     }

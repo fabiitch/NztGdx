@@ -1,4 +1,4 @@
-package com.nzt.gdx.tester;
+package com.nzt.gdx.tester.main;
 
 import java.lang.reflect.Constructor;
 
@@ -8,8 +8,8 @@ import com.nzt.gdx.assets.AbstractAssetsManager;
 import com.nzt.gdx.logger.config.AbstractLogManager;
 import com.nzt.gdx.main.AbstractMain;
 import com.nzt.gdx.screen.BaseScreen;
+import com.nzt.gdx.screen.b2d.FixtureEventTestScreen;
 import com.nzt.gdx.screen.manager.AbstractScreenManager;
-import com.nzt.gdx.tester.screen.HudDebugDisplayScreen;
 
 /**
  * WIP, test class for launch fast iteration dev on lib change
@@ -18,12 +18,6 @@ import com.nzt.gdx.tester.screen.HudDebugDisplayScreen;
  * @author fabiitch
  */
 public class FastTesterMain extends AbstractMain {
-
-	// To start
-	public static void main(String args[]) {
-		Class screentestClass = HudDebugDisplayScreen.class;
-		StarterConfigTest.startLwjgl(new FastTesterMain(screentestClass));
-	}
 
 	Class screenClass;
 
@@ -34,7 +28,7 @@ public class FastTesterMain extends AbstractMain {
 	private BaseScreen returnScreenToLaunch() {
 		try {
 			Constructor cons = screenClass.getConstructor(AbstractMain.class);
-			Object newInstance = cons.newInstance((AbstractMain) this);
+			Object newInstance = cons.newInstance(this);
 			return (BaseScreen) newInstance;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -60,7 +54,7 @@ public class FastTesterMain extends AbstractMain {
 
 	@Override
 	public AbstractLogManager createLogManager() {
-		return null;
+		return FastTesterLogManager.instance;
 	}
 
 	@Override

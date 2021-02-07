@@ -7,6 +7,7 @@ import com.badlogic.gdx.physics.box2d.Shape;
 import com.nzt.gdx.logger.utils.NzLoggable;
 
 //TODO a voir si poolable
+//TODO voir l'utilité
 public class FixtureDefWrapper extends FixtureDef implements NzLoggable {
 	public BodyType bodyType;
 	public boolean toPPM = false;
@@ -47,11 +48,11 @@ public class FixtureDefWrapper extends FixtureDef implements NzLoggable {
 		return fdef;
 	}
 
-	public FixtureDefWrapper setAllZeroAndSensor(boolean sensor) {
+	public FixtureDefWrapper setAllZeroAndSensor() {
 		this.friction = 0;
 		this.restitution = 0;
 		this.density = 0;
-		this.isSensor = sensor;
+		this.isSensor = true;
 		return this;
 	}
 

@@ -37,7 +37,7 @@ public class BaseBodyFactory {
 		this.b2DConverter = new B2DConverterHelper(ppm);
 	}
 
-	protected Body createRectangleBody(Rectangle rectangle, FixtureDefWrapper fixtureDefWrapper) {
+	public Body createRectangleBody(Rectangle rectangle, FixtureDefWrapper fixtureDefWrapper) {
 		if (fixtureDefWrapper.toPPM)
 			rectangle = b2DConverter.toPPM(rectangle);
 
@@ -55,7 +55,7 @@ public class BaseBodyFactory {
 		return body;
 	}
 
-	protected Body createRectangleBody(Vector2 position, float witdh, float height,
+	public Body createRectangleBody(Vector2 position, float witdh, float height,
 			FixtureDefWrapper fixtureDefWrapper) {
 		if (fixtureDefWrapper.toPPM) {
 			witdh = b2DConverter.toPPM(witdh);
@@ -76,7 +76,7 @@ public class BaseBodyFactory {
 		return body;
 	}
 
-	protected Body createCircleBody(Vector2 position, float rayon, FixtureDefWrapper fixtureDefWrapper) {
+	public Body createCircleBody(Vector2 position, float rayon, FixtureDefWrapper fixtureDefWrapper) {
 		if (fixtureDefWrapper.toPPM) {
 			rayon = b2DConverter.toPPM(rayon);
 		}
@@ -101,8 +101,8 @@ public class BaseBodyFactory {
 		return body;
 	}
 
-	// TODO not rfinish
-	protected Body createPolygonBody(Vector2[] vertices, FixtureDefWrapper fixtureDefWrapper) {
+	// TODO not finish
+	public Body createPolygonBody(Vector2[] vertices, FixtureDefWrapper fixtureDefWrapper) {
 		Body body = createBody(0, 0, fixtureDefWrapper.bodyType);
 		FixtureDef fdef = fixtureDefWrapper.apply();
 		PolygonShape shape = new PolygonShape();
