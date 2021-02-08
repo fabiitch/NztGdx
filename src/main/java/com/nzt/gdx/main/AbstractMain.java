@@ -21,7 +21,7 @@ public abstract class AbstractMain implements ApplicationListener {
     public ModelBatch modelBatch;
 
     public AbstractAssetsManager assetsManager;
-    public AbstractScreenManager screenManager;
+    public AbstractScreenManager<AbstractMain> screenManager;
     public AbstractLogManager logManager;
 
     public abstract void doCreate();
@@ -59,7 +59,7 @@ public abstract class AbstractMain implements ApplicationListener {
         this.shapeRenderer = new NzShapeRenderer();
         this.shapeRenderer.setAutoShapeType(true);
         this.modelBatch = new ModelBatch();
-        // this.modelBatch = new ModelBatch(new DepthShaderProvider()); // effet rigolo
+//         this.modelBatch = new ModelBatch(new DepthShaderProvider()); // effet rigolo
     }
 
     @Override
