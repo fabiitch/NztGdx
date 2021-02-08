@@ -1,11 +1,11 @@
-package com.nzt.gdx.ashley.systems;
+package com.nzt.gdx.ashley.systems.logic;
 
 import com.badlogic.ashley.core.Engine;
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.ashley.core.Family;
 import com.badlogic.ashley.systems.IteratingSystem;
 import com.nzt.gdx.ashley.NztSystemsOrder;
-import com.nzt.gdx.ashley.components.RemoveEntityComponent;
+import com.nzt.gdx.ashley.components.properties.RemoveEntityComponent;
 import com.nzt.gdx.debug.perf.frame.PerformanceFrameUtils;
 
 public class RemoveEntitySystem extends IteratingSystem {

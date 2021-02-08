@@ -6,6 +6,8 @@ import com.badlogic.gdx.utils.Pools;
 import com.nzt.gdx.ashley.components.abstracts.PoolableComponent;
 import com.nzt.gdx.transformer.BaseTransformer;
 
+
+//TODO a reprendre complet
 public class TransformersComponent extends PoolableComponent {
 
 	public static ComponentMapper<TransformersComponent> mapper = ComponentMapper.getFor(TransformersComponent.class);
