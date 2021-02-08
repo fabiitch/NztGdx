@@ -5,6 +5,7 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g3d.ModelBatch;
+import com.badlogic.gdx.utils.ScreenUtils;
 import com.nzt.gdx.debug.NzGLProfiler;
 import com.nzt.gdx.graphics.renderers.NzShapeRenderer;
 import com.nzt.gdx.main.AbstractMain;
@@ -34,8 +35,9 @@ public abstract class AbstractScreen<M extends AbstractMain> implements Screen {
     }
 
     public final void clearScreen() {
+    	//TODO voir use screen utils
         // clear screen
-        Gdx.gl.glClearColor(0, 0, 1, 0);
+        Gdx.gl.glClearColor(0, 0, 0, 0);
         // Gdx.gl.glClearColor(1, 1, 1, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT | GL20.GL_DEPTH_BUFFER_BIT);
 
