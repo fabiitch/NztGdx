@@ -7,11 +7,11 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g3d.ModelInstance;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.nzt.gdx.ashley.components.TransformersComponent;
-import com.nzt.gdx.ashley.components.TypeComponent;
 import com.nzt.gdx.ashley.components.abstracts.BaseComponent;
 import com.nzt.gdx.ashley.components.mvt.PositionComponent;
 import com.nzt.gdx.ashley.components.mvt.Velocity2DComponent;
 import com.nzt.gdx.ashley.components.physx.B2DBodyComponent;
+import com.nzt.gdx.ashley.components.properties.TypeComponent;
 import com.nzt.gdx.ashley.components.render.ModelComponent;
 import com.nzt.gdx.ashley.components.render.ShapeArrayComponent;
 import com.nzt.gdx.ashley.components.render.SpriteComponent;
@@ -34,33 +34,17 @@ public class BaseEntityFactory {
 		return this.engine.createComponent(componentType);
 	}
 
-	protected Entity createSimpleEntity() {
+	protected Entity createEntity() {
 		newEntity = this.engine.createEntity();
 		engine.addEntity(newEntity);
 		return newEntity;
 	}
 
-	protected Entity createTransformEntity() {
+	protected Entity createEntityAndPositionComponent() {
 		newEntity = this.engine.createEntity();
 		engine.addEntity(newEntity);
 		PositionComponent positionComponent = engine.createComponent(PositionComponent.class);
 		newEntity.add(positionComponent);
-		return newEntity;
-	}
-
-	protected Entity createTransformAndVelEntity(float x, float y, float z, float angle) {
-		newEntity = this.engine.createEntity();
-		engine.addEntity(newEntity);
-		newEntity.add(position(x, y, z, angle));
-		newEntity.add(velocity());
-		return newEntity;
-	}
-
-	protected Entity createTransformAndVelEntity(float x, float y, float angle) {
-		newEntity = this.engine.createEntity();
-		engine.addEntity(newEntity);
-		newEntity.add(position(x, y, 0, angle));
-		newEntity.add(velocity());
 		return newEntity;
 	}
 

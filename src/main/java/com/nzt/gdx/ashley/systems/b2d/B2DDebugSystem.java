@@ -1,4 +1,4 @@
-package com.nzt.gdx.ashley.systems.render;
+package com.nzt.gdx.ashley.systems.b2d;
 
 import com.badlogic.ashley.core.EntitySystem;
 import com.badlogic.gdx.graphics.Camera;

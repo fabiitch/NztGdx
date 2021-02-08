@@ -1,7 +1,6 @@
-package com.nzt.gdx.ashley.components;
+package com.nzt.gdx.ashley.components.properties;
 
 import com.badlogic.ashley.core.ComponentMapper;
-import com.badlogic.gdx.utils.Pool;
 import com.badlogic.gdx.utils.Pools;
 import com.nzt.gdx.ashley.components.abstracts.PoolableComponent;
 

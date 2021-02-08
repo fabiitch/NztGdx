@@ -1,4 +1,4 @@
-package com.nzt.gdx.ashley.components;
+package com.nzt.gdx.ashley.components.properties;
 
 import com.nzt.gdx.ashley.components.abstracts.PoolableComponent;
 
