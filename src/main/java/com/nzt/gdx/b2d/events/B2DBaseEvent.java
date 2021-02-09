@@ -8,6 +8,9 @@ Base class for all Box2D event
  */
 public abstract class B2DBaseEvent<E extends B2DBaseEvent> implements Poolable {
 
+    /*
+    utilisé pour le check destroy et le concat
+     */
     public int eventType;
 
     public B2DBaseEvent(int eventType) {

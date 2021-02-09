@@ -111,10 +111,8 @@ public class BaseBodyFactory {
 		FixtureDef fdef = fixtureDefWrapper.apply();
 		PolygonShape shape = new PolygonShape();
 		shape.set(vertices);
-
+		fdef.shape = shape;
 		Fixture fixture = body.createFixture(fdef);
-		// fixture.setUserData(GameObjectType.BAT.toString().toLowerCase());
-		body.setActive(false);
 		return body;
 	}
 
