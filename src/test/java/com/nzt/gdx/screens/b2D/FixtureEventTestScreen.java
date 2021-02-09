@@ -1,4 +1,6 @@
-package com.nzt.gdx.screen.b2d;
+package com.nzt.gdx.screens.b2D;
+
+import java.util.concurrent.Callable;
 
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.gdx.math.Vector2;
@@ -6,16 +8,12 @@ import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.nzt.gdx.ashley.components.physx.B2DBodyComponent;
 import com.nzt.gdx.b2d.FixtureDefWrapper;
-import com.nzt.gdx.b2d.events.type.fixture.impl.ChangeFixtureEvent;
 import com.nzt.gdx.b2d.events.type.fixture.impl.SensorFixtureEvent;
-import com.nzt.gdx.b2d.factory.B2DEventFactory;
-import com.nzt.gdx.b2d.factory.B2DFixtureEventFactory;
+import com.nzt.gdx.b2d.factories.B2DFixtureEventFactory;
 import com.nzt.gdx.main.AbstractMain;
-import com.nzt.gdx.tester.screen.BaseB2DScreen;
+import com.nzt.gdx.tester.screen.BaseB2DSystemScreen;
 
-import java.util.concurrent.Callable;
-
-public class FixtureEventTestScreen extends BaseB2DScreen {
+public class FixtureEventTestScreen extends BaseB2DSystemScreen {
     Body circleBody;
     Entity entity;
 

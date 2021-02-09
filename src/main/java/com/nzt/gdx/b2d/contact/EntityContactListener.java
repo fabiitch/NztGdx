@@ -7,7 +7,7 @@ import com.badlogic.gdx.physics.box2d.*;
 import com.nzt.gdx.ashley.components.physx.B2DBodyComponent;
 import com.nzt.gdx.ashley.components.properties.RemoveEntityComponent;
 import com.nzt.gdx.ashley.components.properties.TypeComponent;
-import com.nzt.gdx.b2d.factory.B2DEventFactory;
+import com.nzt.gdx.b2d.factories.B2DEventFactory;
 import com.nzt.gdx.debug.B2DDebug;
 import com.nzt.gdx.logger.tag.LogTagsBase;
 import com.nzt.gdx.logger.tag.TagLogger;

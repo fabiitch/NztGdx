@@ -1,7 +1,6 @@
 package com.nzt.gdx.input.base;
 
 import com.badlogic.gdx.Application;
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.InputProcessor;
 import com.nzt.gdx.debug.B2DDebug;
@@ -12,7 +11,6 @@ import com.nzt.gdx.debug.perf.frame.PerformanceFrameUtils;
 import com.nzt.gdx.logger.config.InputLoggerConfig;
 import com.nzt.gdx.logger.tag.LogTagsBase;
 import com.nzt.gdx.logger.tag.TagLogger;
-import com.nzt.gdx.screen.manager.AbstractScreenManager;
 
 /**
  * Simple InputProcessor with TagLogger on events, see {@link LogTagsBase#INPUT}

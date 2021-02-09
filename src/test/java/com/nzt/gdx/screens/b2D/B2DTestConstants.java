@@ -1,4 +1,4 @@
-package com.nzt.gdx.screen.b2d;
+package com.nzt.gdx.screens.b2D;
 
 public class B2DTestConstants {
     public static final float PPM = 30.0F;

@@ -1,4 +1,4 @@
-package com.nzt.gdx.b2d.factory;
+package com.nzt.gdx.b2d.factories;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Vector2;

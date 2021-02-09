@@ -1,4 +1,4 @@
-package com.nzt.gdx.screen;
+package com.nzt.gdx.screens.scene2D;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
@@ -8,6 +8,7 @@ import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.nzt.gdx.main.AbstractMain;
 import com.nzt.gdx.scene2D.nz.NzStage;
+import com.nzt.gdx.screen.SimpleScreen;
 import com.nzt.gdx.tester.main.FastTesterMain;
 import com.nzt.gdx.tester.main.StarterTestConfig;
 

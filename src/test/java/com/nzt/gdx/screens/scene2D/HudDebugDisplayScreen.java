@@ -1,9 +1,10 @@
-package com.nzt.gdx.screen;
+package com.nzt.gdx.screens.scene2D;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.nzt.gdx.main.AbstractMain;
+import com.nzt.gdx.screen.SimpleScreen;
 import com.nzt.gdx.debug.hud.base.HudDebug;
 import com.nzt.gdx.tester.main.FastTesterMain;
 import com.nzt.gdx.tester.main.StarterTestConfig;
