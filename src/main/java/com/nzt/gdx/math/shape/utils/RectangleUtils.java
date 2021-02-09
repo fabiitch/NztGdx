@@ -8,7 +8,6 @@ import com.nzt.gdx.math.vectors.VectorUtils;
 
 public class RectangleUtils {
 
-
     public static Vector2 getCenter(Rectangle rect) {
         return new Vector2(rect.x + rect.width / 2, rect.y + rect.height / 2);
     }

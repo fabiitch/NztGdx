@@ -57,7 +57,7 @@ public class BaseEntityFactory {
 		return positionComponent;
 	}
 
-	protected Velocity2DComponent velocity() {
+	protected Velocity2DComponent velocity2D() {
 		Velocity2DComponent velocity = engine.createComponent(Velocity2DComponent.class);
 		return velocity;
 	}

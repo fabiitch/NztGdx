@@ -8,8 +8,8 @@ import com.nzt.gdx.assets.AbstractAssetsManager;
 import com.nzt.gdx.logger.config.AbstractLogManager;
 import com.nzt.gdx.main.AbstractMain;
 import com.nzt.gdx.screen.BaseScreen;
-import com.nzt.gdx.screen.b2d.FixtureEventTestScreen;
 import com.nzt.gdx.screen.manager.AbstractScreenManager;
+import com.nzt.gdx.screens.b2D.FixtureEventTestScreen;
 
 /**
  * WIP, test class for launch fast iteration dev on lib change

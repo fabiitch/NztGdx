@@ -1,6 +1,6 @@
 package com.nzt.gdx.tester;
 
-import com.nzt.gdx.screen.b2d.FixtureEventTestScreen;
+import com.nzt.gdx.screens.b2D.FixtureEventTestScreen;
 import com.nzt.gdx.tester.main.FastTesterMain;
 import com.nzt.gdx.tester.main.StarterTestConfig;
 import com.nzt.gdx.tester.main.StarterType;

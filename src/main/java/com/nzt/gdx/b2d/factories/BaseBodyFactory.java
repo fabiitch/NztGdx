@@ -1,4 +1,4 @@
-package com.nzt.gdx.b2d.factory;
+package com.nzt.gdx.b2d.factories;
 
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
@@ -94,12 +94,16 @@ public class BaseBodyFactory {
 	}
 
 	private Body createBody(float x, float y, BodyType bodyType) {
-		BodyDef bodyDef = new BodyDef();
+		BodyDef bodyDef = new BodyDef(); //TODO a mettre en cache
 		bodyDef.position.set(x, y);
 		bodyDef.type = bodyType;
 		Body body = world.createBody(bodyDef);
 		return body;
 	}
+	
+//	public Body createTriangleBody(Vector2 a, Vector2 b, Vector2 c, FixtureDefWrapper fixtureDefWrapper) {
+////		Body body = createBody(position.x, position.y, fixtureDefWrapper.bodyType);
+//	}
 
 	// TODO not finish
 	public Body createPolygonBody(Vector2[] vertices, FixtureDefWrapper fixtureDefWrapper) {

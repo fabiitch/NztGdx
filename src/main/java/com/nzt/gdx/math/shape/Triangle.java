@@ -11,6 +11,8 @@ public class Triangle implements Shape2D {
 	private float rotation;
 	private float scaleX = 1, scaleY = 1;
 	private boolean dirty = true;
+	
+	
 	public Triangle(float x, float y, float z) {
 		this.x = x;
 		this.y = y;

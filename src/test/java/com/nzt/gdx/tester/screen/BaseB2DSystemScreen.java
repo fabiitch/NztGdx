@@ -10,16 +10,16 @@ import com.nzt.gdx.ashley.components.physx.B2DBodyComponent;
 import com.nzt.gdx.ashley.systems.b2d.B2DApplyEventsSystem;
 import com.nzt.gdx.ashley.systems.b2d.B2DDebugSystem;
 import com.nzt.gdx.ashley.systems.b2d.B2DWorldSystem;
-import com.nzt.gdx.b2d.factory.BaseBodyFactory;
+import com.nzt.gdx.b2d.factories.BaseBodyFactory;
 import com.nzt.gdx.main.AbstractMain;
-import com.nzt.gdx.screen.b2d.B2DTestConstants;
+import com.nzt.gdx.screens.b2D.B2DTestConstants;
 
-public class BaseB2DScreen extends BaseSystemScreen {
+public class BaseB2DSystemScreen extends BaseSystemScreen {
     public World world;
     public Camera camera;
     public BaseBodyFactory bodyFactory;
 
-    public BaseB2DScreen(AbstractMain main) {
+    public BaseB2DSystemScreen(AbstractMain main) {
         super(main);
         this.camera = new OrthographicCamera(B2DTestConstants.WIDTH_PPM, B2DTestConstants.HEIGHT_PPM);
         this.camera.position.set(0, 0, 0);
