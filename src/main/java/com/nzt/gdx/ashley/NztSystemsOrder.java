@@ -8,7 +8,6 @@ public class NztSystemsOrder {
 	//1 calcul
 	public static final int B2D_EVENTS = 1;
 	public static final int B2D = 2;
-	public static final int INPUT = 3;
 
 	public static final int CALCUL = 10;
 
