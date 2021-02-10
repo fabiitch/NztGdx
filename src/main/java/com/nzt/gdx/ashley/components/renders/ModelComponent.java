@@ -1,4 +1,4 @@
-package com.nzt.gdx.ashley.components.render;
+package com.nzt.gdx.ashley.components.renders;
 
 import com.badlogic.ashley.core.ComponentMapper;
 import com.badlogic.gdx.graphics.g3d.ModelInstance;

@@ -6,7 +6,7 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.World;
-import com.nzt.gdx.ashley.components.physx.B2DBodyComponent;
+import com.nzt.gdx.ashley.components.b2d.B2DBodyComponent;
 import com.nzt.gdx.ashley.systems.b2d.B2DApplyEventsSystem;
 import com.nzt.gdx.ashley.systems.b2d.B2DDebugSystem;
 import com.nzt.gdx.ashley.systems.b2d.B2DWorldSystem;

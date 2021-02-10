@@ -10,9 +10,8 @@ import com.badlogic.gdx.utils.Array;
 import com.nzt.gdx.ashley.NztSystemsOrder;
 import com.nzt.gdx.ashley.components.mvt.PositionComponent;
 import com.nzt.gdx.ashley.components.mvt.Velocity2DComponent;
-import com.nzt.gdx.ashley.components.physx.B2DBodyComponent;
+import com.nzt.gdx.ashley.components.b2d.B2DBodyComponent;
 import com.nzt.gdx.debug.perf.frame.PerformanceFrameUtils;
-import com.nzt.gdx.logger.tag.LogTagsBase;
 
 /**
  * System for box2D world it do the world.step

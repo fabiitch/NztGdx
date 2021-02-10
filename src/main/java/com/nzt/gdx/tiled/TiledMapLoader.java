@@ -25,7 +25,7 @@ public abstract class TiledMapLoader extends TmxMapLoader {
     }
 
     public void loadMap(String path, boolean loadObjects) {
-        map = tmxMapLoader.load("maps/map1.tmx", parameters);
+        map = tmxMapLoader.load(path, parameters);
         if (loadObjects)
             loadMapObjects();
     }

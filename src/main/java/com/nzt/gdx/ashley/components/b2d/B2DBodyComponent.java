@@ -1,4 +1,4 @@
-package com.nzt.gdx.ashley.components.physx;
+package com.nzt.gdx.ashley.components.b2d;
 
 import com.badlogic.ashley.core.ComponentMapper;
 import com.badlogic.gdx.physics.box2d.Body;
