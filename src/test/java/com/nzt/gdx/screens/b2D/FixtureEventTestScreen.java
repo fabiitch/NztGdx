@@ -6,7 +6,7 @@ import com.badlogic.ashley.core.Entity;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.BodyDef;
-import com.nzt.gdx.ashley.components.physx.B2DBodyComponent;
+import com.nzt.gdx.ashley.components.b2d.B2DBodyComponent;
 import com.nzt.gdx.b2d.FixtureDefWrapper;
 import com.nzt.gdx.b2d.events.type.fixture.impl.SensorFixtureEvent;
 import com.nzt.gdx.b2d.factories.B2DFixtureEventFactory;

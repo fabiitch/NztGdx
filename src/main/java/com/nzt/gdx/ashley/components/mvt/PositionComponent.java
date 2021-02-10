@@ -5,7 +5,7 @@ import com.badlogic.ashley.core.Entity;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
 import com.nzt.gdx.ashley.components.abstracts.PoolableComponent;
-import com.nzt.gdx.ashley.components.physx.B2DBodyComponent;
+import com.nzt.gdx.ashley.components.b2d.B2DBodyComponent;
 
 /**
  * Position component, contains V3 position and rotation.

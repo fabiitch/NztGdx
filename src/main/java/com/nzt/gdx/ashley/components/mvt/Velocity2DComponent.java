@@ -4,7 +4,7 @@ import com.badlogic.ashley.core.ComponentMapper;
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.gdx.math.Vector2;
 import com.nzt.gdx.ashley.components.abstracts.PoolableComponent;
-import com.nzt.gdx.ashley.components.physx.B2DBodyComponent;
+import com.nzt.gdx.ashley.components.b2d.B2DBodyComponent;
 
 public class Velocity2DComponent extends PoolableComponent {
 
@@ -20,6 +20,7 @@ public class Velocity2DComponent extends PoolableComponent {
     @Override
     public void reset() {
         this.velocity.setZero();
+        this.direction.setZero();
     }
 
     public void setVelocity(Vector2 vel) {

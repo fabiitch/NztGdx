@@ -4,7 +4,7 @@ import com.badlogic.ashley.core.ComponentMapper;
 import com.badlogic.ashley.core.Engine;
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.gdx.physics.box2d.*;
-import com.nzt.gdx.ashley.components.physx.B2DBodyComponent;
+import com.nzt.gdx.ashley.components.b2d.B2DBodyComponent;
 import com.nzt.gdx.ashley.components.properties.RemoveEntityComponent;
 import com.nzt.gdx.ashley.components.properties.TypeComponent;
 import com.nzt.gdx.b2d.factories.B2DEventFactory;

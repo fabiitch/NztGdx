@@ -15,9 +15,8 @@ import com.badlogic.gdx.utils.Array;
 import com.nzt.gdx.ashley.NztSystemsOrder;
 import com.nzt.gdx.ashley.comparators.ZComparator;
 import com.nzt.gdx.ashley.components.mvt.PositionComponent;
-import com.nzt.gdx.ashley.components.render.SpriteComponent;
+import com.nzt.gdx.ashley.components.renders.SpriteComponent;
 import com.nzt.gdx.debug.perf.frame.PerformanceFrameUtils;
-import com.nzt.gdx.logger.tag.LogTagsBase;
 
 /**
  * used for rendering with SB
