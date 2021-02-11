@@ -23,11 +23,6 @@ public class Velocity2DComponent extends PoolableComponent {
         this.direction.setZero();
     }
 
-    public void setVelocity(Vector2 vel) {
-        this.velocity.set(vel);
-        this.direction.set(vel).nor();
-    }
-
     public static void updateVelocityFromBody(Entity entity) {
         Velocity2DComponent velocity2DComponent = mapper.get(entity);
         if (velocity2DComponent != null) { // les static n'ont pas de vel
@@ -35,6 +30,11 @@ public class Velocity2DComponent extends PoolableComponent {
             Vector2 linearVelocity = b2DBodyComponent.body.getLinearVelocity();
             velocity2DComponent.setVelocity(linearVelocity);
         }
+    }
+
+    public void setVelocity(Vector2 vel) {
+        this.velocity.set(vel);
+        this.direction.set(vel).nor();
     }
 
     public Vector2 getDirection() {
