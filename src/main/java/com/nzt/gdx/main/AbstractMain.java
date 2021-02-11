@@ -17,7 +17,7 @@ import com.nzt.gdx.screen.manager.AbstractScreenManager;
  */
 public abstract class AbstractMain implements ApplicationListener {
     public SpriteBatch sb;
-    public NzShapeRenderer shapeRenderer;
+    public NzShapeRenderer nzShapeRenderer;
     public ModelBatch modelBatch;
 
     public AbstractAssetsManager assetsManager;
@@ -36,7 +36,7 @@ public abstract class AbstractMain implements ApplicationListener {
 
     public void exit() {
         this.sb.dispose();
-        this.shapeRenderer.dispose();
+        this.nzShapeRenderer.dispose();
         this.modelBatch.dispose();
     }
 
@@ -56,8 +56,8 @@ public abstract class AbstractMain implements ApplicationListener {
     public void createRenderObjects() {
         this.sb = new SpriteBatch();
         sb.enableBlending();
-        this.shapeRenderer = new NzShapeRenderer();
-        this.shapeRenderer.setAutoShapeType(true);
+        this.nzShapeRenderer = new NzShapeRenderer();
+        this.nzShapeRenderer.setAutoShapeType(true);
         this.modelBatch = new ModelBatch();
 //         this.modelBatch = new ModelBatch(new DepthShaderProvider()); // effet rigolo
     }

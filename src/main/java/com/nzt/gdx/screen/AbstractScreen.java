@@ -5,7 +5,6 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g3d.ModelBatch;
-import com.badlogic.gdx.utils.ScreenUtils;
 import com.nzt.gdx.debug.NzGLProfiler;
 import com.nzt.gdx.graphics.renderers.NzShapeRenderer;
 import com.nzt.gdx.main.AbstractMain;
@@ -21,7 +20,7 @@ public abstract class AbstractScreen<M extends AbstractMain> implements Screen {
 
     protected M main;
     protected SpriteBatch spriteBatch;
-    protected NzShapeRenderer shapeRenderer;
+    protected NzShapeRenderer nzShapeRenderer;
     protected ModelBatch modelBatch;
 
     private NzGLProfiler nzGLProfiler;
@@ -29,7 +28,7 @@ public abstract class AbstractScreen<M extends AbstractMain> implements Screen {
     public AbstractScreen(M main) {
         this.main = main;
         this.spriteBatch = main.sb;
-        this.shapeRenderer = main.shapeRenderer;
+        this.nzShapeRenderer = main.nzShapeRenderer;
         this.modelBatch = main.modelBatch;
         this.nzGLProfiler = main.logManager.nzGlProfiler;
     }
