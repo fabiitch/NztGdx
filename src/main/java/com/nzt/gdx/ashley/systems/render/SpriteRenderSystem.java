@@ -32,8 +32,6 @@ public class SpriteRenderSystem extends SortedIteratingSystem {
 										// each other
 	private Comparator<Entity> comparator = new ZComparator(); // a comparator to sort images based on the z position of
 																// the
-	// transfromComponent
-
 	// component mappers to get components from entities
 	private ComponentMapper<SpriteComponent> spriteMapper = SpriteComponent.mapper;
 	private ComponentMapper<PositionComponent> positionMapper = PositionComponent.mapper;

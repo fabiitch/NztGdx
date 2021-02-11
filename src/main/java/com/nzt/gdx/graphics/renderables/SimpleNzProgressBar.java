@@ -12,15 +12,15 @@ import com.badlogic.gdx.math.Vector2;
  * 
  * @author fabiitch
  */
-public class ProgressBar_SR implements ShapeRenderable {
+public class SimpleNzProgressBar implements ShapeRenderable {
 	private Rectangle rect;
 	public float percent;
 	public Color borderColor;
 	public Color insideColor;
 	public boolean horizontal;
 
-	public ProgressBar_SR(boolean vertical, float x, float y, float witdh, float height, Color insideColor,
-			Color borderColor, float percent) {
+	public SimpleNzProgressBar(boolean vertical, float x, float y, float witdh, float height, Color insideColor,
+							   Color borderColor, float percent) {
 		super();
 		this.rect = new Rectangle(x, y, witdh, height);
 		this.insideColor = insideColor;
@@ -29,16 +29,16 @@ public class ProgressBar_SR implements ShapeRenderable {
 		this.percent = percent;
 	}
 
-	public ProgressBar_SR(float x, float y, float witdh, float height, Color insideColor, Color borderColor,
-			float percent) {
+	public SimpleNzProgressBar(float x, float y, float witdh, float height, Color insideColor, Color borderColor,
+							   float percent) {
 		this(false, x, y, witdh, height, insideColor, borderColor, percent);
 	}
 
-	public ProgressBar_SR(float x, float y, float witdh, float height, Color insideColor, Color borderColor) {
+	public SimpleNzProgressBar(float x, float y, float witdh, float height, Color insideColor, Color borderColor) {
 		this(false, x, y, witdh, height, insideColor, borderColor, 0);
 	}
 
-	public ProgressBar_SR(Rectangle rect, Color insideColor, Color borderColor, float percent) {
+	public SimpleNzProgressBar(Rectangle rect, Color insideColor, Color borderColor, float percent) {
 		super();
 		this.rect = rect;
 		this.insideColor = insideColor;
@@ -46,11 +46,11 @@ public class ProgressBar_SR implements ShapeRenderable {
 		this.horizontal = true;
 	}
 
-	public ProgressBar_SR(Rectangle rect, Color insideColor, Color borderColor) {
+	public SimpleNzProgressBar(Rectangle rect, Color insideColor, Color borderColor) {
 		this(rect, insideColor, borderColor, 0);
 	}
 
-	public ProgressBar_SR(Rectangle rect) {
+	public SimpleNzProgressBar(Rectangle rect) {
 		this(rect, Color.RED, Color.BLUE);
 	}
 

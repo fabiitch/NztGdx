@@ -37,17 +37,17 @@ public class Vector2TestScreen extends SimpleScreen {
 	}
 
 	private void draw(Vector2 v, Color color) {
-		shapeRenderer.setColor(color);
-		shapeRenderer.line(middle, getV(v));
+		nzShapeRenderer.setColor(color);
+		nzShapeRenderer.line(middle, getV(v));
 	}
 
 	@Override
 	protected void renderScreen(float dt) {
-		shapeRenderer.begin();
+		nzShapeRenderer.begin();
 		draw(oldDir, Color.GREEN);
 		draw(newDir, Color.RED);
 //        draw(result, Color.YELLOW);
-		shapeRenderer.end();
+		nzShapeRenderer.end();
 	}
 
 }

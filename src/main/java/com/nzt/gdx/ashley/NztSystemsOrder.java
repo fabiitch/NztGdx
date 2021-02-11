@@ -9,6 +9,7 @@ public class NztSystemsOrder {
 	public static final int B2D_EVENTS = 1;
 	public static final int B2D = 2;
 	public static final int MVT = 2;
+	public static final int PHYSX = 2;
 
 	public static final int CALCUL = 10;
 
@@ -20,4 +21,5 @@ public class NztSystemsOrder {
 	public static final int HUD = 30;
 	public static final int REMOVE_ENTITY = 40;
 	public static final int B2D_DEBUG = 50;
+	public static final int PHYSX_DEBUG = 50;
 }
