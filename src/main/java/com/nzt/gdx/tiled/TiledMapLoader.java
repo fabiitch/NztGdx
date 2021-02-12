@@ -32,8 +32,8 @@ public abstract class TiledMapLoader extends TmxMapLoader {
 
     protected Rectangle replacemapRectangle(MapObject mapObject) {
         Rectangle rect = ((RectangleMapObject) mapObject).getRectangle();
-        rect.x += +rect.width / 2;
-        rect.y += rect.height / 2;
+//        rect.x += +rect.width / 2;
+//        rect.y += rect.height / 2;
         return rect;
     }
 
