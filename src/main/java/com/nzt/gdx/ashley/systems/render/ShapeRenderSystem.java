@@ -11,17 +11,17 @@ import com.nzt.gdx.ashley.components.renders.ShapeRenderableArrayComponent;
 import com.nzt.gdx.debug.perf.frame.PerformanceFrameUtils;
 
 //TODO reprendre ou suppr
-public class RenderShapeSystem extends IteratingSystem {
+public class ShapeRenderSystem extends IteratingSystem {
 
     private ShapeRenderer shapeRenderer;
     private Array<Entity> queue;
     private ComponentMapper<ShapeRenderableArrayComponent> shapeArrayMapper = ShapeRenderableArrayComponent.mapper;
 
-    public RenderShapeSystem(ShapeRenderer shapeRenderer) {
+    public ShapeRenderSystem(ShapeRenderer shapeRenderer) {
         this(shapeRenderer, NztSystemsOrder.RENDER);
     }
 
-    public RenderShapeSystem(ShapeRenderer shapeRenderer, int order) {
+    public ShapeRenderSystem(ShapeRenderer shapeRenderer, int order) {
         super(Family.one(ShapeRenderableArrayComponent.class).get(), order);
         this.shapeRenderer = shapeRenderer;
         this.queue = new Array<Entity>();

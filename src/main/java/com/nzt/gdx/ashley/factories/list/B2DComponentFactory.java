@@ -1,4 +1,4 @@
-package com.nzt.gdx.ashley.factories.components;
+package com.nzt.gdx.ashley.factories.list;
 
 import com.badlogic.ashley.core.Engine;
 import com.badlogic.gdx.physics.box2d.Body;

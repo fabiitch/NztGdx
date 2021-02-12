@@ -1,10 +1,10 @@
-package com.nzt.gdx.ashley.factories.components;
+package com.nzt.gdx.ashley.factories.list;
 
 import com.badlogic.ashley.core.Component;
 import com.badlogic.ashley.core.Engine;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g3d.ModelInstance;
-import com.nzt.gdx.ashley.components.renders.ModelComponent;
+import com.nzt.gdx.ashley.components.renders.Model3DComponent;
 import com.nzt.gdx.ashley.components.renders.ShapeRenderableArrayComponent;
 import com.nzt.gdx.ashley.components.renders.SpriteComponent;
 import com.nzt.gdx.graphics.renderables.ShapeRenderable;
@@ -30,8 +30,8 @@ public class RendersComponentFactory extends BaseComponentFactory {
         return shapeArrayComponent;
     }
 
-    public ModelComponent modelInstance(ModelInstance modelInstance) {
-        ModelComponent modelComponent = new ModelComponent(modelInstance);
+    public Model3DComponent modelInstance(ModelInstance modelInstance) {
+        Model3DComponent modelComponent = new Model3DComponent(modelInstance);
         return modelComponent;
     }
 }
