@@ -18,12 +18,12 @@ public class NzRectangle extends Rectangle implements NzShape2D {
 
     @Override
     public void updatePosition(Vector2 position) {
-        this.setPosition(position);
+        this.updatePosition(position.x,position.y);
     }
 
     @Override
     public void updatePosition(float x, float y) {
-        this.setPosition(x, y);
+        this.setPosition(x - this.width / 2, y - this.height / 2);
     }
 
     @Override

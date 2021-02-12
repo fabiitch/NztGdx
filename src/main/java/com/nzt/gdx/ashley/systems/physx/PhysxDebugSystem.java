@@ -8,12 +8,12 @@ import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.nzt.gdx.ashley.NztSystemsOrder;
-import com.nzt.gdx.ashley.components.physx.NzShapeComponent;
+import com.nzt.gdx.ashley.components.physx.PhysxComponent;
 import com.nzt.gdx.debug.perf.frame.PerformanceFrameUtils;
 import com.nzt.gdx.graphics.renderers.NzShapeRenderer;
 
 public class PhysxDebugSystem extends IteratingSystem {
-    private static ComponentMapper<NzShapeComponent> shapeMapper = NzShapeComponent.mapper;
+    private static ComponentMapper<PhysxComponent> shapeMapper = PhysxComponent.mapper;
     private NzShapeRenderer nzShapeRenderer;
     private Camera camera;
 
@@ -22,7 +22,7 @@ public class PhysxDebugSystem extends IteratingSystem {
     }
 
     public PhysxDebugSystem(NzShapeRenderer nzShapeRenderer, Camera camera, int priority) {
-        super(Family.one(NzShapeComponent.class).get(), priority);
+        super(Family.one(PhysxComponent.class).get(), priority);
         this.nzShapeRenderer = nzShapeRenderer;
         this.camera = camera;
     }
@@ -40,7 +40,7 @@ public class PhysxDebugSystem extends IteratingSystem {
 
     @Override
     protected void processEntity(Entity entity, float deltaTime) {
-        NzShapeComponent shapeComponent = shapeMapper.get(entity);
+        PhysxComponent shapeComponent = shapeMapper.get(entity);
         shapeComponent.shape.render(nzShapeRenderer);
     }
 }
