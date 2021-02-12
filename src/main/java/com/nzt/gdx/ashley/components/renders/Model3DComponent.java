@@ -4,14 +4,14 @@ import com.badlogic.ashley.core.ComponentMapper;
 import com.badlogic.gdx.graphics.g3d.ModelInstance;
 import com.nzt.gdx.ashley.components.abstracts.BaseComponent;
 
-public class ModelComponent extends BaseComponent {
+public class Model3DComponent extends BaseComponent {
 
-	public static ComponentMapper<ModelComponent> mapper = ComponentMapper.getFor(ModelComponent.class);
+	public static ComponentMapper<Model3DComponent> mapper = ComponentMapper.getFor(Model3DComponent.class);
 
 	public ModelInstance modelInstance;
 	public boolean visible = true;
 
-	public ModelComponent(ModelInstance modelInstance) {
+	public Model3DComponent(ModelInstance modelInstance) {
 		super();
 		this.modelInstance = modelInstance;
 	}
