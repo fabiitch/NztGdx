@@ -20,7 +20,7 @@ import com.nzt.gdx.debug.perf.frame.PerformanceFrameUtils;
  */
 public class B2DWorldSystem extends IteratingSystem {
 
-	private static final float MAX_STEP_TIME = 1 / 80f;
+	private static final float MAX_STEP_TIME = 1 / 60f;
 	private float accumulator = 0f;
 
 	private World world;

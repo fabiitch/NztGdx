@@ -39,4 +39,44 @@ public class NzCircle extends Circle implements NzShape2D {
     public void render(NzShapeRenderer nzShapeRenderer) {
         nzShapeRenderer.circle(this);
     }
+
+    @Override
+    public float getXMax() {
+        return this.x + this.radius;
+    }
+
+    @Override
+    public float getXMaxShape() {
+        return this.radius;
+    }
+
+    @Override
+    public float getXMin() {
+        return this.x - this.radius;
+    }
+
+    @Override
+    public float getXMinShape() {
+        return -this.radius;
+    }
+
+    @Override
+    public float getYMax() {
+        return this.y + this.radius;
+    }
+
+    @Override
+    public float getYMaxShape() {
+        return this.radius;
+    }
+
+    @Override
+    public float getYMin() {
+        return this.y - this.radius;
+    }
+
+    @Override
+    public float getYMinShape() {
+        return this.radius;
+    }
 }
