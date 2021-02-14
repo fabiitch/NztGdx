@@ -10,67 +10,67 @@ import com.nzt.gdx.logger.tag.LogTagsBase;
 import com.nzt.gdx.logger.tag.TagLogger;
 import com.nzt.gdx.logger.utils.NzLoggable;
 import com.nzt.gdx.logger.utils.NzLoggableSimple;
+
 //TODO boolean en constant pour enlevé les if a la compil
 public class PerformanceFrameUtils {
 
-	public static boolean log = false;
-	public static PerformanceFrame performanceFrame;
+    public static boolean log = false;
+    public static PerformanceFrame performanceFrame;
 
-	public static void init(PerformanceFrame performanceFrame) {
-		PerformanceFrameUtils.log = true;
-		PerformanceFrameUtils.performanceFrame = performanceFrame;
-	}
+    public static void init(PerformanceFrame performanceFrame) {
+        PerformanceFrameUtils.log = true;
+        PerformanceFrameUtils.performanceFrame = performanceFrame;
+    }
 
-	public static void startFrame() {
-		if (log)
-			performanceFrame.startFrame();
-	}
+    public static void startFrame() {
+        if (log)
+            performanceFrame.startFrame();
+    }
 
-	public static void endFrame() {
-		if (log)
-			performanceFrame.endFrame();
-	}
+    public static void endFrame() {
+        if (log)
+            performanceFrame.endFrame();
+    }
 
-	public static void registerAllSystems(Engine engine) {
-		if (!log)
-			return;
-		ImmutableArray<EntitySystem> systems = engine.getSystems();
-		for (EntitySystem system : systems) {
-			performanceFrame.register(system.getClass().getSimpleName());
-		}
-	}
+    public static void registerSystems(EntitySystem... entitySystems) {
+        if (!log)
+            return;
+        for (EntitySystem system : entitySystems) {
+            performanceFrame.register(system.getClass().getSimpleName());
+        }
+    }
 
-	public static void startSystem(EntitySystem system) {
-		if (log)
-			performanceFrame.start(system.getClass().getSimpleName());
-	}
+    public static void startSystem(EntitySystem system) {
+        if (log)
+            performanceFrame.start(system.getClass().getSimpleName());
+    }
 
-	public static void endSystem(EntitySystem system) {
-		if (log)
-			performanceFrame.end(system.getClass().getSimpleName());
-	}
+    public static void endSystem(EntitySystem system) {
+        if (log)
+            performanceFrame.end(system.getClass().getSimpleName());
+    }
 
-	public static void logAveragePercent() {
-		if (!log)
-			return;
-		Array<NzLoggable> loggableAveragePercent = getLoggableAveragePercent();
-		TagLogger.errorBlock(LogTagsBase.PERFORMANCE, "average percent", loggableAveragePercent);
-	}
+    public static void logAveragePercent() {
+        if (!log)
+            return;
+        Array<NzLoggable> loggableAveragePercent = getLoggableAveragePercent();
+        TagLogger.errorBlock(LogTagsBase.PERFORMANCE, "average percent", loggableAveragePercent);
+    }
 
-	private static Array<NzLoggable> arrayLoggable = new Array<NzLoggable>();
+    private static Array<NzLoggable> arrayLoggable = new Array<NzLoggable>(0);
 
-	public static Array<NzLoggable> getLoggableAveragePercent() {
-		if (!log)
-			return null;
-		Array<PerformanceCounter> arrayPerf = performanceFrame.getArray();
+    public static Array<NzLoggable> getLoggableAveragePercent() {
+        if (!log)
+            return null;
+        Array<PerformanceCounter> arrayPerf = performanceFrame.getArray();
 
-		Pools.freeAll(arrayLoggable);
-		arrayLoggable.clear();
-		for (PerformanceCounter perf : arrayPerf) {
-			NzLoggableSimple loggable = NzLoggableSimple.getNew(perf.action,
-					DebugDisplayUtils.printFloat(perf.percentFrameAverage) + "%");
-			arrayLoggable.add(loggable);
-		}
-		return arrayLoggable;
-	}
+        Pools.freeAll(arrayLoggable, true);
+        arrayLoggable.clear();
+        for (PerformanceCounter perf : arrayPerf) {
+            NzLoggableSimple loggable = NzLoggableSimple.getNew(perf.action,
+                    DebugDisplayUtils.printFloat(perf.percentFrameAverage) + "%");
+            arrayLoggable.add(loggable);
+        }
+        return arrayLoggable;
+    }
 }

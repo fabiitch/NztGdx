@@ -30,7 +30,11 @@ public class PositionComponent extends PoolableComponent {
         this.position.setZero();
         this.positionV2.setZero();
         this.angleRadian = 0f;
+    }
 
+    public void setPosition(Vector2 position) {
+        this.position.x = position.x;
+        this.position.y = position.y;
     }
 
     public Vector2 getPosition() {

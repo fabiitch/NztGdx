@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g3d.ModelBatch;
 import com.nzt.gdx.debug.NzGLProfiler;
+import com.nzt.gdx.debug.perf.frame.PerformanceFrameUtils;
 import com.nzt.gdx.graphics.renderers.NzShapeRenderer;
 import com.nzt.gdx.main.AbstractMain;
 
@@ -60,16 +61,18 @@ public abstract class AbstractScreen<M extends AbstractMain> implements Screen {
 
     @Override
     public void render(float dt) {
+        PerformanceFrameUtils.startFrame();
         logScreenPerf(dt);
         nzGLProfiler.endFrame();
         clearScreen();
         showFPS(dt);
         renderScreen(dt);
+        PerformanceFrameUtils.endFrame();
     }
 
     protected abstract void renderScreen(float dt);
 
-    private void logScreenPerf(float dt) {
+    private void logScreenPerf(float dt) { //TODO chai pas trop
     	
     }
 }

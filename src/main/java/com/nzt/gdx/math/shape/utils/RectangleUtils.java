@@ -30,6 +30,7 @@ public class RectangleUtils {
         return rect;
     }
 
+    //TODO revoir les new
     public static Segment2D getHorizontalTop(Rectangle rect) {
         float aX = rect.x;
         float aY = rect.y + rect.height;
@@ -38,6 +39,7 @@ public class RectangleUtils {
         return new Segment2D(aX, aY, bX, bY);
     }
 
+    //TODO revoir les new
     public static Segment2D getHorizontalBot(Rectangle rect) {
         return new Segment2D(rect.x, rect.y, rect.x + rect.width, rect.y);
     }

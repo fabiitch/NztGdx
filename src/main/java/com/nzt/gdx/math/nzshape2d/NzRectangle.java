@@ -6,6 +6,7 @@ import com.nzt.gdx.graphics.renderers.NzShapeRenderer;
 
 public class NzRectangle extends Rectangle implements NzShape2D {
     public NzRectangle() {
+        super();
     }
 
     public NzRectangle(float x, float y, float width, float height) {
@@ -18,7 +19,7 @@ public class NzRectangle extends Rectangle implements NzShape2D {
 
     @Override
     public void updatePosition(Vector2 position) {
-        this.updatePosition(position.x,position.y);
+        this.updatePosition(position.x, position.y);
     }
 
     @Override
@@ -29,5 +30,45 @@ public class NzRectangle extends Rectangle implements NzShape2D {
     @Override
     public void render(NzShapeRenderer nzShapeRenderer) {
         nzShapeRenderer.rect(this);
+    }
+
+    @Override
+    public float getXMax() {
+        return this.x + this.getWidth();
+    }
+
+    @Override
+    public float getXMaxShape() {
+        return this.getWidth();
+    }
+
+    @Override
+    public float getXMin() {
+        return this.x;
+    }
+
+    @Override
+    public float getXMinShape() {
+        return this.x;
+    }
+
+    @Override
+    public float getYMax() {
+        return this.y + this.getHeight();
+    }
+
+    @Override
+    public float getYMaxShape() {
+        return this.getHeight();
+    }
+
+    @Override
+    public float getYMin() {
+        return this.y;
+    }
+
+    @Override
+    public float getYMinShape() {
+        return 0;
     }
 }
