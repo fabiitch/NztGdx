@@ -13,7 +13,7 @@ import com.nzt.gdx.screen.loading.SimpleProgressBarScreen;
 public abstract class AbstractScreenManager<M extends AbstractMain> {
     protected M main;
 
-    protected BaseScreen<M> currentScreen;
+    public BaseScreen<M> currentScreen;
     protected BaseLoadingScreen<M> loadingScreen;
     public AbstractAssetsManager assetsManager;
 
