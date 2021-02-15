@@ -23,6 +23,9 @@ public class StarterTestConfig {
         new LwjglApplication(main, configuration);
     }
 
+    /*
+    marche pas pb de dependence
+     */
     public static void startLwjgl3(AbstractMain main, int witdh, int height) {
         Lwjgl3ApplicationConfiguration configuration = new Lwjgl3ApplicationConfiguration();
         configuration.setTitle("Tester Lwjgl3");
