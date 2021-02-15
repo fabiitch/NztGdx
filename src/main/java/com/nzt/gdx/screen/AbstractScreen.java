@@ -43,7 +43,7 @@ public abstract class AbstractScreen<M extends AbstractMain> implements Screen {
 
     }
 
-    private final void showFPS(float dt) {
+    public void setTitle(float dt) {
         Gdx.graphics.setTitle("FPS : " + Gdx.graphics.getFramesPerSecond() + " | delta=" + dt);
     }
 
@@ -65,7 +65,7 @@ public abstract class AbstractScreen<M extends AbstractMain> implements Screen {
         logScreenPerf(dt);
         nzGLProfiler.endFrame();
         clearScreen();
-        showFPS(dt);
+        setTitle(dt);
         renderScreen(dt);
         PerformanceFrameUtils.endFrame();
     }

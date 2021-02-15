@@ -49,6 +49,7 @@ dependencies {
     // Use JUnit test framework
     testImplementation "junit:junit:$junitVersion"
     testImplementation "org.mockito:mockito-core:$mockitoVersion"
+   // testImplementation group: 'org.reflections', name: 'reflections', version: '0.9.5-RC2' si besoin un jour //TODO
 
     testImplementation "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
 
@@ -60,7 +61,6 @@ dependencies {
 
     testImplementation "com.badlogicgames.gdx:gdx-box2d-platform:$gdxVersion:natives-desktop"
     testImplementation "com.badlogicgames.gdx:gdx-freetype-platform:$gdxVersion:natives-desktop"
-
 
 
     api "com.badlogicgames.gdx:gdx:$gdxVersion"
