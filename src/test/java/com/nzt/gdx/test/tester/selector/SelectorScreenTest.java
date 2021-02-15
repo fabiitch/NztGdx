@@ -64,9 +64,8 @@ public class SelectorScreenTest extends SimpleScreen<AbstractMain> {
 				try {
 					Constructor cons = screenClass.getConstructor(FastTesterMain.class);
 					Object newInstance = cons.newInstance(main);
-				
-				
 					main.screenManager.setScreen((BaseScreen<AbstractMain>) newInstance);
+					Gdx.input.setInputProcessor(null);
 				} catch (Exception e) {
 					System.out.println("Cant instance class " + screenClass);
 					e.printStackTrace();

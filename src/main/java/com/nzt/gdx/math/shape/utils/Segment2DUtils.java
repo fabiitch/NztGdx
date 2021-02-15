@@ -9,10 +9,12 @@ public class Segment2DUtils {
     public static Vector2 getSegmentIntersection(Segment2D s1, Segment2D s2) {
         return getSegmentIntersection(s1.a, s1.b, s2.a, s2.b);
     }
+
     public static Vector2 intersect(Segment2D s1, Segment2D s2) {
         return getSegmentIntersection(s1.a, s1.b, s2.a, s2.b);
     }
-    public boolean getSegmentIntersection(Segment2D s1, Segment2D s2, Vector2 intersection) {
+
+    public static boolean getSegmentIntersection(Segment2D s1, Segment2D s2, Vector2 intersection) {
         return Intersector.intersectSegments(s1.a, s1.b, s2.a, s2.b, intersection);
     }
 
@@ -23,7 +25,7 @@ public class Segment2DUtils {
     }
 
 
-    public static float getAngleReflexion(Segment2D segment, Vector2 direction){
+    public static float getAngleReflexion(Segment2D segment, Vector2 direction) {
         Vector2 normal = segment.getNormale();
         float angleReflection = normal.angleDeg() - (direction.angleDeg() - normal.angleDeg());
         return angleReflection;

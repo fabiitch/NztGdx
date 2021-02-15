@@ -2,11 +2,13 @@ package com.nzt.gdx.math.shape;
 
 import com.badlogic.gdx.math.Intersector;
 import com.badlogic.gdx.math.Rectangle;
+import com.badlogic.gdx.math.Shape2D;
 import com.badlogic.gdx.math.Vector2;
 
 import java.util.Objects;
 
-public class Segment2D {
+public class Segment2D {//TODO impl shape2D
+
 
     public Vector2 a;
     public Vector2 b;
