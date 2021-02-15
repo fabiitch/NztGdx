@@ -32,10 +32,10 @@ public class ScreenSelectorTestMain extends FastTesterMain {
 	@Override
 	public void render() {
 		super.render();
-		
-	    if(Gdx.input.isKeyPressed(Input.Keys.ESCAPE) && screenManager.currentScreen != selectorScreenTest){
-	    	screenManager.setScreen(new SelectorScreenTest(this));
-	    }
+		if (Gdx.input.isKeyPressed(Input.Keys.ESCAPE) && screenManager.currentScreen != selectorScreenTest) {
+			selectorScreenTest = new SelectorScreenTest(this);
+			screenManager.setScreen(selectorScreenTest);
+		}
 	}
 
 	@Override

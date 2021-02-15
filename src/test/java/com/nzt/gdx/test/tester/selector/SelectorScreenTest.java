@@ -20,6 +20,7 @@ import com.nzt.gdx.test.screens.scene2D.HudDebugDisplayScreen;
 import com.nzt.gdx.test.screens.scene2D.NzStageTestScreen;
 import com.nzt.gdx.test.screens.t3d.B2D3DTestScreen;
 import com.nzt.gdx.test.screens.t3d.Basic3DTestScreen;
+import com.nzt.gdx.test.screens.t3d.OrthoCam3DTest;
 import com.nzt.gdx.test.tester.archi.main.FastTesterMain;
 
 /*
@@ -28,11 +29,12 @@ import com.nzt.gdx.test.tester.archi.main.FastTesterMain;
  */
 public class SelectorScreenTest extends SimpleScreen<AbstractMain> {
 
+	private Class[] screensClasses = new Class[] { FixtureEventTestScreen.class, TriangleBodyTestScreen.class,
+			B2D3DTestScreen.class, Basic3DTestScreen.class, OrthoCam3DTest.class, NzStageTestScreen.class,
+			HudDebugDisplayScreen.class, Vector2TestScreen.class };
+
 	private NzStage stage;
 	Skin skin = new Skin(Gdx.files.internal("ui/uiskin.json"));
-	private Class[] screensClasses = new Class[] { FixtureEventTestScreen.class, TriangleBodyTestScreen.class,
-			B2D3DTestScreen.class, Basic3DTestScreen.class, NzStageTestScreen.class, HudDebugDisplayScreen.class,
-			Vector2TestScreen.class };
 
 	public SelectorScreenTest(AbstractMain main) {
 		super(main);
@@ -62,7 +64,8 @@ public class SelectorScreenTest extends SimpleScreen<AbstractMain> {
 				try {
 					Constructor cons = screenClass.getConstructor(FastTesterMain.class);
 					Object newInstance = cons.newInstance(main);
-					System.out.println("created" + newInstance.getClass().getSimpleName());
+				
+				
 					main.screenManager.setScreen((BaseScreen<AbstractMain>) newInstance);
 				} catch (Exception e) {
 					System.out.println("Cant instance class " + screenClass);
