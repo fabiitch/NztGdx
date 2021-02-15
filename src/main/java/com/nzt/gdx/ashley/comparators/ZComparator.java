@@ -7,10 +7,9 @@ import com.badlogic.ashley.core.Entity;
 import com.nzt.gdx.ashley.components.mvt.PositionComponent;
 
 public class ZComparator implements Comparator<Entity> {
-	private ComponentMapper<PositionComponent> transformM;
+	private ComponentMapper<PositionComponent> transformM = PositionComponent.mapper;
 
 	public ZComparator() {
-		transformM = ComponentMapper.getFor(PositionComponent.class);
 	}
 
 	@Override

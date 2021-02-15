@@ -8,6 +8,6 @@ public abstract class BaseFixtureBodyEvent<E extends BaseFixtureBodyEvent> exten
 
 
     public BaseFixtureBodyEvent(B2DFixtureEventsEnum fixtureEnum) {
-        super(B2DEventsEnum.Fixture.ordinal() + fixtureEnum.ordinal());
+        super((short) (B2DEventsEnum.Fixture.ordinal() + fixtureEnum.ordinal()));
     }
 }

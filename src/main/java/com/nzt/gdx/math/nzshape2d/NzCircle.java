@@ -26,6 +26,11 @@ public class NzCircle extends Circle implements NzShape2D {
     }
 
     @Override
+    public Vector2 getPosition(Vector2 v) {
+        return v.set(x, y);
+    }
+
+    @Override
     public void updatePosition(Vector2 position) {
         this.setPosition(position);
     }

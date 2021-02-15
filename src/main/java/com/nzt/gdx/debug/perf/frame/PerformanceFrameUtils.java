@@ -2,7 +2,6 @@ package com.nzt.gdx.debug.perf.frame;
 
 import com.badlogic.ashley.core.Engine;
 import com.badlogic.ashley.core.EntitySystem;
-import com.badlogic.ashley.utils.ImmutableArray;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.Pools;
 import com.nzt.gdx.debug.utils.DebugDisplayUtils;
@@ -32,6 +31,14 @@ public class PerformanceFrameUtils {
             performanceFrame.endFrame();
     }
 
+    public static void registerAllSystems(Engine engine) {
+        if (!log)
+            return;
+        for (EntitySystem system : engine.getSystems()) {
+            performanceFrame.register(system.getClass().getSimpleName());
+        }
+    }
+
     public static void registerSystems(EntitySystem... entitySystems) {
         if (!log)
             return;
@@ -57,7 +64,7 @@ public class PerformanceFrameUtils {
         TagLogger.errorBlock(LogTagsBase.PERFORMANCE, "average percent", loggableAveragePercent);
     }
 
-    private static Array<NzLoggable> arrayLoggable = new Array<NzLoggable>(0);
+    private static Array<NzLoggable> arrayLoggable = new Array<>();
 
     public static Array<NzLoggable> getLoggableAveragePercent() {
         if (!log)
@@ -68,7 +75,7 @@ public class PerformanceFrameUtils {
         arrayLoggable.clear();
         for (PerformanceCounter perf : arrayPerf) {
             NzLoggableSimple loggable = NzLoggableSimple.getNew(perf.action,
-                    DebugDisplayUtils.printFloat(perf.percentFrameAverage) + "%");
+                    DebugDisplayUtils.printFloat(perf.percentFrameAverage) + "% | " + DebugDisplayUtils.printNanoToMs(perf.averageTime));
             arrayLoggable.add(loggable);
         }
         return arrayLoggable;

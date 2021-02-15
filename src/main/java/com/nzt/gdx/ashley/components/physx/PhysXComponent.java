@@ -8,7 +8,7 @@ public class PhysXComponent extends PoolableComponent {
     public static ComponentMapper<PhysXComponent> mapper = ComponentMapper.getFor(PhysXComponent.class);
 
     public NzShape2D nzShape;
-    public int nzShapeType;
+    public short nzShapeType;
 
     public boolean isStatic = false;
 

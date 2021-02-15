@@ -11,8 +11,8 @@ public class PerformanceFrame {
     private HashMap<String, PerformanceCounter> map;
     private Array<PerformanceCounter> arrayOrdered;
 
-    private long timeLastFrame;
-    private long timeFrameAverage;
+    public long timeLastFrame;
+    public long timeFrameAverage;
 
     private long tmpStart;
 
