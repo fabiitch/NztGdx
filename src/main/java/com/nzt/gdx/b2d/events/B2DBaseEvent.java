@@ -11,14 +11,14 @@ public abstract class B2DBaseEvent<E extends B2DBaseEvent> implements Poolable {
     /*
     utilisé pour le check destroy et le concat
      */
-    public int eventType;
+    public short eventType;
 
-    public B2DBaseEvent(int eventType) {
+    public B2DBaseEvent(short eventType) {
         this.eventType = eventType;
     }
 
     public B2DBaseEvent(B2DEventsEnum event) {
-        this(event.ordinal());
+        this((short) event.ordinal());
     }
 
     protected abstract boolean canConcat(E event);

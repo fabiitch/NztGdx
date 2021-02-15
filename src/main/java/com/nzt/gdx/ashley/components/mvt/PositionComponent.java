@@ -47,8 +47,7 @@ public class PositionComponent extends PoolableComponent {
         Vector2 position = b2DBodyComponent.body.getPosition();
 
         PositionComponent positionComponent = mapper.get(entity);
-        positionComponent.position.x = position.x;
-        positionComponent.position.y = position.y;
+        positionComponent.setPosition(position);
     }
 
     public static void updateAngleFromBody(Entity entity) {

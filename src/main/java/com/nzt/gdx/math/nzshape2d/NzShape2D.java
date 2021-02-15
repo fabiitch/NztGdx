@@ -6,6 +6,8 @@ import com.nzt.gdx.graphics.renderers.NzShapeRenderer;
 
 public interface NzShape2D extends Shape2D {
 
+    Vector2 getPosition(Vector2 v);
+
     void updatePosition(Vector2 position);
 
     void updatePosition(float x, float y);

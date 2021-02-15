@@ -1,7 +1,9 @@
 package com.nzt.gdx.ashley.components.b2d;
 
 import com.badlogic.ashley.core.ComponentMapper;
+import com.badlogic.gdx.math.Shape2D;
 import com.badlogic.gdx.physics.box2d.Body;
+import com.badlogic.gdx.physics.box2d.Shape;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.Pools;
 import com.nzt.gdx.ashley.components.abstracts.PoolableComponent;
@@ -9,6 +11,7 @@ import com.nzt.gdx.ashley.systems.b2d.B2DDebugSystem;
 import com.nzt.gdx.ashley.systems.b2d.B2DWorldSystem;
 import com.nzt.gdx.b2d.events.B2DBaseEvent;
 import com.nzt.gdx.b2d.events.B2DEventContainer;
+import com.nzt.gdx.math.nzshape2d.NzShape2D;
 
 /**
  * Box2D body component used by system : {@link B2DWorldSystem} and

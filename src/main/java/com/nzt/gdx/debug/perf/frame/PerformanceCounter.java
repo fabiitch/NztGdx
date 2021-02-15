@@ -11,9 +11,9 @@ class PerformanceCounter implements Comparable<PerformanceCounter> {
 	private long startNanoTime;
 	private long currentExecTime;
 
-	public float minTime;
-	public float maxTime;
-	public float averageTime;
+	public long minTime;
+	public long maxTime;
+	public long averageTime;
 
 	public float percentFrameCurrent;
 	public float percentFrameAverage;
@@ -33,7 +33,7 @@ class PerformanceCounter implements Comparable<PerformanceCounter> {
 
 	public void endFrame(long timeLastFrame, long timeAverageFrame) {
 		minTime = Math.min(minTime, currentExecTime);
-		maxTime = Math.max(minTime, currentExecTime);
+		maxTime = Math.max(maxTime, currentExecTime);
 		averageTime = (averageTime + currentExecTime) / 2;
 
 		percentFrameCurrent = Percentage.getPercent(currentExecTime, timeLastFrame);
@@ -50,6 +50,6 @@ class PerformanceCounter implements Comparable<PerformanceCounter> {
 
 	@Override
 	public int compareTo(PerformanceCounter o) {
-		return -Float.compare(averageTime, o.averageTime);
+		return Float.compare(averageTime, o.averageTime);
 	}
 }
