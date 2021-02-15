@@ -16,7 +16,7 @@ import com.nzt.gdx.test.tester.archi.main.FastTesterMain;
 import com.nzt.gdx.test.tester.archi.screen.SimpleTestScreen;
 
 public class Basic3DTestScreen extends SimpleTestScreen {
-	public PerspectiveCamera cam;
+	public PerspectiveCamera camera;
 	public Model model;
 	public ModelInstance instance;
 	public Environment environment;
@@ -28,12 +28,12 @@ public class Basic3DTestScreen extends SimpleTestScreen {
 
 	@Override
 	public void doShow() {
-		cam = new PerspectiveCamera(67, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-		cam.position.set(10f, 10f, 10f);
-		cam.lookAt(0, 0, 0);
-		cam.near = 1f;
-		cam.far = 300f;
-		cam.update();
+		camera = new PerspectiveCamera(67, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+		camera.position.set(10f, 10f, 10f);
+		camera.lookAt(0, 0, 0);
+		camera.near = 1f;
+		camera.far = 300f;
+		camera.update();
 
 		ModelBuilder modelBuilder = new ModelBuilder();
 		model = modelBuilder.createBox(5f, 5f, 5f, new Material(ColorAttribute.createDiffuse(Color.GREEN)),
@@ -44,14 +44,14 @@ public class Basic3DTestScreen extends SimpleTestScreen {
 		environment.set(new ColorAttribute(ColorAttribute.AmbientLight, 0.4f, 0.4f, 0.4f, 1f));
 		environment.add(new DirectionalLight().set(0.8f, 0.8f, 0.8f, -1f, -0.8f, -0.2f));
 
-		camController = new CameraInputController(cam);
+		camController = new CameraInputController(camera);
 		Gdx.input.setInputProcessor(camController);
 	}
 
 	@Override
 	protected void renderScreen(float dt) {
 		camController.update();
-		modelBatch.begin(cam);
+		modelBatch.begin(camera);
 		modelBatch.render(instance);
 		modelBatch.end();
 	}

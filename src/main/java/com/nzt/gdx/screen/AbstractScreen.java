@@ -34,7 +34,7 @@ public abstract class AbstractScreen<M extends AbstractMain> implements Screen {
         this.nzGLProfiler = main.logManager.nzGlProfiler;
     }
 
-    public final void clearScreen() {
+    public void clearScreen() {
     	//TODO voir use screen utils
         // clear screen
         Gdx.gl.glClearColor(0, 0, 0, 0);
