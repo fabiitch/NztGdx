@@ -75,41 +75,41 @@ public class RectangleUtils {
      */
     public static Segment2D getClosestSegmentIntersection(Vector2 p1Start, Vector2 p1End, Rectangle rect, Vector2
             closestIntersection, boolean checkIntersection) {
-        if (checkIntersection) {
-            if (!Intersector.intersectSegmentRectangle(p1Start, p1End, rect)) {
-                return null;
-            }
-        }
-        Segment2D segment1 = new Segment2D(p1Start, p1End);
-        Segment2D horizontalTop = RectangleUtils.getHorizontalTop(rect);
-        Vector2 interHorizontalTop = Segment2DUtils.getSegmentIntersection(segment1, horizontalTop);
-
-        Segment2D horizontalBot = RectangleUtils.getHorizontalBot(rect);
-        Vector2 interHorizontalBot = Segment2DUtils.getSegmentIntersection(segment1, horizontalBot);
-
-        Segment2D verticalRight = RectangleUtils.getVerticalRight(rect);
-        Vector2 interVerticalRight = Segment2DUtils.getSegmentIntersection(segment1, verticalRight);
-
-        Segment2D verticalLeft = RectangleUtils.getVerticalLeft(rect);
-        Vector2 interVerticalLeft = Segment2DUtils.getSegmentIntersection(segment1, verticalLeft);
-
-        if (closestIntersection != null) {
-            //TODO  closest devrait pas etre nul avec le check en haut
-            Vector2 closest = VectorUtils.getClosest(p1Start, interHorizontalTop, interHorizontalBot, interVerticalRight, interVerticalLeft);
-            if (closest != null)
-                closestIntersection.set(closest);
-        } else {
-            return null;
-        }
-        if (closestIntersection.equals(interHorizontalTop)) {
-            return horizontalTop;
-        } else if (closestIntersection.equals(interHorizontalBot)) {
-            return horizontalBot;
-        } else if (closestIntersection.equals(interVerticalRight)) {
-            return verticalRight;
-        } else if (closestIntersection.equals(interVerticalLeft)) {
-            return verticalLeft;
-        }
+//        if (checkIntersection) {
+//            if (!Intersector.intersectSegmentRectangle(p1Start, p1End, rect)) {
+//                return null;
+//            }
+//        }
+//        Segment2D segment1 = new Segment2D(p1Start, p1End);
+//        Segment2D horizontalTop = RectangleUtils.getHorizontalTop(rect);
+//        Vector2 interHorizontalTop = Segment2DUtils.getSegmentIntersection(segment1, horizontalTop);
+//
+//        Segment2D horizontalBot = RectangleUtils.getHorizontalBot(rect);
+//        Vector2 interHorizontalBot = Segment2DUtils.getSegmentIntersection(segment1, horizontalBot);
+//
+//        Segment2D verticalRight = RectangleUtils.getVerticalRight(rect);
+//        Vector2 interVerticalRight = Segment2DUtils.getSegmentIntersection(segment1, verticalRight);
+//
+//        Segment2D verticalLeft = RectangleUtils.getVerticalLeft(rect);
+//        Vector2 interVerticalLeft = Segment2DUtils.getSegmentIntersection(segment1, verticalLeft);
+//
+//        if (closestIntersection != null) {
+//            //TODO  closest devrait pas etre nul avec le check en haut
+//            Vector2 closest = VectorUtils.getClosest(p1Start, interHorizontalTop, interHorizontalBot, interVerticalRight, interVerticalLeft);
+//            if (closest != null)
+//                closestIntersection.set(closest);
+//        } else {
+//            return null;
+//        }
+//        if (closestIntersection.equals(interHorizontalTop)) {
+//            return horizontalTop;
+//        } else if (closestIntersection.equals(interHorizontalBot)) {
+//            return horizontalBot;
+//        } else if (closestIntersection.equals(interVerticalRight)) {
+//            return verticalRight;
+//        } else if (closestIntersection.equals(interVerticalLeft)) {
+//            return verticalLeft;
+//        }
         return null;
     }
 

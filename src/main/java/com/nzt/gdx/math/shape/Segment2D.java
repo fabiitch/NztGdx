@@ -7,7 +7,7 @@ import com.badlogic.gdx.math.Vector2;
 
 import java.util.Objects;
 
-public class Segment2D {//TODO impl shape2D
+public class Segment2D {//TODO impl shape2D //TODO remove vector
 
 
     public Vector2 a;
@@ -31,7 +31,7 @@ public class Segment2D {//TODO impl shape2D
         this.b = new Vector2(bX, bY);
     }
 
-    public boolean intersectRectangle(Rectangle rect, Vector2 intersectionPoint) {
+    public boolean intersectRectangle(Rectangle rect, Vector2 intersectionPoint) {//TODO ??
         return Intersector.intersectSegmentRectangle(this.a, this.b, rect);
     }
 
