@@ -1,4 +1,4 @@
-package com.nzt.gdx.math.nzshape2d;
+package com.nzt.gdx.math.shape.nz;
 
 import com.badlogic.gdx.math.Shape2D;
 import com.badlogic.gdx.math.Vector2;

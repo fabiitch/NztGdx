@@ -3,8 +3,8 @@ package com.nzt.gdx.ashley.systems.physx;
 import com.badlogic.gdx.math.Intersector;
 import com.badlogic.gdx.math.Vector2;
 import com.nzt.gdx.ashley.components.physx.PhysXComponent;
-import com.nzt.gdx.math.nzshape2d.NzCircle;
-import com.nzt.gdx.math.nzshape2d.NzRectangle;
+import com.nzt.gdx.math.shape.nz.NzCircle;
+import com.nzt.gdx.math.shape.nz.NzRectangle;
 
 public class PhyXIntersector {
 
