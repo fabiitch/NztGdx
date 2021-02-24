@@ -4,6 +4,7 @@ import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
 import com.nzt.gdx.math.shape.Segment2D;
+import com.nzt.gdx.math.shape.utils.RectangleUtils;
 import com.nzt.gdx.math.shape.utils.Segment2DUtils;
 import com.nzt.gdx.math.vectors.VectorUtils;
 
@@ -19,15 +20,36 @@ public class IntersectorSegmentRectangle {
 
     private static Segment2D tmpSeg = new Segment2D();
 
-    public static boolean intersectSegmentRectangleFarthest(Segment2D segment, Rectangle rectangle, Vector2 intersection) {
-        return intersectSegmentRectangle(segment, rectangle, intersection, false);
+    public static boolean farthest(Segment2D segment, Rectangle rectangle, Vector2 intersection, Segment2D rectangleSegment) {
+        return test(segment, rectangle, intersection, rectangleSegment, false);
     }
 
-    public static boolean intersectSegmentRectangleClosest(Segment2D segment, Rectangle rectangle, Vector2 intersection) {
-        return intersectSegmentRectangle(segment, rectangle, intersection, true);
+    public static boolean closest(Segment2D segment, Rectangle rectangle, Vector2 intersection, Segment2D rectangleSegment) {
+        return test(segment, rectangle, intersection, rectangleSegment, true);
     }
 
-    private static boolean intersectSegmentRectangle(Segment2D segment, Rectangle rect, Vector2 intersection, boolean closest) {
+    public static boolean farthest(Segment2D segment, Rectangle rectangle, Vector2 intersection) {
+        return test(segment, rectangle, intersection, null, false);
+    }
+
+    public static boolean closest(Segment2D segment, Rectangle rectangle, Vector2 intersection) {
+        return test(segment, rectangle, intersection, null, true);
+    }
+
+    private static void getSegmentIntersection(Vector2 insersection, Rectangle rect, Segment2D toSet) {
+        if (insersection.equals(tmp1)) {
+            RectangleUtils.getVerticalLeft(rect, toSet);
+        } else if (insersection.equals(tmp2)) {
+            RectangleUtils.getHorizontalBot(rect, toSet);
+        } else if (insersection.equals(tmp3)) {
+            RectangleUtils.getVerticalRight(rect, toSet);
+        } else if (insersection.equals(tmp4)) {
+            RectangleUtils.getHorizontalTop(rect, toSet);
+        }
+    }
+
+    private static boolean test(Segment2D segment, Rectangle rect, Vector2 intersection, Segment2D rectangleSegment, boolean closest) {
+        arrayTmp.clear();
         int intersectionCount = 0;
         if (instersectVerticalLeft(segment, rect, tmp1)) {
             intersectionCount++;
@@ -37,30 +59,32 @@ public class IntersectorSegmentRectangle {
             intersectionCount++;
             arrayTmp.add(tmp2);
         }
-
         if (intersectionCount >= 2) {
             intersection.set(closest ? VectorUtils.getClosest(segment.a, arrayTmp) : VectorUtils.getFarthest(segment.a, arrayTmp));
+            if (rectangleSegment != null)
+                getSegmentIntersection(intersection, rect, rectangleSegment);
             return true;
         }
-
         if (instersectVercticalRight(segment, rect, tmp3)) {
             intersectionCount++;
             arrayTmp.add(tmp3);
         }
-
         if (intersectionCount >= 2) {
             intersection.set(closest ? VectorUtils.getClosest(segment.a, arrayTmp) : VectorUtils.getFarthest(segment.a, arrayTmp));
+            if (rectangleSegment != null)
+                getSegmentIntersection(intersection, rect, rectangleSegment);
             return true;
         }
         if (instersectHorizontalTop(segment, rect, tmp4)) {
             intersectionCount++;
             arrayTmp.add(tmp4);
         }
-        if (intersectionCount > 0)
+        if (intersectionCount > 0) {
             intersection.set(closest ? VectorUtils.getClosest(segment.a, arrayTmp) : VectorUtils.getFarthest(segment.a, arrayTmp));
-
+            if (rectangleSegment != null)
+                getSegmentIntersection(intersection, rect, rectangleSegment);
+        }
         return intersectionCount > 0;
-
     }
 
     public static boolean instersectVerticalLeft(Segment2D segment, Rectangle rect, Vector2 intersection) {

@@ -8,38 +8,48 @@ import com.nzt.gdx.math.shape.utils.RectangleUtils;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class RectangleUtilsTest {
-    @Test
-    public void getCenterTest() {
-        Rectangle rect = new Rectangle(0, 0, 100, 50);
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
-        Vector2 center = RectangleUtils.getCenter(rect);
-        Assert.assertEquals(new Vector2(50, 25), center);
-    }
+public class RectangleUtilsTest {
 
     @Test
     public void getSegmentsTest() {
         Rectangle rect = new Rectangle(0, 0, 100, 50);
-
-        Segment2D horizontalTop = RectangleUtils.getHorizontalTop(rect);
+        Segment2D segment = new Segment2D();
+        Segment2D horizontalTop = RectangleUtils.getHorizontalTop(rect, segment);
         Assert.assertEquals(horizontalTop, new Segment2D(0, 50, 100, 50));
 
-        Segment2D horizontalBot = RectangleUtils.getHorizontalBot(rect);
+        Segment2D horizontalBot = RectangleUtils.getHorizontalBot(rect, segment);
         Assert.assertEquals(horizontalBot, new Segment2D(0, 0, 100, 0));
 
-        Segment2D verticalLeft = RectangleUtils.getVerticalLeft(rect);
+        Segment2D verticalLeft = RectangleUtils.getVerticalLeft(rect, segment);
         Assert.assertEquals(verticalLeft, new Segment2D(0, 0, 0, 50));
 
-        Segment2D verticalRight = RectangleUtils.getVerticalRight(rect);
+        Segment2D verticalRight = RectangleUtils.getVerticalRight(rect, segment);
         Assert.assertEquals(verticalRight, new Segment2D(100, 0, 100, 50));
     }
 
     @Test
-    public void getClosestSegmentIntersection() {
-        Rectangle rect = new Rectangle(0, 0, 100, 50);
-        Segment2D segment = new Segment2D(-10, 25, 200, 25);
-        Vector2 closestSegmentIntersection = new Vector2();
-        Segment2D segmentClosest = RectangleUtils.getClosestSegmentIntersection(segment, rect, closestSegmentIntersection);
-        Assert.assertEquals(new Vector2(0, 25), closestSegmentIntersection);
+    public void testIsSquare() {
+        boolean isSquare;
+        Vector2 v = new Vector2();
+        Rectangle rect = new Rectangle(10, 10, 5, 5);
+        isSquare = RectangleUtils.isVertex(rect, v.set(10, 10));
+        assertTrue(isSquare);
+
+        isSquare = RectangleUtils.isVertex(rect, v.set(15, 10));
+        assertTrue(isSquare);
+
+        isSquare = RectangleUtils.isVertex(rect, v.set(10, 15));
+        assertTrue(isSquare);
+
+        isSquare = RectangleUtils.isVertex(rect, v.set(15, 15));
+        assertTrue(isSquare);
+
+        isSquare = RectangleUtils.isVertex(rect, v.set(11, 10));
+        assertFalse(isSquare);
+
     }
+
 }
