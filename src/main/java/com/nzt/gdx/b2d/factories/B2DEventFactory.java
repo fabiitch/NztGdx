@@ -35,9 +35,6 @@ public class B2DEventFactory {
             case BodyType:
                 event = Pools.obtain(BodyTypeEvent.class);
                 break;
-            case Destroy:
-                event = Pools.obtain(DestroyBodyEvent.class);
-                break;
             case Transform:
                 event = Pools.obtain(TransformBodyEvent.class);
                 break;
@@ -98,10 +95,6 @@ public class B2DEventFactory {
         BodyTypeEvent event = getEvent(B2DEventsEnum.BodyType);
         event.bodyType = bodyType;
         return event;
-    }
-
-    public static DestroyBodyEvent destroy() {
-        return getEvent(B2DEventsEnum.Destroy);
     }
 
     public static TransformBodyEvent transform(Vector2 position, float rotation) {

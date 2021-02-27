@@ -62,13 +62,13 @@ public abstract class EntityContactListener implements ContactListener {
 
     @Override
     public void preSolve(Contact contact, Manifold oldManifold) {
-
+        System.out.println("presolve");
     }
 
     @Override
     public void postSolve(Contact contact, ContactImpulse impulse) {
         // TODO Auto-generated method stub
-
+        System.out.println("postSolve");
     }
 
     /**
@@ -107,7 +107,7 @@ public abstract class EntityContactListener implements ContactListener {
 
     public void destroyEntity(Entity entity) {
         entity.add(RemoveEntityComponent.getNew());
-        b2dMapper.get(entity).addBox2DEvent(B2DEventFactory.destroy());
+        b2dMapper.get(entity).doDestroy=true;
     }
 
 }

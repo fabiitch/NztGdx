@@ -61,7 +61,8 @@ public class B2DWorldSystem extends IteratingSystem {
 				world.step(MAX_STEP_TIME, 6, 2);
 				for (Entity entity : bodiesQueue) {
 					B2DBodyComponent bodyComp = b2dMapper.get(entity);
-					if (bodyComp.checkContainsDestroyEventAndDo(world)) {
+					if (bodyComp.doDestroy) {
+						bodyComp.destroyBody(world);
 						bodiesQueue.removeValue(entity, true);
 					} else {
 						bodyComp.processAllEvents();
