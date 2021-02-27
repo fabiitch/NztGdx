@@ -44,12 +44,5 @@ public class B2DEventContainer implements Pool.Poolable {
         }
     }
 
-    public boolean checkContainsDestroyEvent() {
-        for (B2DBaseEvent event : eventArray) {
-            if (event.eventType == B2DEventsEnum.Destroy.ordinal())
-                return true;
-        }
-        return false;
-    }
 
 }

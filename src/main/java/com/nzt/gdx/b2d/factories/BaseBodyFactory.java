@@ -24,6 +24,7 @@ import com.nzt.gdx.logger.utils.NzLoggableUtils;
  * @author fabiitch
  *
  */
+//TODO a reprendre
 public class BaseBodyFactory {
 
 	protected World world;
@@ -49,30 +50,12 @@ public class BaseBodyFactory {
 		Body body = world.createBody(bdef);
 		shape.setAsBox(rectangle.getWidth() / 2, rectangle.getHeight() / 2);
 		fdef.shape = shape;
-		body.createFixture(fdef);
+
+		Fixture fixture = body.createFixture(fdef);
+		fixture.setUserData(fixtureDefWrapper.userData);
+
 		TagLogger.infoBlock(LogTagsBase.B2D_CREATION, "FixtureDefWrapper", NzLoggableUtils.create(rectangle),
 				fixtureDefWrapper);
-		return body;
-	}
-
-	public Body createRectangleBody(Vector2 position, float witdh, float height,
-			FixtureDefWrapper fixtureDefWrapper) {
-		if (fixtureDefWrapper.toPPM) {
-			witdh = b2DConverter.toPPM(witdh);
-			height = b2DConverter.toPPM(height);
-		}
-
-		BodyDef bdef = new BodyDef();
-		PolygonShape shape = new PolygonShape();
-		FixtureDef fdef = fixtureDefWrapper.apply();
-		bdef.type = fixtureDefWrapper.bodyType;
-		bdef.position.set(position.x, position.y);
-		shape.setAsBox(witdh / 2, height / 2);
-		fdef.shape = shape;
-		Body body = world.createBody(bdef);
-//		body.createFixture(fdef);
-		TagLogger.infoBlock(LogTagsBase.B2D_CREATION, "fixtureDefWrapper",
-				NzLoggableUtils.create(bdef.position, witdh, height), fixtureDefWrapper);
 		return body;
 	}
 
@@ -87,9 +70,12 @@ public class BaseBodyFactory {
 		shape.setRadius(rayon);
 		fdef.shape = shape;
 
+		Fixture fixture = body.createFixture(fdef);
+		fixture.setUserData(fixtureDefWrapper.userData);
+
 		TagLogger.infoBlock(LogTagsBase.B2D_CREATION, "fixtureDefWrapper", NzLoggableUtils.create(position, rayon),
 				fixtureDefWrapper);
-		Fixture fixture = body.createFixture(fdef);
+
 		return body;
 	}
 

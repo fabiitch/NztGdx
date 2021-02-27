@@ -35,7 +35,7 @@ public class B2DApplyEventsSystem extends IteratingSystem {
 	@Override
 	protected void processEntity(Entity entity, float deltaTime) {
 		B2DBodyComponent bodyComp = b2dMapper.get(entity);
-		if (bodyComp.checkContainsDestroyEvent()) {
+		if (bodyComp.doDestroy) {
 			bodyComp.destroyBody(world);
 		} else {
 			bodyComp.processAllEvents();

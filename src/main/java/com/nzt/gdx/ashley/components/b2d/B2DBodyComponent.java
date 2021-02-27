@@ -22,6 +22,7 @@ public class B2DBodyComponent extends PoolableComponent {
 
     public Body body;
     public B2DEventContainer eventContainer;
+    public boolean doDestroy;
 
     public B2DBodyComponent() {
         super();
@@ -31,6 +32,7 @@ public class B2DBodyComponent extends PoolableComponent {
     @Override
     public void reset() {
         this.body = null;
+        this.doDestroy = false;
         this.eventContainer.reset();
     }
 
@@ -40,17 +42,6 @@ public class B2DBodyComponent extends PoolableComponent {
 
     public void addBox2DEvent(B2DBaseEvent event) {
         eventContainer.addEvent(event);
-    }
-
-    public boolean checkContainsDestroyEventAndDo(World world) {
-        boolean b = eventContainer.checkContainsDestroyEvent();
-        if (b)
-            destroyBody(world);
-        return b;
-    }
-
-    public boolean checkContainsDestroyEvent() {
-        return eventContainer.checkContainsDestroyEvent();
     }
 
     public void destroyBody(World world) {
