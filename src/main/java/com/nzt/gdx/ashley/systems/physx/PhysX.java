@@ -9,6 +9,7 @@ import com.nzt.gdx.ashley.components.mvt.PositionComponent;
 import com.nzt.gdx.ashley.components.mvt.Velocity2DComponent;
 import com.nzt.gdx.ashley.components.physx.PhysXComponent;
 
+//TODO KO sa
 public class PhysX {
     private static ComponentMapper<PositionComponent> posMapper = PositionComponent.mapper;
     private static ComponentMapper<PhysXComponent> shapeMapper = PhysXComponent.mapper;

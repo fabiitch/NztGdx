@@ -3,6 +3,7 @@ package com.nzt.gdx.ashley.factories.list;
 import com.badlogic.ashley.core.Component;
 import com.badlogic.ashley.core.Engine;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g3d.Environment;
 import com.badlogic.gdx.graphics.g3d.ModelInstance;
 import com.nzt.gdx.ashley.components.renders.Model3DComponent;
 import com.nzt.gdx.ashley.components.renders.ShapeRenderableArrayComponent;
@@ -31,7 +32,15 @@ public class RendersComponentFactory extends BaseComponentFactory {
     }
 
     public Model3DComponent modelInstance(ModelInstance modelInstance) {
-        Model3DComponent modelComponent = new Model3DComponent(modelInstance);
+        Model3DComponent modelComponent = engine.createComponent(Model3DComponent.class);
+        modelComponent.modelInstance = modelInstance;
+        return modelComponent;
+    }
+
+    public Model3DComponent modelInstance(ModelInstance modelInstance, Environment environment) {
+        Model3DComponent modelComponent = engine.createComponent(Model3DComponent.class);
+        modelComponent.modelInstance = modelInstance;
+        modelComponent.environment = environment;
         return modelComponent;
     }
 }

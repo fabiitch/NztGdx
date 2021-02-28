@@ -52,7 +52,7 @@ public class Basic3DTestScreen extends SimpleTestScreen {
 	protected void renderScreen(float dt) {
 		camController.update();
 		modelBatch.begin(camera);
-		modelBatch.render(instance);
+		modelBatch.render(instance, environment);
 		modelBatch.end();
 	}
 
