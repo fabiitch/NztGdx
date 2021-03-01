@@ -11,6 +11,7 @@ import com.nzt.gdx.ashley.NztSystemsOrder;
 import com.nzt.gdx.ashley.components.mvt.PositionComponent;
 import com.nzt.gdx.ashley.components.mvt.Velocity2DComponent;
 import com.nzt.gdx.ashley.components.b2d.B2DBodyComponent;
+import com.nzt.gdx.ashley.components.physx.Shape2DComponent;
 import com.nzt.gdx.debug.perf.frame.PerformanceFrameUtils;
 
 /**
