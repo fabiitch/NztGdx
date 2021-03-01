@@ -20,86 +20,85 @@ import com.nzt.gdx.logger.utils.NzLoggableUtils;
  * base body factory for create circle/rect body //TODO less new BodyDef TODO
  * public static BodyDef set(BodyDef bodyDef, Body body) { demertfan bloquer
  * rotation sur les body direct body.isFixedRotation();
- * 
- * @author fabiitch
  *
+ * @author fabiitch
  */
 //TODO a reprendre
 public class BaseBodyFactory {
 
-	protected World world;
-	public float ppm;
-	public B2DConverterHelper b2DConverter;
+    protected World world;
+    public float ppm;
+    public B2DConverterHelper b2DConverter;
 
-	public BaseBodyFactory(World world, float ppm) {
-		super();
-		this.world = world;
-		this.ppm = ppm;
-		this.b2DConverter = new B2DConverterHelper(ppm);
-	}
+    public BaseBodyFactory(World world, float ppm) {
+        super();
+        this.world = world;
+        this.ppm = ppm;
+        this.b2DConverter = new B2DConverterHelper(ppm);
+    }
 
-	public Body createRectangleBody(Rectangle rectangle, FixtureDefWrapper fixtureDefWrapper) {
-		if (fixtureDefWrapper.toPPM)
-			rectangle = b2DConverter.toPPM(rectangle);
+    public Body createRectangleBody(Rectangle rectangle, FixtureDefWrapper fixtureDefWrapper) {
+        if (fixtureDefWrapper.toPPM)
+            rectangle = b2DConverter.toPPM(rectangle);
 
-		BodyDef bdef = new BodyDef();
-		PolygonShape shape = new PolygonShape();
-		FixtureDef fdef = fixtureDefWrapper.apply();
-		bdef.type = fixtureDefWrapper.bodyType;
-		bdef.position.set((rectangle.getX()), (rectangle.getY()));
-		Body body = world.createBody(bdef);
-		shape.setAsBox(rectangle.getWidth() / 2, rectangle.getHeight() / 2);
-		fdef.shape = shape;
+        BodyDef bdef = new BodyDef();
+        PolygonShape shape = new PolygonShape();
+        FixtureDef fdef = fixtureDefWrapper.apply();
+        bdef.type = fixtureDefWrapper.bodyType;
+        bdef.position.set((rectangle.getX() + rectangle.getWidth() / 2), (rectangle.getY() + rectangle.getHeight() / 2));
+        Body body = world.createBody(bdef);
+        shape.setAsBox(rectangle.getWidth() / 2, rectangle.getHeight() / 2);
+        fdef.shape = shape;
 
-		Fixture fixture = body.createFixture(fdef);
-		fixture.setUserData(fixtureDefWrapper.userData);
+        Fixture fixture = body.createFixture(fdef);
+        fixture.setUserData(fixtureDefWrapper.userData);
 
-		TagLogger.infoBlock(LogTagsBase.B2D_CREATION, "FixtureDefWrapper", NzLoggableUtils.create(rectangle),
-				fixtureDefWrapper);
-		return body;
-	}
+        TagLogger.infoBlock(LogTagsBase.B2D_CREATION, "FixtureDefWrapper", NzLoggableUtils.create(rectangle),
+                fixtureDefWrapper);
+        return body;
+    }
 
-	public Body createCircleBody(Vector2 position, float rayon, FixtureDefWrapper fixtureDefWrapper) {
-		if (fixtureDefWrapper.toPPM) {
-			rayon = b2DConverter.toPPM(rayon);
-		}
+    public Body createCircleBody(Vector2 position, float rayon, FixtureDefWrapper fixtureDefWrapper) {
+        if (fixtureDefWrapper.toPPM) {
+            rayon = b2DConverter.toPPM(rayon);
+        }
 
-		Body body = createBody(position.x, position.y, fixtureDefWrapper.bodyType);
-		FixtureDef fdef = fixtureDefWrapper.apply();
-		CircleShape shape = new CircleShape();
-		shape.setRadius(rayon);
-		fdef.shape = shape;
+        Body body = createBody(position.x, position.y, fixtureDefWrapper.bodyType);
+        FixtureDef fdef = fixtureDefWrapper.apply();
+        CircleShape shape = new CircleShape();
+        shape.setRadius(rayon);
+        fdef.shape = shape;
 
-		Fixture fixture = body.createFixture(fdef);
-		fixture.setUserData(fixtureDefWrapper.userData);
+        Fixture fixture = body.createFixture(fdef);
+        fixture.setUserData(fixtureDefWrapper.userData);
 
-		TagLogger.infoBlock(LogTagsBase.B2D_CREATION, "fixtureDefWrapper", NzLoggableUtils.create(position, rayon),
-				fixtureDefWrapper);
+        TagLogger.infoBlock(LogTagsBase.B2D_CREATION, "fixtureDefWrapper", NzLoggableUtils.create(position, rayon),
+                fixtureDefWrapper);
 
-		return body;
-	}
+        return body;
+    }
 
-	private Body createBody(float x, float y, BodyType bodyType) {
-		BodyDef bodyDef = new BodyDef(); //TODO a mettre en cache
-		bodyDef.position.set(x, y);
-		bodyDef.type = bodyType;
-		Body body = world.createBody(bodyDef);
-		return body;
-	}
-	
+    private Body createBody(float x, float y, BodyType bodyType) {
+        BodyDef bodyDef = new BodyDef(); //TODO a mettre en cache
+        bodyDef.position.set(x, y);
+        bodyDef.type = bodyType;
+        Body body = world.createBody(bodyDef);
+        return body;
+    }
+
 //	public Body createTriangleBody(Vector2 a, Vector2 b, Vector2 c, FixtureDefWrapper fixtureDefWrapper) {
 ////		Body body = createBody(position.x, position.y, fixtureDefWrapper.bodyType);
 //	}
 
-	// TODO not finish
-	public Body createPolygonBody(Vector2[] vertices, FixtureDefWrapper fixtureDefWrapper) {
-		Body body = createBody(0, 0, fixtureDefWrapper.bodyType);
-		FixtureDef fdef = fixtureDefWrapper.apply();
-		PolygonShape shape = new PolygonShape();
-		shape.set(vertices);
-		fdef.shape = shape;
-		Fixture fixture = body.createFixture(fdef);
-		return body;
-	}
+    // TODO not finish
+    public Body createPolygonBody(Vector2[] vertices, FixtureDefWrapper fixtureDefWrapper) {
+        Body body = createBody(0, 0, fixtureDefWrapper.bodyType);
+        FixtureDef fdef = fixtureDefWrapper.apply();
+        PolygonShape shape = new PolygonShape();
+        shape.set(vertices);
+        fdef.shape = shape;
+        Fixture fixture = body.createFixture(fdef);
+        return body;
+    }
 
 }

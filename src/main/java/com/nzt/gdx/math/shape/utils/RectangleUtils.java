@@ -6,6 +6,15 @@ import com.nzt.gdx.math.shape.Segment2D;
 
 public class RectangleUtils {
 
+    public static Rectangle createFromCenter(float x, float y, float width, float height) {
+        Rectangle rect = new Rectangle(x - width / 2, y - height / 2, width, height);
+        return rect;
+    }
+
+    public static Rectangle createFromCenter(Vector2 pos, float width, float height) {
+        return createFromCenter(pos.x, pos.y, width, height);
+    }
+
     public static Rectangle allToPPM(Rectangle rect, float PPM) {
         sizeToPPM(rect, PPM);
         posToPPM(rect, PPM);
