@@ -111,9 +111,9 @@ public class IntersectorSegmentRectangleTest {
         Segment2D rectSegmentIntersector = new Segment2D();
         resetSegment(-5, 15, 15, -5);
 
-        touch = IntersectorSegmentRectangle.closest(segment2D, rect, intersectionPoint,rectSegmentIntersector);
+        touch = IntersectorSegmentRectangle.closest(segment2D, rect, intersectionPoint, rectSegmentIntersector);
         assertEquals(new Vector2(0, 10), intersectionPoint);
-        assertEquals(RectangleUtils.getVerticalRight(rect, new Segment2D()), rectSegmentIntersector);
+        assertEquals(RectangleUtils.getVerticalLeft(rect, new Segment2D()), rectSegmentIntersector);
         assertTrue(touch);
 
         touch = IntersectorSegmentRectangle.farthest(segment2D, rect, intersectionPoint,rectSegmentIntersector);
