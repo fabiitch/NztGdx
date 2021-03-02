@@ -2,7 +2,6 @@ package com.nzt.gdx.screen.manager;
 
 import com.badlogic.gdx.Gdx;
 import com.nzt.gdx.main.AbstractMain;
-import com.nzt.gdx.assets.AbstractAssetsManager;
 import com.nzt.gdx.screen.BaseScreen;
 import com.nzt.gdx.screen.loading.BaseLoadingScreen;
 import com.nzt.gdx.screen.loading.SimpleProgressBarScreen;

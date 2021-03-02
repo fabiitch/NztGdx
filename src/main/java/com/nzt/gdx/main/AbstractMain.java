@@ -4,10 +4,10 @@ import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g3d.ModelBatch;
-import com.nzt.gdx.assets.AbstractAssetsManager;
+import com.nzt.gdx.screen.manager.AbstractAssetsManager;
 import com.nzt.gdx.debug.LogApplicationInfo;
 import com.nzt.gdx.graphics.renderers.NzShapeRenderer;
-import com.nzt.gdx.logger.config.AbstractLogManager;
+import com.nzt.gdx.screen.manager.AbstractLogManager;
 import com.nzt.gdx.net.AutoProxy;
 import com.nzt.gdx.screen.manager.AbstractScreenManager;
 
@@ -45,9 +45,9 @@ public abstract class AbstractMain implements ApplicationListener {
         createRenderObjects();
         this.assetsManager = createAssetsManager();
         this.logManager = createLogManager();
-        this.screenManager = createScreenManager();
         LogApplicationInfo.logInit(logManager.logLevel);
         LogApplicationInfo.logGraphics(logManager.logLevel);
+        this.screenManager = createScreenManager();
         AutoProxy.init();
         doCreate();
         screenManager.startApplication(this);
