@@ -1,7 +1,7 @@
 package com.nzt.gdx.test.tester.archi.main;
 
 import com.badlogic.gdx.Application;
-import com.nzt.gdx.logger.config.AbstractLogManager;
+import com.nzt.gdx.screen.manager.AbstractLogManager;
 import com.nzt.gdx.logger.config.InputLoggerConfig;
 import com.nzt.gdx.logger.tag.TagLogger;
 

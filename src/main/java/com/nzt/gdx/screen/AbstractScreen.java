@@ -31,7 +31,8 @@ public abstract class AbstractScreen<M extends AbstractMain> implements Screen {
         this.spriteBatch = main.sb;
         this.nzShapeRenderer = main.nzShapeRenderer;
         this.modelBatch = main.modelBatch;
-        this.nzGLProfiler = main.logManager.nzGlProfiler;
+        if (main.logManager != null)
+            this.nzGLProfiler = main.logManager.nzGlProfiler;
     }
 
     public void clearScreen() {
