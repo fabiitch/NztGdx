@@ -47,11 +47,11 @@ public class ModelRenderSystem extends IteratingSystem {
 			Vector3 pos = positionComponent.position;
 
 			modelInstance.transform.setToRotation(Vector3.Z, positionComponent.angleRadian);
-			
+
 			modelInstance.transform.rotate(Vector3.X, 90);
 			modelInstance.transform.setTranslation(pos.x, pos.y, pos.z);
 			modelInstance.calculateTransforms();
-			modelBatch.render(modelInstance,model3dComponent.environment);//TODO voir le param environement
+			modelBatch.render(modelInstance, model3dComponent.environment);//TODO voir le param environement
 		}
 	}
 

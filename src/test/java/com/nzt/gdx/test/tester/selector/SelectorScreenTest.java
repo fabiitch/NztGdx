@@ -18,8 +18,9 @@ import com.nzt.gdx.test.screens.b2D.FixtureEventTestScreen;
 import com.nzt.gdx.test.screens.b2D.TriangleBodyTestScreen;
 import com.nzt.gdx.test.screens.scene2D.HudDebugDisplayScreen;
 import com.nzt.gdx.test.screens.scene2D.NzStageTestScreen;
-import com.nzt.gdx.test.screens.t3d.B2D3DTestScreen;
+import com.nzt.gdx.test.screens.t3d.B2d3DTestScreen;
 import com.nzt.gdx.test.screens.t3d.Basic3DTestScreen;
+import com.nzt.gdx.test.screens.t3d.LoadModelTestScreen;
 import com.nzt.gdx.test.screens.t3d.OrthoCam3DTest;
 import com.nzt.gdx.test.tester.archi.main.FastTesterMain;
 
@@ -30,7 +31,7 @@ import com.nzt.gdx.test.tester.archi.main.FastTesterMain;
 public class SelectorScreenTest extends SimpleScreen<AbstractMain> {
 
 	private Class[] screensClasses = new Class[] { FixtureEventTestScreen.class, TriangleBodyTestScreen.class,
-			B2D3DTestScreen.class, Basic3DTestScreen.class, OrthoCam3DTest.class, NzStageTestScreen.class,
+			B2d3DTestScreen.class, Basic3DTestScreen.class, OrthoCam3DTest.class, NzStageTestScreen.class, LoadModelTestScreen.class,
 			HudDebugDisplayScreen.class, Vector2TestScreen.class };
 
 	private NzStage stage;
