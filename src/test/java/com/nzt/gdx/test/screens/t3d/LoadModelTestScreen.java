@@ -35,7 +35,7 @@ public class LoadModelTestScreen extends SimpleTestScreen {
         camera.update();
 
 
-        cubeModel = new G3dModelLoader(new UBJsonReader()).loadModel(Gdx.files.internal("models/cub1.g3db"));
+        cubeModel = new G3dModelLoader(new UBJsonReader()).loadModel(Gdx.files.internal("models/cube/cubeColor.g3db"));
         cubeModelInstance = new ModelInstance(cubeModel);
         for (Animation anim : cubeModelInstance.animations) {
             System.out.println(anim.id);
