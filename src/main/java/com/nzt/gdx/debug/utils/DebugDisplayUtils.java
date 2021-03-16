@@ -14,11 +14,14 @@ public class DebugDisplayUtils {
         floatFormatter.setMaximumFractionDigits(4);
         msFormatter.setMaximumFractionDigits(0);
     }
+    
+	public static String printNano(float f) {
+		return f + "ns";
+	}
 
-
-    public static String printMs(float f) {
-        return (int) f + "ms";
-    }
+	public static String printMs(float f) {
+		return f + "ms";
+	}
 
     public static String printNanoToMs(long nano) {
         return TimeUtils.nanosToMillis(nano) + "ms";

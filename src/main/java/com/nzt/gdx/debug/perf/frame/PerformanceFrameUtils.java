@@ -39,14 +39,6 @@ public class PerformanceFrameUtils {
         }
     }
 
-    public static void registerSystems(EntitySystem... entitySystems) {
-        if (!log)
-            return;
-        for (EntitySystem system : entitySystems) {
-            performanceFrame.register(system.getClass().getSimpleName());
-        }
-    }
-
     public static void startSystem(EntitySystem system) {
         if (log)
             performanceFrame.start(system.getClass().getSimpleName());
@@ -75,7 +67,7 @@ public class PerformanceFrameUtils {
         arrayLoggable.clear();
         for (PerformanceCounter perf : arrayPerf) {
             NzLoggableSimple loggable = NzLoggableSimple.getNew(perf.action,
-                    DebugDisplayUtils.printFloat(perf.percentFrameAverage) + "% | " + DebugDisplayUtils.printNanoToMs(perf.averageTime));
+                    DebugDisplayUtils.printFloat(perf.percentFrameAverage) + "% | " + DebugDisplayUtils.printNano(perf.averageTime));
             arrayLoggable.add(loggable);
         }
         return arrayLoggable;
