@@ -1,4 +1,7 @@
-Pools utilisation ...  la méthode free n'est pas appelé
+- Pools utilisation ...  la méthode free n'est pas appelé
 
 
-sous projet pour b2D
+- annotations pour les classes screen test
+
+
+- sous projet pour b2D

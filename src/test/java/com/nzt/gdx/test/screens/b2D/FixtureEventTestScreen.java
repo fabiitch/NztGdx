@@ -1,7 +1,5 @@
 package com.nzt.gdx.test.screens.b2D;
 
-import java.util.concurrent.Callable;
-
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
@@ -10,9 +8,13 @@ import com.nzt.gdx.ashley.components.b2d.B2DBodyComponent;
 import com.nzt.gdx.b2d.FixtureDefWrapper;
 import com.nzt.gdx.b2d.events.type.fixture.impl.SensorFixtureEvent;
 import com.nzt.gdx.b2d.factories.B2DFixtureEventFactory;
+import com.nzt.gdx.test.tester.TestScreen;
 import com.nzt.gdx.test.tester.archi.main.FastTesterMain;
 import com.nzt.gdx.test.tester.archi.screen.BaseB2DSystemScreen;
 
+import java.util.concurrent.Callable;
+
+@TestScreen(groupName = "box2D")
 public class FixtureEventTestScreen extends BaseB2DSystemScreen {
     Body circleBody;
     Entity entity;

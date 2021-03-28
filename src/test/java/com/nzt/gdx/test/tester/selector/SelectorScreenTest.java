@@ -1,6 +1,7 @@
 package com.nzt.gdx.test.tester.selector;
 
 import java.lang.reflect.Constructor;
+import java.util.ArrayList;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.scenes.scene2d.Actor;
@@ -13,7 +14,7 @@ import com.nzt.gdx.main.AbstractMain;
 import com.nzt.gdx.scene2D.nz.NzStage;
 import com.nzt.gdx.screen.BaseScreen;
 import com.nzt.gdx.screen.SimpleScreen;
-import com.nzt.gdx.test.screens.Vector2TestScreen;
+import com.nzt.gdx.test.screens.shape.Vector2TestScreen;
 import com.nzt.gdx.test.screens.b2D.FixtureEventTestScreen;
 import com.nzt.gdx.test.screens.b2D.TriangleBodyTestScreen;
 import com.nzt.gdx.test.screens.scene2D.HudDebugDisplayScreen;
@@ -30,56 +31,60 @@ import com.nzt.gdx.test.tester.archi.main.FastTesterMain;
  */
 public class SelectorScreenTest extends SimpleScreen<AbstractMain> {
 
-	private Class[] screensClasses = new Class[] { FixtureEventTestScreen.class, TriangleBodyTestScreen.class,
-			B2d3DTestScreen.class, Basic3DTestScreen.class, OrthoCam3DTest.class, NzStageTestScreen.class, LoadModelTestScreen.class,
-			HudDebugDisplayScreen.class, Vector2TestScreen.class };
+    private NzStage stage;
+    Skin skin = new Skin(Gdx.files.internal("ui/uiskin.json"));
 
-	private NzStage stage;
-	Skin skin = new Skin(Gdx.files.internal("ui/uiskin.json"));
+    public SelectorScreenTest(AbstractMain main, ArrayList<CaseTestScreen> casesScreen) {
+        super(main);
+        stage = new NzStage();
+        Gdx.input.setInputProcessor(stage);
+        Table table = new Table();
+        table.setFillParent(true);
+        stage.addActor(table);
+        table.row().size(stage.getHeight() / 8);
+        int i = 0;
+        for (CaseTestScreen caseTest : casesScreen) {
+            TextButton textButton = new TextButton(caseTest.name, skin);
+            table.add(textButton).width(stage.getWidth() / 4);
+            createInputListener(textButton, caseTest);
+            i++;
+            if (i % 4 == 0) {
+                table.row().size(stage.getHeight() / 8);
+            }
+        }
+    }
 
-	public SelectorScreenTest(AbstractMain main) {
-		super(main);
-		stage = new NzStage();
-		Gdx.input.setInputProcessor(stage);
-		Table table = new Table();
-		table.setFillParent(true);
-		stage.addActor(table);
-		table.row().size(stage.getHeight() / 8);
-		int i = 0;
-		for (Class screen : screensClasses) {
-			TextButton textButton = new TextButton(screen.getSimpleName(), skin);
-//			textButton.setWidth(stage.getWidth() / 4);
-			table.add(textButton).width(stage.getWidth() / 4);
-			createInputListener(textButton, screen);
-			i++;
-			if (i % 4 == 0) {
-				table.row().size(stage.getHeight() / 8);
-			}
-		}
-	}
+    private void createInputListener(Actor actor, final CaseTestScreen caseTest) {
+        InputListener listener = new InputListener() {
+            @Override
+            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                try {
+                    if (caseTest.isGroup) {
+                        SelectorScreenTest groupScreen = new SelectorScreenTest(main, caseTest.childs);
+                        main.screenManager.setScreen(groupScreen);
+                    } else {
+                        Constructor cons = caseTest.classTest.getConstructor(FastTesterMain.class);
+                        Object newInstance = cons.newInstance(main);
+                        main.screenManager.setScreen((BaseScreen<AbstractMain>) newInstance);
+                    }
 
-	private void createInputListener(Actor actor, final Class screenClass) {
-		InputListener listener = new InputListener() {
-			@Override
-			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-				try {
-					Constructor cons = screenClass.getConstructor(FastTesterMain.class);
-					Object newInstance = cons.newInstance(main);
-					main.screenManager.setScreen((BaseScreen<AbstractMain>) newInstance);
-				} catch (Exception e) {
-					System.out.println("Cant instance class " + screenClass);
-					e.printStackTrace();
-				}
-				return true;
-			}
-		};
-		actor.addListener(listener);
-	}
+                } catch (Exception e) {
+                    if (caseTest.isGroup)
+                        System.out.println("Cant instance selector group for " + caseTest.name);
+                    else
+                        System.out.println("Cant instance class for " + caseTest.classTest.getSimpleName());
+                    e.printStackTrace();
+                }
+                return true;
+            }
+        };
+        actor.addListener(listener);
+    }
 
-	@Override
-	protected void renderScreen(float dt) {
-		stage.act();
-		stage.draw();
-	}
+    @Override
+    protected void renderScreen(float dt) {
+        stage.act();
+        stage.draw();
+    }
 
 }
