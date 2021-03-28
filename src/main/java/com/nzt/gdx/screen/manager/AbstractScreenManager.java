@@ -125,14 +125,14 @@ public abstract class AbstractScreenManager<M extends AbstractMain> {
         }
     }
 
-    protected abstract void doDispose();
-
     public void render(float dt) {
         if (currentScreen != null) {
             currentScreen.render(dt);
             doRender(dt);
         }
     }
+
+    protected abstract void doDispose();
 
     protected abstract void doRender(float dt);
 

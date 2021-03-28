@@ -15,15 +15,19 @@ import com.badlogic.gdx.graphics.g3d.model.Animation;
 import com.badlogic.gdx.graphics.g3d.utils.CameraInputController;
 import com.badlogic.gdx.graphics.g3d.utils.ModelBuilder;
 import com.badlogic.gdx.utils.UBJsonReader;
+import com.nzt.gdx.test.tester.TestScreen;
 import com.nzt.gdx.test.tester.archi.main.FastTesterMain;
 import com.nzt.gdx.test.tester.archi.screen.SimpleTestScreen;
 
+@TestScreen(groupName = "3D")
 public class LoadModelTestScreen extends SimpleTestScreen {
     public Camera camera;
 
     public CameraInputController camController;
     public Model cubeModel;
     public ModelInstance cubeModelInstance;
+
+    String modelPath = "models/cubeColor.g3db";
 
     public LoadModelTestScreen(FastTesterMain main) {
         super(main);
@@ -35,7 +39,7 @@ public class LoadModelTestScreen extends SimpleTestScreen {
         camera.update();
 
 
-        cubeModel = new G3dModelLoader(new UBJsonReader()).loadModel(Gdx.files.internal("models/cube/cubeColor.g3db"));
+        cubeModel = new G3dModelLoader(new UBJsonReader()).loadModel(Gdx.files.internal(modelPath));
         cubeModelInstance = new ModelInstance(cubeModel);
         for (Animation anim : cubeModelInstance.animations) {
             System.out.println(anim.id);
@@ -60,6 +64,5 @@ public class LoadModelTestScreen extends SimpleTestScreen {
         modelBatch.begin(camera);
         modelBatch.render(cubeModelInstance);
         modelBatch.end();
-
     }
 }

@@ -5,7 +5,7 @@ Abstract = Really abstract
 BaseXX = class to use
 not finish at all ^^
 
-[![Build](https://github.com/fabiitch/NztGdx/workflows/Java%20CI/badge.svg?branch=master)](https://github.com/fabiitch/NztGdx/actions) (Java CI)  
+[![Build](https://github.com/fabiitch/NztGdx/workflows/Java%20CI/badge.svg?branch=master)](https://github.com/fabiitch/NztGdx/actions/workflows/gradle.yml) (Java CI)  
 
 [![Travis build status](https://travis-ci.org/fabiitch/NztGdx.svg?branch=master)](https://travis-ci.org/fabiitch/NztGdx) (Travis)  
 

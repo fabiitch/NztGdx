@@ -4,9 +4,12 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.nzt.gdx.debug.hud.base.HudDebug;
+import com.nzt.gdx.test.tester.TestScreen;
 import com.nzt.gdx.test.tester.archi.main.FastTesterMain;
 import com.nzt.gdx.test.tester.archi.screen.SimpleTestScreen;
+import org.junit.Test;
 
+@TestScreen(groupName = {"scene2D", "hud"})
 public class HudDebugDisplayScreen extends SimpleTestScreen {
 
     public static void main(String args[]) {

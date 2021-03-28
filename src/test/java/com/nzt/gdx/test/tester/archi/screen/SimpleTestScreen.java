@@ -15,4 +15,5 @@ public abstract class SimpleTestScreen extends SimpleScreen<FastTesterMain> {
 		Gdx.graphics.setTitle(this.getClass().getSimpleName() + "  FPS : " + Gdx.graphics.getFramesPerSecond());
 	}
 
+
 }

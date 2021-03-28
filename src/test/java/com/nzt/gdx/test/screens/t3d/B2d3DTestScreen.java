@@ -15,10 +15,15 @@ import com.badlogic.gdx.graphics.g3d.utils.CameraInputController;
 import com.badlogic.gdx.graphics.g3d.utils.ModelBuilder;
 import com.badlogic.gdx.utils.UBJsonReader;
 import com.nzt.gdx.test.screens.b2D.B2DTestConstants;
+import com.nzt.gdx.test.tester.TestScreen;
 import com.nzt.gdx.test.tester.archi.main.FastTesterMain;
 import com.nzt.gdx.test.tester.archi.screen.SimpleTestScreen;
 
+@TestScreen(groupName = "3D")
 public class B2d3DTestScreen extends SimpleTestScreen {
+
+    public String modelPath = "models/cubeColor.g3db";
+
     public Camera b2dCamera;
 
     public CameraInputController camController;
@@ -44,7 +49,7 @@ public class B2d3DTestScreen extends SimpleTestScreen {
         environment.set(new ColorAttribute(ColorAttribute.AmbientLight, 0.4f, 0.4f, 0.4f, 1f));
         environment.add(new DirectionalLight().set(0.8f, 0.8f, 0.8f, -1f, -0.8f, -0.2f));
 
-        wardModel = new G3dModelLoader(new UBJsonReader()).loadModel(Gdx.files.internal("models/warg.g3db"));
+        wardModel = new G3dModelLoader(new UBJsonReader()).loadModel(Gdx.files.internal(modelPath));
         wargInstance = new ModelInstance(wardModel);
         for (Animation anim : wargInstance.animations) {
             System.out.println(anim.id);

@@ -49,7 +49,7 @@ dependencies {
     // Use JUnit test framework
     testImplementation "junit:junit:$junitVersion"
     testImplementation "org.mockito:mockito-core:$mockitoVersion"
-   // testImplementation group: 'org.reflections', name: 'reflections', version: '0.9.5-RC2' si besoin un jour //TODO
+    testImplementation group: 'org.reflections', name: 'reflections', version: '0.9.5-RC2'
 
     testImplementation "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
 
