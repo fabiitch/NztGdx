@@ -1,4 +1,4 @@
-package com.nzt.gdx.test.screens.t3d;
+package com.nzt.gdx.test.screens.t3d.b2d;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Camera;
@@ -15,12 +15,12 @@ import com.badlogic.gdx.graphics.g3d.utils.CameraInputController;
 import com.badlogic.gdx.graphics.g3d.utils.ModelBuilder;
 import com.badlogic.gdx.utils.UBJsonReader;
 import com.nzt.gdx.test.screens.b2D.B2DTestConstants;
-import com.nzt.gdx.test.tester.TestScreen;
+import com.nzt.gdx.test.tester.selector.TestScreen;
 import com.nzt.gdx.test.tester.archi.main.FastTesterMain;
 import com.nzt.gdx.test.tester.archi.screen.SimpleTestScreen;
 
-@TestScreen(groupName = "3D")
-public class B2d3DTestScreen extends SimpleTestScreen {
+@TestScreen(groupName = {"3D", "B2D"})
+public class ST3DB2dCubeColor extends SimpleTestScreen {
 
     public String modelPath = "models/cubeColor.g3db";
 
@@ -29,11 +29,11 @@ public class B2d3DTestScreen extends SimpleTestScreen {
     public CameraInputController camController;
     private ModelBuilder modelBuilder;
 
-    public Model wardModel;
-    public ModelInstance wargInstance;
+    public Model cubeModel;
+    public ModelInstance cubeInstance;
     public Environment environment;
 
-    public B2d3DTestScreen(FastTesterMain main) {
+    public ST3DB2dCubeColor(FastTesterMain main) {
         super(main);
         this.b2dCamera = new OrthographicCamera(B2DTestConstants.WIDTH_PPM, B2DTestConstants.HEIGHT_PPM);
 //		this.b2dCamera = new OrthographicCamera(B2DTestConstants.WIDTH_PPM, B2DTestConstants.HEIGHT_PPM);
@@ -49,9 +49,9 @@ public class B2d3DTestScreen extends SimpleTestScreen {
         environment.set(new ColorAttribute(ColorAttribute.AmbientLight, 0.4f, 0.4f, 0.4f, 1f));
         environment.add(new DirectionalLight().set(0.8f, 0.8f, 0.8f, -1f, -0.8f, -0.2f));
 
-        wardModel = new G3dModelLoader(new UBJsonReader()).loadModel(Gdx.files.internal(modelPath));
-        wargInstance = new ModelInstance(wardModel);
-        for (Animation anim : wargInstance.animations) {
+        cubeModel = new G3dModelLoader(new UBJsonReader()).loadModel(Gdx.files.internal(modelPath));
+        cubeInstance = new ModelInstance(cubeModel);
+        for (Animation anim : cubeInstance.animations) {
             System.out.println(anim.id);
         }
 
@@ -70,7 +70,7 @@ public class B2d3DTestScreen extends SimpleTestScreen {
         this.b2dCamera.update();
         camController.update();
         modelBatch.begin(b2dCamera);
-        modelBatch.render(wargInstance);
+        modelBatch.render(cubeInstance);
         modelBatch.end();
 
     }

@@ -6,11 +6,13 @@ import com.nzt.gdx.test.tester.selector.ScreenSelectorTestMain;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Open Test chooser
+ */
 public class ScreenSelectorTester {
     private static int witdh = 800;
     private static int height = 500;
 
-    public static final List<Class> SCREEN = new ArrayList<>();
 
     public static void main(String args[]) {
         StarterTestConfig.startLwjgl(new ScreenSelectorTestMain(ScreenSelectorTester.class), witdh, height);

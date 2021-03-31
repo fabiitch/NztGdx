@@ -6,16 +6,16 @@ import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.nzt.gdx.b2d.FixtureDefWrapper;
 import com.nzt.gdx.input.impl.simple.SimpleMvtInputController;
-import com.nzt.gdx.test.tester.TestScreen;
+import com.nzt.gdx.test.tester.selector.TestScreen;
 import com.nzt.gdx.test.tester.archi.main.FastTesterMain;
 import com.nzt.gdx.test.tester.archi.screen.BaseB2DSystemScreen;
 
 @TestScreen(groupName = "box2D")
-public class TriangleBodyTestScreen extends BaseB2DSystemScreen {
+public class STB2DTriangleBody extends BaseB2DSystemScreen {
     Body polygonBody;
     Entity entity;
 
-    public TriangleBodyTestScreen(FastTesterMain main) {
+    public STB2DTriangleBody(FastTesterMain main) {
         super(main);
         FixtureDefWrapper fixtureDefWrapper = new FixtureDefWrapper(BodyDef.BodyType.KinematicBody).setSensor(false)
                 .setDensity(1).setToPPM(false);

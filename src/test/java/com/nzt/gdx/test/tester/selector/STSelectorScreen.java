@@ -1,40 +1,33 @@
 package com.nzt.gdx.test.tester.selector;
 
 import java.lang.reflect.Constructor;
-import java.util.ArrayList;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.nzt.gdx.main.AbstractMain;
+import com.nzt.gdx.scene2D.StagePlacementUtils;
 import com.nzt.gdx.scene2D.nz.NzStage;
 import com.nzt.gdx.screen.BaseScreen;
 import com.nzt.gdx.screen.SimpleScreen;
-import com.nzt.gdx.test.screens.shape.Vector2TestScreen;
-import com.nzt.gdx.test.screens.b2D.FixtureEventTestScreen;
-import com.nzt.gdx.test.screens.b2D.TriangleBodyTestScreen;
-import com.nzt.gdx.test.screens.scene2D.HudDebugDisplayScreen;
-import com.nzt.gdx.test.screens.scene2D.NzStageTestScreen;
-import com.nzt.gdx.test.screens.t3d.B2d3DTestScreen;
-import com.nzt.gdx.test.screens.t3d.Basic3DTestScreen;
-import com.nzt.gdx.test.screens.t3d.LoadModelTestScreen;
-import com.nzt.gdx.test.screens.t3d.OrthoCam3DTest;
 import com.nzt.gdx.test.tester.archi.main.FastTesterMain;
 
 /*
  * test screen selector
  * add ur screen in screensClasses
  */
-public class SelectorScreenTest extends SimpleScreen<AbstractMain> {
+public class STSelectorScreen extends SimpleScreen<ScreenSelectorTestMain> {
 
     private NzStage stage;
     Skin skin = new Skin(Gdx.files.internal("ui/uiskin.json"));
 
-    public SelectorScreenTest(AbstractMain main, ArrayList<CaseTestScreen> casesScreen) {
+    public STSelectorScreen(ScreenSelectorTestMain main, CaseST rootCaseTest) {
         super(main);
         stage = new NzStage();
         Gdx.input.setInputProcessor(stage);
@@ -43,9 +36,21 @@ public class SelectorScreenTest extends SimpleScreen<AbstractMain> {
         stage.addActor(table);
         table.row().size(stage.getHeight() / 8);
         int i = 0;
-        for (CaseTestScreen caseTest : casesScreen) {
+        if (rootCaseTest.isGroup) {
+            main.lastGroupCase = rootCaseTest.parent;
+            Label nameLabel = new Label(STScanner.getNameOfGroupAndParent(rootCaseTest), skin);
+            StagePlacementUtils.placeCenterX(nameLabel, Gdx.graphics.getWidth() / 2);
+            StagePlacementUtils.placeCenterY(nameLabel, Gdx.graphics.getHeight() - 50);
+            stage.addActor(nameLabel);
+        }
+
+
+        for (CaseST caseTest : rootCaseTest.childs) {
             TextButton textButton = new TextButton(caseTest.name, skin);
             table.add(textButton).width(stage.getWidth() / 4);
+            if (caseTest.isGroup) {
+                textButton.setColor(Color.RED);
+            }
             createInputListener(textButton, caseTest);
             i++;
             if (i % 4 == 0) {
@@ -54,14 +59,15 @@ public class SelectorScreenTest extends SimpleScreen<AbstractMain> {
         }
     }
 
-    private void createInputListener(Actor actor, final CaseTestScreen caseTest) {
+    private void createInputListener(Actor actor, final CaseST caseTest) {
         InputListener listener = new InputListener() {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 try {
+                    main.lastGroupCase = caseTest.parent;
                     if (caseTest.isGroup) {
-                        SelectorScreenTest groupScreen = new SelectorScreenTest(main, caseTest.childs);
-                        main.screenManager.setScreen(groupScreen);
+                        STSelectorScreen groupScreen = new STSelectorScreen(main, caseTest);
+                        main.screenManager.setScreen((BaseScreen) groupScreen);
                     } else {
                         Constructor cons = caseTest.classTest.getConstructor(FastTesterMain.class);
                         Object newInstance = cons.newInstance(main);

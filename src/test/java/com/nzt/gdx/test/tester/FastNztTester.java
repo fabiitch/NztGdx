@@ -1,13 +1,16 @@
 package com.nzt.gdx.test.tester;
 
-import com.nzt.gdx.test.screens.t3d.hightpoly.HightPolyTestScreen;
+import com.nzt.gdx.test.screens.t3d.hightpoly.ST3DHightPoly;
 import com.nzt.gdx.test.tester.archi.main.FastTesterMain;
 import com.nzt.gdx.test.tester.archi.main.StarterTestConfig;
 import com.nzt.gdx.test.tester.archi.main.StarterType;
 import com.nzt.gdx.test.tester.archi.utils.Lwjgl3TestConfiguration;
 
+/*
+Use it for Test one class with screentestClass
+ */
 public class FastNztTester {
-    private static Class screentestClass = HightPolyTestScreen.class;
+    private static Class screentestClass = ST3DHightPoly.class;
     private static StarterType starterType = StarterType.Lwjgl;
 
     private static int witdh = 800;

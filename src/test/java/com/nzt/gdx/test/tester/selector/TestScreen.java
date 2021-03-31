@@ -1,4 +1,4 @@
-package com.nzt.gdx.test.tester;
+package com.nzt.gdx.test.tester.selector;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
