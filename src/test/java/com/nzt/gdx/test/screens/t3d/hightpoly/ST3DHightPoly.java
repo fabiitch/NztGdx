@@ -11,19 +11,19 @@ import com.badlogic.gdx.graphics.g3d.loader.G3dModelLoader;
 import com.badlogic.gdx.graphics.g3d.model.Animation;
 import com.badlogic.gdx.graphics.g3d.utils.CameraInputController;
 import com.badlogic.gdx.utils.UBJsonReader;
-import com.nzt.gdx.test.tester.TestScreen;
+import com.nzt.gdx.test.tester.selector.TestScreen;
 import com.nzt.gdx.test.tester.archi.main.FastTesterMain;
 import com.nzt.gdx.test.tester.archi.screen.SimpleTestScreen;
 
 @TestScreen(groupName = "3D")
-public class HightPolyTestScreen extends SimpleTestScreen {
+public class ST3DHightPoly extends SimpleTestScreen {
     public Camera camera;
 
     public CameraInputController camController;
     public Model cubeModel;
     public ModelInstance cubeModelInstance;
 
-    public HightPolyTestScreen(FastTesterMain main) {
+    public ST3DHightPoly(FastTesterMain main) {
         super(main);
         camera = new PerspectiveCamera(67, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         camera.position.set(10f, 10f, 10f);

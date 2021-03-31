@@ -2,24 +2,21 @@ package com.nzt.gdx.test.screens.shape;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.Vector2;
 import com.nzt.gdx.math.AngleUtils;
-import com.nzt.gdx.test.tester.TestScreen;
+import com.nzt.gdx.test.tester.selector.TestScreen;
 import com.nzt.gdx.test.tester.archi.main.FastTesterMain;
 import com.nzt.gdx.test.tester.archi.screen.SimpleTestScreen;
 
 @TestScreen(groupName = "shape")
-public class Vector2TestScreen extends SimpleTestScreen {
+public class STVector2 extends SimpleTestScreen {
 
-    Texture tt = new Texture("badlogic.jpg");
     Vector2 oldDir;
     Vector2 newDir;
     Vector2 result;
 
-    public Vector2TestScreen(FastTesterMain main) {
+    public STVector2(FastTesterMain main) {
         super(main);
-
     }
 
     @Override

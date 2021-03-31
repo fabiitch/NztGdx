@@ -8,18 +8,18 @@ import com.nzt.gdx.ashley.components.b2d.B2DBodyComponent;
 import com.nzt.gdx.b2d.FixtureDefWrapper;
 import com.nzt.gdx.b2d.events.type.fixture.impl.SensorFixtureEvent;
 import com.nzt.gdx.b2d.factories.B2DFixtureEventFactory;
-import com.nzt.gdx.test.tester.TestScreen;
+import com.nzt.gdx.test.tester.selector.TestScreen;
 import com.nzt.gdx.test.tester.archi.main.FastTesterMain;
 import com.nzt.gdx.test.tester.archi.screen.BaseB2DSystemScreen;
 
 import java.util.concurrent.Callable;
 
 @TestScreen(groupName = "box2D")
-public class FixtureEventTestScreen extends BaseB2DSystemScreen {
+public class STFixtureEvent extends BaseB2DSystemScreen {
     Body circleBody;
     Entity entity;
 
-    public FixtureEventTestScreen(FastTesterMain main) {
+    public STFixtureEvent(FastTesterMain main) {
         super(main);
         FixtureDefWrapper fixtureDefWrapper = new FixtureDefWrapper(BodyDef.BodyType.DynamicBody).setSensor(false)
                 .setDensity(1).setToPPM(false);

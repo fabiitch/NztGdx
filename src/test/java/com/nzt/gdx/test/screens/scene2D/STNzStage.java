@@ -7,22 +7,22 @@ import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.nzt.gdx.scene2D.nz.NzStage;
-import com.nzt.gdx.test.tester.TestScreen;
+import com.nzt.gdx.test.tester.selector.TestScreen;
 import com.nzt.gdx.test.tester.archi.main.FastTesterMain;
 import com.nzt.gdx.test.tester.archi.main.StarterTestConfig;
 import com.nzt.gdx.test.tester.archi.screen.SimpleTestScreen;
 
 @TestScreen(groupName = {"scene2D"})
-public class NzStageTestScreen extends SimpleTestScreen {
+public class STNzStage extends SimpleTestScreen {
 
     public static void main(String args[]) {
-        StarterTestConfig.startLwjgl(new FastTesterMain(NzStageTestScreen.class), 500, 400);
+        StarterTestConfig.startLwjgl(new FastTesterMain(STNzStage.class), 500, 400);
     }
 
     private NzStage nzStage;
     private Image img1;
 
-    public NzStageTestScreen(FastTesterMain main) {
+    public STNzStage(FastTesterMain main) {
         super(main);
         nzStage = new NzStage();
         Texture txt = new Texture("badlogic.jpg");

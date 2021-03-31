@@ -4,23 +4,19 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.PerspectiveCamera;
-import com.badlogic.gdx.graphics.g3d.Environment;
 import com.badlogic.gdx.graphics.g3d.Material;
 import com.badlogic.gdx.graphics.g3d.Model;
 import com.badlogic.gdx.graphics.g3d.ModelInstance;
-import com.badlogic.gdx.graphics.g3d.attributes.ColorAttribute;
-import com.badlogic.gdx.graphics.g3d.environment.DirectionalLight;
 import com.badlogic.gdx.graphics.g3d.loader.G3dModelLoader;
 import com.badlogic.gdx.graphics.g3d.model.Animation;
 import com.badlogic.gdx.graphics.g3d.utils.CameraInputController;
-import com.badlogic.gdx.graphics.g3d.utils.ModelBuilder;
 import com.badlogic.gdx.utils.UBJsonReader;
-import com.nzt.gdx.test.tester.TestScreen;
+import com.nzt.gdx.test.tester.selector.TestScreen;
 import com.nzt.gdx.test.tester.archi.main.FastTesterMain;
 import com.nzt.gdx.test.tester.archi.screen.SimpleTestScreen;
 
 @TestScreen(groupName = "3D")
-public class LoadModelTestScreen extends SimpleTestScreen {
+public class ST3DLoadModel extends SimpleTestScreen {
     public Camera camera;
 
     public CameraInputController camController;
@@ -29,7 +25,7 @@ public class LoadModelTestScreen extends SimpleTestScreen {
 
     String modelPath = "models/cubeColor.g3db";
 
-    public LoadModelTestScreen(FastTesterMain main) {
+    public ST3DLoadModel(FastTesterMain main) {
         super(main);
         camera = new PerspectiveCamera(67, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         camera.position.set(10f, 10f, 10f);

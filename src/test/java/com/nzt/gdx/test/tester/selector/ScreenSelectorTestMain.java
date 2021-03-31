@@ -3,27 +3,23 @@ package com.nzt.gdx.test.tester.selector;
 import com.badlogic.gdx.Application;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
+import com.nzt.gdx.screen.BaseScreen;
 import com.nzt.gdx.screen.manager.AbstractAssetsManager;
 import com.nzt.gdx.screen.manager.AbstractLogManager;
-import com.nzt.gdx.test.tester.TestScreen;
 import com.nzt.gdx.test.tester.archi.main.FastTesterLogManager;
 import com.nzt.gdx.test.tester.archi.main.FastTesterMain;
 import com.nzt.gdx.test.tester.archi.main.FastTesterScreenManager;
-import com.nzt.gdx.test.tester.archi.screen.SimpleTestScreen;
-import org.reflections.Reflections;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
 
 public class ScreenSelectorTestMain extends FastTesterMain {
-    private SelectorScreenTest selectorScreenTest;
-    private ArrayList<CaseTestScreen> baseTreeTestScreen;
+    private BaseScreen selectorScreenTest;
+
+    private CaseST rootCase;
+    public CaseST lastGroupCase;
 
     public ScreenSelectorTestMain(Class screenClass) {
         super(screenClass);
-        this.baseTreeTestScreen = TestScreenScanner.scanTestScreens();
+        this.rootCase = STScanner.scanTestScreens();
+        this.lastGroupCase = rootCase;
     }
 
     @Override
@@ -34,15 +30,15 @@ public class ScreenSelectorTestMain extends FastTesterMain {
 
     @Override
     public FastTesterScreenManager createScreenManager() {
-        selectorScreenTest = new SelectorScreenTest(this, baseTreeTestScreen);
+        selectorScreenTest = new STSelectorScreen(this, rootCase);
         return new FastTesterScreenManager(selectorScreenTest);
     }
 
     @Override
     public void render() {
         super.render();
-        if (Gdx.input.isKeyPressed(Input.Keys.ESCAPE) && screenManager.currentScreen != selectorScreenTest) {
-            selectorScreenTest = new SelectorScreenTest(this, TestScreenScanner.scanTestScreens());
+        if (Gdx.input.isKeyJustPressed(Input.Keys.ESCAPE)) {
+            selectorScreenTest = new STSelectorScreen(this, lastGroupCase);
             screenManager.setScreen(selectorScreenTest);
         }
     }

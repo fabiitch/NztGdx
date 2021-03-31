@@ -1,7 +1,8 @@
-package com.nzt.gdx.test.screens.t3d;
+package com.nzt.gdx.test.screens.t3d.b2d;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Camera;
+import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g3d.Environment;
 import com.badlogic.gdx.graphics.g3d.Model;
@@ -13,13 +14,17 @@ import com.badlogic.gdx.graphics.g3d.model.Animation;
 import com.badlogic.gdx.graphics.g3d.utils.CameraInputController;
 import com.badlogic.gdx.graphics.g3d.utils.ModelBuilder;
 import com.badlogic.gdx.utils.UBJsonReader;
-import com.nzt.gdx.test.tester.TestScreen;
+import com.nzt.gdx.test.screens.b2D.B2DTestConstants;
+import com.nzt.gdx.test.tester.selector.TestScreen;
 import com.nzt.gdx.test.tester.archi.main.FastTesterMain;
 import com.nzt.gdx.test.tester.archi.screen.SimpleTestScreen;
 
-@TestScreen(groupName = "3D")
-public class OrthoCam3DTest extends SimpleTestScreen {
-    public Camera camera;
+@TestScreen(groupName = {"3D", "B2D"})
+public class ST3DB2dWarg extends SimpleTestScreen {
+
+    public String modelPath = "models/warg.g3db";
+
+    public Camera b2dCamera;
 
     public CameraInputController camController;
     private ModelBuilder modelBuilder;
@@ -28,42 +33,45 @@ public class OrthoCam3DTest extends SimpleTestScreen {
     public ModelInstance wargInstance;
     public Environment environment;
 
-    public OrthoCam3DTest(FastTesterMain main) {
+    public ST3DB2dWarg(FastTesterMain main) {
         super(main);
-        this.camera = new OrthographicCamera(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-        this.camera.position.set(10, 10, 10);
-        this.camera.lookAt(0, 0, 0);
-        camera.near = 1f;
-        camera.far = 300f;
-        camera.update();
+        this.b2dCamera = new OrthographicCamera(B2DTestConstants.WIDTH_PPM, B2DTestConstants.HEIGHT_PPM);
+//		this.b2dCamera = new OrthographicCamera(B2DTestConstants.WIDTH_PPM, B2DTestConstants.HEIGHT_PPM);
+        this.b2dCamera.position.set(10, 10, 10);
+        this.b2dCamera.lookAt(0, 0, 0);
+        b2dCamera.near = 1f;
+        b2dCamera.far = 300f;
+        b2dCamera.update();
 
-        ModelBuilder modelBuilder = new ModelBuilder();
+        modelBuilder = new ModelBuilder();
 
         environment = new Environment();
         environment.set(new ColorAttribute(ColorAttribute.AmbientLight, 0.4f, 0.4f, 0.4f, 1f));
         environment.add(new DirectionalLight().set(0.8f, 0.8f, 0.8f, -1f, -0.8f, -0.2f));
 
-        wardModel = new G3dModelLoader(new UBJsonReader()).loadModel(Gdx.files.internal("models/warg.g3db"));
+        wardModel = new G3dModelLoader(new UBJsonReader()).loadModel(Gdx.files.internal(modelPath));
         wargInstance = new ModelInstance(wardModel);
         for (Animation anim : wargInstance.animations) {
             System.out.println(anim.id);
         }
 
-        camController = new CameraInputController(camera);
+        camController = new CameraInputController(b2dCamera);
         Gdx.input.setInputProcessor(camController);
     }
 
     @Override
-    protected void renderScreen(float dt) {
-        camController.update();
-        modelBatch.begin(camera);
-        modelBatch.render(wargInstance);
-        modelBatch.end();
+    public void clearScreen() {
+        Gdx.gl.glClearColor(1, 0, 0, 0);
+        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT | GL20.GL_DEPTH_BUFFER_BIT);
     }
 
     @Override
-    public void doDispose() {
-        wardModel.dispose();
-    }
+    protected void renderScreen(float dt) {
+        this.b2dCamera.update();
+        camController.update();
+        modelBatch.begin(b2dCamera);
+        modelBatch.render(wargInstance);
+        modelBatch.end();
 
+    }
 }
