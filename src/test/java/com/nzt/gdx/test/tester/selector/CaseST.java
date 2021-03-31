@@ -25,4 +25,11 @@ public class CaseST {
         this.name = groupName;
         this.childs = new ArrayList<>();
     }
+
+    public String getDisplayedName() {
+        if (name.toLowerCase().startsWith("st")) {
+            return name.substring(2);
+        }
+        return name;
+    }
 }

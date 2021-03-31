@@ -46,7 +46,7 @@ public class STSelectorScreen extends SimpleScreen<ScreenSelectorTestMain> {
 
 
         for (CaseST caseTest : rootCaseTest.childs) {
-            TextButton textButton = new TextButton(caseTest.name, skin);
+            TextButton textButton = new TextButton(caseTest.getDisplayedName(), skin);
             table.add(textButton).width(stage.getWidth() / 4);
             if (caseTest.isGroup) {
                 textButton.setColor(Color.RED);
