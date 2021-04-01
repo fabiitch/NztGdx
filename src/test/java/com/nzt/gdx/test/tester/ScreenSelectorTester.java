@@ -3,9 +3,6 @@ package com.nzt.gdx.test.tester;
 import com.nzt.gdx.test.tester.archi.main.StarterTestConfig;
 import com.nzt.gdx.test.tester.selector.ScreenSelectorTestMain;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * Open Test chooser
  */
