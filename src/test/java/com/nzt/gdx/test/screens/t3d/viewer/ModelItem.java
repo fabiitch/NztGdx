@@ -16,8 +16,4 @@ public class ModelItem {
 		return path;
 	}
 
-	public String t() {
-		return "ModelItem [name=" + name + ", path=" + path + "]";
-	}
-
 }
