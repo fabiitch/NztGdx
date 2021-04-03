@@ -1,7 +1,7 @@
 package com.nzt.gdx.test.screens.b2D;
 
 public class B2DTestConstants {
-    public static final float PPM = 30.0F;
+    public static final float PPM = 40f;
 
     public static float WIDTH = 1080;
     public static float HEIGHT = 720;

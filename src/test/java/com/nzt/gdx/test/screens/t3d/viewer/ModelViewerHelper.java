@@ -1,7 +1,6 @@
 package com.nzt.gdx.test.screens.t3d.viewer;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.PerspectiveCamera;
 import com.badlogic.gdx.graphics.g3d.Material;
@@ -10,40 +9,41 @@ import com.badlogic.gdx.graphics.g3d.ModelInstance;
 import com.badlogic.gdx.graphics.g3d.loader.G3dModelLoader;
 import com.badlogic.gdx.graphics.g3d.model.Animation;
 import com.badlogic.gdx.utils.UBJsonReader;
-import com.nzt.gdx.test.screens.t3d.CameraInputControllerFR;
+import com.nzt.gdx.test.screens.b2D.B2DTestConstants;
 
 public class ModelViewerHelper {
     public Model model;
     public ModelInstance modelInstance;
-
     public ST3DModelViewer viewer;
 
     public ModelViewerHelper(ST3DModelViewer viewer) {
         this.viewer = viewer;
     }
 
-    public void resetCamera() {
-        viewer.camera.position.set(10f, 10f, 10f);
+    public void resetCamera(boolean toB2D) {
+        float divide = toB2D ? B2DTestConstants.PPM : 1;
+        viewer.camera.position.set(10f / divide, 10f / divide, 10f / divide);
         viewer.camera.lookAt(0, 0, 0);
         viewer.camera.near = 1f;
         viewer.camera.far = 300f;
         viewer.camController.reset();
     }
 
-    public boolean changeCameraType() {
-        boolean toReturn;
-        Camera camera = viewer.camera;
-        if (camera.getClass() == PerspectiveCamera.class) {
-            viewer.camera = new OrthographicCamera(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-            toReturn = false;
+    public void changeCameraType(boolean toOrtho, boolean toB2D) {
+        float width = Gdx.graphics.getWidth();
+        float height = Gdx.graphics.getHeight();
+        if (toB2D) {
+            width /= B2DTestConstants.PPM;
+            height /= B2DTestConstants.PPM;
+        }
+        if (toOrtho) {
+            viewer.camera = new OrthographicCamera(width, height);
         } else {
-            viewer.camera = new PerspectiveCamera(67, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-            toReturn = true;
+            viewer.camera = new PerspectiveCamera(67, width, height);
         }
         viewer.camController.camera = viewer.camera;
         viewer.camController.reset();
-        resetCamera();
-        return toReturn;
+        resetCamera(toB2D);
     }
 
     public void changeModel(String modelPath) {

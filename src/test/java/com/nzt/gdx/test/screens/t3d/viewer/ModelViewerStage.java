@@ -13,7 +13,8 @@ public class ModelViewerStage extends NzStage {
     private Skin skin = new Skin(Gdx.files.internal("ui/uiskin.json"));
 
     private SelectBox<ModelItem> selectBox;
-    ModelViewerHelper helper;
+    private ModelViewerHelper helper;
+
 
     public ModelViewerStage(ModelViewerHelper helper) {
         this.helper = helper;
@@ -22,28 +23,48 @@ public class ModelViewerStage extends NzStage {
         initCameraButton();
     }
 
+    private boolean isOrthoCam = false;
+    private boolean isB2DCam = false;
+
     private void initCameraButton() {
-        TextButton resetCamera = new TextButton("reset", skin);
-        getPositionner(resetCamera, true).setPositionByPercent(30, 95);
-        addActor(resetCamera);
-        resetCamera.addListener(new ChangeListener() {
+        TextButton resetCameraButton = new TextButton("reset", skin);
+        getPositionner(resetCameraButton, true).setPositionByPercent(30, 95);
+        addActor(resetCameraButton);
+        resetCameraButton.addListener(new ChangeListener() {
             @Override
             public void changed(ChangeEvent event, Actor actor) {
-                helper.resetCamera();
+                helper.resetCamera(isB2DCam);
             }
         });
 
-        TextButton cameraType = new TextButton("Ortho", skin);
-        getPositionner(cameraType, true).setPositionByPercent(40, 95);
-        addActor(cameraType);
-        cameraType.addListener(new ChangeListener() {
+        TextButton cameraTypeButton = new TextButton("To Ortho", skin);
+        getPositionner(cameraTypeButton, true).setPositionByPercent(40, 95);
+        addActor(cameraTypeButton);
+        cameraTypeButton.addListener(new ChangeListener() {
             @Override
             public void changed(ChangeEvent event, Actor actor) {
-                boolean isPerspective = helper.changeCameraType();
-                if (isPerspective)
-                    cameraType.setText("Ortho");
+                isOrthoCam = !isOrthoCam;
+                helper.changeCameraType(isOrthoCam, isB2DCam);
+                if (isOrthoCam)
+                    cameraTypeButton.setText("To Perspective");
                 else
-                    cameraType.setText("Perspective");
+                    cameraTypeButton.setText("To Ortho");
+            }
+        });
+
+        TextButton b2DCamera = new TextButton("to B2D", skin);
+        getPositionner(b2DCamera, true).setPositionByPercent(50, 95);
+        addActor(b2DCamera);
+        b2DCamera.addListener(new ChangeListener() {
+            @Override
+            public void changed(ChangeEvent event, Actor actor) {
+                isB2DCam = !isB2DCam;
+                helper.changeCameraType(isOrthoCam, isB2DCam);
+                if (isB2DCam)
+                    b2DCamera.setText("To Normal");
+                else
+                    b2DCamera.setText("to B2D");
+
             }
         });
     }
