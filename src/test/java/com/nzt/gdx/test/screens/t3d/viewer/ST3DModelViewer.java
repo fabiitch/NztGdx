@@ -15,7 +15,6 @@ import com.nzt.gdx.test.tester.selector.TestScreen;
 @TestScreen(groupName = "3D")
 public class ST3DModelViewer extends SimpleTestScreen {
 
-
     public InputMultiplexer inputMultiplexer;
     public Camera camera;
     public CameraInputController camController;
@@ -35,7 +34,7 @@ public class ST3DModelViewer extends SimpleTestScreen {
 
         camController = new CameraInputControllerFR(camera);
         this.helper = new ModelViewerHelper(this);
-        stage = new ModelViewerStage(helper);
+        stage = new ModelViewerStage(this, helper);
 
 
         this.inputMultiplexer = new InputMultiplexer(stage, camController);
@@ -52,6 +51,7 @@ public class ST3DModelViewer extends SimpleTestScreen {
     @Override
     protected void renderScreen(float dt) {
         this.camera.update();
+        this.stage.update();
         camController.update();
         modelBatch.begin(camera);
         modelBatch.render(helper.modelInstance);
@@ -71,5 +71,6 @@ public class ST3DModelViewer extends SimpleTestScreen {
         stage.dispose();
         if (helper.model != null)
             helper.model.dispose();
+        stage.dispose();
     }
 }

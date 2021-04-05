@@ -22,7 +22,9 @@ public class ModelViewerHelper {
 
     public void resetCamera(boolean toB2D) {
         float divide = toB2D ? B2DTestConstants.PPM : 1;
-        viewer.camera.position.set(10f / divide, 10f / divide, 10f / divide);
+        float start = toB2D ? 150 : 10;
+
+        viewer.camera.position.set(start / divide, start / divide, start / divide);
         viewer.camera.lookAt(0, 0, 0);
         viewer.camera.near = 1f;
         viewer.camera.far = 300f;

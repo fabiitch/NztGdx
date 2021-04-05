@@ -11,7 +11,7 @@ public class DebugDisplayUtils {
     private static DecimalFormat msFormatter = new DecimalFormat();
 
     {
-        floatFormatter.setMaximumFractionDigits(4);
+        floatFormatter.setMaximumFractionDigits(2);
         msFormatter.setMaximumFractionDigits(0);
     }
     
