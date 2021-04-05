@@ -2,10 +2,12 @@ package com.nzt.gdx.test.screens.t3d.viewer;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.SelectBox;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
+import com.nzt.gdx.debug.utils.DebugDisplayUtils;
 import com.nzt.gdx.scene2D.nz.NzStage;
 
 public class ModelViewerStage extends NzStage {
@@ -14,17 +16,30 @@ public class ModelViewerStage extends NzStage {
 
     private SelectBox<ModelItem> selectBox;
     private ModelViewerHelper helper;
+    private Label labelCamera;
+    private ST3DModelViewer viewer;
 
-
-    public ModelViewerStage(ModelViewerHelper helper) {
+    public ModelViewerStage(ST3DModelViewer viewer, ModelViewerHelper helper) {
+        this.viewer = viewer;
         this.helper = helper;
         setDebugAll(true);
         initComboModels();
         initCameraButton();
+        createLabels();
     }
 
     private boolean isOrthoCam = false;
     private boolean isB2DCam = false;
+
+    private void createLabels() {
+        this.labelCamera = new Label("Cam" + DebugDisplayUtils.printVector3(viewer.camera.position), skin);
+        getPositionner(labelCamera, true).setPositionByPercent(88, 98);
+        addActor(labelCamera);
+    }
+
+    public void update() {
+        labelCamera.setText("Cam" + DebugDisplayUtils.printVector3(viewer.camera.position));
+    }
 
     private void initCameraButton() {
         TextButton resetCameraButton = new TextButton("reset", skin);
@@ -84,5 +99,11 @@ public class ModelViewerStage extends NzStage {
 
             }
         });
+    }
+
+    public void dispose() {
+        super.dispose();
+        this.skin.dispose();
+
     }
 }
