@@ -88,10 +88,10 @@ public class STTouchPad extends SimpleTestScreen {
 	private void createTouchPad() {
 		String knobChoose;
 		if (skinNum == 1) {
-			System.out.println("Skin = PICKED");
+			log("Skin = PICKED");
 			knobChoose = KNOB_PICKED;
 		} else {
-			System.out.println("Skin = MFL");
+			log("Skin = MFL");
 			knobChoose = KNOB_MFL;
 		}
 		// Create a touchpad skin
