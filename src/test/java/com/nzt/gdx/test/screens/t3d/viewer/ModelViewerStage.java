@@ -9,10 +9,11 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.nzt.gdx.debug.utils.DebugDisplayUtils;
 import com.nzt.gdx.scene2D.nz.NzStage;
+import com.nzt.gdx.test.screens.scene2D.Scene2DTestConstants;
 
 public class ModelViewerStage extends NzStage {
 
-    private Skin skin = new Skin(Gdx.files.internal("ui/uiskin.json"));
+    private Skin skin = new Skin(Gdx.files.internal(Scene2DTestConstants.UI_SKIN));
 
     private SelectBox<ModelItem> selectBox;
     private ModelViewerHelper helper;
