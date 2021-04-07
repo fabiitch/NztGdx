@@ -6,10 +6,11 @@ import com.badlogic.gdx.utils.Array;
 
 public class VectorUtils {
 
+    //TODO viré le cpy
     public static <V extends Vector<V>> V directionTo(V from, V to) {
         return from.cpy().sub(to).nor();
     }
-
+    //TODO viré le cpy
     public static <V extends Vector<V>> V getVelocityTo(float time, V from, V to) {
         V directionTo = directionTo(from, to);
         float dst = from.dst(to);
