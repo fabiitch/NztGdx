@@ -16,7 +16,7 @@ import com.nzt.gdx.math.Percentage;
  */
 public class NzStage extends Stage {
 
-    public NzActorPositionner nzPositionner;
+    private NzActorPositionner nzPositionner;
 
     public NzStage() {
         super(new ScreenViewport());
