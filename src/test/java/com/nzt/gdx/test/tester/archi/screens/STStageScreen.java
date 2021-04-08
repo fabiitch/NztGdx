@@ -1,4 +1,4 @@
-package com.nzt.gdx.test.tester.archi.screen;
+package com.nzt.gdx.test.tester.archi.screens;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.scenes.scene2d.Stage;

@@ -17,7 +17,7 @@ import com.badlogic.gdx.utils.UBJsonReader;
 import com.nzt.gdx.test.screens.b2D.B2DTestConstants;
 import com.nzt.gdx.test.tester.selector.TestScreen;
 import com.nzt.gdx.test.tester.archi.main.FastTesterMain;
-import com.nzt.gdx.test.tester.archi.screen.SimpleTestScreen;
+import com.nzt.gdx.test.tester.archi.screens.SimpleTestScreen;
 
 @TestScreen(group = "3D.B2D")
 public class ST3DB2dWarg extends SimpleTestScreen {

@@ -15,7 +15,7 @@ import com.badlogic.gdx.graphics.g3d.utils.ModelBuilder;
 import com.badlogic.gdx.utils.UBJsonReader;
 import com.nzt.gdx.test.tester.selector.TestScreen;
 import com.nzt.gdx.test.tester.archi.main.FastTesterMain;
-import com.nzt.gdx.test.tester.archi.screen.SimpleTestScreen;
+import com.nzt.gdx.test.tester.archi.screens.SimpleTestScreen;
 
 @TestScreen(group = "3D")
 public class ST3DOrthoCam extends SimpleTestScreen {

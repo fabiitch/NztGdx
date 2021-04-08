@@ -1,4 +1,4 @@
-package com.nzt.gdx.test.tester.archi.screen;
+package com.nzt.gdx.test.tester.archi.screens;
 
 import java.util.HashMap;
 import java.util.concurrent.Callable;

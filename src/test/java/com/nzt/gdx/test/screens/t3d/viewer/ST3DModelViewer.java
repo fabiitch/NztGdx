@@ -9,7 +9,7 @@ import com.badlogic.gdx.graphics.g3d.utils.CameraInputController;
 import com.badlogic.gdx.utils.ScreenUtils;
 import com.nzt.gdx.test.screens.t3d.CameraInputControllerFR;
 import com.nzt.gdx.test.tester.archi.main.FastTesterMain;
-import com.nzt.gdx.test.tester.archi.screen.SimpleTestScreen;
+import com.nzt.gdx.test.tester.archi.screens.SimpleTestScreen;
 import com.nzt.gdx.test.tester.selector.TestScreen;
 
 @TestScreen(group = "3D")
