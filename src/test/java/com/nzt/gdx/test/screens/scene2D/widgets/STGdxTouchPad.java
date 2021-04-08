@@ -14,20 +14,17 @@ import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 import com.nzt.gdx.test.screens.scene2D.Scene2DTestConstants;
 import com.nzt.gdx.test.tester.archi.main.FastTesterMain;
-import com.nzt.gdx.test.tester.archi.screen.SimpleTestScreen;
+import com.nzt.gdx.test.tester.archi.screen.STStageScreen;
 import com.nzt.gdx.test.tester.selector.TestScreen;
 
-@TestScreen(groupName = { "scene2D", "widgets", "knob" })
-public class STTouchPad extends SimpleTestScreen {
+@TestScreen(group = "scene2D.widgets.touchpad")
+public class STGdxTouchPad extends STStageScreen {
 
 	private final static String KNOBS_PATH = "ui/knobs/";
 	private final static String KNOB_MFL = KNOBS_PATH + "mfl/";
 	private final static String KNOB_PICKED = KNOBS_PATH + "picked/";
 
-	private Skin skin;
-
 	private OrthographicCamera camera;
-	private Stage stage;
 	private Touchpad touchpad;
 	private TouchpadStyle touchpadStyle;
 	private Skin touchpadSkin;
@@ -39,16 +36,18 @@ public class STTouchPad extends SimpleTestScreen {
 
 	private int skinNum = 1;
 
-	public STTouchPad(FastTesterMain main) {
+	public STGdxTouchPad(FastTesterMain main) {
 		super(main);
+	}
+
+	@Override
+	public void init() {
 		// Create camera
 		float aspectRatio = (float) Gdx.graphics.getWidth() / (float) Gdx.graphics.getHeight();
 		camera = new OrthographicCamera();
 		camera.setToOrtho(false, 10f * aspectRatio, 10f);
 
 		// Create a Stage and add TouchPad
-		stage = new Stage();
-		Gdx.input.setInputProcessor(stage);
 
 		// Create block sprite
 		blockTexture = new Texture(Gdx.files.internal("badlogic.jpg"));
@@ -133,4 +132,5 @@ public class STTouchPad extends SimpleTestScreen {
 		stage.draw();
 
 	}
+
 }

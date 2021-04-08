@@ -14,36 +14,42 @@ import com.nzt.gdx.b2d.factories.BaseBodyFactory;
 import com.nzt.gdx.test.screens.b2D.B2DTestConstants;
 import com.nzt.gdx.test.tester.archi.main.FastTesterMain;
 
-public class BaseB2DSystemScreen extends BaseSystemScreen {
-    public World world;
-    public Camera camera;
-    public BaseBodyFactory bodyFactory;
+public abstract class BaseB2DSystemScreen extends BaseSystemScreen {
+	public World world;
+	public Camera camera;
+	public BaseBodyFactory bodyFactory;
 
-    public BaseB2DSystemScreen(FastTesterMain main) {
-        super(main);
-        this.camera = new OrthographicCamera(B2DTestConstants.WIDTH_PPM, B2DTestConstants.HEIGHT_PPM);
-        this.camera.position.set(0, 0, 0);
-        this.camera.lookAt(0, 0, 0);
+	public BaseB2DSystemScreen(FastTesterMain main) {
+		super(main);
+		this.camera = new OrthographicCamera(B2DTestConstants.WIDTH_PPM, B2DTestConstants.HEIGHT_PPM);
+		this.camera.position.set(0, 0, 0);
+		this.camera.lookAt(0, 0, 0);
 
-        this.world = new World(Vector2.Zero, true);
-        B2DWorldSystem worldSystem = new B2DWorldSystem(world, true);
-        B2DApplyEventsSystem b2DApplyEventsSystem = new B2DApplyEventsSystem(world);
-        B2DDebugSystem debugSystem = new B2DDebugSystem(world, camera);
+		this.world = new World(Vector2.Zero, true);
+		B2DWorldSystem worldSystem = new B2DWorldSystem(world, true);
+		B2DApplyEventsSystem b2DApplyEventsSystem = new B2DApplyEventsSystem(world);
+		B2DDebugSystem debugSystem = new B2DDebugSystem(world, camera);
 
-        bodyFactory = new BaseBodyFactory(world, B2DTestConstants.PPM);
+		bodyFactory = new BaseBodyFactory(world, B2DTestConstants.PPM);
 
-        engine.addSystem(worldSystem);
-        engine.addSystem(b2DApplyEventsSystem);
-        engine.addSystem(debugSystem);
-    }
+		engine.addSystem(worldSystem);
+		engine.addSystem(b2DApplyEventsSystem);
+		engine.addSystem(debugSystem);
+	}
 
-    public Entity addEntityBody(Body body) {
-        Entity entity = engine.createEntity();
-        engine.addEntity(entity);
-        B2DBodyComponent box2dBodyComponent = engine.createComponent(B2DBodyComponent.class);
-        box2dBodyComponent.body = body;
-        entity.add(box2dBodyComponent);
+	public Entity addEntityBody(Body body) {
+		Entity entity = engine.createEntity();
+		engine.addEntity(entity);
+		B2DBodyComponent box2dBodyComponent = engine.createComponent(B2DBodyComponent.class);
+		box2dBodyComponent.body = body;
+		entity.add(box2dBodyComponent);
 
-        return entity;
-    }
+		return entity;
+	}
+
+	@Override
+	public void doDispose() {
+		world.dispose();
+
+	}
 }

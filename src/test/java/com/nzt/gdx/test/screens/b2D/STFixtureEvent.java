@@ -14,7 +14,7 @@ import com.nzt.gdx.test.tester.archi.screen.BaseB2DSystemScreen;
 
 import java.util.concurrent.Callable;
 
-@TestScreen(groupName = "box2D")
+@TestScreen(group = "box2D")
 public class STFixtureEvent extends BaseB2DSystemScreen {
     Body circleBody;
     Entity entity;

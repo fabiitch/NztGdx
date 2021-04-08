@@ -19,59 +19,64 @@ import com.nzt.gdx.test.tester.selector.TestScreen;
 import com.nzt.gdx.test.tester.archi.main.FastTesterMain;
 import com.nzt.gdx.test.tester.archi.screen.SimpleTestScreen;
 
-@TestScreen(groupName = {"3D", "B2D"})
+@TestScreen(group = "3D.B2D")
 public class ST3DB2dCubeColor extends SimpleTestScreen {
 
-    public String modelPath = "models/cubeColor.g3db";
+	public String modelPath = "models/cubeColor.g3db";
 
-    public Camera b2dCamera;
+	public Camera b2dCamera;
 
-    public CameraInputController camController;
-    private ModelBuilder modelBuilder;
+	public CameraInputController camController;
+	private ModelBuilder modelBuilder;
 
-    public Model cubeModel;
-    public ModelInstance cubeInstance;
-    public Environment environment;
+	public Model cubeModel;
+	public ModelInstance cubeInstance;
+	public Environment environment;
 
-    public ST3DB2dCubeColor(FastTesterMain main) {
-        super(main);
-        this.b2dCamera = new OrthographicCamera(B2DTestConstants.WIDTH_PPM, B2DTestConstants.HEIGHT_PPM);
+	public ST3DB2dCubeColor(FastTesterMain main) {
+		super(main);
+		this.b2dCamera = new OrthographicCamera(B2DTestConstants.WIDTH_PPM, B2DTestConstants.HEIGHT_PPM);
 //		this.b2dCamera = new OrthographicCamera(B2DTestConstants.WIDTH_PPM, B2DTestConstants.HEIGHT_PPM);
-        this.b2dCamera.position.set(10, 10, 10);
-        this.b2dCamera.lookAt(0, 0, 0);
-        b2dCamera.near = 1f;
-        b2dCamera.far = 300f;
-        b2dCamera.update();
+		this.b2dCamera.position.set(10, 10, 10);
+		this.b2dCamera.lookAt(0, 0, 0);
+		b2dCamera.near = 1f;
+		b2dCamera.far = 300f;
+		b2dCamera.update();
 
-        modelBuilder = new ModelBuilder();
+		modelBuilder = new ModelBuilder();
 
-        environment = new Environment();
-        environment.set(new ColorAttribute(ColorAttribute.AmbientLight, 0.4f, 0.4f, 0.4f, 1f));
-        environment.add(new DirectionalLight().set(0.8f, 0.8f, 0.8f, -1f, -0.8f, -0.2f));
+		environment = new Environment();
+		environment.set(new ColorAttribute(ColorAttribute.AmbientLight, 0.4f, 0.4f, 0.4f, 1f));
+		environment.add(new DirectionalLight().set(0.8f, 0.8f, 0.8f, -1f, -0.8f, -0.2f));
 
-        cubeModel = new G3dModelLoader(new UBJsonReader()).loadModel(Gdx.files.internal(modelPath));
-        cubeInstance = new ModelInstance(cubeModel);
-        for (Animation anim : cubeInstance.animations) {
-            System.out.println(anim.id);
-        }
+		cubeModel = new G3dModelLoader(new UBJsonReader()).loadModel(Gdx.files.internal(modelPath));
+		cubeInstance = new ModelInstance(cubeModel);
+		for (Animation anim : cubeInstance.animations) {
+			System.out.println(anim.id);
+		}
 
-        camController = new CameraInputController(b2dCamera);
-        Gdx.input.setInputProcessor(camController);
-    }
+		camController = new CameraInputController(b2dCamera);
+		Gdx.input.setInputProcessor(camController);
+	}
 
-    @Override
-    public void clearScreen() {
-        Gdx.gl.glClearColor(1, 0, 0, 0);
-        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT | GL20.GL_DEPTH_BUFFER_BIT);
-    }
+	@Override
+	public void clearScreen() {
+		Gdx.gl.glClearColor(1, 0, 0, 0);
+		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT | GL20.GL_DEPTH_BUFFER_BIT);
+	}
 
-    @Override
-    protected void renderScreen(float dt) {
-        this.b2dCamera.update();
-        camController.update();
-        modelBatch.begin(b2dCamera);
-        modelBatch.render(cubeInstance);
-        modelBatch.end();
+	@Override
+	protected void renderScreen(float dt) {
+		this.b2dCamera.update();
+		camController.update();
+		modelBatch.begin(b2dCamera);
+		modelBatch.render(cubeInstance);
+		modelBatch.end();
 
-    }
+	}
+
+	@Override
+	public void doDispose() {
+		cubeModel.dispose();
+	}
 }

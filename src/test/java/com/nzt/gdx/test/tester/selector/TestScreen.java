@@ -8,9 +8,11 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
 public @interface TestScreen {
-    final String DEFAULT_NAME = "DEFAULT_NAME";
+	String DEFAULT_NAME = "DEFAULT_NAME";
+	public String SEPARATOR = "\\.";
 
-    String name() default DEFAULT_NAME;
+	String group()
 
-    String[] groupName();
+	default DEFAULT_NAME;
+
 }

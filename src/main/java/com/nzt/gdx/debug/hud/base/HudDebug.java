@@ -2,9 +2,10 @@ package com.nzt.gdx.debug.hud.base;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.utils.Array;
-import com.nzt.gdx.debug.utils.DebugDisplayUtils;
 import com.nzt.gdx.debug.hud.HudDebugPosition;
+import com.nzt.gdx.debug.utils.DebugDisplayUtils;
 
 public class HudDebug {
 	public static HudDebug instance;
@@ -12,8 +13,8 @@ public class HudDebug {
 
 	private HudDebugContainer container;
 
-	public HudDebug(Stage stage) {
-		this.container = new HudDebugContainer(stage);
+	public HudDebug(Stage stage, Skin skin) {
+		this.container = new HudDebugContainer(stage, skin);
 		HudDebug.instance = this;
 
 		if (arrayBeforeInit != null) {
