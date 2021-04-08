@@ -5,7 +5,6 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.scenes.scene2d.Actor;
-import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Touchpad;
@@ -14,16 +13,12 @@ import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 import com.nzt.gdx.test.screens.scene2D.Scene2DTestConstants;
 import com.nzt.gdx.test.tester.archi.main.FastTesterMain;
-import com.nzt.gdx.test.tester.archi.screen.STStageScreen;
+import com.nzt.gdx.test.tester.archi.screens.STStageScreen;
 import com.nzt.gdx.test.tester.selector.TestScreen;
 
 @TestScreen(group = "scene2D.widgets.touchpad")
 public class STGdxTouchPad extends STStageScreen {
-
-	private final static String KNOBS_PATH = "ui/knobs/";
-	private final static String KNOB_MFL = KNOBS_PATH + "mfl/";
-	private final static String KNOB_PICKED = KNOBS_PATH + "picked/";
-
+	
 	private OrthographicCamera camera;
 	private Touchpad touchpad;
 	private TouchpadStyle touchpadStyle;
@@ -88,10 +83,10 @@ public class STGdxTouchPad extends STStageScreen {
 		String knobChoose;
 		if (skinNum == 1) {
 			log("Skin = PICKED");
-			knobChoose = KNOB_PICKED;
+			knobChoose = Scene2DTestConstants.TOUCHPAD_PICKED;
 		} else {
 			log("Skin = MFL");
-			knobChoose = KNOB_MFL;
+			knobChoose = Scene2DTestConstants.TOUCHPAD_MFL;
 		}
 		// Create a touchpad skin
 		touchpadSkin = new Skin();

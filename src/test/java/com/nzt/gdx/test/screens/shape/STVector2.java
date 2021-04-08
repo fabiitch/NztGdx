@@ -6,7 +6,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.nzt.gdx.math.AngleUtils;
 import com.nzt.gdx.test.tester.selector.TestScreen;
 import com.nzt.gdx.test.tester.archi.main.FastTesterMain;
-import com.nzt.gdx.test.tester.archi.screen.SimpleTestScreen;
+import com.nzt.gdx.test.tester.archi.screens.SimpleTestScreen;
 
 @TestScreen(group = "shape")
 public class STVector2 extends SimpleTestScreen {

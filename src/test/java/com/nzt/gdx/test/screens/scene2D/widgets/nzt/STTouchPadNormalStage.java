@@ -1,35 +1,33 @@
 package com.nzt.gdx.test.screens.scene2D.widgets.nzt;
 
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
-import com.nzt.gdx.graphics.DrawableUtils;
-import com.nzt.gdx.scene2D.widgets.knob.TouchPad;
-import com.nzt.gdx.scene2D.widgets.knob.TouchPadConfig;
+import com.nzt.gdx.test.screens.scene2D.Scene2DTestConstants;
 import com.nzt.gdx.test.tester.archi.main.FastTesterMain;
-import com.nzt.gdx.test.tester.archi.screen.SimpleTestScreen;
+import com.nzt.gdx.test.tester.archi.screens.SimpleTestScreen;
 import com.nzt.gdx.test.tester.selector.TestScreen;
 
+//TODO a reprendre quand on refait les touchpad générique
 @TestScreen(group = "scene2D.widgets.touchpad.nzt")
 public class STTouchPadNormalStage extends SimpleTestScreen {
 	private Stage stage;
 
-	private TouchPad touchpad;
+//	private TouchPad touchpad;
 
-	private static Texture textureBase = new Texture("gfx/hud/hud_mvt_base.png");
-	private static Texture textureKnob = new Texture("gfx/hud/hud_mvt_little.png");
+	private Texture textureBase;
+	private Texture textureKnob;
 
 	public STTouchPadNormalStage(FastTesterMain main) {
 		super(main);
 		this.stage = new Stage();
+		createTouchPad();
 	}
 
 	private void createTouchPad() {
-
-		TouchPadConfig config = new TouchPadConfig(textureBase, textureKnob, false, new Vector2(100, 100), 150, 50);
-
-		touchpad = new TouchPad(config);
+		textureBase = new Texture(Scene2DTestConstants.TOUCHPAD_MFL_BASE);
+		textureKnob = new Texture(Scene2DTestConstants.TOUCHPAD_MFL_KNOB);
+//		TouchPadConfig config = new TouchPadConfig(textureBase, textureKnob, false, new Vector2(100, 100), 150, 50);
+//		touchpad = new TouchPad(config);
 
 	}
 
@@ -43,6 +41,8 @@ public class STTouchPadNormalStage extends SimpleTestScreen {
 	@Override
 	public void doDispose() {
 		stage.dispose();
+		textureBase.dispose();
+		textureKnob.dispose();
 
 	}
 }
