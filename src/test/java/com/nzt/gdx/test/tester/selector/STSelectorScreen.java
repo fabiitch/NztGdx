@@ -26,7 +26,7 @@ import com.nzt.gdx.test.tester.archi.main.FastTesterMain;
 public class STSelectorScreen extends SimpleScreen<ScreenSelectorTestMain> {
 
 	private NzStage stage;
-	Skin skin = new Skin(Gdx.files.internal(Scene2DTestConstants.UI_SKIN));
+	private Skin skin = new Skin(Gdx.files.internal(Scene2DTestConstants.UI_SKIN));
 
 	public STSelectorScreen(ScreenSelectorTestMain main, CaseST rootCaseTest) {
 		super(main);
@@ -91,6 +91,12 @@ public class STSelectorScreen extends SimpleScreen<ScreenSelectorTestMain> {
 	protected void renderScreen(float dt) {
 		stage.act();
 		stage.draw();
+	}
+
+	@Override
+	public void doDispose() {
+		stage.dispose();
+		skin.dispose();
 	}
 
 }

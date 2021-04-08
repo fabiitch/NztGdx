@@ -42,4 +42,9 @@ public class SimpleProgressBarScreen<M extends AbstractMain> extends BaseLoading
 		nzShapeRenderer.end();
 	}
 
+	@Override
+	public void doDispose() {
+		
+	}
+
 }

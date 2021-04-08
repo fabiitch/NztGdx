@@ -17,7 +17,7 @@ import com.nzt.gdx.test.tester.selector.TestScreen;
 import com.nzt.gdx.test.tester.archi.main.FastTesterMain;
 import com.nzt.gdx.test.tester.archi.screen.SimpleTestScreen;
 
-@TestScreen(groupName = "3D")
+@TestScreen(group = "3D")
 public class ST3DOrthoCam extends SimpleTestScreen {
     public Camera camera;
 

@@ -10,44 +10,50 @@ import com.nzt.gdx.test.tester.selector.TestScreen;
 import com.nzt.gdx.test.tester.archi.main.FastTesterMain;
 import com.nzt.gdx.test.tester.archi.screen.BaseB2DSystemScreen;
 
-@TestScreen(groupName = "box2D")
+@TestScreen(group = "box2D")
 public class STB2DTriangleBody extends BaseB2DSystemScreen {
-    Body polygonBody;
-    Entity entity;
+	Body polygonBody;
+	Entity entity;
 
-    public STB2DTriangleBody(FastTesterMain main) {
-        super(main);
-        FixtureDefWrapper fixtureDefWrapper = new FixtureDefWrapper(BodyDef.BodyType.KinematicBody).setSensor(false)
-                .setDensity(1).setToPPM(false);
+	public STB2DTriangleBody(FastTesterMain main) {
+		super(main);
+		FixtureDefWrapper fixtureDefWrapper = new FixtureDefWrapper(BodyDef.BodyType.KinematicBody).setSensor(false)
+				.setDensity(1).setToPPM(false);
 
-        Vector2 a = new Vector2(0, 0);
-        Vector2 b = new Vector2(5, 0);
-        Vector2 c = new Vector2(5, 5);
-        polygonBody = bodyFactory.createPolygonBody(new Vector2[]{a, b, c}, fixtureDefWrapper);
+		Vector2 a = new Vector2(0, 0);
+		Vector2 b = new Vector2(5, 0);
+		Vector2 c = new Vector2(5, 5);
+		polygonBody = bodyFactory.createPolygonBody(new Vector2[] { a, b, c }, fixtureDefWrapper);
 
-        entity = addEntityBody(polygonBody);
-        polygonBody.setAngularVelocity(1);
-        SimpleMvtInputController inputController = new SimpleMvtInputController() {
-            @Override
-            public void up() {
+		entity = addEntityBody(polygonBody);
+		polygonBody.setAngularVelocity(1);
+		SimpleMvtInputController inputController = new SimpleMvtInputController() {
+			@Override
+			public void up() {
 
-            }
+			}
 
-            @Override
-            public void down() {
+			@Override
+			public void down() {
 
-            }
+			}
 
-            @Override
-            public void left() {
+			@Override
+			public void left() {
 
-            }
+			}
 
-            @Override
-            public void right() {
+			@Override
+			public void right() {
 
-            }
-        };
-    }
+			}
+		};
+	}
+
+	@Override
+	public void doDispose() {
+		// TODO Auto-generated method stub
+
+	}
 
 }

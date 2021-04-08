@@ -12,7 +12,7 @@ import com.nzt.gdx.test.tester.archi.main.FastTesterMain;
 import com.nzt.gdx.test.tester.archi.screen.SimpleTestScreen;
 import com.nzt.gdx.test.tester.selector.TestScreen;
 
-@TestScreen(groupName = "3D")
+@TestScreen(group = "3D")
 public class ST3DModelViewer extends SimpleTestScreen {
 
     public InputMultiplexer inputMultiplexer;
@@ -71,6 +71,5 @@ public class ST3DModelViewer extends SimpleTestScreen {
         stage.dispose();
         if (helper.model != null)
             helper.model.dispose();
-        stage.dispose();
     }
 }
