@@ -56,6 +56,11 @@ public class NzActorPositionner {
         return this;
     }
 
+    public NzActorPositionner setPositionByPercent(Vector2 positionByPercent) {
+        setPositionByPercent(positionByPercent.x, positionByPercent.y);
+        return this;
+    }
+
     public NzActorPositionner setPositionByPercent(float percentWitdh, float percentHeight) {
         setXPercent(percentWitdh);
         setYPercent(percentHeight);
