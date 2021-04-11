@@ -10,6 +10,7 @@ import com.nzt.gdx.math.Percentage;
 
 import java.util.concurrent.TimeUnit;
 
+//TODO a reprendre, pouvoir ajouté des label aprés
 public class HudDebugPerformanceFrame {
 
     private static final String TOTAL_TIME = "Total Time";
