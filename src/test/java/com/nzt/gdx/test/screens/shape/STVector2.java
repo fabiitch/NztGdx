@@ -24,8 +24,6 @@ public class STVector2 extends SimpleTestScreen {
 		oldDir = new Vector2(1, 0);
 		newDir = new Vector2(1, -0.1f).nor();
 		float diffAngle = AngleUtils.distanceSigned(newDir, oldDir);
-
-		System.out.println(diffAngle);
 		result = new Vector2(oldDir).rotateDeg(diffAngle);
 	}
 
@@ -43,6 +41,8 @@ public class STVector2 extends SimpleTestScreen {
 	@Override
 	protected void renderScreen(float dt) {
 		nzShapeRenderer.begin();
+		oldDir.rotateDeg(1);
+		newDir.rotateDeg(-1);
 		draw(oldDir, Color.GREEN);
 		draw(newDir, Color.RED);
 //        draw(result, Color.YELLOW);
