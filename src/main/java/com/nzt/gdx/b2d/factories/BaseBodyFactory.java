@@ -11,10 +11,14 @@ import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
 import com.nzt.gdx.b2d.FixtureDefWrapper;
+import com.nzt.gdx.b2d.utils.B2DCalcul;
+import com.nzt.gdx.b2d.utils.B2DConverter;
 import com.nzt.gdx.b2d.utils.B2DConverterHelper;
 import com.nzt.gdx.logger.tag.LogTagsBase;
 import com.nzt.gdx.logger.tag.TagLogger;
 import com.nzt.gdx.logger.utils.NzLoggableUtils;
+
+import java.util.Arrays;
 
 /**
  * base body factory for create circle/rect body //TODO less new BodyDef TODO
@@ -26,9 +30,9 @@ import com.nzt.gdx.logger.utils.NzLoggableUtils;
 //TODO a reprendre
 public class BaseBodyFactory {
 
-    protected World world;
-    public float ppm;
-    public B2DConverterHelper b2DConverter;
+    public final World world;
+    public final float ppm;
+    public final B2DConverterHelper b2DConverter;
 
     public BaseBodyFactory(World world, float ppm) {
         super();
@@ -38,9 +42,9 @@ public class BaseBodyFactory {
     }
 
     public Body createRectangleBody(Rectangle rectangle, FixtureDefWrapper fixtureDefWrapper) {
-        if (fixtureDefWrapper.toPPM)
+        if (fixtureDefWrapper.toPPM) {
             rectangle = b2DConverter.toPPM(rectangle);
-
+        }
         BodyDef bdef = new BodyDef();
         PolygonShape shape = new PolygonShape();
         FixtureDef fdef = fixtureDefWrapper.apply();
@@ -58,11 +62,27 @@ public class BaseBodyFactory {
         return body;
     }
 
+    public Body createPolygonBody(Vector2[] vertices, FixtureDefWrapper fixtureDefWrapper) {
+        if (fixtureDefWrapper.toPPM) {
+            Arrays.stream(vertices).forEach(v-> b2DConverter.toPPM(v));
+        }
+        Body body = createBody(vertices[0].x, vertices[0].y, fixtureDefWrapper.bodyType);
+        FixtureDef fdef = fixtureDefWrapper.apply();
+        PolygonShape shape = new PolygonShape();
+        shape.set(vertices);
+        fdef.shape = shape;
+        Fixture fixture = body.createFixture(fdef);
+        fixture.setUserData(fixtureDefWrapper.userData);
+        TagLogger.infoBlock(LogTagsBase.B2D_CREATION, "fixtureDefWrapper", NzLoggableUtils.create(vertices),
+                fixtureDefWrapper);
+
+        return body;
+    }
+
     public Body createCircleBody(Vector2 position, float rayon, FixtureDefWrapper fixtureDefWrapper) {
         if (fixtureDefWrapper.toPPM) {
             rayon = b2DConverter.toPPM(rayon);
         }
-
         Body body = createBody(position.x, position.y, fixtureDefWrapper.bodyType);
         FixtureDef fdef = fixtureDefWrapper.apply();
         CircleShape shape = new CircleShape();
@@ -86,19 +106,5 @@ public class BaseBodyFactory {
         return body;
     }
 
-//	public Body createTriangleBody(Vector2 a, Vector2 b, Vector2 c, FixtureDefWrapper fixtureDefWrapper) {
-////		Body body = createBody(position.x, position.y, fixtureDefWrapper.bodyType);
-//	}
-
-    // TODO not finish
-    public Body createPolygonBody(Vector2[] vertices, FixtureDefWrapper fixtureDefWrapper) {
-        Body body = createBody(0, 0, fixtureDefWrapper.bodyType);
-        FixtureDef fdef = fixtureDefWrapper.apply();
-        PolygonShape shape = new PolygonShape();
-        shape.set(vertices);
-        fdef.shape = shape;
-        Fixture fixture = body.createFixture(fdef);
-        return body;
-    }
 
 }
