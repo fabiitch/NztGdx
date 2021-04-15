@@ -13,7 +13,7 @@ import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 import com.nzt.gdx.test.screens.scene2D.Scene2DTestConstants;
 import com.nzt.gdx.test.tester.archi.main.FastTesterMain;
-import com.nzt.gdx.test.tester.archi.screens.STStageScreen;
+import com.nzt.gdx.test.tester.archi.screens.stages.STStageScreen;
 import com.nzt.gdx.test.tester.selector.TestScreen;
 
 @TestScreen(group = "scene2D.widgets.touchpad")

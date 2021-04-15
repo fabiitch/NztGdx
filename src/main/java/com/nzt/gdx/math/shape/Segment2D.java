@@ -7,9 +7,8 @@ import com.badlogic.gdx.math.Vector2;
 
 import java.util.Objects;
 
-public class Segment2D {//TODO impl shape2D //TODO remove vector
-
-
+//TODO remove pour voir avec Polyline
+public class Segment2D implements Shape2D{//TODO impl shape2D //TODO remove vector //TODO viré par polyline
     public Vector2 a;
     public Vector2 b;
 
@@ -105,5 +104,15 @@ public class Segment2D {//TODO impl shape2D //TODO remove vector
     @Override
     public int hashCode() {
         return Objects.hash(a, b);
+    }
+
+    @Override
+    public boolean contains(Vector2 point) {
+        return false;
+    }
+
+    @Override
+    public boolean contains(float x, float y) {
+        return false;
     }
 }

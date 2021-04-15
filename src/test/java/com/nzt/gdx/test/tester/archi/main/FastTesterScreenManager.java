@@ -48,12 +48,12 @@ public class FastTesterScreenManager extends AbstractScreenManager<AbstractMain>
     }
 
     @Override
-    protected void doResize(int width, int height) {
+	protected void doResize(int width, int height) {
 
-    }
+	}
 
-    @Override
-    protected void doDispose() {
+	@Override
+	protected void doDispose() {
         System.exit(0);
     }
 

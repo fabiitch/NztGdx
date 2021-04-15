@@ -14,6 +14,11 @@ public class FixtureDefWrapper extends FixtureDef implements NzLoggable {
     public float rotation = 0f;
     public Object userData;
 
+    //TODO
+    @Override
+    public void reset() {
+
+    }
     public FixtureDefWrapper(BodyType bodyType) {
         super();
         this.bodyType = bodyType;
@@ -115,5 +120,4 @@ public class FixtureDefWrapper extends FixtureDef implements NzLoggable {
                 + ", density=" + density + ", isSensor=" + isSensor + ", filter : categoryBits:" + filter.categoryBits
                 + "|maskBits:" + filter.maskBits + "|groupIndex=" + filter.groupIndex;
     }
-
 }

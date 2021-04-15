@@ -1,10 +1,11 @@
-package com.nzt.gdx.test.tester.archi.screens;
+package com.nzt.gdx.test.tester.archi.screens.systems;
 
 import java.util.HashMap;
 import java.util.concurrent.Callable;
 
 import com.badlogic.ashley.core.Engine;
 import com.nzt.gdx.test.tester.archi.main.FastTesterMain;
+import com.nzt.gdx.test.tester.archi.screens.SimpleTestScreen;
 
 public abstract class BaseSystemScreen extends SimpleTestScreen {
 

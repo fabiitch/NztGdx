@@ -25,7 +25,7 @@ public class ScreenSelectorTestMain extends FastTesterMain {
     @Override
     public void doCreate() {
         Gdx.app.setLogLevel(Application.LOG_DEBUG);
-        Gdx.app.log("ScreenSelectorTestMain", "Initialisation faster tester");
+        Gdx.app.log("ScreenSelectorTestMain", "Initialisation with FastTesterMain");
     }
 
     @Override

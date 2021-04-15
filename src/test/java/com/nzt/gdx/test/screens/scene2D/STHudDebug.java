@@ -4,15 +4,11 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.nzt.gdx.debug.hud.base.HudDebug;
 import com.nzt.gdx.test.tester.archi.main.FastTesterMain;
-import com.nzt.gdx.test.tester.archi.screens.STStageScreen;
+import com.nzt.gdx.test.tester.archi.screens.stages.STStageScreen;
 import com.nzt.gdx.test.tester.selector.TestScreen;
 
 @TestScreen(group = "scene2D.hud")
 public class STHudDebug extends STStageScreen {
-
-	public static void main(String args[]) {
-//        StarterTestConfig.startLwjgl(new FastTesterMain(HudDebugDisplayScreen.class), 800, 400);
-	}
 
 	private HudDebug debugHud;
 
@@ -21,8 +17,9 @@ public class STHudDebug extends STStageScreen {
 		this.debugHud = new HudDebug(stage, skin);
 	}
 
+
 	@Override
-	public void doShow() {
+	public void init() {
 		for (int i = 0; i < 5; i++) {
 			HudDebug.instance.addTopLeft("addTopLeft " + i, Gdx.app.getJavaHeap(), Color.RED);
 		}
@@ -47,11 +44,5 @@ public class STHudDebug extends STStageScreen {
 		for (int i = 0; i < 5; i++) {
 			HudDebug.instance.addLeftMiddle("addLeftMiddle" + i, Gdx.app.getJavaHeap(), Color.CYAN);
 		}
-	}
-
-	@Override
-	public void init() {
-		// TODO Auto-generated method stub
-		
 	}
 }
