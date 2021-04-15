@@ -41,6 +41,6 @@ public class PhysXDebugSystem extends IteratingSystem {
     @Override
     protected void processEntity(Entity entity, float deltaTime) {
         PhysXComponent shapeComponent = shapeMapper.get(entity);
-        shapeComponent.nzShape.render(nzShapeRenderer);
+//        shapeComponent.shape.render(nzShapeRenderer);
     }
 }

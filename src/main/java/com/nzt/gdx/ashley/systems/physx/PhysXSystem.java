@@ -16,7 +16,6 @@ public class PhysXSystem extends EntitySystem implements EntityListener {
     private static ComponentMapper<Velocity2DComponent> velocityMapper = Velocity2DComponent.mapper;
 
     private Engine engine;
-    private PhysX physX;
 
 
     public PhysXSystem(Engine engine) {
@@ -27,7 +26,6 @@ public class PhysXSystem extends EntitySystem implements EntityListener {
         super(priority);
         this.engine = engine;
         engine.addEntityListener(family, NztSystemsOrder.PHYSX, this);
-        this.physX = new PhysX();
     }
 
     private static final float MAX_STEP_TIME = 1 / 120f;
@@ -40,7 +38,7 @@ public class PhysXSystem extends EntitySystem implements EntityListener {
         float frameTime = Math.min(dt, 0.25f);
         accumulator += frameTime;
         while (accumulator >= MAX_STEP_TIME) {
-            physX.step(dt);
+//            physX.step(dt);
             accumulator -= MAX_STEP_TIME;
             nbPassage++;
         }
@@ -53,9 +51,9 @@ public class PhysXSystem extends EntitySystem implements EntityListener {
     public void entityAdded(Entity entity) {
         PhysXComponent nzShapeComponent = shapeMapper.get(entity);
         if (nzShapeComponent.isStatic) {
-            physX.staticBodies.add(entity);
+//            physX.staticBodies.add(entity);
         } else {
-            physX.dynamicBodies.add(entity);
+//            physX.dynamicBodies.add(entity);
         }
     }
 

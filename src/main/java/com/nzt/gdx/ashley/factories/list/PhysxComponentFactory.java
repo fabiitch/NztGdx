@@ -1,12 +1,11 @@
 package com.nzt.gdx.ashley.factories.list;
 
 import com.badlogic.ashley.core.Engine;
+import com.badlogic.gdx.math.Circle;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.nzt.gdx.ashley.components.physx.PhysXComponent;
 import com.nzt.gdx.ashley.systems.physx.NzShape2DTypes;
-import com.nzt.gdx.math.shape.nz.NzCircle;
-import com.nzt.gdx.math.shape.nz.NzRectangle;
 
 public class PhysxComponentFactory extends BaseComponentFactory {
     public PhysxComponentFactory(Engine engine) {
@@ -14,19 +13,13 @@ public class PhysxComponentFactory extends BaseComponentFactory {
     }
 
     public PhysXComponent shapeCircle(Vector2 pos, float radius, boolean isStatic) {
-        PhysXComponent component = engine.createComponent(PhysXComponent.class);
-        NzCircle circle = new NzCircle(pos.x, pos.y, radius);
-        component.nzShape = circle;
-        component.nzShapeType = NzShape2DTypes.CIRCLE;
-
-        component.isStatic = isStatic;
-        return component;
+        return shapeCircle(pos.x, pos.y, radius, isStatic);
     }
 
     public PhysXComponent shapeCircle(float x, float y, float radius, boolean isStatic) {
         PhysXComponent component = engine.createComponent(PhysXComponent.class);
-        NzCircle circle = new NzCircle(x, y, radius);
-        component.nzShape = circle;
+        Circle circle = new Circle(x, y, radius);
+        component.shape = circle;
         component.nzShapeType = NzShape2DTypes.CIRCLE;
 
         component.isStatic = isStatic;
@@ -35,7 +28,7 @@ public class PhysxComponentFactory extends BaseComponentFactory {
 
     public PhysXComponent shapeRectangle(Rectangle rect, boolean isStatic) {
         PhysXComponent component = engine.createComponent(PhysXComponent.class);
-        component.nzShape = new NzRectangle(rect);
+        component.shape = new Rectangle(rect);
         component.nzShapeType = NzShape2DTypes.RECTANGLE;
 
         component.isStatic = isStatic;
