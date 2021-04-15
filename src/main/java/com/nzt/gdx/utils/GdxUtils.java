@@ -5,6 +5,10 @@ import com.badlogic.gdx.math.Vector2;
 
 public class GdxUtils {
 
+	private GdxUtils() {
+
+	}
+
 	public static Vector2 getScreenCenter(Vector2 pos) {
 		return pos.set(getScreenCenterX(), getScreenCenterY());
 	}

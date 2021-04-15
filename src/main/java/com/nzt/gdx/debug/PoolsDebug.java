@@ -13,6 +13,10 @@ import com.nzt.gdx.logger.tag.TagLogger;
 
 public class PoolsDebug {
 
+	private PoolsDebug() {
+
+	}
+
 	/**
 	 * debug pools
 	 */
@@ -29,7 +33,8 @@ public class PoolsDebug {
 		for (Entry<Class<T>, Pool<T>> entry : typePools.entries()) {
 			Class<T> key = entry.key;
 			Pool<T> pool = entry.value;
-			TagLogger.logWithLevel(logLevel, LogTagsBase.MEMORY, key.getSimpleName(), "max=" + pool.max + ", peak=" + pool.peak);
+			TagLogger.logWithLevel(logLevel, LogTagsBase.MEMORY, key.getSimpleName(),
+					"max=" + pool.max + ", peak=" + pool.peak);
 		}
 		LoggerTagBlockUtils.endBlock(logLevel, LogTagsBase.MEMORY, "Pools Debug");
 	}

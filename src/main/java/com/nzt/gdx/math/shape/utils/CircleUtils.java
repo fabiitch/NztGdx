@@ -6,6 +6,10 @@ import com.badlogic.gdx.math.Vector3;
 
 //TODO tout revoir si le commit circle est merge
 public class CircleUtils {
+	
+    private CircleUtils() {
+    }
+    
     // TODO remove new Vector2
     public static Vector2 positionOnACircleWithAngle(float xP, float yP, float rayon, float angleRadian) {
         Vector2 position = new Vector2();

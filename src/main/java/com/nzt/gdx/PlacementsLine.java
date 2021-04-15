@@ -2,6 +2,10 @@ package com.nzt.gdx;
 
 public class PlacementsLine {
 
+	private PlacementsLine() {
+
+	}
+
 	/**
 	 * Remplit l'espace restant avec le spacebetween et margin
 	 */
