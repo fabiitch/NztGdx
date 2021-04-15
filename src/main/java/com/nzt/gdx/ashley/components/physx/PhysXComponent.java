@@ -1,22 +1,22 @@
 package com.nzt.gdx.ashley.components.physx;
 
 import com.badlogic.ashley.core.ComponentMapper;
+import com.badlogic.gdx.math.Shape2D;
 import com.nzt.gdx.ashley.components.abstracts.PoolableComponent;
-import com.nzt.gdx.math.shape.nz.NzShape2D;
 
 
 //TODO remove
 public class PhysXComponent extends PoolableComponent {
     public static ComponentMapper<PhysXComponent> mapper = ComponentMapper.getFor(PhysXComponent.class);
 
-    public NzShape2D nzShape;
+    public Shape2D shape;
     public short nzShapeType;
 
     public boolean isStatic = false;
 
     @Override
     public void reset() {
-        this.nzShape = null;
+        this.shape = null;
         this.isStatic = false;
         this.nzShapeType = 0;
     }
