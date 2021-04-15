@@ -11,9 +11,14 @@ import com.nzt.gdx.logger.tag.LogTagsBase;
 import com.nzt.gdx.logger.tag.TagLogger;
 
 /**
- * Used to detect and add proxy on net modules only for desktop ? //TODO test android/IOS
+ * Used to detect and add proxy on net modules only for desktop ? //TODO test
+ * android/IOS
  */
 public class AutoProxy {
+
+	private AutoProxy() {
+
+	}
 
 	public static void init() {
 		try {

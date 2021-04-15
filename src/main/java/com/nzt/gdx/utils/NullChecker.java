@@ -2,10 +2,15 @@ package com.nzt.gdx.utils;
 
 /**
  * Utility class for Gdx WIP //TODO a supp je crois
+ * 
  * @author fabiitch
  *
  */
 public class NullChecker {
+
+	public NullChecker() {
+
+	}
 
 	public static boolean isNull(Object... objects) {
 		final int n = objects.length;

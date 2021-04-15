@@ -5,6 +5,10 @@ import com.badlogic.gdx.math.MathUtils;
 
 public class Randoms {
 
+	private Randoms() {
+
+	}
+
 	public static Color newRandomColor() {
 		float r = MathUtils.random();
 		float g = MathUtils.random();
