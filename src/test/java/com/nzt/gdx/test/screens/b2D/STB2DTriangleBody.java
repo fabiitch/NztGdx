@@ -9,7 +9,7 @@ import com.nzt.gdx.b2d.FixtureDefWrapper;
 import com.nzt.gdx.input.impl.simple.SimpleClickInputHandler;
 import com.nzt.gdx.test.tester.selector.TestScreen;
 import com.nzt.gdx.test.tester.archi.main.FastTesterMain;
-import com.nzt.gdx.test.tester.archi.screens.BaseB2DSystemScreen;
+import com.nzt.gdx.test.tester.archi.screens.systems.BaseB2DSystemScreen;
 
 @TestScreen(group = "box2D")
 public class STB2DTriangleBody extends BaseB2DSystemScreen {

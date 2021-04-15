@@ -20,9 +20,13 @@ import com.nzt.gdx.logger.utils.NzLoggable;
 //TODO tres important vérifié les nb d'instance d'enum
 public class TagLogger {
 
-    private final static Map<Enum<?>, Boolean> tagMap = new HashMap<Enum<?>, Boolean>();
-    public static boolean DONT_LOG = false;
+	private final static Map<Enum<?>, Boolean> tagMap = new HashMap<Enum<?>, Boolean>();
+	public static boolean DONT_LOG = false;
 
+	private TagLogger() {
+
+    }
+	
     public static void clearTags() {
         tagMap.clear();
     }
@@ -113,7 +117,13 @@ public class TagLogger {
         if (!DONT_LOG && getTag(tag))
             Gdx.app.log(tag.name(), message);
     }
-
+    public static <E extends Enum<E>> void infoBlock(E tag, String msg, NzLoggable objectToLog) {
+        if (!DONT_LOG && getTag(tag)) {
+            LogUtils.infoStart(tag.name(), msg);
+            Gdx.app.log(objectToLog.gdxLogTag(), objectToLog.gdxLogValue());
+            LogUtils.infoEnd(tag.name(), msg);
+        }
+    }
     public static <E extends Enum<E>> void infoBlock(E tag, String msg, NzLoggable... objectToLogs) {
         if (!DONT_LOG && getTag(tag)) {
             LogUtils.infoStart(tag.name(), msg);

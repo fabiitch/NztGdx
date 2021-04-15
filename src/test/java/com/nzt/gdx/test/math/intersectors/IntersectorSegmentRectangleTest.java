@@ -3,7 +3,6 @@ package com.nzt.gdx.test.math.intersectors;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.nzt.gdx.math.intersectors.IntersectorSegmentRectangle;
-import com.nzt.gdx.math.shape.nz.NzRectangle;
 import com.nzt.gdx.math.shape.Segment2D;
 import com.nzt.gdx.math.shape.utils.RectangleUtils;
 import org.junit.Assert;
@@ -14,7 +13,7 @@ import static org.junit.Assert.*;
 public class IntersectorSegmentRectangleTest {
 
     private Segment2D segment2D = new Segment2D(-10, 0, 20, 0);
-    private Rectangle rect = new NzRectangle(0, 0, 10, 10);
+    private Rectangle rect = new Rectangle(0, 0, 10, 10);
     private Vector2 intersectionPoint = new Vector2(-100, -100);
     private boolean touch = false;
 

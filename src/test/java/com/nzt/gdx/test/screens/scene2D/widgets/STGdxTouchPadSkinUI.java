@@ -5,7 +5,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.ui.Touchpad;
 import com.nzt.gdx.scene2D.StagePlacementUtils;
 import com.nzt.gdx.test.tester.archi.main.FastTesterMain;
-import com.nzt.gdx.test.tester.archi.screens.STStageScreen;
+import com.nzt.gdx.test.tester.archi.screens.stages.STStageScreen;
 import com.nzt.gdx.test.tester.selector.TestScreen;
 
 @TestScreen(group = "scene2D.widgets.touchpad")

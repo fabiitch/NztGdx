@@ -1,14 +1,16 @@
 package com.nzt.gdx.logger.utils;
 
+import com.badlogic.gdx.utils.Pool;
+
 /**
  * Interface for log events (tag and values)
- * @author fabiitch
  *
+ * @author fabiitch
  */
-public interface NzLoggable {
+public interface NzLoggable extends Pool.Poolable {
 
-	String gdxLogTag();
+    String gdxLogTag();
 
-	String gdxLogValue();
-	
+    String gdxLogValue();
+
 }

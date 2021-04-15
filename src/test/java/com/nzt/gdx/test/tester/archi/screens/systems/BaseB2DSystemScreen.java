@@ -1,4 +1,4 @@
-package com.nzt.gdx.test.tester.archi.screens;
+package com.nzt.gdx.test.tester.archi.screens.systems;
 
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.gdx.graphics.Camera;

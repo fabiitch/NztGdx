@@ -1,10 +1,11 @@
-package com.nzt.gdx.test.tester.archi.screens;
+package com.nzt.gdx.test.tester.archi.screens.stages;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.nzt.gdx.test.screens.scene2D.Scene2DTestConstants;
 import com.nzt.gdx.test.tester.archi.main.FastTesterMain;
+import com.nzt.gdx.test.tester.archi.screens.SimpleTestScreen;
 
 public abstract class STStageScreen extends SimpleTestScreen {
 	protected Stage stage;
