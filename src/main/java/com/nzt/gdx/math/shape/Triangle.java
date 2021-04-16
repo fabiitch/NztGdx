@@ -1,13 +1,15 @@
 package com.nzt.gdx.math.shape;
 
+import java.util.Arrays;
+
 import com.badlogic.gdx.math.Polygon;
 import com.badlogic.gdx.math.Vector2;
-import com.nzt.gdx.math.vectors.V2;
 
 public class Triangle extends Polygon {
 
 	/**
-	 * Static temporary Vector2. Use with care! Use only when sure other code will not also use this.
+	 * Static temporary Vector2. Use with care! Use only when sure other code will
+	 * not also use this.
 	 */
 	public static final Vector2 tmpV1 = new Vector2();
 	public static final Vector2 tmpV2 = new Vector2();
@@ -40,19 +42,23 @@ public class Triangle extends Polygon {
 		if (vertex < 0 || vertex > 2)
 			throw new IllegalArgumentException("getVertex can return vertex range (0,2)");
 
-		float[] transformedVertices = this.getTransformedVertices();
-		return pos.set(transformedVertices[2 * vertex], transformedVertices[2 * vertex + 1]);
+		return pos.set(getVertexValue(vertex, true), getVertexValue(vertex, false));
 	}
 
 	public Vector2 getDir(Vector2 dir, int vertex1, int vertex2) {
-		getVertex(tmpV1, vertex1);
-		getVertex(tmpV2, vertex2);
-		return dir.set(tmpV2).sub(tmpV1).nor();
+		getVertex(dir, getVertex(vertex2));
+		getVertex(tmpV1, getVertex(vertex1));
+		dir.sub(tmpV1);
+		return dir.nor();
 	}
 
 	public float getAngleDeg(int vertex) {
-		getVertex(tmpV1, getVertex(vertex + 1));
-		getVertex(tmpV2, getVertex(vertex + 2));
+		getVertex(tmpV1, getVertex(vertex));
+		tmpV1.sub(getVertexValue(vertex + 1, true), getVertexValue(vertex + 1, false));
+		
+		getVertex(tmpV2, getVertex(vertex));
+		tmpV2.sub(getVertexValue(vertex + 2, true), getVertexValue(vertex + 2, false));
+		
 		float angle = tmpV1.angleDeg(tmpV2);
 		if (angle > 180)
 			angle = 360 - angle;
@@ -83,4 +89,17 @@ public class Triangle extends Polygon {
 			return transformedVertices[2 * vertex];
 		return transformedVertices[2 * vertex + 1];
 	}
+
+	@Override
+	public String toString() {
+		return "Triangle " + Arrays.toString(getTransformedVertices());
+	}
+
+	public String toString(boolean vector2) {
+		String a = getVertex(tmpV1, 0).toString();
+		String b = getVertex(tmpV1, 1).toString();
+		String c = getVertex(tmpV1, 2).toString();
+		return "Triangle[a=" + a + " b=" + b + " c=" + c+"]";
+	}
+
 }

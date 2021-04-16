@@ -4,23 +4,26 @@ import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 
 /**
- * Static method for Vector2
+ * Static method for Vector2 using mathUtils (no native)
  */
 public class V2 {
-    private static Vector2 tmp; // TODO use ? server pb?
+	private static Vector2 tmp; // TODO use ? server pb?
 
-    public static float angleDeg(Vector2 v) {
-        float angle = MathUtils.atan2(v.y, v.x) * MathUtils.radiansToDegrees;
-        if (angle < 0) angle += 360;
-        return angle;
-    }
-    public static float angleRad(Vector2 v) {
-        return MathUtils.atan2(v.y, v.x);
-    }
+	public static float angleDeg(Vector2 v) {
+		float angle = MathUtils.atan2(v.y, v.x) * MathUtils.radiansToDegrees;
+		if (angle < 0)
+			angle += 360;
+		return angle;
+	}
 
-    public static float angleDeg(Vector2 v1, Vector2 reference) {
-        float angle = MathUtils.atan2(reference.crs(v1), reference.dot(v1)) * MathUtils.radiansToDegrees;
-        if (angle < 0) angle += 360;
+	public static float angleRad(Vector2 v) {
+		return MathUtils.atan2(v.y, v.x);
+	}
+
+	public static float angleDeg(Vector2 v1, Vector2 reference) {
+		float angle = MathUtils.atan2(reference.crs(v1), reference.dot(v1)) * MathUtils.radiansToDegrees;
+		if (angle < 0)
+			angle += 360;
         return angle;
     }
 
