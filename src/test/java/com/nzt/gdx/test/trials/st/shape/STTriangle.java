@@ -1,6 +1,7 @@
 package com.nzt.gdx.test.trials.st.shape;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
 import com.badlogic.gdx.math.Vector2;
 import com.nzt.gdx.debug.hud.base.HudDebug;
@@ -20,16 +21,27 @@ public class STTriangle extends TestScreenWithHudDebug {
 	private Vector2 a, b, c;
 	private final Vector2 tmp = new Vector2();
 
+	BitmapFont font;
+
 	public STTriangle(FastTesterMain main) {
 		super(main);
+		this.font = new BitmapFont();
 		HudDebug.addBotLeft("Mode", "normal");
 		changeMode();
+
+		HudDebug.addTopRight("Angle A", triangle.getAngleDeg(0));
+		HudDebug.addTopRight("Angle B", triangle.getAngleDeg(1));
+		HudDebug.addTopRight("Angle C", triangle.getAngleDeg(2));
 
 		HudDebug.addTopLeft("A", a);
 		HudDebug.addTopLeft("B", b);
 		HudDebug.addTopLeft("C", c);
 
-		HudDebug.addTopLeft("rotation", 0);
+		HudDebug.addLeftMiddle("Dir AB", Vector2.X);
+		HudDebug.addLeftMiddle("Dir AC", Vector2.X);
+		HudDebug.addLeftMiddle("Dir BC", Vector2.X);
+
+		HudDebug.addTopLeft("Rotation", 0);
 		SimpleClickInputHandler inputHandler = new SimpleClickInputHandler() {
 			@Override
 			public boolean doTouchDown(int screenX, int screenY, int pointer, int button) {
@@ -61,10 +73,34 @@ public class STTriangle extends TestScreenWithHudDebug {
 		nzShapeRenderer.triangle(triangle);
 		nzShapeRenderer.end();
 
+		spriteBatch.begin();
+		triangle.getA(tmp);
+		font.draw(spriteBatch, "A", tmp.x, tmp.y);
+		triangle.getB(tmp);
+		font.draw(spriteBatch, "B", tmp.x, tmp.y);
+		triangle.getC(tmp);
+		font.draw(spriteBatch, "C", tmp.x, tmp.y);
+
+		spriteBatch.end();
+		count++;
+		if (count > 4) {
+			count = 0;
+			updateHud();
+		}
+
+	}
+
+	private int count = 0;
+
+	private void updateHud() {
 		HudDebug.update("A", triangle.getVertex(tmp, 0));
 		HudDebug.update("B", triangle.getVertex(tmp, 1));
-		HudDebug.update("C", triangle.getVertex(tmp, 2));;
-		HudDebug.update("rotation", triangle.getRotation());
+		HudDebug.update("C", triangle.getVertex(tmp, 2));
+		HudDebug.update("Rotation", triangle.getRotation());
+
+		HudDebug.update("Dir AB", triangle.getDir(tmp, 0, 1));
+		HudDebug.update("Dir AC", triangle.getDir(tmp, 0, 2));
+		HudDebug.update("Dir BC", triangle.getDir(tmp, 1, 2));
 	}
 
 	float scale = 1;
@@ -81,19 +117,19 @@ public class STTriangle extends TestScreenWithHudDebug {
 		}
 		scale = up ? scale + 0.02f : scale - 0.02f;
 		triangle.setScale(scale, scale);
-		
-		if(triangle.getRotation()>360) {
+
+		if (triangle.getRotation() > 360) {
 			triangle.setRotation(0);
 		}
-			
+
 	}
 
 	private void changeMode() {
 		switch (mode) {
 		case 0:
-			a = v(-50, 0);
-			b = v(50, 50);
-			c = v(-50, -50);
+			a = v(0, 0);
+			b = v(50, 0);
+			c = v(0, 50);
 			HudDebug.update("Mode", "normal");
 			break;
 
@@ -110,6 +146,11 @@ public class STTriangle extends TestScreenWithHudDebug {
 
 	private Vector2 v(float x, float y) {
 		return new Vector2(x, y).add(middle);
+	}
+
+	public void doDispose() {
+		super.doDispose();
+		font.dispose();
 	}
 
 }
