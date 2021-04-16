@@ -2,12 +2,13 @@ package com.nzt.gdx.math;
 
 import com.badlogic.gdx.math.Vector2;
 import com.nzt.gdx.math.shape.Segment2D;
+import com.nzt.gdx.math.vectors.V2;
 
 public class AngleUtils {
 
     public static float angleReflexion(Segment2D segment, Vector2 dir) {
         Vector2 normal = segment.getNormale();
-        return normal.angleDeg() - (dir.angleDeg() - normal.angleDeg());
+        return V2.angleDeg(normal) - (V2.angleDeg(dir)- V2.angleDeg(normal));
     }
 
     public static float angleIncidence(float angleReflexion) {
@@ -25,7 +26,7 @@ public class AngleUtils {
     }
 
     public static float distanceAbs(Vector2 dir, Vector2 input) {
-        return distanceAbs(dir.angleDeg(), input.angleDeg());
+        return distanceAbs(V2.angleDeg(dir), V2.angleDeg(input));
     }
 
     public static float distanceSigned(float a, float b) {

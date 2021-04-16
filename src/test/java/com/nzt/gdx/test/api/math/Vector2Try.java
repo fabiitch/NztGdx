@@ -1,7 +1,10 @@
 package com.nzt.gdx.test.api.math;
 
 import com.badlogic.gdx.math.Interpolation;
+import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
+import com.nzt.gdx.math.random.Randoms;
+import org.junit.Assert;
 import org.junit.Test;
 
 import static org.junit.Assert.assertFalse;
@@ -11,6 +14,7 @@ import static org.junit.Assert.assertTrue;
  * pour test vite fait  les methode de Vector2
  */
 public class Vector2Try {
+    private static float DELTA_01 = 0.1f;
 
     private Vector2 v1;
     private Vector2 v2;
@@ -73,6 +77,67 @@ public class Vector2Try {
         Vector2 v2 = v(0.99276555f, 0.120069146f);
         System.out.println(v1.angleDeg());
         System.out.println(v2.angleDeg());
+    }
+
+    @Test
+    public void angleBetweenTest() {
+        Vector2 v1 = v(0, 1);
+        Vector2 v2 = v(1, 0);
+        Assert.assertEquals(90, v1.angleDeg(v2), DELTA_01);
+
+        v1 = v(1, 0);
+        v2 = v(0, 1);
+        Assert.assertEquals(360 - 90, v1.angleDeg(v2), DELTA_01);
+    }
+
+
+    @Test
+    public void testMultipleNor() {
+        Vector2 v1 = v(0, 1);
+        float min = Integer.MIN_VALUE;
+        float max = Integer.MAX_VALUE;
+        for (int i = 0; i < 100000; i++) {
+            v1.set(MathUtils.random.nextFloat() * (max - min) + min, MathUtils.random.nextFloat() * (max - min) + min);
+            v1.nor();
+            Assert.assertEquals(1, v1.len2(), MathUtils.FLOAT_ROUNDING_ERROR);
+        }
+    }
+
+    @Test
+    public void testMultipleNor2() {
+        Vector2 v1 = v(0, 1);
+        Vector2 v2 = v(0, 1);
+        float min = Integer.MIN_VALUE;
+        float max = Integer.MAX_VALUE;
+
+        for (int j = 0; j < 100; j++) {
+            v1.set(MathUtils.random.nextFloat() * (max - min) + min, MathUtils.random.nextFloat() * (max - min) + min);
+            v2.set(v1);
+            long l1 = System.nanoTime();
+            for (int i = 0; i < 10000000; i++) {
+                v1.nor();
+            }
+            long t1 = System.nanoTime() - l1;
+            long l2 = System.nanoTime();
+            for (int i = 0; i < 10000000; i++) {
+                norMe(v2);
+            }
+            long t2 = System.nanoTime() - l2;
+            Assert.assertTrue(t2 < t1);
+            System.out.println("t1= " + t1 + "   t2=" + t2);
+            Assert.assertTrue(v1.epsilonEquals(v2));
+        }
+    }
+
+    private void norMe(Vector2 v) {
+        float len2 = v.len2();
+        if (Math.abs(len2 - 1) > MathUtils.FLOAT_ROUNDING_ERROR) {
+            float len = v.len();
+            if (len != 0) {
+                v.x /= len;
+                v.y /= len;
+            }
+        }
     }
 
     private Vector2 v(float a, float b) {
