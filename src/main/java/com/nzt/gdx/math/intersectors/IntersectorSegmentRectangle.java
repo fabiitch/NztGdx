@@ -6,7 +6,7 @@ import com.badlogic.gdx.utils.Array;
 import com.nzt.gdx.math.shape.Segment2D;
 import com.nzt.gdx.math.shape.utils.RectangleUtils;
 import com.nzt.gdx.math.shape.utils.Segment2DUtils;
-import com.nzt.gdx.math.vectors.VectorUtils;
+import com.nzt.gdx.math.vectors.V;
 
 public class IntersectorSegmentRectangle {
 
@@ -67,8 +67,8 @@ public class IntersectorSegmentRectangle {
 			arrayTmp.add(tmp2);
 		}
 		if (intersectionCount >= 2) {
-			intersection.set(closest ? VectorUtils.getClosest(segment.a, arrayTmp)
-					: VectorUtils.getFarthest(segment.a, arrayTmp));
+			intersection.set(closest ? V.getClosest(segment.a, arrayTmp)
+					: V.getFarthest(segment.a, arrayTmp));
 			if (rectangleSegment != null)
 				getSegmentIntersection(intersection, rect, rectangleSegment);
 			return true;
@@ -78,8 +78,8 @@ public class IntersectorSegmentRectangle {
 			arrayTmp.add(tmp3);
 		}
 		if (intersectionCount >= 2) {
-			intersection.set(closest ? VectorUtils.getClosest(segment.a, arrayTmp)
-					: VectorUtils.getFarthest(segment.a, arrayTmp));
+			intersection.set(closest ? V.getClosest(segment.a, arrayTmp)
+					: V.getFarthest(segment.a, arrayTmp));
 			if (rectangleSegment != null)
 				getSegmentIntersection(intersection, rect, rectangleSegment);
 			return true;
@@ -89,8 +89,8 @@ public class IntersectorSegmentRectangle {
 			arrayTmp.add(tmp4);
 		}
 		if (intersectionCount > 0) {
-			intersection.set(closest ? VectorUtils.getClosest(segment.a, arrayTmp)
-					: VectorUtils.getFarthest(segment.a, arrayTmp));
+			intersection.set(closest ? V.getClosest(segment.a, arrayTmp)
+					: V.getFarthest(segment.a, arrayTmp));
 			if (rectangleSegment != null)
 				getSegmentIntersection(intersection, rect, rectangleSegment);
 		}

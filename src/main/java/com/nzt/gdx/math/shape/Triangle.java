@@ -2,12 +2,12 @@ package com.nzt.gdx.math.shape;
 
 import com.badlogic.gdx.math.Polygon;
 import com.badlogic.gdx.math.Vector2;
+import com.nzt.gdx.math.vectors.V2;
 
 public class Triangle extends Polygon {
 
 	/**
-	 * Static temporary Vector2. Use with care! Use only when sure other code will
-	 * not also use this.
+	 * Static temporary Vector2. Use with care! Use only when sure other code will not also use this.
 	 */
 	public static final Vector2 tmpV1 = new Vector2();
 	public static final Vector2 tmpV2 = new Vector2();
@@ -50,12 +50,13 @@ public class Triangle extends Polygon {
 		return dir.set(tmpV2).sub(tmpV1).nor();
 	}
 
-	public float getAngle(int vertex) {
+	public float getAngleDeg(int vertex) {
 		getVertex(tmpV1, getVertex(vertex + 1));
-		float x1 = tmpV2.x;
-		float x2 = tmpV2.y;
 		getVertex(tmpV2, getVertex(vertex + 2));
-		return tmpV2.dot(x1, x2);
+		float angle = tmpV1.angleDeg(tmpV2);
+		if (angle > 180)
+			angle = 360 - angle;
+		return angle;
 
 	}
 
@@ -68,7 +69,18 @@ public class Triangle extends Polygon {
 		this.setOrigin(tmpV2.x, tmpV2.y);
 	}
 
+	/**
+	 * return real vertex in triangle
+	 */
 	private int getVertex(int vertexAsk) {
 		return vertexAsk % 3;
+	}
+
+	private float getVertexValue(int vertex, boolean x) {
+		vertex %= 3;
+		float[] transformedVertices = this.getTransformedVertices();
+		if (x)
+			return transformedVertices[2 * vertex];
+		return transformedVertices[2 * vertex + 1];
 	}
 }

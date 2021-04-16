@@ -2,13 +2,13 @@ package com.nzt.gdx.test.api.math.vectors;
 
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
-import com.nzt.gdx.math.vectors.Vector2Utils;
-import com.nzt.gdx.math.vectors.VectorUtils;
+import com.nzt.gdx.math.vectors.V2;
+import com.nzt.gdx.math.vectors.V;
 
 import org.junit.Assert;
 import org.junit.Test;
 
-public class Vector2UtilsTest {
+public class V2Test {
 
     @Test
     public void getClosestTest() {
@@ -19,7 +19,7 @@ public class Vector2UtilsTest {
         Array<Vector2> vector2Array = new Array<>();
         vector2Array.add(v1, v2, v3, null);
 
-        Vector2 closest = VectorUtils.getClosest(start,vector2Array);
+        Vector2 closest = V.getClosest(start, vector2Array);
         Assert.assertEquals(closest, v3);
     }
 
@@ -27,7 +27,7 @@ public class Vector2UtilsTest {
     public void getMiddleTest() {
         Vector2 v1 = v(5, 5);
         Vector2 v2 = v(10, 10);
-        Vector2 closest = Vector2Utils.getMiddle(v1, v2);
+        Vector2 closest = V2.getMiddle(new Vector2(), v1, v2);
         Assert.assertEquals(closest, new Vector2(7.5f, 7.5f));
     }
 
