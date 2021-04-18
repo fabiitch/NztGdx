@@ -26,6 +26,17 @@ public class HudDebug {
 		}
 	}
 
+	public static boolean exist(String label) {
+		if (instance == null) {
+			for (HudDebugItem item : arrayBeforeInit)
+				if (label.equals(item.name))
+					return true;
+			return false;
+		} else {
+			return instance.container.exist(label);
+		}
+	}
+
 	public static void update(String name, Object value) {
 		if (instance != null)
 			instance.container.update(name, value);
@@ -134,6 +145,9 @@ public class HudDebug {
 		addRightMiddle(name, value, Color.WHITE);
 	}
 
+	public static void addItem(int position, String name, Object value) {
+		addItem(position, name, value, Color.WHITE);
+	}
 	public static void addItem(int position, String name, Object value, Color color) {
 		if (instance == null) {
 			addInitList(name, value, color, position);

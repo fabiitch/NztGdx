@@ -100,6 +100,12 @@ public abstract class EntityContactListener implements ContactListener {
     }
 
     protected void logContactEvent(String eventName, Entity entityA, Entity entityB) {
+        if (typeMapper.get(entityA) == null || typeMapper.get(entityB) == null) {
+            String a = typeMapper.get(entityA) != null ? typeMapper.get(entityA).name : "Null";
+            String b = typeMapper.get(entityB) != null ? typeMapper.get(entityB).name : "Null";
+            System.out.println("Problem ! A=" + a + "   B=" + b);
+        }
+
         TagLogger.info(LogTagsBase.B2D_CONTACT, eventName,
                 typeMapper.get(entityA).name + " / " + typeMapper.get(entityB).name);
     }
@@ -110,7 +116,7 @@ public abstract class EntityContactListener implements ContactListener {
 
     public void destroyEntity(Entity entity) {
         entity.add(RemoveEntityComponent.getNew());
-        b2dMapper.get(entity).doDestroy=true;
+        b2dMapper.get(entity).doDestroy = true;
     }
 
 }

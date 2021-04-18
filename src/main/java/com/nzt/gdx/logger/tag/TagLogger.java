@@ -18,6 +18,7 @@ import com.nzt.gdx.logger.utils.NzLoggable;
  */
 
 //TODO tres important vérifié les nb d'instance d'enum
+    //TODO a revoir pour le fameux final sur loglevel
 public class TagLogger {
 
 	private final static Map<Enum<?>, Boolean> tagMap = new HashMap<Enum<?>, Boolean>();
