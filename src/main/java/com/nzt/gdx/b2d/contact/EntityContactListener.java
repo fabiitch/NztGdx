@@ -48,6 +48,9 @@ public abstract class EntityContactListener implements ContactListener {
 
     public abstract void doEndContact(Contact contact, Entity entityA, Entity entityB);
 
+    public abstract void doPreSolve(Contact contact, Manifold oldManifold, Entity entityA, Entity entityB);
+
+    public abstract void doPostSolve(Contact contact, ContactImpulse impulse, Entity entityA, Entity entityB);
 
     @Override
     public void endContact(Contact contact) {
@@ -65,13 +68,20 @@ public abstract class EntityContactListener implements ContactListener {
 
     @Override
     public void preSolve(Contact contact, Manifold oldManifold) {
-        System.out.println("presolve");
+        Fixture fa = contact.getFixtureA();
+        Fixture fb = contact.getFixtureB();
+        Entity entityA = (Entity) fa.getBody().getUserData();
+        Entity entityB = (Entity) fb.getBody().getUserData();
+        doPreSolve(contact, oldManifold, entityA, entityB);
     }
 
     @Override
     public void postSolve(Contact contact, ContactImpulse impulse) {
-        // TODO Auto-generated method stub
-        System.out.println("postSolve");
+        Fixture fa = contact.getFixtureA();
+        Fixture fb = contact.getFixtureB();
+        Entity entityA = (Entity) fa.getBody().getUserData();
+        Entity entityB = (Entity) fb.getBody().getUserData();
+        doPostSolve(contact, impulse, entityA, entityB);
     }
 
     /**
