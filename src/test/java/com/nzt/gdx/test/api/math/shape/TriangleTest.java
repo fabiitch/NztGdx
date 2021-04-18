@@ -43,21 +43,16 @@ public class TriangleTest {
 
 	@Test
 	public void getDirTest() {
-		final Vector2 BCNor = v(0, 5).add(5,0).nor();
-		System.out.println(BCNor);
-		for (int i = 0; i < 100; i++) {
-			System.out.println(triangle.toString());
-			System.out.println(triangle.toString(true));
-			triangle.getDir(posTest, 0, 1);
-			VTestUtils.assertEquals(v(0, 1), posTest, ANGLE_TOLERANCE);
+		triangle.getDir(posTest, 0, 1);
+		VTestUtils.assertEquals(v(0, 1), posTest, ANGLE_TOLERANCE);
 
-			triangle.getDir(posTest, 0, 2);
-			VTestUtils.assertEquals(v(1, 0), posTest, ANGLE_TOLERANCE);
+		triangle.getDir(posTest, 0, 2);
+		VTestUtils.assertEquals(v(1, 0), posTest, ANGLE_TOLERANCE);
 
-			triangle.getDir(posTest, 1, 2);
-			VTestUtils.assertEquals(BCNor, posTest, ANGLE_TOLERANCE);
-			moveAndRotate();
-		}
+		triangle.getDir(posTest, 1, 2);
+		final Vector2 BCNor = v(5, 0).sub(0, 5).nor();
+		VTestUtils.assertEquals(BCNor, posTest, ANGLE_TOLERANCE);
+		moveAndRotate();
 	}
 
 	@Test

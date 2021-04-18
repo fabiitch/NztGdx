@@ -36,7 +36,7 @@ public abstract class BaseInputHandler implements InputProcessor {
             TagLogger.info(LogTagsBase.INPUT, "keyDown", "keycode:" + keycode);
 
         if (keycode == Keys.P) {
-            B2DDebug.logInfomation(Application.LOG_DEBUG);
+            B2DDebug.logInformation(Application.LOG_DEBUG);
             return true;
         } else if (keycode == Keys.O) {
             PoolsDebug.debugPools(Application.LOG_DEBUG);

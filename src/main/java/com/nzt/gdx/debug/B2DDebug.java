@@ -2,6 +2,7 @@ package com.nzt.gdx.debug;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.physics.box2d.Contact;
+import com.badlogic.gdx.physics.box2d.Manifold;
 import com.badlogic.gdx.physics.box2d.World;
 import com.nzt.gdx.debug.hud.HudDebugPosition;
 import com.nzt.gdx.debug.hud.base.HudDebug;
@@ -39,7 +40,7 @@ public class B2DDebug {
         HudDebug.update("World VelocityThreshold", World.getVelocityThreshold());
     }
 
-    public static void logInfomation(int logLevel) {
+    public static void logInformation(int logLevel) {
         if (world != null) {
             LoggerTagBlockUtils.startBlock(logLevel, LogTagsBase.B2D_INFO, "Box2D World Recap");
             TagLogger.logWithLevel(logLevel, LogTagsBase.B2D_INFO, "Body count", world.getBodyCount() + "");
@@ -54,6 +55,7 @@ public class B2DDebug {
         }
     }
 
+    //TODO a voir si vraiment utile ...
     public static void debugContact(String eventName, Contact contact) {
         LoggerTagBlockUtils.startBlockDebug(LogTagsBase.B2D_CONTACT, "Contact Debug");
         TagLogger.debug(LogTagsBase.B2D_CONTACT,"getChildIndexA", "" + contact.getChildIndexA());
