@@ -69,7 +69,6 @@ public class SpriteRenderSystem extends SortedIteratingSystem {
 			}
 			sprite = spriteC.sprite;
 			position = p.position;
-
 			sprite.setPosition(position.x - sprite.getWidth() / 2, position.y - sprite.getHeight() / 2);
 			sprite.setRotation(MathUtils.radiansToDegrees * p.angleRadian);
 			sprite.draw(batch);
