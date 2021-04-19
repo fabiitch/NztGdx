@@ -3,146 +3,172 @@ package com.nzt.gdx.debug.hud.base;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
-import com.nzt.gdx.debug.utils.DebugDisplayUtils;
 import com.nzt.gdx.debug.hud.HudDebugPosition;
+import com.nzt.gdx.debug.utils.DebugDisplayUtils;
 
 //TODO padding on android
 class HudDebugContainer {
 
-    private Skin skin;
-    private Stage stage;
+	private Skin skin;
+	private Stage stage;
 
-    private int topR, topM, topL, botR, botM, botL, rightM, leftM;
-    private Map<String, Label> mapLabels;
-    float standartRight = 100;
+	private int topR, topM, topL, botR, botM, botL, rightM, leftM;
+	private final Map<String, HudDebugLabel> mapLabels;
 
-    public HudDebugContainer(Stage stage, Skin skin) {
-        this.skin = skin;
-        this.stage = stage;
-        this.mapLabels = new HashMap<>();
-    }
+	public HudDebugContainer(Stage stage, Skin skin) {
+		this.skin = skin;
+		this.stage = stage;
+		this.mapLabels = new HashMap<>();
+	}
 
-    public void remove(String label) {
-        Label labelStage = mapLabels.get(label);
+	public void remove(String label) {
+		HudDebugLabel labelStage = mapLabels.get(label);
+		if (labelStage != null) {
+			int positionOnStage = labelStage.positionOnStage;
+			int positionLabel = labelStage.position;
+			mapLabels.remove(label);
+			labelStage.remove();
+			labelStage = null;
 
-        if (label != null) {
-            mapLabels.remove(label);
-            labelStage.remove();
-        }
+			removeCount(positionOnStage);
+			HudDebugUtils.replaceLabels(positionOnStage, positionLabel, stage, mapLabels);
+		}
+	}
 
-    }
+	public boolean exist(String label) {
+		return mapLabels.get(label) != null;
+	}
 
-    public boolean exist(String label) {
-        return mapLabels.get(label) != null;
-    }
+	public void update(String name, Object value) {
+		Label label = mapLabels.get(name);
+		if (label == null) {
+			System.out.println(name);
+		}
+		label.setText(name + " : " + DebugDisplayUtils.printValue(value));
+	}
 
-    public void update(String name, Object value) {
-        Label label = mapLabels.get(name);
-        if (label == null) {
-            System.out.println(name);
-        }
-        label.setText(name + " : " + DebugDisplayUtils.printValue(value));
-    }
+	public void addTopLeft(String name, Object value, Color color) {
+		topL++;
+		HudDebugLabel label = createLabel(HudDebugPosition.TOP_LEFT, topL, name, value, color);
+		HudDebugUtils.setDebugLabelPosition(stage, label);
+		label.setPosition(1, stage.getViewport().getWorldHeight() - label.getHeight() * topL - 1);
+	}
 
-    public void addTopLeft(String name, Object value, Color color) {
-        topL++;
-        Label label = createLabel(name, value, color);
-        label.setPosition(1, stage.getViewport().getWorldHeight() - label.getHeight() * topL - 1);
-    }
+	public void addTopMiddle(String name, Object value, Color color) {
+		topM++;
+		HudDebugLabel label = createLabel(HudDebugPosition.TOP_MIDDLE, topM, name, value, color);
+		HudDebugUtils.setDebugLabelPosition(stage, label);
+	}
 
-    public void addTopMiddle(String name, Object value, Color color) {
-        topM++;
-        Label label = createLabel(name, value, color);
-        label.setPosition(stage.getViewport().getWorldWidth() / 2 - stage.getViewport().getWorldWidth() / 20,
-                stage.getViewport().getWorldHeight() - label.getHeight() * topM - 1);
-    }
+	public void addTopRight(String name, Object value, Color color) {
+		topR++;
+		HudDebugLabel label = createLabel(HudDebugPosition.TOP_RIGHT, topR, name, value, color);
+		HudDebugUtils.setDebugLabelPosition(stage, label);
+	}
 
-    public void addTopRight(String name, Object value, Color color) {
-        topR++;
-        Label label = createLabel(name, value, color);
-        float witdhMax = Math.max(label.getWidth(), standartRight);
-        label.setPosition(stage.getViewport().getWorldWidth() - witdhMax - 10,
-                stage.getViewport().getWorldHeight() - label.getHeight() * topR - 1);
-    }
+	public void addBotLeft(String name, Object value, Color color) {
+		botL++;
+		HudDebugLabel label = createLabel(HudDebugPosition.BOT_LEFT, botL, name, value, color);
+		HudDebugUtils.setDebugLabelPosition(stage, label);
+	}
 
-    public void addBotLeft(String name, Object value, Color color) {
-        botL++;
-        Label label = createLabel(name, value, color);
-        label.setPosition(4, label.getHeight() * (botL - 1) + 1);
-    }
+	public void addBotMiddle(String name, Object value, Color color) {
+		botM++;
+		HudDebugLabel label = createLabel(HudDebugPosition.BOT_MIDDLE, botM, name, value, color);
+		HudDebugUtils.setDebugLabelPosition(stage, label);
+	}
 
-    public void addBotMiddle(String name, Object value, Color color) {
-        botM++;
-        Label label = createLabel(name, value, color);
-        float x = Math.max(label.getWidth() + 2, standartRight);
-        label.setPosition(stage.getViewport().getWorldWidth() / 2 - stage.getViewport().getWorldWidth() / 20,
-                label.getHeight() * (botM - 1) + 1);
-    }
+	public void addBotRight(String name, Object value, Color color) {
+		botR++;
+		HudDebugLabel label = createLabel(HudDebugPosition.BOT_RIGHT, botR, name, value, color);
+		HudDebugUtils.setDebugLabelPosition(stage, label);
+	}
 
-    public void addBotRight(String name, Object value, Color color) {
-        botR++;
-        Label label = createLabel(name, value, color);
-        float x = Math.max(label.getWidth() + 2, standartRight);
-        label.setPosition(stage.getViewport().getWorldWidth() - x, label.getHeight() * (botR - 1) + 1);
-    }
+	public void addLeftMiddle(String name, Object value, Color color) {
+		leftM++;
+		HudDebugLabel label = createLabel(HudDebugPosition.LEFT_MIDDLE, leftM, name, value, color);
+		HudDebugUtils.setDebugLabelPosition(stage, label);
+	}
 
-    public void addLeftMiddle(String name, Object value, Color color) {
-        leftM++;
-        Label label = createLabel(name, value, color);
-        label.setPosition(1, stage.getViewport().getWorldHeight() / 2 + stage.getViewport().getWorldHeight() / 6
-                - label.getHeight() * leftM - 1 - Gdx.graphics.getSafeInsetTop());
-    }
+	public void addRightMiddle(String name, Object value, Color color) {
+		rightM++;
+		HudDebugLabel label = createLabel(HudDebugPosition.RIGHT_MIDDLE, rightM, name, value, color);
+		HudDebugUtils.setDebugLabelPosition(stage, label);
+	}
 
-    public void addRightMiddle(String name, Object value, Color color) {
-        rightM++;
-        Label label = createLabel(name, value, color);
-        float x = Math.max(label.getWidth() + 2, standartRight);
-        label.setPosition(stage.getViewport().getWorldWidth() - x,
-                stage.getViewport().getWorldHeight() / 2 + stage.getViewport().getWorldHeight() / 6
-                        - label.getHeight() * rightM - 1 - Gdx.graphics.getSafeInsetTop());
+	public HudDebugLabel createLabel(int positionOnstage, int position, String name, Object value, Color color) {
+		HudDebugLabel label = new HudDebugLabel(positionOnstage, position,
+				name + " : " + DebugDisplayUtils.printValue(value), skin);
+		mapLabels.put(name, label);
+		stage.addActor(label);
+		label.setColor(color);
+		return label;
+	}
 
-    }
+	public void addItem(HudDebugItem item) {
+		switch (item.position) {
+		case HudDebugPosition.TOP_LEFT:
+			this.addTopLeft(item.name, item.value, item.color);
+			break;
+		case HudDebugPosition.TOP_MIDDLE:
+			this.addTopMiddle(item.name, item.value, item.color);
+			break;
+		case HudDebugPosition.TOP_RIGHT:
+			this.addTopRight(item.name, item.value, item.color);
+			break;
+		case HudDebugPosition.BOT_LEFT:
+			this.addBotLeft(item.name, item.value, item.color);
+			break;
+		case HudDebugPosition.BOT_MIDDLE:
+			this.addBotMiddle(item.name, item.value, item.color);
+			break;
+		case HudDebugPosition.BOT_RIGHT:
+			this.addBotRight(item.name, item.value, item.color);
+			break;
+		case HudDebugPosition.LEFT_MIDDLE:
+			this.addLeftMiddle(item.name, item.value, item.color);
+			break;
+		case HudDebugPosition.RIGHT_MIDDLE:
+			this.addRightMiddle(item.name, item.value, item.color);
+			break;
+		default:
+			break;
+		}
+	}
 
-    public Label createLabel(String name, Object value, Color color) {
-        Label label = new Label(name + " : " + DebugDisplayUtils.printValue(value), skin);
-        mapLabels.put(name, label);
-        stage.addActor(label);
-        label.setColor(color);
-        return label;
-    }
-
-    public void addItem(HudDebugItem item) {
-        switch (item.position) {
-            case HudDebugPosition.topLeft:
-                this.addTopLeft(item.name, item.value, item.color);
-                break;
-            case HudDebugPosition.topMiddle:
-                this.addTopMiddle(item.name, item.value, item.color);
-                break;
-            case HudDebugPosition.topRight:
-                this.addTopRight(item.name, item.value, item.color);
-                break;
-            case HudDebugPosition.botLeft:
-                this.addBotLeft(item.name, item.value, item.color);
-                break;
-            case HudDebugPosition.botMiddle:
-                this.addBotMiddle(item.name, item.value, item.color);
-                break;
-            case HudDebugPosition.botRight:
-                this.addBotRight(item.name, item.value, item.color);
-                break;
-            case HudDebugPosition.leftMiddle:
-                this.addLeftMiddle(item.name, item.value, item.color);
-                break;
-            case HudDebugPosition.rightMiddle:
-                this.addRightMiddle(item.name, item.value, item.color);
-                break;
-        }
-    }
+	private void removeCount(int positionOnStage) {
+		switch (positionOnStage) {
+		case HudDebugPosition.TOP_LEFT:
+			topL--;
+			break;
+		case HudDebugPosition.TOP_MIDDLE:
+			topM--;
+			break;
+		case HudDebugPosition.TOP_RIGHT:
+			topR--;
+			break;
+		case HudDebugPosition.BOT_LEFT:
+			botL--;
+			break;
+		case HudDebugPosition.BOT_MIDDLE:
+			botM--;
+			break;
+		case HudDebugPosition.BOT_RIGHT:
+			botR--;
+			break;
+		case HudDebugPosition.LEFT_MIDDLE:
+			leftM--;
+			break;
+		case HudDebugPosition.RIGHT_MIDDLE:
+			rightM--;
+			break;
+		default:
+			break;
+		}
+	}
 
 }

@@ -1,7 +1,11 @@
 package com.nzt.gdx.test.trials.st.scene2D.widgets.nzt;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
+import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.nzt.gdx.test.trials.st.scene2D.Scene2DTestConstants;
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
 import com.nzt.gdx.test.trials.tester.archi.screens.SimpleTestScreen;
@@ -17,10 +21,14 @@ public class STTouchPadNormalStage extends SimpleTestScreen {
 	private Texture textureBase;
 	private Texture textureKnob;
 
+	BitmapFont font;
+
 	public STTouchPadNormalStage(FastTesterMain main) {
 		super(main);
 		this.stage = new Stage();
 		createTouchPad();
+
+		font = new BitmapFont();
 	}
 
 	private void createTouchPad() {
@@ -35,7 +43,9 @@ public class STTouchPadNormalStage extends SimpleTestScreen {
 	protected void renderScreen(float dt) {
 		this.stage.act();
 		this.stage.draw();
-
+		spriteBatch.begin();
+		font.draw(spriteBatch, "Not Impl //TODO", Gdx.graphics.getWidth() / 2, Gdx.graphics.getHeight() / 2);
+		spriteBatch.end();
 	}
 
 	@Override

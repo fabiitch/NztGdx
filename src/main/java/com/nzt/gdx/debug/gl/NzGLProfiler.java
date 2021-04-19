@@ -1,4 +1,4 @@
-package com.nzt.gdx.debug;
+package com.nzt.gdx.debug.gl;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.profiling.GLProfiler;

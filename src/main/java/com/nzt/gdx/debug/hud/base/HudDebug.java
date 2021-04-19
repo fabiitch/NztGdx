@@ -37,6 +37,20 @@ public class HudDebug {
 		}
 	}
 
+	public static void remove(String label) {
+		if (instance == null) {
+			HudDebugItem toRemove = null;
+			for (HudDebugItem item : arrayBeforeInit) {
+				if (label.equals(item.name)) {
+					arrayBeforeInit.removeValue(toRemove, true);
+					break;
+				}
+			}
+		} else {
+			instance.container.remove(label);
+		}
+	}
+
 	public static void update(String name, Object value) {
 		if (instance != null)
 			instance.container.update(name, value);
@@ -51,7 +65,7 @@ public class HudDebug {
 
 	public static void addTopLeft(String name, Object value, Color color) {
 		if (instance == null) {
-			addInitList(name, value, color, HudDebugPosition.topLeft);
+			addInitList(name, value, color, HudDebugPosition.TOP_LEFT);
 		} else {
 			instance.container.addTopLeft(name, value, color);
 		}
@@ -63,7 +77,7 @@ public class HudDebug {
 
 	public static void addTopMiddle(String name, Object value, Color color) {
 		if (instance == null) {
-			addInitList(name, value, color, HudDebugPosition.topMiddle);
+			addInitList(name, value, color, HudDebugPosition.TOP_MIDDLE);
 		} else {
 			instance.container.addTopMiddle(name, value, color);
 		}
@@ -75,7 +89,7 @@ public class HudDebug {
 
 	public static void addTopRight(String name, Object value, Color color) {
 		if (instance == null) {
-			addInitList(name, value, color, HudDebugPosition.topRight);
+			addInitList(name, value, color, HudDebugPosition.TOP_RIGHT);
 		} else {
 			instance.container.addTopRight(name, value, color);
 		}
@@ -87,7 +101,7 @@ public class HudDebug {
 
 	public static void addBotLeft(String name, Object value, Color color) {
 		if (instance == null) {
-			addInitList(name, value, color, HudDebugPosition.botLeft);
+			addInitList(name, value, color, HudDebugPosition.BOT_LEFT);
 		} else {
 			instance.container.addBotLeft(name, value, color);
 		}
@@ -99,7 +113,7 @@ public class HudDebug {
 
 	public static void addBotMiddle(String name, Object value, Color color) {
 		if (instance == null) {
-			addInitList(name, value, color, HudDebugPosition.botMiddle);
+			addInitList(name, value, color, HudDebugPosition.BOT_MIDDLE);
 		} else {
 			instance.container.addBotMiddle(name, value, color);
 		}
@@ -111,7 +125,7 @@ public class HudDebug {
 
 	public static void addBotRight(String name, Object value, Color color) {
 		if (instance == null) {
-			addInitList(name, value, color, HudDebugPosition.botRight);
+			addInitList(name, value, color, HudDebugPosition.BOT_RIGHT);
 		} else {
 			instance.container.addBotRight(name, value, color);
 		}
@@ -123,7 +137,7 @@ public class HudDebug {
 
 	public static void addLeftMiddle(String name, Object value, Color color) {
 		if (instance == null) {
-			addInitList(name, value, color, HudDebugPosition.leftMiddle);
+			addInitList(name, value, color, HudDebugPosition.LEFT_MIDDLE);
 		} else {
 			instance.container.addLeftMiddle(name, value, color);
 		}
@@ -135,7 +149,7 @@ public class HudDebug {
 
 	public static void addRightMiddle(String name, Object value, Color color) {
 		if (instance == null) {
-			addInitList(name, value, color, HudDebugPosition.rightMiddle);
+			addInitList(name, value, color, HudDebugPosition.RIGHT_MIDDLE);
 		} else {
 			instance.container.addRightMiddle(name, value, color);
 		}
@@ -158,28 +172,28 @@ public class HudDebug {
 
 	public void add(int position, String name, Object value, Color color) {
 		switch (position) {
-		case HudDebugPosition.topLeft:
+		case HudDebugPosition.TOP_LEFT:
 			HudDebug.addTopLeft(name, value, color);
 			break;
-		case HudDebugPosition.topMiddle:
+		case HudDebugPosition.TOP_MIDDLE:
 			HudDebug.addTopMiddle(name, value, color);
 			break;
-		case HudDebugPosition.topRight:
+		case HudDebugPosition.TOP_RIGHT:
 			HudDebug.addTopRight(name, value, color);
 			break;
-		case HudDebugPosition.botLeft:
+		case HudDebugPosition.BOT_LEFT:
 			HudDebug.addBotLeft(name, value, color);
 			break;
-		case HudDebugPosition.botMiddle:
+		case HudDebugPosition.BOT_MIDDLE:
 			HudDebug.addBotMiddle(name, value, color);
 			break;
-		case HudDebugPosition.botRight:
+		case HudDebugPosition.BOT_RIGHT:
 			HudDebug.addBotRight(name, value, color);
 			break;
-		case HudDebugPosition.leftMiddle:
+		case HudDebugPosition.LEFT_MIDDLE:
 			HudDebug.addLeftMiddle(name, value, color);
 			break;
-		case HudDebugPosition.rightMiddle:
+		case HudDebugPosition.RIGHT_MIDDLE:
 			HudDebug.addRightMiddle(name, value, color);
 			break;
 		}

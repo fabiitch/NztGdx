@@ -14,7 +14,7 @@ public class HudGlobalInfo {
 	}
 
 	public HudGlobalInfo() {
-		this(Color.WHITE, HudDebugPosition.topLeft);
+		this(Color.WHITE, HudDebugPosition.TOP_LEFT);
 	}
 
 	public void update(float dt) {

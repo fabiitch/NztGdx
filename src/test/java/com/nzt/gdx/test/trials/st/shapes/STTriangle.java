@@ -1,4 +1,4 @@
-package com.nzt.gdx.test.trials.st.shape;
+package com.nzt.gdx.test.trials.st.shapes;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
@@ -12,7 +12,7 @@ import com.nzt.gdx.test.trials.tester.archi.screens.TestScreenWithHudDebug;
 import com.nzt.gdx.test.trials.tester.selector.TestScreen;
 import com.nzt.gdx.utils.GdxUtils;
 
-@TestScreen(group = "shape")
+@TestScreen(group = "shapes")
 public class STTriangle extends TestScreenWithHudDebug {
 
 	private int mode = 0;
