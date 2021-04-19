@@ -70,7 +70,7 @@ public class SpriteRenderSystem extends SortedIteratingSystem {
 			sprite = spriteC.sprite;
 			position = p.position;
 			sprite.setPosition(position.x - sprite.getWidth() / 2, position.y - sprite.getHeight() / 2);
-			sprite.setRotation(MathUtils.radiansToDegrees * p.angleRadian);
+			sprite.setRotation(MathUtils.radiansToDegrees * p.angleRadian);//TODO voir si check, ya dirty=true dedans
 			sprite.draw(batch);
 		}
 		batch.end();

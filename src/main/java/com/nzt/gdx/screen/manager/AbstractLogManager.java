@@ -1,7 +1,7 @@
 package com.nzt.gdx.screen.manager;
 
 import com.badlogic.gdx.Gdx;
-import com.nzt.gdx.debug.NzGLProfiler;
+import com.nzt.gdx.debug.gl.NzGLProfiler;
 import com.nzt.gdx.debug.perf.frame.PerformanceFrame;
 import com.nzt.gdx.logger.config.InputLoggerConfig;
 import com.nzt.gdx.logger.tag.LogTagsBase;

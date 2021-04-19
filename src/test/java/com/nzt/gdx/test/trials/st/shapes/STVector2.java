@@ -1,4 +1,4 @@
-package com.nzt.gdx.test.trials.st.shape;
+package com.nzt.gdx.test.trials.st.shapes;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
@@ -8,7 +8,7 @@ import com.nzt.gdx.test.trials.tester.selector.TestScreen;
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
 import com.nzt.gdx.test.trials.tester.archi.screens.SimpleTestScreen;
 
-@TestScreen(group = "shape")
+@TestScreen(group = "shapes")
 public class STVector2 extends SimpleTestScreen {
 
 	Vector2 oldDir;

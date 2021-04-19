@@ -19,7 +19,7 @@ public class B2DDebug {
     }
 
     public static void displayHud() {
-        B2DDebug.displayHud(HudDebugPosition.topRight);
+        B2DDebug.displayHud(HudDebugPosition.TOP_RIGHT);
     }
 
     public static void displayHud(int position) {

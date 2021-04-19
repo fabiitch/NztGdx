@@ -2,6 +2,7 @@ package com.nzt.gdx.ashley.components.mvt;
 
 import com.badlogic.ashley.core.ComponentMapper;
 import com.badlogic.ashley.core.Entity;
+import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
 import com.nzt.gdx.ashley.components.abstracts.PoolableComponent;
@@ -35,6 +36,10 @@ public class PositionComponent extends PoolableComponent {
     public void setPosition(Vector2 position) {
         this.position.x = position.x;
         this.position.y = position.y;
+    }
+
+    public void setAngleDeg(float angleDeg){
+        this.angleRadian = MathUtils.degRad * angleDeg;
     }
 
     public Vector2 getPosition() {

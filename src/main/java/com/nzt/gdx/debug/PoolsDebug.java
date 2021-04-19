@@ -3,8 +3,6 @@ package com.nzt.gdx.debug;
 import java.lang.reflect.Field;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.ObjectMap;
 import com.badlogic.gdx.utils.ObjectMap.Entry;
 import com.badlogic.gdx.utils.Pool;
@@ -38,8 +36,9 @@ public class PoolsDebug {
                 HudDebug.addItem(position, key.getSimpleName(), sb.toString());
             }
         }
-
     }
+	
+	
 	/**
 	 * debug pools
      */

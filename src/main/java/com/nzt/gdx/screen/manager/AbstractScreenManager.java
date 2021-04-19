@@ -82,6 +82,9 @@ public abstract class AbstractScreenManager<M extends AbstractMain> {
                 currentScreen.dispose();
                 currentScreen = null;
             }
+            main.sb.flush();
+            main.nzShapeRenderer.flush();
+            main.modelBatch.flush();
         }
         currentScreen = screen;
         main.logManager.nzGlProfiler.setScreen(currentScreen);

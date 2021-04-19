@@ -29,7 +29,7 @@ public class B2DWorldSystem extends IteratingSystem {
     private Array<Entity> toRemove;
 
     private ComponentMapper<B2DBodyComponent> b2dMapper = B2DBodyComponent.mapper;
-    private boolean calculRotation;
+    private final boolean calculRotation;
 
     public B2DWorldSystem(World world, boolean calculRotation, int order) {
         super(Family.all(B2DBodyComponent.class, PositionComponent.class).get(), order);

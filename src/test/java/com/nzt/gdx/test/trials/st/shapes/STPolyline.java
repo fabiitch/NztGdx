@@ -1,4 +1,4 @@
-package com.nzt.gdx.test.trials.st.shape;
+package com.nzt.gdx.test.trials.st.shapes;
 
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
 import com.badlogic.gdx.math.Polyline;
@@ -9,7 +9,7 @@ import com.nzt.gdx.test.trials.tester.archi.screens.TestScreenWithHudDebug;
 import com.nzt.gdx.test.trials.tester.selector.TestScreen;
 import com.nzt.gdx.utils.GdxUtils;
 
-@TestScreen(group = "shape")
+@TestScreen(group = "shapes")
 public class STPolyline extends TestScreenWithHudDebug {
 
 	Vector2 middle = GdxUtils.getScreenCenter(new Vector2());

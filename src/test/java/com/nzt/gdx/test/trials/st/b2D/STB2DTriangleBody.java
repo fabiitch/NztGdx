@@ -27,7 +27,7 @@ public class STB2DTriangleBody extends BaseB2DSystemScreen {
         triangleBody = bodyFactory.createPolygonBody(new Vector2[]{a, b, c}, fixtureDefWrapper);
 
         entity = addEntityBody(triangleBody);
-//        triangleBody.setAngularVelocity(1);
+        triangleBody.setAngularVelocity(1);
         SimpleClickInputHandler clickInputHandler = new SimpleClickInputHandler() {
             @Override
             public boolean doTouchDown(int screenX, int screenY, int pointer, int button) {

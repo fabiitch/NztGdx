@@ -7,6 +7,7 @@ import com.badlogic.ashley.systems.IteratingSystem;
 import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.g3d.ModelBatch;
 import com.badlogic.gdx.graphics.g3d.ModelInstance;
+import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector3;
 import com.nzt.gdx.ashley.NztSystemsOrder;
 import com.nzt.gdx.ashley.components.mvt.PositionComponent;
@@ -49,6 +50,7 @@ public class ModelRenderSystem extends IteratingSystem {
 			modelInstance.transform.setToRotation(Vector3.Z, positionComponent.angleRadian);
 
 			modelInstance.transform.rotate(Vector3.X, 90);
+			modelInstance.transform.rotate(Vector3.Y, positionComponent.angleRadian * MathUtils.radiansToDegrees);
 			modelInstance.transform.setTranslation(pos.x, pos.y, pos.z);
 			modelInstance.calculateTransforms();
 			modelBatch.render(modelInstance, model3dComponent.environment);//TODO voir le param environement
