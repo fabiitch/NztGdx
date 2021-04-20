@@ -81,6 +81,7 @@ public abstract class BaseB2DSystemScreen extends BaseSystemScreen {
 	public void doDispose() {
 		world.dispose();
 		nzStage.dispose();
+		engine.getSystem(B2DDebugSystem.class).dispose();
 		skin.dispose();
 
 	}
