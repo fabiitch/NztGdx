@@ -3,7 +3,7 @@ package com.nzt.gdx.input.base;
 import com.badlogic.gdx.Application;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.InputProcessor;
-import com.nzt.gdx.debug.B2DDebug;
+import com.nzt.gdx.debug.B2DDebugUtils;
 import com.nzt.gdx.debug.LogApplicationInfo;
 import com.nzt.gdx.debug.PoolsDebug;
 import com.nzt.gdx.debug.gl.NzGLProfiler;
@@ -36,7 +36,7 @@ public abstract class BaseInputHandler implements InputProcessor {
             TagLogger.info(LogTagsBase.INPUT, "keyDown", "keycode:" + keycode);
 
         if (keycode == Keys.P) {
-            B2DDebug.logInformation(Application.LOG_DEBUG);
+//            B2DDebugUtils.logInformation(Application.LOG_DEBUG);
             return true;
         } else if (keycode == Keys.O) {
             PoolsDebug.debugPools(Application.LOG_DEBUG);

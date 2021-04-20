@@ -1,7 +1,10 @@
 package com.nzt.gdx.debug.gl;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.profiling.GLProfiler;
+import com.badlogic.gdx.physics.box2d.World;
+import com.nzt.gdx.debug.hud.base.HudDebug;
 import com.nzt.gdx.logger.LogUtils;
 import com.nzt.gdx.logger.tag.LogTagsBase;
 import com.nzt.gdx.logger.tag.TagLogger;
@@ -15,7 +18,7 @@ public class NzGLProfiler {
 
     private static boolean logOneShot = false;
 
-    public static void logOneShot(){
+    public static void logOneShot() {
         logOneShot = true;
     }
 
@@ -57,5 +60,26 @@ public class NzGLProfiler {
         Gdx.app.debug("getVertexCount", profiler.getVertexCount() + "");
         Gdx.app.debug("getDrawCalls", profiler.getCalls() + "");
         LogUtils.debugEnd(LogTagsBase.B2D_INFO.name(), "NzGlProfiler " + screenName);
+    }
+
+
+    public void initHudDebug(int positionOnStage, Color color) {
+        HudDebug.addItem(positionOnStage, "Listener", profiler.getListener().getClass().getSimpleName(), color);
+        HudDebug.addItem(positionOnStage, "getCalls", profiler.getCalls(), color);
+        HudDebug.addItem(positionOnStage, "getDrawCalls", profiler.getCalls(), color);
+        HudDebug.addItem(positionOnStage, "getShaderSwitches", profiler.getShaderSwitches(), color);
+        HudDebug.addItem(positionOnStage, "getTextureBindings", profiler.getTextureBindings(), color);
+        HudDebug.addItem(positionOnStage, "getVertexCount", profiler.getVertexCount(), color);
+        HudDebug.addItem(positionOnStage, "getDrawCalls", profiler.getCalls(), color);
+    }
+
+    public void displayHudDebug() {
+        HudDebug.update("Listener", profiler.getListener().getClass().getSimpleName());
+        HudDebug.update("getCalls", profiler.getCalls());
+        HudDebug.update("getDrawCalls", profiler.getCalls());
+        HudDebug.update("getShaderSwitches", profiler.getShaderSwitches());
+        HudDebug.update("getTextureBindings", profiler.getTextureBindings());
+        HudDebug.update("getVertexCount", profiler.getVertexCount());
+        HudDebug.update("getDrawCalls", profiler.getCalls());
     }
 }
