@@ -8,11 +8,11 @@ import com.nzt.gdx.test.trials.tester.archi.screens.stages.STStageScreen;
 import com.nzt.gdx.test.trials.tester.selector.TestScreen;
 
 @TestScreen(group = "scene2D.HudDebug")
-public class STHudDebug extends STStageScreen {
+public class STHudDebugBasic extends STStageScreen {
 
 	private HudDebug hudDebug;
 
-	public STHudDebug(FastTesterMain main) {
+	public STHudDebugBasic(FastTesterMain main) {
 		super(main);
 	}
 

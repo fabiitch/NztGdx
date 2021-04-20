@@ -17,7 +17,8 @@ public class NztSystemsOrder {
 	// 20 render
 	public static final int TILED_MAP_RENDER = 20;
 	public static final int RENDER = 21;
-
+	
+	public static final int HUD_DEBUG = 29;
 	public static final int HUD = 30;
 	public static final int REMOVE_ENTITY = 40;
 	public static final int B2D_DEBUG = 50;

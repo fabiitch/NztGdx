@@ -1,5 +1,8 @@
 package com.nzt.gdx.debug.hud;
 
+/**
+ * Mapping for position on HudDebug
+ */
  public class HudDebugPosition {
 
 

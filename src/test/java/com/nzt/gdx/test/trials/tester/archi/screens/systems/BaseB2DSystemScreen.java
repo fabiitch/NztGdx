@@ -1,68 +1,87 @@
 package com.nzt.gdx.test.trials.tester.archi.screens.systems;
 
 import com.badlogic.ashley.core.Entity;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.World;
+import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.nzt.gdx.ashley.components.b2d.B2DBodyComponent;
 import com.nzt.gdx.ashley.systems.b2d.B2DApplyEventsSystem;
 import com.nzt.gdx.ashley.systems.b2d.B2DDebugSystem;
 import com.nzt.gdx.ashley.systems.b2d.B2DWorldSystem;
 import com.nzt.gdx.b2d.factories.BaseBodyFactory;
+import com.nzt.gdx.debug.hud.base.HudDebug;
+import com.nzt.gdx.scene2D.nz.NzStage;
 import com.nzt.gdx.test.trials.st.b2D.B2DTestConstants;
+import com.nzt.gdx.test.trials.st.scene2D.Scene2DTestConstants;
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
+import com.nzt.gdx.test.trials.tester.archi.systems.HudSystem;
 
 public abstract class BaseB2DSystemScreen extends BaseSystemScreen {
-    public World world;
-    public Camera camera;
-    public BaseBodyFactory bodyFactory;
+	public World world;
+	public Camera camera;
+	public BaseBodyFactory bodyFactory;
 
-    public final float PPM = B2DTestConstants.PPM;
+	private HudDebug debugHud;
+	protected NzStage nzStage;
+	protected Skin skin;
 
-    public BaseB2DSystemScreen(FastTesterMain main) {
-        super(main);
-        this.camera = new OrthographicCamera(B2DTestConstants.WIDTH_PPM, B2DTestConstants.HEIGHT_PPM);
-        this.camera.position.set(0, 0, 0);
-        this.camera.lookAt(0, 0, 0);
+	public final float PPM = B2DTestConstants.PPM;
 
-        this.world = new World(Vector2.Zero, true);
-        B2DWorldSystem worldSystem = new B2DWorldSystem(world, true);
-        B2DApplyEventsSystem b2DApplyEventsSystem = new B2DApplyEventsSystem(world);
-        B2DDebugSystem debugSystem = new B2DDebugSystem(world, camera);
+	public BaseB2DSystemScreen(FastTesterMain main) {
+		super(main);
+		this.camera = new OrthographicCamera(B2DTestConstants.WIDTH_PPM, B2DTestConstants.HEIGHT_PPM);
+		this.camera.position.set(0, 0, 0);
+		this.camera.lookAt(0, 0, 0);
 
-        bodyFactory = new BaseBodyFactory(world, B2DTestConstants.PPM);
+		this.nzStage = new NzStage();
+		this.skin = new Skin(Gdx.files.internal(Scene2DTestConstants.UI_SKIN));
+		HudSystem hudSystem = new HudSystem(nzStage);
+		engine.addSystem(hudSystem);
+		debugHud = new HudDebug(nzStage, skin);
 
-        engine.addSystem(worldSystem);
-        engine.addSystem(b2DApplyEventsSystem);
-        engine.addSystem(debugSystem);
-    }
+		this.world = new World(Vector2.Zero, true);
+		B2DWorldSystem worldSystem = new B2DWorldSystem(world, true);
+		B2DApplyEventsSystem b2DApplyEventsSystem = new B2DApplyEventsSystem(world);
+		B2DDebugSystem debugSystem = new B2DDebugSystem(world, camera);
+		debugSystem.initHudDebug();
 
-    public void transformToPPM(Body body, Vector2 position, float angleRad) {
-        transformToPPM(body, position.x, position.y, angleRad);
-    }
+		bodyFactory = new BaseBodyFactory(world, B2DTestConstants.PPM);
 
-    //screen to PPM
-    public void transformToPPM(Body body, float x, float y, float angleRad) {
-        Vector3 unproject = camera.unproject(new Vector3(x, y, 0));
-        body.setTransform(unproject.x, unproject.y, angleRad);
-    }
+		engine.addSystem(worldSystem);
+		engine.addSystem(b2DApplyEventsSystem);
+		engine.addSystem(debugSystem);
+	}
 
-    public Entity addEntityBody(Body body) {
-        Entity entity = engine.createEntity();
-        engine.addEntity(entity);
-        B2DBodyComponent box2dBodyComponent = engine.createComponent(B2DBodyComponent.class);
-        box2dBodyComponent.body = body;
-        entity.add(box2dBodyComponent);
+	public void transformToPPM(Body body, Vector2 position, float angleRad) {
+		transformToPPM(body, position.x, position.y, angleRad);
+	}
 
-        return entity;
-    }
+	// screen to PPM
+	public void transformToPPM(Body body, float x, float y, float angleRad) {
+		Vector3 unproject = camera.unproject(new Vector3(x, y, 0));
+		body.setTransform(unproject.x, unproject.y, angleRad);
+	}
 
-    @Override
-    public void doDispose() {
-        world.dispose();
+	public Entity addEntityBody(Body body) {
+		Entity entity = engine.createEntity();
+		engine.addEntity(entity);
+		B2DBodyComponent box2dBodyComponent = engine.createComponent(B2DBodyComponent.class);
+		box2dBodyComponent.body = body;
+		entity.add(box2dBodyComponent);
 
-    }
+		return entity;
+	}
+
+	@Override
+	public void doDispose() {
+		world.dispose();
+		nzStage.dispose();
+		skin.dispose();
+
+	}
 }

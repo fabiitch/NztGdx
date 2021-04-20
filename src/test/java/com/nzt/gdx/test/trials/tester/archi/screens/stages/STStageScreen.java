@@ -13,7 +13,6 @@ public abstract class STStageScreen extends SimpleTestScreen {
 
 	public STStageScreen(FastTesterMain main) {
 		super(main);
-		System.out.println("STStageScreen");
 		this.stage = new Stage();
 		this.skin = new Skin(Gdx.files.internal(Scene2DTestConstants.UI_SKIN));
 		Gdx.input.setInputProcessor(stage);
