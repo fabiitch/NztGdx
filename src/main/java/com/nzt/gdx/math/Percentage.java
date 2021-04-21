@@ -2,6 +2,10 @@ package com.nzt.gdx.math;
 
 public class Percentage {
 
+	private Percentage() {
+
+	}
+
 //	pourcentage = (montant partiel / montant total) x 100
 
 	/**

@@ -5,7 +5,6 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.renderers.OrthoCachedTiledMapRenderer;
 import com.nzt.gdx.ashley.NztSystemsOrder;
-import com.nzt.gdx.debug.perf.frame.PerformanceFrameUtils;
 
 public class TiledOrthoCachedRendererSystem extends EntitySystem {
 
@@ -31,10 +30,10 @@ public class TiledOrthoCachedRendererSystem extends EntitySystem {
     }
 
     public void update(float dt) {
-        PerformanceFrameUtils.startSystem(this);
+//        PerformanceFrameUtils.startSystem(this);
         cachedTiledMapRenderer.setView(gameCamera);
         cachedTiledMapRenderer.render();
-        PerformanceFrameUtils.endSystem(this);
+//        PerformanceFrameUtils.endSystem(this);
     }
 
     public void dispose() {

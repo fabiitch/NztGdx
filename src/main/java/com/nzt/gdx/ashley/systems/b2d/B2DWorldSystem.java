@@ -11,7 +11,6 @@ import com.nzt.gdx.ashley.NztSystemsOrder;
 import com.nzt.gdx.ashley.components.b2d.B2DBodyComponent;
 import com.nzt.gdx.ashley.components.mvt.PositionComponent;
 import com.nzt.gdx.ashley.components.mvt.Velocity2DComponent;
-import com.nzt.gdx.debug.perf.frame.PerformanceFrameUtils;
 
 /**
  * System for box2D world it do the world.step
@@ -53,7 +52,7 @@ public class B2DWorldSystem extends IteratingSystem {
 
     @Override
     public void update(float deltaTime) {
-        PerformanceFrameUtils.startSystem(this);
+//        PerformanceFrameUtils.startSystem(this);
         super.update(deltaTime);
         float frameTime = Math.min(deltaTime, 0.25f);
         accumulator += frameTime;
@@ -88,7 +87,7 @@ public class B2DWorldSystem extends IteratingSystem {
             }
         }
         bodiesQueue.clear();
-        PerformanceFrameUtils.endSystem(this);
+//        PerformanceFrameUtils.endSystem(this);
     }
 
     @Override

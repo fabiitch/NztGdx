@@ -1,4 +1,4 @@
-package com.nzt.gdx.test.trials.st.ecs.anonym;
+package com.nzt.gdx.test.trials.st.ecs;
 
 import com.badlogic.ashley.core.Engine;
 import com.badlogic.ashley.core.EntitySystem;

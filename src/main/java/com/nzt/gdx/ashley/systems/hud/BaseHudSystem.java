@@ -3,7 +3,6 @@ package com.nzt.gdx.ashley.systems.hud;
 import com.badlogic.ashley.core.EntitySystem;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.nzt.gdx.ashley.NztSystemsOrder;
-import com.nzt.gdx.debug.perf.frame.PerformanceFrameUtils;
 import com.nzt.gdx.scene2D.nz.NzStage;
 
 public abstract class BaseHudSystem extends EntitySystem {
@@ -25,12 +24,10 @@ public abstract class BaseHudSystem extends EntitySystem {
 
 	@Override
 	public void update(float dt) {
-		PerformanceFrameUtils.startSystem(this);
 		super.update(dt);
 		doUpdate(dt);
 		nzStage.act(dt);
 		nzStage.draw();
-		PerformanceFrameUtils.endSystem(this);
 	}
 
 	public void dispose() {

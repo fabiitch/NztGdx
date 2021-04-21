@@ -68,8 +68,8 @@ class HudDebugUtils {
         }
     }
 
-    public static void changeColorBeforeInit(String label, Color color, Array<HudDebugItem> arrayBeforeInit) {
-        for (HudDebugItem item : arrayBeforeInit.items) {
+    public static void changeColorBeforeInit(String label, Color color, Array<PreInitItem> arrayBeforeInit) {
+        for (PreInitItem item : arrayBeforeInit.items) {
             if (item.name.equals(label))
                 item.color = color;
         }

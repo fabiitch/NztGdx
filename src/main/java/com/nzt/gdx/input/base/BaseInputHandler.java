@@ -3,11 +3,9 @@ package com.nzt.gdx.input.base;
 import com.badlogic.gdx.Application;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.InputProcessor;
-import com.nzt.gdx.debug.B2DDebugUtils;
 import com.nzt.gdx.debug.LogApplicationInfo;
 import com.nzt.gdx.debug.PoolsDebug;
 import com.nzt.gdx.debug.gl.NzGLProfiler;
-import com.nzt.gdx.debug.perf.frame.PerformanceFrameUtils;
 import com.nzt.gdx.logger.config.InputLoggerConfig;
 import com.nzt.gdx.logger.tag.LogTagsBase;
 import com.nzt.gdx.logger.tag.TagLogger;
@@ -48,7 +46,7 @@ public abstract class BaseInputHandler implements InputProcessor {
             LogApplicationInfo.logGraphics(Application.LOG_DEBUG);
             return true;
         } else if (keycode == Keys.K) {
-            PerformanceFrameUtils.logAveragePercent();
+//            PerformanceFrameUtils.logAveragePercent();
             return true;
         } else if (keycode == Keys.I) {
             NzGLProfiler.logOneShot();

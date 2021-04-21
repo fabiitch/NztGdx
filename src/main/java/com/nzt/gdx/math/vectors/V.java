@@ -5,6 +5,10 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
 
 public class V {
+	
+	private V() {
+		
+	}
 
     //TODO viré le cpy
     public static <V extends Vector<V>> V directionTo(V from, V to) {

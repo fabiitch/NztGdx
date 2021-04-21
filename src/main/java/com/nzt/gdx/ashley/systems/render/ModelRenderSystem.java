@@ -12,7 +12,6 @@ import com.badlogic.gdx.math.Vector3;
 import com.nzt.gdx.ashley.NztSystemsOrder;
 import com.nzt.gdx.ashley.components.mvt.PositionComponent;
 import com.nzt.gdx.ashley.components.renders.Model3DComponent;
-import com.nzt.gdx.debug.perf.frame.PerformanceFrameUtils;
 
 public class ModelRenderSystem extends IteratingSystem {
 	private ModelBatch modelBatch;
@@ -33,7 +32,6 @@ public class ModelRenderSystem extends IteratingSystem {
 
 	@Override
 	public void update(float deltaTime) {
-		PerformanceFrameUtils.startSystem(this);
 		modelBatch.begin(camera);
 		super.update(deltaTime);
 		modelBatch.end();

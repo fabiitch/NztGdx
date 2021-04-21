@@ -16,7 +16,6 @@ import com.nzt.gdx.ashley.NztSystemsOrder;
 import com.nzt.gdx.ashley.comparators.ZComparator;
 import com.nzt.gdx.ashley.components.mvt.PositionComponent;
 import com.nzt.gdx.ashley.components.renders.SpriteComponent;
-import com.nzt.gdx.debug.perf.frame.PerformanceFrameUtils;
 
 /**
  * used for rendering with SB
@@ -51,8 +50,6 @@ public class SpriteRenderSystem extends SortedIteratingSystem {
 
 	@Override
 	public void update(float deltaTime) {
-		PerformanceFrameUtils.startSystem(this);
-
 		super.update(deltaTime);
 		renderQueue.sort(comparator);
 		batch.setProjectionMatrix(cam.combined);
@@ -75,7 +72,6 @@ public class SpriteRenderSystem extends SortedIteratingSystem {
 		}
 		batch.end();
 		renderQueue.clear();
-		PerformanceFrameUtils.endSystem(this);
 	}
 
 	@Override
