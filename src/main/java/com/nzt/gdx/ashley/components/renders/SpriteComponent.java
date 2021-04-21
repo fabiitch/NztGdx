@@ -14,7 +14,7 @@ import com.nzt.gdx.ashley.systems.render.SpriteRenderSystem;
  */
 public class SpriteComponent extends BaseComponent {
 	public static ComponentMapper<SpriteComponent> mapper = ComponentMapper.getFor(SpriteComponent.class);
-	
+
 	public Sprite sprite;
 	public boolean visible = true;
 
@@ -22,6 +22,10 @@ public class SpriteComponent extends BaseComponent {
 		super();
 		this.sprite = new Sprite(texture);
 		sprite.setOriginCenter();
+	}
+
+	public SpriteComponent(Sprite sprite) {
+		this.sprite = sprite;
 	}
 
 	public SpriteComponent(Texture texture, float width, float height) {

@@ -1,11 +1,11 @@
-package com.nzt.gdx.debug.perf.frame;
+package com.nzt.gdx.debug.perf;
 
 import com.nzt.gdx.math.Percentage;
 
 /*
  * simple class for stock perf time
  */
-class PerformanceCounter implements Comparable<PerformanceCounter> {
+class PerformanceAction implements Comparable<PerformanceAction> {
 
 	public String action;
 	private long startNanoTime;
@@ -18,7 +18,7 @@ class PerformanceCounter implements Comparable<PerformanceCounter> {
 	public float percentFrameCurrent;
 	public float percentFrameAverage;
 
-	public PerformanceCounter(String action) {
+	public PerformanceAction(String action) {
 		this.action = action;
 	}
 
@@ -31,14 +31,28 @@ class PerformanceCounter implements Comparable<PerformanceCounter> {
 		currentExecTime += stopTime - startNanoTime;
 	}
 
-	public void endFrame(long timeLastFrame, long timeAverageFrame) {
+	public void endFrame(long frameTime) {
 		minTime = Math.min(minTime, currentExecTime);
 		maxTime = Math.max(maxTime, currentExecTime);
 		averageTime = (averageTime + currentExecTime) / 2;
 
-		percentFrameCurrent = Percentage.getPercent(currentExecTime, timeLastFrame);
-		percentFrameAverage = (percentFrameAverage + percentFrameCurrent) / 2;
+		percentFrameCurrent = Percentage.getPercent(currentExecTime, frameTime);
+
+		if (percentFrameAverage == 0f) {
+			percentFrameAverage = (percentFrameAverage + percentFrameCurrent) / 2;
+		} else {
+			percentFrameAverage = (percentFrameAverage + percentFrameCurrent) / 2;
+		}
+
 		currentExecTime = 0;
+	}
+
+	public String getPercentLastFrame() {
+		return percentFrameCurrent + " %";
+	}
+
+	public String getPercentFrameAverage() {
+		return percentFrameAverage + " %";
 	}
 
 	@Override
@@ -49,7 +63,7 @@ class PerformanceCounter implements Comparable<PerformanceCounter> {
 	}
 
 	@Override
-	public int compareTo(PerformanceCounter o) {
+	public int compareTo(PerformanceAction o) {
 		return Float.compare(averageTime, o.averageTime);
 	}
 }

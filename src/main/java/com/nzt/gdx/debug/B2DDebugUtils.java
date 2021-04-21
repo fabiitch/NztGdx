@@ -20,12 +20,12 @@ public class B2DDebugUtils {
 	}
 
 	public static void initHudDebug(World world, int positionOnStage, Color color) {
-		HudDebug.addItem(positionOnStage, "Body count", world.getBodyCount(), color);
-		HudDebug.addItem(positionOnStage, "Contact count", world.getContactCount(), color);
-		HudDebug.addItem(positionOnStage, "Fixture count", world.getFixtureCount(), color);
-		HudDebug.addItem(positionOnStage, "Joint count", world.getJointCount(), color);
-		HudDebug.addItem(positionOnStage, "Proxy count", world.getProxyCount(), color);
-		HudDebug.addItem(positionOnStage, "World VelocityThreshold", World.getVelocityThreshold(), color);
+		HudDebug.addItem("Body count", world.getBodyCount(), positionOnStage, color);
+		HudDebug.addItem("Contact count", world.getContactCount(), positionOnStage, color);
+		HudDebug.addItem("Fixture count", world.getFixtureCount(), positionOnStage, color);
+		HudDebug.addItem("Joint count", world.getJointCount(), positionOnStage, color);
+		HudDebug.addItem("Proxy count", world.getProxyCount(), positionOnStage, color);
+		HudDebug.addItem("World VelocityThreshold", World.getVelocityThreshold(), positionOnStage, color);
 	}
 
 	public static void updateHudDebug(World world) {

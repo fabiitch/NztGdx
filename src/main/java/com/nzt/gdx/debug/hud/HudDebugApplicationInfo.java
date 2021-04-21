@@ -4,16 +4,16 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.nzt.gdx.debug.hud.base.HudDebug;
 
-public class HudDebugGlobalInfo {
+public class HudDebugApplicationInfo {
 
-	public HudDebugGlobalInfo(int positionHud, Color color) {
-		HudDebug.addItem(positionHud, "FPS", Gdx.graphics.getFramesPerSecond(), color);
-		HudDebug.addItem(positionHud, "DT", 0, color);
-		HudDebug.addItem(positionHud, "NativeHeap", Gdx.app.getNativeHeap(), color);
-		HudDebug.addItem(positionHud, "JavaHeap", Gdx.app.getJavaHeap(), color);
+	public HudDebugApplicationInfo(int positionOnStage, Color color) {
+		HudDebug.addItem("FPS", Gdx.graphics.getFramesPerSecond(), positionOnStage, color);
+		HudDebug.addItem("DT", 0, positionOnStage, color);
+		HudDebug.addItem("NativeHeap", Gdx.app.getNativeHeap(), positionOnStage, color);
+		HudDebug.addItem("JavaHeap", Gdx.app.getJavaHeap(), positionOnStage, color);
 	}
 
-	public HudDebugGlobalInfo() {
+	public HudDebugApplicationInfo() {
 		this(HudDebugPosition.TOP_LEFT, Color.WHITE);
 	}
 
@@ -37,6 +37,5 @@ public class HudDebugGlobalInfo {
 		HudDebug.remove("DT");
 		HudDebug.remove("NativeHeap");
 		HudDebug.remove("JavaHeap");
-
 	}
 }

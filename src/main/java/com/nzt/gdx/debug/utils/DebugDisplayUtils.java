@@ -43,7 +43,7 @@ public class DebugDisplayUtils {
             return "0";
         return floatFormatter.format(f);
     }
-
+    
     public static String printVector2(Vector2 v) {
         if (v.isZero())
             return Vector2.Zero.toString();

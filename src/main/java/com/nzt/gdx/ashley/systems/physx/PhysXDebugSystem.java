@@ -9,9 +9,12 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.nzt.gdx.ashley.NztSystemsOrder;
 import com.nzt.gdx.ashley.components.physx.PhysXComponent;
-import com.nzt.gdx.debug.perf.frame.PerformanceFrameUtils;
 import com.nzt.gdx.graphics.renderers.NzShapeRenderer;
 
+/**
+ * My Phyx debug
+ *
+ */
 public class PhysXDebugSystem extends IteratingSystem {
     private static ComponentMapper<PhysXComponent> shapeMapper = PhysXComponent.mapper;
     private NzShapeRenderer nzShapeRenderer;
@@ -29,13 +32,13 @@ public class PhysXDebugSystem extends IteratingSystem {
 
     @Override
     public void update(float deltaTime) {
-        PerformanceFrameUtils.startSystem(this);
+//        PerformanceFrameUtils.startSystem(this);
         nzShapeRenderer.setProjectionMatrix(camera.combined);
         nzShapeRenderer.begin(ShapeRenderer.ShapeType.Line);
         nzShapeRenderer.setColor(Color.GREEN);
         super.update(deltaTime);
         nzShapeRenderer.end();
-        PerformanceFrameUtils.endSystem(this);
+//        PerformanceFrameUtils.endSystem(this);
     }
 
     @Override

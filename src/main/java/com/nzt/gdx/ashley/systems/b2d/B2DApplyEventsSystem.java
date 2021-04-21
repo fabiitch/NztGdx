@@ -7,7 +7,6 @@ import com.badlogic.ashley.systems.IteratingSystem;
 import com.badlogic.gdx.physics.box2d.World;
 import com.nzt.gdx.ashley.NztSystemsOrder;
 import com.nzt.gdx.ashley.components.b2d.B2DBodyComponent;
-import com.nzt.gdx.debug.perf.frame.PerformanceFrameUtils;
 
 /**
  * apply b2D event
@@ -27,9 +26,9 @@ public class B2DApplyEventsSystem extends IteratingSystem {
 
 	@Override
 	public void update(float dt) {
-		PerformanceFrameUtils.startSystem(this);
+//		PerformanceFrameUtils.startSystem(this);
 		super.update(dt);
-		PerformanceFrameUtils.endSystem(this);
+//		PerformanceFrameUtils.endSystem(this);
 	}
 
 	@Override

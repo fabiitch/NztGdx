@@ -3,6 +3,7 @@ package com.nzt.gdx.debug;
 import java.lang.reflect.Field;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.utils.ObjectMap;
 import com.badlogic.gdx.utils.ObjectMap.Entry;
 import com.badlogic.gdx.utils.Pool;
@@ -18,41 +19,37 @@ public class PoolsDebug {
 
 	}
 
-    /**
-     * Display in HudDebug
-     * @param position
-     */
-	public static <T> void displayHud(int position) {
-        ObjectMap<Class<T>, Pool<T>> pools = getPools();
-        for (Entry<Class<T>, Pool<T>> entry : pools.entries()) {
-            Class<T> key = entry.key;
-            Pool<T> pool = entry.value;
-            boolean exist = HudDebug.exist(key.getSimpleName());
-            StringBuffer sb = new StringBuffer();
-            sb.append("Max=" + pool.max + " peak=" + pool.peak);
-            if (exist) {
-                HudDebug.update(key.getSimpleName(), sb.toString());
-            }else{
-                HudDebug.addItem(position, key.getSimpleName(), sb.toString());
-            }
-        }
-    }
-	
-	
+	public static <T> void displayHudDebug(int position, Color color) {
+		ObjectMap<Class<T>, Pool<T>> pools = getPools();
+		StringBuffer sb = new StringBuffer();
+		for (Entry<Class<T>, Pool<T>> entry : pools.entries()) {
+			Class<T> key = entry.key;
+			Pool<T> pool = entry.value;
+			boolean exist = HudDebug.exist("Pool" + key.getSimpleName());
+			sb.append("Max=" + pool.max + " peak=" + pool.peak);
+			if (exist) {
+				HudDebug.update("Pool" + key.getSimpleName(), sb.toString());
+			} else {
+				HudDebug.addItem("Pool" + key.getSimpleName(), sb.toString(), position, color);
+			}
+			sb.setLength(0);
+		}
+	}
+
 	/**
 	 * debug pools
-     */
-    public static <T> ObjectMap<Class<T>, Pool<T>> getPools() {
-        ObjectMap<Class<T>, Pool<T>> typePools = null;
-        try {
-            Field poolsMap = Pools.class.getDeclaredField("typePools");
-            poolsMap.setAccessible(true);
-            typePools = (ObjectMap<Class<T>, Pool<T>>) poolsMap.get(null);
-        } catch (Exception e) {
-            Gdx.app.error("PoolsDebug", "error when get pools");
-        }
-        return typePools;
-    }
+	 */
+	public static <T> ObjectMap<Class<T>, Pool<T>> getPools() {
+		ObjectMap<Class<T>, Pool<T>> typePools = null;
+		try {
+			Field poolsMap = Pools.class.getDeclaredField("typePools");
+			poolsMap.setAccessible(true);
+			typePools = (ObjectMap<Class<T>, Pool<T>>) poolsMap.get(null);
+		} catch (Exception e) {
+			Gdx.app.error("PoolsDebug", "error when get pools");
+		}
+		return typePools;
+	}
 
 	/**
 	 * debug pools

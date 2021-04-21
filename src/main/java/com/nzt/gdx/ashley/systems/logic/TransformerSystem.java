@@ -6,7 +6,6 @@ import com.badlogic.ashley.core.Family;
 import com.badlogic.ashley.systems.IteratingSystem;
 import com.nzt.gdx.ashley.NztSystemsOrder;
 import com.nzt.gdx.ashley.components.TransformersComponent;
-import com.nzt.gdx.debug.perf.frame.PerformanceFrameUtils;
 
 public class TransformerSystem extends IteratingSystem {
 
@@ -18,13 +17,6 @@ public class TransformerSystem extends IteratingSystem {
 
 	public TransformerSystem(int order) {
 		super(Family.one(TransformersComponent.class).get(), order);
-	}
-
-	@Override
-	public void update(float dt) {
-		PerformanceFrameUtils.startSystem(this);
-		super.update(dt);
-		PerformanceFrameUtils.endSystem(this);
 	}
 
 	@Override
