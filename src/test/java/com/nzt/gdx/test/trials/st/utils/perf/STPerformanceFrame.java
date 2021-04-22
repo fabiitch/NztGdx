@@ -1,12 +1,12 @@
 package com.nzt.gdx.test.trials.st.utils.perf;
 
+import com.badlogic.ashley.core.Engine;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
-import com.nzt.gdx.ashley.base.NzPooledEngine;
 import com.nzt.gdx.ashley.factories.BaseEntityFactory;
 import com.nzt.gdx.ashley.systems.mvt.Velocity2DSystem;
 import com.nzt.gdx.ashley.systems.render.ShapeRenderSystem;
@@ -20,7 +20,7 @@ import com.nzt.gdx.test.trials.tester.selector.TestScreen;
 @TestScreen(group = "utils.perf")
 public class STPerformanceFrame extends TestScreenWithHudDebug {
 
-	NzPooledEngine engine;
+	Engine engine;
 	BaseEntityFactory factory;
 	Texture texture = new Texture("badlogic.jpg");
 
@@ -30,7 +30,7 @@ public class STPerformanceFrame extends TestScreenWithHudDebug {
 
 	public STPerformanceFrame(FastTesterMain main) {
 		super(main);
-		engine = new NzPooledEngine();
+		engine = new Engine();
 		factory = new BaseEntityFactory(engine);
 		camera = new OrthographicCamera(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 

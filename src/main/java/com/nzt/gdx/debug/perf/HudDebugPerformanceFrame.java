@@ -48,14 +48,13 @@ public class HudDebugPerformanceFrame {
 			HudDebug.update(TOTAL_TIME, DebugDisplayUtils.printNanoToMs(PerformanceFrame.timeLastFrame));
 			HudDebug.update(TOTAL_TIME_PERCENT,
 					Percentage.getPercent(PerformanceFrame.timeFrameAverage, TimeUnit.SECONDS.toNanos(1) / 80f) + " %");
-
 			for (PerformanceAction action : actions) {
 				if (checkAdd)
 					addActionToHudDebug(action);
 
-				HudDebug.update(action.action, action.percentFrameAverage + " %");
+				HudDebug.update(action.action, DebugDisplayUtils.printFloat(action.percentFrameAverage) + " %");
 			}
-
+			internalTimer = 0f;
 		}
 	}
 }

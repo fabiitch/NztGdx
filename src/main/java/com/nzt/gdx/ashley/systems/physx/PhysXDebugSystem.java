@@ -9,6 +9,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.nzt.gdx.ashley.NztSystemsOrder;
 import com.nzt.gdx.ashley.components.physx.PhysXComponent;
+import com.nzt.gdx.debug.perf.PerformanceFrame;
 import com.nzt.gdx.graphics.renderers.NzShapeRenderer;
 
 /**
@@ -28,17 +29,18 @@ public class PhysXDebugSystem extends IteratingSystem {
         super(Family.one(PhysXComponent.class).get(), priority);
         this.nzShapeRenderer = nzShapeRenderer;
         this.camera = camera;
+		PerformanceFrame.addSystem(this);
     }
 
     @Override
     public void update(float deltaTime) {
-//        PerformanceFrameUtils.startSystem(this);
+		PerformanceFrame.startSystem(this);
         nzShapeRenderer.setProjectionMatrix(camera.combined);
         nzShapeRenderer.begin(ShapeRenderer.ShapeType.Line);
         nzShapeRenderer.setColor(Color.GREEN);
         super.update(deltaTime);
         nzShapeRenderer.end();
-//        PerformanceFrameUtils.endSystem(this);
+		PerformanceFrame.endSystem(this);
     }
 
     @Override
