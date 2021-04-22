@@ -8,6 +8,7 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.nzt.gdx.ashley.NztSystemsOrder;
 import com.nzt.gdx.debug.B2DDebugUtils;
 import com.nzt.gdx.debug.hud.HudDebugPosition;
+import com.nzt.gdx.debug.perf.PerformanceFrame;
 
 /**
  * System for Box2D, debugRender
@@ -32,6 +33,8 @@ public class B2DDebugSystem extends EntitySystem {
 		debugRenderer.setDrawAABBs(true);
 		debugRenderer.setDrawContacts(true);
 		debugRenderer.setDrawInactiveBodies(true);
+
+		PerformanceFrame.addSystem(this);
 	}
 
 	public B2DDebugSystem(World world, Camera camera) {
@@ -54,11 +57,11 @@ public class B2DDebugSystem extends EntitySystem {
 
 	@Override
 	public void update(float deltaTime) {
-//		PerformanceFrameUtils.startSystem(this);
+		PerformanceFrame.startSystem(this);
 		debugRenderer.render(world, camera.combined);
 		if (displayHud)
 			updateHudDebug();
-//		PerformanceFrameUtils.endSystem(this);
+		PerformanceFrame.endSystem(this);
 	}
 
 	public void dispose() {

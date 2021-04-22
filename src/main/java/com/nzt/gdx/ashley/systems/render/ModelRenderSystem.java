@@ -12,6 +12,7 @@ import com.badlogic.gdx.math.Vector3;
 import com.nzt.gdx.ashley.NztSystemsOrder;
 import com.nzt.gdx.ashley.components.mvt.PositionComponent;
 import com.nzt.gdx.ashley.components.renders.Model3DComponent;
+import com.nzt.gdx.debug.perf.PerformanceFrame;
 
 public class ModelRenderSystem extends IteratingSystem {
 	private ModelBatch modelBatch;
@@ -24,6 +25,7 @@ public class ModelRenderSystem extends IteratingSystem {
 		super(Family.all(PositionComponent.class, Model3DComponent.class).get(), order);
 		this.camera = camera;
 		this.modelBatch = modelbatch;
+		PerformanceFrame.addSystem(this);
 	}
 
 	public ModelRenderSystem(Camera camera, ModelBatch modelbatch) {
@@ -32,9 +34,11 @@ public class ModelRenderSystem extends IteratingSystem {
 
 	@Override
 	public void update(float deltaTime) {
+		PerformanceFrame.startSystem(this);
 		modelBatch.begin(camera);
 		super.update(deltaTime);
 		modelBatch.end();
+		PerformanceFrame.endSystem(this);
 	}
 
 	protected void processEntity(Entity entity, float deltaTime) {
@@ -51,7 +55,7 @@ public class ModelRenderSystem extends IteratingSystem {
 			modelInstance.transform.rotate(Vector3.Y, positionComponent.angleRadian * MathUtils.radiansToDegrees);
 			modelInstance.transform.setTranslation(pos.x, pos.y, pos.z);
 			modelInstance.calculateTransforms();
-			modelBatch.render(modelInstance, model3dComponent.environment);//TODO voir le param environement
+			modelBatch.render(modelInstance, model3dComponent.environment);// TODO voir le param environement
 		}
 	}
 

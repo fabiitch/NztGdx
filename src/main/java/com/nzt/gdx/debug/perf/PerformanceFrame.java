@@ -1,5 +1,6 @@
 package com.nzt.gdx.debug.perf;
 
+import com.badlogic.ashley.core.EntitySystem;
 import com.badlogic.gdx.utils.Array;
 
 /**
@@ -60,6 +61,22 @@ public class PerformanceFrame {
 
 	public static void reset() {
 		instance.container.reset();
-
 	}
+
+	public static void addSystem(EntitySystem system) {
+		add(system.getClass().getSimpleName());
+	}
+
+	public static void removeSystem(EntitySystem system) {
+		remove(system.getClass().getSimpleName());
+	}
+
+	public static void startSystem(EntitySystem system) {
+		startAction(system.getClass().getSimpleName());
+	}
+
+	public static void endSystem(EntitySystem system) {
+		endAction(system.getClass().getSimpleName());
+	}
+
 }

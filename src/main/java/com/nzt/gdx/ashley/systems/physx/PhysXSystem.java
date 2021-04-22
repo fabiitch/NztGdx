@@ -11,6 +11,7 @@ import com.nzt.gdx.ashley.components.mvt.PositionComponent;
 import com.nzt.gdx.ashley.components.mvt.Velocity2DComponent;
 import com.nzt.gdx.ashley.components.physx.PhysXComponent;
 import com.nzt.gdx.ashley.components.properties.TypeComponent;
+import com.nzt.gdx.debug.perf.PerformanceFrame;
 
 //TODO 
 public class PhysXSystem extends EntitySystem implements EntityListener {
@@ -22,14 +23,15 @@ public class PhysXSystem extends EntitySystem implements EntityListener {
 
 	private Engine engine;
 
-	public PhysXSystem(Engine engine) {
-		this(engine, NztSystemsOrder.PHYSX);
-	}
-
 	public PhysXSystem(Engine engine, int priority) {
 		super(priority);
 		this.engine = engine;
 		engine.addEntityListener(family, NztSystemsOrder.PHYSX, this);
+		PerformanceFrame.addSystem(this);
+	}
+
+	public PhysXSystem(Engine engine) {
+		this(engine, NztSystemsOrder.PHYSX);
 	}
 
 	private static final float MAX_STEP_TIME = 1 / 120f;
@@ -38,6 +40,7 @@ public class PhysXSystem extends EntitySystem implements EntityListener {
 
 	@Override
 	public void update(float dt) {
+		PerformanceFrame.startSystem(this);
 		float frameTime = Math.min(dt, 0.25f);
 		accumulator += frameTime;
 		while (accumulator >= MAX_STEP_TIME) {
@@ -46,6 +49,7 @@ public class PhysXSystem extends EntitySystem implements EntityListener {
 			nbPassage++;
 		}
 		nbPassage = 0;
+		PerformanceFrame.endSystem(this);
 	}
 
 	@Override

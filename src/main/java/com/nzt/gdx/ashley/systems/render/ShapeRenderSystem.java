@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.utils.Array;
 import com.nzt.gdx.ashley.NztSystemsOrder;
 import com.nzt.gdx.ashley.components.renders.ShapeRenderableArrayComponent;
+import com.nzt.gdx.debug.perf.PerformanceFrame;
 
 //TODO reprendre ou suppr
 public class ShapeRenderSystem extends IteratingSystem {
@@ -16,21 +17,24 @@ public class ShapeRenderSystem extends IteratingSystem {
 	private Array<Entity> queue;
 	private ComponentMapper<ShapeRenderableArrayComponent> shapeArrayMapper = ShapeRenderableArrayComponent.mapper;
 
-	public ShapeRenderSystem(ShapeRenderer shapeRenderer) {
-		this(shapeRenderer, NztSystemsOrder.RENDER);
-	}
-
 	public ShapeRenderSystem(ShapeRenderer shapeRenderer, int order) {
 		super(Family.one(ShapeRenderableArrayComponent.class).get(), order);
 		this.shapeRenderer = shapeRenderer;
 		this.queue = new Array<Entity>();
+		PerformanceFrame.addSystem(this);
+	}
+
+	public ShapeRenderSystem(ShapeRenderer shapeRenderer) {
+		this(shapeRenderer, NztSystemsOrder.RENDER);
 	}
 
 	@Override
 	public void update(float deltaTime) {
+		PerformanceFrame.startSystem(this);
 		shapeRenderer.begin();
 		super.update(deltaTime);
 		shapeRenderer.end();
+		PerformanceFrame.endSystem(this);
 	}
 
 	@Override

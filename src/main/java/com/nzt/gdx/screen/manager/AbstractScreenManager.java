@@ -1,6 +1,7 @@
 package com.nzt.gdx.screen.manager;
 
 import com.badlogic.gdx.Gdx;
+import com.nzt.gdx.debug.perf.PerformanceFrame;
 import com.nzt.gdx.main.AbstractMain;
 import com.nzt.gdx.screen.BaseScreen;
 import com.nzt.gdx.screen.loading.BaseLoadingScreen;
