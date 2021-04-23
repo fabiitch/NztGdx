@@ -11,6 +11,10 @@ import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
 import com.nzt.gdx.test.trials.tester.archi.screens.TestScreenWithHudDebug;
 import com.nzt.gdx.test.trials.tester.selector.TestScreen;
 
+/**
+ * Test class PerformanceCounters
+ *
+ */
 @TestScreen(group = "utils.perf")
 public class STPerformanceCounter extends TestScreenWithHudDebug {
 
@@ -70,7 +74,6 @@ public class STPerformanceCounter extends TestScreenWithHudDebug {
 				new Vector3(100, 2220, 1515).nor();
 			}
 			counter3.stop();
-
 			counters.tick(dt);
 
 			HudDebug.update("Math.sqrt", counter1.time);
