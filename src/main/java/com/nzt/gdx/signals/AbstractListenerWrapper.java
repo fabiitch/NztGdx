@@ -24,7 +24,7 @@ public abstract class AbstractListenerWrapper<T> implements Listener<T> {
 
 	@Override
 	public void receive(Signal<T> signal, T event) {
-		if (filter != null && filter.acceptEvent(event))
+		if (filter == null || filter.acceptEvent(event))
 			consumer.accept(event);
 	}
 }
