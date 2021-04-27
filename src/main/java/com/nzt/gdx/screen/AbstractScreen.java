@@ -15,6 +15,7 @@ import com.nzt.gdx.main.AbstractMain;
  * main, render object
  * <p>
  * See {@link BaseScreen} for next implementation
+ *
  * @param <M>
  */
 public abstract class AbstractScreen<M extends AbstractMain> implements Screen {
@@ -33,10 +34,11 @@ public abstract class AbstractScreen<M extends AbstractMain> implements Screen {
         this.modelBatch = main.modelBatch;
         if (main.logManager != null)
             this.nzGLProfiler = main.logManager.nzGlProfiler;
+        PerformanceFrame.setScreen(this);
     }
 
     public void clearScreen() {
-    	//TODO voir use screen utils
+        //TODO voir use screen utils
         // clear screen
         Gdx.gl.glClearColor(0, 0, 0, 0);
         // Gdx.gl.glClearColor(1, 1, 1, 1);
@@ -63,7 +65,6 @@ public abstract class AbstractScreen<M extends AbstractMain> implements Screen {
     @Override
     public void render(float dt) {
         PerformanceFrame.startFrame();
-        logScreenPerf(dt);
         nzGLProfiler.endFrame();
         clearScreen();
         setTitle(dt);
@@ -72,8 +73,4 @@ public abstract class AbstractScreen<M extends AbstractMain> implements Screen {
     }
 
     protected abstract void renderScreen(float dt);
-
-    private void logScreenPerf(float dt) { //TODO chai pas trop
-    	
-    }
 }

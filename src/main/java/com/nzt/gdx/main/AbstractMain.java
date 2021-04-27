@@ -38,6 +38,7 @@ public abstract class AbstractMain implements ApplicationListener {
         this.sb.dispose();
         this.nzShapeRenderer.dispose();
         this.modelBatch.dispose();
+        doExit();
     }
 
     @Override

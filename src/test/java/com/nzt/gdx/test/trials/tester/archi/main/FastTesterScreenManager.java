@@ -2,6 +2,7 @@ package com.nzt.gdx.test.trials.tester.archi.main;
 
 import com.badlogic.gdx.Gdx;
 import com.nzt.gdx.main.AbstractMain;
+import com.nzt.gdx.screen.AbstractScreen;
 import com.nzt.gdx.screen.BaseScreen;
 import com.nzt.gdx.screen.loading.BaseLoadingScreen;
 import com.nzt.gdx.screen.manager.AbstractScreenManager;
@@ -24,7 +25,7 @@ public class FastTesterScreenManager extends AbstractScreenManager<AbstractMain>
     }
 
     @Override
-    public void setScreen(BaseScreen<AbstractMain> screen) {
+    public void setScreen(AbstractScreen<AbstractMain> screen) {
         Gdx.app.error("Change Screen", screen.getClass().getSimpleName());
         super.setScreen(screen);
     }

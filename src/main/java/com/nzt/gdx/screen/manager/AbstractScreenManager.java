@@ -3,6 +3,7 @@ package com.nzt.gdx.screen.manager;
 import com.badlogic.gdx.Gdx;
 import com.nzt.gdx.debug.perf.PerformanceFrame;
 import com.nzt.gdx.main.AbstractMain;
+import com.nzt.gdx.screen.AbstractScreen;
 import com.nzt.gdx.screen.BaseScreen;
 import com.nzt.gdx.screen.loading.BaseLoadingScreen;
 import com.nzt.gdx.screen.loading.SimpleProgressBarScreen;
@@ -13,7 +14,7 @@ import com.nzt.gdx.screen.loading.SimpleProgressBarScreen;
 public abstract class AbstractScreenManager<M extends AbstractMain> {
     protected M main;
 
-    public BaseScreen<M> currentScreen;
+    public AbstractScreen<M> currentScreen;
     protected BaseLoadingScreen<M> loadingScreen;
     public AbstractAssetsManager assetsManager;
 
@@ -57,12 +58,12 @@ public abstract class AbstractScreenManager<M extends AbstractMain> {
         this.loadingScreen = newLoadingScreen;
     }
 
-    public void setScreenWithLoadingTransition(final BaseScreen<M> screen, float minTimeDisplay) {
+    public void setScreenWithLoadingTransition(final AbstractScreen<M> screen, float minTimeDisplay) {
         setScreenWithLoadingTransition(screen);
         loadingScreen.setMinDisplayTime(minTimeDisplay);
     }
 
-    public void setScreenWithLoadingTransition(final BaseScreen<M> screen) {
+    public void setScreenWithLoadingTransition(final AbstractScreen<M> screen) {
         if (loadingScreen == null)
             loadingScreen = createLoadingScreen();
         loadingScreen.resetProgress();
@@ -75,11 +76,14 @@ public abstract class AbstractScreenManager<M extends AbstractMain> {
         this.loadingScreen.setAfterLoading(afterloading);
         setScreen(loadingScreen);
     }
-
-    public void setScreen(BaseScreen<M> screen) {
+    public void setScreen(AbstractScreen<M> screen){
+        this.setScreen(screen, false);
+    }
+    public void setScreen(AbstractScreen<M> screen, boolean keepScreenAlive) {
         if (currentScreen != null) {
             currentScreen.hide();
-            if (!(keepLoadingScreenAlive && currentScreen == loadingScreen)) {
+            if (!keepScreenAlive || !(keepLoadingScreenAlive && currentScreen == loadingScreen)) {
+                PerformanceFrame.removeScreen(currentScreen);
                 currentScreen.dispose();
                 currentScreen = null;
             }
@@ -89,6 +93,7 @@ public abstract class AbstractScreenManager<M extends AbstractMain> {
         }
         currentScreen = screen;
         main.logManager.nzGlProfiler.setScreen(currentScreen);
+        PerformanceFrame.setScreen(screen);
         currentScreen.show();
         currentScreen.resize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
     }
@@ -127,6 +132,7 @@ public abstract class AbstractScreenManager<M extends AbstractMain> {
             currentScreen.dispose();
             doDispose();
         }
+        main.exit();
     }
 
     public void render(float dt) {

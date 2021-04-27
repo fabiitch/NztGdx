@@ -12,11 +12,12 @@ import com.badlogic.gdx.graphics.g3d.attributes.ColorAttribute;
 import com.badlogic.gdx.graphics.g3d.environment.DirectionalLight;
 import com.badlogic.gdx.graphics.g3d.utils.CameraInputController;
 import com.badlogic.gdx.graphics.g3d.utils.ModelBuilder;
+import com.nzt.gdx.test.trials.tester.archi.screens.TestScreenWithHudDebug;
 import com.nzt.gdx.test.trials.tester.selector.TestScreen;
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
 import com.nzt.gdx.test.trials.tester.archi.screens.SimpleTestScreen;
 @TestScreen(group = "3D")
-public class ST3DBasic extends SimpleTestScreen {
+public class ST3DBasic extends TestScreenWithHudDebug {
 	public PerspectiveCamera camera;
 	public Model model;
 	public ModelInstance instance;
@@ -48,9 +49,8 @@ public class ST3DBasic extends SimpleTestScreen {
 		camController = new CameraInputController(camera);
 		Gdx.input.setInputProcessor(camController);
 	}
-
 	@Override
-	protected void renderScreen(float dt) {
+	public void renderAfterHud(float dt) {
 		camController.update();
 		modelBatch.begin(camera);
 		modelBatch.render(instance, environment);

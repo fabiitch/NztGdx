@@ -13,12 +13,13 @@ import com.badlogic.gdx.graphics.g3d.model.Animation;
 import com.badlogic.gdx.graphics.g3d.utils.CameraInputController;
 import com.badlogic.gdx.graphics.g3d.utils.ModelBuilder;
 import com.badlogic.gdx.utils.UBJsonReader;
+import com.nzt.gdx.test.trials.tester.archi.screens.TestScreenWithHudDebug;
 import com.nzt.gdx.test.trials.tester.selector.TestScreen;
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
 import com.nzt.gdx.test.trials.tester.archi.screens.SimpleTestScreen;
 
 @TestScreen(group = "3D")
-public class ST3DOrthoCam extends SimpleTestScreen {
+public class ST3DOrthoCam extends TestScreenWithHudDebug {
     public Camera camera;
 
     public CameraInputController camController;
@@ -54,7 +55,7 @@ public class ST3DOrthoCam extends SimpleTestScreen {
     }
 
     @Override
-    protected void renderScreen(float dt) {
+    public void renderAfterHud(float dt) {
         camController.update();
         modelBatch.begin(camera);
         modelBatch.render(wargInstance);

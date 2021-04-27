@@ -33,7 +33,7 @@ public class STBasicShader extends TestScreenWithHudDebug {
 		spriteBatch.begin();
 		sprite.draw(spriteBatch);
 		spriteBatch.end();
-		main.logManager.nzGlProfiler.updatHudDebug();
+		main.logManager.nzGlProfiler.updateHudDebug();
 
 	}
 

@@ -29,6 +29,6 @@ public class HudDebugGlProfilerSystem extends EntitySystem {
 
 	@Override
 	public void update(float dt) {
-		profiler.updatHudDebug();
+		profiler.updateHudDebug();
 	}
 }
