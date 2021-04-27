@@ -42,8 +42,6 @@ public class NzGLProfiler {
 		if (profiler.isEnabled()) {
 			if (logOneShot) {
 				logOneShot = false;
-			} else if (TagLogger.isTagActive(LogTagsBase.OPEN_GL_PROFILER)) {
-				log();
 			}
 			profiler.reset();
 		}
@@ -70,7 +68,7 @@ public class NzGLProfiler {
 		HudDebug.addItem("getVertexCountAverage", 100000, positionOnStage, color);
 	}
 
-	public void updatHudDebug() {
+	public void updateHudDebug() {
 		HudDebug.update("GlListener enabled", profiler.isEnabled() + "");
 		HudDebug.update("getCalls", profiler.getCalls());
 		HudDebug.update("getDrawCalls", profiler.getDrawCalls());

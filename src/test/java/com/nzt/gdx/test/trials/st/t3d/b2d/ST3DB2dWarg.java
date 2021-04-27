@@ -15,12 +15,13 @@ import com.badlogic.gdx.graphics.g3d.utils.CameraInputController;
 import com.badlogic.gdx.graphics.g3d.utils.ModelBuilder;
 import com.badlogic.gdx.utils.UBJsonReader;
 import com.nzt.gdx.test.trials.st.b2D.B2DTestConstants;
+import com.nzt.gdx.test.trials.tester.archi.screens.TestScreenWithHudDebug;
 import com.nzt.gdx.test.trials.tester.selector.TestScreen;
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
 import com.nzt.gdx.test.trials.tester.archi.screens.SimpleTestScreen;
 
 @TestScreen(group = "3D.B2D")
-public class ST3DB2dWarg extends SimpleTestScreen {
+public class ST3DB2dWarg extends TestScreenWithHudDebug {
 
 	public String modelPath = "models/warg.g3db";
 
@@ -60,19 +61,20 @@ public class ST3DB2dWarg extends SimpleTestScreen {
 	}
 
 	@Override
-	public void clearScreen() {
-		Gdx.gl.glClearColor(1, 0, 0, 0);
-		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT | GL20.GL_DEPTH_BUFFER_BIT);
-	}
-
-	@Override
-	protected void renderScreen(float dt) {
+	public void renderAfterHud(float dt) {
 		this.b2dCamera.update();
 		camController.update();
 		modelBatch.begin(b2dCamera);
 		modelBatch.render(wargInstance);
 		modelBatch.end();
 	}
+
+	@Override
+	public void clearScreen() {
+		Gdx.gl.glClearColor(1, 0, 0, 0);
+		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT | GL20.GL_DEPTH_BUFFER_BIT);
+	}
+
 
 	@Override
 	public void doDispose() {

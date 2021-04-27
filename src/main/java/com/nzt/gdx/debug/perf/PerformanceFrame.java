@@ -2,6 +2,8 @@ package com.nzt.gdx.debug.perf;
 
 import com.badlogic.ashley.core.EntitySystem;
 import com.badlogic.gdx.utils.Array;
+import com.nzt.gdx.screen.AbstractScreen;
+import com.nzt.gdx.screen.BaseScreen;
 
 /**
  * Simple static class to Use PerformanceContainer
@@ -22,6 +24,10 @@ public class PerformanceFrame {
 		this.container = new PerformanceContainer();
 	}
 
+	public static void setScreen(AbstractScreen screen){
+		if (enabled)
+			instance.container.changeScreen(screen);
+	}
 	public static void startFrame() {
 		if (enabled)
 			nanoStartFrame = System.nanoTime();
@@ -58,9 +64,12 @@ public class PerformanceFrame {
 		if (enabled)
 			instance.container.endAction(action);
 	}
+	public static void removeScreen(AbstractScreen screen) {
+		instance.container.resetScreen(screen);
+	}
 
-	public static void reset() {
-		instance.container.reset();
+	public static void resetAll() {
+		instance.container.resetAll();
 	}
 
 	public static void addSystem(EntitySystem system) {

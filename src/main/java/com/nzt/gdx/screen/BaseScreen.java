@@ -15,16 +15,16 @@ public abstract class BaseScreen<M extends AbstractMain> extends AbstractScreen<
 	}
 
 	@Override
-	public final void show() {
-		TagLogger.info(LogTagsBase.SCREEN_ACTIONS, this.getClass().getSimpleName(), "show()");
-		doShow();
-	}
-
-	@Override
 	public final void resize(int width, int height) {
 		TagLogger.info(LogTagsBase.SCREEN_ACTIONS, this.getClass().getSimpleName(),
 				"resize(" + width + ", " + height + ")");
 		doResize(width, height);
+	}
+
+	@Override
+	public final void show() {
+		TagLogger.info(LogTagsBase.SCREEN_ACTIONS, this.getClass().getSimpleName(), "show()");
+		doShow();
 	}
 
 	@Override
@@ -48,7 +48,6 @@ public abstract class BaseScreen<M extends AbstractMain> extends AbstractScreen<
 	@Override
 	public final void dispose() {
 		TagLogger.info(LogTagsBase.SCREEN_ACTIONS, this.getClass().getSimpleName(), "dispose()");
-		PerformanceFrame.reset();
 		doDispose();
 	}
 }

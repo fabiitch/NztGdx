@@ -1,36 +1,45 @@
 package com.nzt.gdx.test.trials.tester.archi.screens;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.nzt.gdx.debug.gl.NzGLProfiler;
+import com.nzt.gdx.debug.hud.HudDebugPosition;
 import com.nzt.gdx.debug.hud.base.HudDebug;
 import com.nzt.gdx.scene2D.nz.NzStage;
 import com.nzt.gdx.test.trials.st.scene2D.Scene2DTestConstants;
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
 
 public abstract class TestScreenWithHudDebug extends SimpleTestScreen {
-	protected NzStage nzStage;
-	protected Skin skin;
-	private HudDebug debugHud;
+    protected NzStage nzStage;
+    protected Skin skin;
+    private HudDebug debugHud;
+    private NzGLProfiler glProfiler;
 
-	public TestScreenWithHudDebug(FastTesterMain main) {
-		super(main);
-		this.nzStage = new NzStage();
-		this.skin = new Skin(Gdx.files.internal(Scene2DTestConstants.UI_SKIN));
-		this.debugHud = new HudDebug(nzStage, skin);
-	}
+    public TestScreenWithHudDebug(FastTesterMain main) {
+        super(main);
+        this.nzStage = new NzStage();
+        this.skin = new Skin(Gdx.files.internal(Scene2DTestConstants.UI_SKIN));
+        this.debugHud = new HudDebug(nzStage, skin);
+        this.glProfiler = main.logManager.nzGlProfiler;
+        glProfiler.setScreen(this);
+        glProfiler.initHudDebug(HudDebugPosition.BOT_RIGHT, Color.WHITE);
+    }
 
-	public abstract void renderAfterHud(float dt);
 
-	@Override
-	protected void renderScreen(float dt) {
-		nzStage.act();
-		nzStage.draw();
-		renderAfterHud(dt);
-	}
+    public abstract void renderAfterHud(float dt);
 
-	@Override
-	public void doDispose() {
-		nzStage.dispose();
-		skin.dispose();
-	}
+    @Override
+    protected void renderScreen(float dt) {
+        nzStage.act();
+        nzStage.draw();
+        renderAfterHud(dt);
+        glProfiler.updateHudDebug();
+    }
+
+    @Override
+    public void doDispose() {
+        nzStage.dispose();
+        skin.dispose();
+    }
 }

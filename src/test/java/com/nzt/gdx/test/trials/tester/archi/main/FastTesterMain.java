@@ -39,6 +39,8 @@ public class FastTesterMain extends AbstractMain {
 	public void doCreate() {
 		Gdx.app.setLogLevel(Application.LOG_DEBUG);
 		Gdx.app.log("FastTester", "Initialisation faster tester");
+		Gdx.app.log("=============", "================");
+		logManager.activeGlProfiler();
 	}
 
 	@Override

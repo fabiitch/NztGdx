@@ -10,10 +10,11 @@ import com.badlogic.gdx.utils.ScreenUtils;
 import com.nzt.gdx.test.trials.st.t3d.CameraInputControllerFR;
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
 import com.nzt.gdx.test.trials.tester.archi.screens.SimpleTestScreen;
+import com.nzt.gdx.test.trials.tester.archi.screens.TestScreenWithHudDebug;
 import com.nzt.gdx.test.trials.tester.selector.TestScreen;
 
 @TestScreen(group = "3D")
-public class ST3DModelViewer extends SimpleTestScreen {
+public class ST3DModelViewer extends TestScreenWithHudDebug {
 
     public InputMultiplexer inputMultiplexer;
     public Camera camera;
@@ -42,14 +43,8 @@ public class ST3DModelViewer extends SimpleTestScreen {
         helper.changeModel("warg.g3db");
     }
 
-
     @Override
-    public void clearScreen() {
-        ScreenUtils.clear(Color.BLACK, true);
-    }
-
-    @Override
-    protected void renderScreen(float dt) {
+    public void renderAfterHud(float dt) {
         this.camera.update();
         this.stage.update();
         camController.update();
@@ -60,6 +55,12 @@ public class ST3DModelViewer extends SimpleTestScreen {
         stage.act();
         stage.draw();
 
+    }
+
+
+    @Override
+    public void clearScreen() {
+        ScreenUtils.clear(Color.BLACK, true);
     }
 
     @Override
