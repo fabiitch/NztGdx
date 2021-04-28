@@ -106,7 +106,7 @@ public class BaseBodyFactory {
 		Fixture fixture = body.createFixture(fdef);
 		fixture.setUserData(fixtureDefWrapper.userData);
 
-		TagLogger.infoBlock(LogTagsBase.B2D_CREATION, "fixtureDefWrapper", NzLoggableUtils.create(position, rayon),
+		TagLogger.infoBlock(LogTagsBase.B2D_CREATION, "fixtureDefWrapper", NzLoggableUtils.creates(position, rayon),
 				fixtureDefWrapper);
 
 		return body;
