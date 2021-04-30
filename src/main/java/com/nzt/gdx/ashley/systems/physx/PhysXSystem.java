@@ -4,9 +4,9 @@ import com.badlogic.ashley.core.ComponentMapper;
 import com.badlogic.ashley.core.Engine;
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.ashley.core.EntityListener;
-import com.badlogic.ashley.core.EntitySystem;
 import com.badlogic.ashley.core.Family;
 import com.nzt.gdx.ashley.NztSystemsOrder;
+import com.nzt.gdx.ashley.base.NzEntitySystem;
 import com.nzt.gdx.ashley.components.mvt.PositionComponent;
 import com.nzt.gdx.ashley.components.mvt.Velocity2DComponent;
 import com.nzt.gdx.ashley.components.physx.PhysXComponent;
@@ -14,7 +14,7 @@ import com.nzt.gdx.ashley.components.properties.TypeComponent;
 import com.nzt.gdx.debug.perf.PerformanceFrame;
 
 //TODO 
-public class PhysXSystem extends EntitySystem implements EntityListener {
+public class PhysXSystem extends NzEntitySystem implements EntityListener {
 
 	private static Family family = Family.all(PhysXComponent.class, TypeComponent.class).get();
 	private static ComponentMapper<PositionComponent> posMapper = PositionComponent.mapper;
@@ -27,7 +27,6 @@ public class PhysXSystem extends EntitySystem implements EntityListener {
 		super(priority);
 		this.engine = engine;
 		engine.addEntityListener(family, NztSystemsOrder.PHYSX, this);
-		PerformanceFrame.addSystem(this);
 	}
 
 	public PhysXSystem(Engine engine) {
@@ -39,8 +38,7 @@ public class PhysXSystem extends EntitySystem implements EntityListener {
 	int nbPassage = 0;
 
 	@Override
-	public void update(float dt) {
-		PerformanceFrame.startSystem(this);
+	public void updateSystem(float dt) {
 		float frameTime = Math.min(dt, 0.25f);
 		accumulator += frameTime;
 		while (accumulator >= MAX_STEP_TIME) {
@@ -49,7 +47,6 @@ public class PhysXSystem extends EntitySystem implements EntityListener {
 			nbPassage++;
 		}
 		nbPassage = 0;
-		PerformanceFrame.endSystem(this);
 	}
 
 	@Override
