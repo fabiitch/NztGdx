@@ -57,7 +57,7 @@ public class STMultipleWorld extends TestScreenWithHudDebug {
 		debugRenderer2.dispose();
 	}
 
-	FixtureDefWrapper fixtureDefWrapper = new FixtureDefWrapper(BodyDef.BodyType.KinematicBody).setSensor(false)
+	FixtureDefWrapper fixtureDefWrapper = new FixtureDefWrapper(BodyDef.BodyType.DynamicBody).setSensor(false)
 			.setDensity(1).setToPPM(false);
 
 	private void addTriangle(int world) {

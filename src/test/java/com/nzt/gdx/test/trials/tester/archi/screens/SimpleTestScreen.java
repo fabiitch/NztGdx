@@ -18,5 +18,7 @@ public abstract class SimpleTestScreen extends SimpleScreen<FastTesterMain> {
 	public void log(String log) {
 		Gdx.app.log(this.getClass().getSimpleName(), log);
 	}
-
+	public void error(String error) {
+		Gdx.app.error(this.getClass().getSimpleName(), error);
+	}
 }

@@ -76,4 +76,13 @@ public class NzGLProfiler {
 		HudDebug.update("getTextureBindings", profiler.getTextureBindings());
 		HudDebug.update("getVertexCountAverage", profiler.getVertexCount().average);
 	}
+
+	public void removeHudDebug(){
+		HudDebug.remove("GlListener enabled");
+		HudDebug.remove("getCalls");
+		HudDebug.remove("getDrawCalls");
+		HudDebug.remove("getShaderSwitches");
+		HudDebug.remove("getTextureBindings");
+		HudDebug.remove("getVertexCountAverage");
+	}
 }

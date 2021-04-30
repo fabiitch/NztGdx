@@ -7,12 +7,15 @@ import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
 import com.nzt.gdx.test.trials.tester.archi.screens.stages.STStageScreen;
 import com.nzt.gdx.test.trials.tester.selector.TestScreen;
 
+/**
+ * Test HudDebug Display
+ */
 @TestScreen(group = "scene2D.HudDebug")
-public class STHudDebugBasic extends STStageScreen {
+public class STHudDebugDisplay extends STStageScreen {
 
 	private HudDebug hudDebug;
 
-	public STHudDebugBasic(FastTesterMain main) {
+	public STHudDebugDisplay(FastTesterMain main) {
 		super(main);
 	}
 
