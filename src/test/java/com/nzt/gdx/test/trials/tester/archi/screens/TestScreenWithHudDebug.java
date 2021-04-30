@@ -14,7 +14,7 @@ public abstract class TestScreenWithHudDebug extends SimpleTestScreen {
     protected NzStage nzStage;
     protected Skin skin;
     private HudDebug debugHud;
-    private NzGLProfiler glProfiler;
+    protected NzGLProfiler glProfiler;
 
     public TestScreenWithHudDebug(FastTesterMain main) {
         super(main);
@@ -41,5 +41,30 @@ public abstract class TestScreenWithHudDebug extends SimpleTestScreen {
     public void doDispose() {
         nzStage.dispose();
         skin.dispose();
+    }
+
+
+    protected void setMsgNotImpl() {
+        glProfiler.removeHudDebug();
+        HudDebug.addTopRight("Not", "Impl", Color.RED);
+        HudDebug.addTopMiddle("Not", "Impl", Color.RED);
+        HudDebug.addTopLeft("Not", "Impl", Color.RED);
+        HudDebug.addBotRight("Not", "Impl", Color.RED);
+        HudDebug.addBotLeft("Not", "Impl", Color.RED);
+        HudDebug.addBotMiddle("Not", "Impl", Color.RED);
+        HudDebug.addRightMiddle("Not", "Impl", Color.RED);
+        HudDebug.addLeftMiddle("Not", "Impl", Color.RED);
+    }
+
+    protected void setMsgWIP() {
+        glProfiler.removeHudDebug();
+        HudDebug.addTopRight("WIP", "WIP", Color.RED);
+        HudDebug.addTopMiddle("WIP", "WIP", Color.RED);
+        HudDebug.addTopLeft("WIP", "WIP", Color.RED);
+        HudDebug.addBotRight("WIP", "WIP", Color.RED);
+        HudDebug.addBotLeft("WIP", "WIP", Color.RED);
+        HudDebug.addBotMiddle("WIP", "WIP", Color.RED);
+        HudDebug.addRightMiddle("WIP", "WIP", Color.RED);
+        HudDebug.addLeftMiddle("WIP", "WIP", Color.RED);
     }
 }

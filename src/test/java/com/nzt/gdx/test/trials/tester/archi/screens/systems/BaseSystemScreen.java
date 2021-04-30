@@ -5,12 +5,12 @@ import java.util.concurrent.Callable;
 import com.badlogic.ashley.core.Engine;
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
 import com.nzt.gdx.test.trials.tester.archi.screens.SimpleTestScreen;
-import com.nzt.gdx.test.trials.tester.archi.systems.DelayActionSystem;
+import com.nzt.gdx.test.trials.tester.archi.systems.DelayFrameActionSystem;
 
 public abstract class BaseSystemScreen extends SimpleTestScreen {
 
 	protected Engine engine;
-	protected DelayActionSystem delayActionSystem;
+	protected DelayFrameActionSystem delayActionSystem;
 
 	public void addFunctionToCall(long loopCount, Callable<Boolean> fct) {
 		delayActionSystem.addFunctionToCall(loopCount, fct);
@@ -20,7 +20,7 @@ public abstract class BaseSystemScreen extends SimpleTestScreen {
 		super(main);
 		this.engine = new Engine();
 
-		this.delayActionSystem = new DelayActionSystem();
+		this.delayActionSystem = new DelayFrameActionSystem();
 		engine.addSystem(delayActionSystem);
 	}
 

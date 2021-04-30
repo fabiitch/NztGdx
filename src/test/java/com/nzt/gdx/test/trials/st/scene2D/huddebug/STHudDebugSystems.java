@@ -15,6 +15,9 @@ import com.nzt.gdx.test.trials.tester.archi.screens.systems.BaseSystemScreen;
 import com.nzt.gdx.test.trials.tester.archi.systems.HudSystem;
 import com.nzt.gdx.test.trials.tester.selector.TestScreen;
 
+/**
+ * Test FramePerformance on systems
+ */
 @TestScreen(group = "scene2D.HudDebug")
 public class STHudDebugSystems extends BaseSystemScreen {
 	protected NzStage nzStage;

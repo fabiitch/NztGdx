@@ -8,16 +8,16 @@ import com.badlogic.ashley.core.EntitySystem;
 /**
  * use this for call functions after X frames.
  */
-public class DelayActionSystem extends EntitySystem {
+public class DelayFrameActionSystem extends EntitySystem {
 
 	private long loopCount = 0;
 	private HashMap<Long, Callable> functionToCalls = new HashMap<>();
 
-	public DelayActionSystem() {
+	public DelayFrameActionSystem() {
 		super();
 	}
 
-	public DelayActionSystem(int priority) {
+	public DelayFrameActionSystem(int priority) {
 		super(priority);
 	}
 
