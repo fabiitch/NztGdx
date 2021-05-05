@@ -8,7 +8,9 @@ import com.nzt.gdx.test.trials.tester.selector.TestScreen;
 public class STPoolableTask extends TestScreenWithHudDebug {
     public STPoolableTask(FastTesterMain main) {
         super(main);
-        setMsgNotImpl();
+      setMsgNotImpl();
+
+
     }
 
     @Override

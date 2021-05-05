@@ -31,6 +31,23 @@ public class V2Test {
         Assert.assertEquals(closest, new Vector2(7.5f, 7.5f));
     }
 
+    @Test
+    public void toFloatArrayTest() {
+        Array<Vector2> array = new Array<>();
+        array.add(v(0, 0));
+        array.add(v(10, 10));
+        array.add(v(15, 15));
+        array.add(v(5, 5));
+
+        float[] floats = V2.toFloatArray(array);
+
+        Assert.assertEquals(0, floats[0] + floats[1], 0);
+        Assert.assertEquals(20, floats[2] + floats[3], 0);
+        Assert.assertEquals(30, floats[4] + floats[5], 0);
+        Assert.assertEquals(10, floats[6] + floats[7], 0);
+
+    }
+
     private Vector2 v(float a, float b) {
         return new Vector2(a, b);
     }
