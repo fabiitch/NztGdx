@@ -3,7 +3,7 @@ package com.nzt.gdx.ashley.components.renders;
 import com.badlogic.ashley.core.ComponentMapper;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.utils.Array;
-import com.nzt.gdx.ashley.components.abstracts.PoolableComponent;
+import com.nzt.gdx.ashley.base.components.PoolableComponent;
 import com.nzt.gdx.graphics.renderables.ShapeRenderable;
 
 public class ShapeRenderableArrayComponent extends PoolableComponent {

@@ -6,7 +6,7 @@ import com.badlogic.gdx.math.Circle;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Shape2D;
 import com.badlogic.gdx.math.Vector2;
-import com.nzt.gdx.ashley.components.abstracts.PoolableComponent;
+import com.nzt.gdx.ashley.base.components.PoolableComponent;
 
 public class Shape2DComponent extends PoolableComponent {
     public static ComponentMapper<Shape2DComponent> mapper = ComponentMapper.getFor(Shape2DComponent.class);

@@ -2,7 +2,7 @@ package com.nzt.gdx.ashley.components.physx;
 
 import com.badlogic.ashley.core.ComponentMapper;
 import com.badlogic.gdx.math.Shape2D;
-import com.nzt.gdx.ashley.components.abstracts.PoolableComponent;
+import com.nzt.gdx.ashley.base.components.PoolableComponent;
 
 
 //TODO remove

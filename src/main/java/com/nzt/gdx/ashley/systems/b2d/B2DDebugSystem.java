@@ -5,7 +5,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.World;
 import com.nzt.gdx.ashley.NztSystemsOrder;
-import com.nzt.gdx.ashley.base.NzEntitySystem;
+import com.nzt.gdx.ashley.base.systems.NzEntitySystem;
 import com.nzt.gdx.debug.B2DDebugUtils;
 import com.nzt.gdx.debug.hud.HudDebugPosition;
 import com.nzt.gdx.debug.perf.PerformanceFrame;

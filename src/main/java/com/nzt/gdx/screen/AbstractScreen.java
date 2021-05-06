@@ -47,7 +47,7 @@ public abstract class AbstractScreen<M extends AbstractMain> implements Screen {
     }
 
     public void setTitle(float dt) {
-        Gdx.graphics.setTitle("FPS : " + Gdx.graphics.getFramesPerSecond() + " | delta=" + dt);
+        Gdx.graphics.setTitle("FPS : " + Gdx.graphics.getFramesPerSecond() + " | DT = " + dt);
     }
 
     public abstract void doShow();

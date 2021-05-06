@@ -3,7 +3,7 @@ package com.nzt.gdx.ashley.components.renders;
 import com.badlogic.ashley.core.ComponentMapper;
 import com.badlogic.gdx.graphics.g3d.Environment;
 import com.badlogic.gdx.graphics.g3d.ModelInstance;
-import com.nzt.gdx.ashley.components.abstracts.PoolableComponent;
+import com.nzt.gdx.ashley.base.components.PoolableComponent;
 
 public class Model3DComponent extends PoolableComponent {
 

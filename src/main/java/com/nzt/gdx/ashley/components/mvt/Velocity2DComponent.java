@@ -3,7 +3,7 @@ package com.nzt.gdx.ashley.components.mvt;
 import com.badlogic.ashley.core.ComponentMapper;
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.gdx.math.Vector2;
-import com.nzt.gdx.ashley.components.abstracts.PoolableComponent;
+import com.nzt.gdx.ashley.base.components.PoolableComponent;
 import com.nzt.gdx.ashley.components.b2d.B2DBodyComponent;
 
 public class Velocity2DComponent extends PoolableComponent {

@@ -2,6 +2,7 @@ package com.nzt.gdx.debug.perf;
 
 import java.util.concurrent.TimeUnit;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.utils.Array;
 import com.nzt.gdx.debug.hud.base.HudDebug;
@@ -22,6 +23,7 @@ public class HudDebugPerformanceFrame {
         this.positionOnStage = positionOnStage;
         this.color = color;
         HudDebug.addItem(TOTAL_TIME, 1000f, positionOnStage, Color.RED);
+        HudDebug.addItem(TOTAL_TIME_PERCENT, "100%", positionOnStage, Color.RED);
     }
 
     private void addRemoveActionOnHudDebug(int newNbActions) {
@@ -40,14 +42,13 @@ public class HudDebugPerformanceFrame {
     public void update(float dt) {
         if (!PerformanceFrame.enabled)
             return;
-
         Array<PerformanceAction> actions = PerformanceFrame.getActions();
         addRemoveActionOnHudDebug(actions.size);
         internalTimer += dt;
         if (internalTimer > 0.5) {
             HudDebug.update(TOTAL_TIME, DebugDisplayUtils.printNanoToMs(PerformanceFrame.timeLastFrame));
             HudDebug.update(TOTAL_TIME_PERCENT,
-                    Percentage.getPercent(PerformanceFrame.timeFrameAverage, TimeUnit.SECONDS.toNanos(1) / 80f) + " %");
+                    Percentage.getPercent(PerformanceFrame.timeLastFrame, TimeUnit.SECONDS.toNanos(1) / 80f) + " %");
             for (int i = 0, n = actions.size; i < n; i++) {
                 PerformanceAction performanceAction = actions.get(i);
                 HudDebug.update(KEY + i, performanceAction.action, DebugDisplayUtils.printFloat(performanceAction.percentFrameAverage) + " %");

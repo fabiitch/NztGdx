@@ -1,4 +1,4 @@
-package com.nzt.gdx.ashley.base;
+package com.nzt.gdx.ashley.base.systems;
 
 import com.badlogic.ashley.core.EntitySystem;
 import com.nzt.gdx.debug.perf.PerformanceFrame;

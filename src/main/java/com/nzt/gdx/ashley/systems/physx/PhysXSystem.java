@@ -6,12 +6,11 @@ import com.badlogic.ashley.core.Entity;
 import com.badlogic.ashley.core.EntityListener;
 import com.badlogic.ashley.core.Family;
 import com.nzt.gdx.ashley.NztSystemsOrder;
-import com.nzt.gdx.ashley.base.NzEntitySystem;
+import com.nzt.gdx.ashley.base.systems.NzEntitySystem;
 import com.nzt.gdx.ashley.components.mvt.PositionComponent;
 import com.nzt.gdx.ashley.components.mvt.Velocity2DComponent;
 import com.nzt.gdx.ashley.components.physx.PhysXComponent;
 import com.nzt.gdx.ashley.components.properties.TypeComponent;
-import com.nzt.gdx.debug.perf.PerformanceFrame;
 
 //TODO 
 public class PhysXSystem extends NzEntitySystem implements EntityListener {
