@@ -3,7 +3,7 @@ package com.nzt.gdx.ashley.components;
 import com.badlogic.ashley.core.ComponentMapper;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.Pools;
-import com.nzt.gdx.ashley.components.abstracts.PoolableComponent;
+import com.nzt.gdx.ashley.base.components.PoolableComponent;
 import com.nzt.gdx.transformer.BaseTransformer;
 
 

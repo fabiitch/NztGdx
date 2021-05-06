@@ -3,7 +3,7 @@ package com.nzt.gdx.ashley.components.renders;
 import com.badlogic.ashley.core.ComponentMapper;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
-import com.nzt.gdx.ashley.components.abstracts.BaseComponent;
+import com.nzt.gdx.ashley.base.components.BaseComponent;
 import com.nzt.gdx.ashley.systems.render.SpriteRenderSystem;
 
 /**

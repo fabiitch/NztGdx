@@ -7,7 +7,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
-import com.nzt.gdx.ashley.factories.BaseEntityFactory;
+import com.nzt.gdx.ashley.base.factories.BaseEntityFactory;
 import com.nzt.gdx.ashley.systems.mvt.Velocity2DSystem;
 import com.nzt.gdx.ashley.systems.render.ShapeRenderSystem;
 import com.nzt.gdx.ashley.systems.render.SpriteRenderSystem;

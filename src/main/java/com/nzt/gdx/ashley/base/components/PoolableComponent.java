@@ -1,4 +1,4 @@
-package com.nzt.gdx.ashley.components.abstracts;
+package com.nzt.gdx.ashley.base.components;
 
 import com.badlogic.gdx.utils.Pool.Poolable;
 

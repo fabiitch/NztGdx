@@ -7,21 +7,21 @@ import com.badlogic.gdx.utils.TimeUtils;
 import java.text.DecimalFormat;
 
 public class DebugDisplayUtils {
-    private static DecimalFormat floatFormatter = new DecimalFormat();
-    private static DecimalFormat msFormatter = new DecimalFormat();
+    private static final DecimalFormat floatFormatter = new DecimalFormat();
+    private static final DecimalFormat msFormatter = new DecimalFormat();
 
     {
         floatFormatter.setMaximumFractionDigits(2);
         msFormatter.setMaximumFractionDigits(0);
     }
-    
-	public static String printNano(float f) {
-		return f + "ns";
-	}
 
-	public static String printMs(float f) {
-		return f + "ms";
-	}
+    public static String printNano(float f) {
+        return f + "ns";
+    }
+
+    public static String printMs(float f) {
+        return f + "ms";
+    }
 
     public static String printNanoToMs(long nano) {
         return TimeUtils.nanosToMillis(nano) + "ms";
@@ -43,7 +43,7 @@ public class DebugDisplayUtils {
             return "0";
         return floatFormatter.format(f);
     }
-    
+
     public static String printVector2(Vector2 v) {
         if (v.isZero())
             return Vector2.Zero.toString();

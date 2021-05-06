@@ -4,7 +4,7 @@ import com.badlogic.ashley.core.ComponentMapper;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.Pools;
-import com.nzt.gdx.ashley.components.abstracts.PoolableComponent;
+import com.nzt.gdx.ashley.base.components.PoolableComponent;
 import com.nzt.gdx.ashley.systems.b2d.B2DDebugSystem;
 import com.nzt.gdx.ashley.systems.b2d.B2DWorldSystem;
 import com.nzt.gdx.b2d.events.B2DBaseEvent;

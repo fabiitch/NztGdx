@@ -11,7 +11,7 @@ public class HudDebug {
     public static HudDebug instance;
     private static Array<PreInitItem> arrayBeforeInit;
 
-    private HudDebugContainer container;
+    private final HudDebugContainer container;
 
     public HudDebug(Stage stage, Skin skin) {
         this.container = new HudDebugContainer(stage, skin);
@@ -60,7 +60,10 @@ public class HudDebug {
         if (instance != null)
             instance.container.update(key, value);
     }
-
+    public static void update(String key, String value) {
+        if (instance != null)
+            instance.container.update(key, value);
+    }
     private static void addInitList(String key, String name, Object value, int positionOnStage, Color color) {
         if (arrayBeforeInit == null)
             arrayBeforeInit = new Array<>();

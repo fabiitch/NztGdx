@@ -1,8 +1,8 @@
-package com.nzt.gdx.ashley.factories;
+package com.nzt.gdx.ashley.base.factories;
 
 import com.badlogic.ashley.core.Engine;
 import com.badlogic.ashley.core.Entity;
-import com.nzt.gdx.ashley.components.abstracts.BaseComponent;
+import com.nzt.gdx.ashley.base.components.BaseComponent;
 import com.nzt.gdx.ashley.factories.list.*;
 
 //TODO a voir si bien fait la factory comme sa

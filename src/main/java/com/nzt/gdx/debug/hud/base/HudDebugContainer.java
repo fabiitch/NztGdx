@@ -56,6 +56,15 @@ class HudDebugContainer {
         }
     }
 
+    public void update(String key, String value) {
+        HudDebugLabel label = mapLabels.get(key);
+        if (label != null) {
+            label.updateValue(value);
+        } else {
+            TagLogger.debug(LogTagsBase.HUD_DEBUG, "Cant find label for update, key= " + key);
+        }
+    }
+
     public void update(String key, Object value) {
         HudDebugLabel label = mapLabels.get(key);
         if (label != null) {
