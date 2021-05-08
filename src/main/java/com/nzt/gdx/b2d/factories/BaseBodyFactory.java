@@ -58,7 +58,7 @@ public class BaseBodyFactory {
 
         Fixture fixture = body.createFixture(fdef);
         fixture.setUserData(fixtureDefWrapper.userData);
-
+        shape.dispose();
         TagLogger.infoBlock(LogTagsBase.B2D_CREATION, "FixtureDefWrapper", NzLoggableUtils.create(rectangle),
                 fixtureDefWrapper);
         return body;
@@ -80,7 +80,7 @@ public class BaseBodyFactory {
         fixture.setUserData(fixtureDefWrapper.userData);
         TagLogger.infoBlock(LogTagsBase.B2D_CREATION, "fixtureDefWrapper", NzLoggableUtils.create(vertices),
                 fixtureDefWrapper);
-
+        shape.dispose();
         return body;
     }
 
@@ -103,7 +103,7 @@ public class BaseBodyFactory {
 
         TagLogger.infoBlock(LogTagsBase.B2D_CREATION, "fixtureDefWrapper", NzLoggableUtils.creates(position, rayon),
                 fixtureDefWrapper);
-
+        shape.dispose();
         return body;
     }
 

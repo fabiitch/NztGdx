@@ -1,5 +1,7 @@
 package com.nzt.gdx.test.trials;
 
+import com.nzt.gdx.test.trials.st.b2D.STCollisionFilter;
+import com.nzt.gdx.test.trials.st.b2D.STFixtureEvent;
 import com.nzt.gdx.test.trials.st.scene2D.huddebug.STHudDebugAddRemove;
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
 import com.nzt.gdx.test.trials.tester.archi.main.StarterTestConfig;
@@ -10,7 +12,7 @@ import com.nzt.gdx.test.trials.tester.archi.utils.Lwjgl3TestConfiguration;
 Use it for Test one class with screentestClass
  */
 public class FastNztTester {
-	private static Class screentestClass = STHudDebugAddRemove.class;
+	private static Class screentestClass = STCollisionFilter.class;
 	private static StarterType starterType = StarterType.Lwjgl;
 
 	private static int witdh = 800;
@@ -28,5 +30,4 @@ public class FastNztTester {
 			StarterTestConfig.startLwjgl3(new FastTesterMain(screentestClass), witdh, height);
 		}
 	}
-
 }
