@@ -19,6 +19,7 @@ public class FixtureDefWrapper extends FixtureDef implements NzLoggable {
     public void reset() {
 
     }
+
     public FixtureDefWrapper(BodyType bodyType) {
         super();
         this.bodyType = bodyType;
@@ -59,6 +60,20 @@ public class FixtureDefWrapper extends FixtureDef implements NzLoggable {
         this.restitution = 0;
         this.density = 0;
         this.isSensor = true;
+        return this;
+    }
+
+    public FixtureDefWrapper setFilter(int categoryBits, int maskBits, int groupIndex) {
+        this.filter.categoryBits = (short) categoryBits;
+        this.filter.maskBits = (short) maskBits;
+        this.filter.groupIndex = (short) groupIndex;
+        return this;
+    }
+
+    public FixtureDefWrapper setFilter(short categoryBits, short maskBits, short groupIndex) {
+        this.filter.categoryBits = categoryBits;
+        this.filter.maskBits = maskBits;
+        this.filter.groupIndex = groupIndex;
         return this;
     }
 
@@ -107,6 +122,10 @@ public class FixtureDefWrapper extends FixtureDef implements NzLoggable {
     public FixtureDefWrapper setUserData(Object userData) {
         this.userData = userData;
         return this;
+    }
+
+    public String filterToString() {
+        return "categoryBits=" + filter.categoryBits + ", maskBits=" + filter.maskBits + ", groupIndex=" + filter.groupIndex;
     }
 
     @Override

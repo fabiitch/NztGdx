@@ -62,7 +62,7 @@ public class ModelViewerHelper {
         if (model.materials != null && model.materials.size > 0) {
             System.out.println("Materials list !");
             for (Material material : model.materials) {
-                System.out.println("id=" + material.id + " mast" + material.getMask());
+                System.out.println("id=" + material.id + " mask" + material.getMask());
             }
         }
         System.out.println("====End load ======");

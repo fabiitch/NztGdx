@@ -27,7 +27,7 @@ public class RendersComponentFactory extends BaseComponentFactory {
 		return spriteComponent;
 	}
 
-	public Component sprite(Texture texture, float rayon) {
+	public SpriteComponent sprite(Texture texture, float rayon) {
 		return sprite(texture, rayon, rayon);
 	}
 
