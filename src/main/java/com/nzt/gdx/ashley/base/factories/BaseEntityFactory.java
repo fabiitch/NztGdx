@@ -12,7 +12,7 @@ public class BaseEntityFactory {
     protected Engine engine;
     public MvtComponentFactory mvtFactory;
     public B2DComponentFactory b2DFactory;
-//    public PhysxComponentFactory physxFactory;
+    //    public PhysxComponentFactory physxFactory;
     public PropertiesComponentFactory propertiesFactory;
     public RendersComponentFactory rendersFactory;
 
@@ -29,13 +29,13 @@ public class BaseEntityFactory {
         return this.engine.createComponent(componentType);
     }
 
-    protected Entity createEntity() {
+    public Entity createEntity() {
         Entity newEntity = this.engine.createEntity();
         engine.addEntity(newEntity);
         return newEntity;
     }
 
-    protected Entity createEntity(boolean add) {
+    public Entity createEntity(boolean add) {
         Entity newEntity = this.engine.createEntity();
         if (add)
             engine.addEntity(newEntity);

@@ -1,0 +1,30 @@
+package com.nzt.gdx.test.trials.st.b2D.collisions;
+
+import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
+import com.nzt.gdx.test.trials.tester.selector.TestScreen;
+
+/**
+ * Function Box2D
+ * bool collide = (filterA.maskBits & filterB.categoryBits) != 0 &&
+ * (filterA.categoryBits & filterB.maskBits) != 0;
+ **/
+@TestScreen(group = "box2D.collisions")
+public class STCollisionFilterWithGroup extends STCollisionScreen {
+    public STCollisionFilterWithGroup(FastTesterMain main) {
+        super(main);
+    }
+
+    final short CAT_1 = 1 << 0;
+    final int CAT_2 = 1 << 1;
+    final int CAT_3 = 1 << 2;
+    final int CAT_4 = 1 << 3;
+
+    @Override
+    protected void setFilters() {
+        fixture1.setFilter(0, 0, 1);
+        fixture2.setFilter(0, 0, 0);
+        fixture3.setFilter(0, 0, -1);
+        fixture4.setFilter(0, 0, -2);
+    }
+
+}

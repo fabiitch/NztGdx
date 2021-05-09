@@ -1,18 +1,16 @@
 package com.nzt.gdx.test.trials;
 
-import com.nzt.gdx.test.trials.st.b2D.STCollisionFilter;
-import com.nzt.gdx.test.trials.st.b2D.STFixtureEvent;
-import com.nzt.gdx.test.trials.st.scene2D.huddebug.STHudDebugAddRemove;
+import com.nzt.gdx.test.trials.st.b2D.collisions.STCollisionFilterWithMask;
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
 import com.nzt.gdx.test.trials.tester.archi.main.StarterTestConfig;
 import com.nzt.gdx.test.trials.tester.archi.main.StarterType;
 import com.nzt.gdx.test.trials.tester.archi.utils.Lwjgl3TestConfiguration;
 
 /*
-Use it for Test one class with screentestClass
+Use it for Test one class with screenTestClass
  */
 public class FastNztTester {
-	private static Class screentestClass = STCollisionFilter.class;
+	private static Class screenTestClass = STCollisionFilterWithMask.class;
 	private static StarterType starterType = StarterType.Lwjgl;
 
 	private static int witdh = 800;
@@ -20,14 +18,14 @@ public class FastNztTester {
 
 	public static void main(String args[]) {
 		if (starterType == StarterType.Lwjgl) {
-			StarterTestConfig.startLwjgl(new FastTesterMain(screentestClass), witdh, height);
+			StarterTestConfig.startLwjgl(new FastTesterMain(screenTestClass), witdh, height);
 		} else if (starterType == StarterType.Lwjgl3) {
 			try {
 				Lwjgl3TestConfiguration.removeConfigLwjgl();
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			StarterTestConfig.startLwjgl3(new FastTesterMain(screentestClass), witdh, height);
+			StarterTestConfig.startLwjgl3(new FastTesterMain(screenTestClass), witdh, height);
 		}
 	}
 }

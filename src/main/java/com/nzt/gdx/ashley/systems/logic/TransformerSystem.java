@@ -7,7 +7,8 @@ import com.nzt.gdx.ashley.NztSystemsOrder;
 import com.nzt.gdx.ashley.base.systems.NzIteratingSystem;
 import com.nzt.gdx.ashley.components.TransformersComponent;
 
-//TODO pas fini , modifier avec interpolation sur entity
+//TODO
+// pas fini , modifier avec interpolation sur entity
 public class TransformerSystem extends NzIteratingSystem {
 
 	private ComponentMapper<TransformersComponent> transformMapper = TransformersComponent.mapper;

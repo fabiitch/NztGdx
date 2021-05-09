@@ -153,7 +153,7 @@ public abstract class BaseB2DSystemScreen extends BaseSystemScreen {
                 .setDensity(1).setToPPM(true);
         Rectangle botHorizontal = new Rectangle(-B2DTestConstants.WIDTH / 2, -B2DTestConstants.HEIGHT / 2, B2DTestConstants.WIDTH, 1);
         Rectangle topHorizontal = new Rectangle(-B2DTestConstants.WIDTH / 2, B2DTestConstants.HEIGHT / 2, B2DTestConstants.WIDTH, 1);
-        Rectangle leftVertical = new Rectangle(-B2DTestConstants.WIDTH / 2 , -B2DTestConstants.HEIGHT / 2, 1, B2DTestConstants.HEIGHT);
+        Rectangle leftVertical = new Rectangle(-B2DTestConstants.WIDTH / 2, -B2DTestConstants.HEIGHT / 2, 1, B2DTestConstants.HEIGHT);
         Rectangle rightVertical = new Rectangle(B2DTestConstants.WIDTH / 2, -B2DTestConstants.HEIGHT / 2, 1, B2DTestConstants.HEIGHT);
 
         bodyFactory.createRectangleBody(botHorizontal, fixture);
@@ -181,11 +181,8 @@ public abstract class BaseB2DSystemScreen extends BaseSystemScreen {
 
     public Entity addEntityBody(Body body) {
         this.bodies.add(body);
-        Entity entity = engine.createEntity();
-        engine.addEntity(entity);
-        B2DBodyComponent box2dBodyComponent = engine.createComponent(B2DBodyComponent.class);
-        box2dBodyComponent.body = body;
-        entity.add(box2dBodyComponent);
+        Entity entity = entityFactory.createEntity();
+        entity.add(entityFactory.b2DFactory.b2DBody(body));
         return entity;
     }
 
