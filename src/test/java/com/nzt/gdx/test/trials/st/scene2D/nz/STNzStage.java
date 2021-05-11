@@ -14,9 +14,6 @@ import com.nzt.gdx.test.trials.tester.selector.TestScreen;
 @TestScreen(group = "scene2D.nz")
 public class STNzStage extends STNzStageScreen{
 
-	public static void main(String args[]) {
-		StarterTestConfig.startLwjgl(new FastTesterMain(STNzStage.class), 500, 400);
-	}
 	private Image img1;
 	private Texture texture;
 
