@@ -1,5 +1,7 @@
 package com.nzt.gdx.screen.manager.impl;
 
+import com.badlogic.gdx.Gdx;
+import com.nzt.gdx.screen.AbstractScreen;
 import com.nzt.gdx.screen.loading.BaseLoadingScreen;
 import com.nzt.gdx.screen.manager.AbstractScreenManager;
 
@@ -13,6 +15,12 @@ public abstract class FastDevScreenManager extends AbstractScreenManager {
     @Override
     protected void doStartApplication() {
 
+    }
+
+    @Override
+    public void setScreen(AbstractScreen screen) {
+        Gdx.app.error("Change Screen", screen.getClass().getSimpleName());
+        this.setScreen(screen, false);
     }
 
     @Override
@@ -32,7 +40,7 @@ public abstract class FastDevScreenManager extends AbstractScreenManager {
 
     @Override
     protected void doDispose() {
-
+        System.exit(0);
     }
 
     @Override

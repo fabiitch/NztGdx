@@ -50,17 +50,17 @@ public abstract class AbstractScreen<M extends AbstractMain> implements Screen {
         Gdx.graphics.setTitle("FPS : " + Gdx.graphics.getFramesPerSecond() + " | DT = " + dt);
     }
 
-    public abstract void doShow();
+    protected abstract void doShow();
 
-    public abstract void doResize(int width, int height);
+    protected abstract void doResize(int width, int height);
 
-    public abstract void doPause();
+    protected abstract void doPause();
 
-    public abstract void doResume();
+    protected abstract void doResume();
 
-    public abstract void doHide();
+    protected abstract void doHide();
 
-    public abstract void doDispose();
+    protected abstract void doDispose();
 
     @Override
     public void render(float dt) {

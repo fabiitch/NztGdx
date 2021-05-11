@@ -76,9 +76,11 @@ public abstract class AbstractScreenManager<M extends AbstractMain> {
         this.loadingScreen.setAfterLoading(afterloading);
         setScreen(loadingScreen);
     }
-    public void setScreen(AbstractScreen<M> screen){
+
+    public void setScreen(AbstractScreen<M> screen) {
         this.setScreen(screen, false);
     }
+
     public void setScreen(AbstractScreen<M> screen, boolean keepScreenAlive) {
         if (currentScreen != null) {
             currentScreen.hide();
