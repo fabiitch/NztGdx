@@ -6,21 +6,23 @@ import com.badlogic.gdx.utils.Array;
 import com.nzt.gdx.b2d.events.B2DFixtureEventsEnum;
 
 public abstract class BaseApplyToFixtureEvent<E extends BaseFixtureBodyEvent> extends BaseFixtureBodyEvent<E> {
-    public int fixtureNumber;//-1 == to applyToAll
-    public boolean applyToAll;
+    public int fixtureNumber = -1;//-1 == to applyToAll
 
     public BaseApplyToFixtureEvent(B2DFixtureEventsEnum fixtureEnum) {
         super(fixtureEnum);
     }
 
     public void setFixtureNumber(int fixtureNumber) {
-        this.applyToAll = fixtureNumber < 0 ? true : false;
         this.fixtureNumber = fixtureNumber;
     }
+
+    public boolean applyToAll() {
+        return fixtureNumber < 0;
+    }
+
     @Override
     protected final void doReset() {
-        fixtureNumber = 0;
-        applyToAll = false;
+        fixtureNumber = -1;
         resetFixtureEvent();
     }
 
@@ -29,7 +31,7 @@ public abstract class BaseApplyToFixtureEvent<E extends BaseFixtureBodyEvent> ex
     @Override
     public void apply(Body body) {
         Array<Fixture> fixtureList = body.getFixtureList();
-        if (applyToAll) {
+        if (applyToAll()) {
             for (Fixture fixture : fixtureList) {
                 applyOnFixture(fixture);
             }

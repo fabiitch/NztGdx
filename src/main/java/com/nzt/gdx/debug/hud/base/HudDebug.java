@@ -39,7 +39,6 @@ public class HudDebug {
 
     public static void remove(String key) {
         if (instance == null) {
-            PreInitItem toRemove = null;
             for (PreInitItem item : arrayBeforeInit) {
                 if (key.equals(item.key)) {
                     arrayBeforeInit.removeValue(item, true);

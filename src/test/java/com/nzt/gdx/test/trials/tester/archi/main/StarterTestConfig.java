@@ -30,7 +30,7 @@ public class StarterTestConfig {
         Lwjgl3ApplicationConfiguration configuration = new Lwjgl3ApplicationConfiguration();
         configuration.setTitle("Tester Lwjgl3");
         configuration.setWindowedMode(witdh, height);
-        configuration.setWindowIcon("libgdx128.png", "libgdx64.png", "libgdx32.png", "libgdx16.png");
+        configuration.setWindowIcon("icons/libgdx128.png", "icons/libgdx64.png", "icons/libgdx32.png", "icons/libgdx16.png");
         new Lwjgl3Application(main, configuration);
     }
 }

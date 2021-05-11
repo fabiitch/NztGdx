@@ -24,7 +24,7 @@ public class DestroyFixtureEvent extends BaseApplyToFixtureEvent<DestroyFixtureE
 
     public void apply(Body body) {
         Array<Fixture> fixtureList = body.getFixtureList();
-        if (applyToAll) {
+        if (applyToAll()) {
             for (Fixture fixture : fixtureList) {
                 body.destroyFixture(fixture);
             }
