@@ -1,4 +1,4 @@
-package com.nzt.gdx.math;
+package com.nzt.gdx.math.bits;
 
 public class BitsUtils {
 

@@ -1,11 +1,11 @@
-package com.nzt.gdx.test.api.math;
+package com.nzt.gdx.test.api.math.bits;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import com.nzt.gdx.math.BitsUtils;
+import com.nzt.gdx.math.bits.BitsUtils;
 
 public class BitsUtilsTest {
 

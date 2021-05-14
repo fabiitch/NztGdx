@@ -4,8 +4,6 @@ import com.badlogic.gdx.Gdx;
 import com.nzt.gdx.main.AbstractMain;
 import com.nzt.gdx.screen.AbstractScreen;
 import com.nzt.gdx.screen.BaseScreen;
-import com.nzt.gdx.screen.loading.BaseLoadingScreen;
-import com.nzt.gdx.screen.manager.AbstractScreenManager;
 import com.nzt.gdx.screen.manager.impl.FastDevScreenManager;
 
 /**
