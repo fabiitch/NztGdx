@@ -59,10 +59,12 @@ public class HudDebug {
         if (instance != null)
             instance.container.update(key, value);
     }
+
     public static void update(String key, String value) {
         if (instance != null)
             instance.container.update(key, value);
     }
+
     private static void addInitList(String key, String name, Object value, int positionOnStage, Color color) {
         if (arrayBeforeInit == null)
             arrayBeforeInit = new Array<>();
@@ -220,6 +222,10 @@ public class HudDebug {
         }
     }
 
+    public static void add(String name, Object value, int positionOnstage, Color color) {
+        add(name, name, value, positionOnstage, color);
+    }
+
     public static void add(String key, String name, Object value, int positionOnstage, Color color) {
         switch (positionOnstage) {
             case HudDebugPosition.TOP_LEFT:
@@ -247,9 +253,5 @@ public class HudDebug {
                 HudDebug.addRightMiddle(key, name, value, color);
                 break;
         }
-    }
-
-    public void add(String name, int positionOnStage, Object value) {
-        this.add(null, name, value, positionOnStage, Color.WHITE);
     }
 }
