@@ -16,26 +16,32 @@ public class BitsUtilsTest {
 
 		int bitNum = 0;
 
-		assertTrue(BitsUtils.testBit(bit1, bitNum++));
-		assertFalse(BitsUtils.testBit(bit1, bitNum++));
+		assertTrue(BitsUtils.isOne(bit1, bitNum++));
+		assertFalse(BitsUtils.isOne(bit1, bitNum++));
 
-		assertTrue(BitsUtils.testBit(bit1, bitNum++));
+		assertTrue(BitsUtils.isOne(bit1, bitNum++));
 
-		assertFalse(BitsUtils.testBit(bit1, bitNum++));
-		assertFalse(BitsUtils.testBit(bit1, bitNum++));
+		assertFalse(BitsUtils.isOne(bit1, bitNum++));
+		assertFalse(BitsUtils.isOne(bit1, bitNum++));
 
-		assertTrue(BitsUtils.testBit(bit1, bitNum++));
-		assertTrue(BitsUtils.testBit(bit1, bitNum++));
+		assertTrue(BitsUtils.isOne(bit1, bitNum++));
+		assertTrue(BitsUtils.isOne(bit1, bitNum++));
 
-		assertFalse(BitsUtils.testBit(bit1, bitNum++));
+		assertFalse(BitsUtils.isOne(bit1, bitNum++));
 	}
 
 	@Test
 	public void testBitsTest() {
 		int bit1 = 0b1100101;
+		assertTrue(BitsUtils.isOne(bit1, 5));
+		assertTrue(BitsUtils.isOne(bit1, 0, 2, 5, 6));
+		assertFalse(BitsUtils.isOne(bit1, 1, 3, 4));
+		assertFalse(BitsUtils.isOne(bit1, 3));
 
-		assertTrue(BitsUtils.testBits(bit1, 0, 2, 5, 6));
-		assertFalse(BitsUtils.testBits(bit1, 1, 3, 4));
+		short bit2 = 0b110000110;
+		assertTrue(BitsUtils.isOne(bit2, 1,2,7,8));
+		assertTrue(BitsUtils.isOne(bit2, 1));
+		assertFalse(BitsUtils.isOne(bit2, 1,2,3,8));
 	}
 
 	@Test
@@ -49,10 +55,14 @@ public class BitsUtilsTest {
 	@Test
 	public void oneFalse() {
 		assertTrue(BitsUtils.oneFalse(0b110101));
-		assertTrue(BitsUtils.oneFalse(0b000001));
+		assertTrue(BitsUtils.oneFalse(0b100001));
 		assertTrue(BitsUtils.oneFalse(0b010001));
+		assertTrue(BitsUtils.oneFalse(0b011100));
 		assertFalse(BitsUtils.oneFalse(0b11111));
 		assertFalse(BitsUtils.oneFalse(0b1));
 		assertFalse(BitsUtils.oneFalse(0b11));
+
+		assertFalse(BitsUtils.oneFalse(0b11,5));
+		assertFalse(BitsUtils.oneFalse(0b1111,6));
 	}
 }

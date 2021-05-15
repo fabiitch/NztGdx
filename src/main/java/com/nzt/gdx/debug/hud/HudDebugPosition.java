@@ -5,7 +5,6 @@ package com.nzt.gdx.debug.hud;
  */
  public class HudDebugPosition {
 
-
     public static final int TOP_LEFT = 1;
     public static final int TOP_MIDDLE = 2;
     public static final int TOP_RIGHT = 3;
