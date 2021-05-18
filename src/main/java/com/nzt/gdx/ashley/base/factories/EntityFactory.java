@@ -8,7 +8,7 @@ import com.nzt.gdx.ashley.factories.list.*;
 //TODO a voir si bien fait la factory comme sa
 //TODO un system d'interface pour rajouté de nouvelle factory implements x,y,z
 
-public class BaseEntityFactory {
+public class EntityFactory {
     protected Engine engine;
     public MvtComponentFactory mvtFactory;
     public B2DComponentFactory b2DFactory;
@@ -16,7 +16,7 @@ public class BaseEntityFactory {
     public PropertiesComponentFactory propertiesFactory;
     public RendersComponentFactory rendersFactory;
 
-    public BaseEntityFactory(Engine engine) {
+    public EntityFactory(Engine engine) {
         this.engine = engine;
         this.mvtFactory = new MvtComponentFactory(engine);
         this.b2DFactory = new B2DComponentFactory(engine);
