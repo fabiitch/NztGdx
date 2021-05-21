@@ -66,13 +66,4 @@ dependencies {
     api "com.badlogicgames.ashley:ashley:$ashleyVersion"
     api "com.badlogicgames.gdx:gdx-box2d:$gdxVersion"
     api "com.badlogicgames.gdx:gdx-ai:$aiVersion"
-    
-   // processTestResources.dependsOn('blenderToGdx')
-
-  //task blenderToGdx(type: JavaExec) {
-   //   group 'other'
-     // description 'Execute BlenderToGdx jar'
-     // classpath = files('/BlenderToGdx/BlenderToGdx.jar')
-     // main  = 'com.nzt.converter.Main'
-  //} 
 }
