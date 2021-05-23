@@ -3,6 +3,7 @@ package com.nzt.gdx.debug.hud.base;
 import com.badlogic.gdx.scenes.scene2d.Touchable;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.nzt.gdx.utils.GdxUtils;
 
 /**
  * Used in HudDebug
@@ -17,6 +18,11 @@ class HudDebugLabel extends Label {
 
     public HudDebugLabel(String name, int positionOnStage, int position, String value, Skin skin) {
         super(name + SEPARATOR + value, skin);
+        if (GdxUtils.isMobile()) {
+            this.setWidth(this.getWidth() * 2);
+            this.setHeight(this.getHeight() * 2);
+            this.setFontScale(2);
+        }
         this.name = name;
         this.positionOnStage = positionOnStage;
         this.position = position;
