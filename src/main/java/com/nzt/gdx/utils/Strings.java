@@ -1,7 +1,5 @@
 package com.nzt.gdx.utils;
 
-import com.badlogic.gdx.utils.StringBuilder;
-
 public class Strings {
 
 

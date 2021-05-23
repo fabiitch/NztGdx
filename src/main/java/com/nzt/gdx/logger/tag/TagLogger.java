@@ -14,11 +14,11 @@ import com.nzt.gdx.logger.utils.NzLoggable;
  * wrapper class for active/desactive tag on logger a tag is active by default
  * the log/debug/error effective if gdx.log.level is correct
  *
- * @author fabiitch
  */
 
 //TODO tres important vérifié les nb d'instance d'enum
     //TODO a revoir pour le fameux final sur loglevel
+    //TODO com.badlogic.gdx.ApplicationLogger  doit extends sa
 public class TagLogger {
 
 	private final static Map<Enum<?>, Boolean> tagMap = new HashMap<Enum<?>, Boolean>();

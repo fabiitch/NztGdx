@@ -45,6 +45,10 @@ public class PerformanceFrame {
 		}
 	}
 
+	public static void keepOnly(String action){
+		if (enabled)
+			instance.container.keepOnly(action);
+	}
 	public static void remove(String action) {
 		if (enabled)
 			instance.container.remove(action);

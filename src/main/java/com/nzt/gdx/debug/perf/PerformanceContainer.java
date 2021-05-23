@@ -49,16 +49,22 @@ class PerformanceContainer {
         if (perfAction != null) {
             currentMap.remove(action);
             currentArrayOrdered.removeValue(perfAction, true);
-            perfAction = null;
         }
     }
-
+    public void keepOnly(String action) {
+        currentMap.clear();
+        add(action);
+    }
     public void startAction(String action) {
-        currentMap.get(action).start();
+        PerformanceAction performanceAction = currentMap.get(action);
+        if (performanceAction != null)
+            performanceAction.start();
     }
 
     public void endAction(String action) {
-        currentMap.get(action).end();
+        PerformanceAction performanceAction = currentMap.get(action);
+        if (performanceAction != null)
+            performanceAction.end();
     }
 
     public void endFrame(long frameTime) {

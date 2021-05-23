@@ -12,58 +12,57 @@ import com.nzt.gdx.debug.perf.PerformanceFrame;
 
 /**
  * System for Box2D, debugRender
- *
  */
 public class B2DDebugSystem extends NzEntitySystem {
-	private Box2DDebugRenderer debugRenderer;
-	private World world;
-	private Camera camera;
+    private Box2DDebugRenderer debugRenderer;
+    private World world;
+    private Camera camera;
 
-	private boolean displayHud = false;
+    private boolean displayHud = false;
 
-	public B2DDebugSystem(World world, Camera camera, int order) {
-		super(order);
-		debugRenderer = new Box2DDebugRenderer();
-		this.world = world;
-		this.camera = camera;
+    public B2DDebugSystem(World world, Camera camera, int order) {
+        super(order);
+        debugRenderer = new Box2DDebugRenderer();
+        this.world = world;
+        this.camera = camera;
 
-		debugRenderer.setDrawBodies(true);
-		debugRenderer.setDrawVelocities(true);
-		debugRenderer.setDrawJoints(true);
-		debugRenderer.setDrawAABBs(true);
-		debugRenderer.setDrawContacts(true);
-		debugRenderer.setDrawInactiveBodies(true);
+        debugRenderer.setDrawBodies(true);
+        debugRenderer.setDrawVelocities(true);
+        debugRenderer.setDrawJoints(true);
+        debugRenderer.setDrawAABBs(true);
+        debugRenderer.setDrawContacts(true);
+        debugRenderer.setDrawInactiveBodies(true);
 
-		PerformanceFrame.addSystem(this);
-	}
+        PerformanceFrame.addSystem(this);
+    }
 
-	public B2DDebugSystem(World world, Camera camera) {
-		this(world, camera, NztSystemsOrder.B2D_DEBUG);
-	}
+    public B2DDebugSystem(World world, Camera camera) {
+        this(world, camera, NztSystemsOrder.B2D_DEBUG);
+    }
 
-	public void initHudDebug(int positionOnStage, Color color) {
-		B2DDebugUtils.initHudDebug(world, positionOnStage, color);
-		this.displayHud = true;
-	}
+    public void initHudDebug(int positionOnStage, Color color) {
+        B2DDebugUtils.initHudDebug(world, positionOnStage, color);
+        this.displayHud = true;
+    }
 
-	public void initHudDebug() {
-		B2DDebugUtils.initHudDebug(world, HudDebugPosition.TOP_RIGHT, Color.RED);
-		this.displayHud = true;
-	}
+    public void initHudDebug() {
+        B2DDebugUtils.initHudDebug(world, HudDebugPosition.TOP_RIGHT, Color.RED);
+        this.displayHud = true;
+    }
 
-	public void updateHudDebug() {
-		B2DDebugUtils.updateHudDebug(world);
-	}
+    public void updateHudDebug() {
+        B2DDebugUtils.updateHudDebug(world);
+    }
 
-	@Override
-	public void updateSystem(float dt) {
-		debugRenderer.render(world, camera.combined);
-		if (displayHud)
-			updateHudDebug();
-	}
+    @Override
+    public void updateSystem(float dt) {
+        debugRenderer.render(world, camera.combined);
+        if (displayHud)
+            updateHudDebug();
+    }
 
-	public void dispose() {
-		this.debugRenderer.dispose();
-	}
+    public void dispose() {
+        this.debugRenderer.dispose();
+    }
 
 }
