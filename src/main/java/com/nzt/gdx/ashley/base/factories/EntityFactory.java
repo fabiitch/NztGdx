@@ -3,7 +3,10 @@ package com.nzt.gdx.ashley.base.factories;
 import com.badlogic.ashley.core.Engine;
 import com.badlogic.ashley.core.Entity;
 import com.nzt.gdx.ashley.base.components.BaseComponent;
-import com.nzt.gdx.ashley.factories.list.*;
+import com.nzt.gdx.ashley.factories.B2DComponentFactory;
+import com.nzt.gdx.ashley.factories.MvtComponentFactory;
+import com.nzt.gdx.ashley.factories.PropertiesComponentFactory;
+import com.nzt.gdx.ashley.factories.RendersComponentFactory;
 
 //TODO a voir si bien fait la factory comme sa
 //TODO un system d'interface pour rajouté de nouvelle factory implements x,y,z

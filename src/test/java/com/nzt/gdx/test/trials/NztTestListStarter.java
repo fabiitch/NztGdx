@@ -6,11 +6,11 @@ import com.nzt.gdx.test.trials.tester.selector.ScreenSelectorTestMain;
 /**
  * Open Test chooser
  */
-public class NztGdxTester {
+public class NztTestListStarter {
     private static int witdh = 800;
     private static int height = 500;
 
     public static void main(String args[]) {
-        StarterTestConfig.startLwjgl(new ScreenSelectorTestMain(NztGdxTester.class), witdh, height);
+        StarterTestConfig.startLwjgl(new ScreenSelectorTestMain(NztTestListStarter.class), witdh, height);
     }
 }

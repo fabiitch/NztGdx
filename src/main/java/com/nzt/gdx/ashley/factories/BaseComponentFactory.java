@@ -1,4 +1,4 @@
-package com.nzt.gdx.ashley.factories.list;
+package com.nzt.gdx.ashley.factories;
 
 import com.badlogic.ashley.core.Engine;
 

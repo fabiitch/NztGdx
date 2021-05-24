@@ -9,7 +9,7 @@ import com.nzt.gdx.test.trials.tester.archi.utils.Lwjgl3TestConfiguration;
 /*
 Use it for Test one class with screenTestClass
  */
-public class FastNztTester {
+public class NztTestStarter {
 	private static Class screenTestClass = STCollisionFilterWithMask.class;
 	private static StarterType starterType = StarterType.Lwjgl;
 
