@@ -4,7 +4,7 @@ import com.badlogic.gdx.physics.box2d.Fixture;
 import com.nzt.gdx.b2d.events.B2DFixtureEventsEnum;
 import com.nzt.gdx.b2d.events.type.fixture.BaseApplyToFixtureEvent;
 
-public class SensorFixtureEvent extends BaseApplyToFixtureEvent<ChangeFixtureEvent> {
+public class SensorFixtureEvent extends BaseApplyToFixtureEvent<SensorFixtureEvent> {
 
     public boolean sensor;
 
@@ -13,7 +13,7 @@ public class SensorFixtureEvent extends BaseApplyToFixtureEvent<ChangeFixtureEve
     }
 
     @Override
-    protected boolean canConcat(ChangeFixtureEvent event) {
+    protected boolean canConcat(SensorFixtureEvent event) {
         return true;
     }
 

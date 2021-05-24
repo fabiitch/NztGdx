@@ -1,6 +1,5 @@
-package com.nzt.gdx.ashley.factories.list;
+package com.nzt.gdx.ashley.factories;
 
-import com.badlogic.ashley.core.Component;
 import com.badlogic.ashley.core.Engine;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
