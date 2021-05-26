@@ -10,86 +10,94 @@ import com.nzt.gdx.screen.BaseScreen;
  */
 public class PerformanceFrame {
 
-	private static PerformanceFrame instance = new PerformanceFrame();
-	private final PerformanceContainer container;
+    private static PerformanceFrame instance = new PerformanceFrame();
+    private final PerformanceContainer container;
 
-	public static boolean enabled = true;
+    public static boolean enabled = true;
 
-	public static long timeLastFrame;
-	public static long timeFrameAverage;
+    public static long timeLastFrame;
+    public static long timeFrameAverage;
 
-	private static long nanoStartFrame;
+    private static long nanoStartFrame;
 
-	private PerformanceFrame() {
-		this.container = new PerformanceContainer();
-	}
+    private PerformanceFrame() {
+        this.container = new PerformanceContainer();
+    }
 
-	public static void setScreen(AbstractScreen screen){
-		if (enabled)
-			instance.container.changeScreen(screen);
-	}
-	public static void startFrame() {
-		if (enabled)
-			nanoStartFrame = System.nanoTime();
-	}
+    public static void setScreen(AbstractScreen screen) {
+        if (enabled)
+            instance.container.changeScreen(screen);
+    }
 
-	public static Array<PerformanceAction> getActions() {
-		return instance.container.getActions();
-	}
+    public static void startFrame() {
+        if (enabled)
+            nanoStartFrame = System.nanoTime();
+    }
 
-	public static void endFrame() {
-		if (enabled) {
-			long stopTime = System.nanoTime();
-			timeLastFrame = stopTime - nanoStartFrame;
-			instance.container.endFrame(timeLastFrame);
-		}
-	}
+    public static Array<PerformanceAction> getActions() {
+        return instance.container.getActions();
+    }
 
-	public static void keepOnly(String action){
-		if (enabled)
-			instance.container.keepOnly(action);
-	}
-	public static void remove(String action) {
-		if (enabled)
-			instance.container.remove(action);
-	}
+    public static void endFrame() {
+        if (enabled) {
+            long stopTime = System.nanoTime();
+            timeLastFrame = stopTime - nanoStartFrame;
+            instance.container.endFrame(timeLastFrame);
+        }
+    }
 
-	public static void add(String action) {
-		if (enabled)
-			instance.container.add(action);
-	}
+    public static void keepOnlySystem(Class systemClass) {
+        if (enabled)
+            instance.container.keepOnly(systemClass.getSimpleName());
+    }
 
-	public static void startAction(String action) {
-		if (enabled)
-			instance.container.startAction(action);
-	}
+    public static void keepOnly(String action) {
+        if (enabled)
+            instance.container.keepOnly(action);
+    }
 
-	public static void endAction(String action) {
-		if (enabled)
-			instance.container.endAction(action);
-	}
-	public static void removeScreen(AbstractScreen screen) {
-		instance.container.resetScreen(screen);
-	}
+    public static void remove(String action) {
+        if (enabled)
+            instance.container.remove(action);
+    }
 
-	public static void resetAll() {
-		instance.container.resetAll();
-	}
+    public static void add(String action) {
+        if (enabled)
+            instance.container.add(action);
+    }
 
-	public static void addSystem(EntitySystem system) {
-		add(system.getClass().getSimpleName());
-	}
+    public static void startAction(String action) {
+        if (enabled)
+            instance.container.startAction(action);
+    }
 
-	public static void removeSystem(EntitySystem system) {
-		remove(system.getClass().getSimpleName());
-	}
+    public static void endAction(String action) {
+        if (enabled)
+            instance.container.endAction(action);
+    }
 
-	public static void startSystem(EntitySystem system) {
-		startAction(system.getClass().getSimpleName());
-	}
+    public static void removeScreen(AbstractScreen screen) {
+        instance.container.resetScreen(screen);
+    }
 
-	public static void endSystem(EntitySystem system) {
-		endAction(system.getClass().getSimpleName());
-	}
+    public static void resetAll() {
+        instance.container.resetAll();
+    }
+
+    public static void addSystem(EntitySystem system) {
+        add(system.getClass().getSimpleName());
+    }
+
+    public static void removeSystem(EntitySystem system) {
+        remove(system.getClass().getSimpleName());
+    }
+
+    public static void startSystem(EntitySystem system) {
+        startAction(system.getClass().getSimpleName());
+    }
+
+    public static void endSystem(EntitySystem system) {
+        endAction(system.getClass().getSimpleName());
+    }
 
 }
