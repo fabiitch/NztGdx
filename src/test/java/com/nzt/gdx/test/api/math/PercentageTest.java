@@ -8,34 +8,39 @@ import com.nzt.gdx.math.Percentage;
 
 public class PercentageTest {
 
-	private static float DELTA_0 = 0f;
-	private static float DELTA_01 = 0.1f;
+    private static float DELTA_0 = 0f;
+    private static float DELTA_01 = 0.1f;
 
-	@Test
-	public void getPercentTest() {
-		assertEquals(Percentage.getPercent(50, 100), 50, DELTA_0);
-		assertEquals(Percentage.getPercent(20, 400), 5.0f, DELTA_0);
-		assertEquals(Percentage.getPercent(20, 180), 11.111111f, DELTA_0);
-	}
+    @Test
+    public void getPercentTest() {
+        assertEquals(50, Percentage.getPercent(50, 100), DELTA_0);
+        assertEquals(5.0f, Percentage.getPercent(20, 400), DELTA_0);
+        assertEquals(11.111111f, Percentage.getPercent(20, 180), DELTA_0);
 
-	@Test
-	public void getValueTest() {
-		assertEquals(Percentage.getValue(50, 100), 50, DELTA_0);
-		assertEquals(Percentage.getValue(15, 300), 45, DELTA_0);
-		assertEquals(Percentage.getValue(685.52f, 2.39f), 16.38f, DELTA_01);
-	}
 
-	@Test
-	public void addXPercentOf() {
-		assertEquals(Percentage.addXPercentTo(50, 100), 150, DELTA_0);
-		assertEquals(Percentage.addXPercentTo(105, 500), 1025, DELTA_0);
-		assertEquals(Percentage.addXPercentTo(20, 44.66f), 53.59f, DELTA_01);
-	}
+        assertEquals(50, Percentage.getPercent(50, 100), DELTA_0);
+        assertEquals(5.0f, Percentage.getPercent(20, 400), DELTA_0);
+        assertEquals(11.111111f, Percentage.getPercent(20, 180), DELTA_0);
+    }
 
-	@Test
-	public void removeXPercentOf() {
-		assertEquals(Percentage.removeXPercentTo(50, 100), 50, DELTA_0);
-		assertEquals(Percentage.removeXPercentTo(14.3f, 555), 475.63f, DELTA_01);
-		assertEquals(Percentage.removeXPercentTo(1055.3f, 255f), -2436.01f, DELTA_01);
-	}
+    @Test
+    public void getValueTest() {
+        assertEquals(50, Percentage.getValue(50, 100), DELTA_0);
+        assertEquals(45, Percentage.getValue(15, 300), DELTA_0);
+        assertEquals(16.38f, Percentage.getValue(685.52f, 2.39f), DELTA_01);
+    }
+
+    @Test
+    public void addXPercentOf() {
+        assertEquals(150, Percentage.addXPercentTo(50, 100), DELTA_0);
+        assertEquals(1025, Percentage.addXPercentTo(105, 500), DELTA_0);
+        assertEquals(53.59f, Percentage.addXPercentTo(20, 44.66f), DELTA_01);
+    }
+
+    @Test
+    public void removeXPercentOf() {
+        assertEquals(50, Percentage.removeXPercentTo(50, 100), DELTA_0);
+        assertEquals(475.63f, Percentage.removeXPercentTo(14.3f, 555), DELTA_01);
+        assertEquals(-2436.01f, Percentage.removeXPercentTo(1055.3f, 255f), DELTA_01);
+    }
 }
