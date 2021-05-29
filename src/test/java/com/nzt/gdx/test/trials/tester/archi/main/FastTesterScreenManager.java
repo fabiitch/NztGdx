@@ -22,12 +22,4 @@ public class FastTesterScreenManager extends FastDevScreenManager {
         setScreen(screenToSet);
     }
 
-
-    @Override
-    public void setScreen(AbstractScreen screen) {
-        Gdx.app.error("Change Screen", screen.getClass().getSimpleName());
-        super.setScreen(screen);
-    }
-
-
 }
