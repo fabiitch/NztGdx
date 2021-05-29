@@ -57,8 +57,7 @@ public abstract class BaseB2DSystemScreen extends BaseSystemScreen {
 
 	public BaseB2DSystemScreen(FastTesterMain main) {
 		super(main);
-		fixtureWall = new FixtureDefWrapper(BodyDef.BodyType.StaticBody).setSensor(false).setDensity(1).setToPPM(true)
-				.setFilter(0, 0, 0);
+		fixtureWall = new FixtureDefWrapper(BodyDef.BodyType.StaticBody).setSensor(false).setDensity(1).setToPPM(true);
 		this.camera = new OrthographicCamera(B2DTestConstants.WIDTH_PPM, B2DTestConstants.HEIGHT_PPM);
 		this.camera.position.set(0, 0, 0);
 		this.camera.lookAt(0, 0, 0);

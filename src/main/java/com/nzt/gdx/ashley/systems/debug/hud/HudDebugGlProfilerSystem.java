@@ -1,4 +1,4 @@
-package com.nzt.gdx.ashley.systems.debug;
+package com.nzt.gdx.ashley.systems.debug.hud;
 
 import com.badlogic.ashley.core.EntitySystem;
 import com.badlogic.gdx.graphics.Color;
