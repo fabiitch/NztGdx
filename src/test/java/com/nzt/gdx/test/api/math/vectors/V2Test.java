@@ -2,9 +2,8 @@ package com.nzt.gdx.test.api.math.vectors;
 
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
-import com.nzt.gdx.math.vectors.V2;
 import com.nzt.gdx.math.vectors.V;
-
+import com.nzt.gdx.math.vectors.V2;
 import org.junit.Assert;
 import org.junit.Test;
 

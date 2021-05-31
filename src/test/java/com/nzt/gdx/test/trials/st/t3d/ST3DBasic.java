@@ -12,10 +12,9 @@ import com.badlogic.gdx.graphics.g3d.attributes.ColorAttribute;
 import com.badlogic.gdx.graphics.g3d.environment.DirectionalLight;
 import com.badlogic.gdx.graphics.g3d.utils.CameraInputController;
 import com.badlogic.gdx.graphics.g3d.utils.ModelBuilder;
+import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
 import com.nzt.gdx.test.trials.tester.archi.screens.TestScreenWithHudDebug;
 import com.nzt.gdx.test.trials.tester.selector.TestScreen;
-import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
-import com.nzt.gdx.test.trials.tester.archi.screens.SimpleTestScreen;
 @TestScreen(group = "3D")
 public class ST3DBasic extends TestScreenWithHudDebug {
 	public PerspectiveCamera camera;

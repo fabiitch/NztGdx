@@ -6,21 +6,8 @@ import com.badlogic.gdx.physics.box2d.BodyDef.BodyType;
 import com.badlogic.gdx.utils.Pools;
 import com.nzt.gdx.b2d.events.B2DBaseEvent;
 import com.nzt.gdx.b2d.events.B2DEventsEnum;
-import com.nzt.gdx.b2d.events.type.mvt.AngularDampingBodyEvent;
-import com.nzt.gdx.b2d.events.type.mvt.AngularImpulseBodyEvent;
-import com.nzt.gdx.b2d.events.type.mvt.AngularVelocityEvent;
-import com.nzt.gdx.b2d.events.type.mvt.ApplyForceBodyEvent;
-import com.nzt.gdx.b2d.events.type.mvt.ApplyForceCenterBodyEvent;
-import com.nzt.gdx.b2d.events.type.mvt.LinearImpulseBodyEvent;
-import com.nzt.gdx.b2d.events.type.mvt.LinearVelocityEvent;
-import com.nzt.gdx.b2d.events.type.mvt.RotationBodyEvent;
-import com.nzt.gdx.b2d.events.type.mvt.TorqueBodyEvent;
-import com.nzt.gdx.b2d.events.type.mvt.TransformBodyEvent;
-import com.nzt.gdx.b2d.events.type.properties.ActiveBodyEvent;
-import com.nzt.gdx.b2d.events.type.properties.AwakeBodyEvent;
-import com.nzt.gdx.b2d.events.type.properties.BodyTypeEvent;
-import com.nzt.gdx.b2d.events.type.properties.BulletBodyEvent;
-import com.nzt.gdx.b2d.events.type.properties.FixedRotationBodyEvent;
+import com.nzt.gdx.b2d.events.type.mvt.*;
+import com.nzt.gdx.b2d.events.type.properties.*;
 
 public class B2DEventFactory {
 	private B2DEventFactory() {

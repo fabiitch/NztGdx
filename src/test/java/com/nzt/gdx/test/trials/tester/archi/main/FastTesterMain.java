@@ -1,13 +1,13 @@
 package com.nzt.gdx.test.trials.tester.archi.main;
 
-import java.lang.reflect.Constructor;
-
 import com.badlogic.gdx.Application;
 import com.badlogic.gdx.Gdx;
-import com.nzt.gdx.screen.manager.AbstractAssetsManager;
-import com.nzt.gdx.screen.manager.AbstractLogManager;
 import com.nzt.gdx.main.AbstractMain;
 import com.nzt.gdx.screen.BaseScreen;
+import com.nzt.gdx.screen.manager.AbstractAssetsManager;
+import com.nzt.gdx.screen.manager.AbstractLogManager;
+
+import java.lang.reflect.Constructor;
 
 /**
  * WIP, test class for launch fast iteration dev on lib change

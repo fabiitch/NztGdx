@@ -1,10 +1,9 @@
 package com.nzt.gdx.test.api.math.bits;
 
-import static org.junit.Assert.assertEquals;
-
+import com.nzt.gdx.math.bits.BitsGenerator;
 import org.junit.Test;
 
-import com.nzt.gdx.math.bits.BitsGenerator;
+import static org.junit.Assert.assertEquals;
 
 public class BitsGeneratorTest {
 

@@ -10,9 +10,9 @@ import com.nzt.gdx.b2d.FixtureDefWrapper;
 import com.nzt.gdx.b2d.events.type.fixture.impl.SensorFixtureEvent;
 import com.nzt.gdx.b2d.factories.B2DFixtureEventFactory;
 import com.nzt.gdx.debug.hud.base.HudDebug;
-import com.nzt.gdx.test.trials.tester.selector.TestScreen;
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
 import com.nzt.gdx.test.trials.tester.archi.screens.systems.BaseB2DSystemScreen;
+import com.nzt.gdx.test.trials.tester.selector.TestScreen;
 
 import java.util.concurrent.Callable;
 

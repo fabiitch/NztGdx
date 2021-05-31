@@ -1,10 +1,9 @@
 package com.nzt.gdx.test.api.math.vectors;
 
-import org.junit.Assert;
-
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
+import org.junit.Assert;
 
 /**
  * utils for test Vectors and print value in junit (better than

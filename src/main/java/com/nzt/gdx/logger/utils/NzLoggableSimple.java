@@ -1,7 +1,6 @@
 package com.nzt.gdx.logger.utils;
 
 import com.badlogic.gdx.utils.Pools;
-import com.badlogic.gdx.utils.Pool.Poolable;
 
 /**
  * Simple wrapper for {@link NzLoggable}

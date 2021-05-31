@@ -1,7 +1,5 @@
 package com.nzt.gdx.ashley.systems.render;
 
-import java.util.Comparator;
-
 import com.badlogic.ashley.core.ComponentMapper;
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.ashley.core.Family;
@@ -17,6 +15,8 @@ import com.nzt.gdx.ashley.comparators.ZComparator;
 import com.nzt.gdx.ashley.components.mvt.PositionComponent;
 import com.nzt.gdx.ashley.components.renders.SpriteComponent;
 import com.nzt.gdx.debug.perf.PerformanceFrame;
+
+import java.util.Comparator;
 
 /**
  * used for rendering with SB

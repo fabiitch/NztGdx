@@ -1,12 +1,12 @@
 package com.nzt.gdx.test.trials.st.t3d.viewer;
 
+import com.badlogic.gdx.utils.Array;
+
 import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.stream.Stream;
-
-import com.badlogic.gdx.utils.Array;
 
 /**
  * Scan models in ressource/assets

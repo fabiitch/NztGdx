@@ -1,12 +1,12 @@
 package com.nzt.gdx.test.trials.tester.archi.screens.systems;
 
-import java.util.concurrent.Callable;
-
 import com.badlogic.ashley.core.Engine;
 import com.nzt.gdx.ashley.base.factories.EntityFactory;
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
 import com.nzt.gdx.test.trials.tester.archi.screens.SimpleTestScreen;
 import com.nzt.gdx.test.trials.tester.archi.systems.DelayFrameActionSystem;
+
+import java.util.concurrent.Callable;
 
 public abstract class BaseSystemScreen extends SimpleTestScreen {
 

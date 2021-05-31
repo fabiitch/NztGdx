@@ -1,10 +1,9 @@
 package com.nzt.gdx.test.api.math;
 
-import static org.junit.Assert.assertEquals;
-
+import com.nzt.gdx.math.Percentage;
 import org.junit.Test;
 
-import com.nzt.gdx.math.Percentage;
+import static org.junit.Assert.assertEquals;
 
 public class PercentageTest {
 

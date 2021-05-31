@@ -1,9 +1,9 @@
 package com.nzt.gdx.transformer;
 
-import static com.badlogic.gdx.utils.Pools.obtain;
-
 import com.badlogic.gdx.math.Interpolation;
 import com.badlogic.gdx.utils.Pool.Poolable;
+
+import static com.badlogic.gdx.utils.Pools.obtain;
 
 //TODO revoir fonctionnement 
 public abstract class BaseTransformer<T> implements Poolable {

@@ -1,8 +1,6 @@
 package com.nzt.gdx.test.trials.tester.archi.main;
 
-import com.badlogic.gdx.Gdx;
 import com.nzt.gdx.main.AbstractMain;
-import com.nzt.gdx.screen.AbstractScreen;
 import com.nzt.gdx.screen.BaseScreen;
 import com.nzt.gdx.screen.manager.impl.FastDevScreenManager;
 

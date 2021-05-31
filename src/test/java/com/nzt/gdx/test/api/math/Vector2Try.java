@@ -3,7 +3,6 @@ package com.nzt.gdx.test.api.math;
 import com.badlogic.gdx.math.Interpolation;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
-import com.nzt.gdx.math.random.Randoms;
 import org.junit.Assert;
 import org.junit.Test;
 

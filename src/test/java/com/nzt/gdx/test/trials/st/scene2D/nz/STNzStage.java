@@ -7,7 +7,6 @@ import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.nzt.gdx.scene2D.nz.NzStage;
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
-import com.nzt.gdx.test.trials.tester.archi.main.StarterTestConfig;
 import com.nzt.gdx.test.trials.tester.archi.screens.stages.STNzStageScreen;
 import com.nzt.gdx.test.trials.tester.selector.TestScreen;
 

@@ -1,9 +1,8 @@
 package com.nzt.gdx.screen;
 
-import com.nzt.gdx.main.AbstractMain;
-import com.nzt.gdx.debug.perf.PerformanceFrame;
 import com.nzt.gdx.logger.tag.LogTagsBase;
 import com.nzt.gdx.logger.tag.TagLogger;
+import com.nzt.gdx.main.AbstractMain;
 
 /**
  * Base screen with log on screenAction See LogTagBase for logs.
