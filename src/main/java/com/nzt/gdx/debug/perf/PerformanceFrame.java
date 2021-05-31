@@ -3,7 +3,6 @@ package com.nzt.gdx.debug.perf;
 import com.badlogic.ashley.core.EntitySystem;
 import com.badlogic.gdx.utils.Array;
 import com.nzt.gdx.screen.AbstractScreen;
-import com.nzt.gdx.screen.BaseScreen;
 
 /**
  * Simple static class to Use PerformanceContainer

@@ -1,10 +1,9 @@
 package com.nzt.gdx.debug.perf;
 
-import java.util.HashMap;
-
 import com.badlogic.gdx.utils.Array;
 import com.nzt.gdx.screen.AbstractScreen;
-import com.nzt.gdx.screen.BaseScreen;
+
+import java.util.HashMap;
 
 class PerformanceContainer {
     private HashMap<String, HashMap<String, PerformanceAction>> mapByScreen;

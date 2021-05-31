@@ -1,6 +1,5 @@
 package com.nzt.gdx.test.trials;
 
-import com.nzt.gdx.test.trials.st.b2D.collisions.STCollisionFilterWithMask;
 import com.nzt.gdx.test.trials.st.ecs.STDebugDisplaySystem;
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
 import com.nzt.gdx.test.trials.tester.archi.main.StarterTestConfig;

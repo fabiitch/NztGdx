@@ -6,7 +6,6 @@ import com.badlogic.gdx.graphics.profiling.GLProfiler;
 import com.nzt.gdx.debug.hud.base.HudDebug;
 import com.nzt.gdx.logger.TagLoggerUtils;
 import com.nzt.gdx.logger.tag.LogTagsBase;
-import com.nzt.gdx.logger.tag.TagLogger;
 import com.nzt.gdx.screen.AbstractScreen;
 
 //TODO boolean en constant pour enlevé les if a la compil

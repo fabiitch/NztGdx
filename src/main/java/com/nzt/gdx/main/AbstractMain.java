@@ -4,11 +4,11 @@ import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g3d.ModelBatch;
-import com.nzt.gdx.screen.manager.AbstractAssetsManager;
 import com.nzt.gdx.debug.LogApplicationInfo;
 import com.nzt.gdx.graphics.renderers.NzShapeRenderer;
-import com.nzt.gdx.screen.manager.AbstractLogManager;
 import com.nzt.gdx.net.AutoProxy;
+import com.nzt.gdx.screen.manager.AbstractAssetsManager;
+import com.nzt.gdx.screen.manager.AbstractLogManager;
 import com.nzt.gdx.screen.manager.AbstractScreenManager;
 
 /**

@@ -1,14 +1,14 @@
 package com.nzt.gdx.net;
 
+import com.nzt.gdx.logger.tag.LogTagsBase;
+import com.nzt.gdx.logger.tag.TagLogger;
+
 import java.net.InetSocketAddress;
 import java.net.Proxy;
 import java.net.ProxySelector;
 import java.net.URI;
 import java.util.Iterator;
 import java.util.List;
-
-import com.nzt.gdx.logger.tag.LogTagsBase;
-import com.nzt.gdx.logger.tag.TagLogger;
 
 /**
  * Used to detect and add proxy on net modules only for desktop ? //TODO test

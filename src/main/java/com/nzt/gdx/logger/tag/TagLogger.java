@@ -1,14 +1,14 @@
 package com.nzt.gdx.logger.tag;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
-
 import com.badlogic.gdx.Application;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.utils.Array;
 import com.nzt.gdx.logger.TagLoggerUtils;
 import com.nzt.gdx.logger.utils.NzLoggable;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * wrapper class for active/desactive tag on logger a tag is active by default

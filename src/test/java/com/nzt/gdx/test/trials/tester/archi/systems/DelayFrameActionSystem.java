@@ -1,9 +1,9 @@
 package com.nzt.gdx.test.trials.tester.archi.systems;
 
+import com.badlogic.ashley.core.EntitySystem;
+
 import java.util.HashMap;
 import java.util.concurrent.Callable;
-
-import com.badlogic.ashley.core.EntitySystem;
 
 /**
  * use this for call functions after X frames.

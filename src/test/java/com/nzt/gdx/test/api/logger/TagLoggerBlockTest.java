@@ -1,17 +1,14 @@
 package com.nzt.gdx.test.api.logger;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import com.nzt.gdx.logger.tag.LogTagsBase;
+import com.nzt.gdx.logger.tag.TagLogger;
+import org.junit.Before;
+import org.junit.Test;
 
 import java.lang.reflect.Field;
 import java.util.Map;
 
-import org.junit.Before;
-import org.junit.Test;
-
-import com.nzt.gdx.logger.tag.LogTagsBase;
-import com.nzt.gdx.logger.tag.TagLogger;
+import static org.junit.Assert.*;
 
 /**
  * test class for{@link TagLogger}

@@ -1,7 +1,5 @@
 package com.nzt.gdx.debug;
 
-import java.lang.reflect.Field;
-
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.utils.ObjectMap;
@@ -13,6 +11,8 @@ import com.nzt.gdx.logger.TagLoggerBlockUtils;
 import com.nzt.gdx.logger.tag.LogTagsBase;
 import com.nzt.gdx.logger.tag.TagLogger;
 import com.nzt.gdx.utils.Strings;
+
+import java.lang.reflect.Field;
 
 public class PoolsDebug {
 

@@ -1,10 +1,10 @@
 package com.nzt.gdx.ashley.comparators;
 
-import java.util.Comparator;
-
 import com.badlogic.ashley.core.ComponentMapper;
 import com.badlogic.ashley.core.Entity;
 import com.nzt.gdx.ashley.components.mvt.PositionComponent;
+
+import java.util.Comparator;
 
 public class ZComparator implements Comparator<Entity> {
 	private ComponentMapper<PositionComponent> transformM = PositionComponent.mapper;

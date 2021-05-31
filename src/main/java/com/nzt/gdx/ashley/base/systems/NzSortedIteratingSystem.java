@@ -1,11 +1,11 @@
 package com.nzt.gdx.ashley.base.systems;
 
-import java.util.Comparator;
-
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.ashley.core.Family;
 import com.badlogic.ashley.systems.SortedIteratingSystem;
 import com.nzt.gdx.debug.perf.PerformanceFrame;
+
+import java.util.Comparator;
 
 public abstract class NzSortedIteratingSystem extends SortedIteratingSystem {
 

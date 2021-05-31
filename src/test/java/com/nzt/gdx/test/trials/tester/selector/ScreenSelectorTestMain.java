@@ -7,8 +7,8 @@ import com.nzt.gdx.screen.BaseScreen;
 import com.nzt.gdx.screen.manager.AbstractAssetsManager;
 import com.nzt.gdx.screen.manager.AbstractLogManager;
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterLogManager;
-import com.nzt.gdx.test.trials.tester.archi.main.FastTesterScreenManager;
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
+import com.nzt.gdx.test.trials.tester.archi.main.FastTesterScreenManager;
 
 public class ScreenSelectorTestMain extends FastTesterMain {
     private BaseScreen selectorScreenTest;

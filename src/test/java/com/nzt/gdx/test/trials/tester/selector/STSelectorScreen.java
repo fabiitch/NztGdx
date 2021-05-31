@@ -1,7 +1,5 @@
 package com.nzt.gdx.test.trials.tester.selector;
 
-import java.lang.reflect.Constructor;
-
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.scenes.scene2d.Actor;
@@ -18,6 +16,8 @@ import com.nzt.gdx.screen.BaseScreen;
 import com.nzt.gdx.screen.SimpleScreen;
 import com.nzt.gdx.test.trials.st.scene2D.Scene2DTestConstants;
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
+
+import java.lang.reflect.Constructor;
 
 /*
  * test screen selector

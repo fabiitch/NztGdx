@@ -1,12 +1,11 @@
 package com.nzt.gdx.test.api.utils;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-
 import com.nzt.gdx.debug.utils.DebugDisplayUtils;
 import com.nzt.gdx.utils.NullChecker;
-
 import org.junit.Test;
+
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Test class for {@link NullChecker}

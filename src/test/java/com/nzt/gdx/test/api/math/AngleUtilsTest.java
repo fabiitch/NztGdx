@@ -2,7 +2,6 @@ package com.nzt.gdx.test.api.math;
 
 import com.badlogic.gdx.math.Vector2;
 import com.nzt.gdx.math.AngleUtils;
-
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

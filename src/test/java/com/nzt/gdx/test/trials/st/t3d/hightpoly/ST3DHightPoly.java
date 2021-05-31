@@ -11,10 +11,9 @@ import com.badlogic.gdx.graphics.g3d.loader.G3dModelLoader;
 import com.badlogic.gdx.graphics.g3d.model.Animation;
 import com.badlogic.gdx.graphics.g3d.utils.CameraInputController;
 import com.badlogic.gdx.utils.UBJsonReader;
+import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
 import com.nzt.gdx.test.trials.tester.archi.screens.TestScreenWithHudDebug;
 import com.nzt.gdx.test.trials.tester.selector.TestScreen;
-import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
-import com.nzt.gdx.test.trials.tester.archi.screens.SimpleTestScreen;
 
 @TestScreen(group = "3D")
 public class ST3DHightPoly extends TestScreenWithHudDebug {

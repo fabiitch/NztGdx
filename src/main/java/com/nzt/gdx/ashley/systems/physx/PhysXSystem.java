@@ -1,10 +1,6 @@
 package com.nzt.gdx.ashley.systems.physx;
 
-import com.badlogic.ashley.core.ComponentMapper;
-import com.badlogic.ashley.core.Engine;
-import com.badlogic.ashley.core.Entity;
-import com.badlogic.ashley.core.EntityListener;
-import com.badlogic.ashley.core.Family;
+import com.badlogic.ashley.core.*;
 import com.nzt.gdx.ashley.NztSystemsOrder;
 import com.nzt.gdx.ashley.base.systems.NzEntitySystem;
 import com.nzt.gdx.ashley.components.mvt.PositionComponent;
