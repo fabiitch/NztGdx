@@ -6,7 +6,7 @@ import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.World;
 import com.nzt.gdx.ashley.NztSystemsOrder;
 import com.nzt.gdx.ashley.base.systems.NzEntitySystem;
-import com.nzt.gdx.debug.B2DDebugUtils;
+import com.nzt.gdx.b2d.debug.B2DHudDebug;
 import com.nzt.gdx.debug.hud.HudDebugPosition;
 import com.nzt.gdx.debug.perf.PerformanceFrame;
 
@@ -41,17 +41,17 @@ public class B2DDebugSystem extends NzEntitySystem {
     }
 
     public void initHudDebug(int positionOnStage, Color color) {
-        B2DDebugUtils.initHudDebug(world, positionOnStage, color);
+        B2DHudDebug.initHudDebug(world, positionOnStage, color);
         this.displayHud = true;
     }
 
     public void initHudDebug() {
-        B2DDebugUtils.initHudDebug(world, HudDebugPosition.TOP_RIGHT, Color.RED);
+    	B2DHudDebug.initHudDebug(world, HudDebugPosition.TOP_RIGHT, Color.RED);
         this.displayHud = true;
     }
 
     public void updateHudDebug() {
-        B2DDebugUtils.updateHudDebug(world);
+    	B2DHudDebug.updateHudDebug(world);
     }
 
     @Override

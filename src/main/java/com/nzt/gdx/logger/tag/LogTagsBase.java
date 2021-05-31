@@ -14,11 +14,11 @@ public enum LogTagsBase {
     SYSTEMS,
     INPUT,
     HUD_DEBUG,
-    B2D_INFO, B2D_CONTACT, B2D_CREATION,
+    B2D_INFO, B2D_CONTACT, B2D_CREATION, B2D_DEBUG,
     SCREEN_ACTIONS,    // SCREEN_ACTIONS is all except render(show, resize, pause, resume, hide)
     TILED,
     UNKNOW,
-    DEBUG;
+    DEBUG,;
 
     public static void activeBasesTags() {
         for (LogTagsBase tag : LogTagsBase.values()) {

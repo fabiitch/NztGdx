@@ -4,7 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.profiling.GLProfiler;
 import com.nzt.gdx.debug.hud.base.HudDebug;
-import com.nzt.gdx.logger.LogUtils;
+import com.nzt.gdx.logger.TagLoggerUtils;
 import com.nzt.gdx.logger.tag.LogTagsBase;
 import com.nzt.gdx.logger.tag.TagLogger;
 import com.nzt.gdx.screen.AbstractScreen;
@@ -48,7 +48,7 @@ public class NzGLProfiler {
 	}
 
 	public void log() {
-		LogUtils.debugStart(LogTagsBase.OPEN_GL_PROFILER.name(), "NzGlProfiler " + screenName);
+		TagLoggerUtils.debugStart(LogTagsBase.OPEN_GL_PROFILER.name(), "NzGlProfiler " + screenName);
 		Gdx.app.debug("GlListener enabled", profiler.isEnabled() + "");
 		Gdx.app.debug("getCalls", profiler.getCalls() + "");
 		Gdx.app.debug("getDrawCalls", profiler.getDrawCalls() + "");
@@ -56,7 +56,7 @@ public class NzGLProfiler {
 		Gdx.app.debug("getTextureBindings", profiler.getTextureBindings() + "");
 		Gdx.app.debug("getVertexCountAverage", profiler.getVertexCount().average + "");
 		Gdx.app.debug("getDrawCalls", profiler.getCalls() + "");
-		LogUtils.debugEnd(LogTagsBase.OPEN_GL_PROFILER.name(), "NzGlProfiler " + screenName);
+		TagLoggerUtils.debugEnd(LogTagsBase.OPEN_GL_PROFILER.name(), "NzGlProfiler " + screenName);
 	}
 
 	public void initHudDebug(int positionOnStage, Color color) {

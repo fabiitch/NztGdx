@@ -6,7 +6,7 @@ import com.badlogic.gdx.Gdx;
 /**
  * utils pout log, aucun check avec le tag logger n'est fait
  */
-public class LogUtils {
+public class TagLoggerUtils {
 
     public static void logStart(int logLevel, String tag, String nameBlock) {
         if (logLevel >= Application.LOG_ERROR) {

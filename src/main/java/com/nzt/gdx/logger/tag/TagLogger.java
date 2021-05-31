@@ -7,7 +7,7 @@ import java.util.Set;
 import com.badlogic.gdx.Application;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.utils.Array;
-import com.nzt.gdx.logger.LogUtils;
+import com.nzt.gdx.logger.TagLoggerUtils;
 import com.nzt.gdx.logger.utils.NzLoggable;
 
 /**
@@ -100,11 +100,11 @@ public class TagLogger {
 
     public static <E extends Enum<E>> void debugBlock(E tag, String msg, NzLoggable... objectToLogs) {
         if (!DONT_LOG && getTag(tag)) {
-            LogUtils.debugStart(tag.name(), msg);
+            TagLoggerUtils.debugStart(tag.name(), msg);
             for (int i = 0, n = objectToLogs.length; i < n; i++) {
                 Gdx.app.debug(objectToLogs[i].gdxLogTag(), objectToLogs[i].gdxLogValue());
             }
-            LogUtils.debugEnd(tag.name(), msg);
+            TagLoggerUtils.debugEnd(tag.name(), msg);
         }
     }
 
@@ -120,18 +120,18 @@ public class TagLogger {
     }
     public static <E extends Enum<E>> void infoBlock(E tag, String msg, NzLoggable objectToLog) {
         if (!DONT_LOG && getTag(tag)) {
-            LogUtils.infoStart(tag.name(), msg);
+            TagLoggerUtils.infoStart(tag.name(), msg);
             Gdx.app.log(objectToLog.gdxLogTag(), objectToLog.gdxLogValue());
-            LogUtils.infoEnd(tag.name(), msg);
+            TagLoggerUtils.infoEnd(tag.name(), msg);
         }
     }
     public static <E extends Enum<E>> void infoBlock(E tag, String msg, NzLoggable... objectToLogs) {
         if (!DONT_LOG && getTag(tag)) {
-            LogUtils.infoStart(tag.name(), msg);
+            TagLoggerUtils.infoStart(tag.name(), msg);
             for (int i = 0, n = objectToLogs.length; i < n; i++) {
                 Gdx.app.log(objectToLogs[i].gdxLogTag(), objectToLogs[i].gdxLogValue());
             }
-            LogUtils.infoEnd(tag.name(), msg);
+            TagLoggerUtils.infoEnd(tag.name(), msg);
         }
     }
 
@@ -148,12 +148,12 @@ public class TagLogger {
 
     public static <E extends Enum<E>> void errorBlock(E tag, String msg, Array<NzLoggable> objectToLogs) {
         if (!DONT_LOG && getTag(tag)) {
-            LogUtils.errorStart(tag.name(), msg);
+            TagLoggerUtils.errorStart(tag.name(), msg);
             for (int i = 0, n = objectToLogs.size; i < n; i++) {
                 NzLoggable nzLoggable = objectToLogs.get(i);
                 Gdx.app.error(nzLoggable.gdxLogTag(), nzLoggable.gdxLogValue());
             }
-            LogUtils.errorEnd(tag.name(), msg);
+            TagLoggerUtils.errorEnd(tag.name(), msg);
         }
     }
 

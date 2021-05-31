@@ -9,7 +9,7 @@ import com.badlogic.gdx.utils.ObjectMap.Entry;
 import com.badlogic.gdx.utils.Pool;
 import com.badlogic.gdx.utils.Pools;
 import com.nzt.gdx.debug.hud.base.HudDebug;
-import com.nzt.gdx.logger.LoggerTagBlockUtils;
+import com.nzt.gdx.logger.TagLoggerBlockUtils;
 import com.nzt.gdx.logger.tag.LogTagsBase;
 import com.nzt.gdx.logger.tag.TagLogger;
 import com.nzt.gdx.utils.Strings;
@@ -58,13 +58,13 @@ public class PoolsDebug {
      */
     public static <T> void debugPools(int logLevel) {
         ObjectMap<Class<T>, Pool<T>> typePools = getPools();
-        LoggerTagBlockUtils.startBlock(logLevel, LogTagsBase.MEMORY, "Pools Debug");
+        TagLoggerBlockUtils.startBlock(logLevel, LogTagsBase.MEMORY, "Pools Debug");
         for (Entry<Class<T>, Pool<T>> entry : typePools.entries()) {
             Class<T> key = entry.key;
             Pool<T> pool = entry.value;
             TagLogger.logWithLevel(logLevel, LogTagsBase.MEMORY, key.getSimpleName(),
                     "max=" + pool.max + ", peak=" + pool.peak);
         }
-        LoggerTagBlockUtils.endBlock(logLevel, LogTagsBase.MEMORY, "Pools Debug");
+        TagLoggerBlockUtils.endBlock(logLevel, LogTagsBase.MEMORY, "Pools Debug");
     }
 }
