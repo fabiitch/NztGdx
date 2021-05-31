@@ -16,4 +16,9 @@ public class TypeComponent extends PoolableComponent {
 		name = null;
 	}
 
+	@Override
+	public String toString() {
+		return "TypeComponent [mask=" + mask + ", name=" + name + "]";
+	}
+
 }

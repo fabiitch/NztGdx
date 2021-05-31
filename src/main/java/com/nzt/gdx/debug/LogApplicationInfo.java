@@ -2,7 +2,7 @@ package com.nzt.gdx.debug;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Graphics;
-import com.nzt.gdx.logger.LoggerTagBlockUtils;
+import com.nzt.gdx.logger.TagLoggerBlockUtils;
 import com.nzt.gdx.logger.tag.LogTagsBase;
 import com.nzt.gdx.logger.tag.TagLogger;
 
@@ -14,7 +14,7 @@ import com.nzt.gdx.logger.tag.TagLogger;
 public class LogApplicationInfo {
 
 	public static void logInit(int logLevel) {
-		LoggerTagBlockUtils.startBlock(logLevel, LogTagsBase.INIT, "Application Info");
+		TagLoggerBlockUtils.startBlock(logLevel, LogTagsBase.INIT, "Application Info");
 		TagLogger.logWithLevel(logLevel, LogTagsBase.INIT, "LogLevel", "" + Gdx.app.getLogLevel());
 		TagLogger.logWithLevel(logLevel, LogTagsBase.INIT, "App type", "" + Gdx.app.getType());
 		TagLogger.logWithLevel(logLevel, LogTagsBase.INIT, "Android/Ios version", "" + Gdx.app.getVersion());
@@ -22,11 +22,11 @@ public class LogApplicationInfo {
 		TagLogger.logWithLevel(logLevel, LogTagsBase.INIT, "Java Native Heap", "" + Gdx.app.getNativeHeap());
 		TagLogger.logWithLevel(logLevel, LogTagsBase.INIT, "NbThread", "" + Thread.activeCount());
 		TagLogger.logWithLevel(logLevel, LogTagsBase.INIT, "currentThread", "" + Thread.currentThread().getName());
-		LoggerTagBlockUtils.endBlock(logLevel, LogTagsBase.INIT, "Application Info");
+		TagLoggerBlockUtils.endBlock(logLevel, LogTagsBase.INIT, "Application Info");
 	}
 
 	public static void logGraphics(int logLevel) {
-		LoggerTagBlockUtils.startBlock(logLevel, LogTagsBase.INIT, "Graphics Info");
+		TagLoggerBlockUtils.startBlock(logLevel, LogTagsBase.INIT, "Graphics Info");
 		TagLogger.logWithLevel(logLevel, LogTagsBase.INIT, "getWidth", "" + Gdx.graphics.getWidth());
 		TagLogger.logWithLevel(logLevel, LogTagsBase.INIT, "getHeight", "" + Gdx.graphics.getHeight());
 
@@ -79,6 +79,6 @@ public class LogApplicationInfo {
 					"Name=" + monitor.name + " virtualX= " + monitor.virtualX + " virtualY= " + monitor.virtualY);
 			monitorCount++;
 		}
-		LoggerTagBlockUtils.endBlock(logLevel, LogTagsBase.INIT, "Graphics Info");
+		TagLoggerBlockUtils.endBlock(logLevel, LogTagsBase.INIT, "Graphics Info");
 	}
 }

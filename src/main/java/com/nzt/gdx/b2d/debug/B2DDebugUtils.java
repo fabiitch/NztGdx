@@ -1,11 +1,12 @@
-package com.nzt.gdx.debug;
+package com.nzt.gdx.b2d.debug;
 
-import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.Contact;
+import com.badlogic.gdx.physics.box2d.Filter;
+import com.badlogic.gdx.physics.box2d.Fixture;
 import com.badlogic.gdx.physics.box2d.World;
-import com.nzt.gdx.debug.hud.HudDebugPosition;
-import com.nzt.gdx.debug.hud.base.HudDebug;
-import com.nzt.gdx.logger.LoggerTagBlockUtils;
+import com.badlogic.gdx.utils.Array;
+import com.nzt.gdx.logger.TagLoggerBlockUtils;
 import com.nzt.gdx.logger.tag.LogTagsBase;
 import com.nzt.gdx.logger.tag.TagLogger;
 
@@ -15,31 +16,44 @@ public class B2DDebugUtils {
 
 	}
 
-	public static void initHudDebug(World world) {
-		B2DDebugUtils.initHudDebug(world, HudDebugPosition.TOP_RIGHT, Color.RED);
+	public static String debugFilter(Filter filter) {
+		return "categoryBits=" + filter.categoryBits + ", maskBits=" + filter.maskBits + ", groupIndex="
+				+ filter.groupIndex;
 	}
 
-	public static void initHudDebug(World world, int positionOnStage, Color color) {
-		HudDebug.addItem("Body count", world.getBodyCount(), positionOnStage, color);
-		HudDebug.addItem("Contact count", world.getContactCount(), positionOnStage, color);
-		HudDebug.addItem("Fixture count", world.getFixtureCount(), positionOnStage, color);
-		HudDebug.addItem("Joint count", world.getJointCount(), positionOnStage, color);
-		HudDebug.addItem("Proxy count", world.getProxyCount(), positionOnStage, color);
-		HudDebug.addItem("World VelocityThreshold", World.getVelocityThreshold(), positionOnStage, color);
+	public static void debugBody(Body body) {
+		TagLoggerBlockUtils.startBlockDebug(LogTagsBase.DEBUG, "Body Debug");
+		TagLogger.debug(LogTagsBase.DEBUG, "Type", body.getType() + "");
+		if (body.getUserData() instanceof String) {
+			TagLogger.debug(LogTagsBase.DEBUG, "UserData", body.getUserData().toString());
+		} else {
+			TagLogger.debug(LogTagsBase.DEBUG, "UserData", body.getUserData().getClass().getSimpleName());
+		}
+		Array<Fixture> fixtures = body.getFixtureList();
+		int i = 0;
+		for (Fixture fixture : fixtures) {
+			debugFixture(fixture, i);
+			i++;
+		}
+		TagLoggerBlockUtils.endBlockDebug(LogTagsBase.DEBUG, "Body Debug");
+
 	}
 
-	public static void updateHudDebug(World world) {
-		HudDebug.update("Body count", world.getBodyCount());
-		HudDebug.update("Contact count", world.getContactCount());
-		HudDebug.update("Fixture count", world.getFixtureCount());
-		HudDebug.update("Joint count", world.getJointCount());
-		HudDebug.update("Proxy count", world.getProxyCount());
-		HudDebug.update("World VelocityThreshold", World.getVelocityThreshold());
+	public static void debugFixture(Fixture fixture, int i) {
+		TagLoggerBlockUtils.startBlockDebug(LogTagsBase.DEBUG, "Fixture " + i + " Debug");
+		Object userData = fixture.getUserData();
+		if (userData instanceof String) {
+			TagLogger.debug(LogTagsBase.DEBUG, "UserData", userData.toString());
+		} else {
+			TagLogger.debug(LogTagsBase.DEBUG, "UserData", userData.getClass().getSimpleName());
+		}
+		TagLogger.debug(LogTagsBase.DEBUG, "FilterDate", debugFilter(fixture.getFilterData()));
+		TagLoggerBlockUtils.endBlockDebug(LogTagsBase.DEBUG, "Fixture Debug");
 	}
 
 	public static void logInformation(World world, int logLevel) {
 		if (world != null) {
-			LoggerTagBlockUtils.startBlock(logLevel, LogTagsBase.B2D_INFO, "Box2D World Recap");
+			TagLoggerBlockUtils.startBlock(logLevel, LogTagsBase.B2D_INFO, "Box2D World Recap");
 			TagLogger.logWithLevel(logLevel, LogTagsBase.B2D_INFO, "Body count", world.getBodyCount() + "");
 			TagLogger.logWithLevel(logLevel, LogTagsBase.B2D_INFO, "Contact count", world.getContactCount() + "");
 			TagLogger.logWithLevel(logLevel, LogTagsBase.B2D_INFO, "Fixture count", world.getFixtureCount() + "");
@@ -47,7 +61,7 @@ public class B2DDebugUtils {
 			TagLogger.logWithLevel(logLevel, LogTagsBase.B2D_INFO, "Proxy count", world.getProxyCount() + "");
 			TagLogger.logWithLevel(logLevel, LogTagsBase.B2D_INFO, "World VelocityThreshold",
 					World.getVelocityThreshold() + "");
-			LoggerTagBlockUtils.endBlock(logLevel, LogTagsBase.B2D_INFO, "Box2D World Recap");
+			TagLoggerBlockUtils.endBlock(logLevel, LogTagsBase.B2D_INFO, "Box2D World Recap");
 		} else {
 			TagLogger.debug(LogTagsBase.B2D_CONTACT, "Box2D Debug", "No World Created");
 		}
@@ -55,7 +69,7 @@ public class B2DDebugUtils {
 
 	// TODO a voir si vraiment utile ...
 	public static void debugContact(String eventName, Contact contact) {
-		LoggerTagBlockUtils.startBlockDebug(LogTagsBase.B2D_CONTACT, "Contact Debug");
+		TagLoggerBlockUtils.startBlockDebug(LogTagsBase.B2D_CONTACT, "Contact Debug");
 		TagLogger.debug(LogTagsBase.B2D_CONTACT, "getChildIndexA", "" + contact.getChildIndexA());
 		TagLogger.debug(LogTagsBase.B2D_CONTACT, "getChildIndexB", "" + contact.getChildIndexB());
 
@@ -73,6 +87,6 @@ public class B2DDebugUtils {
 			TagLogger.debug(LogTagsBase.B2D_CONTACT, "contact point " + (i + 1),
 					"" + contact.getWorldManifold().getPoints()[i]);
 		}
-		LoggerTagBlockUtils.endBlockDebug(LogTagsBase.B2D_INFO, "Contact Debug");
+		TagLoggerBlockUtils.endBlockDebug(LogTagsBase.B2D_INFO, "Contact Debug");
 	}
 }
