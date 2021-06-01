@@ -8,8 +8,6 @@ public class STScanner {
 
 	/**
 	 * Scan all class with @TestScreen annotation
-	 *
-	 * @return
 	 */
 	public static synchronized CaseST scanTestScreens() {
 		Reflections reflections = new Reflections("com.nzt.gdx.test");
