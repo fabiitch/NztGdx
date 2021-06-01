@@ -26,6 +26,13 @@ public class HudDebug {
         }
     }
 
+    public static void clear() {
+        if (instance == null) {
+        	arrayBeforeInit.clear();
+        } else {
+        	instance.container.clear();
+        }
+    }
     public static boolean exist(String key) {
         if (instance == null) {
             for (PreInitItem item : arrayBeforeInit)
