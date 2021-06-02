@@ -1,4 +1,4 @@
-package com.nzt.gdx.test.trials.st.utils.perf;
+package com.nzt.gdx.test.trials.st.perf;
 
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
@@ -14,7 +14,7 @@ import com.nzt.gdx.test.trials.tester.selector.TestScreen;
 /**
  * Test class PerformanceCounters
  */
-@TestScreen(group = "utils.perf")
+@TestScreen(group = "perf")
 public class STPerformanceCounter extends TestScreenWithHudDebug {
 	private PerformanceCounters counters;
 	PerformanceCounter counter1, counter2, counter3;

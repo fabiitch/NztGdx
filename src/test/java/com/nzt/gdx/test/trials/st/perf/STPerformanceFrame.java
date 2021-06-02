@@ -1,4 +1,4 @@
-package com.nzt.gdx.test.trials.st.utils.perf;
+package com.nzt.gdx.test.trials.st.perf;
 
 import com.badlogic.ashley.core.Engine;
 import com.badlogic.gdx.Gdx;
@@ -17,7 +17,7 @@ import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
 import com.nzt.gdx.test.trials.tester.archi.screens.TestScreenWithHudDebug;
 import com.nzt.gdx.test.trials.tester.selector.TestScreen;
 
-@TestScreen(group = "utils.perf")
+@TestScreen(group = "perf")
 public class STPerformanceFrame extends TestScreenWithHudDebug {
 
 	Engine engine;

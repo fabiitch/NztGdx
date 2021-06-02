@@ -1,4 +1,4 @@
-package com.nzt.gdx.test.trials.st.utils.perf.memory;
+package com.nzt.gdx.test.trials.st.perf.memory;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
@@ -7,7 +7,7 @@ import com.nzt.gdx.test.trials.tester.archi.screens.SimpleTestScreen;
 import com.nzt.gdx.test.trials.tester.selector.TestScreen;
 import com.nzt.gdx.utils.GdxUtils;
 
-@TestScreen(group = "utils.perf.memory")
+@TestScreen(group = "perf.memory")
 public class STAllocationTrackingTestScreen extends SimpleTestScreen {
 
     private final long memoryStart;
@@ -30,7 +30,7 @@ public class STAllocationTrackingTestScreen extends SimpleTestScreen {
     protected void renderScreen(float dt) {
         if (Gdx.app.getJavaHeap() > memoryStart) {
             spriteBatch.begin();
-            font.draw(spriteBatch, MEMORY_GROW,
+            font.draw(spriteBatch, MEMORY_GROW + "   " + (Gdx.app.getJavaHeap() - memoryStart),
                     GdxUtils.getScreenCenterX(), GdxUtils.getScreenCenterY());
             spriteBatch.end();
         }
