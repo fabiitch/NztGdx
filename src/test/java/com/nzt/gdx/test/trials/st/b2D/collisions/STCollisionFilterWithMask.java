@@ -4,7 +4,7 @@ import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
 import com.nzt.gdx.test.trials.tester.selector.TestScreen;
 
 @TestScreen(group = "box2D.collisions")
-public class STCollisionFilterWithMask extends STCollisionScreen {
+public class STCollisionFilterWithMask extends STCollisionTestScreen {
 	public STCollisionFilterWithMask(FastTesterMain main) {
 		super(main);
 	}

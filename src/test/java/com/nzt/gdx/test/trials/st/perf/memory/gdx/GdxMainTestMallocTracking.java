@@ -11,9 +11,9 @@ import com.badlogic.gdx.utils.ScreenUtils;
 
 /**
  * Test if Gdx empty app alloc memory
- * normalement screen stay blue
+ * screen should stay blue
  */
-class SimpleMainTestAllocationMemory implements ApplicationListener {
+class GdxMainTestMallocTracking implements ApplicationListener {
 
     public static void main(String[] args) {
         LwjglApplicationConfiguration configuration = new LwjglApplicationConfiguration();
@@ -26,14 +26,12 @@ class SimpleMainTestAllocationMemory implements ApplicationListener {
 
         configuration.foregroundFPS = 0;
         configuration.backgroundFPS = 0;
-        new LwjglApplication(new SimpleMainTestAllocationMemory(), configuration);
+        new LwjglApplication(new GdxMainTestMallocTracking(), configuration);
     }
 
     private long memoryStart;
     @Override
     public void render() {
-        Vector2 v = new Vector2();
-        v.set(1,2);
         if (Gdx.app.getJavaHeap() > memoryStart) {
             ScreenUtils.clear(Color.RED);
         } else {

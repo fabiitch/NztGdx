@@ -8,13 +8,13 @@ import com.nzt.gdx.test.trials.tester.archi.systems.DelayFrameActionSystem;
 
 import java.util.concurrent.Callable;
 
-public abstract class BaseSystemScreen extends SimpleTestScreen {
+public abstract class BaseSystemTestScreen extends SimpleTestScreen {
 
     protected Engine engine;
     protected DelayFrameActionSystem delayActionSystem;
     protected EntityFactory entityFactory;
 
-    public BaseSystemScreen(FastTesterMain main) {
+    public BaseSystemTestScreen(FastTesterMain main) {
         super(main);
         this.engine = new Engine();
         entityFactory = new EntityFactory(engine);

@@ -8,11 +8,11 @@ import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.nzt.gdx.b2d.FixtureDefWrapper;
 import com.nzt.gdx.input.impl.simple.SimpleClickInputHandler;
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
-import com.nzt.gdx.test.trials.tester.archi.screens.systems.BaseB2DSystemScreen;
+import com.nzt.gdx.test.trials.tester.archi.screens.systems.BaseB2DSystemTestScreen;
 import com.nzt.gdx.test.trials.tester.selector.TestScreen;
 
 @TestScreen(group = "box2D")
-public class STB2DTriangleBody extends BaseB2DSystemScreen {
+public class STB2DTriangleBody extends BaseB2DSystemTestScreen {
     Body triangleBody;
     Entity entity;
 

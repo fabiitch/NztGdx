@@ -8,15 +8,16 @@ import com.nzt.gdx.test.trials.tester.archi.screens.SimpleTestScreen;
 import com.nzt.gdx.test.trials.tester.selector.TestScreen;
 import com.nzt.gdx.utils.GdxUtils;
 
-@TestScreen(group = "perf.memory")
-public class STAllocationTrackingTestScreen extends SimpleTestScreen {
+@TestScreen(group = "perf.malloc")
+public class STMallocTracking extends SimpleTestScreen {
+    //TestScreen setTitle fait l'alloc
 
     private final long memoryStart;
     private final long memoryStartMb;
     final BitmapFont font;
     final String MEMORY_GROW;
 
-    public STAllocationTrackingTestScreen(FastTesterMain main) {
+    public STMallocTracking(FastTesterMain main) {
         super(main);
         PerformanceFrame.enabled = false;
         nzGLProfiler.desactive();
