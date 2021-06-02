@@ -3,6 +3,7 @@ package com.nzt.gdx.test.trials.tester.archi.screens;
 import com.badlogic.gdx.Gdx;
 import com.nzt.gdx.screen.SimpleScreen;
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
+import com.nzt.gdx.utils.Strings;
 
 public abstract class SimpleTestScreen extends SimpleScreen<FastTesterMain> {
 
@@ -15,7 +16,8 @@ public abstract class SimpleTestScreen extends SimpleScreen<FastTesterMain> {
 
     @Override
     public void setTitle(float dt) {
-        Gdx.graphics.setTitle(className + FPS + Gdx.graphics.getFramesPerSecond());
+        String title = Strings.getBuilder().append(className).append(FPS).append(Gdx.graphics.getFramesPerSecond()).toString();
+        Gdx.graphics.setTitle(title);
     }
 
     public void log(String log) {

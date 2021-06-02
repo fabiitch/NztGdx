@@ -11,10 +11,10 @@ public class Strings {
         return !nullOrEmpty(s);
     }
 
-    private static StringBuffer stringBuffer = new StringBuffer();
+    private static StringBuilder builder = new StringBuilder();
 //TODO a voir si vraiment bien
-    public static StringBuffer getStringBuffer() {
-        stringBuffer.setLength(0);
-        return stringBuffer;
+    public static StringBuilder getBuilder() {
+        builder.setLength(0);
+        return builder;
     }
 }
