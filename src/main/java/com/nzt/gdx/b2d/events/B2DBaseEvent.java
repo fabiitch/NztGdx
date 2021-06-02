@@ -11,7 +11,7 @@ public abstract class B2DBaseEvent<E extends B2DBaseEvent> implements Poolable {
     /*
     utilisé pour le check destroy et le concat
      */
-    public short eventType;
+    public final short eventType;
 
     public B2DBaseEvent(short eventType) {
         this.eventType = eventType;

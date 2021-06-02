@@ -6,7 +6,7 @@ import com.nzt.gdx.debug.perf.PerformanceFrame;
 import com.nzt.gdx.scene2D.nz.NzStage;
 
 public abstract class BaseHudSystem extends NzEntitySystem {
-	public NzStage nzStage;
+	public final NzStage nzStage;
 
 	public BaseHudSystem(NzStage stage) {
 		this(stage, NztSystemsOrder.HUD);

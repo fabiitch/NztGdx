@@ -18,15 +18,15 @@ import com.nzt.gdx.debug.perf.PerformanceFrame;
  *
  */
 public class B2DWorldSystem extends IteratingSystem {
+	private final static ComponentMapper<B2DBodyComponent> b2dMapper = B2DBodyComponent.mapper;
 
 	private static final float MAX_STEP_TIME = 1 / 60f;
 	private float accumulator = 0f;
 
-	private World world;
-	private Array<Entity> bodiesQueue;
-	private Array<Entity> toRemove;
+	private final World world;
+	private final Array<Entity> bodiesQueue;
+	private final Array<Entity> toRemove;
 
-	private ComponentMapper<B2DBodyComponent> b2dMapper = B2DBodyComponent.mapper;
 	private final boolean calculRotation;
 
 	public B2DWorldSystem(World world, boolean calculRotation, int order) {
@@ -45,7 +45,6 @@ public class B2DWorldSystem extends IteratingSystem {
 	public void dispose() {
 		this.world.dispose();
 		this.bodiesQueue.clear();
-		this.bodiesQueue = null;
 	}
 
 	public void setContactListener(ContactListener contactListener) {

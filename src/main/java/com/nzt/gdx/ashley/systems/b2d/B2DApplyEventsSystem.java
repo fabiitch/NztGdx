@@ -12,8 +12,9 @@ import com.nzt.gdx.ashley.components.b2d.B2DBodyComponent;
  * apply b2D event
  */
 public class B2DApplyEventsSystem extends NzIteratingSystem {
-	private World world;
-	private ComponentMapper<B2DBodyComponent> b2dMapper = B2DBodyComponent.mapper;
+	private final static ComponentMapper<B2DBodyComponent> b2dMapper = B2DBodyComponent.mapper;
+
+	private final World world;
 
 	public B2DApplyEventsSystem(World world, int order) {
 		super(Family.all(B2DBodyComponent.class).get(), order);

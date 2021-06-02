@@ -9,7 +9,7 @@ import com.badlogic.gdx.maps.tiled.renderers.OrthoCachedTiledMapRenderer;
  */
 public class PerspectiveMapRenderer extends OrthoCachedTiledMapRenderer {
 
-    static private final float tolerance = 0.00001f;
+    private static final float tolerance = 0.00001f;
 
     public PerspectiveMapRenderer(TiledMap map) {
         super(map);

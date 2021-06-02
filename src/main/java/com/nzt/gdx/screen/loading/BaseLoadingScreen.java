@@ -8,7 +8,6 @@ import com.nzt.gdx.screen.manager.AbstractScreenManager.IntAfterLoading;
 /**
  * Loading screen, 2 param mintime to display it,
  *
- * @author fabiitch
  */
 public abstract class BaseLoadingScreen<M extends AbstractMain> extends SimpleScreen<M> {
     protected IntAssetsManager assetsManager;

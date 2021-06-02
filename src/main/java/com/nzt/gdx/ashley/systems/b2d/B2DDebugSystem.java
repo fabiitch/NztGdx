@@ -14,9 +14,9 @@ import com.nzt.gdx.debug.perf.PerformanceFrame;
  * System for Box2D, debugRender
  */
 public class B2DDebugSystem extends NzEntitySystem {
-    private Box2DDebugRenderer debugRenderer;
-    private World world;
-    private Camera camera;
+    private final Box2DDebugRenderer debugRenderer;
+    private final World world;
+    private final Camera camera;
 
     private boolean displayHud = false;
 

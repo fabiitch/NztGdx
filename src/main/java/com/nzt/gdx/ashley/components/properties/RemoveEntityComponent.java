@@ -5,8 +5,7 @@ import com.badlogic.gdx.utils.Pools;
 import com.nzt.gdx.ashley.base.components.PoolableComponent;
 
 public class RemoveEntityComponent extends PoolableComponent {
-
-    public static ComponentMapper<RemoveEntityComponent> mapper = ComponentMapper.getFor(RemoveEntityComponent.class);
+    public static final ComponentMapper<RemoveEntityComponent> mapper = ComponentMapper.getFor(RemoveEntityComponent.class);
 
     @Override
     public void reset() {

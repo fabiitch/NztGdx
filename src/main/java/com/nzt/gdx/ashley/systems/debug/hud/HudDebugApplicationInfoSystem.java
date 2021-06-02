@@ -7,7 +7,7 @@ import com.nzt.gdx.debug.hud.HudDebugApplicationInfo;
 
 public class HudDebugApplicationInfoSystem extends EntitySystem {
 
-	public HudDebugApplicationInfo hudGlobalInfo;
+	public final HudDebugApplicationInfo hudGlobalInfo;
 
 	public HudDebugApplicationInfoSystem(int positionHudDebug, Color color) {
 		this(positionHudDebug, color, NztSystemsOrder.HUD_DEBUG);

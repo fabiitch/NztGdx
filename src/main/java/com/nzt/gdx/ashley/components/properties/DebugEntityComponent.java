@@ -5,7 +5,7 @@ import com.badlogic.gdx.utils.Array;
 import com.nzt.gdx.ashley.base.components.BaseComponent;
 
 public class DebugEntityComponent extends BaseComponent {
-    public static ComponentMapper<DebugEntityComponent> mapper = ComponentMapper.getFor(DebugEntityComponent.class);
+    public static final ComponentMapper<DebugEntityComponent> mapper = ComponentMapper.getFor(DebugEntityComponent.class);
     public Array<Object> toDisplay;
 
     public DebugEntityComponent() {

@@ -8,8 +8,8 @@ import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.math.Rectangle;
 
 public abstract class TiledMapLoader extends TmxMapLoader {
-    protected TmxMapLoader tmxMapLoader;
-    protected TmxMapLoader.Parameters parameters;
+    protected final TmxMapLoader tmxMapLoader;
+    protected final TmxMapLoader.Parameters parameters;
 
     public TiledMapLoader() {
         super();

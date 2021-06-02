@@ -6,7 +6,7 @@ import com.nzt.gdx.ashley.NztSystemsOrder;
 import com.nzt.gdx.debug.gl.NzGLProfiler;
 
 public class HudDebugGlProfilerSystem extends EntitySystem {
-	private NzGLProfiler profiler;
+	private final NzGLProfiler profiler;
 
 	public HudDebugGlProfilerSystem(NzGLProfiler profiler, int positionOnStage) {
 		this(profiler, positionOnStage, Color.WHITE);

@@ -16,11 +16,11 @@ import com.nzt.gdx.ashley.components.renders.Model3DComponent;
 import com.nzt.gdx.debug.perf.PerformanceFrame;
 
 public class ModelRenderSystem extends IteratingSystem {
-    private ModelBatch modelBatch;
-    private Camera camera;
+    private final ModelBatch modelBatch;
+    private final Camera camera;
 
-    ComponentMapper<Model3DComponent> modelMapper = Model3DComponent.mapper;
-    private ComponentMapper<PositionComponent> positionMapper = PositionComponent.mapper;
+    private final static ComponentMapper<Model3DComponent> modelMapper = Model3DComponent.mapper;
+    private final static ComponentMapper<PositionComponent> positionMapper = PositionComponent.mapper;
 
     public ModelRenderSystem(Camera camera, ModelBatch modelbatch, int order) {
         super(Family.all(PositionComponent.class, Model3DComponent.class).get(), order);

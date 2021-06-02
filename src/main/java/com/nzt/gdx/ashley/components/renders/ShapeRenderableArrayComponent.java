@@ -8,7 +8,7 @@ import com.nzt.gdx.graphics.renderables.ShapeRenderable;
 
 public class ShapeRenderableArrayComponent extends PoolableComponent {
 
-    public static ComponentMapper<ShapeRenderableArrayComponent> mapper = ComponentMapper.getFor(ShapeRenderableArrayComponent.class);
+    public static final ComponentMapper<ShapeRenderableArrayComponent> mapper = ComponentMapper.getFor(ShapeRenderableArrayComponent.class);
 
     public Array<ShapeRenderable> renderableArray;
 
