@@ -9,12 +9,12 @@ import com.nzt.gdx.ashley.systems.debug.DebugDisplaySystem;
 import com.nzt.gdx.b2d.FixtureDefWrapper;
 import com.nzt.gdx.test.trials.st.b2D.B2DTestConstants;
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
-import com.nzt.gdx.test.trials.tester.archi.screens.systems.BaseB2DSystemScreen;
+import com.nzt.gdx.test.trials.tester.archi.screens.systems.BaseB2DSystemTestScreen;
 import com.nzt.gdx.test.trials.tester.selector.TestScreen;
 
 @TestScreen(group = "ecs")
-public class STDebugDisplaySystem extends BaseB2DSystemScreen {
-    public STDebugDisplaySystem(FastTesterMain main) {
+public class STDebugDisplaySystemTest extends BaseB2DSystemTestScreen {
+    public STDebugDisplaySystemTest(FastTesterMain main) {
         super(main);
         this.world.setGravity(new Vector2(0, -1));
         createWallScreen();

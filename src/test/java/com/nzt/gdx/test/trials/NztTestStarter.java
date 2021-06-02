@@ -1,6 +1,6 @@
 package com.nzt.gdx.test.trials;
 
-import com.nzt.gdx.test.trials.st.ecs.STDebugDisplaySystem;
+import com.nzt.gdx.test.trials.st.ecs.STDebugDisplaySystemTest;
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
 import com.nzt.gdx.test.trials.tester.archi.main.StarterTestConfig;
 import com.nzt.gdx.test.trials.tester.archi.main.StarterType;
@@ -10,7 +10,7 @@ import com.nzt.gdx.test.trials.tester.archi.utils.Lwjgl3TestConfiguration;
 Use it for Test one class with screenTestClass
  */
 public class NztTestStarter {
-	private static Class screenTestClass = STDebugDisplaySystem.class;
+	private static Class screenTestClass = STDebugDisplaySystemTest.class;
 	private static StarterType starterType = StarterType.Lwjgl;
 
 	private static int witdh = 800;

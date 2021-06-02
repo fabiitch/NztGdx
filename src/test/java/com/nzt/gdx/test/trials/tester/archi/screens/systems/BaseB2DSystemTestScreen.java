@@ -27,7 +27,7 @@ import com.nzt.gdx.test.trials.tester.archi.systems.HudSystem;
 
 import java.util.ArrayList;
 
-public abstract class BaseB2DSystemScreen extends BaseSystemScreen {
+public abstract class BaseB2DSystemTestScreen extends BaseSystemTestScreen {
 	public final float PPM = B2DTestConstants.PPM;
 	public B2DConverterHelper b2DConverter = new B2DConverterHelper(PPM);
 
@@ -51,7 +51,7 @@ public abstract class BaseB2DSystemScreen extends BaseSystemScreen {
 	Body hitBody = null;
 	protected Body groundBody;
 
-	public BaseB2DSystemScreen(FastTesterMain main) {
+	public BaseB2DSystemTestScreen(FastTesterMain main) {
 		super(main);
 		fixtureWall = new FixtureDefWrapper(BodyDef.BodyType.StaticBody).setSensor(false).setDensity(1).setToPPM(true);
 		this.camera = new OrthographicCamera(B2DTestConstants.WIDTH_PPM, B2DTestConstants.HEIGHT_PPM);

@@ -15,15 +15,15 @@ import com.nzt.gdx.b2d.utils.B2DUtils;
 import com.nzt.gdx.debug.hud.base.HudDebug;
 import com.nzt.gdx.test.trials.st.b2D.B2DTestConstants;
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
-import com.nzt.gdx.test.trials.tester.archi.screens.systems.BaseB2DSystemScreen;
+import com.nzt.gdx.test.trials.tester.archi.screens.systems.BaseB2DSystemTestScreen;
 
-abstract class STCollisionScreen extends BaseB2DSystemScreen {
+abstract class STCollisionTestScreen extends BaseB2DSystemTestScreen {
 	protected final Texture badLogicTexture;
 	protected FixtureDefWrapper fixture1, fixture2, fixture3, fixture4;
 
 	protected Array<FixtureDefWrapper> fixturesArray;
 
-	public STCollisionScreen(FastTesterMain main) {
+	public STCollisionTestScreen(FastTesterMain main) {
 		super(main);
 		badLogicTexture = new Texture("badlogic.jpg");
 		SpriteRenderSystem spriteRenderSystem = new SpriteRenderSystem(camera, spriteBatch);

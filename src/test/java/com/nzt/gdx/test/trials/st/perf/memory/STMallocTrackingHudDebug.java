@@ -9,13 +9,13 @@ import com.nzt.gdx.test.trials.tester.archi.screens.TestScreenWithHudDebug;
 import com.nzt.gdx.test.trials.tester.selector.TestScreen;
 import com.nzt.gdx.utils.GdxUtils;
 
-@TestScreen(group = "perf.memory")
-public class STAllocationTrackingHudDebug extends TestScreenWithHudDebug {
+@TestScreen(group = "perf.malloc")
+public class STMallocTrackingHudDebug extends TestScreenWithHudDebug {
     final HudDebugApplicationInfo hudDebugApplicationInfo;
 
     private final long memoryStart;
 
-    public STAllocationTrackingHudDebug(FastTesterMain main) {
+    public STMallocTrackingHudDebug(FastTesterMain main) {
         super(main);
         hudDebugApplicationInfo = new HudDebugApplicationInfo();
         glProfiler.removeHudDebug();

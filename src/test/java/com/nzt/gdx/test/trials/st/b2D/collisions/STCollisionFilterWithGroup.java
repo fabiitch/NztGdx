@@ -9,7 +9,7 @@ import com.nzt.gdx.test.trials.tester.selector.TestScreen;
  * (filterA.categoryBits & filterB.maskBits) != 0;
  **/
 @TestScreen(group = "box2D.collisions")
-public class STCollisionFilterWithGroup extends STCollisionScreen {
+public class STCollisionFilterWithGroup extends STCollisionTestScreen {
     public STCollisionFilterWithGroup(FastTesterMain main) {
         super(main);
     }

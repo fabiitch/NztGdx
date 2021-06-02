@@ -11,7 +11,7 @@ import com.nzt.gdx.debug.hud.base.HudDebug;
 import com.nzt.gdx.scene2D.nz.NzStage;
 import com.nzt.gdx.test.trials.st.scene2D.Scene2DTestConstants;
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
-import com.nzt.gdx.test.trials.tester.archi.screens.systems.BaseSystemScreen;
+import com.nzt.gdx.test.trials.tester.archi.screens.systems.BaseSystemTestScreen;
 import com.nzt.gdx.test.trials.tester.archi.systems.HudSystem;
 import com.nzt.gdx.test.trials.tester.selector.TestScreen;
 
@@ -19,7 +19,7 @@ import com.nzt.gdx.test.trials.tester.selector.TestScreen;
  * Test FramePerformance on systems
  */
 @TestScreen(group = "scene2D.HudDebug")
-public class STHudDebugSystems extends BaseSystemScreen {
+public class STHudDebugSystems extends BaseSystemTestScreen {
 	protected NzStage nzStage;
 	protected Skin skin;
 	private HudDebug debugHud;
