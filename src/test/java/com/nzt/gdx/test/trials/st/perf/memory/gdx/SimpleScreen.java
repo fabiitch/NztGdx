@@ -1,4 +1,4 @@
-package com.nzt.gdx.test.trials.st.utils.perf.memory.gdx;
+package com.nzt.gdx.test.trials.st.perf.memory.gdx;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
