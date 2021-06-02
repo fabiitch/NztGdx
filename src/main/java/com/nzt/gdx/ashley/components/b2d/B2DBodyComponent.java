@@ -18,7 +18,7 @@ import com.nzt.gdx.b2d.events.B2DEventContainer;
  */
 public class B2DBodyComponent extends PoolableComponent {
 
-    public static ComponentMapper<B2DBodyComponent> mapper = ComponentMapper.getFor(B2DBodyComponent.class);
+    public static final ComponentMapper<B2DBodyComponent> mapper = ComponentMapper.getFor(B2DBodyComponent.class);
 
     public Body body;
     public B2DEventContainer eventContainer;

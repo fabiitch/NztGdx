@@ -12,8 +12,8 @@ import com.nzt.gdx.ashley.components.mvt.Velocity2DComponent;
 Simple update position with velocity
  */
 public class Velocity2DSystem extends NzIteratingSystem {
-	private static ComponentMapper<PositionComponent> posMapper = PositionComponent.mapper;
-	private static ComponentMapper<Velocity2DComponent> velocityMapper = Velocity2DComponent.mapper;
+	private final static ComponentMapper<PositionComponent> posMapper = PositionComponent.mapper;
+	private final static ComponentMapper<Velocity2DComponent> velocityMapper = Velocity2DComponent.mapper;
 
 	public Velocity2DSystem(int priority) {
 		super(Family.all(Velocity2DComponent.class, PositionComponent.class).get(), priority);

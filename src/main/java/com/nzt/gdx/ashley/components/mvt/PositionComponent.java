@@ -15,7 +15,7 @@ import com.nzt.gdx.ashley.components.b2d.B2DBodyComponent;
  */
 public class PositionComponent extends PoolableComponent {
 
-    public static ComponentMapper<PositionComponent> mapper = ComponentMapper.getFor(PositionComponent.class);
+    public static final ComponentMapper<PositionComponent> mapper = ComponentMapper.getFor(PositionComponent.class);
 
     public final Vector3 position = new Vector3();
     private final Vector2 positionV2 = new Vector2();

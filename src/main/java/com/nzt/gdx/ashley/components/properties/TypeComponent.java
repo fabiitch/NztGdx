@@ -5,7 +5,7 @@ import com.nzt.gdx.ashley.base.components.PoolableComponent;
 
 public class TypeComponent extends PoolableComponent {
 
-	public static ComponentMapper<TypeComponent> mapper = ComponentMapper.getFor(TypeComponent.class);
+	public static final ComponentMapper<TypeComponent> mapper = ComponentMapper.getFor(TypeComponent.class);
 	
 	public short mask;
 	public String name;

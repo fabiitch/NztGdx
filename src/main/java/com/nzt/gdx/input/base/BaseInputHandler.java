@@ -17,7 +17,7 @@ import com.nzt.gdx.logger.tag.TagLogger;
  * @author fabiitch
  */
 public abstract class BaseInputHandler implements InputProcessor {
-    public InputLoggerConfig loggerConfig;
+    public final InputLoggerConfig loggerConfig;
 
     public BaseInputHandler() {
         this.loggerConfig = new InputLoggerConfig();

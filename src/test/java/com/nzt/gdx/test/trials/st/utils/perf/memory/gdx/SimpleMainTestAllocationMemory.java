@@ -12,7 +12,7 @@ import com.badlogic.gdx.utils.ScreenUtils;
  * Test if Gdx empty app alloc memory
  * normalement screen stay blue
  */
-public class SimpleMain implements ApplicationListener {
+public class SimpleMainTestAllocationMemory implements ApplicationListener {
 
     public static void main(String[] args) {
         LwjglApplicationConfiguration configuration = new LwjglApplicationConfiguration();
@@ -25,7 +25,7 @@ public class SimpleMain implements ApplicationListener {
 
         configuration.foregroundFPS = 0;
         configuration.backgroundFPS = 0;
-        new LwjglApplication(new SimpleMain(), configuration);
+        new LwjglApplication(new SimpleMainTestAllocationMemory(), configuration);
     }
 
     private long memoryStart;
@@ -61,6 +61,7 @@ public class SimpleMain implements ApplicationListener {
 
     @Override
     public void dispose() {
+        System.exit(0);
 
     }
 }

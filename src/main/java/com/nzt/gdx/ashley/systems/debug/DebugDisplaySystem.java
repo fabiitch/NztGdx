@@ -14,8 +14,8 @@ import com.nzt.gdx.ashley.components.mvt.PositionComponent;
 import com.nzt.gdx.ashley.components.properties.DebugEntityComponent;
 
 public class DebugDisplaySystem extends NzIteratingSystem {
-    public static ComponentMapper<DebugEntityComponent> debugMapper = DebugEntityComponent.mapper;
-    public static ComponentMapper<PositionComponent> posMapper = PositionComponent.mapper;
+    public static final ComponentMapper<DebugEntityComponent> debugMapper = DebugEntityComponent.mapper;
+    public static final ComponentMapper<PositionComponent> posMapper = PositionComponent.mapper;
 
     private final SpriteBatch spriteBatch;
     private final BitmapFont font;

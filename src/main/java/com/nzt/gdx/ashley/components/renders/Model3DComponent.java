@@ -7,7 +7,7 @@ import com.nzt.gdx.ashley.base.components.PoolableComponent;
 
 public class Model3DComponent extends PoolableComponent {
 
-    public static ComponentMapper<Model3DComponent> mapper = ComponentMapper.getFor(Model3DComponent.class);
+    public static final ComponentMapper<Model3DComponent> mapper = ComponentMapper.getFor(Model3DComponent.class);
 
     public ModelInstance modelInstance;
     public Environment environment;

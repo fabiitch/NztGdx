@@ -11,12 +11,12 @@ import com.nzt.gdx.ashley.components.properties.TypeComponent;
 //TODO 
 public class PhysXSystem extends NzEntitySystem implements EntityListener {
 
-	private static Family family = Family.all(PhysXComponent.class, TypeComponent.class).get();
-	private static ComponentMapper<PositionComponent> posMapper = PositionComponent.mapper;
-	private static ComponentMapper<PhysXComponent> shapeMapper = PhysXComponent.mapper;
-	private static ComponentMapper<Velocity2DComponent> velocityMapper = Velocity2DComponent.mapper;
+	private final static Family family = Family.all(PhysXComponent.class, TypeComponent.class).get();
+	private final static ComponentMapper<PositionComponent> posMapper = PositionComponent.mapper;
+	private final static ComponentMapper<PhysXComponent> shapeMapper = PhysXComponent.mapper;
+	private final static ComponentMapper<Velocity2DComponent> velocityMapper = Velocity2DComponent.mapper;
 
-	private Engine engine;
+	private final Engine engine;
 
 	public PhysXSystem(Engine engine, int priority) {
 		super(priority);

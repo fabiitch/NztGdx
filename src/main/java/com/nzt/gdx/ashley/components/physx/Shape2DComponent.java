@@ -9,7 +9,8 @@ import com.badlogic.gdx.math.Vector2;
 import com.nzt.gdx.ashley.base.components.PoolableComponent;
 
 public class Shape2DComponent extends PoolableComponent {
-    public static ComponentMapper<Shape2DComponent> mapper = ComponentMapper.getFor(Shape2DComponent.class);
+    public static final ComponentMapper<Shape2DComponent> mapper = ComponentMapper.getFor(Shape2DComponent.class);
+
     public static final int RECTANGLE = 1;
     public static final int CIRCLE = 2;
 

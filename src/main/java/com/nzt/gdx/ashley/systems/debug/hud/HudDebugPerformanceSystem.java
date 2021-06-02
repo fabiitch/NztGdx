@@ -7,7 +7,7 @@ import com.nzt.gdx.debug.perf.HudDebugPerformanceFrame;
 
 public class HudDebugPerformanceSystem extends EntitySystem {
 
-	private HudDebugPerformanceFrame performanceFrame;
+	private final HudDebugPerformanceFrame performanceFrame;
 
 	public HudDebugPerformanceSystem(int positionOnStage) {
 		this(positionOnStage, Color.WHITE);

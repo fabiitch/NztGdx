@@ -8,7 +8,7 @@ import com.badlogic.gdx.utils.Pools;
 contains event for body
  */
 public class B2DEventContainer implements Pool.Poolable {
-    public Array<B2DBaseEvent> eventArray;
+    public final Array<B2DBaseEvent> eventArray;
 
     public B2DEventContainer() {
         this.eventArray = new Array<>();

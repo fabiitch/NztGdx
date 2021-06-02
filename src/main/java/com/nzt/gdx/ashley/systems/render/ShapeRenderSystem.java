@@ -12,10 +12,10 @@ import com.nzt.gdx.debug.perf.PerformanceFrame;
 
 //TODO reprendre ou suppr
 public class ShapeRenderSystem extends IteratingSystem {
+	private final static ComponentMapper<ShapeRenderableArrayComponent> shapeArrayMapper = ShapeRenderableArrayComponent.mapper;
 
-	private ShapeRenderer shapeRenderer;
-	private Array<Entity> queue;
-	private ComponentMapper<ShapeRenderableArrayComponent> shapeArrayMapper = ShapeRenderableArrayComponent.mapper;
+	private final  ShapeRenderer shapeRenderer;
+	private final Array<Entity> queue;
 
 	public ShapeRenderSystem(ShapeRenderer shapeRenderer, int order) {
 		super(Family.one(ShapeRenderableArrayComponent.class).get(), order);
@@ -45,7 +45,6 @@ public class ShapeRenderSystem extends IteratingSystem {
 
 	public void dispose() {
 		this.queue.clear();
-		this.queue = null;
 	}
 
 }

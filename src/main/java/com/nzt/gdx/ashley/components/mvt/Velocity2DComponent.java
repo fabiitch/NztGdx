@@ -8,7 +8,7 @@ import com.nzt.gdx.ashley.components.b2d.B2DBodyComponent;
 
 public class Velocity2DComponent extends PoolableComponent {
 
-    public static ComponentMapper<Velocity2DComponent> mapper = ComponentMapper.getFor(Velocity2DComponent.class);
+    public static final ComponentMapper<Velocity2DComponent> mapper = ComponentMapper.getFor(Velocity2DComponent.class);
 
     public Vector2 velocity = new Vector2();
     public Vector2 direction = new Vector2();

@@ -7,7 +7,7 @@ import com.nzt.gdx.test.trials.tester.selector.TestScreen;
 
 @TestScreen(group = "utils.perf.memory")
 public class STAllocationTrackingHudDebug extends TestScreenWithHudDebug {
-    HudDebugApplicationInfo hudDebugApplicationInfo;
+    final HudDebugApplicationInfo hudDebugApplicationInfo;
 
     public STAllocationTrackingHudDebug(FastTesterMain main) {
         super(main);

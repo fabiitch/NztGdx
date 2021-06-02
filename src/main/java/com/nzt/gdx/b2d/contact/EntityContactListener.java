@@ -13,15 +13,13 @@ import com.nzt.gdx.logger.tag.TagLogger;
 
 public abstract class EntityContactListener implements ContactListener {
     //TODO conditions debug contact
-
-    public ComponentMapper<TypeComponent> typeMapper = TypeComponent.mapper;
-    public ComponentMapper<B2DBodyComponent> b2dMapper = B2DBodyComponent.mapper;
-
-    public Engine engine;
-
+    public final static ComponentMapper<TypeComponent> typeMapper = TypeComponent.mapper;
+    public final static ComponentMapper<B2DBodyComponent> b2dMapper = B2DBodyComponent.mapper;
 
     public static boolean LOG_EVENT = true;
     public static boolean LOG_DETAILS = false;
+
+    public final Engine engine;
 
     public EntityContactListener(Engine engine) {
         this.engine = engine;

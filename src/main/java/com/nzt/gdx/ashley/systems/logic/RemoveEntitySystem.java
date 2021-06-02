@@ -9,7 +9,7 @@ import com.nzt.gdx.ashley.components.properties.RemoveEntityComponent;
 
 public class RemoveEntitySystem extends NzIteratingSystem {
 
-    private Engine engine;
+    private final Engine engine;
 
     public RemoveEntitySystem(Engine engine, int order) {
         super(Family.one(RemoveEntityComponent.class).get(), order);

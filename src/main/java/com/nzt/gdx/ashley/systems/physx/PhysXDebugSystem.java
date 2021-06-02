@@ -17,9 +17,9 @@ import com.nzt.gdx.graphics.renderers.NzShapeRenderer;
  *
  */
 public class PhysXDebugSystem extends IteratingSystem {
-    private static ComponentMapper<PhysXComponent> shapeMapper = PhysXComponent.mapper;
-    private NzShapeRenderer nzShapeRenderer;
-    private Camera camera;
+    private final static ComponentMapper<PhysXComponent> shapeMapper = PhysXComponent.mapper;
+    private final NzShapeRenderer nzShapeRenderer;
+    private final Camera camera;
 
     public PhysXDebugSystem(NzShapeRenderer nzShapeRenderer, Camera camera) {
         this(nzShapeRenderer, camera, NztSystemsOrder.PHYSX_DEBUG);

@@ -9,8 +9,8 @@ import com.nzt.gdx.debug.perf.PerformanceFrame;
 
 public class TiledOrthoCachedRendererSystem extends EntitySystem {
 
-	public OrthoCachedTiledMapRenderer cachedTiledMapRenderer;
-	private OrthographicCamera gameCamera;
+	public final OrthoCachedTiledMapRenderer cachedTiledMapRenderer;
+	private final OrthographicCamera gameCamera;
 
 	public TiledOrthoCachedRendererSystem(TiledMap map, OrthographicCamera gameCamera, float PPM, int systemOrder) {
 		super(systemOrder);

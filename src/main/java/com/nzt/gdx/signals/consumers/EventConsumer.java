@@ -5,7 +5,7 @@ import com.nzt.gdx.signals.filters.EventFilter;
 
 public abstract class EventConsumer<E extends Event> {
 
-    public EventFilter<E> filter;
+    public final EventFilter<E> filter;
 
     public EventConsumer() {
         this.filter = setFilter();

@@ -11,7 +11,7 @@ import com.nzt.gdx.ashley.components.TransformersComponent;
 // pas fini , modifier avec interpolation sur entity
 public class TransformerSystem extends NzIteratingSystem {
 
-	private ComponentMapper<TransformersComponent> transformMapper = TransformersComponent.mapper;
+	private final static ComponentMapper<TransformersComponent> transformMapper = TransformersComponent.mapper;
 
 	public TransformerSystem() {
 		this(NztSystemsOrder.CALCUL);

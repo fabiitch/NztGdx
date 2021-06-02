@@ -24,17 +24,18 @@ import java.util.Comparator;
  * 
  */
 public class SpriteRenderSystem extends SortedIteratingSystem {
-
-	private SpriteBatch batch; // a reference to our spritebatch
-	private Camera cam; // a reference to our camera
-
-	private Array<Entity> renderQueue; // an array used to allow sorting of images allowing us to draw images on top of
-										// each other
-	private Comparator<Entity> comparator = new ZComparator(); // a comparator to sort images based on the z position of
-																// the
 	// component mappers to get components from entities
-	private ComponentMapper<SpriteComponent> spriteMapper = SpriteComponent.mapper;
-	private ComponentMapper<PositionComponent> positionMapper = PositionComponent.mapper;
+	private final static ComponentMapper<SpriteComponent> spriteMapper = SpriteComponent.mapper;
+	private final static ComponentMapper<PositionComponent> positionMapper = PositionComponent.mapper;
+
+
+	private final SpriteBatch batch; // a reference to our spritebatch
+	private final Camera cam; // a reference to our camera
+
+	private final Array<Entity> renderQueue; // an array used to allow sorting of images allowing us to draw images on top of
+										// each other
+	private final Comparator<Entity> comparator = new ZComparator(); // a comparator to sort images based on the z position of
+																// the
 
 	public SpriteRenderSystem(Camera camera, SpriteBatch sb, int order) {
 		super(Family.all(PositionComponent.class, SpriteComponent.class).get(), new ZComparator(), order);
@@ -84,9 +85,7 @@ public class SpriteRenderSystem extends SortedIteratingSystem {
 	}
 
 	public void dispose() {
-		this.comparator = null;
 		this.renderQueue.clear();
-		this.renderQueue = null;
 	}
 
 }
