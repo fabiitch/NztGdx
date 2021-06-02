@@ -12,7 +12,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.nzt.gdx.main.AbstractMain;
 import com.nzt.gdx.scene2D.StagePlacementUtils;
 import com.nzt.gdx.scene2D.nz.NzStage;
-import com.nzt.gdx.screen.BaseScreen;
+import com.nzt.gdx.screen.AbstractScreen;
 import com.nzt.gdx.screen.SimpleScreen;
 import com.nzt.gdx.test.trials.st.scene2D.Scene2DTestConstants;
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
@@ -67,11 +67,11 @@ public class STSelectorScreen extends SimpleScreen<ScreenSelectorTestMain> {
 					main.lastGroupCase = caseTest.parent;
 					if (caseTest.isGroup) {
 						STSelectorScreen groupScreen = new STSelectorScreen(main, caseTest);
-						main.screenManager.setScreen((BaseScreen) groupScreen);
+						main.screenManager.setScreen((AbstractScreen) groupScreen);
 					} else {
 						Constructor cons = caseTest.classTest.getConstructor(FastTesterMain.class);
 						Object newInstance = cons.newInstance(main);
-						main.screenManager.setScreen((BaseScreen<AbstractMain>) newInstance);
+						main.screenManager.setScreen((AbstractScreen<AbstractMain>) newInstance);
 					}
 
 				} catch (Exception e) {

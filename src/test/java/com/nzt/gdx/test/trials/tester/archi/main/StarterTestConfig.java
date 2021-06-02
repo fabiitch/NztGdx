@@ -9,7 +9,7 @@ import com.nzt.gdx.main.AbstractMain;
 
 public class StarterTestConfig {
 
-	//TODO a remove je crois
+	//TODO a remove je crois garde que startLwjgl3
     public static void startLwjgl(AbstractMain main, int witdh, int height) {
         LwjglApplicationConfiguration configuration = new LwjglApplicationConfiguration();
         configuration.title = "Tester Lwjgl";

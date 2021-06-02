@@ -20,7 +20,10 @@ import com.nzt.gdx.main.AbstractMain;
  */
 public abstract class AbstractScreen<M extends AbstractMain> implements Screen {
 
+    private final static String FPS= "FPS : ";//TODO stringCommon ?
+    private final static String DT = " | DT = ";
     protected M main;
+
     protected SpriteBatch spriteBatch;
     protected NzShapeRenderer nzShapeRenderer;
     protected ModelBatch modelBatch;
@@ -47,7 +50,7 @@ public abstract class AbstractScreen<M extends AbstractMain> implements Screen {
     }
 
     public void setTitle(float dt) {
-        Gdx.graphics.setTitle("FPS : " + Gdx.graphics.getFramesPerSecond() + " | DT = " + dt);
+        Gdx.graphics.setTitle(FPS + Gdx.graphics.getFramesPerSecond() + DT + dt);
     }
 
     protected abstract void doShow();
