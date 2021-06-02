@@ -9,6 +9,7 @@ import com.nzt.gdx.debug.gl.NzGLProfiler;
 import com.nzt.gdx.debug.perf.PerformanceFrame;
 import com.nzt.gdx.graphics.renderers.NzShapeRenderer;
 import com.nzt.gdx.main.AbstractMain;
+import com.nzt.gdx.utils.Strings;
 
 /**
  * Abstract screen for {@link #AbstractScreen(AbstractMain)} Wrapper for access
@@ -28,7 +29,7 @@ public abstract class AbstractScreen<M extends AbstractMain> implements Screen {
     protected NzShapeRenderer nzShapeRenderer;
     protected ModelBatch modelBatch;
 
-    private NzGLProfiler nzGLProfiler;
+    protected NzGLProfiler nzGLProfiler;
 
     public AbstractScreen(M main) {
         this.main = main;
@@ -50,7 +51,8 @@ public abstract class AbstractScreen<M extends AbstractMain> implements Screen {
     }
 
     public void setTitle(float dt) {
-        Gdx.graphics.setTitle(FPS + Gdx.graphics.getFramesPerSecond() + DT + dt);
+        String title = Strings.getBuilder().append(FPS).append(Gdx.graphics.getFramesPerSecond()).append(DT).append(dt).toString();
+        Gdx.graphics.setTitle(title);
     }
 
     protected abstract void doShow();

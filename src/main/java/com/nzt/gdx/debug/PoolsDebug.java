@@ -27,7 +27,7 @@ public class PoolsDebug {
             Class<T> key = entry.key;
             Pool<T> pool = entry.value;
             boolean exist = HudDebug.exist("Pool " + key.getSimpleName());
-            StringBuffer sb = Strings.getStringBuffer();
+            StringBuilder sb = Strings.getBuilder();
             sb.append("Max=" + pool.max + " peak=" + pool.peak);
             if (exist) {
                 HudDebug.update("Pool " + key.getSimpleName(), sb.toString());

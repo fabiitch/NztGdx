@@ -6,13 +6,14 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.ScreenUtils;
 
 /**
  * Test if Gdx empty app alloc memory
  * normalement screen stay blue
  */
-public class SimpleMainTestAllocationMemory implements ApplicationListener {
+class SimpleMainTestAllocationMemory implements ApplicationListener {
 
     public static void main(String[] args) {
         LwjglApplicationConfiguration configuration = new LwjglApplicationConfiguration();
@@ -31,6 +32,8 @@ public class SimpleMainTestAllocationMemory implements ApplicationListener {
     private long memoryStart;
     @Override
     public void render() {
+        Vector2 v = new Vector2();
+        v.set(1,2);
         if (Gdx.app.getJavaHeap() > memoryStart) {
             ScreenUtils.clear(Color.RED);
         } else {
