@@ -13,13 +13,10 @@ import com.nzt.gdx.test.trials.tester.selector.TestScreen;
 
 /**
  * Test class PerformanceCounters
- *
  */
 @TestScreen(group = "utils.perf")
 public class STPerformanceCounter extends TestScreenWithHudDebug {
-
 	private PerformanceCounters counters;
-
 	PerformanceCounter counter1, counter2, counter3;
 
 	private boolean startUpdateOther = false;

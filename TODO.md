@@ -1,5 +1,6 @@
 - Pools utilisation ...  la méthode free n'est pas appelé
 
+- allocate memory test, doivent tous passé sans up
 
 - sous projet pour b2D
 
