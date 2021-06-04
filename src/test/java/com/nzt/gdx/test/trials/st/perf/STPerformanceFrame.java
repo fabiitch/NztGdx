@@ -30,6 +30,7 @@ public class STPerformanceFrame extends TestScreenWithHudDebug {
 
 	public STPerformanceFrame(FastTesterMain main) {
 		super(main);
+		glProfiler.removeHudDebug();
 		engine = new Engine();
 		factory = new EntityFactory(engine);
 		camera = new OrthographicCamera(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());

@@ -18,6 +18,7 @@ public class PerformanceFrame {
     public static long timeFrameAverage;
 
     private static long nanoStartFrame;
+    
 
     private PerformanceFrame() {
         this.container = new PerformanceContainer();
@@ -45,9 +46,9 @@ public class PerformanceFrame {
         }
     }
 
-    public static void keepOnlySystem(Class systemClass) {
+    public static void keepOnlyClass(Class classz) {
         if (enabled)
-            instance.container.keepOnly(systemClass.getSimpleName());
+            instance.container.keepOnly(classz.getSimpleName());
     }
 
     public static void keepOnly(String action) {
@@ -61,11 +62,16 @@ public class PerformanceFrame {
     }
 
     public static void add(String action) {
+		if (enabled)
+			instance.container.add(action);
+	}
+
+	public static void add(Class classz) {
         if (enabled)
-            instance.container.add(action);
+            instance.container.add(classz.getSimpleName());
     }
 
-    public static void startAction(String action) {
+	public static void startAction(String action) {
         if (enabled)
             instance.container.startAction(action);
     }
