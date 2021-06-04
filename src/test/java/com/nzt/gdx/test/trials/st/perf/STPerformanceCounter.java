@@ -38,6 +38,7 @@ public class STPerformanceCounter extends TestScreenWithHudDebug {
 		counter1.start();
 		counter2.start();
 		counter3.start();
+		glProfiler.removeHudDebug();
 
 		Timer.schedule(new Task() {
 			@Override
