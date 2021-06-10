@@ -1,21 +1,27 @@
 package com.nzt.gdx.debug.hud.core;
 
-import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.utils.Array;
 import com.nzt.gdx.debug.hud.HudDebugPosition;
-import com.nzt.gdx.debug.hud.utils.HudDebugUtils;
+import com.nzt.gdx.debug.hud.actors.HudDebugActor;
 import com.nzt.gdx.debug.hud.utils.HudDebugPreInitItem;
-import com.nzt.gdx.debug.utils.DebugDisplayUtils;
 
 public class HudDebug {
     public static HudDebug instance;
     private static Array<HudDebugPreInitItem> arrayBeforeInit;
+    public static Skin skin;
+
     private final HudDebugContainer container;
 
+    public static void dispose(){
+        HudDebug.skin.dispose();
+    }
+
     public HudDebug(Stage stage, Skin skin) {
-        this.container = new HudDebugContainer(stage, skin);
+        this.container = new HudDebugContainer(stage);
+        HudDebug.skin = skin;
         HudDebug.instance = this;
 
         if (arrayBeforeInit != null) {
@@ -27,17 +33,26 @@ public class HudDebug {
         }
     }
 
-    public static void clear() {
+    public static HudDebugActor get(String key) {
         if (instance == null) {
-        	arrayBeforeInit.clear();
+            return null;
         } else {
-        	instance.container.clear();
+            return instance.container.get(key);
         }
     }
+
+    public static void clear() {
+        if (instance == null) {
+            arrayBeforeInit.clear();
+        } else {
+            instance.container.clear();
+        }
+    }
+
     public static boolean exist(String key) {
         if (instance == null) {
             for (HudDebugPreInitItem item : arrayBeforeInit)
-                if (key.equals(item.name))
+                if (key.equals(item.key))
                     return true;
             return false;
         } else {
@@ -58,207 +73,101 @@ public class HudDebug {
         }
     }
 
-    public static void update(String key, String name, Object value) {
-        if (instance != null)
-            instance.container.update(key, name, value);
-    }
-
-    public static void update(String key, Object value) {
-        if (instance != null)
-            instance.container.update(key, value);
-    }
-
-    public static void update(String key, String value) {
-        if (instance != null)
-            instance.container.update(key, value);
-    }
-
-    private static void addInitList(String key, String name, Object value, int positionOnStage, Color color) {
+    private static void addInitList(String key, int positionOnStage, Actor actor) {
         if (arrayBeforeInit == null)
             arrayBeforeInit = new Array<>();
-
-        arrayBeforeInit.add(new HudDebugPreInitItem(key, name, DebugDisplayUtils.printValue(value), positionOnStage, color));
+        arrayBeforeInit.add(new HudDebugPreInitItem(key, positionOnStage, actor));
     }
 
-    public static void addTopLeft(String key, String name, Object value, Color color) {
+    public static void addTopLeft(String key, Actor actor) {
         if (instance == null) {
-            addInitList(key, name, value, HudDebugPosition.TOP_LEFT, color);
+            addInitList(key, HudDebugPosition.TOP_LEFT, actor);
         } else {
-            instance.container.addTopLeft(key, name, value, color);
+            instance.container.addActor(key, HudDebugPosition.TOP_LEFT, actor);
         }
     }
 
-    public static void addTopLeft(String name, Object value, Color color) {
-        addTopLeft(null, name, value, color);
-    }
-
-    public static void addTopLeft(String name, Object value) {
-        addTopLeft(null, name, value, Color.WHITE);
-    }
-
-    public static void addTopMiddle(String key, String name, Object value, Color color) {
+    public static void addTopMiddle(String key, Actor actor) {
         if (instance == null) {
-            addInitList(key, name, value, HudDebugPosition.TOP_MIDDLE, color);
+            addInitList(key, HudDebugPosition.TOP_MIDDLE, actor);
         } else {
-            instance.container.addTopMiddle(key, name, value, color);
+            instance.container.addActor(key, HudDebugPosition.TOP_MIDDLE, actor);
         }
     }
 
-    public static void addTopMiddle(String name, Object value, Color color) {
-        addTopMiddle(null, name, value, color);
-    }
-
-    public static void addTopMiddle(String name, Object value) {
-        addTopMiddle(null, name, value, Color.WHITE);
-    }
-
-    public static void addTopRight(String key, String name, Object value, Color color) {
+    public static void addTopRight(String key, Actor actor) {
         if (instance == null) {
-            addInitList(key, name, value, HudDebugPosition.TOP_RIGHT, color);
+            addInitList(key, HudDebugPosition.TOP_RIGHT, actor);
         } else {
-            instance.container.addTopRight(key, name, value, color);
+            instance.container.addActor(key, HudDebugPosition.TOP_RIGHT, actor);
         }
     }
 
-    public static void addTopRight(String name, Object value, Color color) {
-        addTopRight(null, name, value, color);
-    }
-
-    public static void addTopRight(String name, Object value) {
-        addTopRight(name, value, Color.WHITE);
-    }
-
-    public static void addBotLeft(String key, String name, Object value, Color color) {
+    public static void addBotLeft(String key, Actor actor) {
         if (instance == null) {
-            addInitList(key, name, value, HudDebugPosition.BOT_LEFT, color);
+            addInitList(key, HudDebugPosition.BOT_LEFT, actor);
         } else {
-            instance.container.addBotLeft(key, name, value, color);
+            instance.container.addActor(key, HudDebugPosition.BOT_LEFT, actor);
         }
     }
 
-    public static void addBotLeft(String name, Object value, Color color) {
-        addBotLeft(null, name, value, color);
-    }
-
-    public static void addBotLeft(String name, Object value) {
-        addBotLeft(null, name, value, Color.WHITE);
-    }
-
-    public static void addBotMiddle(String key, String name, Object value, Color color) {
+    public static void addBotMiddle(String key, Actor actor) {
         if (instance == null) {
-            addInitList(key, name, value, HudDebugPosition.BOT_MIDDLE, color);
+            addInitList(key, HudDebugPosition.BOT_MIDDLE, actor);
         } else {
-            instance.container.addBotMiddle(key, name, value, color);
+            instance.container.addActor(key, HudDebugPosition.BOT_MIDDLE, actor);
         }
     }
 
-    public static void addBotMiddle(String name, Object value, Color color) {
-        addBotMiddle(null, name, value, color);
-    }
-
-    public static void addBotMiddle(String name, Object value) {
-        addBotMiddle(null, name, value, Color.WHITE);
-    }
-
-    public static void addBotRight(String key, String name, Object value, Color color) {
+    public static void addBotRight(String key, Actor actor) {
         if (instance == null) {
-            addInitList(key, name, value, HudDebugPosition.BOT_RIGHT, color);
+            addInitList(key, HudDebugPosition.BOT_RIGHT, actor);
         } else {
-            instance.container.addBotRight(key, name, value, color);
+            instance.container.addActor(key, HudDebugPosition.BOT_RIGHT, actor);
         }
     }
 
-    public static void addBotRight(String name, Object value, Color color) {
-        addBotRight(null, name, value, color);
-    }
-
-    public static void addBotRight(String name, Object value) {
-        addBotRight(null, name, value, Color.WHITE);
-    }
-
-
-    public static void addLeftMiddle(String key, String name, Object value, Color color) {
+    public static void addLeftMiddle(String key, Actor actor) {
         if (instance == null) {
-            addInitList(key, name, value, HudDebugPosition.LEFT_MIDDLE, color);
+            addInitList(key, HudDebugPosition.LEFT_MIDDLE, actor);
         } else {
-            instance.container.addLeftMiddle(key, name, value, color);
+            instance.container.addActor(key, HudDebugPosition.LEFT_MIDDLE, actor);
         }
     }
 
-    public static void addLeftMiddle(String name, Object value, Color color) {
-        addLeftMiddle(null, name, value, color);
-    }
-
-    public static void addLeftMiddle(String name, Object value) {
-        addLeftMiddle(null, name, value, Color.WHITE);
-    }
-
-
-    public static void addRightMiddle(String key, String name, Object value, Color color) {
+    public static void addRightMiddle(String key, Actor actor) {
         if (instance == null) {
-            addInitList(key, name, value, HudDebugPosition.RIGHT_MIDDLE, color);
+            addInitList(key, HudDebugPosition.RIGHT_MIDDLE, actor);
         } else {
-            instance.container.addRightMiddle(key, name, value, color);
+            instance.container.addActor(key, HudDebugPosition.RIGHT_MIDDLE, actor);
         }
     }
 
-    public static void addRightMiddle(String name, Object value, Color color) {
-        addRightMiddle(null, name, value, color);
-    }
-
-    public static void addRightMiddle(String name, Object value) {
-        addRightMiddle(null, name, value, Color.WHITE);
-    }
-
-    public static void changeColor(String name, Color color) {
-        if (instance == null) {
-            HudDebugUtils.changeColorBeforeInit(name, color, arrayBeforeInit);
-        } else {
-            instance.container.changeColor(name, color);
-        }
-    }
-
-    public static void addItem(String name, Object value, int positionOnStage) {
-        addItem(name, value, positionOnStage, Color.WHITE);
-    }
-
-    public static void addItem(String name, Object value, int positionOnStage, Color color) {
-        if (instance == null) {
-            addInitList(null, name, value, positionOnStage, color);
-        } else {
-            add(null, name, value, positionOnStage, color);
-        }
-    }
-
-    public static void add(String name, Object value, int positionOnstage, Color color) {
-        add(name, name, value, positionOnstage, color);
-    }
-
-    public static void add(String key, String name, Object value, int positionOnstage, Color color) {
+    public static void add(String key, int positionOnstage, Actor actor) {
         switch (positionOnstage) {
             case HudDebugPosition.TOP_LEFT:
-                HudDebug.addTopLeft(key, name, value, color);
+                HudDebug.addTopLeft(key, actor);
                 break;
             case HudDebugPosition.TOP_MIDDLE:
-                HudDebug.addTopMiddle(key, name, value, color);
+                HudDebug.addTopMiddle(key, actor);
                 break;
             case HudDebugPosition.TOP_RIGHT:
-                HudDebug.addTopRight(key, name, value, color);
+                HudDebug.addTopRight(key, actor);
                 break;
             case HudDebugPosition.BOT_LEFT:
-                HudDebug.addBotLeft(key, name, value, color);
+                HudDebug.addBotLeft(key, actor);
                 break;
             case HudDebugPosition.BOT_MIDDLE:
-                HudDebug.addBotMiddle(key, name, value, color);
+                HudDebug.addBotMiddle(key, actor);
                 break;
             case HudDebugPosition.BOT_RIGHT:
-                HudDebug.addBotRight(key, name, value, color);
+                HudDebug.addBotRight(key, actor);
                 break;
             case HudDebugPosition.LEFT_MIDDLE:
-                HudDebug.addLeftMiddle(key, name, value, color);
+                HudDebug.addLeftMiddle(key, actor);
                 break;
             case HudDebugPosition.RIGHT_MIDDLE:
-                HudDebug.addRightMiddle(key, name, value, color);
+                HudDebug.addRightMiddle(key, actor);
                 break;
         }
     }
