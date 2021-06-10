@@ -3,7 +3,7 @@ package com.nzt.gdx.b2d.debug;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.physics.box2d.World;
 import com.nzt.gdx.debug.hud.HudDebugPosition;
-import com.nzt.gdx.debug.hud.base.HudDebug;
+import com.nzt.gdx.debug.hud.core.HudDebug;
 
 public class B2DHudDebug {
 

@@ -2,7 +2,7 @@ package com.nzt.gdx.ashley.systems.utils;
 
 import com.badlogic.ashley.core.EntitySystem;
 import com.badlogic.gdx.graphics.Color;
-import com.nzt.gdx.debug.hud.base.HudDebug;
+import com.nzt.gdx.debug.hud.core.HudDebug;
 import com.nzt.gdx.utils.GdxUtils;
 
 //TODO a revoir ...

@@ -2,7 +2,7 @@ package com.nzt.gdx.test.trials.st.scene2D.huddebug;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
-import com.nzt.gdx.debug.hud.base.HudDebug;
+import com.nzt.gdx.debug.hud.core.HudDebug;
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
 import com.nzt.gdx.test.trials.tester.archi.screens.stages.STStageScreen;
 import com.nzt.gdx.test.trials.tester.selector.TestScreen;

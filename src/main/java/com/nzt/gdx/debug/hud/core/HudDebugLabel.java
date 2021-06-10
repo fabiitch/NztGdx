@@ -1,4 +1,4 @@
-package com.nzt.gdx.debug.hud.base;
+package com.nzt.gdx.debug.hud.core;
 
 import com.badlogic.gdx.scenes.scene2d.Touchable;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
@@ -8,7 +8,7 @@ import com.nzt.gdx.utils.GdxUtils;
 /**
  * Used in HudDebug
  */
-class HudDebugLabel extends Label {
+public class HudDebugLabel extends Label {
 
     private static final String SEPARATOR = " : ";
 

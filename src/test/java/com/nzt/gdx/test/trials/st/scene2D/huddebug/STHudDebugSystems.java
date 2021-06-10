@@ -7,7 +7,7 @@ import com.nzt.gdx.ashley.systems.debug.hud.HudDebugApplicationInfoSystem;
 import com.nzt.gdx.ashley.systems.debug.hud.HudDebugGlProfilerSystem;
 import com.nzt.gdx.ashley.systems.debug.hud.HudDebugPerformanceSystem;
 import com.nzt.gdx.debug.hud.HudDebugPosition;
-import com.nzt.gdx.debug.hud.base.HudDebug;
+import com.nzt.gdx.debug.hud.core.HudDebug;
 import com.nzt.gdx.scene2D.nz.NzStage;
 import com.nzt.gdx.test.trials.st.scene2D.Scene2DTestConstants;
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
