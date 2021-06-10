@@ -2,7 +2,7 @@ package com.nzt.gdx.debug.perf;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.utils.Array;
-import com.nzt.gdx.debug.hud.base.HudDebug;
+import com.nzt.gdx.debug.hud.core.HudDebug;
 import com.nzt.gdx.debug.utils.DebugDisplayUtils;
 import com.nzt.gdx.math.Percentage;
 

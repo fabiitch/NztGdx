@@ -1,15 +1,16 @@
-package com.nzt.gdx.debug.hud.base;
+package com.nzt.gdx.debug.hud.utils;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.Array;
 import com.nzt.gdx.debug.hud.HudDebugPosition;
+import com.nzt.gdx.debug.hud.core.HudDebugLabel;
 
 import java.util.Collection;
 import java.util.Map;
 
-class HudDebugUtils {
+public class HudDebugUtils {
     private final static float standartRight = 100;
 
     private HudDebugUtils() {
@@ -68,8 +69,8 @@ class HudDebugUtils {
         }
     }
 
-    public static void changeColorBeforeInit(String label, Color color, Array<PreInitItem> arrayBeforeInit) {
-        for (PreInitItem item : arrayBeforeInit.items) {
+    public static void changeColorBeforeInit(String label, Color color, Array<HudDebugPreInitItem> arrayBeforeInit) {
+        for (HudDebugPreInitItem item : arrayBeforeInit.items) {
             if (item.name.equals(label))
                 item.color = color;
         }

@@ -3,7 +3,7 @@ package com.nzt.gdx.debug.gl;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.profiling.GLProfiler;
-import com.nzt.gdx.debug.hud.base.HudDebug;
+import com.nzt.gdx.debug.hud.core.HudDebug;
 import com.nzt.gdx.logger.TagLoggerUtils;
 import com.nzt.gdx.logger.tag.LogTagsBase;
 import com.nzt.gdx.screen.AbstractScreen;

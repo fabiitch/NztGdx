@@ -1,9 +1,11 @@
-package com.nzt.gdx.debug.hud.base;
+package com.nzt.gdx.debug.hud.core;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.nzt.gdx.debug.hud.HudDebugPosition;
+import com.nzt.gdx.debug.hud.utils.HudDebugUtils;
+import com.nzt.gdx.debug.hud.utils.HudDebugPreInitItem;
 import com.nzt.gdx.debug.utils.DebugDisplayUtils;
 import com.nzt.gdx.logger.tag.LogTagsBase;
 import com.nzt.gdx.logger.tag.TagLogger;
@@ -143,7 +145,7 @@ class HudDebugContainer {
 		return label;
 	}
 
-	public void addItem(PreInitItem item) {
+	public void addItem(HudDebugPreInitItem item) {
 		switch (item.positionOnStage) {
 		case HudDebugPosition.TOP_LEFT:
 			this.addTopLeft(item.key, item.name, item.value, item.color);

@@ -2,7 +2,7 @@ package com.nzt.gdx.debug.hud;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
-import com.nzt.gdx.debug.hud.base.HudDebug;
+import com.nzt.gdx.debug.hud.core.HudDebug;
 import com.nzt.gdx.utils.GdxUtils;
 
 public class HudDebugApplicationInfo {

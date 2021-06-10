@@ -12,7 +12,7 @@ import com.nzt.gdx.ashley.components.renders.SpriteComponent;
 import com.nzt.gdx.ashley.systems.render.SpriteRenderSystem;
 import com.nzt.gdx.b2d.FixtureDefWrapper;
 import com.nzt.gdx.b2d.utils.B2DUtils;
-import com.nzt.gdx.debug.hud.base.HudDebug;
+import com.nzt.gdx.debug.hud.core.HudDebug;
 import com.nzt.gdx.test.trials.st.b2D.B2DTestConstants;
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
 import com.nzt.gdx.test.trials.tester.archi.screens.systems.BaseB2DSystemTestScreen;

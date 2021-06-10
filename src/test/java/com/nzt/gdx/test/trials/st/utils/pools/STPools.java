@@ -5,7 +5,7 @@ import com.badlogic.gdx.utils.Pool;
 import com.badlogic.gdx.utils.Pools;
 import com.nzt.gdx.debug.PoolsDebug;
 import com.nzt.gdx.debug.hud.HudDebugPosition;
-import com.nzt.gdx.debug.hud.base.HudDebug;
+import com.nzt.gdx.debug.hud.core.HudDebug;
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
 import com.nzt.gdx.test.trials.tester.archi.screens.TestScreenWithHudDebug;
 import com.nzt.gdx.test.trials.tester.selector.TestScreen;

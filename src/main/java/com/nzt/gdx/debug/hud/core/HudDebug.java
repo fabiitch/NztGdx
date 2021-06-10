@@ -1,16 +1,17 @@
-package com.nzt.gdx.debug.hud.base;
+package com.nzt.gdx.debug.hud.core;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.utils.Array;
 import com.nzt.gdx.debug.hud.HudDebugPosition;
+import com.nzt.gdx.debug.hud.utils.HudDebugUtils;
+import com.nzt.gdx.debug.hud.utils.HudDebugPreInitItem;
 import com.nzt.gdx.debug.utils.DebugDisplayUtils;
 
 public class HudDebug {
     public static HudDebug instance;
-    private static Array<PreInitItem> arrayBeforeInit;
-
+    private static Array<HudDebugPreInitItem> arrayBeforeInit;
     private final HudDebugContainer container;
 
     public HudDebug(Stage stage, Skin skin) {
@@ -18,7 +19,7 @@ public class HudDebug {
         HudDebug.instance = this;
 
         if (arrayBeforeInit != null) {
-            for (PreInitItem item : arrayBeforeInit) {
+            for (HudDebugPreInitItem item : arrayBeforeInit) {
                 this.container.addItem(item);
             }
             HudDebug.arrayBeforeInit.clear();
@@ -35,7 +36,7 @@ public class HudDebug {
     }
     public static boolean exist(String key) {
         if (instance == null) {
-            for (PreInitItem item : arrayBeforeInit)
+            for (HudDebugPreInitItem item : arrayBeforeInit)
                 if (key.equals(item.name))
                     return true;
             return false;
@@ -46,7 +47,7 @@ public class HudDebug {
 
     public static void remove(String key) {
         if (instance == null) {
-            for (PreInitItem item : arrayBeforeInit) {
+            for (HudDebugPreInitItem item : arrayBeforeInit) {
                 if (key.equals(item.key)) {
                     arrayBeforeInit.removeValue(item, true);
                     break;
@@ -76,7 +77,7 @@ public class HudDebug {
         if (arrayBeforeInit == null)
             arrayBeforeInit = new Array<>();
 
-        arrayBeforeInit.add(new PreInitItem(key, name, DebugDisplayUtils.printValue(value), positionOnStage, color));
+        arrayBeforeInit.add(new HudDebugPreInitItem(key, name, DebugDisplayUtils.printValue(value), positionOnStage, color));
     }
 
     public static void addTopLeft(String key, String name, Object value, Color color) {
