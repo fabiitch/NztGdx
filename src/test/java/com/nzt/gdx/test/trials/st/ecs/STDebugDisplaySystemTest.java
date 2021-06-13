@@ -9,10 +9,10 @@ import com.nzt.gdx.ashley.systems.debug.DebugDisplaySystem;
 import com.nzt.gdx.b2d.FixtureDefWrapper;
 import com.nzt.gdx.test.trials.st.b2D.B2DTestConstants;
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
-import com.nzt.gdx.test.trials.tester.archi.screens.systems.BaseB2DSystemTestScreen;
-import com.nzt.gdx.test.trials.tester.selector.TestScreen;
+import com.nzt.gdx.test.trials.tester.archi.screens.BaseB2DSystemTestScreen;
+import com.nzt.gdx.test.trials.tester.selector.TestScreenList;
 
-@TestScreen(group = "ecs")
+@TestScreenList(group = "ecs")
 public class STDebugDisplaySystemTest extends BaseB2DSystemTestScreen {
     public STDebugDisplaySystemTest(FastTesterMain main) {
         super(main);
@@ -21,6 +21,11 @@ public class STDebugDisplaySystemTest extends BaseB2DSystemTestScreen {
         init();
         DebugDisplaySystem debugDisplaySystem = new DebugDisplaySystem(main.sb, camera, 1 / B2DTestConstants.PPM);
         engine.addSystem(debugDisplaySystem);
+    }
+
+    @Override
+    public String getExplication() {
+        return "STDebugDisplaySystemTest";
     }
 
 

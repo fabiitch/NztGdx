@@ -8,10 +8,10 @@ import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.nzt.gdx.b2d.FixtureDefWrapper;
 import com.nzt.gdx.input.impl.simple.SimpleClickInputHandler;
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
-import com.nzt.gdx.test.trials.tester.archi.screens.systems.BaseB2DSystemTestScreen;
-import com.nzt.gdx.test.trials.tester.selector.TestScreen;
+import com.nzt.gdx.test.trials.tester.archi.screens.BaseB2DSystemTestScreen;
+import com.nzt.gdx.test.trials.tester.selector.TestScreenList;
 
-@TestScreen(group = "box2D")
+@TestScreenList(group = "box2D")
 public class STB2DTriangleBody extends BaseB2DSystemTestScreen {
     Body triangleBody;
     Entity entity;
@@ -44,9 +44,8 @@ public class STB2DTriangleBody extends BaseB2DSystemTestScreen {
     }
 
     @Override
-    public void doDispose() {
-        // TODO Auto-generated method stub
-
+    public String getExplication() {
+        return "Triangle shape sur Box2D";
     }
 
 }

@@ -6,11 +6,11 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.nzt.gdx.debug.hud.HudDebugPosition;
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
-import com.nzt.gdx.test.trials.tester.archi.screens.TestScreenWithHudDebug;
-import com.nzt.gdx.test.trials.tester.selector.TestScreen;
+import com.nzt.gdx.test.trials.tester.archi.screens.TestScreen;
+import com.nzt.gdx.test.trials.tester.selector.TestScreenList;
 
-@TestScreen(group = "shaders")
-public class STBasicShader extends TestScreenWithHudDebug {
+@TestScreenList(group = "shaders")
+public class STBasicShader extends TestScreen {
 
 	private Sprite sprite;
 	private Texture texture;
@@ -29,7 +29,12 @@ public class STBasicShader extends TestScreenWithHudDebug {
 	}
 
 	@Override
-	public void renderAfterHud(float dt) {
+	public String getExplication() {
+		return "Shader discover";
+	}
+
+	@Override
+	public void renderTestScreen(float dt) {
 		spriteBatch.begin();
 		sprite.draw(spriteBatch);
 		spriteBatch.end();
@@ -38,8 +43,7 @@ public class STBasicShader extends TestScreenWithHudDebug {
 	}
 
 	@Override
-	public void doDispose() {
-		super.doDispose();
+	public void disposeTestScreen() {
 		main.logManager.nzGlProfiler.desactive();
 		texture.dispose();
 

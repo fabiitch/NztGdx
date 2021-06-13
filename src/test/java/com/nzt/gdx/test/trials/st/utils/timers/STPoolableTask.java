@@ -1,20 +1,28 @@
 package com.nzt.gdx.test.trials.st.utils.timers;
 
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
-import com.nzt.gdx.test.trials.tester.archi.screens.TestScreenWithHudDebug;
-import com.nzt.gdx.test.trials.tester.selector.TestScreen;
+import com.nzt.gdx.test.trials.tester.archi.screens.TestScreen;
+import com.nzt.gdx.test.trials.tester.selector.TestScreenList;
 
-@TestScreen(group = "utils.timers")
-public class STPoolableTask extends TestScreenWithHudDebug {
+@TestScreenList(group = "utils.timers")
+public class STPoolableTask extends TestScreen {
     public STPoolableTask(FastTesterMain main) {
         super(main);
-      setMsgNotImpl();
+        setMsgNotImpl();
+    }
 
+    @Override
+    public String getExplication() {
+        return null;
+    }
+
+    @Override
+    public void renderTestScreen(float dt) {
 
     }
 
     @Override
-    public void renderAfterHud(float dt) {
+    public void disposeTestScreen() {
 
     }
 }

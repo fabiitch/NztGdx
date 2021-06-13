@@ -13,11 +13,11 @@ import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 import com.nzt.gdx.test.trials.st.scene2D.Scene2DTestConstants;
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
-import com.nzt.gdx.test.trials.tester.archi.screens.stages.STStageScreen;
-import com.nzt.gdx.test.trials.tester.selector.TestScreen;
+import com.nzt.gdx.test.trials.tester.archi.screens.TestScreen;
+import com.nzt.gdx.test.trials.tester.selector.TestScreenList;
 
-@TestScreen(group = "scene2D.widgets.touchpad")
-public class STGdxTouchPad extends STStageScreen {
+@TestScreenList(group = "scene2D.widgets.touchpad")
+public class STGdxTouchPad extends TestScreen {
 
     private OrthographicCamera camera;
     private Touchpad touchpad;
@@ -33,9 +33,14 @@ public class STGdxTouchPad extends STStageScreen {
 
     public STGdxTouchPad(FastTesterMain main) {
         super(main);
+        init();
     }
 
     @Override
+    public String getExplication() {
+        return null;
+    }
+
     public void init() {
         skinNum = 0;
         // Create camera
@@ -77,7 +82,8 @@ public class STGdxTouchPad extends STStageScreen {
 
             }
         });
-        stage.addActor(changeSkinButton);
+        nzStage.addActor(changeSkinButton);
+        Gdx.input.setInputProcessor(nzStage);
     }
 
     private void createTouchPad() {
@@ -109,11 +115,11 @@ public class STGdxTouchPad extends STStageScreen {
         touchpad = new Touchpad(10, touchpadStyle);
         // setBounds(x,y,width,height)
         touchpad.setBounds(15, 15, 200, 200);
-        stage.addActor(touchpad);
+        nzStage.addActor(touchpad);
     }
 
     @Override
-    protected void renderScreen(float dt) {
+    public void renderTestScreen(float dt) {
         camera.update();
 
         // Move blockSprite with TouchPad
@@ -124,9 +130,14 @@ public class STGdxTouchPad extends STStageScreen {
         spriteBatch.begin();
         blockSprite.draw(spriteBatch);
         spriteBatch.end();
-        stage.act(Gdx.graphics.getDeltaTime());
-        stage.draw();
+        nzStage.act(Gdx.graphics.getDeltaTime());
+        nzStage.draw();
 
+    }
+
+    @Override
+    public void disposeTestScreen() {
+        touchpadSkin.dispose();
     }
 
 }

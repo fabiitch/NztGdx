@@ -4,11 +4,11 @@ import com.badlogic.gdx.utils.Timer;
 import com.nzt.gdx.debug.hud.HudDebugPosition;
 import com.nzt.gdx.debug.hud.core.HudDebug;
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
-import com.nzt.gdx.test.trials.tester.archi.screens.TestScreenWithHudDebug;
-import com.nzt.gdx.test.trials.tester.selector.TestScreen;
+import com.nzt.gdx.test.trials.tester.archi.screens.TestScreen;
+import com.nzt.gdx.test.trials.tester.selector.TestScreenList;
 
-@TestScreen(group = "utils.timers")
-public class STSimpleTimer extends TestScreenWithHudDebug {
+@TestScreenList(group = "utils.timers")
+public class STSimpleTimer extends TestScreen {
 
     private int loopCount = 1;
     Timer.Task task1, task2, taskRepeat;
@@ -53,7 +53,12 @@ public class STSimpleTimer extends TestScreenWithHudDebug {
     }
 
     @Override
-    public void renderAfterHud(float dt) {
+    public String getExplication() {
+        return "Test timer api";
+    }
+
+    @Override
+    public void renderTestScreen(float dt) {
         HudDebug.update("getExecuteTimeMillis1", task1.getExecuteTimeMillis());
         HudDebug.update("task1.isScheduled()", task1.isScheduled());
         HudDebug.update("getExecuteTimeMillis2", task2.getExecuteTimeMillis());
@@ -61,5 +66,10 @@ public class STSimpleTimer extends TestScreenWithHudDebug {
 
         HudDebug.update("getExecuteTimeMillistaskRepeat", taskRepeat.getExecuteTimeMillis());
         HudDebug.update("taskRepeat.isScheduled()", taskRepeat.isScheduled());
+    }
+
+    @Override
+    public void disposeTestScreen() {
+
     }
 }

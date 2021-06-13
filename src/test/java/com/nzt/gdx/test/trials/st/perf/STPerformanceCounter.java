@@ -8,14 +8,14 @@ import com.badlogic.gdx.utils.Timer;
 import com.badlogic.gdx.utils.Timer.Task;
 import com.nzt.gdx.debug.hud.core.HudDebug;
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
-import com.nzt.gdx.test.trials.tester.archi.screens.TestScreenWithHudDebug;
-import com.nzt.gdx.test.trials.tester.selector.TestScreen;
+import com.nzt.gdx.test.trials.tester.archi.screens.TestScreen;
+import com.nzt.gdx.test.trials.tester.selector.TestScreenList;
 
 /**
  * Test class PerformanceCounters
  */
-@TestScreen(group = "perf")
-public class STPerformanceCounter extends TestScreenWithHudDebug {
+@TestScreenList(group = "perf")
+public class STPerformanceCounter extends TestScreen {
 	private PerformanceCounters counters;
 	PerformanceCounter counter1, counter2, counter3;
 
@@ -53,7 +53,12 @@ public class STPerformanceCounter extends TestScreenWithHudDebug {
 	}
 
 	@Override
-	public void renderAfterHud(float dt) {
+	public String getExplication() {
+		return "";
+	}
+
+	@Override
+	public void renderTestScreen(float dt) {
 		if (startUpdateOther) {
 			counter1.start();
 			for (int i = 0; i < 1000; i++) {
@@ -82,6 +87,11 @@ public class STPerformanceCounter extends TestScreenWithHudDebug {
 			HudDebug.update("Vector2NorMax", counter2.time.max);
 			HudDebug.update("Vector3NorMax", counter2.time.max);
 		}
+	}
+
+	@Override
+	public void disposeTestScreen() {
+
 	}
 
 }

@@ -1,35 +1,25 @@
 package com.nzt.gdx.test.trials.st.scene2D.huddebug;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.nzt.gdx.ashley.systems.debug.hud.HudDebugApplicationInfoSystem;
 import com.nzt.gdx.ashley.systems.debug.hud.HudDebugGlProfilerSystem;
 import com.nzt.gdx.ashley.systems.debug.hud.HudDebugPerformanceSystem;
 import com.nzt.gdx.debug.hud.HudDebugPosition;
 import com.nzt.gdx.debug.hud.core.HudDebug;
-import com.nzt.gdx.scene2D.nz.NzStage;
-import com.nzt.gdx.test.trials.st.scene2D.Scene2DTestConstants;
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
-import com.nzt.gdx.test.trials.tester.archi.screens.systems.BaseSystemTestScreen;
+import com.nzt.gdx.test.trials.tester.archi.screens.BaseSystemTestScreen;
 import com.nzt.gdx.test.trials.tester.archi.systems.HudSystem;
-import com.nzt.gdx.test.trials.tester.selector.TestScreen;
+import com.nzt.gdx.test.trials.tester.selector.TestScreenList;
 
 /**
  * Test FramePerformance on systems
  */
-@TestScreen(group = "scene2D.HudDebug")
+@TestScreenList(group = "scene2D.HudDebug")
 public class STHudDebugSystems extends BaseSystemTestScreen {
-	protected NzStage nzStage;
-	protected Skin skin;
 	private HudDebug debugHud;
 
 	public STHudDebugSystems(FastTesterMain main) {
 		super(main);
-		this.nzStage = new NzStage();
-		this.skin = new Skin(Gdx.files.internal(Scene2DTestConstants.UI_SKIN));
-		debugHud = new HudDebug(nzStage, skin);
-
 		HudSystem hudSystem = new HudSystem(nzStage);
 		engine.addSystem(hudSystem);
 
@@ -47,10 +37,12 @@ public class STHudDebugSystems extends BaseSystemTestScreen {
 	}
 
 	@Override
-	public void doDispose() {
-		engine.getSystem(HudDebugGlProfilerSystem.class).desactive();
-		nzStage.dispose();
-		skin.dispose();
+	public String getExplication() {
+		return "Test des system qui log sur HudDebug";
 	}
 
+	@Override
+	public void disposeTestScreen() {
+		engine.getSystem(HudDebugGlProfilerSystem.class).desactive();
+	}
 }

@@ -13,51 +13,57 @@ import com.badlogic.gdx.graphics.g3d.environment.DirectionalLight;
 import com.badlogic.gdx.graphics.g3d.utils.CameraInputController;
 import com.badlogic.gdx.graphics.g3d.utils.ModelBuilder;
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
-import com.nzt.gdx.test.trials.tester.archi.screens.TestScreenWithHudDebug;
-import com.nzt.gdx.test.trials.tester.selector.TestScreen;
-@TestScreen(group = "3D")
-public class ST3DBasic extends TestScreenWithHudDebug {
-	public PerspectiveCamera camera;
-	public Model model;
-	public ModelInstance instance;
-	public Environment environment;
-	public CameraInputController camController;
+import com.nzt.gdx.test.trials.tester.selector.TestScreenList;
 
-	public ST3DBasic(FastTesterMain main) {
-		super(main);
-	}
+@TestScreenList(group = "3D")
+public class ST3DBasic extends BaseST3D {
+    public PerspectiveCamera camera;
+    public Model model;
+    public ModelInstance instance;
+    public Environment environment;
+    public CameraInputController camController;
 
-	@Override
-	public void doShow() {
-		camera = new PerspectiveCamera(67, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-		camera.position.set(10f, 10f, 10f);
-		camera.lookAt(0, 0, 0);
-		camera.near = 1f;
-		camera.far = 300f;
-		camera.update();
+    public ST3DBasic(FastTesterMain main) {
+        super(main);
+    }
 
-		ModelBuilder modelBuilder = new ModelBuilder();
-		model = modelBuilder.createBox(5f, 5f, 5f, new Material(ColorAttribute.createDiffuse(Color.GREEN)),
-				Usage.Position | Usage.Normal);
-		instance = new ModelInstance(model);
+    @Override
+    public String getExplication() {
+        return null;
+    }
 
-		environment = new Environment();
-		environment.set(new ColorAttribute(ColorAttribute.AmbientLight, 0.4f, 0.4f, 0.4f, 1f));
-		environment.add(new DirectionalLight().set(0.8f, 0.8f, 0.8f, -1f, -0.8f, -0.2f));
+    @Override
+    public void doShow() {
+        camera = new PerspectiveCamera(67, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+        camera.position.set(10f, 10f, 10f);
+        camera.lookAt(0, 0, 0);
+        camera.near = 1f;
+        camera.far = 300f;
+        camera.update();
 
-		camController = new CameraInputController(camera);
-		Gdx.input.setInputProcessor(camController);
-	}
-	@Override
-	public void renderAfterHud(float dt) {
-		camController.update();
-		modelBatch.begin(camera);
-		modelBatch.render(instance, environment);
-		modelBatch.end();
-	}
+        ModelBuilder modelBuilder = new ModelBuilder();
+        model = modelBuilder.createBox(5f, 5f, 5f, new Material(ColorAttribute.createDiffuse(Color.GREEN)),
+                Usage.Position | Usage.Normal);
+        instance = new ModelInstance(model);
 
-	@Override
-	public void doDispose() {
-		model.dispose();
-	}
+        environment = new Environment();
+        environment.set(new ColorAttribute(ColorAttribute.AmbientLight, 0.4f, 0.4f, 0.4f, 1f));
+        environment.add(new DirectionalLight().set(0.8f, 0.8f, 0.8f, -1f, -0.8f, -0.2f));
+
+        camController = new CameraInputController(camera);
+        Gdx.input.setInputProcessor(camController);
+    }
+
+    @Override
+    public void renderTestScreen(float dt) {
+        camController.update();
+        modelBatch.begin(camera);
+        modelBatch.render(instance, environment);
+        modelBatch.end();
+    }
+
+    @Override
+    public void disposeTestScreen() {
+        model.dispose();
+    }
 }

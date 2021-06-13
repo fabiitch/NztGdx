@@ -14,18 +14,16 @@ import com.nzt.gdx.ashley.systems.render.SpriteRenderSystem;
 import com.nzt.gdx.debug.hud.HudDebugPosition;
 import com.nzt.gdx.debug.perf.HudDebugPerformanceFrame;
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
-import com.nzt.gdx.test.trials.tester.archi.screens.TestScreenWithHudDebug;
-import com.nzt.gdx.test.trials.tester.selector.TestScreen;
+import com.nzt.gdx.test.trials.tester.archi.screens.TestScreen;
+import com.nzt.gdx.test.trials.tester.selector.TestScreenList;
 
-@TestScreen(group = "perf")
-public class STPerformanceFrame extends TestScreenWithHudDebug {
-
+@TestScreenList(group = "perf")
+public class STPerformanceFrame extends TestScreen {
 	Engine engine;
 	EntityFactory factory;
 	Texture texture = new Texture("badlogic.jpg");
 
 	Camera camera;
-
 	HudDebugPerformanceFrame perf;
 
 	public STPerformanceFrame(FastTesterMain main) {
@@ -49,8 +47,18 @@ public class STPerformanceFrame extends TestScreenWithHudDebug {
 	}
 
 	@Override
-	public void renderAfterHud(float dt) {
+	public String getExplication() {
+		return null;
+	}
+
+	@Override
+	public void renderTestScreen(float dt) {
 		perf.update(dt);
+	}
+
+	@Override
+	public void disposeTestScreen() {
+		texture.dispose();
 	}
 
 }

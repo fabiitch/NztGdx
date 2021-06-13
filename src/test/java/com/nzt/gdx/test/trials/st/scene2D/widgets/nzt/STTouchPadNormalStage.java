@@ -7,10 +7,11 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.nzt.gdx.test.trials.st.scene2D.Scene2DTestConstants;
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
 import com.nzt.gdx.test.trials.tester.archi.screens.SimpleTestScreen;
-import com.nzt.gdx.test.trials.tester.selector.TestScreen;
+import com.nzt.gdx.test.trials.tester.archi.screens.TestScreen;
+import com.nzt.gdx.test.trials.tester.selector.TestScreenList;
 
 //TODO a reprendre quand on refait les touchpad générique
-@TestScreen(group = "scene2D.widgets.touchpad.nzt")
+@TestScreenList(group = "scene2D.widgets.touchpad.nzt")
 public class STTouchPadNormalStage extends SimpleTestScreen {
 	private Stage stage;
 

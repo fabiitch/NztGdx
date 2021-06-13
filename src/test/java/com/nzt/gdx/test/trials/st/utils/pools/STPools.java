@@ -7,11 +7,11 @@ import com.nzt.gdx.debug.PoolsDebug;
 import com.nzt.gdx.debug.hud.HudDebugPosition;
 import com.nzt.gdx.debug.hud.core.HudDebug;
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
-import com.nzt.gdx.test.trials.tester.archi.screens.TestScreenWithHudDebug;
-import com.nzt.gdx.test.trials.tester.selector.TestScreen;
+import com.nzt.gdx.test.trials.tester.archi.screens.TestScreen;
+import com.nzt.gdx.test.trials.tester.selector.TestScreenList;
 
-@TestScreen(group = "utils")
-public class STPools extends TestScreenWithHudDebug {
+@TestScreenList(group = "utils")
+public class STPools extends TestScreen {
     public STPools(FastTesterMain main) {
         super(main);
         glProfiler.removeHudDebug();
@@ -73,8 +73,18 @@ public class STPools extends TestScreenWithHudDebug {
     }
 
     @Override
-    public void renderAfterHud(float dt) {
+    public String getExplication() {
+        return "Test class who can be pooled";
+    }
+
+    @Override
+    public void renderTestScreen(float dt) {
         PoolsDebug.displayHudDebug(HudDebugPosition.TOP_LEFT, Color.RED);
+    }
+
+    @Override
+    public void disposeTestScreen() {
+
     }
 
     class InnerClass {

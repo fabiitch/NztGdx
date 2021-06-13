@@ -10,11 +10,11 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.nzt.gdx.b2d.FixtureDefWrapper;
 import com.nzt.gdx.b2d.factories.BaseBodyFactory;
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
-import com.nzt.gdx.test.trials.tester.archi.screens.TestScreenWithHudDebug;
-import com.nzt.gdx.test.trials.tester.selector.TestScreen;
+import com.nzt.gdx.test.trials.tester.archi.screens.TestScreen;
+import com.nzt.gdx.test.trials.tester.selector.TestScreenList;
 
-@TestScreen(group = "box2D")
-public class STMultipleWorld extends TestScreenWithHudDebug {
+@TestScreenList(group = "box2D")
+public class STMultipleWorld extends TestScreen {
 	private Camera camera;
 	private World world1, world2;
 
@@ -40,7 +40,12 @@ public class STMultipleWorld extends TestScreenWithHudDebug {
 	}
 
 	@Override
-	public void renderAfterHud(float dt) {
+	public String getExplication() {
+		return "Plusieurs world sur Box2D";
+	}
+
+	@Override
+	public void renderTestScreen(float dt) {
 		camera.update();
 		world1.step(1 / 60f, 2, 6);
 		world2.step(1 / 60f, 2, 6);
@@ -49,8 +54,7 @@ public class STMultipleWorld extends TestScreenWithHudDebug {
 	}
 
 	@Override
-	public void doDispose() {
-		super.doDispose();
+	public void disposeTestScreen() {
 		world1.dispose();
 		world2.dispose();
 		debugRenderer1.dispose();
