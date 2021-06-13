@@ -25,8 +25,8 @@ import java.lang.reflect.Constructor;
  */
 public class STSelectorScreen extends SimpleScreen<ScreenSelectorTestMain> {
 
-	private NzStage stage;
-	private Skin skin = new Skin(Gdx.files.internal(Scene2DTestConstants.UI_SKIN));
+	private final NzStage stage;
+	private final Skin skin = new Skin(Gdx.files.internal(Scene2DTestConstants.UI_SKIN));
 
 	public STSelectorScreen(ScreenSelectorTestMain main, CaseST rootCaseTest) {
 		super(main);

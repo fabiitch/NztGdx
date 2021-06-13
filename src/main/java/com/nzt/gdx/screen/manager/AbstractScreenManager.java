@@ -31,7 +31,12 @@ public abstract class AbstractScreenManager<M extends AbstractMain> {
         this(0.2f, true);
     }
 
-    public abstract BaseLoadingScreen<M> createLoadingScreen();
+    /**
+     *  create your own loading screen, if return null SimpleProgressBarScreen wil be used
+     */
+    protected abstract BaseLoadingScreen<M> createLoadingScreen();
+
+    protected abstract void doStartApplication();
 
     public void startApplication(M main) {
         this.main = main;
@@ -39,19 +44,18 @@ public abstract class AbstractScreenManager<M extends AbstractMain> {
         doStartApplication();
         loadingScreen = createLoadingScreen();
         if (loadingScreen == null) {
-            loadingScreen = new SimpleProgressBarScreen<M>(this.main, this.minTimeLoadingDisplay, assetsManager);
+            loadingScreen = new SimpleProgressBarScreen<>(this.main, this.minTimeLoadingDisplay, assetsManager);
         }
-        IntAfterLoading afterloading = new IntAfterLoading() {
+        IntAfterLoading afterLoading = new IntAfterLoading() {
             @Override
             public void doAfterLoading() {
                 afterSplashScreen();
             }
         };
-        this.loadingScreen.setAfterLoading(afterloading);
+        this.loadingScreen.setAfterLoading(afterLoading);
         setScreen(loadingScreen);
     }
 
-    protected abstract void doStartApplication();
 
     public void setLoadingScreen(BaseLoadingScreen<M> newLoadingScreen) {
         this.loadingScreen = newLoadingScreen;

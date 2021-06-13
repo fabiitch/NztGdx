@@ -16,7 +16,7 @@ import com.nzt.gdx.test.trials.tester.selector.TestScreenList;
  */
 @TestScreenList(group = "perf")
 public class STPerformanceCounter extends TestScreen {
-	private PerformanceCounters counters;
+	private final PerformanceCounters counters;
 	PerformanceCounter counter1, counter2, counter3;
 
 	private boolean startUpdateOther = false;

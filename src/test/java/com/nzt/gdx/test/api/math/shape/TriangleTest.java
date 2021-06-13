@@ -9,8 +9,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class TriangleTest {
-	private static float ANGLE_TOLERANCE = 1f;
-	private static float POSITION_TOLERANCE = 0.01f;
+	private static final float ANGLE_TOLERANCE = 1f;
+	private static final float POSITION_TOLERANCE = 0.01f;
 
 	private Vector2 v0;
 	private Vector2 v1;

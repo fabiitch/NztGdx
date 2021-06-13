@@ -12,8 +12,8 @@ public class Segment2D implements Shape2D{//TODO impl shape2D //TODO remove vect
     public Vector2 a;
     public Vector2 b;
 
-    private Vector2 dir = new Vector2();
-    private Vector2 tmp = new Vector2();
+    private final Vector2 dir = new Vector2();
+    private final Vector2 tmp = new Vector2();
 
     public Segment2D() {
         this.a = new Vector2();

@@ -11,7 +11,7 @@ import java.util.concurrent.Callable;
 public class DelayFrameActionSystem extends EntitySystem {
 
 	private long loopCount = 0;
-	private HashMap<Long, Callable> functionToCalls = new HashMap<>();
+	private final HashMap<Long, Callable> functionToCalls = new HashMap<>();
 
 	public DelayFrameActionSystem() {
 		super();

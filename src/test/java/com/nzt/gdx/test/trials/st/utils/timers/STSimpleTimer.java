@@ -1,5 +1,6 @@
 package com.nzt.gdx.test.trials.st.utils.timers;
 
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.utils.Timer;
 import com.nzt.gdx.debug.hud.HudDebugPosition;
 import com.nzt.gdx.debug.hud.core.HudDebug;
@@ -18,13 +19,13 @@ public class STSimpleTimer extends TestScreen {
         task1 = new Timer.Task() {
             @Override
             public void run() {
-                HudDebug.update("ST_Timer", "2 S");
+                HudDebug.addBotLeft("task1", "Done", Color.RED);
             }
         };
         task2 = new Timer.Task() {
             @Override
             public void run() {
-                HudDebug.update("ST_Timer", "5 S");
+                HudDebug.addRightMiddle("task2", "Done", Color.RED);
             }
         };
         taskRepeat = new Timer.Task() {

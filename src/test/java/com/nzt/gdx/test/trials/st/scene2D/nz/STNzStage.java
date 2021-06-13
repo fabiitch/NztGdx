@@ -12,9 +12,9 @@ import com.nzt.gdx.test.trials.tester.selector.TestScreenList;
 
 @TestScreenList(group = "scene2D.nz")
 public class STNzStage extends SimpleTestScreen {
-    private NzStage nzStage;
-    private Image img1;
-    private Texture texture;
+    private final NzStage nzStage;
+    private final Image img1;
+    private final Texture texture;
 
     public STNzStage(FastTesterMain main) {
         super(main);
@@ -26,7 +26,6 @@ public class STNzStage extends SimpleTestScreen {
         nzStage.setDebugAll(true);
 
         createInputListener(img1, "img1");
-
         nzStage.getPositionner(img1, true).setSizeByPercent(50, 50).setPositionByPercent(50, 50);
     }
 

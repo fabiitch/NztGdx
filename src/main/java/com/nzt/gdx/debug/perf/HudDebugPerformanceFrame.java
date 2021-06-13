@@ -15,8 +15,8 @@ public class HudDebugPerformanceFrame {
 	private static final String TOTAL_TIME_PERCENT = "Total Time Percent";
 
 	private int nbActions = 0;
-	private int positionOnStage;
-	private Color color;
+	private final int positionOnStage;
+	private final Color color;
 
 	public HudDebugPerformanceFrame(int positionOnStage, Color color) {
 		this.positionOnStage = positionOnStage;

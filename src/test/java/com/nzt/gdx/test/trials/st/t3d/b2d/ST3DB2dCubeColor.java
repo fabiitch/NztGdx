@@ -27,7 +27,7 @@ public class ST3DB2dCubeColor extends BaseST3D {
 	public Camera b2dCamera;
 
 	public CameraInputController camController;
-	private ModelBuilder modelBuilder;
+	private final ModelBuilder modelBuilder;
 
 	public Model cubeModel;
 	public ModelInstance cubeInstance;

@@ -11,7 +11,7 @@ public class Strings {
         return !nullOrEmpty(s);
     }
 
-    private static StringBuilder builder = new StringBuilder();
+    private static final StringBuilder builder = new StringBuilder();
 //TODO a voir si vraiment bien
     public static StringBuilder getBuilder() {
         builder.setLength(0);

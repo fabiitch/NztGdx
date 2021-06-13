@@ -32,6 +32,9 @@ public class EntityFactory {
         return this.engine.createComponent(componentType);
     }
 
+    /**
+     * Create and Add entity to engine
+     */
     public Entity createEntity() {
         Entity newEntity = this.engine.createEntity();
         engine.addEntity(newEntity);

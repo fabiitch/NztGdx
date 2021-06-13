@@ -11,7 +11,7 @@ import com.nzt.gdx.screen.AbstractScreen;
 //TODO boolean en constant pour enlevé les if a la compil
 //TODO voir si on fait pas un singleton private
 public class NzGLProfiler {
-	private GLProfiler profiler;
+	private final GLProfiler profiler;
 	private String screenName;
 
 	private static boolean logOneShot = false;

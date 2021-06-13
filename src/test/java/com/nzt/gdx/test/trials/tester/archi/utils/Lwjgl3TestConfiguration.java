@@ -5,7 +5,7 @@ package com.nzt.gdx.test.trials.tester.archi.utils;
 //viré les lib de lwlgj qui empeche lvlwj3 de fonctionner
 public class Lwjgl3TestConfiguration {
 
-    private static String toRemove = "gdx-backend-lwjgl/"
+    private static final String toRemove = "gdx-backend-lwjgl/"
             + "lwjgl_util/"
             + "lwjgl/"
             + "lwjgl-platform/"

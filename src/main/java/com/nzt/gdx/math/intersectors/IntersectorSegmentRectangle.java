@@ -15,14 +15,14 @@ public class IntersectorSegmentRectangle {
 	}
 
 	// TODO a voir les static pour mettre sur des pools
-	private static Vector2 tmp1 = new Vector2();
-	private static Vector2 tmp2 = new Vector2();
-	private static Vector2 tmp3 = new Vector2();
-	private static Vector2 tmp4 = new Vector2();
+	private static final Vector2 tmp1 = new Vector2();
+	private static final Vector2 tmp2 = new Vector2();
+	private static final Vector2 tmp3 = new Vector2();
+	private static final Vector2 tmp4 = new Vector2();
 
-	private static Array<Vector2> arrayTmp = new Array<>(4);
+	private static final Array<Vector2> arrayTmp = new Array<>(4);
 
-	private static Segment2D tmpSeg = new Segment2D();
+	private static final Segment2D tmpSeg = new Segment2D();
 
 	public static boolean farthest(Segment2D segment, Rectangle rectangle, Vector2 intersection,
 			Segment2D rectangleSegment) {

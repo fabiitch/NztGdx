@@ -2,7 +2,6 @@ package com.nzt.gdx.test.trials.st.t3d.b2d;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Camera;
-import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g3d.Environment;
 import com.badlogic.gdx.graphics.g3d.Model;
@@ -27,7 +26,7 @@ public class ST3DB2dWarg extends BaseST3D {
 	public Camera b2dCamera;
 
 	public CameraInputController camController;
-	private ModelBuilder modelBuilder;
+	private final ModelBuilder modelBuilder;
 
 	public Model wardModel;
 	public ModelInstance wargInstance;

@@ -9,7 +9,7 @@ import com.nzt.gdx.screen.manager.impl.FastDevScreenManager;
  */
 public class FastTesterScreenManager extends FastDevScreenManager {
 
-    private BaseScreen<AbstractMain> screenToSet;
+    private final BaseScreen<AbstractMain> screenToSet;
 
     public FastTesterScreenManager(BaseScreen<AbstractMain> screen) {
         this.screenToSet = screen;

@@ -12,8 +12,8 @@ import com.nzt.gdx.test.trials.tester.selector.TestScreenList;
 @TestScreenList(group = "shaders")
 public class STBasicShader extends TestScreen {
 
-	private Sprite sprite;
-	private Texture texture;
+	private final Sprite sprite;
+	private final Texture texture;
 
 	public STBasicShader(FastTesterMain main) {
 		super(main);

@@ -6,9 +6,9 @@ import com.nzt.gdx.screen.AbstractScreen;
 import java.util.HashMap;
 
 class PerformanceContainer {
-    private HashMap<String, HashMap<String, PerformanceAction>> mapByScreen;
+    private final HashMap<String, HashMap<String, PerformanceAction>> mapByScreen;
     private HashMap<String, PerformanceAction> currentMap;
-    private Array<PerformanceAction> currentArrayOrdered;
+    private final Array<PerformanceAction> currentArrayOrdered;
 
     public Array<PerformanceAction> getActions() {
         currentArrayOrdered.sort();

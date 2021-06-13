@@ -13,7 +13,7 @@ import com.nzt.gdx.test.trials.tester.archi.main.FastTesterScreenManager;
 public class ScreenSelectorTestMain extends FastTesterMain {
     private BaseScreen selectorScreenTest;
 
-    private CaseST rootCase;
+    private final CaseST rootCase;
     public CaseST lastGroupCase;
 
     public ScreenSelectorTestMain(Class screenClass) {

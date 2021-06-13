@@ -7,10 +7,10 @@ import com.nzt.gdx.test.trials.tester.selector.ScreenSelectorTestMain;
  * Open Test chooser
  */
 public class NztTestListStarter {
-    private static int witdh = 800;
-    private static int height = 500;
+    private static final int witdh = 800;
+    private static final int height = 500;
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         StarterTestConfig.startLwjgl(new ScreenSelectorTestMain(NztTestListStarter.class), witdh, height);
     }
 }

@@ -7,7 +7,7 @@ import com.nzt.gdx.ashley.components.mvt.PositionComponent;
 import java.util.Comparator;
 
 public class ZComparator implements Comparator<Entity> {
-	private ComponentMapper<PositionComponent> transformM = PositionComponent.mapper;
+	private final ComponentMapper<PositionComponent> transformM = PositionComponent.mapper;
 
 	public ZComparator() {
 	}

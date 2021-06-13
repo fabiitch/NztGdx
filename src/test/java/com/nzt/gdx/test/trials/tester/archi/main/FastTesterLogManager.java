@@ -7,7 +7,6 @@ public class FastTesterLogManager extends FastDevLogManager {
     public static FastTesterLogManager instance = new FastTesterLogManager();
 
     public FastTesterLogManager() {
-        ;
     }
 
     @Override

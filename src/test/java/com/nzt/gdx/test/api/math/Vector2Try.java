@@ -13,7 +13,7 @@ import static org.junit.Assert.assertTrue;
  * pour test vite fait  les methode de Vector2
  */
 public class Vector2Try {
-    private static float DELTA_01 = 0.1f;
+    private static final float DELTA_01 = 0.1f;
 
     private Vector2 v1;
     private Vector2 v2;

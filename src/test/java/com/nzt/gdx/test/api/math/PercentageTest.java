@@ -7,8 +7,8 @@ import static org.junit.Assert.assertEquals;
 
 public class PercentageTest {
 
-    private static float DELTA_0 = 0f;
-    private static float DELTA_01 = 0.1f;
+    private static final float DELTA_0 = 0f;
+    private static final float DELTA_01 = 0.1f;
 
     @Test
     public void getPercentTest() {
