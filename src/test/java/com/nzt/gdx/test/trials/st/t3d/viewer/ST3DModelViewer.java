@@ -10,8 +10,6 @@ import com.badlogic.gdx.utils.ScreenUtils;
 import com.nzt.gdx.test.trials.st.t3d.BaseST3D;
 import com.nzt.gdx.test.trials.st.t3d.CameraInputControllerFR;
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
-import com.nzt.gdx.test.trials.tester.archi.screens.SimpleTestScreen;
-import com.nzt.gdx.test.trials.tester.archi.screens.TestScreen;
 import com.nzt.gdx.test.trials.tester.selector.TestScreenList;
 
 @TestScreenList(group = "3D")
@@ -21,8 +19,8 @@ public class ST3DModelViewer extends BaseST3D {
     public Camera camera;
     public CameraInputController camController;
 
-    private ModelViewerStage stage;
-    private ModelViewerHelper helper;
+    private final ModelViewerStage stage;
+    private final ModelViewerHelper helper;
 
     public ST3DModelViewer(FastTesterMain main) {
         super(main);

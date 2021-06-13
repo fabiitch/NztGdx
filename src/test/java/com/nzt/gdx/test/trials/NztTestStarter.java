@@ -10,13 +10,13 @@ import com.nzt.gdx.test.trials.tester.archi.utils.Lwjgl3TestConfiguration;
 Use it for Test one class with screenTestClass
  */
 public class NztTestStarter {
-	private static Class screenTestClass = STDebugDisplaySystemTest.class;
-	private static StarterType starterType = StarterType.Lwjgl;
+	private static final Class screenTestClass = STDebugDisplaySystemTest.class;
+	private static final StarterType starterType = StarterType.Lwjgl;
 
-	private static int witdh = 800;
-	private static int height = 500;
+	private static final int witdh = 800;
+	private static final int height = 500;
 
-	public static void main(String args[]) {
+	public static void main(String[] args) {
 		if (starterType == StarterType.Lwjgl) {
 			StarterTestConfig.startLwjgl(new FastTesterMain(screenTestClass), witdh, height);
 		} else if (starterType == StarterType.Lwjgl3) {

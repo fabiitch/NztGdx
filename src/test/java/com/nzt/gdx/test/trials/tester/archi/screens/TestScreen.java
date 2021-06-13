@@ -17,7 +17,7 @@ import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
 public abstract class TestScreen extends SimpleTestScreen {
     protected NzStage nzStage;
     protected Skin skin;
-    private HudDebug debugHud;
+    private final HudDebug debugHud;
     protected NzGLProfiler glProfiler;
 
     public TestScreen(FastTesterMain main) {

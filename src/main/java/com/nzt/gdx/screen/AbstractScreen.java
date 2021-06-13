@@ -21,7 +21,7 @@ import com.nzt.gdx.utils.Strings;
  */
 public abstract class AbstractScreen<M extends AbstractMain> implements Screen {
 
-    private final static String FPS= "FPS : ";//TODO stringCommon ?
+    private final static String FPS = "FPS : ";//TODO stringCommon ?
     private final static String DT = " | DT = ";
     protected M main;
 
@@ -66,6 +66,8 @@ public abstract class AbstractScreen<M extends AbstractMain> implements Screen {
 
     protected abstract void doDispose();
 
+    protected abstract void renderScreen(float dt);
+
     @Override
     public void render(float dt) {
         PerformanceFrame.startFrame();
@@ -76,5 +78,5 @@ public abstract class AbstractScreen<M extends AbstractMain> implements Screen {
         PerformanceFrame.endFrame();
     }
 
-    protected abstract void renderScreen(float dt);
+
 }

@@ -13,12 +13,12 @@ import com.nzt.gdx.test.trials.st.scene2D.Scene2DTestConstants;
 
 public class ModelViewerStage extends NzStage {
 
-    private Skin skin = new Skin(Gdx.files.internal(Scene2DTestConstants.UI_SKIN));
+    private final Skin skin = new Skin(Gdx.files.internal(Scene2DTestConstants.UI_SKIN));
 
     private SelectBox<ModelItem> selectBox;
-    private ModelViewerHelper helper;
+    private final ModelViewerHelper helper;
     private Label labelCamera;
-    private ST3DModelViewer viewer;
+    private final ST3DModelViewer viewer;
 
     public ModelViewerStage(ST3DModelViewer viewer, ModelViewerHelper helper) {
         this.viewer = viewer;

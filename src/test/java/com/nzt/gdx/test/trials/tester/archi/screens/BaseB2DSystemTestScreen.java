@@ -16,7 +16,6 @@ import com.nzt.gdx.ashley.systems.b2d.B2DWorldSystem;
 import com.nzt.gdx.b2d.FixtureDefWrapper;
 import com.nzt.gdx.b2d.factories.BaseBodyFactory;
 import com.nzt.gdx.b2d.utils.B2DConverterHelper;
-import com.nzt.gdx.debug.hud.core.HudDebug;
 import com.nzt.gdx.input.impl.simple.SimpleClickInputHandler;
 import com.nzt.gdx.test.trials.st.b2D.B2DTestConstants;
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;

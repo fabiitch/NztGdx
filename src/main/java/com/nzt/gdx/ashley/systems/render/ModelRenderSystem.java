@@ -43,7 +43,7 @@ public class ModelRenderSystem extends IteratingSystem {
     }
 
 
-    private BoundingBox boundingBox = new BoundingBox();
+    private final BoundingBox boundingBox = new BoundingBox();
 
     protected void processEntity(Entity entity, float deltaTime) {
         Model3DComponent model3dComponent = modelMapper.get(entity);

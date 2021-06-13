@@ -12,6 +12,6 @@ public interface IntAssetsManager {
 	 * 
 	 * @return entre 0 et 100
 	 */
-	public float getProgress();
+    float getProgress();
 	
 }

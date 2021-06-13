@@ -13,8 +13,8 @@ import static org.junit.Assert.*;
 public class IntersectorSegmentRectangleTest {
 
     private Segment2D segment2D = new Segment2D(-10, 0, 20, 0);
-    private Rectangle rect = new Rectangle(0, 0, 10, 10);
-    private Vector2 intersectionPoint = new Vector2(-100, -100);
+    private final Rectangle rect = new Rectangle(0, 0, 10, 10);
+    private final Vector2 intersectionPoint = new Vector2(-100, -100);
     private boolean touch = false;
 
     private void resetSegment(float aX, float aY, float bX, float bY) {

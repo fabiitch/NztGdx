@@ -15,8 +15,9 @@ import com.nzt.gdx.test.trials.tester.selector.TestScreenList;
 
 @TestScreenList(group = "box2D")
 public class STMultipleWorld extends TestScreen {
-	private Camera camera;
-	private World world1, world2;
+	private final Camera camera;
+	private final World world1;
+	private final World world2;
 
 	public BaseBodyFactory bodyFactory1, bodyFactory2;
 	public Box2DDebugRenderer debugRenderer1, debugRenderer2;

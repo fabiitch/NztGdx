@@ -9,7 +9,7 @@ import com.nzt.gdx.screen.AbstractScreen;
  */
 public class PerformanceFrame {
 
-    private static PerformanceFrame instance = new PerformanceFrame();
+    private static final PerformanceFrame instance = new PerformanceFrame();
     private final PerformanceContainer container;
 
     public static boolean enabled = true;

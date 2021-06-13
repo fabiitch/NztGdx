@@ -8,7 +8,7 @@ package com.nzt.gdx.logger.utils;
  */
 public class NzLoggableUtils {
 
-    private static NzLoggableSimple temp = new NzLoggableSimple();
+    private static final NzLoggableSimple temp = new NzLoggableSimple();
 
     public static NzLoggable create(final String tag, final String value) {
         temp.tag = tag;

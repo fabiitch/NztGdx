@@ -88,11 +88,8 @@ public abstract class EntityContactListener implements ContactListener {
      * @return
      */
     protected boolean testContact(int type1, int type2, Entity entityA, Entity entityB) {
-        if ((typeMapper.get(entityA).mask == type1 && typeMapper.get(entityB).mask == type2)
-                || (typeMapper.get(entityA).mask == type2 && typeMapper.get(entityB).mask == type1)) {
-            return true;
-        }
-        return false;
+        return (typeMapper.get(entityA).mask == type1 && typeMapper.get(entityB).mask == type2)
+                || (typeMapper.get(entityA).mask == type2 && typeMapper.get(entityB).mask == type1);
     }
 
     protected Entity getEntity(int type, Entity userData1, Entity userData2) {

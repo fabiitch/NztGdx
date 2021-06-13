@@ -1,6 +1,7 @@
 package com.nzt.gdx.test.trials.st.perf;
 
 import com.badlogic.ashley.core.Engine;
+import com.badlogic.ashley.core.Entity;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.Color;
@@ -28,7 +29,6 @@ public class STPerformanceFrame extends TestScreen {
 
 	public STPerformanceFrame(FastTesterMain main) {
 		super(main);
-		glProfiler.removeHudDebug();
 		engine = new Engine();
 		factory = new EntityFactory(engine);
 		camera = new OrthographicCamera(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
@@ -37,7 +37,7 @@ public class STPerformanceFrame extends TestScreen {
 		for (int i = 0; i < 10; i++) {
 			Sprite sprite = new Sprite(texture);
 			sprite.setBounds(i * 50, 0, 50, 50);
-			factory.rendersFactory.sprite(sprite);
+			factory.createEntity().add(factory.rendersFactory.sprite(sprite));
 		}
 
 		engine.addSystem(new ShapeRenderSystem(main.nzShapeRenderer));
@@ -48,11 +48,13 @@ public class STPerformanceFrame extends TestScreen {
 
 	@Override
 	public String getExplication() {
-		return null;
+		return "Performance frame Test";
 	}
 
 	@Override
 	public void renderTestScreen(float dt) {
+		camera.update();
+		engine.update(dt);
 		perf.update(dt);
 	}
 

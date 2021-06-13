@@ -43,10 +43,8 @@ public class RectangleUtils {
 			return true;
 		if (point.x == rect.x && point.y == rect.y + rect.height)
 			return true;
-		if (point.x == rect.x + rect.width && point.y == rect.y + rect.height)
-			return true;
-		return false;
-	}
+        return point.x == rect.x + rect.width && point.y == rect.y + rect.height;
+    }
 
 	public static Segment2D getHorizontalTop(Rectangle rect, Segment2D segment) {
 		float aX = rect.x;
