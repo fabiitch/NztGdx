@@ -15,12 +15,12 @@ import com.badlogic.gdx.graphics.g3d.utils.CameraInputController;
 import com.badlogic.gdx.graphics.g3d.utils.ModelBuilder;
 import com.badlogic.gdx.utils.UBJsonReader;
 import com.nzt.gdx.test.trials.st.b2D.B2DTestConstants;
+import com.nzt.gdx.test.trials.st.t3d.BaseST3D;
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
-import com.nzt.gdx.test.trials.tester.archi.screens.TestScreenWithHudDebug;
-import com.nzt.gdx.test.trials.tester.selector.TestScreen;
+import com.nzt.gdx.test.trials.tester.selector.TestScreenList;
 
-@TestScreen(group = "3D.B2D")
-public class ST3DB2dCubeColor extends TestScreenWithHudDebug {
+@TestScreenList(group = "3D.B2D")
+public class ST3DB2dCubeColor extends BaseST3D {
 
 	public String modelPath = "models/cubeColor.g3db";
 
@@ -60,7 +60,7 @@ public class ST3DB2dCubeColor extends TestScreenWithHudDebug {
 	}
 
 	@Override
-	public void renderAfterHud(float dt) {
+	public void renderTestScreen(float dt) {
 		this.b2dCamera.update();
 		camController.update();
 		modelBatch.begin(b2dCamera);
@@ -76,7 +76,7 @@ public class ST3DB2dCubeColor extends TestScreenWithHudDebug {
 	}
 
 	@Override
-	public void doDispose() {
+	public void disposeTestScreen() {
 		cubeModel.dispose();
 	}
 }

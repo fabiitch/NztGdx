@@ -8,6 +8,7 @@ import com.nzt.gdx.debug.hud.HudDebugPosition;
 import com.nzt.gdx.debug.hud.utils.HudDebugUtils;
 import com.nzt.gdx.debug.hud.utils.HudDebugPreInitItem;
 import com.nzt.gdx.debug.utils.DebugDisplayUtils;
+import com.nzt.gdx.scene2D.nz.NzStage;
 
 public class HudDebug {
     public static HudDebug instance;
@@ -27,13 +28,18 @@ public class HudDebug {
         }
     }
 
+    public HudDebug(Skin skin) {
+        this(new NzStage(), skin);
+    }
+
     public static void clear() {
         if (instance == null) {
-        	arrayBeforeInit.clear();
+            arrayBeforeInit.clear();
         } else {
-        	instance.container.clear();
+            instance.container.clear();
         }
     }
+
     public static boolean exist(String key) {
         if (instance == null) {
             for (HudDebugPreInitItem item : arrayBeforeInit)

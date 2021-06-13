@@ -7,13 +7,15 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.PerspectiveCamera;
 import com.badlogic.gdx.graphics.g3d.utils.CameraInputController;
 import com.badlogic.gdx.utils.ScreenUtils;
+import com.nzt.gdx.test.trials.st.t3d.BaseST3D;
 import com.nzt.gdx.test.trials.st.t3d.CameraInputControllerFR;
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
-import com.nzt.gdx.test.trials.tester.archi.screens.TestScreenWithHudDebug;
-import com.nzt.gdx.test.trials.tester.selector.TestScreen;
+import com.nzt.gdx.test.trials.tester.archi.screens.SimpleTestScreen;
+import com.nzt.gdx.test.trials.tester.archi.screens.TestScreen;
+import com.nzt.gdx.test.trials.tester.selector.TestScreenList;
 
-@TestScreen(group = "3D")
-public class ST3DModelViewer extends TestScreenWithHudDebug {
+@TestScreenList(group = "3D")
+public class ST3DModelViewer extends BaseST3D {
 
     public InputMultiplexer inputMultiplexer;
     public Camera camera;
@@ -43,7 +45,7 @@ public class ST3DModelViewer extends TestScreenWithHudDebug {
     }
 
     @Override
-    public void renderAfterHud(float dt) {
+    public void renderTestScreen(float dt) {
         this.camera.update();
         this.stage.update();
         camController.update();
@@ -53,7 +55,12 @@ public class ST3DModelViewer extends TestScreenWithHudDebug {
 
         stage.act();
         stage.draw();
+    }
 
+    @Override
+    public void disposeTestScreen() {
+        if (helper.model != null)
+            helper.model.dispose();
     }
 
 
@@ -65,11 +72,5 @@ public class ST3DModelViewer extends TestScreenWithHudDebug {
     @Override
     public void doResize(int width, int height) {
         stage.resize(width, height);
-    }
-
-    public void doDispose() {
-        stage.dispose();
-        if (helper.model != null)
-            helper.model.dispose();
     }
 }

@@ -15,7 +15,7 @@ import com.nzt.gdx.b2d.utils.B2DUtils;
 import com.nzt.gdx.debug.hud.core.HudDebug;
 import com.nzt.gdx.test.trials.st.b2D.B2DTestConstants;
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
-import com.nzt.gdx.test.trials.tester.archi.screens.systems.BaseB2DSystemTestScreen;
+import com.nzt.gdx.test.trials.tester.archi.screens.BaseB2DSystemTestScreen;
 
 abstract class STCollisionTestScreen extends BaseB2DSystemTestScreen {
 	protected final Texture badLogicTexture;
@@ -111,7 +111,7 @@ abstract class STCollisionTestScreen extends BaseB2DSystemTestScreen {
 	}
 
 	@Override
-	public void doDispose() {
+	public void disposeTestScreen() {
 		badLogicTexture.dispose();
 	}
 }

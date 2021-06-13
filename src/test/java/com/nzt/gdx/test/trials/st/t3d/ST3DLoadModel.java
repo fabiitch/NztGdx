@@ -12,11 +12,10 @@ import com.badlogic.gdx.graphics.g3d.model.Animation;
 import com.badlogic.gdx.graphics.g3d.utils.CameraInputController;
 import com.badlogic.gdx.utils.UBJsonReader;
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
-import com.nzt.gdx.test.trials.tester.archi.screens.TestScreenWithHudDebug;
-import com.nzt.gdx.test.trials.tester.selector.TestScreen;
+import com.nzt.gdx.test.trials.tester.selector.TestScreenList;
 
-@TestScreen(group = "3D")
-public class ST3DLoadModel extends TestScreenWithHudDebug {
+@TestScreenList(group = "3D")
+public class ST3DLoadModel extends BaseST3D {
     public Camera camera;
 
     public CameraInputController camController;
@@ -47,7 +46,7 @@ public class ST3DLoadModel extends TestScreenWithHudDebug {
     }
 
     @Override
-    public void renderAfterHud(float dt) {
+    public void renderTestScreen(float dt) {
         this.camera.update();
         camController.update();
         modelBatch.begin(camera);
@@ -56,13 +55,7 @@ public class ST3DLoadModel extends TestScreenWithHudDebug {
     }
 
     @Override
-    public void clearScreen() {
-        Gdx.gl.glClearColor(0, 0, 0, 0);
-        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT | GL20.GL_DEPTH_BUFFER_BIT);
-    }
-
-    @Override
-    public void doDispose() {
+    public void disposeTestScreen() {
         cubeModel.dispose();
     }
 }

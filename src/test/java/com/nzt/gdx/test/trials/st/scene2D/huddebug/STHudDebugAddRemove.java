@@ -8,14 +8,14 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.nzt.gdx.debug.hud.HudDebugPosition;
 import com.nzt.gdx.debug.hud.core.HudDebug;
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
-import com.nzt.gdx.test.trials.tester.archi.screens.TestScreenWithHudDebug;
-import com.nzt.gdx.test.trials.tester.selector.TestScreen;
+import com.nzt.gdx.test.trials.tester.archi.screens.TestScreen;
+import com.nzt.gdx.test.trials.tester.selector.TestScreenList;
 
 /**
  * ST for test Add and remove On HudDebug
  */
-@TestScreen(group = "scene2D.HudDebug")
-public class STHudDebugAddRemove extends TestScreenWithHudDebug {
+@TestScreenList(group = "scene2D.HudDebug")
+public class STHudDebugAddRemove extends TestScreen {
 
     private int topR, topM, topL, botR, botM, botL, rightM, leftM = 0;
 
@@ -113,8 +113,22 @@ public class STHudDebugAddRemove extends TestScreenWithHudDebug {
         addOneOfAll();
     }
 
-    private void addOneOfAll() {
+    @Override
+    public String getExplication() {
+        return "Placement sur HudDebug aprés remove";
+    }
 
+    @Override
+    public void renderTestScreen(float dt) {
+
+    }
+
+    @Override
+    public void disposeTestScreen() {
+
+    }
+
+    private void addOneOfAll() {
         topL++;
         HudDebug.addTopLeft("TOP_LEFT" + topL, "", Color.YELLOW);
 
@@ -138,11 +152,6 @@ public class STHudDebugAddRemove extends TestScreenWithHudDebug {
 
         rightM++;
         HudDebug.addRightMiddle("RIGHT_MIDDLE" + rightM, "", Color.RED);
-    }
-
-    @Override
-    public void renderAfterHud(float dt) {
-
     }
 
     private void addListener(TextButton button, int positionOnstage, boolean add) {

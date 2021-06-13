@@ -11,12 +11,12 @@ import com.nzt.gdx.b2d.events.type.fixture.impl.SensorFixtureEvent;
 import com.nzt.gdx.b2d.factories.B2DFixtureEventFactory;
 import com.nzt.gdx.debug.hud.core.HudDebug;
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
-import com.nzt.gdx.test.trials.tester.archi.screens.systems.BaseB2DSystemTestScreen;
-import com.nzt.gdx.test.trials.tester.selector.TestScreen;
+import com.nzt.gdx.test.trials.tester.archi.screens.BaseB2DSystemTestScreen;
+import com.nzt.gdx.test.trials.tester.selector.TestScreenList;
 
 import java.util.concurrent.Callable;
 
-@TestScreen(group = "box2D")
+@TestScreenList(group = "box2D")
 public class STFixtureEvent extends BaseB2DSystemTestScreen {
     Body circleBody;
     Entity entity;
@@ -28,15 +28,20 @@ public class STFixtureEvent extends BaseB2DSystemTestScreen {
         circleBody = bodyFactory.createCircleBody(Vector2.Zero, 2, fixtureDefWrapper);
 
         entity = addEntityBody(circleBody);
-
+        HudDebug.addTopLeft("Should be sensor after", 200 + " renderCalls");
         HudDebug.addTopLeft("Fixture isSensor", circleBody.getFixtureList().get(0).isSensor());
         addFunctionToCall(200, fireEvent());
         createWallScreen();
     }
 
     @Override
-    public void renderScreen(float dt) {
-        super.renderScreen(dt);
+    public String getExplication() {
+        return "Fixture Event";
+    }
+
+    @Override
+    public void renderTestScreen(float dt) {
+        super.renderTestScreen(dt);
         HudDebug.update("Fixture isSensor", circleBody.getFixtureList().get(0).isSensor());
     }
 

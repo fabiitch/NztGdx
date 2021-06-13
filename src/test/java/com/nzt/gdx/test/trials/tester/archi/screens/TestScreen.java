@@ -10,39 +10,71 @@ import com.nzt.gdx.scene2D.nz.NzStage;
 import com.nzt.gdx.test.trials.st.scene2D.Scene2DTestConstants;
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
 
-public abstract class TestScreenWithHudDebug extends SimpleTestScreen {
+/**
+ * Test Screen with hudDebug
+ * And GLProfile (not enabled by default)
+ */
+public abstract class TestScreen extends SimpleTestScreen {
     protected NzStage nzStage;
     protected Skin skin;
     private HudDebug debugHud;
     protected NzGLProfiler glProfiler;
 
-    public TestScreenWithHudDebug(FastTesterMain main) {
+    public TestScreen(FastTesterMain main) {
         super(main);
         this.nzStage = new NzStage();
         this.skin = new Skin(Gdx.files.internal(Scene2DTestConstants.UI_SKIN));
         this.debugHud = new HudDebug(nzStage, skin);
         this.glProfiler = main.logManager.nzGlProfiler;
         glProfiler.setScreen(this);
+
+        if (getExplication() != null) {
+            HudDebug.addTopLeft("ST Target", getExplication());
+            HudDebug.addTopLeft("-", "-");
+        }
+
+    }
+
+    public abstract String getExplication();
+
+    public TestScreen(FastTesterMain main, boolean enableGlProfiler) {
+        this(main);
+        if (enableGlProfiler) {
+            glProfiler.setScreen(this);
+            addHudToGlProfiler();
+        }
+    }
+
+    public void addHudToGlProfiler() {
         glProfiler.initHudDebug(HudDebugPosition.BOT_RIGHT, Color.WHITE);
     }
 
-
-    public abstract void renderAfterHud(float dt);
+    public abstract void renderTestScreen(float dt);
 
     @Override
-    protected void renderScreen(float dt) {
+    protected final void renderScreen(float dt) {
+        renderTestScreen(dt);
         nzStage.act();
         nzStage.draw();
-        renderAfterHud(dt);
         glProfiler.updateHudDebug();
     }
 
+    public abstract void disposeTestScreen();
+
     @Override
-    public void doDispose() {
+    public final void doDispose() {
         nzStage.dispose();
         skin.dispose();
+        disposeTestScreen();
     }
 
+    public void log(String log) {
+        Gdx.app.log(this.getClass().getSimpleName(), log);
+    }
+
+    public void error(String error) {
+        Gdx.app.error(this.getClass().getSimpleName(), error);
+    }
 
     protected void setMsgNotImpl() {
         glProfiler.removeHudDebug();
@@ -54,6 +86,18 @@ public abstract class TestScreenWithHudDebug extends SimpleTestScreen {
         HudDebug.addBotMiddle("Not", "Impl", Color.RED);
         HudDebug.addRightMiddle("Not", "Impl", Color.RED);
         HudDebug.addLeftMiddle("Not", "Impl", Color.RED);
+    }
+
+    protected void setMsg(String msg) {
+        glProfiler.removeHudDebug();
+        HudDebug.addTopRight(msg, msg, Color.RED);
+        HudDebug.addTopMiddle(msg, msg, Color.RED);
+        HudDebug.addTopLeft(msg, msg, Color.RED);
+        HudDebug.addBotRight(msg, msg, Color.RED);
+        HudDebug.addBotLeft(msg, msg, Color.RED);
+        HudDebug.addBotMiddle(msg, msg, Color.RED);
+        HudDebug.addRightMiddle(msg, msg, Color.RED);
+        HudDebug.addLeftMiddle(msg, msg, Color.RED);
     }
 
     protected void setMsgWIP() {

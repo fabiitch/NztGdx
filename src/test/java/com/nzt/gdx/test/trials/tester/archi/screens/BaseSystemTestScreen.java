@@ -1,14 +1,13 @@
-package com.nzt.gdx.test.trials.tester.archi.screens.systems;
+package com.nzt.gdx.test.trials.tester.archi.screens;
 
 import com.badlogic.ashley.core.Engine;
 import com.nzt.gdx.ashley.base.factories.EntityFactory;
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
-import com.nzt.gdx.test.trials.tester.archi.screens.SimpleTestScreen;
 import com.nzt.gdx.test.trials.tester.archi.systems.DelayFrameActionSystem;
 
 import java.util.concurrent.Callable;
 
-public abstract class BaseSystemTestScreen extends SimpleTestScreen {
+public abstract class BaseSystemTestScreen extends TestScreen {
 
     protected Engine engine;
     protected DelayFrameActionSystem delayActionSystem;
@@ -27,9 +26,8 @@ public abstract class BaseSystemTestScreen extends SimpleTestScreen {
         delayActionSystem.addFunctionToCall(loopCount, fct);
     }
 
-
     @Override
-    protected void renderScreen(float dt) {
+    public void renderTestScreen(float dt) {
         engine.update(dt);
     }
 }

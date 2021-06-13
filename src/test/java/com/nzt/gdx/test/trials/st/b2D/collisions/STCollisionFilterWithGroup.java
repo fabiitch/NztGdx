@@ -1,18 +1,24 @@
 package com.nzt.gdx.test.trials.st.b2D.collisions;
 
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
-import com.nzt.gdx.test.trials.tester.selector.TestScreen;
+import com.nzt.gdx.test.trials.tester.selector.TestScreenList;
 
 /**
  * Function Box2D
  * bool collide = (filterA.maskBits & filterB.categoryBits) != 0 &&
  * (filterA.categoryBits & filterB.maskBits) != 0;
  **/
-@TestScreen(group = "box2D.collisions")
+@TestScreenList(group = "box2D.collisions")
 public class STCollisionFilterWithGroup extends STCollisionTestScreen {
     public STCollisionFilterWithGroup(FastTesterMain main) {
         super(main);
     }
+
+    @Override
+    public String getExplication() {
+        return "TestFilter avec group";
+    }
+
 
     final short CAT_1 = 1 << 0;
     final int CAT_2 = 1 << 1;
@@ -26,5 +32,4 @@ public class STCollisionFilterWithGroup extends STCollisionTestScreen {
         fixture3.setFilter(0, 0, -1);
         fixture4.setFilter(0, 0, -2);
     }
-
 }

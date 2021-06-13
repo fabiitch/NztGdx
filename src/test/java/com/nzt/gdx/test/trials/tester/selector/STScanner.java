@@ -11,14 +11,14 @@ public class STScanner {
 	 */
 	public static synchronized CaseST scanTestScreens() {
 		Reflections reflections = new Reflections("com.nzt.gdx.test");
-		Set<Class<?>> allTestScreenClasses = reflections.getTypesAnnotatedWith(TestScreen.class);
+		Set<Class<?>> allTestScreenClasses = reflections.getTypesAnnotatedWith(TestScreenList.class);
 
 		CaseST rootCaseTest = new CaseST(null, "root");
 		rootCaseTest.parent = rootCaseTest;
 
 		for (Class<?> classTest : allTestScreenClasses) {
-			TestScreen annotationTest = classTest.getAnnotation(TestScreen.class);
-			String[] groupName = annotationTest.group().split(TestScreen.SEPARATOR);
+			TestScreenList annotationTest = classTest.getAnnotation(TestScreenList.class);
+			String[] groupName = annotationTest.group().split(TestScreenList.SEPARATOR);
 			if (groupName.length == 0) { // 1er groupe
 				rootCaseTest.childs.add(getForClass(rootCaseTest, classTest, annotationTest));
 			} else {
@@ -32,8 +32,8 @@ public class STScanner {
 	/**
 	 * cherche les group de la classes, si il existe pas ils sont crée
 	 */
-	private static CaseST findParent(TestScreen annotationTest, CaseST root) {
-		for (String groupName : annotationTest.group().split(TestScreen.SEPARATOR)) {
+	private static CaseST findParent(TestScreenList annotationTest, CaseST root) {
+		for (String groupName : annotationTest.group().split(TestScreenList.SEPARATOR)) {
 			CaseST group = searchInChildOrCreate(root, groupName);
 			root = group;
 		}
@@ -51,7 +51,7 @@ public class STScanner {
 		return groupCreated;
 	}
 
-	private static CaseST getForClass(CaseST parent, Class testScreen, TestScreen annotationTest) {
+	private static CaseST getForClass(CaseST parent, Class testScreen, TestScreenList annotationTest) {
 		String name = annotationTest.group();
 		name = testScreen.getSimpleName();
 		return new CaseST(parent, name, testScreen);

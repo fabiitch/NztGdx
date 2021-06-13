@@ -11,12 +11,12 @@ import com.nzt.gdx.input.impl.simple.SimpleClickInputHandler;
 import com.nzt.gdx.math.shape.Triangle;
 import com.nzt.gdx.math.shape.builders.TriangleBuilder;
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
-import com.nzt.gdx.test.trials.tester.archi.screens.TestScreenWithHudDebug;
-import com.nzt.gdx.test.trials.tester.selector.TestScreen;
+import com.nzt.gdx.test.trials.tester.archi.screens.TestScreen;
+import com.nzt.gdx.test.trials.tester.selector.TestScreenList;
 import com.nzt.gdx.utils.GdxUtils;
 
-@TestScreen(group = "shapes")
-public class STTriangle extends TestScreenWithHudDebug {
+@TestScreenList(group = "shapes")
+public class STTriangle extends TestScreen {
 
     private int mode = 0;
     Vector2 middle = GdxUtils.getScreenCenter(new Vector2());
@@ -37,7 +37,7 @@ public class STTriangle extends TestScreenWithHudDebug {
     int origin = 0;
 
     public STTriangle(FastTesterMain main) {
-        super(main);
+        super(main, true);
         this.font = new BitmapFont();
         HudDebug.addBotLeft("Mode", "normal", Color.RED);
         HudDebug.addBotLeft("-", "-", Color.BLUE);
@@ -106,7 +106,12 @@ public class STTriangle extends TestScreenWithHudDebug {
     }
 
     @Override
-    public void renderAfterHud(float dt) {
+    public String getExplication() {
+        return "Test Triangle Shape";
+    }
+
+    @Override
+    public void renderTestScreen(float dt) {
         scaleRotate();
         nzShapeRenderer.begin();
         nzShapeRenderer.set(ShapeType.Filled);
@@ -128,6 +133,7 @@ public class STTriangle extends TestScreenWithHudDebug {
             updateHud();
         }
     }
+
 
     private int count = 0;
 
@@ -229,8 +235,7 @@ public class STTriangle extends TestScreenWithHudDebug {
         return new Vector2(x, y).add(middle);
     }
 
-    public void doDispose() {
-        super.doDispose();
+    public void disposeTestScreen() {
         font.dispose();
     }
 

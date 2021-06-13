@@ -4,12 +4,12 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.nzt.gdx.debug.perf.PerformanceFrame;
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
-import com.nzt.gdx.test.trials.tester.archi.screens.SimpleTestScreen;
-import com.nzt.gdx.test.trials.tester.selector.TestScreen;
+import com.nzt.gdx.test.trials.tester.archi.screens.TestScreen;
+import com.nzt.gdx.test.trials.tester.selector.TestScreenList;
 import com.nzt.gdx.utils.GdxUtils;
 
-@TestScreen(group = "perf.malloc")
-public class STMallocTracking extends SimpleTestScreen {
+@TestScreenList(group = "perf.malloc")
+public class STMallocTracking extends TestScreen {
     //TestScreen setTitle fait l'alloc
 
     private final long memoryStart;
@@ -28,21 +28,25 @@ public class STMallocTracking extends SimpleTestScreen {
     }
 
     @Override
-    protected void doDispose() {
-        font.dispose();
+    public String getExplication() {
+        return "Cherche alloc sur TestScreen";
     }
 
     @Override
-    protected void renderScreen(float dt) {
+    public void renderTestScreen(float dt) {
         if (Gdx.app.getJavaHeap() > memoryStart) {
             spriteBatch.begin();
             font.draw(spriteBatch, MEMORY_GROW + "   " + (Gdx.app.getJavaHeap() - memoryStart),
                     GdxUtils.getScreenCenterX(), GdxUtils.getScreenCenterY());
 
             font.draw(spriteBatch, MEMORY_GROW + "   " + (GdxUtils.getHeapMb() - memoryStartMb),
-                    GdxUtils.getScreenCenterX(), GdxUtils.getScreenCenterY()/2);
+                    GdxUtils.getScreenCenterX(), GdxUtils.getScreenCenterY() / 2);
             spriteBatch.end();
         }
+    }
 
+    @Override
+    public void disposeTestScreen() {
+        font.dispose();
     }
 }
