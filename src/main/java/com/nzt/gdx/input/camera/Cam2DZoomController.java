@@ -6,17 +6,16 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 
 public class Cam2DZoomController extends Cam2DController {
 
-    public float zoomVelociy = 0.5f;
+    public float zoomVelocity = 0.5f;
 
-    public int ZOOM = Input.Keys.A;
-    public int DEZOOM = Input.Keys.E;
+    public int ZOOM = Input.Keys.T;
+    public int DEZOOM = Input.Keys.G;
 
     private boolean isOrthoCam;
     private OrthographicCamera orthoCam;
 
     public Cam2DZoomController(Camera camera) {
         super(camera);
-
         isOrthoCam = camera instanceof OrthographicCamera;
         if (isOrthoCam)
             orthoCam = (OrthographicCamera) camera;
@@ -39,11 +38,10 @@ public class Cam2DZoomController extends Cam2DController {
     @Override
     public boolean scrolled(float amountX, float amountY) {
         if (isOrthoCam) {
-            orthoCam.zoom += amountY * zoomVelociy;
+            orthoCam.zoom += amountY * zoomVelocity;
         } else {
-            camera.position.z += amountY * zoomVelociy;
+            camera.position.z += amountY * zoomVelocity;
         }
-
         return true;
     }
 
