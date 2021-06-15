@@ -1,10 +1,9 @@
 package com.nzt.gdx.test.trials.st.perf.memory.gdx;
 
 import com.badlogic.gdx.ApplicationListener;
-import com.badlogic.gdx.Files;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
-import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
+import com.badlogic.gdx.backends.lwjgl3.Lwjgl3Application;
+import com.badlogic.gdx.backends.lwjgl3.Lwjgl3ApplicationConfiguration;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.utils.ScreenUtils;
 
@@ -15,17 +14,11 @@ import com.badlogic.gdx.utils.ScreenUtils;
 class GdxMainTestMallocTracking implements ApplicationListener {
 
     public static void main(String[] args) {
-        LwjglApplicationConfiguration configuration = new LwjglApplicationConfiguration();
-        configuration.title = "Gdx allocation Test";
-        configuration.addIcon("badlogic.jpg", Files.FileType.Internal);
-
-        configuration.useHDPI = true;
-        configuration.width = 600;
-        configuration.height = 400;
-
-        configuration.foregroundFPS = 0;
-        configuration.backgroundFPS = 0;
-        new LwjglApplication(new GdxMainTestMallocTracking(), configuration);
+        Lwjgl3ApplicationConfiguration configuration = new Lwjgl3ApplicationConfiguration();
+        configuration.setTitle("Tester Lwjgl3");
+        configuration.setWindowedMode(600, 400);
+        configuration.setWindowIcon("icons/libgdx128.png", "icons/libgdx64.png", "icons/libgdx32.png", "icons/libgdx16.png");
+        new Lwjgl3Application(new GdxMainTestMallocTracking(), configuration);
     }
 
     private long memoryStart;
