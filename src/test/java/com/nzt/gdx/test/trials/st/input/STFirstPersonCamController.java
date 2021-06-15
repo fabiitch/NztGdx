@@ -1,39 +1,31 @@
-package com.nzt.gdx.test.trials.st.t3d;
+package com.nzt.gdx.test.trials.st.input;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.PerspectiveCamera;
-import com.badlogic.gdx.graphics.VertexAttributes.Usage;
+import com.badlogic.gdx.graphics.VertexAttributes;
 import com.badlogic.gdx.graphics.g3d.Environment;
 import com.badlogic.gdx.graphics.g3d.Material;
 import com.badlogic.gdx.graphics.g3d.Model;
 import com.badlogic.gdx.graphics.g3d.ModelInstance;
 import com.badlogic.gdx.graphics.g3d.attributes.ColorAttribute;
 import com.badlogic.gdx.graphics.g3d.environment.DirectionalLight;
-import com.badlogic.gdx.graphics.g3d.utils.CameraInputController;
+import com.badlogic.gdx.graphics.g3d.utils.FirstPersonCameraController;
 import com.badlogic.gdx.graphics.g3d.utils.ModelBuilder;
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
+import com.nzt.gdx.test.trials.tester.archi.screens.TestScreen;
 import com.nzt.gdx.test.trials.tester.selector.TestScreenList;
 
-@TestScreenList(group = "3D")
-public class ST3DBasic extends BaseST3D {
+@TestScreenList(group = "input")
+public class STFirstPersonCamController extends TestScreen {
     public PerspectiveCamera camera;
     public Model model;
     public ModelInstance instance;
     public Environment environment;
-    public CameraInputController camController;
+    public FirstPersonCameraController camController;
 
-    public ST3DBasic(FastTesterMain main) {
+    public STFirstPersonCamController(FastTesterMain main) {
         super(main);
-    }
-
-    @Override
-    public String getExplication() {
-        return "Simple 3D test for xoppa blog";
-    }
-
-    @Override
-    public void doShow() {
         camera = new PerspectiveCamera(67, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         camera.position.set(10f, 10f, 10f);
         camera.lookAt(0, 0, 0);
@@ -43,15 +35,22 @@ public class ST3DBasic extends BaseST3D {
 
         ModelBuilder modelBuilder = new ModelBuilder();
         model = modelBuilder.createBox(5f, 5f, 5f, new Material(ColorAttribute.createDiffuse(Color.GREEN)),
-                Usage.Position | Usage.Normal);
+                VertexAttributes.Usage.Position | VertexAttributes.Usage.Normal);
         instance = new ModelInstance(model);
 
         environment = new Environment();
         environment.set(new ColorAttribute(ColorAttribute.AmbientLight, 0.4f, 0.4f, 0.4f, 1f));
         environment.add(new DirectionalLight().set(0.8f, 0.8f, 0.8f, -1f, -0.8f, -0.2f));
 
-        camController = new CameraInputController(camera);
+        camController = new FirstPersonCameraController(camera);
+
         Gdx.input.setInputProcessor(camController);
+    }
+
+    //TODO change to azerty
+    @Override
+    public String getExplication() {
+        return "Test First Person controller, TODO change to azerty after commit merged";
     }
 
     @Override
@@ -66,4 +65,6 @@ public class ST3DBasic extends BaseST3D {
     public void disposeTestScreen() {
         model.dispose();
     }
+
+
 }
