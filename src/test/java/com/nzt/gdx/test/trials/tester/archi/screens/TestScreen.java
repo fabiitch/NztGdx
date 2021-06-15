@@ -32,7 +32,6 @@ public abstract class TestScreen extends SimpleTestScreen {
             HudDebug.addTopLeft("ST Target", getExplication());
             HudDebug.addTopLeft("-", "-");
         }
-
     }
 
     public abstract String getExplication();

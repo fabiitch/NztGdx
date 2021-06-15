@@ -29,7 +29,7 @@ public class ST3DBasic extends BaseST3D {
 
     @Override
     public String getExplication() {
-        return null;
+        return "Simple 3D test for xoppa blog";
     }
 
     @Override

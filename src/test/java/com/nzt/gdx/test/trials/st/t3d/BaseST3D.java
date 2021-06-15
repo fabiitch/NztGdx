@@ -5,6 +5,7 @@ import com.badlogic.gdx.graphics.GL20;
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
 import com.nzt.gdx.test.trials.tester.archi.screens.TestScreen;
 
+//TODO a voir l'utilité
 public abstract class BaseST3D extends TestScreen {
     public BaseST3D(FastTesterMain main) {
         super(main);
