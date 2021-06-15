@@ -19,7 +19,7 @@ public class ST2DZoomControlCam extends BaseST2DControlCam {
 
     @Override
     public String getExplication() {
-        return "Camera control en 2D with Zoom   A / E for zoom";
+        return "Camera control en 2D with Zoom   T / G for zoom";
     }
 
     @Override

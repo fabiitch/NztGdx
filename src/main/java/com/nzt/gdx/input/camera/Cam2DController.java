@@ -7,7 +7,7 @@ import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.utils.IntIntMap;
 
-public class Cam2DController extends InputAdapter {
+public class Cam2DController extends InputAdapter implements CamController {
 
     public Camera camera;
     public float degreesPerPixel = 0.5f;
@@ -15,9 +15,9 @@ public class Cam2DController extends InputAdapter {
 
     public boolean autoUpdate = true;
 
-    public int UP = Input.Keys.Z;
+    public int UP = Input.Keys.W;
     public int DOWN = Input.Keys.S;
-    public int STRAFE_LEFT = Input.Keys.Q;
+    public int STRAFE_LEFT = Input.Keys.A;
     public int STRAFE_RIGHT = Input.Keys.D;
 
     protected final IntIntMap keys = new IntIntMap();
@@ -69,5 +69,4 @@ public class Cam2DController extends InputAdapter {
         if (autoUpdate)
             camera.update(true);
     }
-
 }
