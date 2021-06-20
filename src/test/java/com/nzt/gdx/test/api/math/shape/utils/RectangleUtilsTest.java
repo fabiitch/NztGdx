@@ -4,11 +4,9 @@ import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.nzt.gdx.math.shape.Segment2D;
 import com.nzt.gdx.math.shape.utils.RectangleUtils;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class RectangleUtilsTest {
 
@@ -17,16 +15,16 @@ public class RectangleUtilsTest {
         Rectangle rect = new Rectangle(0, 0, 100, 50);
         Segment2D segment = new Segment2D();
         Segment2D horizontalTop = RectangleUtils.getHorizontalTop(rect, segment);
-        Assert.assertEquals(horizontalTop, new Segment2D(0, 50, 100, 50));
+        assertEquals(horizontalTop, new Segment2D(0, 50, 100, 50));
 
         Segment2D horizontalBot = RectangleUtils.getHorizontalBot(rect, segment);
-        Assert.assertEquals(horizontalBot, new Segment2D(0, 0, 100, 0));
+        assertEquals(horizontalBot, new Segment2D(0, 0, 100, 0));
 
         Segment2D verticalLeft = RectangleUtils.getVerticalLeft(rect, segment);
-        Assert.assertEquals(verticalLeft, new Segment2D(0, 0, 0, 50));
+        assertEquals(verticalLeft, new Segment2D(0, 0, 0, 50));
 
         Segment2D verticalRight = RectangleUtils.getVerticalRight(rect, segment);
-        Assert.assertEquals(verticalRight, new Segment2D(100, 0, 100, 50));
+        assertEquals(verticalRight, new Segment2D(100, 0, 100, 50));
     }
 
     @Test
@@ -48,7 +46,5 @@ public class RectangleUtilsTest {
 
         isSquare = RectangleUtils.isVertex(rect, v.set(11, 10));
         assertFalse(isSquare);
-
     }
-
 }

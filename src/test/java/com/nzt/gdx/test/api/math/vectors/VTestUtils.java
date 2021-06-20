@@ -3,10 +3,10 @@ package com.nzt.gdx.test.api.math.vectors;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 
 /**
- * utils for test Vectors and print value in junit (better than
+ * utils for test Vectors and print value in junit
  *
  */
 public class VTestUtils {
@@ -21,8 +21,8 @@ public class VTestUtils {
 		float x2 = v2.x;
 		float y2 = v2.y;
 
-		Assert.assertEquals(x1, x2, tolerance);
-		Assert.assertEquals(y1, y2, tolerance);
+		Assertions.assertEquals(x1, x2, tolerance);
+		Assertions.assertEquals(y1, y2, tolerance);
 	}
 
 	public static void assertEquals(Vector3 v1, Vector3 v2) {
@@ -38,8 +38,8 @@ public class VTestUtils {
 		float y2 = v2.y;
 		float z2 = v2.z;
 
-		Assert.assertEquals(x1, x2, tolerance);
-		Assert.assertEquals(y1, y2, tolerance);
-		Assert.assertEquals(z1, z2, tolerance);
+		Assertions.assertEquals(x1, x2, tolerance);
+		Assertions.assertEquals(y1, y2, tolerance);
+		Assertions.assertEquals(z1, z2, tolerance);
 	}
 }

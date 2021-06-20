@@ -2,9 +2,9 @@ package com.nzt.gdx.test.api.math.shape.utils;
 
 import com.badlogic.gdx.math.Vector2;
 import com.nzt.gdx.math.shape.Segment2D;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class Segment2DTest {
 

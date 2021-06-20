@@ -8,7 +8,7 @@ import com.badlogic.gdx.math.Vector2;
 import java.util.Objects;
 
 //TODO remove pour voir avec Polyline
-public class Segment2D implements Shape2D{//TODO impl shape2D //TODO remove vector //TODO viré par polyline
+public class Segment2D implements Shape2D{//TODO remove vector //TODO viré par polyline
     public Vector2 a;
     public Vector2 b;
 

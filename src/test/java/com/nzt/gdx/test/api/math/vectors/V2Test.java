@@ -4,8 +4,8 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
 import com.nzt.gdx.math.vectors.V;
 import com.nzt.gdx.math.vectors.V2;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 public class V2Test {
 
@@ -19,7 +19,7 @@ public class V2Test {
         vector2Array.add(v1, v2, v3, null);
 
         Vector2 closest = V.getClosest(start, vector2Array);
-        Assert.assertEquals(closest, v3);
+        Assertions.assertEquals(closest, v3);
     }
 
     @Test
@@ -27,7 +27,7 @@ public class V2Test {
         Vector2 v1 = v(5, 5);
         Vector2 v2 = v(10, 10);
         Vector2 closest = V2.getMiddle(new Vector2(), v1, v2);
-        Assert.assertEquals(closest, new Vector2(7.5f, 7.5f));
+        Assertions.assertEquals(closest, new Vector2(7.5f, 7.5f));
     }
 
     @Test
@@ -40,10 +40,10 @@ public class V2Test {
 
         float[] floats = V2.toFloatArray(array);
 
-        Assert.assertEquals(0, floats[0] + floats[1], 0);
-        Assert.assertEquals(20, floats[2] + floats[3], 0);
-        Assert.assertEquals(30, floats[4] + floats[5], 0);
-        Assert.assertEquals(10, floats[6] + floats[7], 0);
+        Assertions.assertEquals(0, floats[0] + floats[1], 0);
+        Assertions.assertEquals(20, floats[2] + floats[3], 0);
+        Assertions.assertEquals(30, floats[4] + floats[5], 0);
+        Assertions.assertEquals(10, floats[6] + floats[7], 0);
 
     }
 

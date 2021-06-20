@@ -1,9 +1,10 @@
 package com.nzt.gdx.test.api;
 
 import com.nzt.gdx.PlacementsLine;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 public class PlacementLineHelperTest {
 
