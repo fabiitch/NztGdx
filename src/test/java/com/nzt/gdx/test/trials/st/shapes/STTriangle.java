@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
 import com.badlogic.gdx.math.Vector2;
 import com.nzt.gdx.debug.hud.core.HudDebug;
 import com.nzt.gdx.input.impl.simple.SimpleClickInputHandler;
+import com.nzt.gdx.math.random.Randoms;
 import com.nzt.gdx.math.shape.Triangle;
 import com.nzt.gdx.math.shape.builders.TriangleBuilder;
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
@@ -19,11 +20,13 @@ import com.nzt.gdx.utils.GdxUtils;
 public class STTriangle extends TestScreen {
 
     private int mode = 0;
-    Vector2 middle = GdxUtils.getScreenCenter(new Vector2());
-    Triangle triangle;
-    private final Vector2 tmp = new Vector2();
-    BitmapFont font;
+    private Triangle triangle;
+    private BitmapFont font;
 
+    private Vector2 middle = GdxUtils.getScreenCenter(new Vector2());
+    private Vector2 centerTriangle = new Vector2();
+    private final Vector2 tmp = new Vector2();
+    private Color colorRender = Randoms.newRandomColor();
     //scale
     float scaleAmt = 1;
     boolean scale = true;
@@ -113,9 +116,15 @@ public class STTriangle extends TestScreen {
     @Override
     public void renderTestScreen(float dt) {
         scaleRotate();
+        triangle.getCentroid(centerTriangle);
         nzShapeRenderer.begin();
+        nzShapeRenderer.setColor(colorRender);
         nzShapeRenderer.set(ShapeType.Filled);
         nzShapeRenderer.triangle(triangle);
+
+        nzShapeRenderer.setColor(Color.RED);
+        nzShapeRenderer.set(ShapeType.Filled);
+        nzShapeRenderer.circle(centerTriangle, 2);
         nzShapeRenderer.end();
 
         spriteBatch.begin();
@@ -138,9 +147,9 @@ public class STTriangle extends TestScreen {
     private int count = 0;
 
     private void updateHud() {
-        HudDebug.update("A", triangle.getVertex(tmp, 0));
-        HudDebug.update("B", triangle.getVertex(tmp, 1));
-        HudDebug.update("C", triangle.getVertex(tmp, 2));
+        HudDebug.update("A", triangle.getA(tmp));
+        HudDebug.update("B", triangle.getB(tmp));
+        HudDebug.update("C", triangle.getC(tmp));
 
         HudDebug.update("Rotation", triangle.getRotation());
         HudDebug.update("ScaleX", triangle.getScaleX());
@@ -150,9 +159,9 @@ public class STTriangle extends TestScreen {
         HudDebug.update("Angle B", triangle.getAngleDeg(1));
         HudDebug.update("Angle C", triangle.getAngleDeg(2));
 
-        HudDebug.update("Dir AB", triangle.getDir(tmp, 0, 1));
-        HudDebug.update("Dir AC", triangle.getDir(tmp, 0, 2));
-        HudDebug.update("Dir BC", triangle.getDir(tmp, 1, 2));
+        HudDebug.update("Dir AB", triangle.getDir(0, 1, tmp));
+        HudDebug.update("Dir AC", triangle.getDir(0, 2, tmp));
+        HudDebug.update("Dir BC", triangle.getDir(1, 2, tmp));
     }
 
     private void changeOrigin() {
@@ -179,11 +188,13 @@ public class STTriangle extends TestScreen {
         if (scale) {
             if (scaleAmt > 5) {
                 up = false;
-                nzShapeRenderer.randomColor();
+                Randoms.toRandom(colorRender);
+                nzShapeRenderer.setColor(colorRender);
             }
             if (scaleAmt < 1) {
                 up = true;
-                nzShapeRenderer.randomColor();
+                Randoms.toRandom(colorRender);
+                nzShapeRenderer.setColor(colorRender);
             }
             scaleAmt = up ? scaleAmt + 0.02f : scaleAmt - 0.02f;
             triangle.setScale(scaleAmt, scaleAmt);

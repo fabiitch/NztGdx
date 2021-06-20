@@ -38,36 +38,51 @@ public class Triangle extends Polygon {
     }
 
     public Vector2 getA(Vector2 pos) {
-        return getVertex(pos, 0);
+        return getVertex(0, pos);
     }
 
     public Vector2 getB(Vector2 pos) {
-        return getVertex(pos, 1);
+        return getVertex(1, pos);
     }
 
     public Vector2 getC(Vector2 pos) {
-        return getVertex(pos, 2);
+        return getVertex(2, pos);
     }
 
-    public Vector2 getVertex(Vector2 pos, int vertex) {
-        if (vertex < 0 || vertex > 2)
+    public Vector2 getVertex(int vertexNum, Vector2 pos) {
+        if (vertexNum < 0 || vertexNum > 2)
             throw new IllegalArgumentException("getVertex can return vertex range (0,2)");
 
-        return pos.set(getVertexValue(vertex, true), getVertexValue(vertex, false));
+        return pos.set(getVertexValue(vertexNum, true), getVertexValue(vertexNum, false));
     }
 
-    public Vector2 getDir(Vector2 dir, int vertex1, int vertex2) {
-        getVertex(dir, getVertex(vertex2));
-        getVertex(tmpV1, getVertex(vertex1));
+    /**
+     * return real vertex in triangle
+     */
+    private int getVertexNum(int vertexNum) {
+        return vertexNum % 3;
+    }
+
+    private float getVertexValue(int vertexNum, boolean xValue) {
+        vertexNum %= 3;
+        float[] transformedVertices = this.getTransformedVertices();
+        if (xValue)
+            return transformedVertices[2 * vertexNum];
+        return transformedVertices[2 * vertexNum + 1];
+    }
+
+    public Vector2 getDir(int vertex1, int vertex2, Vector2 dir) {
+        getVertex(getVertexNum(vertex2), dir);
+        getVertex(getVertexNum(vertex1), tmpV1);
         dir.sub(tmpV1);
         return dir.nor();
     }
 
     public float getAngleDeg(int vertex) {
-        getVertex(tmpV1, getVertex(vertex));
+        getVertex(getVertexNum(vertex), tmpV1);
         tmpV1.sub(getVertexValue(vertex + 1, true), getVertexValue(vertex + 1, false));
 
-        getVertex(tmpV2, getVertex(vertex));
+        getVertex(getVertexNum(vertex), tmpV2);
         tmpV2.sub(getVertexValue(vertex + 2, true), getVertexValue(vertex + 2, false));
 
         float angle = tmpV1.angleDeg(tmpV2);
@@ -81,7 +96,7 @@ public class Triangle extends Polygon {
     }
 
     public void setOriginOnVertex(int vertexNum) {
-        getVertex(tmpV2, vertexNum);
+        getVertex(vertexNum, tmpV2);
         this.setOrigin(tmpV2.x, tmpV2.y);
     }
 
@@ -99,30 +114,12 @@ public class Triangle extends Polygon {
                 vertices[4], vertices[5], result);
     }
 
-    /**
-     * return real vertex in triangle
-     */
-    private int getVertex(int vertexAsk) {
-        return vertexAsk % 3;
-    }
-
-    private float getVertexValue(int vertex, boolean x) {
-        vertex %= 3;
-        float[] transformedVertices = this.getTransformedVertices();
-        if (x)
-            return transformedVertices[2 * vertex];
-        return transformedVertices[2 * vertex + 1];
-    }
 
     @Override
     public String toString() {
-        return "Triangle " + Arrays.toString(getTransformedVertices());
-    }
-
-    public String toString(boolean vector2) {
-        String a = getVertex(tmpV1, 0).toString();
-        String b = getVertex(tmpV1, 1).toString();
-        String c = getVertex(tmpV1, 2).toString();
+        String a = getA(tmpV1).toString();
+        String b = getB(tmpV1).toString();
+        String c = getC(tmpV1).toString();
         return "Triangle[a=" + a + " b=" + b + " c=" + c + "]";
     }
 

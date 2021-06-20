@@ -34,15 +34,19 @@ public abstract class TestScreen extends SimpleTestScreen {
         }
     }
 
-    public abstract String getExplication();
-
-    public TestScreen(FastTesterMain main, boolean enableGlProfiler) {
+    /**
+     * Dont use with this param in screen
+     * use super(main,true)
+     */
+    protected TestScreen(FastTesterMain main, boolean enableGlProfiler) {
         this(main);
         if (enableGlProfiler) {
             glProfiler.setScreen(this);
             addHudToGlProfiler();
         }
     }
+
+    public abstract String getExplication();
 
     public void addHudToGlProfiler() {
         glProfiler.initHudDebug(HudDebugPosition.BOT_RIGHT, Color.WHITE);
