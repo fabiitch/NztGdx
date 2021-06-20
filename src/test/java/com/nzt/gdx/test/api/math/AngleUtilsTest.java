@@ -2,9 +2,10 @@ package com.nzt.gdx.test.api.math;
 
 import com.badlogic.gdx.math.Vector2;
 import com.nzt.gdx.math.AngleUtils;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class AngleUtilsTest {
     private static final float DELTA_0 = 0f;
@@ -14,7 +15,7 @@ public class AngleUtilsTest {
     public void testCoherence() {
         float dst1Signed = AngleUtils.distanceSigned(v(1, 0), v(0, 1));
         float dst1Abs = AngleUtils.distanceAbs(v(1, 0), v(0, 1));
-        assertEquals(Math.abs(dst1Signed), dst1Abs, DELTA_0);
+        Assertions.assertEquals(Math.abs(dst1Signed), dst1Abs, DELTA_0);
 
         float dst2Signed = AngleUtils.distanceSigned(v(1, 0), v(-1, 0));
         float dst2Abs = AngleUtils.distanceAbs(v(1, 0), v(-1, 0));

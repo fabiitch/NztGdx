@@ -3,11 +3,11 @@ package com.nzt.gdx.test.api.math;
 import com.badlogic.gdx.math.Interpolation;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
+
+
 
 /*
  * pour test vite fait  les methode de Vector2
@@ -82,11 +82,11 @@ public class Vector2Try {
     public void angleBetweenTest() {
         Vector2 v1 = v(0, 1);
         Vector2 v2 = v(1, 0);
-        Assert.assertEquals(90, v1.angleDeg(v2), DELTA_01);
+        assertEquals(90, v1.angleDeg(v2), DELTA_01);
 
         v1 = v(1, 0);
         v2 = v(0, 1);
-        Assert.assertEquals(360 - 90, v1.angleDeg(v2), DELTA_01);
+        assertEquals(360 - 90, v1.angleDeg(v2), DELTA_01);
     }
 
 
@@ -98,7 +98,7 @@ public class Vector2Try {
         for (int i = 0; i < 100000; i++) {
             v1.set(MathUtils.random.nextFloat() * (max - min) + min, MathUtils.random.nextFloat() * (max - min) + min);
             v1.nor();
-            Assert.assertEquals(1, v1.len2(), MathUtils.FLOAT_ROUNDING_ERROR);
+            assertEquals(1, v1.len2(), MathUtils.FLOAT_ROUNDING_ERROR);
         }
     }
 
@@ -122,9 +122,9 @@ public class Vector2Try {
                 norMe(v2);
             }
             long t2 = System.nanoTime() - l2;
-            Assert.assertTrue(t2 < t1);
+            assertTrue(t2 < t1);
             System.out.println("t1= " + t1 + "   t2=" + t2);
-            Assert.assertTrue(v1.epsilonEquals(v2));
+            assertTrue(v1.epsilonEquals(v2));
         }
     }
 

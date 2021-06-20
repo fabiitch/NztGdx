@@ -5,10 +5,9 @@ import com.badlogic.gdx.math.Vector2;
 import com.nzt.gdx.math.intersectors.IntersectorSegmentRectangle;
 import com.nzt.gdx.math.shape.Segment2D;
 import com.nzt.gdx.math.shape.utils.RectangleUtils;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class IntersectorSegmentRectangleTest {
 
@@ -129,7 +128,7 @@ public class IntersectorSegmentRectangleTest {
         Vector2 closestSegmentIntersection = new Vector2();
 
         boolean touch = IntersectorSegmentRectangle.closest(segment, rect, closestSegmentIntersection);
-        Assert.assertEquals(new Vector2(0, 25), closestSegmentIntersection);
+        assertEquals(new Vector2(0, 25), closestSegmentIntersection);
         assertTrue(touch);
     }
 }

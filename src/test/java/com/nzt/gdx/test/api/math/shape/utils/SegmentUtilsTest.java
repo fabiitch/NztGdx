@@ -3,10 +3,10 @@ package com.nzt.gdx.test.api.math.shape.utils;
 import com.badlogic.gdx.math.Vector2;
 import com.nzt.gdx.math.shape.Segment2D;
 import com.nzt.gdx.math.shape.utils.Segment2DUtils;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class SegmentUtilsTest {
     //http://www.ambrsoft.com/MathCalc/Line/TwoLinesIntersection/TwoLinesIntersection.htm
@@ -31,7 +31,7 @@ public class SegmentUtilsTest {
         Segment2D s1 = s(50, 0, 50, 50);
         Vector2 direction = v(1, 0);
         float angleReflexion = Segment2DUtils.getAngleReflexion(s1, direction);
-        Assert.assertEquals(360, angleReflexion, 0.1f);
+        Assertions.assertEquals(360, angleReflexion, 0.1f);
     }
 
     @Test
@@ -39,7 +39,7 @@ public class SegmentUtilsTest {
         Segment2D s1 = s(0, 0, 50, 0);
         Vector2 direction = v(1, 1).nor();
         float angleReflexion = Segment2DUtils.getAngleReflexion(s1, direction);
-        Assert.assertEquals(135f, angleReflexion, 0.1f);
+        Assertions.assertEquals(135f, angleReflexion, 0.1f);
     }
 
     private Segment2D s(float aX, float aY, float bX, float bY) {
@@ -52,6 +52,6 @@ public class SegmentUtilsTest {
 
     private void assertEquals(Vector2 v1, Vector2 v2) {
         assertTrue(v1.sub(v2).len() < 0.1f);
-
     }
+
 }

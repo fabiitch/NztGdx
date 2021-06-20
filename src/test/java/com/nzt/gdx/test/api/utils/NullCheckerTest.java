@@ -2,10 +2,10 @@ package com.nzt.gdx.test.api.utils;
 
 import com.nzt.gdx.debug.utils.DebugDisplayUtils;
 import com.nzt.gdx.utils.NullChecker;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
+
 
 /**
  * Test class for {@link NullChecker}
@@ -36,12 +36,10 @@ public class NullCheckerTest {
 
         Object nullObject = null;
         Object notNullObject = new Object();
-
         assertFalse(NullChecker.isNotNull(nullObject));
         assertTrue(NullChecker.isNotNull(notNullObject));
 
         assertFalse(NullChecker.isNotNull(nullObject, nullObject));
         assertTrue(NullChecker.isNotNull(notNullObject, notNullObject));
     }
-
 }

@@ -6,6 +6,10 @@ import com.badlogic.gdx.math.Vector2;
 
 import java.util.Arrays;
 
+/**
+ * TODO
+ * contains opti?
+ */
 public class Triangle extends Polygon {
 
     /**
@@ -17,6 +21,7 @@ public class Triangle extends Polygon {
 
     public Triangle(float[] vertices) {
         super(vertices);
+        if (vertices.length != 6) throw new IllegalArgumentException("Triangle must have 3 points.");
     }
 
     public Triangle(float aX, float aY, float bX, float bY, float cX, float cY) {
@@ -25,6 +30,11 @@ public class Triangle extends Polygon {
 
     public Triangle(Vector2 a, Vector2 b, Vector2 c) {
         this(a.x, a.y, b.x, b.y, c.x, c.y);
+    }
+
+    public void setVertices(float[] vertices) {
+        if (vertices.length != 6) throw new IllegalArgumentException("Triangle must have 3 points.");
+        super.setVertices(vertices);
     }
 
     public Vector2 getA(Vector2 pos) {
