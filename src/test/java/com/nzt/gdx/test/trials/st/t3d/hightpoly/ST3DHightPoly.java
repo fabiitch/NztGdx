@@ -16,44 +16,44 @@ import com.nzt.gdx.test.trials.tester.selector.TestScreenList;
 
 @TestScreenList(group = "3D")
 public class ST3DHightPoly extends BaseST3D {
-	public Camera camera;
+    public Model cubeModel;
+    public ModelInstance cubeModelInstance;
 
-	public CameraInputController camController;
-	public Model cubeModel;
-	public ModelInstance cubeModelInstance;
+    public ST3DHightPoly(FastTesterMain main) {
+        super(main);
+        cubeModel = new G3dModelLoader(new UBJsonReader()).loadModel(Gdx.files.internal("models/test/Zephyr.g3db"));
+        cubeModelInstance = new ModelInstance(cubeModel);
+        for (Animation anim : cubeModelInstance.animations) {
+            System.out.println(anim.id);
+        }
+        for (Material material : cubeModelInstance.materials) {
+            System.out.println(material.id);
+        }
+    }
 
-	public ST3DHightPoly(FastTesterMain main) {
-		super(main);
-		camera = new PerspectiveCamera(67, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-		camera.position.set(10f, 10f, 10f);
-		this.camera.lookAt(0, 0, 0);
-		camera.near = 1f;
-		camera.far = 300f;
-		camera.update();
+    @Override
+    public void createCamera() {
+        camera = new PerspectiveCamera(67, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+        camera.position.set(10f, 10f, 10f);
+        this.camera.lookAt(0, 0, 0);
+        camera.near = 1f;
+        camera.far = 300f;
+        camera.update();
+    }
 
-		cubeModel = new G3dModelLoader(new UBJsonReader()).loadModel(Gdx.files.internal("models/test/Zephyr.g3db"));
-		cubeModelInstance = new ModelInstance(cubeModel);
-		for (Animation anim : cubeModelInstance.animations) {
-			System.out.println(anim.id);
-		}
-		for (Material material : cubeModelInstance.materials) {
-			System.out.println(material.id);
-		}
-		camController = new CameraInputController(camera);
-		Gdx.input.setInputProcessor(camController);
-	}
+    @Override
+    public String getExplication() {
+        return "Test Hight poly";
+    }
 
-	@Override
-	public void renderTestScreen(float dt) {
-		this.camera.update();
-		camController.update();
-		modelBatch.begin(camera);
-		modelBatch.render(cubeModelInstance);
-		modelBatch.end();
-	}
+    @Override
+    public void render3D(float dt) {
+        camController.update();
+        modelBatch.render(cubeModelInstance);
+    }
 
-	@Override
-	public void disposeTestScreen() {
-		cubeModel.dispose();
-	}
+    @Override
+    public void dispose3D() {
+        cubeModel.dispose();
+    }
 }

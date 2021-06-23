@@ -18,26 +18,12 @@ import com.nzt.gdx.test.trials.tester.selector.TestScreenList;
 
 @TestScreenList(group = "3D")
 public class ST3DOrthoCam extends BaseST3D {
-    public Camera camera;
-
-    public CameraInputController camController;
-    private ModelBuilder modelBuilder;
-
     public Model wardModel;
     public ModelInstance wargInstance;
     public Environment environment;
 
     public ST3DOrthoCam(FastTesterMain main) {
         super(main);
-        this.camera = new OrthographicCamera(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-        this.camera.position.set(10, 10, 10);
-        this.camera.lookAt(0, 0, 0);
-        camera.near = 1f;
-        camera.far = 300f;
-        camera.update();
-
-        ModelBuilder modelBuilder = new ModelBuilder();
-
         environment = new Environment();
         environment.set(new ColorAttribute(ColorAttribute.AmbientLight, 0.4f, 0.4f, 0.4f, 1f));
         environment.add(new DirectionalLight().set(0.8f, 0.8f, 0.8f, -1f, -0.8f, -0.2f));
@@ -47,22 +33,32 @@ public class ST3DOrthoCam extends BaseST3D {
         for (Animation anim : wargInstance.animations) {
             System.out.println(anim.id);
         }
-
-        camController = new CameraInputController(camera);
-        Gdx.input.setInputProcessor(camController);
     }
 
     @Override
-    public void renderTestScreen(float dt) {
+    public void createCamera() {
+        this.camera = new OrthographicCamera(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+        this.camera.position.set(10, 10, 10);
+        this.camera.lookAt(0, 0, 0);
+        camera.near = 1f;
+        camera.far = 300f;
+        camera.update();
+
+    }
+
+    @Override
+    public String getExplication() {
+        return "3D ortho cam";
+    }
+
+    @Override
+    public void render3D(float dt) {
         camController.update();
-        modelBatch.begin(camera);
         modelBatch.render(wargInstance);
-        modelBatch.end();
     }
 
     @Override
-    public void disposeTestScreen() {
+    public void dispose3D() {
         wardModel.dispose();
     }
-
 }

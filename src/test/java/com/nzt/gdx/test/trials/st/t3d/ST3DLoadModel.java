@@ -15,9 +15,6 @@ import com.nzt.gdx.test.trials.tester.selector.TestScreenList;
 
 @TestScreenList(group = "3D")
 public class ST3DLoadModel extends BaseST3D {
-    public Camera camera;
-
-    public CameraInputController camController;
     public Model cubeModel;
     public ModelInstance cubeModelInstance;
 
@@ -25,13 +22,6 @@ public class ST3DLoadModel extends BaseST3D {
 
     public ST3DLoadModel(FastTesterMain main) {
         super(main);
-        camera = new PerspectiveCamera(67, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-        camera.position.set(10f, 10f, 10f);
-        this.camera.lookAt(0, 0, 0);
-        camera.near = 1f;
-        camera.far = 300f;
-        camera.update();
-
         cubeModel = new G3dModelLoader(new UBJsonReader()).loadModel(Gdx.files.internal(modelPath));
         cubeModelInstance = new ModelInstance(cubeModel);
         for (Animation anim : cubeModelInstance.animations) {
@@ -40,21 +30,31 @@ public class ST3DLoadModel extends BaseST3D {
         for (Material material : cubeModelInstance.materials) {
             System.out.println(material.id);
         }
-        camController = new CameraInputController(camera);
-        Gdx.input.setInputProcessor(camController);
     }
 
     @Override
-    public void renderTestScreen(float dt) {
-        this.camera.update();
+    public void createCamera() {
+        camera = new PerspectiveCamera(67, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+        camera.position.set(10f, 10f, 10f);
+        this.camera.lookAt(0, 0, 0);
+        camera.near = 1f;
+        camera.far = 300f;
+        camera.update();
+    }
+
+    @Override
+    public String getExplication() {
+        return "Load 3D model";
+    }
+
+    @Override
+    public void render3D(float dt) {
         camController.update();
-        modelBatch.begin(camera);
         modelBatch.render(cubeModelInstance);
-        modelBatch.end();
     }
 
     @Override
-    public void disposeTestScreen() {
+    public void dispose3D() {
         cubeModel.dispose();
     }
 }

@@ -16,55 +16,54 @@ import com.nzt.gdx.test.trials.tester.selector.TestScreenList;
 public class ST3DModelViewer extends BaseST3D {
 
     public InputMultiplexer inputMultiplexer;
-    public Camera camera;
-    public CameraInputController camController;
-
     private final ModelViewerStage stage;
     private final ModelViewerHelper helper;
 
     public ST3DModelViewer(FastTesterMain main) {
         super(main);
-
-        camera = new PerspectiveCamera(67, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-        camera.position.set(10f, 10f, 10f);
-        this.camera.lookAt(0, 0, 0);
-        camera.near = 1f;
-        camera.far = 300f;
-        camera.update();
-
-        camController = new CameraInputControllerFR(camera);
         this.helper = new ModelViewerHelper(this);
         stage = new ModelViewerStage(this, helper);
-
-
         this.inputMultiplexer = new InputMultiplexer(stage, camController);
         Gdx.input.setInputProcessor(inputMultiplexer);
         helper.changeModel("warg.g3db");
     }
 
     @Override
-    public void renderTestScreen(float dt) {
-        this.camera.update();
-        this.stage.update();
-        camController.update();
-        modelBatch.begin(camera);
-        modelBatch.render(helper.modelInstance);
-        modelBatch.end();
-
-        stage.act();
-        stage.draw();
+    public void createCamera() {
+        camera = new PerspectiveCamera(67, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+        camera.position.set(10f, 10f, 10f);
+        this.camera.lookAt(0, 0, 0);
+        camera.near = 1f;
+        camera.far = 300f;
+        camera.update();
     }
 
     @Override
-    public void disposeTestScreen() {
-        if (helper.model != null)
-            helper.model.dispose();
+    public String getExplication() {
+        return "Model viewer";
+    }
+
+    @Override
+    public void render3D(float dt) {
+        this.camera.update();
+        this.stage.update();
+        camController.update();
+        modelBatch.render(helper.modelInstance);
+
+        stage.act();
+        stage.draw();
     }
 
 
     @Override
     public void clearScreen() {
         ScreenUtils.clear(Color.BLACK, true);
+    }
+
+    @Override
+    public void dispose3D() {
+        if (helper.model != null)
+            helper.model.dispose();
     }
 
     @Override
