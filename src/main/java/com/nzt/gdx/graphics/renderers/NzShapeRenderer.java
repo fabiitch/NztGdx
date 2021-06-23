@@ -9,8 +9,6 @@ public class NzShapeRenderer extends ShapeRenderer {
 
     public void polyline(Polyline polyline) {
         polyline(polyline.getTransformedVertices());
-//        float[] transformedVertices = polyline.getTransformedVertices();
-//        line(transformedVertices[0], transformedVertices[1], transformedVertices[2], transformedVertices[3]);
     }
 
     public void triangle(Triangle triangle) {

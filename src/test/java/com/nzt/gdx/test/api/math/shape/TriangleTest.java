@@ -91,7 +91,7 @@ public class TriangleTest {
     public void changeOriginToVertexTest() {
         float originX;
         float originY;
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 1000; i++) {
             triangle.setOriginOnVertex(0);
             originX = triangle.getOriginX();
             originY = triangle.getOriginY();
