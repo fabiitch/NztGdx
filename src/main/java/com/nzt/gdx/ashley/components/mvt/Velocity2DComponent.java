@@ -1,10 +1,8 @@
 package com.nzt.gdx.ashley.components.mvt;
 
 import com.badlogic.ashley.core.ComponentMapper;
-import com.badlogic.ashley.core.Entity;
 import com.badlogic.gdx.math.Vector2;
 import com.nzt.gdx.ashley.base.components.PoolableComponent;
-import com.nzt.gdx.ashley.components.b2d.B2DBodyComponent;
 
 public class Velocity2DComponent extends PoolableComponent {
 
@@ -23,14 +21,7 @@ public class Velocity2DComponent extends PoolableComponent {
         this.direction.setZero();
     }
 
-    public static void updateVelocityFromBody(Entity entity) {
-        Velocity2DComponent velocity2DComponent = mapper.get(entity);
-        if (velocity2DComponent != null) { // les static n'ont pas de vel
-            B2DBodyComponent b2DBodyComponent = B2DBodyComponent.mapper.get(entity);
-            Vector2 linearVelocity = b2DBodyComponent.body.getLinearVelocity();
-            velocity2DComponent.setVelocity(linearVelocity);
-        }
-    }
+
 
     public void setVelocity(Vector2 vel) {
         this.velocity.set(vel);

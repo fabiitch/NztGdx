@@ -3,7 +3,7 @@ package com.nzt.gdx.test.api.math;
 import com.nzt.gdx.math.Percentage;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 public class PercentageTest {

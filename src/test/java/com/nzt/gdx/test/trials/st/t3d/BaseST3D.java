@@ -8,7 +8,7 @@ import com.badlogic.gdx.graphics.g3d.ModelInstance;
 import com.badlogic.gdx.graphics.g3d.utils.CameraInputController;
 import com.badlogic.gdx.graphics.g3d.utils.MeshPartBuilder;
 import com.badlogic.gdx.graphics.g3d.utils.ModelBuilder;
-import com.nzt.gdx.test.trials.st.b2D.B2DTestConstants;
+import com.nzt.gdx.test.trials.st.B2dTestConstants;
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
 import com.nzt.gdx.test.trials.tester.archi.screens.TestScreen;
 
@@ -30,8 +30,8 @@ public abstract class BaseST3D extends TestScreen {
         float width = Gdx.graphics.getWidth();
         float height = Gdx.graphics.getHeight();
         if (toB2D) {
-            width /= B2DTestConstants.PPM;
-            height /= B2DTestConstants.PPM;
+            width /= B2dTestConstants.PPM;
+            height /= B2dTestConstants.PPM;
         }
         if (toOrtho) {
             this.camera = new OrthographicCamera(width, height);

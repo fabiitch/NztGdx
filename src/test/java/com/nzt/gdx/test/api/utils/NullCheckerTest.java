@@ -4,7 +4,8 @@ import com.nzt.gdx.debug.utils.DebugDisplayUtils;
 import com.nzt.gdx.utils.NullChecker;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
 /**

@@ -1,7 +1,7 @@
 package com.nzt.gdx.test.trials.tester.archi.screens;
 
 import com.badlogic.ashley.core.Engine;
-import com.nzt.gdx.ashley.base.factories.EntityFactory;
+import com.nzt.gdx.ashley.base.factories.BaseEntityFactory;
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
 import com.nzt.gdx.test.trials.tester.archi.systems.DelayFrameActionSystem;
 
@@ -11,12 +11,12 @@ public abstract class BaseSystemTestScreen extends TestScreen {
 
     protected Engine engine;
     protected DelayFrameActionSystem delayActionSystem;
-    protected EntityFactory entityFactory;
+    protected BaseEntityFactory baseEntityFactory;
 
     public BaseSystemTestScreen(FastTesterMain main) {
         super(main);
         this.engine = new Engine();
-        entityFactory = new EntityFactory(engine);
+        baseEntityFactory = new BaseEntityFactory(engine);
 
         this.delayActionSystem = new DelayFrameActionSystem();
         engine.addSystem(delayActionSystem);

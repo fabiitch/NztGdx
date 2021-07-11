@@ -2,7 +2,7 @@ package com.nzt.gdx.ashley.factories;
 
 import com.badlogic.ashley.core.Engine;
 
-abstract class BaseComponentFactory {
+public abstract class BaseComponentFactory {
 
     protected Engine engine;
 
