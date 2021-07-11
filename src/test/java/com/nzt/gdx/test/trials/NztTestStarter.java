@@ -1,8 +1,6 @@
 package com.nzt.gdx.test.trials;
 
-import com.nzt.gdx.test.trials.st.ecs.STDebugDisplaySystemTest;
 import com.nzt.gdx.test.trials.st.shapes.STPolygon;
-import com.nzt.gdx.test.trials.st.shapes.STTriangle;
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
 import com.nzt.gdx.test.trials.tester.archi.main.StarterTestConfig;
 
