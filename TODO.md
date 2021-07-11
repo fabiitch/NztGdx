@@ -2,8 +2,6 @@
 
 - allocate memory test, doivent tous passé sans up
 
-- sous projet pour b2D
-
 GL error vient de com.badlogic.gdx.tests.utils.GdxTestWrapper
 
 	if(logGLErrors){

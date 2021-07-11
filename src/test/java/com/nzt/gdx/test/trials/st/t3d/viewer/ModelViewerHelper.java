@@ -9,7 +9,7 @@ import com.badlogic.gdx.graphics.g3d.ModelInstance;
 import com.badlogic.gdx.graphics.g3d.loader.G3dModelLoader;
 import com.badlogic.gdx.graphics.g3d.model.Animation;
 import com.badlogic.gdx.utils.UBJsonReader;
-import com.nzt.gdx.test.trials.st.b2D.B2DTestConstants;
+import com.nzt.gdx.test.trials.st.B2dTestConstants;
 
 public class ModelViewerHelper {
     public Model model;
@@ -21,7 +21,7 @@ public class ModelViewerHelper {
     }
 
     public void resetCamera(boolean toB2D) {
-        float divide = toB2D ? B2DTestConstants.PPM : 1;
+        float divide = toB2D ? B2dTestConstants.PPM : 1;
         float start = toB2D ? 150 : 10;
 
         viewer.camera.position.set(start / divide, start / divide, start / divide);
@@ -35,8 +35,8 @@ public class ModelViewerHelper {
         float width = Gdx.graphics.getWidth();
         float height = Gdx.graphics.getHeight();
         if (toB2D) {
-            width /= B2DTestConstants.PPM;
-            height /= B2DTestConstants.PPM;
+            width /= B2dTestConstants.PPM;
+            height /= B2dTestConstants.PPM;
         }
         if (toOrtho) {
             viewer.camera = new OrthographicCamera(width, height);

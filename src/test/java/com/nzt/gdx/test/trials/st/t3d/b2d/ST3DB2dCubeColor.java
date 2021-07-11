@@ -1,7 +1,6 @@
 package com.nzt.gdx.test.trials.st.t3d.b2d;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g3d.Environment;
@@ -11,10 +10,8 @@ import com.badlogic.gdx.graphics.g3d.attributes.ColorAttribute;
 import com.badlogic.gdx.graphics.g3d.environment.DirectionalLight;
 import com.badlogic.gdx.graphics.g3d.loader.G3dModelLoader;
 import com.badlogic.gdx.graphics.g3d.model.Animation;
-import com.badlogic.gdx.graphics.g3d.utils.CameraInputController;
-import com.badlogic.gdx.graphics.g3d.utils.ModelBuilder;
 import com.badlogic.gdx.utils.UBJsonReader;
-import com.nzt.gdx.test.trials.st.b2D.B2DTestConstants;
+import com.nzt.gdx.test.trials.st.B2dTestConstants;
 import com.nzt.gdx.test.trials.st.t3d.BaseST3D;
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
 import com.nzt.gdx.test.trials.tester.selector.TestScreenList;
@@ -42,7 +39,7 @@ public class ST3DB2dCubeColor extends BaseST3D {
 
     @Override
     public void createCamera() {
-        this.camera = new OrthographicCamera(B2DTestConstants.WIDTH_PPM, B2DTestConstants.HEIGHT_PPM);
+        this.camera = new OrthographicCamera(B2dTestConstants.WIDTH_PPM, B2dTestConstants.HEIGHT_PPM);
         this.camera.position.set(10, 10, 10);
         this.camera.lookAt(0, 0, 0);
         camera.near = 1f;
