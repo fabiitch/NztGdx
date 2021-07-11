@@ -16,9 +16,9 @@ public class ScreenSelectorTestMain extends FastTesterMain {
     private final CaseST rootCase;
     public CaseST lastGroupCase;
 
-    public ScreenSelectorTestMain(Class screenClass) {
+    public ScreenSelectorTestMain(Class screenClass,String packagePath) {
         super(screenClass);
-        this.rootCase = STScanner.scanTestScreens();
+        this.rootCase = STScanner.scanTestScreens(packagePath);
         this.lastGroupCase = rootCase;
     }
 

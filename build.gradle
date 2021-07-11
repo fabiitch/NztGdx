@@ -71,3 +71,13 @@ dependencies {
 test {
     useJUnitPlatform()
 }
+configurations {
+    testArtifacts.extendsFrom testCompile
+}
+task testJar(type: Jar) {
+    classifier "test"
+    from sourceSets.test.output
+}
+artifacts {
+    testArtifacts testJar
+}

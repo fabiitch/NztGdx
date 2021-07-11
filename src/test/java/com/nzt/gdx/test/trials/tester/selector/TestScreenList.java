@@ -15,5 +15,5 @@ import java.lang.annotation.Target;
 @Target(ElementType.TYPE)
 public @interface TestScreenList {
     String SEPARATOR = "\\.";
-    String group();
+    String group() default "";
 }

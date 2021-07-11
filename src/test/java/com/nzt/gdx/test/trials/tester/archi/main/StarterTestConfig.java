@@ -9,7 +9,6 @@ public class StarterTestConfig {
     //https://github.com/BinaryTweed/libgdx-test-runner
 
 
-
     public static void startLwjgl3(AbstractMain main, int witdh, int height) {
         Lwjgl3ApplicationConfiguration configuration = new Lwjgl3ApplicationConfiguration();
         configuration.setTitle("Tester Lwjgl3");

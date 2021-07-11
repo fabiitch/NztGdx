@@ -5,6 +5,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.nzt.gdx.math.shape.Triangle;
 import com.nzt.gdx.test.api.math.vectors.VTestUtils;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 
@@ -21,7 +22,7 @@ public class TriangleTest {
     private Triangle triangle;
     private Vector2 posTest;
 
-    @BeforeAll
+    @BeforeEach
     public void init() {
         v0 = new Vector2(0, 0);
         v1 = new Vector2(0, 5);
@@ -59,7 +60,7 @@ public class TriangleTest {
 
     @Test
     public void getAngleTest() {
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 10; i++) {
             float angleA = triangle.getAngleDeg(0);
             assertEquals(90, angleA, ANGLE_TOLERANCE);
 
@@ -74,7 +75,7 @@ public class TriangleTest {
 
     @Test
     public void getVertex() {
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 10; i++) {
             triangle.getA(posTest);
             VTestUtils.assertEquals(posTest, v0);
 
@@ -85,32 +86,6 @@ public class TriangleTest {
             VTestUtils.assertEquals(posTest, v2);
             moveAndRotate();
         }
-    }
-
-    @Test
-    public void changeOriginToVertexTest() {
-        float originX;
-        float originY;
-        for (int i = 0; i < 1000; i++) {
-            triangle.setOriginOnVertex(0);
-            originX = triangle.getOriginX();
-            originY = triangle.getOriginY();
-            posTest.set(originX, originY);
-            VTestUtils.assertEquals(posTest, v0);
-
-            triangle.setOriginOnVertex(1);
-            originX = triangle.getOriginX();
-            originY = triangle.getOriginY();
-            posTest.set(originX, originY);
-            VTestUtils.assertEquals(posTest, v1);
-
-            triangle.setOriginOnVertex(2);
-            originX = triangle.getOriginX();
-            originY = triangle.getOriginY();
-            posTest.set(originX, originY);
-            VTestUtils.assertEquals(posTest, v2);
-        }
-        moveAndRotate();
     }
 
     // com.nzt.gdx.math.shape.Triangle.getVertex(int)
