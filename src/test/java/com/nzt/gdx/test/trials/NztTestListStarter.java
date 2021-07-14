@@ -11,7 +11,8 @@ public class NztTestListStarter {
     private static final int height = 500;
 
     public static void main(String[] args) {
-        StarterTestConfig.startLwjgl3(new ScreenSelectorTestMain(NztTestListStarter.class, "com.nzt.gdx.test"),
+        StarterTestConfig.startLwjgl3(new ScreenSelectorTestMain(NztTestListStarter.class,
+                        "com.nzt.gdx.test"),
                 witdh, height);
     }
 }

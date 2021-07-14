@@ -8,12 +8,20 @@ import com.nzt.gdx.test.trials.tester.archi.main.StarterTestConfig;
 Use it for Test one class with screenTestClass
  */
 public class NztTestStarter {
-	private static final Class screenTestClass = STPolygon.class;
+    private static final Class screenTestClass = STPolygon.class;
 
-	private static final int witdh = 800;
-	private static final int height = 500;
+    public static void startScreen(Class screenTestClass) {
+        StarterTestConfig.startLwjgl3(new FastTesterMain(screenTestClass),
+                TestContants.BASIC_WITDH, TestContants.BASIC_HEIGHT);
+    }
 
-	public static void main(String[] args) {
-		StarterTestConfig.startLwjgl3(new FastTesterMain(screenTestClass), witdh, height);
-	}
+    public static void startScreen(Class screenTestClass, int witdh, int height) {
+        StarterTestConfig.startLwjgl3(new FastTesterMain(screenTestClass),
+                witdh, height);
+    }
+
+    public static void main(String[] args) {
+        StarterTestConfig.startLwjgl3(new FastTesterMain(screenTestClass),
+                TestContants.BASIC_WITDH, TestContants.BASIC_HEIGHT);
+    }
 }
