@@ -3,9 +3,9 @@ package com.nzt.gdx.math.intersectors;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
-import com.nzt.gdx.math.shape.Segment2D;
-import com.nzt.gdx.math.shape.utils.RectangleUtils;
-import com.nzt.gdx.math.shape.utils.Segment2DUtils;
+import com.nzt.gdx.math.shapes.Segment2D;
+import com.nzt.gdx.math.shapes.utils.RectangleUtils;
+import com.nzt.gdx.math.shapes.utils.Segment2DUtils;
 import com.nzt.gdx.math.vectors.V;
 
 public class IntersectorSegmentRectangle {

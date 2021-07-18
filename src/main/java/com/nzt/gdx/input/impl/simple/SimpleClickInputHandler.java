@@ -19,7 +19,6 @@ public abstract class SimpleClickInputHandler extends BaseInputHandler {
         return false;
     }
 
-
     @Override
     public boolean doTouchDragged(int screenX, int screenY, int pointer) {
         return false;
@@ -34,5 +33,4 @@ public abstract class SimpleClickInputHandler extends BaseInputHandler {
     public boolean doScrolled(float amountX, float amountY) {
         return false;
     }
-
 }

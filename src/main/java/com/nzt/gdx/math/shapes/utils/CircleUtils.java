@@ -1,5 +1,6 @@
-package com.nzt.gdx.math.shape.utils;
+package com.nzt.gdx.math.shapes.utils;
 
+import com.badlogic.gdx.math.Circle;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
@@ -7,6 +8,10 @@ import com.badlogic.gdx.math.Vector3;
 public class CircleUtils {
 
     private CircleUtils() {
+    }
+
+    public static Vector2 positionOnACircleWithAngle(Circle cirle, float angleRadian, Vector2 returnV) {
+        return positionOnACircleWithAngle(cirle.x, cirle.y, cirle.radius, angleRadian, returnV);
     }
 
     public static Vector2 positionOnACircleWithAngle(float xP, float yP, float rayon, float angleRadian, Vector2 returnV) {

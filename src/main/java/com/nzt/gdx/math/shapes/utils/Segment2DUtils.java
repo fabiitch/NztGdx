@@ -1,8 +1,8 @@
-package com.nzt.gdx.math.shape.utils;
+package com.nzt.gdx.math.shapes.utils;
 
 import com.badlogic.gdx.math.Intersector;
 import com.badlogic.gdx.math.Vector2;
-import com.nzt.gdx.math.shape.Segment2D;
+import com.nzt.gdx.math.shapes.Segment2D;
 
 public class Segment2DUtils {
 

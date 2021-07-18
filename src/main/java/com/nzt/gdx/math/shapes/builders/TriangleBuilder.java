@@ -1,7 +1,7 @@
-package com.nzt.gdx.math.shape.builders;
+package com.nzt.gdx.math.shapes.builders;
 
 import com.badlogic.gdx.math.Vector2;
-import com.nzt.gdx.math.shape.Triangle;
+import com.nzt.gdx.math.shapes.Triangle;
 
 public class TriangleBuilder {
 

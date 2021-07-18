@@ -2,8 +2,8 @@ package com.nzt.gdx.test.api.math.shape.utils;
 
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
-import com.nzt.gdx.math.shape.Segment2D;
-import com.nzt.gdx.math.shape.utils.RectangleUtils;
+import com.nzt.gdx.math.shapes.Segment2D;
+import com.nzt.gdx.math.shapes.utils.RectangleUtils;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

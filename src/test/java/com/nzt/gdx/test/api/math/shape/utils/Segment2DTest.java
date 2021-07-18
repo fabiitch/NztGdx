@@ -1,7 +1,7 @@
 package com.nzt.gdx.test.api.math.shape.utils;
 
 import com.badlogic.gdx.math.Vector2;
-import com.nzt.gdx.math.shape.Segment2D;
+import com.nzt.gdx.math.shapes.Segment2D;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

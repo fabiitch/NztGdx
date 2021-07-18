@@ -2,7 +2,7 @@ package com.nzt.gdx.test.api.math.shape;
 
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
-import com.nzt.gdx.math.shape.Triangle;
+import com.nzt.gdx.math.shapes.Triangle;
 import com.nzt.gdx.test.api.math.vectors.VTestUtils;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

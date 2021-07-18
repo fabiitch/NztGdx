@@ -1,4 +1,4 @@
-package com.nzt.gdx.math.shape;
+package com.nzt.gdx.math.shapes;
 
 import com.badlogic.gdx.math.GeometryUtils;
 import com.badlogic.gdx.math.Polygon;
