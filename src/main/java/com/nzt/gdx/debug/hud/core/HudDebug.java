@@ -50,7 +50,16 @@ public class HudDebug {
             return instance.container.exist(key);
         }
     }
-
+    public static Color getColor(String key) {
+        if (instance == null) {
+            for (HudDebugPreInitItem item : arrayBeforeInit)
+                if (key.equals(item.name))
+                    return item.color;
+            return Color.WHITE;
+        } else {
+            return instance.container.getColor(key);
+        }
+    }
     public static void remove(String key) {
         if (instance == null) {
             for (HudDebugPreInitItem item : arrayBeforeInit) {

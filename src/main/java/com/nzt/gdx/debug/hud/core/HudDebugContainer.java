@@ -39,11 +39,19 @@ class HudDebugContainer {
 			removeCount(positionOnStage);
 			HudDebugUtils.replaceLabels(positionOnStage, positionLabel, stage, mapLabels);
 		}
-	}
+    }
 
-	public boolean exist(String label) {
-		return mapLabels.get(label) != null;
-	}
+    public boolean exist(String key) {
+        return mapLabels.get(key) != null;
+    }
+
+    public Color getColor(String key) {
+        HudDebugLabel hudDebugLabel = mapLabels.get(key);
+        if (hudDebugLabel != null)
+            return hudDebugLabel.getColor();
+        else
+            return Color.WHITE;
+    }
 
 	public void changeColor(String key, Color color) {
 		HudDebugUtils.changeColor(key, color, mapLabels);

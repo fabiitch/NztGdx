@@ -2,6 +2,7 @@ package com.nzt.gdx.test.trials.tester.selector;
 
 import org.reflections.Reflections;
 
+import java.lang.reflect.Modifier;
 import java.util.Set;
 
 public class STScanner {
@@ -17,6 +18,8 @@ public class STScanner {
         rootCaseTest.parent = rootCaseTest;
 
         for (Class<?> classTest : allTestScreenClasses) {
+            if (Modifier.isAbstract(classTest.getModifiers()))
+                continue;
             TestScreenList annotationTest = classTest.getAnnotation(TestScreenList.class);
             String[] groupName = annotationTest.group().split(TestScreenList.SEPARATOR);
             if (groupName.length == 0 || annotationTest.group().equals("")) { // 1er groupe
