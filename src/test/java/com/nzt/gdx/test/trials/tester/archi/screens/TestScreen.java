@@ -27,10 +27,10 @@ public abstract class TestScreen extends SimpleTestScreen {
         this.debugHud = new HudDebug(nzStage, skin);
         this.glProfiler = main.logManager.nzGlProfiler;
         glProfiler.setScreen(this);
+        addInfoTestMsg();
     }
 
-    @Override
-    public void doShow() {
+    protected void addInfoTestMsg(){
         if (getExplication() != null) {
             HudDebug.addTopLeft("ST Target", getExplication());
             HudDebug.addTopLeft("--------", "--------");

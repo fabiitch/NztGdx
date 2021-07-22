@@ -10,6 +10,10 @@ public class CircleUtils {
     private CircleUtils() {
     }
 
+    public static Vector2 getCenter(Circle circle, Vector2 center) {
+        return center.set(circle.x, circle.y);
+    }
+
     public static Vector2 positionOnACircleWithAngle(Circle cirle, float angleRadian, Vector2 returnV) {
         return positionOnACircleWithAngle(cirle.x, cirle.y, cirle.radius, angleRadian, returnV);
     }

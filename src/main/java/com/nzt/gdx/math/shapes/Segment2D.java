@@ -12,9 +12,6 @@ public class Segment2D implements Shape2D{//TODO remove vector //TODO viré par 
     public Vector2 a;
     public Vector2 b;
 
-    private final Vector2 dir = new Vector2();
-    private final Vector2 tmp = new Vector2();
-
     public Segment2D() {
         this.a = new Vector2();
         this.b = new Vector2();
@@ -34,7 +31,7 @@ public class Segment2D implements Shape2D{//TODO remove vector //TODO viré par 
         return Intersector.intersectSegmentRectangle(this.a, this.b, rect);
     }
 
-    public Vector2 getDir() {
+    public Vector2 getDir(Vector2 dir) {
         float dx = b.x - a.x;
         float dy = b.y - a.y;
         return dir.set(dx, dy).nor();
@@ -48,8 +45,8 @@ public class Segment2D implements Shape2D{//TODO remove vector //TODO viré par 
         return a.dst(b);
     }
 
-    public Vector2 getNormale() {
-        Vector2 dir = getDir();
+    public Vector2 getNormale(Vector2 normal) {
+        Vector2 dir = getDir(normal);
         return new Vector2(-dir.y, dir.x);
     }
 
