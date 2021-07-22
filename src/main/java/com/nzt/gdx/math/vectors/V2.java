@@ -1,6 +1,7 @@
 package com.nzt.gdx.math.vectors;
 
 import com.badlogic.gdx.math.MathUtils;
+import com.badlogic.gdx.math.Vector;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
 
@@ -12,6 +13,16 @@ public class V2 {
 
     private V2() {
 
+    }
+
+    public static Vector2 inv(Vector2 v) {
+        v.x = -v.x;
+        v.y = -v.y;
+        return v;
+    }
+
+    public static Vector2 directionTo(Vector2 from, Vector2 to, Vector2 result) {
+        return result.set(to.x - from.x, to.y - from.y).nor();
     }
 
     public static float[] toFloatArray(Array<Vector2> array) {

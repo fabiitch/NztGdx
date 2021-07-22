@@ -4,7 +4,7 @@ import com.badlogic.gdx.math.Circle;
 import com.badlogic.gdx.math.Intersector;
 import com.badlogic.gdx.math.Polygon;
 import com.badlogic.gdx.math.Vector2;
-import com.nzt.gdx.math.intersectors.IntersectorCirclePolygon;
+import com.nzt.gdx.math.intersectors.IntersectorCircle;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -26,7 +26,7 @@ public class IntersectorCirclePolygonTest {
         Circle circle = new Circle(0, 0, 200);
 
         Polygon polygon = new Polygon(new float[]{0, 300, 300, 0, -250, 0});
-        boolean intersect = IntersectorCirclePolygon.circlePolygon(circle, polygon);
+        boolean intersect = IntersectorCircle.circlePolygon(circle, polygon);
         assertTrue(intersect);
     }
 }

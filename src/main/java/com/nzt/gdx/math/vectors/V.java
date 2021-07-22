@@ -4,22 +4,21 @@ import com.badlogic.gdx.math.Vector;
 import com.badlogic.gdx.utils.Array;
 
 public class V {
-	
+
 	private V() {
-		
+
 	}
 
-    //TODO viré le cpy
-    public static <V extends Vector<V>> V directionTo(V from, V to) {
-        return from.cpy().sub(to).nor();
-    }
-    //TODO viré le cpy
-    public static <V extends Vector<V>> V getVelocityTo(float time, V from, V to) {
-        V directionTo = directionTo(from, to);
-        float dst = from.dst(to);
-        V scl = directionTo.scl(dst / time);
-        return scl;
-    }
+//    public static <V extends Vector<V>> V directionTo(V from, V to, V result) {
+//	    return result.scl(from).sub(to).nor();
+//    }
+
+//    public static <V extends Vector<V>> V getVelocityTo(float time, V from, V to,V result) {
+//        V directionTo = directionTo(from, to, result);
+//        float dst = from.dst(to);
+//        V scl = directionTo.scl(dst / time);
+//        return scl;
+//    }
 
     //TODO chai pas http://www.3dkingdoms.com/weekly/weekly.php?a=2
     //https://gamedev.stackexchange.com/questions/23672/determine-resulting-angle-of-wall-collision
