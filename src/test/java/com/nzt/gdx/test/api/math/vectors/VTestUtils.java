@@ -21,8 +21,8 @@ public class VTestUtils {
 		float x2 = v2.x;
 		float y2 = v2.y;
 
-		Assertions.assertEquals(x1, x2, tolerance);
-		Assertions.assertEquals(y1, y2, tolerance);
+		Assertions.assertEquals(x1, x2, tolerance, "x not equals");
+		Assertions.assertEquals(y1, y2, tolerance, "y not equals");
 	}
 
 	public static void assertEquals(Vector3 v1, Vector3 v2) {
@@ -38,8 +38,8 @@ public class VTestUtils {
 		float y2 = v2.y;
 		float z2 = v2.z;
 
-		Assertions.assertEquals(x1, x2, tolerance);
-		Assertions.assertEquals(y1, y2, tolerance);
-		Assertions.assertEquals(z1, z2, tolerance);
+		Assertions.assertEquals(x1, x2, tolerance,"x not equals");
+		Assertions.assertEquals(y1, y2, tolerance,"y not equals");
+		Assertions.assertEquals(z1, z2, tolerance,"z not equals");
 	}
 }

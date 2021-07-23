@@ -8,7 +8,7 @@ import com.nzt.gdx.math.shapes.utils.RectangleUtils;
 
 public class IntersectorPolygon {
     public static Intersector.MinimumTranslationVector tmpTranslationVector = new Intersector.MinimumTranslationVector();
-    private static float[] tmpVerticesArray = new float[8];
+    private static float[] tmpRectVertices = new float[8];
 
     public static boolean circle(Circle circle, Polygon polygon) {
         return IntersectorCircle.circlePolygon(circle, polygon);
@@ -19,10 +19,10 @@ public class IntersectorPolygon {
     }
 
     public static boolean rectangle(Polygon polygon, Rectangle rectangle) {
-        return Intersector.overlapConvexPolygons(polygon.getTransformedVertices(), RectangleUtils.getAsVertices(rectangle, tmpVerticesArray), null);
+        return Intersector.overlapConvexPolygons(polygon.getTransformedVertices(), RectangleUtils.getAsVertices(rectangle, tmpRectVertices), null);
     }
 
     public static boolean rectangle(Polygon polygon, Rectangle rectangle, Intersector.MinimumTranslationVector translationVector) {
-        return Intersector.overlapConvexPolygons(polygon.getTransformedVertices(), RectangleUtils.getAsVertices(rectangle, tmpVerticesArray), translationVector);
+        return Intersector.overlapConvexPolygons(polygon.getTransformedVertices(), RectangleUtils.getAsVertices(rectangle, tmpRectVertices), translationVector);
     }
 }

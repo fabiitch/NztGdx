@@ -4,6 +4,7 @@ import com.badlogic.gdx.math.Intersector;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Shape2D;
 import com.badlogic.gdx.math.Vector2;
+import com.nzt.gdx.math.shapes.utils.Segment2DUtils;
 
 import java.util.Objects;
 
@@ -25,6 +26,10 @@ public class Segment2D implements Shape2D{//TODO remove vector //TODO viré par 
     public Segment2D(float aX, float aY, float bX, float bY) {
         this.a = new Vector2(aX, aY);
         this.b = new Vector2(bX, bY);
+    }
+
+    public Vector2 nearestPoint(Vector2 point, Vector2 result) {
+        return Segment2DUtils.nearestPoint(this, point, result);
     }
 
     public boolean intersectRectangle(Rectangle rect, Vector2 intersectionPoint) {//TODO ??
