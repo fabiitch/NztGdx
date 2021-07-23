@@ -1,9 +1,8 @@
 package com.nzt.gdx.math.intersectors;
 
-import com.badlogic.gdx.math.Circle;
-import com.badlogic.gdx.math.Intersector;
-import com.badlogic.gdx.math.Polygon;
-import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.math.*;
+import com.nzt.gdx.math.shapes.utils.PolygonUtils;
+import com.nzt.gdx.math.shapes.utils.RectangleUtils;
 import com.nzt.gdx.math.vectors.V2;
 
 public class IntersectorCircle {
@@ -13,6 +12,8 @@ public class IntersectorCircle {
     private static Vector2 tmp3 = new Vector2();
     private static Vector2 tmp4 = new Vector2();
     private static Vector2 tmp5 = new Vector2();
+
+    private static float[] tmpRectVertices = new float[8];
 
 
     public static boolean circlePolygon(Circle circle, Polygon polygon) {
@@ -32,6 +33,20 @@ public class IntersectorCircle {
         return Intersector.intersectSegmentCircle(tmp, tmp2, circle, null);
     }
 
+    /**
+     * @return intersect
+     * goOut set  to put circle out of  rectangle
+     */
+    public static boolean replaceCircleRectangle(Circle circle, Rectangle rectangle, Vector2 goOut) {
+        RectangleUtils.getAsVertices(rectangle, tmpRectVertices);
+        Polygon tmpPolygon = PolygonUtils.getTmpPolygon(tmpRectVertices);
+        return replaceCirclePolygon(circle, tmpPolygon, goOut);
+    }
+
+    /**
+     * @return intersect
+     * goOut set  to put circle out of polygons
+     */
     public static boolean replaceCirclePolygon(Circle circle, Polygon polygon, Vector2 goOut) {
         tmp3.set(circle.x, circle.y);
         float dstMin = Float.MAX_VALUE;
@@ -73,4 +88,5 @@ public class IntersectorCircle {
         goOut.set(tmp2);
         return true;
     }
+
 }

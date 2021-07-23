@@ -5,8 +5,31 @@ import com.badlogic.gdx.math.Polygon;
 import com.badlogic.gdx.math.Vector2;
 
 public class PolygonUtils {
+
+    public static Polygon tmpPolygon = new Polygon(); //TODO mathSett
+    public static Vector2 tmpVector = new Vector2(); //TODO mathSett
+
     private PolygonUtils() {
 
+    }
+
+    public static float getMaxDstVertexFromZero(Polygon polygon) {
+        float[] vertices = polygon.getTransformedVertices();
+        Vector2 tmp = PolygonUtils.tmpVector;
+        int i = 0;
+        float dstMin = Float.MAX_VALUE;
+        while (i <= vertices.length / 2) {
+            tmp.set(vertices[i], vertices[i + 1]);
+            float dst = tmp.dst(0, 0);
+            dstMin = Math.min(dstMin, dst);
+            i+=2;
+        }
+        return dstMin;
+    }
+
+    public static Polygon getTmpPolygon(float[] vertices) {
+        tmpPolygon.setVertices(vertices);
+        return tmpPolygon;
     }
 
     public static Vector2 getCenter(Polygon polygon, Vector2 toSet) {
