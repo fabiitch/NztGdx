@@ -43,7 +43,7 @@ public class STFrameBuffer extends TestScreen {
     }
 
     @Override
-    public String getExplication() {
+    public String getTestExplication() {
         return "FrameBuffer test";
     }
 

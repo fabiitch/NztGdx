@@ -29,7 +29,7 @@ public class STVector2 extends TestScreen {
     }
 
     @Override
-    public String getExplication() {
+    public String getTestExplication() {
         return "Test Vector2";
     }
 

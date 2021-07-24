@@ -12,7 +12,7 @@ public class STHudDebugButton extends TestScreen {
     }
 
     @Override
-    public String getExplication() {
+    public String getTestExplication() {
         return "Not Impl";
     }
 

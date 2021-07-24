@@ -36,7 +36,7 @@ public class ST3DModelViewer extends BaseST3D {
     }
 
     @Override
-    public String getExplication() {
+    public String getTestExplication() {
         return "Model viewer";
     }
 

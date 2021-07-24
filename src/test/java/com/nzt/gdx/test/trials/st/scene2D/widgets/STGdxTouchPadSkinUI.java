@@ -17,7 +17,7 @@ public class STGdxTouchPadSkinUI extends TestScreen {
     }
 
     @Override
-    public String getExplication() {
+    public String getTestExplication() {
         return "Test TouchPad d'un skin";
     }
 

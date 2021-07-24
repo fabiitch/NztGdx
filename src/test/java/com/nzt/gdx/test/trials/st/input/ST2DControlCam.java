@@ -17,7 +17,7 @@ public class ST2DControlCam extends BaseST2DControlCam {
     }
 
     @Override
-    public String getExplication() {
+    public String getTestExplication() {
         return "Camera control en 2D, ZQSD for move or click/drag";
     }
 

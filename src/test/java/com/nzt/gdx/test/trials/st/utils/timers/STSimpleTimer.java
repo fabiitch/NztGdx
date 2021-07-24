@@ -54,7 +54,7 @@ public class STSimpleTimer extends TestScreen {
     }
 
     @Override
-    public String getExplication() {
+    public String getTestExplication() {
         return "Test timer api";
     }
 

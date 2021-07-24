@@ -26,7 +26,7 @@ public class STMallocTrackingHudDebug extends TestScreen {
     }
 
     @Override
-    public String getExplication() {
+    public String getTestExplication() {
         return "Cherche alloc sur HudDebug";
     }
 

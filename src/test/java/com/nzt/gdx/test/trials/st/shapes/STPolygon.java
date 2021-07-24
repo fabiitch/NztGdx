@@ -37,7 +37,7 @@ public class STPolygon extends TestScreen {
     boolean rotate = true;
 
     @Override
-    public String getExplication() {
+    public String getTestExplication() {
         return "Polygon Test";
     }
 

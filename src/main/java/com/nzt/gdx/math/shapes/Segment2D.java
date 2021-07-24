@@ -42,8 +42,8 @@ public class Segment2D implements Shape2D{//TODO remove vector //TODO viré par 
         return dir.set(dx, dy).nor();
     }
 
-    public Vector2 getMiddle() {
-        return new Vector2((a.x + b.x) / 2, (a.y + b.y) / 2);
+    public Vector2 getMiddle(Vector2 result) {
+        return result.set((a.x + b.x) / 2, (a.y + b.y) / 2);
     }
 
     public float getDst() {
@@ -52,7 +52,9 @@ public class Segment2D implements Shape2D{//TODO remove vector //TODO viré par 
 
     public Vector2 getNormale(Vector2 normal) {
         Vector2 dir = getDir(normal);
-        return new Vector2(-dir.y, dir.x);
+        float newX = -dir.y;
+        float newY = dir.x;
+        return normal.set(newX,newY);
     }
 
     public void set(float aX, float aY, float bX, float bY) {

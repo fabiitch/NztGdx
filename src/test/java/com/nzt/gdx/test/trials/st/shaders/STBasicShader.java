@@ -29,7 +29,7 @@ public class STBasicShader extends TestScreen {
 	}
 
 	@Override
-	public String getExplication() {
+	public String getTestExplication() {
 		return "Shader discover";
 	}
 

@@ -47,6 +47,23 @@ public class V2Test {
 
     }
 
+    @Test
+    public void setDirTest() {
+        Vector2 velocity;
+
+        velocity = V2.changeDirection(v(50, 0), v(-1, 0));
+        VTestUtils.assertEquals(v(-50, 0), velocity);
+
+        velocity = V2.changeDirection(v(0, 10), v(1, 0));
+        VTestUtils.assertEquals(v(10, 0), velocity);
+
+        velocity = V2.changeDirection(v(50, 50), v(-1, 0));
+        VTestUtils.assertEquals(v(-70, 0f), velocity, 1);
+
+        velocity = V2.changeDirection(v(10, -10), v(0, 1));
+        VTestUtils.assertEquals(v(0, 14), velocity,1);
+    }
+
     private Vector2 v(float a, float b) {
         return new Vector2(a, b);
     }

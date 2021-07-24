@@ -53,7 +53,7 @@ public class STPerformanceCounter extends TestScreen {
 	}
 
 	@Override
-	public String getExplication() {
+	public String getTestExplication() {
 		return "";
 	}
 

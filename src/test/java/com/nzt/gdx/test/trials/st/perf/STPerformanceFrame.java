@@ -46,7 +46,7 @@ public class STPerformanceFrame extends TestScreen {
 	}
 
 	@Override
-	public String getExplication() {
+	public String getTestExplication() {
 		return "Performance frame Test";
 	}
 
