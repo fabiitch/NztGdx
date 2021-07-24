@@ -109,7 +109,7 @@ public class STTriangle extends TestScreen {
     }
 
     @Override
-    public String getExplication() {
+    public String getTestExplication() {
         return "Test Triangle Shape";
     }
 

@@ -12,7 +12,7 @@ public class STPoolableTask extends TestScreen {
     }
 
     @Override
-    public String getExplication() {
+    public String getTestExplication() {
         return null;
     }
 

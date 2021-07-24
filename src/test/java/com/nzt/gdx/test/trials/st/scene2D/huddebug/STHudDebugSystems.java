@@ -37,7 +37,7 @@ public class STHudDebugSystems extends BaseSystemTestScreen {
 	}
 
 	@Override
-	public String getExplication() {
+	public String getTestExplication() {
 		return "Test des system qui log sur HudDebug";
 	}
 

@@ -41,7 +41,7 @@ public class ST3DLoadModel extends BaseST3D {
     }
 
     @Override
-    public String getExplication() {
+    public String getTestExplication() {
         return "Load 3D model";
     }
 

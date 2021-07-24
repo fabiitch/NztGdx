@@ -15,7 +15,7 @@ public class STMallocTrackingSystem extends BaseSystemTestScreen {
     }
 
     @Override
-    public String getExplication() {
+    public String getTestExplication() {
         return "System qui tracke les alloc sur Gdx";
     }
 

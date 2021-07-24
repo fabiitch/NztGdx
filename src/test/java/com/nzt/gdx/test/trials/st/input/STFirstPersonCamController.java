@@ -49,7 +49,7 @@ public class STFirstPersonCamController extends TestScreen {
 
     //TODO change to azerty
     @Override
-    public String getExplication() {
+    public String getTestExplication() {
         return "Test First Person controller, TODO change to azerty after commit merged";
     }
 

@@ -73,7 +73,7 @@ public class STPools extends TestScreen {
     }
 
     @Override
-    public String getExplication() {
+    public String getTestExplication() {
         return "Test class who can be pooled";
     }
 

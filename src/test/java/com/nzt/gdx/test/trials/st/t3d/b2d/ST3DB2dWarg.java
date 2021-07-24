@@ -47,7 +47,7 @@ public class ST3DB2dWarg extends BaseST3D {
     }
 
     @Override
-    public String getExplication() {
+    public String getTestExplication() {
         return "Display Ward model in B2D size camera";
     }
 

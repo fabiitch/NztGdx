@@ -40,7 +40,7 @@ public class ST3DHightPoly extends BaseST3D {
     }
 
     @Override
-    public String getExplication() {
+    public String getTestExplication() {
         return "Test Hight poly";
     }
 

@@ -23,7 +23,7 @@ public class STPolyline extends TestScreen {
     }
 
     @Override
-    public String getExplication() {
+    public String getTestExplication() {
         return null;
     }
 

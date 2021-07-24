@@ -28,6 +28,14 @@ public class V2 {
         return tmp.set(vector3.x, vector3.y);
     }
 
+
+    public static Vector2 changeDirection(Vector2 velocity, Vector2 dir) {
+        dir.nor();
+        float len = velocity.len();
+        velocity.set(dir).setLength(len);
+        return velocity;
+    }
+
     public static Vector2 inv(Vector2 v) {
         v.x = -v.x;
         v.y = -v.y;

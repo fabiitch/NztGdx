@@ -28,7 +28,7 @@ public class STMallocTracking extends TestScreen {
     }
 
     @Override
-    public String getExplication() {
+    public String getTestExplication() {
         return "Cherche alloc sur TestScreen";
     }
 

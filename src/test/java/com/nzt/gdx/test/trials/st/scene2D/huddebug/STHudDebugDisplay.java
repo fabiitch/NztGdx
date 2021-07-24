@@ -46,7 +46,7 @@ public class STHudDebugDisplay extends TestScreen {
     }
 
     @Override
-    public String getExplication() {
+    public String getTestExplication() {
         return "Placement sur HudDebug";
     }
 

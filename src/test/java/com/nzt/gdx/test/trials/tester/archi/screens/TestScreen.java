@@ -31,8 +31,8 @@ public abstract class TestScreen extends SimpleTestScreen {
     }
 
     protected void addInfoTestMsg(){
-        if (getExplication() != null) {
-            HudDebug.addTopLeft("ST Target", getExplication());
+        if (getTestExplication() != null) {
+            HudDebug.addTopLeft("ST Target", getTestExplication());
             HudDebug.addTopLeft("--------", "--------");
         }
     }
@@ -49,7 +49,7 @@ public abstract class TestScreen extends SimpleTestScreen {
         }
     }
 
-    public abstract String getExplication();
+    public abstract String getTestExplication();
 
     public void addHudToGlProfiler() {
         glProfiler.initHudDebug(HudDebugPosition.BOT_RIGHT, Color.WHITE);

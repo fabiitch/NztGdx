@@ -44,7 +44,7 @@ public class ST3DOrthoCam extends BaseST3D {
     }
 
     @Override
-    public String getExplication() {
+    public String getTestExplication() {
         return "3D ortho cam";
     }
 

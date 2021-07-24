@@ -12,12 +12,17 @@ public class AngleUtils {
 
     private static Vector2 tmp = new Vector2();
 
-    public static float angleIncidenceDeg(float angleReflexionDeg) {
+    public static float reflexionToIncidence(float angleReflexionDeg) {
         return 180 + angleReflexionDeg;
     }
 
     public static float angleIncidenceRad(float angleReflexionRad) {
         return MathUtils.PI + angleReflexionRad;
+    }
+
+
+    public static float angleIncidenceDeg(Segment2D segment, Vector2 dir) {
+        return reflexionToIncidence(angleReflexionDeg(segment, dir));
     }
 
     public static float angleReflexionDeg(Segment2D segment, Vector2 dir) {
@@ -30,7 +35,7 @@ public class AngleUtils {
         return V2.angleRad(normal) - (V2.angleRad(dir) - V2.angleRad(normal));
     }
 
-    public static float angleIncidenceDeg(Segment2D segment, Vector2 dir) {
+    public static float reflexionToIncidence(Segment2D segment, Vector2 dir) {
         return 180 + angleReflexionDeg(segment, dir);
     }
 

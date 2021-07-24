@@ -48,7 +48,7 @@ public class ST3DB2dCubeColor extends BaseST3D {
     }
 
     @Override
-    public String getExplication() {
+    public String getTestExplication() {
         return "Cube Color";
     }
 
