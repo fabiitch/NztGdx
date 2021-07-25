@@ -10,7 +10,7 @@ import com.badlogic.gdx.utils.Array;
  * Static method for Vector2 using mathUtils (no native)
  */
 public class V2 {
-    private static Vector2 tmp = new Vector2(); // TODO use ? server pb?
+    public static Vector2 tmp = new Vector2(); // TODO use ? server pb?
 
     private V2() {
 
@@ -34,6 +34,10 @@ public class V2 {
         float len = velocity.len();
         velocity.set(dir).setLength(len);
         return velocity;
+    }
+
+    public static Vector2 set(Vector2 v, Vector3 values) {
+        return v.set(values.x, values.y);
     }
 
     public static Vector2 inv(Vector2 v) {
