@@ -5,11 +5,10 @@ import com.badlogic.gdx.utils.Timer;
 import com.nzt.gdx.debug.hud.HudDebugPosition;
 import com.nzt.gdx.debug.hud.core.HudDebug;
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
-import com.nzt.gdx.test.trials.tester.archi.screens.TestScreen;
 import com.nzt.gdx.test.trials.tester.selector.TestScreenList;
 
 @TestScreenList(group = "utils.timers")
-public class STSimpleTimer extends TestScreen {
+public class STSimpleTimer extends com.nzt.gdx.test.trials.tester.archi.screens.TestScreen {
 
     private int loopCount = 1;
     Timer.Task task1, task2, taskRepeat;

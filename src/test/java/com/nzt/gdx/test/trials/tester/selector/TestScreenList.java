@@ -5,6 +5,7 @@ import com.nzt.gdx.test.trials.NztTestListStarter;
 import java.lang.annotation.*;
 
 /**
+ * ST = Screen test
  * use this on TestScreen, the class will appears on {@link NztTestListStarter}
  * Group represent folder case, use . for specify path ex : group="input.camera"
  */
@@ -15,4 +16,5 @@ public @interface TestScreenList {
     String SEPARATOR = "\\.";
 
     String group() default "";
+
 }

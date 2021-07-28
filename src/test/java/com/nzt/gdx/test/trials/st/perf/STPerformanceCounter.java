@@ -8,14 +8,13 @@ import com.badlogic.gdx.utils.Timer;
 import com.badlogic.gdx.utils.Timer.Task;
 import com.nzt.gdx.debug.hud.core.HudDebug;
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
-import com.nzt.gdx.test.trials.tester.archi.screens.TestScreen;
 import com.nzt.gdx.test.trials.tester.selector.TestScreenList;
 
 /**
  * Test class PerformanceCounters
  */
-@TestScreenList(group = "perf")
-public class STPerformanceCounter extends TestScreen {
+@TestScreenList(group = "utils.perf")
+public class STPerformanceCounter extends com.nzt.gdx.test.trials.tester.archi.screens.TestScreen {
 	private final PerformanceCounters counters;
 	PerformanceCounter counter1, counter2, counter3;
 

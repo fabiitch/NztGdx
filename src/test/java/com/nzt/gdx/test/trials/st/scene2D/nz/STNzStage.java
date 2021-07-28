@@ -10,7 +10,7 @@ import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
 import com.nzt.gdx.test.trials.tester.archi.screens.SimpleTestScreen;
 import com.nzt.gdx.test.trials.tester.selector.TestScreenList;
 
-@TestScreenList(group = "scene2D.nz")
+@TestScreenList(group = "scene2D")
 public class STNzStage extends SimpleTestScreen {
     private final NzStage nzStage;
     private final Image img1;

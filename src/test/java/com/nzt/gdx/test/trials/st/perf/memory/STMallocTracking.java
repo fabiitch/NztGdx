@@ -4,12 +4,11 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.nzt.gdx.debug.perf.PerformanceFrame;
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
-import com.nzt.gdx.test.trials.tester.archi.screens.TestScreen;
 import com.nzt.gdx.test.trials.tester.selector.TestScreenList;
 import com.nzt.gdx.utils.GdxUtils;
 
-@TestScreenList(group = "perf.malloc")
-public class STMallocTracking extends TestScreen {
+@TestScreenList(group = "utils.perf.malloc")
+public class STMallocTracking extends com.nzt.gdx.test.trials.tester.archi.screens.TestScreen {
     //TestScreen setTitle fait l'alloc
 
     private final long memoryStart;

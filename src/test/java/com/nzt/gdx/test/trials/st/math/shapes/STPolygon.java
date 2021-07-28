@@ -7,13 +7,11 @@ import com.badlogic.gdx.math.Polygon;
 import com.badlogic.gdx.math.Vector2;
 import com.nzt.gdx.math.shapes.utils.PolygonUtils;
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
-import com.nzt.gdx.test.trials.tester.archi.screens.TestScreen;
 import com.nzt.gdx.test.trials.tester.selector.TestScreenList;
 import com.nzt.gdx.utils.GdxUtils;
 
-
-@TestScreenList(group = "shapes")
-public class STPolygon extends TestScreen {
+@TestScreenList(group = "math.shapes")
+public class STPolygon extends com.nzt.gdx.test.trials.tester.archi.screens.TestScreen {
     private BitmapFont font;
 
 

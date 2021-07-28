@@ -6,12 +6,11 @@ import com.badlogic.gdx.math.Circle;
 import com.badlogic.gdx.math.Vector2;
 import com.nzt.gdx.math.shapes.utils.CircleUtils;
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
-import com.nzt.gdx.test.trials.tester.archi.screens.TestScreen;
 import com.nzt.gdx.test.trials.tester.selector.TestScreenList;
 import com.nzt.gdx.utils.GdxUtils;
 
-@TestScreenList(group = "shapes.circle")
-abstract class BaseSTCircle extends TestScreen {
+@TestScreenList(group = "math.shapes.circle")
+abstract class BaseSTCircle extends com.nzt.gdx.test.trials.tester.archi.screens.TestScreen {
     Circle circle;
     Vector2 touch = new Vector2();//where userTouch screen
     Vector2 circleCenter = new Vector2();

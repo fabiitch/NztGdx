@@ -7,11 +7,10 @@ import com.nzt.gdx.debug.PoolsDebug;
 import com.nzt.gdx.debug.hud.HudDebugPosition;
 import com.nzt.gdx.debug.hud.core.HudDebug;
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
-import com.nzt.gdx.test.trials.tester.archi.screens.TestScreen;
 import com.nzt.gdx.test.trials.tester.selector.TestScreenList;
 
 @TestScreenList(group = "utils")
-public class STPools extends TestScreen {
+public class STPools extends com.nzt.gdx.test.trials.tester.archi.screens.TestScreen {
     public STPools(FastTesterMain main) {
         super(main);
         glProfiler.removeHudDebug();

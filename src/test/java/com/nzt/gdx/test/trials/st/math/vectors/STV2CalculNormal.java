@@ -6,15 +6,14 @@ import com.badlogic.gdx.math.Vector2;
 import com.nzt.gdx.input.impl.simple.SimpleClickInputHandler;
 import com.nzt.gdx.math.vectors.V2;
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
-import com.nzt.gdx.test.trials.tester.archi.screens.TestScreen;
 import com.nzt.gdx.test.trials.tester.selector.TestScreenList;
 import com.nzt.gdx.utils.GdxUtils;
 
-@TestScreenList(group = "math.vector2")
-public class STV2CalculNormal extends TestScreen {
+@TestScreenList(group = "math.vertor2")
+public class STV2CalculNormal extends com.nzt.gdx.test.trials.tester.archi.screens.TestScreen {
 
     private Vector2 vector2 = new Vector2(150, 0);
-    private Vector2 tangent = new Vector2(150, 0);
+    private Vector2 tangent = new Vector2(50, 0);
     private Vector2 middle;
 
 
@@ -63,7 +62,7 @@ public class STV2CalculNormal extends TestScreen {
         shapeRenderer.setColor(Color.RED);
         shapeRenderer.line(middle.cpy().add(vector2), middle.cpy().sub(vector2));
         shapeRenderer.setColor(Color.BLUE);
-        shapeRenderer.line(middle.cpy().add(tangent), middle.cpy().sub(tangent));
+        shapeRenderer.line(middle, middle.cpy().add(tangent));
 
         shapeRenderer.setColor(Color.PURPLE);
         if (!definePosA) {

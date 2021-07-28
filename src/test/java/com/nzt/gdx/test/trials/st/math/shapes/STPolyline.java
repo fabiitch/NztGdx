@@ -5,12 +5,11 @@ import com.badlogic.gdx.math.Polyline;
 import com.badlogic.gdx.math.Vector2;
 import com.nzt.gdx.debug.hud.core.HudDebug;
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
-import com.nzt.gdx.test.trials.tester.archi.screens.TestScreen;
 import com.nzt.gdx.test.trials.tester.selector.TestScreenList;
 import com.nzt.gdx.utils.GdxUtils;
 
-@TestScreenList(group = "shapes")
-public class STPolyline extends TestScreen {
+@TestScreenList(group = "math.shapes")
+public class STPolyline extends com.nzt.gdx.test.trials.tester.archi.screens.TestScreen {
     Vector2 middle = GdxUtils.getScreenCenter(new Vector2());
     Polyline polyline1 = new Polyline(new float[]{middle.x, middle.y, middle.x + 50, middle.y + 50});
 
