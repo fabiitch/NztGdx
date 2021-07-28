@@ -1,4 +1,4 @@
-package com.nzt.gdx.test.trials.st.shapes;
+package com.nzt.gdx.test.trials.st.math.shapes;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
@@ -35,13 +35,13 @@ public class STVector2 extends TestScreen {
 
     @Override
     public void renderTestScreen(float dt) {
-        nzShapeRenderer.begin();
+        shapeRenderer.begin();
         oldDir.rotateDeg(1);
         newDir.rotateDeg(-1);
         draw(oldDir, Color.GREEN);
         draw(newDir, Color.RED);
 //        draw(result, Color.YELLOW);
-        nzShapeRenderer.end();
+        shapeRenderer.end();
     }
 
     @Override
@@ -55,7 +55,7 @@ public class STVector2 extends TestScreen {
     }
 
     private void draw(Vector2 v, Color color) {
-        nzShapeRenderer.setColor(color);
-        nzShapeRenderer.line(middle, getV(v));
+        shapeRenderer.setColor(color);
+        shapeRenderer.line(middle, getV(v));
     }
 }

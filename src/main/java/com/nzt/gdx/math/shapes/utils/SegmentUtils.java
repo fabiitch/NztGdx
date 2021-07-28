@@ -2,28 +2,28 @@ package com.nzt.gdx.math.shapes.utils;
 
 import com.badlogic.gdx.math.Intersector;
 import com.badlogic.gdx.math.Vector2;
-import com.nzt.gdx.math.shapes.Segment2D;
+import com.nzt.gdx.math.shapes.Segment;
 
-public class Segment2DUtils {
+public class SegmentUtils {
     private static Vector2 tmp = new Vector2();
 
-    private Segment2DUtils() {
+    private SegmentUtils() {
 
     }
 
-    public static Vector2 nearestPoint(Segment2D segment2D, Vector2 point, Vector2 result) {
+    public static Vector2 nearestPoint(Segment segment2D, Vector2 point, Vector2 result) {
         return Intersector.nearestSegmentPoint(segment2D.a, segment2D.b, point, result);
     }
 
-    public static Vector2 getSegmentIntersection(Segment2D s1, Segment2D s2) {
+    public static Vector2 getSegmentIntersection(Segment s1, Segment s2) {
         return getSegmentIntersection(s1.a, s1.b, s2.a, s2.b);
     }
 
-    public static Vector2 intersect(Segment2D s1, Segment2D s2) {
+    public static Vector2 intersect(Segment s1, Segment s2) {
         return getSegmentIntersection(s1.a, s1.b, s2.a, s2.b);
     }
 
-    public static boolean getSegmentIntersection(Segment2D s1, Segment2D s2, Vector2 intersection) {
+    public static boolean getSegmentIntersection(Segment s1, Segment s2, Vector2 intersection) {
         return Intersector.intersectSegments(s1.a, s1.b, s2.a, s2.b, intersection);
     }
 
@@ -33,7 +33,7 @@ public class Segment2DUtils {
         return b ? intersection : null;
     }
 
-    public static float getAngleReflexion(Segment2D segment, Vector2 direction) {
+    public static float getAngleReflexion(Segment segment, Vector2 direction) {
         Vector2 normal = segment.getNormale(tmp);
         float angleReflection = normal.angleDeg() - (direction.angleDeg() - normal.angleDeg());
         return angleReflection;

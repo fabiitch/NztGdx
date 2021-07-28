@@ -26,7 +26,7 @@ public class IntersectorCirclePolygonTest {
         Circle circle = new Circle(0, 0, 200);
 
         Polygon polygon = new Polygon(new float[]{0, 300, 300, 0, -250, 0});
-        boolean intersect = IntersectorCircle.circlePolygon(circle, polygon);
+        boolean intersect = IntersectorCircle.polygon(circle, polygon);
         assertTrue(intersect);
     }
 }

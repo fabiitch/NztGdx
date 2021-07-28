@@ -1,6 +1,7 @@
 package com.nzt.gdx.math.intersectors;
 
 import com.badlogic.gdx.math.*;
+import com.nzt.gdx.math.shapes.Segment;
 import com.nzt.gdx.math.shapes.utils.PolygonUtils;
 import com.nzt.gdx.math.shapes.utils.RectangleUtils;
 import com.nzt.gdx.math.vectors.V2;
@@ -16,7 +17,7 @@ public class IntersectorCircle {
     private static float[] tmpRectVertices = new float[8];
 
 
-    public static boolean circlePolygon(Circle circle, Polygon polygon) {
+    public static boolean polygon(Circle circle, Polygon polygon) {
         float[] vertices = polygon.getTransformedVertices();
         int i = 0;
         while (i <= vertices.length / 2) {
@@ -37,17 +38,17 @@ public class IntersectorCircle {
      * @return intersect
      * goOut set  to put circle out of  rectangle
      */
-    public static boolean replaceCircleRectangle(Circle circle, Rectangle rectangle, Vector2 goOut) {
+    public static boolean replaceFromRectangle(Circle circle, Rectangle rectangle, Vector2 goOut) {
         RectangleUtils.getAsVertices(rectangle, tmpRectVertices);
         Polygon tmpPolygon = PolygonUtils.getTmpPolygon(tmpRectVertices);
-        return replaceCirclePolygon(circle, tmpPolygon, goOut);
+        return replaceFromPolygon(circle, tmpPolygon, goOut);
     }
 
     /**
      * @return intersect
      * goOut set  to put circle out of polygons
      */
-    public static boolean replaceCirclePolygon(Circle circle, Polygon polygon, Vector2 goOut) {
+    public static boolean replaceFromPolygon(Circle circle, Polygon polygon, Vector2 goOut) {
         tmp3.set(circle.x, circle.y);
         float dstMin = Float.MAX_VALUE;
 
@@ -89,4 +90,55 @@ public class IntersectorCircle {
         return true;
     }
 
+    public static int segmentIntersection(Circle circle, Segment segment,
+                                          Vector2 intersectionA, Vector2 intersectionB) {
+        return segmentIntersection(circle, segment.a, segment.b, intersectionA, intersectionB);
+    }
+
+
+    public static boolean firstSegmentIntersection(Circle circle, Segment segment, Vector2 intersection) {
+        int nbIntersection = segmentIntersection(circle, segment, intersection, null);
+        return nbIntersection > 0;
+    }
+    /**
+     * return nbIntersection
+     * @return
+     */
+    public static int segmentIntersection(Circle circle, Vector2 pointA, Vector2 pointB,
+                                          Vector2 intersectionA, Vector2 intersectionB) {
+        float baX = pointB.x - pointA.x;
+        float baY = pointB.y - pointA.y;
+        float caX = circle.x - pointA.x;
+        float caY = circle.y - pointA.y;
+
+        float a = baX * baX + baY * baY;
+        float bBy2 = baX * caX + baY * caY;
+        float c = caX * caX + caY * caY - circle.radius * circle.radius;
+
+        float pBy2 = bBy2 / a;
+        float q = c / a;
+
+        float disc = pBy2 * pBy2 - q;
+        if (disc < 0) {
+            return 0;
+        }
+        if (intersectionA == null) {
+            return disc == 0 ? 1 : 2;
+        }
+        // if disc == 0 ... dealt with later
+        float tmpSqrt = (float) Math.sqrt(disc);
+        float abScalingFactor1 = -pBy2 + tmpSqrt;
+        float abScalingFactor2 = -pBy2 - tmpSqrt;
+
+        intersectionA.set(pointA.x - baX * abScalingFactor1, pointA.y
+                - baY * abScalingFactor1);
+        if (disc == 0) { // abScalingFactor1 == abScalingFactor2
+            return 1;
+        }
+        if (intersectionB == null)
+            return 2;
+        intersectionB.set(pointA.x - baX * abScalingFactor2, pointA.y
+                - baY * abScalingFactor2);
+        return 2;
+    }
 }

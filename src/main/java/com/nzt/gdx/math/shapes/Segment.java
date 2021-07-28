@@ -4,32 +4,32 @@ import com.badlogic.gdx.math.Intersector;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Shape2D;
 import com.badlogic.gdx.math.Vector2;
-import com.nzt.gdx.math.shapes.utils.Segment2DUtils;
+import com.nzt.gdx.math.shapes.utils.SegmentUtils;
 
 import java.util.Objects;
 
 //TODO remove pour voir avec Polyline
-public class Segment2D implements Shape2D{//TODO remove vector //TODO viré par polyline
+public class Segment implements Shape2D{//TODO remove vector //TODO viré par polyline
     public Vector2 a;
     public Vector2 b;
 
-    public Segment2D() {
+    public Segment() {
         this.a = new Vector2();
         this.b = new Vector2();
     }
 
-    public Segment2D(Vector2 a, Vector2 b) {
+    public Segment(Vector2 a, Vector2 b) {
         this.a = a;
         this.b = b;
     }
 
-    public Segment2D(float aX, float aY, float bX, float bY) {
+    public Segment(float aX, float aY, float bX, float bY) {
         this.a = new Vector2(aX, aY);
         this.b = new Vector2(bX, bY);
     }
 
     public Vector2 nearestPoint(Vector2 point, Vector2 result) {
-        return Segment2DUtils.nearestPoint(this, point, result);
+        return SegmentUtils.nearestPoint(this, point, result);
     }
 
     public boolean intersectRectangle(Rectangle rect, Vector2 intersectionPoint) {//TODO ??
@@ -67,7 +67,7 @@ public class Segment2D implements Shape2D{//TODO remove vector //TODO viré par 
         this.b.set(b);
     }
 
-    public void set(Segment2D segment2D) {
+    public void set(Segment segment2D) {
         this.a = segment2D.a;
         this.b = segment2D.b;
     }
@@ -100,7 +100,7 @@ public class Segment2D implements Shape2D{//TODO remove vector //TODO viré par 
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Segment2D segment2D = (Segment2D) o;
+        Segment segment2D = (Segment) o;
         return Objects.equals(a, segment2D.a) &&
                 Objects.equals(b, segment2D.b);
     }

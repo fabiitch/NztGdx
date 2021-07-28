@@ -1,7 +1,6 @@
 package com.nzt.gdx.math.vectors;
 
 import com.badlogic.gdx.math.MathUtils;
-import com.badlogic.gdx.math.Vector;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.utils.Array;
@@ -28,6 +27,16 @@ public class V2 {
         return tmp.set(vector3.x, vector3.y);
     }
 
+    public static Vector2 getNormal(Vector2 from, Vector2 to, Vector2 result) {
+        directionTo(from, to ,tmp);
+        return getNormal(tmp,result);
+    }
+    public static Vector2 getNormal(Vector2 dir, Vector2 result) {
+//        result.set(dir).nor(); //TODO pk ?
+        float newX = -dir.y;
+        float newY = dir.x;
+        return result.set(newX, newY);
+    }
 
     public static Vector2 changeDirection(Vector2 velocity, Vector2 dir) {
         dir.nor();
@@ -81,8 +90,7 @@ public class V2 {
         return angle;
     }
 
-    // TODO de la merdia ya un new
-    public static Vector2 getMiddle(Vector2 vReturn, Vector2 v1, Vector2 v2) {
+    public static Vector2 middle(Vector2 v1, Vector2 v2, Vector2 vReturn) {
         vReturn.set((v2.x + v1.x) / 2, (v2.y + v1.y) / 2);
         return vReturn;
     }

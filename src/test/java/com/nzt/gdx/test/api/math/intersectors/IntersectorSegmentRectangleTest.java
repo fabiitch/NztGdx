@@ -3,7 +3,7 @@ package com.nzt.gdx.test.api.math.intersectors;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.nzt.gdx.math.intersectors.IntersectorSegmentRectangle;
-import com.nzt.gdx.math.shapes.Segment2D;
+import com.nzt.gdx.math.shapes.Segment;
 import com.nzt.gdx.math.shapes.utils.RectangleUtils;
 import org.junit.jupiter.api.Test;
 
@@ -11,13 +11,13 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class IntersectorSegmentRectangleTest {
 
-    private Segment2D segment2D = new Segment2D(-10, 0, 20, 0);
+    private Segment segment2D = new Segment(-10, 0, 20, 0);
     private final Rectangle rect = new Rectangle(0, 0, 10, 10);
     private final Vector2 intersectionPoint = new Vector2(-100, -100);
     private boolean touch = false;
 
     private void resetSegment(float aX, float aY, float bX, float bY) {
-        segment2D = new Segment2D(aX, aY, bX, bY);
+        segment2D = new Segment(aX, aY, bX, bY);
         intersectionPoint.set(-100, -100);
         touch = false;
     }
@@ -90,33 +90,33 @@ public class IntersectorSegmentRectangleTest {
 
     @Test
     public void closestFarthest1() {
-        Segment2D rectSegmentIntersector = new Segment2D();
+        Segment rectSegmentIntersector = new Segment();
         resetSegment(-10, 0, 20, 0);
 
         touch = IntersectorSegmentRectangle.closest(segment2D, rect, intersectionPoint, rectSegmentIntersector);
         assertEquals(new Vector2(0, 0), intersectionPoint);
-        assertEquals(RectangleUtils.getVerticalLeft(rect, new Segment2D()), rectSegmentIntersector);
+        assertEquals(RectangleUtils.getVerticalLeft(rect, new Segment()), rectSegmentIntersector);
         assertTrue(touch);
 
         touch = IntersectorSegmentRectangle.farthest(segment2D, rect, intersectionPoint, rectSegmentIntersector);
         assertEquals(new Vector2(10, 0), intersectionPoint);
-        assertEquals(RectangleUtils.getVerticalRight(rect, new Segment2D()), rectSegmentIntersector);
+        assertEquals(RectangleUtils.getVerticalRight(rect, new Segment()), rectSegmentIntersector);
         assertTrue(touch);
     }
 
     @Test
     public void closestFarthest2() {
-        Segment2D rectSegmentIntersector = new Segment2D();
+        Segment rectSegmentIntersector = new Segment();
         resetSegment(-5, 15, 15, -5);
 
         touch = IntersectorSegmentRectangle.closest(segment2D, rect, intersectionPoint, rectSegmentIntersector);
         assertEquals(new Vector2(0, 10), intersectionPoint);
-        assertEquals(RectangleUtils.getVerticalLeft(rect, new Segment2D()), rectSegmentIntersector);
+        assertEquals(RectangleUtils.getVerticalLeft(rect, new Segment()), rectSegmentIntersector);
         assertTrue(touch);
 
         touch = IntersectorSegmentRectangle.farthest(segment2D, rect, intersectionPoint,rectSegmentIntersector);
         assertEquals(new Vector2(10, 0), intersectionPoint);
-        assertEquals(RectangleUtils.getHorizontalBot(rect, new Segment2D()), rectSegmentIntersector);
+        assertEquals(RectangleUtils.getHorizontalBot(rect, new Segment()), rectSegmentIntersector);
         assertTrue(touch);
     }
 
@@ -124,7 +124,7 @@ public class IntersectorSegmentRectangleTest {
     //test repris de l'ancienne classes
     public void getClosestSegmentIntersection() {
         Rectangle rect = new Rectangle(0, 0, 100, 50);
-        Segment2D segment = new Segment2D(-10, 25, 200, 25);
+        Segment segment = new Segment(-10, 25, 200, 25);
         Vector2 closestSegmentIntersection = new Vector2();
 
         boolean touch = IntersectorSegmentRectangle.closest(segment, rect, closestSegmentIntersection);

@@ -1,4 +1,4 @@
-package com.nzt.gdx.test.trials.st.shapes;
+package com.nzt.gdx.test.trials.st.math.shapes;
 
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
 import com.badlogic.gdx.math.Polyline;
@@ -32,19 +32,19 @@ public class STPolyline extends TestScreen {
 
     @Override
     public void renderTestScreen(float dt) {
-        nzShapeRenderer.begin();
-        nzShapeRenderer.set(ShapeType.Filled);
-        nzShapeRenderer.polyline(polyline1);
-        nzShapeRenderer.end();
+        shapeRenderer.begin();
+        shapeRenderer.set(ShapeType.Filled);
+        shapeRenderer.polyline(polyline1);
+        shapeRenderer.end();
         polyline1.rotate(0.2f);
 
         if (scale > 10) {
             up = false;
-            nzShapeRenderer.randomColor();
+            shapeRenderer.randomColor();
         }
         if (scale < 1) {
             up = true;
-            nzShapeRenderer.randomColor();
+            shapeRenderer.randomColor();
         }
 
         scale = up ? scale + 0.01f : scale - 0.01f;

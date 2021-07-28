@@ -11,7 +11,7 @@ public class IntersectorPolygon {
     private static float[] tmpRectVertices = new float[8];
 
     public static boolean circle(Circle circle, Polygon polygon) {
-        return IntersectorCircle.circlePolygon(circle, polygon);
+        return IntersectorCircle.polygon(circle, polygon);
     }
 
     public static boolean polygons(Polygon polygonA, Polygon polygonB, Intersector.MinimumTranslationVector translationVector) {

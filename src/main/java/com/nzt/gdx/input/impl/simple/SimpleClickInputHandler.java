@@ -1,36 +1,26 @@
 package com.nzt.gdx.input.impl.simple;
 
-import com.nzt.gdx.input.base.BaseInputHandler;
+import com.nzt.gdx.logger.config.InputLoggerConfig;
 
-public abstract class SimpleClickInputHandler extends BaseInputHandler {
+public abstract class SimpleClickInputHandler extends MouseInputHandler {
+
+    public SimpleClickInputHandler() {
+        super();
+    }
+
+    public SimpleClickInputHandler(InputLoggerConfig loggerConfig) {
+        super(loggerConfig);
+    }
+
+    public abstract boolean click(int screenX, int screenY, int pointer, int button);
 
     @Override
-    public boolean doKeyDown(int keycode) {
-        return false;
+    public boolean doTouchDown(int screenX, int screenY, int pointer, int button) {
+        return click(screenX, screenY, pointer, button);
     }
 
     @Override
-    public boolean doKeyUp(int keycode) {
-        return false;
-    }
-
-    @Override
-    public boolean doKeyTyped(char character) {
-        return false;
-    }
-
-    @Override
-    public boolean doTouchDragged(int screenX, int screenY, int pointer) {
-        return false;
-    }
-
-    @Override
-    public boolean doMouseMoved(int screenX, int screenY) {
-        return false;
-    }
-
-    @Override
-    public boolean doScrolled(float amountX, float amountY) {
+    public boolean doTouchUp(int screenX, int screenY, int pointer, int button) {
         return false;
     }
 }

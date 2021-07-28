@@ -4,6 +4,7 @@ import com.badlogic.gdx.math.Circle;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
+import com.nzt.gdx.math.AngleUtils;
 import com.nzt.gdx.math.vectors.V2;
 
 public class CircleUtils {
@@ -22,6 +23,7 @@ public class CircleUtils {
         return getTangentRad(circle, MathUtils.degreesToRadians * angleDeg, result);
     }
 
+    //tested by STCircleTangent
     public static Vector2 getTangentRad(Circle circle, float angleRad, Vector2 result) {
         posWithAngleRad(circle, angleRad, tmp);
         getCenter(circle, tmp2);
@@ -51,4 +53,15 @@ public class CircleUtils {
         returnV.y = positionStart.y + rayon * MathUtils.sin(angleRadian);
         return returnV;
     }
+
+    public static float getAngleReflexionRad(Circle circle, float angleRad) {
+        Vector2 tangent = getTangentRad(circle, angleRad, tmp);
+        tmp2.setAngleRad(angleRad);
+        return AngleUtils.angleReflexionRad(tangent, tmp2);
+    }
+
+
+
+    //tangent point extérieure :
+  //  https://github.com/williamfiset/Algorithms/blob/master/src/main/java/com/williamfiset/algorithms/geometry/PointCircleTangent.java
 }

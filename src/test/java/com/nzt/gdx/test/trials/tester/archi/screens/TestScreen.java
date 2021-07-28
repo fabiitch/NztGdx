@@ -30,12 +30,45 @@ public abstract class TestScreen extends SimpleTestScreen {
         addInfoTestMsg();
     }
 
-    protected void addInfoTestMsg(){
+    protected void addInfoTestMsg() {
         if (getTestExplication() != null) {
             HudDebug.addTopLeft("ST Target", getTestExplication());
             HudDebug.addTopLeft("--------", "--------");
         }
     }
+
+    protected void debugMsg(String key, String value, Color color) {
+        HudDebug.addBotLeft(key, value, color);
+    }
+
+    protected void debugMsg(String key, String value) {
+        HudDebug.addBotLeft(key, value);
+    }
+
+    protected void debugMsg(String s, Color color) {
+        HudDebug.addBotLeft(s, "", color);
+    }
+
+    protected void debugMsg(String s) {
+        HudDebug.addBotLeft(s, "");
+    }
+
+    protected void infoMsg(String s) {
+        HudDebug.addTopLeft(s, "");
+    }
+
+    protected void infoMsg(String s, Color color) {
+        HudDebug.addTopLeft(s, "", color);
+    }
+
+    protected void infoMsg(String key, String value) {
+        HudDebug.addTopLeft(key, value);
+    }
+
+    protected void infoMsg(String key, String value, Color color) {
+        HudDebug.addTopLeft(key, value, color);
+    }
+
 
     /**
      * Dont use with this param in screen

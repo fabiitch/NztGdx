@@ -2,15 +2,21 @@ package com.nzt.gdx.math;
 
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
-import com.nzt.gdx.math.shapes.Segment2D;
+import com.nzt.gdx.math.shapes.Segment;
 import com.nzt.gdx.math.vectors.V2;
 
 public class AngleUtils {
     private AngleUtils() {
 
     }
-
     private static Vector2 tmp = new Vector2();
+
+    /**
+     *  Angle incidence, angle collision
+     *  Angle reflexion, angle rebond
+     * https://fr.wikipedia.org/wiki/Lois_de_Snell-Descartes
+     * https://upload.wikimedia.org/wikipedia/commons/9/91/Reflexion_fr.png?uselang=fr
+     * */
 
     public static float reflexionToIncidence(float angleReflexionDeg) {
         return 180 + angleReflexionDeg;
@@ -20,27 +26,36 @@ public class AngleUtils {
         return MathUtils.PI + angleReflexionRad;
     }
 
-
-    public static float angleIncidenceDeg(Segment2D segment, Vector2 dir) {
+    public static float angleIncidenceDeg(Segment segment, Vector2 dir) {
         return reflexionToIncidence(angleReflexionDeg(segment, dir));
     }
 
-    public static float angleReflexionDeg(Segment2D segment, Vector2 dir) {
+    public static float angleReflexionDeg(Segment segment, Vector2 dir) {
         Vector2 normal = segment.getNormale(tmp);
         return V2.angleDeg(normal) - (V2.angleDeg(dir) - V2.angleDeg(normal));
     }
 
-    public static float angleReflexionRad(Segment2D segment, Vector2 dir) {
+    public static float angleReflexionRad(Segment segment, Vector2 dir) {
         Vector2 normal = segment.getNormale(tmp);
         return V2.angleRad(normal) - (V2.angleRad(dir) - V2.angleRad(normal));
     }
 
-    public static float reflexionToIncidence(Segment2D segment, Vector2 dir) {
+    public static float reflexionToIncidence(Segment segment, Vector2 dir) {
         return 180 + angleReflexionDeg(segment, dir);
     }
 
-    public static float angleIncidenceRad(Segment2D segment, Vector2 dir) {
+    public static float angleIncidenceRad(Segment segment, Vector2 dir) {
         return MathUtils.PI + angleIncidenceRad(segment, dir);
+    }
+
+    public static float angleReflexionDeg(Vector2 dirEdge, Vector2 dirBullet) {
+        Vector2 normal = V2.getNormal(dirEdge, tmp);
+        return V2.angleDeg(normal) - (V2.angleDeg(dirBullet) - V2.angleDeg(normal));
+    }
+
+    public static float angleReflexionRad(Vector2 dirEdge, Vector2 dirBullet) {
+        Vector2 normal = V2.getNormal(dirEdge, tmp);
+        return V2.angleRad(normal) - (V2.angleRad(dirBullet) - V2.angleRad(normal));
     }
 
     public static float distanceAbs(float alpha, float beta) {

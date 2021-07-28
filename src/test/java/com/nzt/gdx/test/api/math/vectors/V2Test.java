@@ -26,8 +26,8 @@ public class V2Test {
     public void getMiddleTest() {
         Vector2 v1 = v(5, 5);
         Vector2 v2 = v(10, 10);
-        Vector2 closest = V2.getMiddle(new Vector2(), v1, v2);
-        Assertions.assertEquals(closest, new Vector2(7.5f, 7.5f));
+        Vector2 closest = V2.middle(v1, v2, new Vector2());
+        Assertions.assertEquals(closest, v(7.5f, 7.5f));
     }
 
     @Test
@@ -61,7 +61,28 @@ public class V2Test {
         VTestUtils.assertEquals(v(-70, 0f), velocity, 1);
 
         velocity = V2.changeDirection(v(10, -10), v(0, 1));
-        VTestUtils.assertEquals(v(0, 14), velocity,1);
+        VTestUtils.assertEquals(v(0, 14), velocity, 1);
+    }
+
+    @Test
+    public void getNormaleTest() {
+        Vector2 normale = v();
+
+        V2.getNormal(v(1, 0), normale);
+        VTestUtils.assertEquals(v(0, 1), normale, 0);
+
+        V2.getNormal(v(-1, 0), normale);
+        VTestUtils.assertEquals(v(0, -1), normale, 0);
+
+        V2.getNormal(v(0, 1), normale);
+        VTestUtils.assertEquals(v(-1, 0), normale, 0);
+
+        V2.getNormal(v(0, -1), normale);
+        VTestUtils.assertEquals(v(1, 0), normale, 0);
+    }
+
+    private Vector2 v() {
+        return new Vector2();
     }
 
     private Vector2 v(float a, float b) {
