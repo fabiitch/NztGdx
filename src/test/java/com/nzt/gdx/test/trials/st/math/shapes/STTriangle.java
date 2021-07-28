@@ -1,4 +1,4 @@
-package com.nzt.gdx.test.trials.st.shapes;
+package com.nzt.gdx.test.trials.st.math.shapes;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
 import com.badlogic.gdx.math.Vector2;
 import com.nzt.gdx.debug.hud.core.HudDebug;
+import com.nzt.gdx.input.impl.simple.MouseInputHandler;
 import com.nzt.gdx.input.impl.simple.SimpleClickInputHandler;
 import com.nzt.gdx.math.random.Randoms;
 import com.nzt.gdx.math.shapes.Triangle;
@@ -66,7 +67,7 @@ public class STTriangle extends TestScreen {
         HudDebug.addRightMiddle("Rotation", 0);
 
 
-        SimpleClickInputHandler inputHandler = new SimpleClickInputHandler() {
+        MouseInputHandler inputHandler = new MouseInputHandler() {
             @Override
             public boolean doKeyDown(int keycode) {
                 if (keycode == Input.Keys.R)
@@ -117,15 +118,15 @@ public class STTriangle extends TestScreen {
     public void renderTestScreen(float dt) {
         scaleRotate();
         triangle.getCentroid(centerTriangle);
-        nzShapeRenderer.begin();
-        nzShapeRenderer.setColor(colorRender);
-        nzShapeRenderer.set(ShapeType.Filled);
-        nzShapeRenderer.triangle(triangle);
+        shapeRenderer.begin();
+        shapeRenderer.setColor(colorRender);
+        shapeRenderer.set(ShapeType.Filled);
+        shapeRenderer.triangle(triangle);
 
-        nzShapeRenderer.setColor(Color.RED);
-        nzShapeRenderer.set(ShapeType.Filled);
-        nzShapeRenderer.circle(centerTriangle, 2);
-        nzShapeRenderer.end();
+        shapeRenderer.setColor(Color.RED);
+        shapeRenderer.set(ShapeType.Filled);
+        shapeRenderer.circle(centerTriangle, 2);
+        shapeRenderer.end();
 
         spriteBatch.begin();
         triangle.getA(tmp);
@@ -189,12 +190,12 @@ public class STTriangle extends TestScreen {
             if (scaleAmt > 5) {
                 up = false;
                 Randoms.toRandom(colorRender);
-                nzShapeRenderer.setColor(colorRender);
+                shapeRenderer.setColor(colorRender);
             }
             if (scaleAmt < 1) {
                 up = true;
                 Randoms.toRandom(colorRender);
-                nzShapeRenderer.setColor(colorRender);
+                shapeRenderer.setColor(colorRender);
             }
             scaleAmt = up ? scaleAmt + 0.02f : scaleAmt - 0.02f;
             triangle.setScale(scaleAmt, scaleAmt);

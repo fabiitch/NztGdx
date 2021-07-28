@@ -1,17 +1,17 @@
-package com.nzt.gdx.test.api.math.shape.utils;
+package com.nzt.gdx.test.api.math.shape;
 
 import com.badlogic.gdx.math.Vector2;
-import com.nzt.gdx.math.shapes.Segment2D;
+import com.nzt.gdx.math.shapes.Segment;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class Segment2DTest {
+public class SegmentTest {
 
     private final static Vector2 tmp = new Vector2();
     @Test
     public void testSegment1() {
-        Segment2D segment2D = new Segment2D(0, 0, 50, 0);
+        Segment segment2D = new Segment(0, 0, 50, 0);
 
         Vector2 dir = segment2D.getDir(tmp);
         assertEquals(new Vector2(1, 0), dir);

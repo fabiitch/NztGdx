@@ -3,9 +3,9 @@ package com.nzt.gdx.math.intersectors;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
-import com.nzt.gdx.math.shapes.Segment2D;
+import com.nzt.gdx.math.shapes.Segment;
 import com.nzt.gdx.math.shapes.utils.RectangleUtils;
-import com.nzt.gdx.math.shapes.utils.Segment2DUtils;
+import com.nzt.gdx.math.shapes.utils.SegmentUtils;
 import com.nzt.gdx.math.vectors.V;
 
 public class IntersectorSegmentRectangle {
@@ -22,27 +22,27 @@ public class IntersectorSegmentRectangle {
 
 	private static final Array<Vector2> arrayTmp = new Array<>(4);
 
-	private static final Segment2D tmpSeg = new Segment2D();
+	private static final Segment tmpSeg = new Segment();
 
-	public static boolean farthest(Segment2D segment, Rectangle rectangle, Vector2 intersection,
-			Segment2D rectangleSegment) {
+	public static boolean farthest(Segment segment, Rectangle rectangle, Vector2 intersection,
+								   Segment rectangleSegment) {
 		return test(segment, rectangle, intersection, rectangleSegment, false);
 	}
 
-	public static boolean closest(Segment2D segment, Rectangle rectangle, Vector2 intersection,
-			Segment2D rectangleSegment) {
+	public static boolean closest(Segment segment, Rectangle rectangle, Vector2 intersection,
+								  Segment rectangleSegment) {
 		return test(segment, rectangle, intersection, rectangleSegment, true);
 	}
 
-	public static boolean farthest(Segment2D segment, Rectangle rectangle, Vector2 intersection) {
+	public static boolean farthest(Segment segment, Rectangle rectangle, Vector2 intersection) {
 		return test(segment, rectangle, intersection, null, false);
 	}
 
-	public static boolean closest(Segment2D segment, Rectangle rectangle, Vector2 intersection) {
+	public static boolean closest(Segment segment, Rectangle rectangle, Vector2 intersection) {
 		return test(segment, rectangle, intersection, null, true);
 	}
 
-	private static void getSegmentIntersection(Vector2 insersection, Rectangle rect, Segment2D toSet) {
+	private static void getSegmentIntersection(Vector2 insersection, Rectangle rect, Segment toSet) {
 		if (insersection.equals(tmp1)) {
 			RectangleUtils.getVerticalLeft(rect, toSet);
 		} else if (insersection.equals(tmp2)) {
@@ -54,8 +54,8 @@ public class IntersectorSegmentRectangle {
 		}
 	}
 
-	private static boolean test(Segment2D segment, Rectangle rect, Vector2 intersection, Segment2D rectangleSegment,
-			boolean closest) {
+	private static boolean test(Segment segment, Rectangle rect, Vector2 intersection, Segment rectangleSegment,
+								boolean closest) {
 		arrayTmp.clear();
 		int intersectionCount = 0;
 		if (instersectVerticalLeft(segment, rect, tmp1)) {
@@ -97,29 +97,29 @@ public class IntersectorSegmentRectangle {
 		return intersectionCount > 0;
 	}
 
-	public static boolean instersectVerticalLeft(Segment2D segment, Rectangle rect, Vector2 intersection) {
+	public static boolean instersectVerticalLeft(Segment segment, Rectangle rect, Vector2 intersection) {
 		float rectangleEndY = rect.y + rect.height;
 		tmpSeg.set(rect.x, rect.y, rect.x, rectangleEndY);
-		return Segment2DUtils.getSegmentIntersection(segment, tmpSeg, intersection);
+		return SegmentUtils.getSegmentIntersection(segment, tmpSeg, intersection);
 	}
 
-	public static boolean instersectHorizontalBot(Segment2D segment, Rectangle rect, Vector2 intersection) {
+	public static boolean instersectHorizontalBot(Segment segment, Rectangle rect, Vector2 intersection) {
 		float rectangleEndX = rect.x + rect.width;
 		tmpSeg.set(rect.x, rect.y, rectangleEndX, rect.y);
-		return Segment2DUtils.getSegmentIntersection(segment, tmpSeg, intersection);
+		return SegmentUtils.getSegmentIntersection(segment, tmpSeg, intersection);
 	}
 
-	public static boolean instersectVercticalRight(Segment2D segment, Rectangle rect, Vector2 intersection) {
+	public static boolean instersectVercticalRight(Segment segment, Rectangle rect, Vector2 intersection) {
 		float rectangleEndX = rect.x + rect.width;
 		float rectangleEndY = rect.y + rect.height;
 		tmpSeg.set(rectangleEndX, rect.y, rectangleEndX, rectangleEndY);
-		return Segment2DUtils.getSegmentIntersection(segment, tmpSeg, intersection);
+		return SegmentUtils.getSegmentIntersection(segment, tmpSeg, intersection);
 	}
 
-	public static boolean instersectHorizontalTop(Segment2D segment, Rectangle rect, Vector2 intersection) {
+	public static boolean instersectHorizontalTop(Segment segment, Rectangle rect, Vector2 intersection) {
 		float rectangleEndX = rect.x + rect.width;
 		float rectangleEndY = rect.y + rect.height;
 		tmpSeg.set(rect.x, rectangleEndY, rectangleEndX, rectangleEndY);
-		return Segment2DUtils.getSegmentIntersection(segment, tmpSeg, intersection);
+		return SegmentUtils.getSegmentIntersection(segment, tmpSeg, intersection);
 	}
 }

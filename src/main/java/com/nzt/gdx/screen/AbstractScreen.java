@@ -26,7 +26,7 @@ public abstract class AbstractScreen<M extends AbstractMain> implements Screen {
     protected M main;
 
     protected SpriteBatch spriteBatch;
-    protected NzShapeRenderer nzShapeRenderer;
+    protected NzShapeRenderer shapeRenderer;
     protected ModelBatch modelBatch;
 
     protected NzGLProfiler nzGLProfiler;
@@ -34,7 +34,7 @@ public abstract class AbstractScreen<M extends AbstractMain> implements Screen {
     public AbstractScreen(M main) {
         this.main = main;
         this.spriteBatch = main.sb;
-        this.nzShapeRenderer = main.nzShapeRenderer;
+        this.shapeRenderer = main.nzShapeRenderer;
         this.modelBatch = main.modelBatch;
         if (main.logManager != null)
             this.nzGLProfiler = main.logManager.nzGlProfiler;

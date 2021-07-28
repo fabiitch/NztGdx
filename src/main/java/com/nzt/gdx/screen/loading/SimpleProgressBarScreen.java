@@ -37,9 +37,9 @@ public class SimpleProgressBarScreen<M extends AbstractMain> extends BaseLoading
 	@Override
 	public void renderScreen(float dt, float progress) {
 		doubleRectangle.updatePercent(progress);
-		nzShapeRenderer.begin(ShapeType.Filled);
-		doubleRectangle.render(nzShapeRenderer);
-		nzShapeRenderer.end();
+		shapeRenderer.begin(ShapeType.Filled);
+		doubleRectangle.render(shapeRenderer);
+		shapeRenderer.end();
 	}
 
 	@Override

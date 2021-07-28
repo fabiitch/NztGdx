@@ -1,4 +1,4 @@
-package com.nzt.gdx.test.trials.st.shapes;
+package com.nzt.gdx.test.trials.st.math.shapes;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
@@ -45,15 +45,15 @@ public class STPolygon extends TestScreen {
     public void renderTestScreen(float dt) {
         scaleRotate();
         PolygonUtils.getCenter(polygon, centerPolygon);
-        nzShapeRenderer.begin();
-        nzShapeRenderer.setColor(Color.BLUE);
-        nzShapeRenderer.set(ShapeRenderer.ShapeType.Filled);
-        nzShapeRenderer.polygon(polygon);
+        shapeRenderer.begin();
+        shapeRenderer.setColor(Color.BLUE);
+        shapeRenderer.set(ShapeRenderer.ShapeType.Filled);
+        shapeRenderer.polygon(polygon);
 
-        nzShapeRenderer.setColor(Color.RED);
-        nzShapeRenderer.set(ShapeRenderer.ShapeType.Filled);
-        nzShapeRenderer.circle(centerPolygon, 2);
-        nzShapeRenderer.end();
+        shapeRenderer.setColor(Color.RED);
+        shapeRenderer.set(ShapeRenderer.ShapeType.Filled);
+        shapeRenderer.circle(centerPolygon, 2);
+        shapeRenderer.end();
 
         spriteBatch.begin();
         float[] vertices = polygon.getTransformedVertices();

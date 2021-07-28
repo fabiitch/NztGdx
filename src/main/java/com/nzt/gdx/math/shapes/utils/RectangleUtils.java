@@ -2,13 +2,13 @@ package com.nzt.gdx.math.shapes.utils;
 
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
-import com.nzt.gdx.math.shapes.Segment2D;
+import com.nzt.gdx.math.shapes.Segment;
 
 //TODO groupé les math tmpV vector segment ect
 public class RectangleUtils {
 
     private static final Vector2 tmpV = new Vector2();
-    private static final Segment2D tmpSegment = new Segment2D();
+    private static final Segment tmpSegment = new Segment();
 
     /**
      * D-----C
@@ -55,23 +55,23 @@ public class RectangleUtils {
         Vector2 nearestPoint = result;
         Vector2 nearestPointTmp = tmpV;
 
-        Segment2D horizontalBot = RectangleUtils.getHorizontalBot(rectangle, tmpSegment);
-        Segment2DUtils.nearestPoint(horizontalBot, point, result);
+        Segment horizontalBot = RectangleUtils.getHorizontalBot(rectangle, tmpSegment);
+        SegmentUtils.nearestPoint(horizontalBot, point, result);
 
-        Segment2D horizontalTop = RectangleUtils.getHorizontalTop(rectangle, tmpSegment);
-        Segment2DUtils.nearestPoint(horizontalTop, point, nearestPointTmp);
+        Segment horizontalTop = RectangleUtils.getHorizontalTop(rectangle, tmpSegment);
+        SegmentUtils.nearestPoint(horizontalTop, point, nearestPointTmp);
         if (nearestPointTmp.dst2(point) < nearestPoint.dst2(point)) {
             nearestPoint.set(nearestPointTmp);
         }
 
-        Segment2D verticalLeft = RectangleUtils.getVerticalLeft(rectangle, tmpSegment);
-        Segment2DUtils.nearestPoint(verticalLeft, point, nearestPointTmp);
+        Segment verticalLeft = RectangleUtils.getVerticalLeft(rectangle, tmpSegment);
+        SegmentUtils.nearestPoint(verticalLeft, point, nearestPointTmp);
         if (nearestPointTmp.dst2(point) < nearestPoint.dst2(point)) {
             nearestPoint.set(nearestPointTmp);
         }
 
-        Segment2D verticalRight = RectangleUtils.getVerticalRight(rectangle, tmpSegment);
-        Segment2DUtils.nearestPoint(verticalRight, point, nearestPointTmp);
+        Segment verticalRight = RectangleUtils.getVerticalRight(rectangle, tmpSegment);
+        SegmentUtils.nearestPoint(verticalRight, point, nearestPointTmp);
         if (nearestPointTmp.dst2(point) < nearestPoint.dst2(point)) {
             nearestPoint.set(nearestPointTmp);
         }
@@ -99,6 +99,10 @@ public class RectangleUtils {
             nb = 4;
         }
         return nb;
+    }
+
+    public static Vector2 getCenterAtZero(Rectangle rect, Vector2 center) {
+        return center.set(rect.width / 2, rect.height / 2);
     }
 
     public static Vector2 getCenter(Rectangle rect, Vector2 center) {
@@ -152,12 +156,12 @@ public class RectangleUtils {
     }
 
 
-    public static Segment2D getHorizontalBot(Rectangle rect, Segment2D segment) {
+    public static Segment getHorizontalBot(Rectangle rect, Segment segment) {
         segment.set(rect.x, rect.y, rect.x + rect.width, rect.y);
         return segment;
     }
 
-    public static Segment2D getHorizontalTop(Rectangle rect, Segment2D segment) {
+    public static Segment getHorizontalTop(Rectangle rect, Segment segment) {
         float aX = rect.x;
         float aY = rect.y + rect.height;
         float bX = rect.x + rect.width;
@@ -166,12 +170,20 @@ public class RectangleUtils {
         return segment;
     }
 
-    public static Segment2D getVerticalLeft(Rectangle rect, Segment2D segment) {
+    public static Segment getVerticalLeft(Rectangle rect, Segment segment) {
         segment.set(rect.x, rect.y, rect.x, rect.y + rect.height);
         return segment;
     }
 
-    public static Segment2D getVerticalRight(Rectangle rect, Segment2D segment) {
+    public static float getDiagDst(Rectangle rectangle) {
+        return (float) Math.sqrt(rectangle.width * rectangle.width + rectangle.height * rectangle.height);
+    }
+
+    public static float dstVertexCenter(Rectangle rectangle) {
+        return getDiagDst(rectangle) / 2;
+    }
+
+    public static Segment getVerticalRight(Rectangle rect, Segment segment) {
         segment.set(rect.x + rect.width, rect.y, rect.x + rect.width, rect.y + rect.height);
         return segment;
     }
