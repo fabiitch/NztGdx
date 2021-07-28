@@ -13,11 +13,10 @@ import com.badlogic.gdx.graphics.g3d.environment.DirectionalLight;
 import com.badlogic.gdx.graphics.g3d.utils.FirstPersonCameraController;
 import com.badlogic.gdx.graphics.g3d.utils.ModelBuilder;
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
-import com.nzt.gdx.test.trials.tester.archi.screens.TestScreen;
 import com.nzt.gdx.test.trials.tester.selector.TestScreenList;
 
-@TestScreenList(group = "input")
-public class STFirstPersonCamController extends TestScreen {
+@TestScreenList(group = "inputs")
+public class STFirstPersonCamController extends com.nzt.gdx.test.trials.tester.archi.screens.TestScreen {
     public PerspectiveCamera camera;
     public Model model;
     public ModelInstance instance;

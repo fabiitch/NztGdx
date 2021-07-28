@@ -14,7 +14,7 @@ import com.nzt.gdx.test.trials.tester.selector.TestScreenList;
 /**
  * Test FramePerformance on systems
  */
-@TestScreenList(group = "scene2D.HudDebug")
+@TestScreenList(group = "scene2D.hud debug")
 public class STHudDebugSystems extends BaseSystemTestScreen {
 	private HudDebug debugHud;
 

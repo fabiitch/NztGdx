@@ -5,11 +5,10 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.math.Vector2;
 import com.nzt.gdx.math.AngleUtils;
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
-import com.nzt.gdx.test.trials.tester.archi.screens.TestScreen;
 import com.nzt.gdx.test.trials.tester.selector.TestScreenList;
 
-@TestScreenList(group = "shapes")
-public class STVector2 extends TestScreen {
+@TestScreenList(group = "math.shapes")
+public class STVector2 extends com.nzt.gdx.test.trials.tester.archi.screens.TestScreen {
 
     Vector2 oldDir;
     Vector2 newDir;

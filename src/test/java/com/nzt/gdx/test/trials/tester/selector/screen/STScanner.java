@@ -1,5 +1,6 @@
-package com.nzt.gdx.test.trials.tester.selector;
+package com.nzt.gdx.test.trials.tester.selector.screen;
 
+import com.nzt.gdx.test.trials.tester.selector.TestScreenList;
 import org.reflections.Reflections;
 
 import java.lang.reflect.Modifier;

@@ -30,8 +30,8 @@ public class AngleUtils {
         return reflexionToIncidence(angleReflexionDeg(segment, dir));
     }
 
-    public static float angleReflexionDeg(Segment segment, Vector2 dir) {
-        Vector2 normal = segment.getNormale(tmp);
+    public static float angleReflexionDeg(Segment segmentIntersect, Vector2 dir) {
+        Vector2 normal = segmentIntersect.getNormale(tmp);
         return V2.angleDeg(normal) - (V2.angleDeg(dir) - V2.angleDeg(normal));
     }
 
@@ -78,7 +78,7 @@ public class AngleUtils {
         return r;
     }
 
-    public static float distanceSigned(Vector2 dir, Vector2 input) {
-        return distanceSigned(V2.angleDeg(dir), V2.angleDeg(input));
+    public static float distanceSigned(Vector2 v1, Vector2 v2) {
+        return distanceSigned(V2.angleDeg(v1), V2.angleDeg(v2));
     }
 }

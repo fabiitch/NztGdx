@@ -77,6 +77,7 @@ public class STCircleReflexionRay extends BaseSTCircle {
             shapeRenderer.line(posOnCircle.cpy().add(tangent.setLength(100)), posOnCircle.cpy().sub(tangent.setLength(100)));
 
             shapeRenderer.setColor(Color.PURPLE);
+            float angleIncidence = AngleUtils.reflexionToIncidence(angleReflexion);
             Vector2 vector2 = new Vector2(1, 0).setAngleDeg(angleReflexion).setLength(100);
             shapeRenderer.line(posOnCircle, posOnCircle.cpy().add(vector2));
 

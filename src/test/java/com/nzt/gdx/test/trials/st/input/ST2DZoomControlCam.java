@@ -4,9 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.nzt.gdx.input.camera.Cam2DController;
 import com.nzt.gdx.input.camera.Cam2DZoomController;
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
-import com.nzt.gdx.test.trials.tester.selector.TestScreenList;
 
-@TestScreenList(group = "input")
 public class ST2DZoomControlCam extends BaseST2DControlCam {
 
     private Cam2DController cam2DController;

@@ -13,11 +13,10 @@ import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 import com.nzt.gdx.test.trials.st.scene2D.Scene2DTestConstants;
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
-import com.nzt.gdx.test.trials.tester.archi.screens.TestScreen;
 import com.nzt.gdx.test.trials.tester.selector.TestScreenList;
 
-@TestScreenList(group = "scene2D.widgets.touchpad")
-public class STGdxTouchPad extends TestScreen {
+@TestScreenList(group = "scene2D.widgets.touchpads")
+public class STGdxTouchPad extends com.nzt.gdx.test.trials.tester.archi.screens.TestScreen {
 
     private OrthographicCamera camera;
     private Touchpad touchpad;

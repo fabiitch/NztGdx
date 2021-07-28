@@ -1,4 +1,4 @@
-package com.nzt.gdx.test.trials.tester.selector;
+package com.nzt.gdx.test.trials.tester.selector.screen;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;

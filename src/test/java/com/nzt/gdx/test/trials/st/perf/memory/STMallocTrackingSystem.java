@@ -6,7 +6,7 @@ import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
 import com.nzt.gdx.test.trials.tester.archi.screens.BaseSystemTestScreen;
 import com.nzt.gdx.test.trials.tester.selector.TestScreenList;
 
-@TestScreenList(group = "perf.malloc")
+@TestScreenList(group = "utils.perf.malloc")
 public class STMallocTrackingSystem extends BaseSystemTestScreen {
 
     public STMallocTrackingSystem(FastTesterMain main) {

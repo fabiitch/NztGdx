@@ -6,11 +6,10 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.nzt.gdx.debug.hud.HudDebugPosition;
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
-import com.nzt.gdx.test.trials.tester.archi.screens.TestScreen;
 import com.nzt.gdx.test.trials.tester.selector.TestScreenList;
 
 @TestScreenList(group = "shaders")
-public class STBasicShader extends TestScreen {
+public class STBasicShader extends com.nzt.gdx.test.trials.tester.archi.screens.TestScreen {
 
 	private final Sprite sprite;
 	private final Texture texture;

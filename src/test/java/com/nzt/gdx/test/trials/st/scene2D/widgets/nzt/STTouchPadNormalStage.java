@@ -10,7 +10,7 @@ import com.nzt.gdx.test.trials.tester.archi.screens.SimpleTestScreen;
 import com.nzt.gdx.test.trials.tester.selector.TestScreenList;
 
 //TODO a reprendre quand on refait les touchpad générique
-@TestScreenList(group = "scene2D.widgets.touchpad.nzt")
+@TestScreenList(group = "scene2D.widgets.touchpads")
 public class STTouchPadNormalStage extends SimpleTestScreen {
 	private final Stage stage;
 
