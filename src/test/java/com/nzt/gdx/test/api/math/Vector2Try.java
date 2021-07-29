@@ -8,7 +8,6 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 
-
 /*
  * pour test vite fait  les methode de Vector2
  */
@@ -17,6 +16,16 @@ public class Vector2Try {
 
     private Vector2 v1;
     private Vector2 v2;
+
+    /**
+     * {@link com.nzt.gdx.test.trials.st.math.vectors.STV2Opposite}
+     */
+    @Test
+    public void oppositeDirectionTest() {
+        assertTrue(v(1, 0).hasOppositeDirection(v(-1, 0)));
+        assertFalse(v(1, 0).hasOppositeDirection(v(0, 1)));
+        assertTrue(v(1, 0).hasOppositeDirection(v(-1, 1)));
+    }
 
     @Test
     public void epsilonEquals() {

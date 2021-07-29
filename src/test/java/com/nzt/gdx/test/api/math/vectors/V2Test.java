@@ -81,6 +81,12 @@ public class V2Test {
         VTestUtils.assertEquals(v(1, 0), normale, 0);
     }
 
+    @Test
+    public void angleDeg() {
+        float angle = V2.angleDeg(v(0, 1), v(1, 0));
+        Assertions.assertEquals(90, angle, 0.1f);
+    }
+
     private Vector2 v() {
         return new Vector2();
     }

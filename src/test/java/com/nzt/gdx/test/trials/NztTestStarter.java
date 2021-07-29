@@ -1,6 +1,7 @@
 package com.nzt.gdx.test.trials;
 
 import com.nzt.gdx.test.trials.st.math.shapes.circle.STCircleReflexionRay;
+import com.nzt.gdx.test.trials.st.math.shapes.segment.STSegmentNormal;
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
 import com.nzt.gdx.test.trials.tester.archi.main.StarterTestConfig;
 

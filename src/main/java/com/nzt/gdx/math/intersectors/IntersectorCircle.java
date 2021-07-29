@@ -101,8 +101,7 @@ public class IntersectorCircle {
         return nbIntersection > 0;
     }
     /**
-     * return nbIntersection
-     * @return
+     * @return nbIntersection
      */
     public static int segmentIntersection(Circle circle, Vector2 pointA, Vector2 pointB,
                                           Vector2 intersectionA, Vector2 intersectionB) {

@@ -30,15 +30,15 @@ public class SegmentUtilsTest {
     public void getAngleReflexionTest1() {
         Segment s1 = s(50, 0, 50, 50);
         Vector2 direction = v(1, 0);
-        float angleReflexion = SegmentUtils.getAngleReflexion(s1, direction);
-        Assertions.assertEquals(360, angleReflexion, 0.1f);
+        float angleReflexion = SegmentUtils.getAngleReflexionDeg(s1, direction);
+        Assertions.assertEquals(0, angleReflexion, 0.1f);
     }
 
     @Test
     public void getAngleReflexionTest2() {
         Segment s1 = s(0, 0, 50, 0);
         Vector2 direction = v(1, 1).nor();
-        float angleReflexion = SegmentUtils.getAngleReflexion(s1, direction);
+        float angleReflexion = SegmentUtils.getAngleReflexionDeg(s1, direction);
         Assertions.assertEquals(135f, angleReflexion, 0.1f);
     }
 

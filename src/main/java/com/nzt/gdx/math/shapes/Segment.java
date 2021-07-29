@@ -1,15 +1,16 @@
 package com.nzt.gdx.math.shapes;
 
-import com.badlogic.gdx.math.Intersector;
-import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Shape2D;
 import com.badlogic.gdx.math.Vector2;
 import com.nzt.gdx.math.shapes.utils.SegmentUtils;
+import com.nzt.gdx.math.vectors.V2;
 
 import java.util.Objects;
 
-//TODO remove pour voir avec Polyline
-public class Segment implements Shape2D{//TODO remove vector //TODO viré par polyline
+public class Segment implements Shape2D {
+
+    private final static Vector2 tmpv1 = new Vector2(); //TODO groups pools
+    private final static Vector2 tmpv2 = new Vector2(); //TODO groups pools
     public Vector2 a;
     public Vector2 b;
 
@@ -32,10 +33,6 @@ public class Segment implements Shape2D{//TODO remove vector //TODO viré par po
         return SegmentUtils.nearestPoint(this, point, result);
     }
 
-    public boolean intersectRectangle(Rectangle rect, Vector2 intersectionPoint) {//TODO ??
-        return Intersector.intersectSegmentRectangle(this.a, this.b, rect);
-    }
-
     public Vector2 getDir(Vector2 dir) {
         float dx = b.x - a.x;
         float dy = b.y - a.y;
@@ -50,11 +47,24 @@ public class Segment implements Shape2D{//TODO remove vector //TODO viré par po
         return a.dst(b);
     }
 
-    public Vector2 getNormale(Vector2 normal) {
+    /**
+     * Normal orienté du coté du point
+     */
+    public Vector2 getNormal(Vector2 point, Vector2 normal) {
+        Vector2 middle = getMiddle(tmpv1);
+        getNormal(normal);
+        V2.directionTo(middle, point, tmpv2);
+
+        if (tmpv2.hasOppositeDirection(normal))
+            normal.rotateDeg(180);
+        return normal;
+    }
+
+    public Vector2 getNormal(Vector2 normal) {
         Vector2 dir = getDir(normal);
         float newX = -dir.y;
         float newY = dir.x;
-        return normal.set(newX,newY);
+        return normal.set(newX, newY);
     }
 
     public void set(float aX, float aY, float bX, float bY) {

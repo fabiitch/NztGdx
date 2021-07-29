@@ -10,7 +10,7 @@ public class V {
 	}
 
     public static <V extends Vector<V>> V directionTo(V from, V to, V result) {
-	    return result.scl(from).sub(to).nor();
+        return result.set(from).sub(to).nor();
     }
 
     public static <V extends Vector<V>> V getVelocityTo(float time, V from, V to,V result) {

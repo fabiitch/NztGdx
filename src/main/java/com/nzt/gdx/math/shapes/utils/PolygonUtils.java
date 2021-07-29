@@ -3,6 +3,7 @@ package com.nzt.gdx.math.shapes.utils;
 import com.badlogic.gdx.math.GeometryUtils;
 import com.badlogic.gdx.math.Polygon;
 import com.badlogic.gdx.math.Vector2;
+import com.nzt.gdx.math.CalculUtils;
 
 public class PolygonUtils {
 
@@ -61,11 +62,11 @@ public class PolygonUtils {
     }
 
     public static int getVertexBefore(Polygon polygon, int vertex) {
-        return (vertex - 1) % polygon.getVertices().length / 2;
+        return CalculUtils.floorMod(vertex-1, polygon.getVertices().length / 2);
     }
 
     public static int getVertexAfter(Polygon polygon, int vertex) {
-        return vertex + 1 > polygon.getVertices().length / 2 - 1 ? 0 : vertex + 1;
+        return (vertex + 1) % (polygon.getVertices().length / 2);
     }
 
     public static float getVertexAngleDeg(Polygon polygon, int vertex) {

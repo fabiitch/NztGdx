@@ -13,23 +13,36 @@ import com.nzt.gdx.math.vectors.V2;
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
 
 public class STCircleReflexionRay extends BaseSTCircle {
-    Vector2 touch2 = new Vector2();
-    Segment segment = new Segment();
+
+
+    Vector2 rayToCenter = new Vector2(); //rayToCenter between click and center
+    Vector2 tangentCircle = new Vector2();
+    Vector2 posOnCircle = new Vector2();
+
     boolean defineTouch1 = true;
+    Vector2 touch = new Vector2();//where userTouch screen
+    Vector2 touch2 = new Vector2();
+    Vector2 dirTouch = new Vector2();
+
+    Segment segment = new Segment();
 
     private float angleReflexion;
+    Vector2 normalTangent = new Vector2();
+    Vector2 reflexion = new Vector2(1, 0);
 
     public STCircleReflexionRay(FastTesterMain main) {
         super(main);
         infoMsg("Click for define first and second point of segment");
+        infoMsg("----------", "---------");
         infoMsg("cyan ", "segment");
-        infoMsg("green ", "tangent");
+        infoMsg("green ", "tangentCircle");
+        infoMsg("blue", "normal of tangentCircle");
         infoMsg("purple ", "reflexion");
     }
 
     @Override
     public String getTestExplication() {
-        return "Calcul reflexion ray on circle";
+        return "Calcul reflexion rayToCenter on circle";
     }
 
     protected InputProcessor inputProcessor() {
@@ -37,9 +50,9 @@ public class STCircleReflexionRay extends BaseSTCircle {
             @Override
             public boolean click(int screenX, int screenY, int pointer, int button) {
                 if (defineTouch1) {
-                    touch.set(screenX, Gdx.graphics.getHeight() - screenY);
+                    this.getClickPos(screenX, screenY, touch);
                 } else {
-                    touch2.set(screenX, Gdx.graphics.getHeight() - screenY);
+                    this.getClickPos(screenX, screenY, touch2);
                     calcul();
                 }
                 defineTouch1 = !defineTouch1;
@@ -51,12 +64,19 @@ public class STCircleReflexionRay extends BaseSTCircle {
 
     private void calcul() {
         segment.set(touch, touch2);
+        V2.directionTo(touch, touch2,dirTouch);
         IntersectorCircle.firstSegmentIntersection(circle, segment, posOnCircle.setZero());
         if (!posOnCircle.isZero()) {
             touch2.set(posOnCircle);
-            V2.directionTo(circleCenter, posOnCircle, ray);
-            CircleUtils.getTangentDeg(circle, ray.angleDeg(), tangent);
-            angleReflexion = AngleUtils.angleReflexionDeg(tangent, ray);
+            V2.directionTo(circleCenter, posOnCircle, rayToCenter);
+            tangentCircle = CircleUtils.getTangent(circle, posOnCircle, tangentCircle);
+
+            normalTangent = CircleUtils.dirFromCenter(circle, posOnCircle, normalTangent);
+            angleReflexion = AngleUtils.angleReflexionDeg(tangentCircle, dirTouch);
+
+            float angleIncidence = AngleUtils.reflexionToIncidence(angleReflexion);
+
+            reflexion.setAngleDeg(angleIncidence);
         }
 
     }
@@ -74,12 +94,13 @@ public class STCircleReflexionRay extends BaseSTCircle {
         }
         if (!posOnCircle.isZero()) {
             shapeRenderer.setColor(Color.GREEN);
-            shapeRenderer.line(posOnCircle.cpy().add(tangent.setLength(100)), posOnCircle.cpy().sub(tangent.setLength(100)));
+            shapeRenderer.line(posOnCircle.cpy().add(tangentCircle.setLength(150)), posOnCircle.cpy().sub(tangentCircle.setLength(150)));
 
+            shapeRenderer.setColor(Color.BLUE);
+            shapeRenderer.line(posOnCircle, posOnCircle.cpy().add(normalTangent.setLength(100)));
+//
             shapeRenderer.setColor(Color.PURPLE);
-            float angleIncidence = AngleUtils.reflexionToIncidence(angleReflexion);
-            Vector2 vector2 = new Vector2(1, 0).setAngleDeg(angleReflexion).setLength(100);
-            shapeRenderer.line(posOnCircle, posOnCircle.cpy().add(vector2));
+            shapeRenderer.line(posOnCircle, posOnCircle.cpy().add(reflexion.setLength(150)));
 
         }
         shapeRenderer.end();

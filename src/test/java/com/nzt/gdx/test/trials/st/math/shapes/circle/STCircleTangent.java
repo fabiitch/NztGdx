@@ -14,6 +14,12 @@ import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
  * {@link CircleUtils#getTangentRad(Circle, float, Vector2)}
  */
 public class STCircleTangent extends BaseSTCircle {
+    Vector2 touch = new Vector2();//where userTouch screen
+
+    Vector2 rayToCenter = new Vector2();
+    Vector2 tangent = new Vector2();
+    Vector2 posOnCircle = new Vector2();
+
 
     public STCircleTangent(FastTesterMain main) {
         super(main);
@@ -28,7 +34,7 @@ public class STCircleTangent extends BaseSTCircle {
         return new SimpleClickInputHandler() {
             @Override
             public boolean click(int screenX, int screenY, int pointer, int button) {
-                touch.set(screenX, Gdx.graphics.getHeight() - screenY);
+                this.getClickPos(screenX, screenY, touch);
                 calculTangent();
                 return false;
             }
@@ -36,9 +42,9 @@ public class STCircleTangent extends BaseSTCircle {
     }
 
     protected void calculTangent() {
-        V2.directionTo(circleCenter, touch, ray);
-        CircleUtils.posWithAngleDeg(circle, ray.angleDeg(), posOnCircle);
-        CircleUtils.getTangentDeg(circle, ray.angleDeg(), tangent);
+        V2.directionTo(circleCenter, touch, rayToCenter);
+        CircleUtils.posWithAngleDeg(circle, rayToCenter.angleDeg(), posOnCircle);
+        CircleUtils.getTangentDeg(circle, rayToCenter.angleDeg(), tangent);
     }
 
 
