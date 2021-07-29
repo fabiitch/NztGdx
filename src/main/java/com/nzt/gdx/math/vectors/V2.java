@@ -17,22 +17,21 @@ public class V2 {
 
     public static Vector2 tmp(float x, float y) {
         return tmp.set(x, y);
-    }
+    } //TODO use pools
 
     public static Vector2 tmp(Vector2 vector2) {
         return tmp.set(vector2.x, vector2.y);
-    }
+    } //TODO use pools
 
     public static Vector2 tmp(Vector3 vector3) {
         return tmp.set(vector3.x, vector3.y);
-    }
+    } //TODO use pools
 
     public static Vector2 getNormal(Vector2 from, Vector2 to, Vector2 result) {
         directionTo(from, to ,tmp);
         return getNormal(tmp,result);
     }
     public static Vector2 getNormal(Vector2 dir, Vector2 result) {
-//        result.set(dir).nor(); //TODO pk ?
         float newX = -dir.y;
         float newY = dir.x;
         return result.set(newX, newY);
@@ -79,10 +78,16 @@ public class V2 {
         return angle;
     }
 
+    /**
+     * no cast , no intrinsic
+     */
     public static float angleRad(Vector2 v) {
         return MathUtils.atan2(v.y, v.x);
     }
 
+    /**
+     * no cast , no intrinsic
+     */
     public static float angleDeg(Vector2 v1, Vector2 reference) {
         float angle = MathUtils.atan2(reference.crs(v1), reference.dot(v1)) * MathUtils.radiansToDegrees;
         if (angle < 0)

@@ -31,12 +31,12 @@ public class AngleUtils {
     }
 
     public static float angleReflexionDeg(Segment segmentIntersect, Vector2 dir) {
-        Vector2 normal = segmentIntersect.getNormale(tmp);
+        Vector2 normal = segmentIntersect.getNormal(tmp);
         return V2.angleDeg(normal) - (V2.angleDeg(dir) - V2.angleDeg(normal));
     }
 
     public static float angleReflexionRad(Segment segment, Vector2 dir) {
-        Vector2 normal = segment.getNormale(tmp);
+        Vector2 normal = segment.getNormal(tmp);
         return V2.angleRad(normal) - (V2.angleRad(dir) - V2.angleRad(normal));
     }
 

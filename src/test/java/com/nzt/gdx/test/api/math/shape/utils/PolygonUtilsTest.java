@@ -9,11 +9,35 @@ import com.nzt.gdx.test.api.math.vectors.VTestUtils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.util.function.Function;
+
 public class PolygonUtilsTest {
     private static Vector2 tmp = new Vector2();
 
     float[] vertices = new float[]{0, 0, 50, 50, 60, 60, 300, 0};
     Polygon polygon = new Polygon(vertices);
+
+    @Test
+    public void getVertexBeforeTest() {
+        int maxIndex = vertices.length/2 - 1; //3
+        Assertions.assertEquals(maxIndex, PolygonUtils.getVertexBefore(polygon, 0));
+        Assertions.assertEquals(0, PolygonUtils.getVertexBefore(polygon, 1));
+        Assertions.assertEquals(1, PolygonUtils.getVertexBefore(polygon, 2));
+        Assertions.assertEquals(2, PolygonUtils.getVertexBefore(polygon, 3));
+        Assertions.assertEquals(maxIndex, PolygonUtils.getVertexBefore(polygon, 4));
+        Assertions.assertEquals(0, PolygonUtils.getVertexBefore(polygon, 5));
+        Assertions.assertEquals(1, PolygonUtils.getVertexBefore(polygon, 6));
+    }
+    @Test
+    public void getVertexAfterTest() {
+        Assertions.assertEquals(1, PolygonUtils.getVertexAfter(polygon, 0));
+        Assertions.assertEquals(2, PolygonUtils.getVertexAfter(polygon, 1));
+        Assertions.assertEquals(3, PolygonUtils.getVertexAfter(polygon, 2));
+        Assertions.assertEquals(0, PolygonUtils.getVertexAfter(polygon, 3));
+        Assertions.assertEquals(1, PolygonUtils.getVertexAfter(polygon, 4));
+        Assertions.assertEquals(2, PolygonUtils.getVertexAfter(polygon, 5));
+        Assertions.assertEquals(3, PolygonUtils.getVertexAfter(polygon, 6));
+    }
 
     @Test
     public void getMaxDstFromZeroTest() {

@@ -30,6 +30,18 @@ public abstract class TestScreen extends SimpleTestScreen {
         addInfoTestMsg();
     }
 
+    /**
+     * Dont use with this param in screen
+     * use super(main,true)
+     */
+    protected TestScreen(FastTesterMain main, boolean enableGlProfiler) {
+        this(main);
+        if (enableGlProfiler) {
+            glProfiler.setScreen(this);
+            addHudToGlProfiler();
+        }
+    }
+
     protected void addInfoTestMsg() {
         if (getTestExplication() != null) {
             HudDebug.addTopLeft("ST Target", getTestExplication());
@@ -37,20 +49,17 @@ public abstract class TestScreen extends SimpleTestScreen {
         }
     }
 
-    protected void debugMsg(String key, String value, Color color) {
-        HudDebug.addBotLeft(key, value, color);
+    protected void debugMsg(String key, Object value, Color color) {
+        if (HudDebug.exist(key)) {
+            HudDebug.update(key, value);
+            if (!HudDebug.getColor(key).equals(color))
+                HudDebug.changeColor(key, color);
+        } else
+            HudDebug.addBotLeft(key, value, color);
     }
 
-    protected void debugMsg(String key, String value) {
-        HudDebug.addBotLeft(key, value);
-    }
-
-    protected void debugMsg(String s, Color color) {
-        HudDebug.addBotLeft(s, "", color);
-    }
-
-    protected void debugMsg(String s) {
-        HudDebug.addBotLeft(s, "");
+    protected void debugMsg(String key, Object value) {
+        debugMsg(key, value,Color.WHITE);
     }
 
     protected void infoMsg(String s) {
@@ -69,18 +78,6 @@ public abstract class TestScreen extends SimpleTestScreen {
         HudDebug.addTopLeft(key, value, color);
     }
 
-
-    /**
-     * Dont use with this param in screen
-     * use super(main,true)
-     */
-    protected TestScreen(FastTesterMain main, boolean enableGlProfiler) {
-        this(main);
-        if (enableGlProfiler) {
-            glProfiler.setScreen(this);
-            addHudToGlProfiler();
-        }
-    }
 
     public abstract String getTestExplication();
 

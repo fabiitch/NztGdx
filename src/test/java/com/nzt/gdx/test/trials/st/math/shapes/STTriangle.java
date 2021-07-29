@@ -12,11 +12,12 @@ import com.nzt.gdx.math.random.Randoms;
 import com.nzt.gdx.math.shapes.Triangle;
 import com.nzt.gdx.math.shapes.builders.TriangleBuilder;
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
+import com.nzt.gdx.test.trials.tester.archi.screens.TestScreen;
 import com.nzt.gdx.test.trials.tester.selector.TestScreenList;
 import com.nzt.gdx.utils.GdxUtils;
 
 @TestScreenList(group = "math.shapes")
-public class STTriangle extends com.nzt.gdx.test.trials.tester.archi.screens.TestScreen {
+public class STTriangle extends TestScreen {
 
     private int mode = 0;
     private Triangle triangle;

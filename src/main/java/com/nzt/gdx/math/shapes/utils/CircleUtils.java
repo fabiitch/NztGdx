@@ -19,6 +19,11 @@ public class CircleUtils {
         return center.set(circle.x, circle.y);
     }
 
+    public static Vector2 getTangent(Circle circle, Vector2 posOnCircle, Vector2 result) {
+        getCenter(circle, tmp);
+        return V2.directionTo(tmp, posOnCircle, result).rotate90(0);
+    }
+
     public static Vector2 getTangentDeg(Circle circle, float angleDeg, Vector2 result) {
         return getTangentRad(circle, MathUtils.degreesToRadians * angleDeg, result);
     }
@@ -28,6 +33,31 @@ public class CircleUtils {
         posWithAngleRad(circle, angleRad, tmp);
         getCenter(circle, tmp2);
         return V2.directionTo(tmp2, tmp, result).rotate90(0);
+    }
+
+
+    public static Vector2 dirFromCenter(Circle circle, Vector2 posOnCircle, Vector2 normalResult) {
+        getCenter(circle, tmp);
+        V2.directionTo(tmp, posOnCircle, normalResult);
+        return normalResult;
+    }
+
+    public static Vector2 dirToCenter(Circle circle, Vector2 posOnCircle, Vector2 normalResult) {
+        getCenter(circle, tmp);
+        V2.directionTo(posOnCircle, tmp, normalResult);
+        return normalResult;
+    }
+
+    public static Vector2 dirFromCenter(Circle circle, float angleDeg, Vector2 normalResult) {
+        getCenter(circle, tmp);
+        V2.directionTo(tmp, posWithAngleDeg(circle, angleDeg, tmp2), normalResult);
+        return normalResult;
+    }
+
+    public static Vector2 dirToCenter(Circle circle, float angleDeg, Vector2 normalResult) {
+        getCenter(circle, tmp);
+        V2.directionTo(posWithAngleDeg(circle, angleDeg, tmp2), tmp, normalResult);
+        return normalResult;
     }
 
     public static Vector2 posWithAngleDeg(Circle cirle, float angleDeg, Vector2 returnV) {
@@ -54,14 +84,21 @@ public class CircleUtils {
         return returnV;
     }
 
-    public static float getAngleReflexionRad(Circle circle, float angleRad) {
-        Vector2 tangent = getTangentRad(circle, angleRad, tmp);
-        tmp2.setAngleRad(angleRad);
-        return AngleUtils.angleReflexionRad(tangent, tmp2);
+    public static Vector2 getReflexion(Circle cirle, Vector2 dir, Vector2 posOnCircle, Vector2 reflexionDir) {
+        Vector2 normal = dirFromCenter(cirle, posOnCircle, tmp);
+
+//        float angleDiff = normal.angleDeg()
+//        reflexionDir.set(1,0)
+return normal;
     }
 
+//    public static float getAngleReflexionRad(Circle circle, float angleRad) {
+//        Vector2 tangent = getTangentRad(circle, angleRad, tmp);
+//        tmp2.setAngleRad(angleRad);
+//        return AngleUtils.angleReflexionRad(tangent, tmp2);
+//    }
 
 
     //tangent point extérieure :
-  //  https://github.com/williamfiset/Algorithms/blob/master/src/main/java/com/williamfiset/algorithms/geometry/PointCircleTangent.java
+    //  https://github.com/williamfiset/Algorithms/blob/master/src/main/java/com/williamfiset/algorithms/geometry/PointCircleTangent.java
 }
