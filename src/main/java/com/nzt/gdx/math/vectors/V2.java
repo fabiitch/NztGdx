@@ -100,4 +100,8 @@ public class V2 {
         return vReturn;
     }
 
+    public static Vector2 middle(float x1, float y1, float x2, float y2, Vector2 vReturn) {
+        vReturn.set((x2+ x1) / 2, (y2 + y1) / 2);
+        return vReturn;
+    }
 }
