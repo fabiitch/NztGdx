@@ -2,6 +2,7 @@ package com.nzt.gdx.test.trials.st.math.vectors;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Vector2;
 import com.nzt.gdx.input.impl.simple.SimpleClickInputHandler;
 import com.nzt.gdx.math.AngleUtils;
@@ -65,6 +66,7 @@ public class STV2Opposite extends TestScreen {
     @Override
     public void renderTestScreen(float dt) {
         shapeRenderer.begin();
+        shapeRenderer.set(ShapeRenderer.ShapeType.Line);
         shapeRenderer.setColor(Color.RED);
         shapeRenderer.line(middle, middle.cpy().add(v1.setLength(200)));
         shapeRenderer.setColor(Color.BLUE);

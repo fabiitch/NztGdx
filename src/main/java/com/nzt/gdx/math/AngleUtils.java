@@ -16,9 +16,9 @@ public class AngleUtils {
      *  Angle reflexion, angle rebond
      * https://fr.wikipedia.org/wiki/Lois_de_Snell-Descartes
      * https://upload.wikimedia.org/wikipedia/commons/9/91/Reflexion_fr.png?uselang=fr
+     * Voir Screen Test : STCircleReflexionRay
      * */
-
-    public static float reflexionToIncidence(float angleReflexionDeg) {
+    public static float incidenceToReflexion(float angleReflexionDeg) {
         return 180 + angleReflexionDeg;
     }
 
@@ -27,10 +27,10 @@ public class AngleUtils {
     }
 
     public static float angleIncidenceDeg(Segment segment, Vector2 dir) {
-        return reflexionToIncidence(angleReflexionDeg(segment, dir));
+        return incidenceToReflexion(angleIncidence(segment, dir));
     }
 
-    public static float angleReflexionDeg(Segment segmentIntersect, Vector2 dir) {
+    public static float angleIncidence(Segment segmentIntersect, Vector2 dir) {
         Vector2 normal = segmentIntersect.getNormal(tmp);
         return V2.angleDeg(normal) - (V2.angleDeg(dir) - V2.angleDeg(normal));
     }
@@ -40,15 +40,18 @@ public class AngleUtils {
         return V2.angleRad(normal) - (V2.angleRad(dir) - V2.angleRad(normal));
     }
 
-    public static float reflexionToIncidence(Segment segment, Vector2 dir) {
-        return 180 + angleReflexionDeg(segment, dir);
+    public static float incidenceToReflexion(Segment segment, Vector2 dir) {
+        return 180 + angleIncidence(segment, dir);
     }
 
     public static float angleIncidenceRad(Segment segment, Vector2 dir) {
         return MathUtils.PI + angleIncidenceRad(segment, dir);
     }
 
-    public static float angleReflexionDeg(Vector2 dirEdge, Vector2 dirBullet) {
+    /**
+     * angleIncidence = rebondit dans le sens du vecteur
+     */
+    public static float angleIncidence(Vector2 dirEdge, Vector2 dirBullet) {
         Vector2 normal = V2.getNormal(dirEdge, tmp);
         return V2.angleDeg(normal) - (V2.angleDeg(dirBullet) - V2.angleDeg(normal));
     }

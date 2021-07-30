@@ -2,6 +2,7 @@ package com.nzt.gdx.test.trials.st.math.vectors;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Vector2;
 import com.nzt.gdx.input.impl.simple.SimpleClickInputHandler;
 import com.nzt.gdx.math.vectors.V2;
@@ -60,6 +61,7 @@ public class STV2CalculNormal extends TestScreen {
         V2.getNormal(vector2, tangent);
 
         shapeRenderer.begin();
+        shapeRenderer.set(ShapeRenderer.ShapeType.Line);
         shapeRenderer.setColor(Color.RED);
         shapeRenderer.line(middle.cpy().add(vector2), middle.cpy().sub(vector2));
         shapeRenderer.setColor(Color.BLUE);

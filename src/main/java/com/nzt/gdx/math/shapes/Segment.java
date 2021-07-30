@@ -2,6 +2,7 @@ package com.nzt.gdx.math.shapes;
 
 import com.badlogic.gdx.math.Shape2D;
 import com.badlogic.gdx.math.Vector2;
+import com.nzt.gdx.math.shapes.utils.CircleUtils;
 import com.nzt.gdx.math.shapes.utils.SegmentUtils;
 import com.nzt.gdx.math.vectors.V2;
 
@@ -13,6 +14,7 @@ public class Segment implements Shape2D {
     private final static Vector2 tmpv2 = new Vector2(); //TODO groups pools
     public Vector2 a;
     public Vector2 b;
+    public float rotation;
 
     public Segment() {
         this.a = new Vector2();
@@ -27,6 +29,18 @@ public class Segment implements Shape2D {
     public Segment(float aX, float aY, float bX, float bY) {
         this.a = new Vector2(aX, aY);
         this.b = new Vector2(bX, bY);
+    }
+
+    public void setRotation(float degrees) {
+        this.rotation = degrees;
+        getMiddle(tmpv1);
+        a.set(CircleUtils.posWithAngleDeg(tmpv1, getDst() / 2, degrees, tmpv2));
+        b.set(CircleUtils.posWithAngleDeg(tmpv1, getDst() / 2, degrees+180, tmpv2));
+    }
+
+    public void rotate(float degrees) {
+        rotation += degrees;
+        setRotation(rotation);
     }
 
     public Vector2 nearestPoint(Vector2 point, Vector2 result) {

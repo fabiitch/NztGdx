@@ -1,6 +1,5 @@
 package com.nzt.gdx.test.trials.st.math.shapes.circle;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.math.Vector2;
@@ -28,6 +27,7 @@ public class STCircleReflexionRay extends BaseSTCircle {
 
     private float angleReflexion;
     Vector2 normalTangent = new Vector2();
+    Vector2 incidence = new Vector2(1, 0);
     Vector2 reflexion = new Vector2(1, 0);
 
     public STCircleReflexionRay(FastTesterMain main) {
@@ -37,6 +37,7 @@ public class STCircleReflexionRay extends BaseSTCircle {
         infoMsg("cyan ", "segment");
         infoMsg("green ", "tangentCircle");
         infoMsg("blue", "normal of tangentCircle");
+        infoMsg("yellow ", "incidence");
         infoMsg("purple ", "reflexion");
     }
 
@@ -64,7 +65,7 @@ public class STCircleReflexionRay extends BaseSTCircle {
 
     private void calcul() {
         segment.set(touch, touch2);
-        V2.directionTo(touch, touch2,dirTouch);
+        V2.directionTo(touch, touch2, dirTouch);
         IntersectorCircle.firstSegmentIntersection(circle, segment, posOnCircle.setZero());
         if (!posOnCircle.isZero()) {
             touch2.set(posOnCircle);
@@ -72,10 +73,10 @@ public class STCircleReflexionRay extends BaseSTCircle {
             tangentCircle = CircleUtils.getTangent(circle, posOnCircle, tangentCircle);
 
             normalTangent = CircleUtils.dirFromCenter(circle, posOnCircle, normalTangent);
-            angleReflexion = AngleUtils.angleReflexionDeg(tangentCircle, dirTouch);
+            angleReflexion = AngleUtils.angleIncidence(tangentCircle, dirTouch);
 
-            float angleIncidence = AngleUtils.reflexionToIncidence(angleReflexion);
-
+            float angleIncidence = AngleUtils.incidenceToReflexion(angleReflexion);
+            incidence.setAngleDeg(angleReflexion);
             reflexion.setAngleDeg(angleIncidence);
         }
 
@@ -98,9 +99,12 @@ public class STCircleReflexionRay extends BaseSTCircle {
 
             shapeRenderer.setColor(Color.BLUE);
             shapeRenderer.line(posOnCircle, posOnCircle.cpy().add(normalTangent.setLength(100)));
-//
+
             shapeRenderer.setColor(Color.PURPLE);
             shapeRenderer.line(posOnCircle, posOnCircle.cpy().add(reflexion.setLength(150)));
+
+            shapeRenderer.setColor(Color.YELLOW);
+            shapeRenderer.line(posOnCircle, posOnCircle.cpy().add(incidence.setLength(150)));
 
         }
         shapeRenderer.end();

@@ -9,6 +9,7 @@ import com.nzt.gdx.math.shapes.Triangle;
 
 public class NzShapeRenderer extends ShapeRenderer {
     public NzShapeRenderer() {
+        super();
     }
 
     public NzShapeRenderer(int maxVertices) {
