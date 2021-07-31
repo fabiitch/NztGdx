@@ -1,5 +1,6 @@
 package com.nzt.gdx.math.shapes;
 
+import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Shape2D;
 import com.badlogic.gdx.math.Vector2;
 import com.nzt.gdx.math.shapes.utils.CircleUtils;
@@ -12,6 +13,8 @@ public class Segment implements Shape2D {
 
     private final static Vector2 tmpv1 = new Vector2(); //TODO groups pools
     private final static Vector2 tmpv2 = new Vector2(); //TODO groups pools
+
+
     public Vector2 a;
     public Vector2 b;
     public float rotation;
@@ -35,12 +38,15 @@ public class Segment implements Shape2D {
         this.rotation = degrees;
         getMiddle(tmpv1);
         a.set(CircleUtils.posWithAngleDeg(tmpv1, getDst() / 2, degrees, tmpv2));
-        b.set(CircleUtils.posWithAngleDeg(tmpv1, getDst() / 2, degrees+180, tmpv2));
+        b.set(CircleUtils.posWithAngleDeg(tmpv1, getDst() / 2, degrees + 180, tmpv2));
     }
 
     public void rotate(float degrees) {
         rotation += degrees;
         setRotation(rotation);
+    }
+    public float dst(Vector2 point) {
+        return SegmentUtils.nearestPoint(this, point, tmpv1).dst(point);
     }
 
     public Vector2 nearestPoint(Vector2 point, Vector2 result) {
@@ -81,35 +87,40 @@ public class Segment implements Shape2D {
         return normal.set(newX, newY);
     }
 
-    public void set(float aX, float aY, float bX, float bY) {
+    public Segment set(float aX, float aY, float bX, float bY) {
         setA(aX, aY);
         setB(bX, bY);
+        return this;
     }
 
-    public void set(Vector2 a, Vector2 b) {
+    public Segment set(Vector2 a, Vector2 b) {
         this.a.set(a);
         this.b.set(b);
+        return this;
     }
 
-    public void set(Segment segment2D) {
-        this.a = segment2D.a;
-        this.b = segment2D.b;
+    public Segment set(Segment segment2D) {
+        return set(segment2D.a, segment2D.b);
     }
 
-    public void setA(Vector2 a) {
+    public Segment setA(Vector2 a) {
         this.a.set(a);
+        return this;
     }
 
-    public void setA(float aX, float aY) {
+    public Segment setA(float aX, float aY) {
         this.a.set(aX, aY);
+        return this;
     }
 
-    public void setB(Vector2 b) {
+    public Segment setB(Vector2 b) {
         this.b.set(b);
+        return this;
     }
 
-    public void setB(float bX, float bY) {
+    public Segment setB(float bX, float bY) {
         this.b.set(bX, bY);
+        return this;
     }
 
     @Override
@@ -129,6 +140,13 @@ public class Segment implements Shape2D {
                 Objects.equals(b, segment2D.b);
     }
 
+    public boolean equalsPoints(Segment segment) {
+        if (this == segment)
+            return true;
+        return (this.a.epsilonEquals(segment.a) && this.b.epsilonEquals(segment.b))
+                || (this.b.epsilonEquals(segment.a) && this.a.epsilonEquals(segment.b));
+    }
+
     @Override
     public int hashCode() {
         return Objects.hash(a, b);
@@ -136,11 +154,11 @@ public class Segment implements Shape2D {
 
     @Override
     public boolean contains(Vector2 point) {
-        return false;
+        return dst(point) < MathUtils.FLOAT_ROUNDING_ERROR;
     }
 
     @Override
     public boolean contains(float x, float y) {
-        return false;
+        return contains(tmpv1.set(x, y));
     }
 }

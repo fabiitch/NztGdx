@@ -23,6 +23,19 @@ public class RectangleUtilsTest {
         VTestUtils.assertEquals(new Vector2(100 + 250, 200 + 75), center2);
     }
 
+
+    @Test
+    public void getEdgeTest() {
+        Rectangle rect = new Rectangle(10, 20, 100, 50);
+        Segment tmp1 = new Segment();
+        Segment tmp2 = new Segment();
+        Assertions.assertTrue(RectangleUtils.getAB(rect, tmp1).equalsPoints(tmp2.set(10, 20, 110, 20)));
+        Assertions.assertTrue(RectangleUtils.getBC(rect, tmp1).equalsPoints(tmp2.set(110, 20, 110, 70)));
+        Assertions.assertTrue(RectangleUtils.getCD(rect, tmp1).equalsPoints(tmp2.set(110, 70, 10, 70)));
+        Assertions.assertTrue(RectangleUtils.getAD(rect, tmp1).equalsPoints(tmp2.set(10, 20, 10, 70)));
+
+    }
+
     @Test
     public void getAsVerticesTest() {
         Rectangle rect1 = new Rectangle(10, 20, 100, 50);
@@ -105,6 +118,25 @@ public class RectangleUtilsTest {
 
         RectangleUtils.getNearestPoint(rect, new Vector2(-100, 25), nearestPoint);
         VTestUtils.assertEquals(new Vector2(0, 25), nearestPoint);
+    }
+
+    @Test
+    public void getNearestSegmentTest() {
+        Rectangle rect = new Rectangle(0, 0, 100, 50);
+        Segment tmp = new Segment();
+        Segment segmentNearest = new Segment();
+
+        RectangleUtils.getNearestSegment(rect, new Vector2(50, 150), segmentNearest);
+        Assertions.assertTrue(RectangleUtils.getHorizontalTop(rect, tmp).equalsPoints(segmentNearest));
+
+        RectangleUtils.getNearestSegment(rect, new Vector2(50, -10), segmentNearest);
+        Assertions.assertTrue(RectangleUtils.getHorizontalBot(rect, tmp).equalsPoints(segmentNearest));
+
+        RectangleUtils.getNearestSegment(rect, new Vector2(-15, 25), segmentNearest);
+        Assertions.assertTrue(RectangleUtils.getVerticalLeft(rect, tmp).equalsPoints(segmentNearest));
+
+        RectangleUtils.getNearestSegment(rect, new Vector2(300, 25), segmentNearest);
+        Assertions.assertTrue(RectangleUtils.getVerticalRight(rect, tmp).equalsPoints(segmentNearest));
     }
 
     @Test
