@@ -46,7 +46,7 @@ public class IntersectorCircle {
 
     /**
      * @return intersect
-     * goOut set  to put circle out of polygons
+     * goOut set to put circle out of polygons
      */
     public static boolean replaceFromPolygon(Circle circle, Polygon polygon, Vector2 goOut) {
         tmp3.set(circle.x, circle.y);

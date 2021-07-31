@@ -2,6 +2,7 @@ package com.nzt.gdx.test.api.math.shape.utils;
 
 import com.badlogic.gdx.math.Polygon;
 import com.badlogic.gdx.math.Vector2;
+import com.nzt.gdx.math.shapes.Segment;
 import com.nzt.gdx.math.shapes.Triangle;
 import com.nzt.gdx.math.shapes.builders.TriangleBuilder;
 import com.nzt.gdx.math.shapes.utils.PolygonUtils;
@@ -19,7 +20,7 @@ public class PolygonUtilsTest {
 
     @Test
     public void getVertexBeforeTest() {
-        int maxIndex = vertices.length/2 - 1; //3
+        int maxIndex = vertices.length / 2 - 1; //3
         Assertions.assertEquals(maxIndex, PolygonUtils.getVertexBefore(polygon, 0));
         Assertions.assertEquals(0, PolygonUtils.getVertexBefore(polygon, 1));
         Assertions.assertEquals(1, PolygonUtils.getVertexBefore(polygon, 2));
@@ -28,6 +29,7 @@ public class PolygonUtilsTest {
         Assertions.assertEquals(0, PolygonUtils.getVertexBefore(polygon, 5));
         Assertions.assertEquals(1, PolygonUtils.getVertexBefore(polygon, 6));
     }
+
     @Test
     public void getVertexAfterTest() {
         Assertions.assertEquals(1, PolygonUtils.getVertexAfter(polygon, 0));
@@ -108,5 +110,27 @@ public class PolygonUtilsTest {
 
         Polygon concavePoly = new Polygon(new float[]{0, 0, 5, 5, 0, 10, 20, 10, 20, 0});
         Assertions.assertFalse(PolygonUtils.isConvex(concavePoly));
+    }
+
+    @Test
+    public void getNearestSegment() {
+        Segment result = new Segment();
+        Polygon rect = new Polygon(new float[]{0, 0, 100, 0, 100, 50, 0, 50});
+
+        PolygonUtils.getNearestSegment(rect, new Vector2(50, 150), result);
+        Assertions.assertTrue(result.equalsPoints(new Segment(0,50,100,50)));
+
+        PolygonUtils.getNearestSegment(rect, new Vector2(-25, 25), result);
+        Assertions.assertTrue(result.equalsPoints(new Segment(0,0,0,50)));
+
+        PolygonUtils.getNearestSegment(rect, new Vector2(600, 25), result);
+        Assertions.assertTrue(result.equalsPoints(new Segment(100,0,100,50)));
+
+        PolygonUtils.getNearestSegment(rect, new Vector2(50, -150), result);
+        Assertions.assertTrue(result.equalsPoints(new Segment(0,0,100,0)));
+
+        //inside
+        PolygonUtils.getNearestSegment(rect, new Vector2(50, 10), result);
+        Assertions.assertTrue(result.equalsPoints(new Segment(0,0,100,0)));
     }
 }

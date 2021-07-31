@@ -1,15 +1,19 @@
 package com.nzt.gdx.math.shapes.utils;
 
 import com.badlogic.gdx.math.GeometryUtils;
+import com.badlogic.gdx.math.Intersector;
 import com.badlogic.gdx.math.Polygon;
 import com.badlogic.gdx.math.Vector2;
 import com.nzt.gdx.math.CalculUtils;
+import com.nzt.gdx.math.shapes.Segment;
+import com.nzt.gdx.math.vectors.V2;
 
 public class PolygonUtils {
 
     public static Polygon tmpPolygon = new Polygon(); //TODO mathSett
     public static Vector2 tmpV1 = new Vector2(); //TODO mathSett
     public static Vector2 tmpV2 = new Vector2();
+    public static Vector2 tmpV3 = new Vector2();
 
     private PolygonUtils() {
 
@@ -62,7 +66,7 @@ public class PolygonUtils {
     }
 
     public static int getVertexBefore(Polygon polygon, int vertex) {
-        return CalculUtils.floorMod(vertex-1, polygon.getVertices().length / 2);
+        return CalculUtils.floorMod(vertex - 1, polygon.getVertices().length / 2);
     }
 
     public static int getVertexAfter(Polygon polygon, int vertex) {
@@ -107,6 +111,42 @@ public class PolygonUtils {
         }
 
         return true;
+    }
+
+    public static Segment getNearestSegment(Polygon polygon, Vector2 point, Segment result) {
+        float dstMin = Float.MAX_VALUE;
+
+        float[] vertices = polygon.getTransformedVertices();
+        int i = 0;
+
+        int vertexA =0, vertexB=0;
+        while (i <= vertices.length / 2) {
+            result.a.set(vertices[i], vertices[i + 1]);
+            result.b.set(vertices[i+2], vertices[i + 3]);
+            tmpV1.set(vertices[i], vertices[i + 1]);
+            tmpV2.set(vertices[i + 2], vertices[i + 3]);
+            result.nearestPoint(point,tmpV1);
+
+            float dstPoint = point.dst2(tmpV1);
+            if (dstPoint < dstMin) {
+                vertexA = i/2;
+                vertexB = vertexA++;
+                dstMin = dstPoint;
+            }
+            i += 2;
+        }
+        //last and first point
+        result.a.set(vertices[0], vertices[1]);
+        result.b.set(vertices[vertices.length - 2], vertices[vertices.length - 1]);
+        result.nearestPoint(point, tmpV1);
+        float dstPoint = point.dst2(tmpV1);
+        if (dstPoint < dstMin) {
+            vertexA = 0;
+            vertexB = vertices.length / 2 -1;
+        }
+        PolygonUtils.getVertex(polygon, vertexA, result.a);
+        PolygonUtils.getVertex(polygon, vertexB, result.b);
+        return result;
     }
 
 }

@@ -4,10 +4,17 @@ import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.nzt.gdx.math.shapes.Segment;
 
-//TODO groupé les math tmpV vector segment ect
+//TODO groupé les math tmpV1 vector segment ect
+
+/**
+ * D-----C
+ * -------
+ * A-----B
+ */
 public class RectangleUtils {
 
-    private static final Vector2 tmpV = new Vector2();
+    private static final Vector2 tmpV1 = new Vector2();
+    private static final Vector2 tmpV2 = new Vector2();
     private static final Segment tmpSegment = new Segment();
 
     /**
@@ -34,6 +41,30 @@ public class RectangleUtils {
         return pos.set(rect.x, rect.y + rect.height);
     }
 
+    public static Segment getAB(Rectangle rect, Segment segment) {
+        getA(rect, segment.a);
+        getB(rect, segment.b);
+        return segment;
+    }
+
+    public static Segment getBC(Rectangle rect, Segment segment) {
+        getB(rect, segment.a);
+        getC(rect, segment.b);
+        return segment;
+    }
+
+    public static Segment getCD(Rectangle rect, Segment segment) {
+        getC(rect, segment.b);
+        getD(rect, segment.a);
+        return segment;
+    }
+
+    public static Segment getAD(Rectangle rect, Segment segment) {
+        getA(rect, segment.b);
+        getD(rect, segment.a);
+        return segment;
+    }
+
     public static int getClosestVertex(Rectangle rect, float x, float y, Vector2 vertexPos) {
         int vertextClosest = getClosestVertex(rect, x, y);
         if (vertextClosest == 1) {
@@ -48,12 +79,42 @@ public class RectangleUtils {
         return vertextClosest;
     }
 
+    public static Segment getNearestSegment(Rectangle rectangle, Vector2 point, Segment result) {
+        Vector2 nearestPointTmp = tmpV1;
+        Vector2 nextPoint = tmpV2;
+        Segment horizontalBot = RectangleUtils.getHorizontalBot(rectangle, tmpSegment);
+        SegmentUtils.nearestPoint(horizontalBot, point, nearestPointTmp);
+        result.set(horizontalBot);
+
+        Segment horizontalTop = RectangleUtils.getHorizontalTop(rectangle, tmpSegment);
+        SegmentUtils.nearestPoint(horizontalTop, point, nextPoint);
+        if (nextPoint.dst2(point) < nearestPointTmp.dst2(point)) {
+            nearestPointTmp.set(nextPoint);
+            result.set(horizontalTop);
+        }
+
+        Segment verticalLeft = RectangleUtils.getVerticalLeft(rectangle, tmpSegment);
+        SegmentUtils.nearestPoint(verticalLeft, point, nextPoint);
+        if (nextPoint.dst2(point) < nearestPointTmp.dst2(point)) {
+            nearestPointTmp.set(nextPoint);
+            result.set(verticalLeft);
+        }
+
+        Segment verticalRight = RectangleUtils.getVerticalRight(rectangle, tmpSegment);
+        SegmentUtils.nearestPoint(verticalRight, point, nextPoint);
+        if (nextPoint.dst2(point) < nearestPointTmp.dst2(point)) {
+            nearestPointTmp.set(nextPoint);
+            result.set(verticalRight);
+        }
+        return result;
+    }
+
     /**
      * return the closest point on edge
      */
     public static Vector2 getNearestPoint(Rectangle rectangle, Vector2 point, Vector2 result) {
         Vector2 nearestPoint = result;
-        Vector2 nearestPointTmp = tmpV;
+        Vector2 nearestPointTmp = tmpV1;
 
         Segment horizontalBot = RectangleUtils.getHorizontalBot(rectangle, tmpSegment);
         SegmentUtils.nearestPoint(horizontalBot, point, result);
@@ -80,21 +141,21 @@ public class RectangleUtils {
 
     public static int getClosestVertex(Rectangle rect, float x, float y) {
         int nb = 1;
-        float dstA = getA(rect, tmpV).dst2(x, y);
+        float dstA = getA(rect, tmpV1).dst2(x, y);
         float closest = dstA;
 
-        float dstB = getB(rect, tmpV).dst2(x, y);
+        float dstB = getB(rect, tmpV1).dst2(x, y);
         if (dstB < closest) {
             closest = dstB;
             nb = 2;
         }
 
-        float dstC = getC(rect, tmpV).dst2(x, y);
+        float dstC = getC(rect, tmpV1).dst2(x, y);
         if (dstC < closest) {
             closest = dstC;
             nb = 3;
         }
-        float dstD = getD(rect, tmpV).dst2(x, y);
+        float dstD = getD(rect, tmpV1).dst2(x, y);
         if (dstD < closest) {
             nb = 4;
         }

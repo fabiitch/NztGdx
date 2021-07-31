@@ -28,9 +28,10 @@ public class V2 {
     } //TODO use pools
 
     public static Vector2 getNormal(Vector2 from, Vector2 to, Vector2 result) {
-        directionTo(from, to ,tmp);
-        return getNormal(tmp,result);
+        directionTo(from, to, tmp);
+        return getNormal(tmp, result);
     }
+
     public static Vector2 getNormal(Vector2 dir, Vector2 result) {
         float newX = -dir.y;
         float newY = dir.x;
@@ -48,6 +49,12 @@ public class V2 {
         return v.set(values.x, values.y);
     }
 
+    public static Vector2 inv(Vector2 v, Vector2 result) {
+        result.x = -v.x;
+        result.y = -v.y;
+        return result;
+    }
+
     public static Vector2 inv(Vector2 v) {
         v.x = -v.x;
         v.y = -v.y;
@@ -56,6 +63,10 @@ public class V2 {
 
     public static Vector2 directionTo(Vector2 from, Vector2 to, Vector2 result) {
         return result.set(to.x - from.x, to.y - from.y).nor();
+    }
+
+    public static Vector2 directionTo(float xFrom, float yFrom, float xTo, float yTo, Vector2 result) {
+        return result.set(xTo - xFrom, yTo - yFrom).nor();
     }
 
     public static float[] toFloatArray(Array<Vector2> array) {
@@ -101,7 +112,7 @@ public class V2 {
     }
 
     public static Vector2 middle(float x1, float y1, float x2, float y2, Vector2 vReturn) {
-        vReturn.set((x2+ x1) / 2, (y2 + y1) / 2);
+        vReturn.set((x2 + x1) / 2, (y2 + y1) / 2);
         return vReturn;
     }
 }

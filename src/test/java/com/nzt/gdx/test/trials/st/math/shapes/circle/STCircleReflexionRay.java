@@ -25,7 +25,7 @@ public class STCircleReflexionRay extends BaseSTCircle {
 
     Segment segment = new Segment();
 
-    private float angleReflexion;
+    private float angleIncidence;
     Vector2 normalTangent = new Vector2();
     Vector2 incidence = new Vector2(1, 0);
     Vector2 reflexion = new Vector2(1, 0);
@@ -73,11 +73,12 @@ public class STCircleReflexionRay extends BaseSTCircle {
             tangentCircle = CircleUtils.getTangent(circle, posOnCircle, tangentCircle);
 
             normalTangent = CircleUtils.dirFromCenter(circle, posOnCircle, normalTangent);
-            angleReflexion = AngleUtils.angleIncidence(tangentCircle, dirTouch);
 
-            float angleIncidence = AngleUtils.incidenceToReflexion(angleReflexion);
-            incidence.setAngleDeg(angleReflexion);
-            reflexion.setAngleDeg(angleIncidence);
+            angleIncidence = AngleUtils.angleIncidence(tangentCircle, dirTouch);
+            incidence.setAngleDeg(angleIncidence);
+
+            float angleReflexion = AngleUtils.incidenceToReflexion(angleIncidence);
+            reflexion.setAngleDeg(angleReflexion);
         }
 
     }
