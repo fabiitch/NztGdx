@@ -2,6 +2,7 @@ package com.nzt.gdx.utils;
 
 import com.badlogic.gdx.Application;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
 public class GdxUtils {
@@ -17,6 +18,7 @@ public class GdxUtils {
     public static long getNativeHeapMb() {
         return Gdx.app.getNativeHeap() / (1024L * 1024L);
     }
+
     public static boolean isDesktop() {
         return Gdx.app.getType() == Application.ApplicationType.Desktop;
     }
@@ -51,5 +53,15 @@ public class GdxUtils {
 
     public static float getScreenCenterY() {
         return Gdx.graphics.getHeight() / 2;
+    }
+
+    public static Rectangle screenAsRectangle(Rectangle rect, boolean centerAs0) {
+        if (centerAs0) {
+            return rect.set(-Gdx.graphics.getWidth() / 2, -Gdx.graphics.getHeight() / 2,
+                    Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+        } else {
+            return rect.set(0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+        }
+
     }
 }
