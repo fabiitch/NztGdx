@@ -5,6 +5,7 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g3d.ModelBatch;
+import com.badlogic.gdx.utils.ScreenUtils;
 import com.nzt.gdx.debug.gl.NzGLProfiler;
 import com.nzt.gdx.debug.perf.PerformanceFrame;
 import com.nzt.gdx.graphics.renderers.NzShapeRenderer;

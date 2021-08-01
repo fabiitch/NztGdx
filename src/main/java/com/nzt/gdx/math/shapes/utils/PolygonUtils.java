@@ -19,6 +19,9 @@ public class PolygonUtils {
 
     }
 
+    public static Vector2 getPos(Polygon polygon, Vector2 pos){
+        return pos.set(polygon.getX(), polygon.getY());
+    }
     public static float getMaxDstVertexFromZero(Polygon polygon, Vector2 vertex) {
         float[] vertices = polygon.getTransformedVertices();
         Vector2 tmp = PolygonUtils.tmpV1;
