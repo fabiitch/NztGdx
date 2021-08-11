@@ -2,6 +2,7 @@ package com.nzt.gdx.debug.perf;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.utils.Array;
+import com.nzt.gdx.debug.hud.HudDebugPosition;
 import com.nzt.gdx.debug.hud.core.HudDebug;
 import com.nzt.gdx.debug.utils.DebugDisplayUtils;
 import com.nzt.gdx.math.Percentage;
@@ -23,6 +24,14 @@ public class HudDebugPerformanceFrame {
 		this.color = color;
 		HudDebug.addItem(TOTAL_TIME, 1000f, positionOnStage, Color.RED);
 		HudDebug.addItem(TOTAL_TIME_PERCENT, "100%", positionOnStage, Color.RED);
+    }
+
+    public HudDebugPerformanceFrame() {
+        this(HudDebugPosition.BOT_LEFT, Color.WHITE);
+    }
+
+    public void removeFromHudDebug(){
+		HudDebug.removeGroup(KEY);
 	}
 
 	private void addRemoveActionOnHudDebug(int newNbActions) {
@@ -48,7 +57,7 @@ public class HudDebugPerformanceFrame {
 			HudDebug.update(TOTAL_TIME, DebugDisplayUtils.printNanoToMs(PerformanceFrame.timeLastFrame));
 			HudDebug.update(TOTAL_TIME_PERCENT,
 					Percentage.getPercent(PerformanceFrame.timeLastFrame, TimeUnit.SECONDS.toNanos(1) / 80f) + " %");
-			
+
 			for (int i = 0, n = actions.size; i < n; i++) {
 				PerformanceAction performanceAction = actions.get(i);
 				HudDebug.update(KEY + i, performanceAction.action,

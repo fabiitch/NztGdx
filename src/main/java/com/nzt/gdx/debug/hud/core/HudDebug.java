@@ -60,6 +60,18 @@ public class HudDebug {
             return instance.container.getColor(key);
         }
     }
+    public static void removeGroup(String startKey) {
+        if (instance == null) {
+            for (HudDebugPreInitItem item : arrayBeforeInit) {
+                if (item.key.startsWith(startKey)) {
+                    arrayBeforeInit.removeValue(item, true);
+                    break;
+                }
+            }
+        } else {
+            instance.container.removeGroup(startKey);
+        }
+    }
     public static void remove(String key) {
         if (instance == null) {
             for (HudDebugPreInitItem item : arrayBeforeInit) {
