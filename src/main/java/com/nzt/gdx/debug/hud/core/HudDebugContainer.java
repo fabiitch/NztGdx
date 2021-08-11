@@ -28,6 +28,14 @@ class HudDebugContainer {
 		this.mapLabels = new HashMap<>();
 	}
 
+	public void removeGroup(String startKey) {
+		for (Map.Entry<String, HudDebugLabel> entry : mapLabels.entrySet()) {
+			if(entry.getKey().startsWith(startKey)){
+				remove(entry.getKey());
+			}
+		}
+	}
+
 	public void remove(String key) {
 		HudDebugLabel labelStage = mapLabels.get(key);
 		if (labelStage != null) {

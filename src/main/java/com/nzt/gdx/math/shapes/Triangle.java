@@ -35,6 +35,10 @@ public class Triangle extends Polygon {
         super.setVertices(vertices);
     }
 
+    public void setPosition(Vector2 pos) {
+        setPosition(pos.x, pos.y);
+    }
+
     public Vector2 getA(Vector2 pos) {
         return getVertex(0, pos);
     }

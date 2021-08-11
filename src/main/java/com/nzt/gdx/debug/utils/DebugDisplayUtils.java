@@ -9,6 +9,7 @@ import java.text.DecimalFormat;
 public class DebugDisplayUtils {
     private static final DecimalFormat floatFormatter = new DecimalFormat();
     private static final DecimalFormat msFormatter = new DecimalFormat();
+    private static final Float nan = Float.valueOf(Float.NaN);
 
     {
         floatFormatter.setMaximumFractionDigits(2);
@@ -41,6 +42,10 @@ public class DebugDisplayUtils {
     public static String printFloat(float f) {
         if (f == 0)
             return "0";
+        if (Float.isNaN(f))
+            return "Nan";
+        if(Float.isInfinite(f))
+            return "Infinite";
         return floatFormatter.format(f);
     }
 

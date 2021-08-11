@@ -11,7 +11,7 @@ public abstract class AbstractEventListener<E extends Event> implements Listener
 
     public AbstractEventListener(EventConsumer<E>... consumers) {
         this.consumers = consumers;
-        registerToListener();
+        registerSignal();
     }
 
     public AbstractEventListener(EventConsumer<E> consumer) {

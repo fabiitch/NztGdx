@@ -26,9 +26,15 @@ public class MvtComponentFactory extends BaseComponentFactory {
     public PositionComponent rectPosition(Rectangle rect) {
         return position(rect.x + rect.width / 2, rect.y + rect.height / 2, 0, 0);
     }
-
+    public PositionComponent rectPosition(Rectangle rect,float z) {
+        return position(rect.x + rect.width / 2, rect.y + rect.height / 2, z, 0);
+    }
     public PositionComponent position(Vector2 pos) {
         return position(pos.x, pos.y, 0, 0);
+    }
+
+    public PositionComponent position(float x, float y, float z) {
+        return position(x, y, z, 0);
     }
 
     public PositionComponent position(float x, float y, float z, float angle) {

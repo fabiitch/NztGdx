@@ -17,13 +17,18 @@ public abstract class BaseST3D extends TestScreen {
     public CameraInputController camController;
     public Camera camera;
 
-    public BaseST3D(FastTesterMain main) {
+    public BaseST3D(FastTesterMain main, boolean createAxes) {
         super(main);
         createCamera();
         camController = new CameraInputControllerFR(camera);
         Gdx.input.setInputProcessor(camController);
         addHudToGlProfiler();
-        createAxes();
+        if (createAxes)
+            createAxes();
+    }
+
+    public BaseST3D(FastTesterMain main) {
+        this(main, true);
     }
 
     public void giveCamera(boolean toOrtho, boolean toB2D) {
@@ -60,7 +65,7 @@ public abstract class BaseST3D extends TestScreen {
     public Model axesModel;
     public ModelInstance axesInstance;
 
-    private void createAxes() {
+    protected void createAxes() {
         ModelBuilder modelBuilder = new ModelBuilder();
         modelBuilder.begin();
         MeshPartBuilder builder = modelBuilder.part("grid", GL20.GL_LINES, VertexAttributes.Usage.Position | VertexAttributes.Usage.ColorUnpacked, new Material());
