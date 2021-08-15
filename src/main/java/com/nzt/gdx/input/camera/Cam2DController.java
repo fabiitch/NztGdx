@@ -10,8 +10,8 @@ import com.badlogic.gdx.utils.IntIntMap;
 public class Cam2DController extends InputAdapter implements CamController {
 
     public Camera camera;
-    public float degreesPerPixel = 0.5f;
-    public float velocity = 150;
+    public float degreesPerPixel = 0.2f;
+    public float velocity = 75f;
 
     public boolean autoUpdate = true;
 
@@ -59,12 +59,10 @@ public class Cam2DController extends InputAdapter implements CamController {
             camera.position.add(tmp);
         }
         if (keys.containsKey(UP)) {
-            tmp.set(camera.up).nor().scl(deltaTime * velocity);
-            camera.position.add(tmp);
+            camera.position.y += deltaTime * velocity;
         }
         if (keys.containsKey(DOWN)) {
-            tmp.set(camera.up).nor().scl(-deltaTime * velocity);
-            camera.position.add(tmp);
+            camera.position.y -= deltaTime * velocity;
         }
         if (autoUpdate)
             camera.update(true);
