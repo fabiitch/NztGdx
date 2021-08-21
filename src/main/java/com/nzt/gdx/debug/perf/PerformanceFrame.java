@@ -42,18 +42,26 @@ public class PerformanceFrame {
         if (enabled) {
             long stopTime = System.nanoTime();
             timeLastFrame = stopTime - nanoStartFrame;
-            instance.container.endFrame(timeLastFrame);
-        }
+			instance.container.endFrame(timeLastFrame);
+		}
+	}
+
+	public static void keepOnlyClass(Class<?>... classToKeep) {
+		if (enabled) {
+			String[] actionToKeep = new String[classToKeep.length];
+			int i = 0;
+			for (Class<?> c : classToKeep) {
+				actionToKeep[i] = c.getSimpleName();
+				i++;
+			}
+			instance.container.keepOnly(actionToKeep);
+
+		}
     }
 
-    public static void keepOnlyClass(Class classz) {
+    public static void keepOnly(String... actions) {
         if (enabled)
-            instance.container.keepOnly(classz.getSimpleName());
-    }
-
-    public static void keepOnly(String action) {
-        if (enabled)
-            instance.container.keepOnly(action);
+            instance.container.keepOnly(actions);
     }
 
     public static void remove(String action) {
