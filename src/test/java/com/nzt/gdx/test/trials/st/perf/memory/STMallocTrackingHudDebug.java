@@ -33,7 +33,7 @@ public class STMallocTrackingHudDebug extends com.nzt.gdx.test.trials.tester.arc
     public void renderTestScreen(float dt) {
         hudDebugApplicationInfo.update(dt);
         if (GdxUtils.getHeapMb() > memoryStart) {
-            HudDebug.changeColor("Memory Grow", Color.RED);
+            HudDebug.updateColor("Memory Grow", Color.RED);
             HudDebug.update("Memory Grow", GdxUtils.getHeapMb() - memoryStart);
         }
     }

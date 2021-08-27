@@ -6,7 +6,6 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.utils.Array;
 import com.nzt.gdx.debug.hud.HudDebugPosition;
 import com.nzt.gdx.debug.hud.utils.HudDebugPreInitItem;
-import com.nzt.gdx.debug.hud.utils.HudDebugUtils;
 import com.nzt.gdx.debug.utils.DebugDisplayUtils;
 import com.nzt.gdx.scene2D.nz.NzStage;
 
@@ -85,9 +84,19 @@ public class HudDebug {
         }
     }
 
+    public static void updateColor(String key, Color color) {
+        if (instance != null)
+            instance.container.updateColor(key, color);
+    }
+
     public static void update(String key, String name, Object value) {
         if (instance != null)
             instance.container.update(key, name, value);
+    }
+
+    public static void update(String key, Object value,Color color) {
+        if (instance != null)
+            instance.container.update(key, value, color);
     }
 
     public static void update(String key, Object value) {
@@ -235,14 +244,6 @@ public class HudDebug {
 
     public static void addRightMiddle(String name, Object value) {
         addRightMiddle(null, name, value, Color.WHITE);
-    }
-
-    public static void changeColor(String name, Color color) {
-        if (instance == null) {
-            HudDebugUtils.changeColorBeforeInit(name, color, arrayBeforeInit);
-        } else {
-            instance.container.changeColor(name, color);
-        }
     }
 
     public static void addItem(String name, Object value, int positionOnStage) {

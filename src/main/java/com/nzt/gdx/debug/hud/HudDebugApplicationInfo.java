@@ -31,12 +31,12 @@ public class HudDebugApplicationInfo {
     }
 
     public void changeColor(Color color) {
-        HudDebug.changeColor("FPS", color);
-        HudDebug.changeColor("DT", color);
-        HudDebug.changeColor("NativeHeap", color);
-        HudDebug.changeColor("JavaHeap", color);
-        HudDebug.changeColor("NbThread", color);
-        HudDebug.changeColor("CurrentThread", color);
+        HudDebug.updateColor("FPS", color);
+        HudDebug.updateColor("DT", color);
+        HudDebug.updateColor("NativeHeap", color);
+        HudDebug.updateColor("JavaHeap", color);
+        HudDebug.updateColor("NbThread", color);
+        HudDebug.updateColor("CurrentThread", color);
     }
 
     public void removeFromHudDebug() {

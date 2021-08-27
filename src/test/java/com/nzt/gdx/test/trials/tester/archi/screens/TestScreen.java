@@ -53,7 +53,7 @@ public abstract class TestScreen extends SimpleTestScreen {
         if (HudDebug.exist(key)) {
             HudDebug.update(key, value);
             if (!HudDebug.getColor(key).equals(color))
-                HudDebug.changeColor(key, color);
+                HudDebug.updateColor(key, color);
         } else
             HudDebug.addBotLeft(key, value, color);
     }
