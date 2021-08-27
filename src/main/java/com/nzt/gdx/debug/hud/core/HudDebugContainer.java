@@ -61,10 +61,6 @@ class HudDebugContainer {
             return Color.WHITE;
     }
 
-	public void changeColor(String key, Color color) {
-		HudDebugUtils.changeColor(key, color, mapLabels);
-	}
-
 	public void clear() {
 		topR = topM = topL = botR = botM = botL = rightM = leftM = 0;
 		for (HudDebugLabel hudDebugLabel : mapLabels.values()) {
@@ -89,6 +85,15 @@ class HudDebugContainer {
 		} else {
 			TagLogger.debug(LogTagsBase.HUD_DEBUG, "Cant find label for update, key= " + key);
 		}
+	}
+
+	public void updateColor(String key, Color color) {
+		HudDebugUtils.changeColor(key, color, mapLabels);
+	}
+
+	public void update(String key, Object value, Color color) {
+		update(key, value);
+		HudDebug.updateColor(key, color);
 	}
 
 	public void update(String key, Object value) {
