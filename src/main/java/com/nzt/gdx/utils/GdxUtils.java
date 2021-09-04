@@ -62,6 +62,5 @@ public class GdxUtils {
         } else {
             return rect.set(0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         }
-
     }
 }

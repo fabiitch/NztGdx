@@ -1,8 +1,12 @@
 package com.nzt.gdx.input.impl.simple;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.math.Vector3;
 import com.nzt.gdx.logger.config.InputLoggerConfig;
+import com.nzt.gdx.math.vectors.V2;
+import com.nzt.gdx.math.vectors.V3;
 
 public abstract class SimpleClickInputHandler extends MouseInputHandler {
 
@@ -12,6 +16,14 @@ public abstract class SimpleClickInputHandler extends MouseInputHandler {
 
     public SimpleClickInputHandler() {
         super();
+    }
+
+    public Vector3 getClickPos(Camera camera, int screenX, int screenY, Vector3 clickPos) {
+        return camera.unproject(clickPos.set(screenX, screenY, 0));
+    }
+
+    public Vector2 getClickPos(Camera camera, int screenX, int screenY, Vector2 clickPos) {
+        return V2.set(clickPos, camera.unproject(V3.tmp(screenX, screenY)));
     }
 
     public Vector2 getClickPos(int screenX, int screenY, Vector2 clickPos) {

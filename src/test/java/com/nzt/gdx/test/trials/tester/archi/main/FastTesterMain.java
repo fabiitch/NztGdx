@@ -23,7 +23,7 @@ public class FastTesterMain extends AbstractMain {
 		this.screenClass = screenClass;
 	}
 
-	private BaseScreen returnScreenToLaunch() {
+	protected BaseScreen returnScreenToLaunch() {
 		try {
 			Constructor cons = screenClass.getConstructor(FastTesterMain.class);
 			Object newInstance = cons.newInstance(this);
