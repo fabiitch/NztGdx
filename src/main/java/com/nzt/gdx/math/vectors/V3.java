@@ -5,7 +5,7 @@ import com.badlogic.gdx.math.Vector3;
 
 public class V3 {
 
-    private static Vector3 tmp = new Vector3(); // TODO use ? server pb?
+    public static Vector3 tmp = new Vector3(); // TODO use ? server pb?
 
     private V3() {
 
@@ -26,6 +26,18 @@ public class V3 {
     public static Vector3 set(Vector3 v, Vector2 values) {
         v.x = values.x;
         v.y = values.y;
+        return v;
+    }
+
+    public static Vector3 add(Vector3 v, Vector2 values) {
+        v.x += values.x;
+        v.y += values.y;
+        return v;
+    }
+
+    public static Vector3 sub(Vector3 v, Vector2 values) {
+        v.x -= values.x;
+        v.y -= values.y;
         return v;
     }
 }

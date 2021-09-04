@@ -11,10 +11,10 @@ import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterScreenManager;
 
 public class ScreenSelectorTestMain extends FastTesterMain {
-    private BaseScreen selectorScreenTest;
+    protected BaseScreen selectorScreenTest;
 
-    private final CaseST rootCase;
-    public CaseST lastGroupCase;
+    protected final CaseST rootCase;
+    protected CaseST lastGroupCase;
 
     public ScreenSelectorTestMain(Class screenClass,String packagePath) {
         super(screenClass);
