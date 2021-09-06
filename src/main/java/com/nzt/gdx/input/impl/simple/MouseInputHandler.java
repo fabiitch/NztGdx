@@ -3,6 +3,7 @@ package com.nzt.gdx.input.impl.simple;
 import com.nzt.gdx.input.base.BaseInputHandler;
 import com.nzt.gdx.logger.config.InputLoggerConfig;
 
+//TODO a voir si on met pas ds test
 public abstract class MouseInputHandler extends BaseInputHandler {
     public MouseInputHandler() {
         super();

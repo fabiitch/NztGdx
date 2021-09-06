@@ -3,6 +3,7 @@ package com.nzt.gdx.input.impl.simple;
 import com.badlogic.gdx.Input;
 import com.nzt.gdx.input.base.BaseInputHandler;
 
+//TODO a voir si on met pas ds test
 public abstract class SimpleMvtInputController extends BaseInputHandler {
 
     public abstract void up();

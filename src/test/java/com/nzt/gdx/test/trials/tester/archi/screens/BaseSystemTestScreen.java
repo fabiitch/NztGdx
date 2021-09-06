@@ -35,10 +35,11 @@ public abstract class BaseSystemTestScreen extends TestScreen {
         delayActionSystem.addFunctionToCall(loopCount, fct);
     }
 
-    protected  void activePerfFrame(boolean active){
+    protected void activePerfFrame(boolean active) {
         PerformanceFrame.enabled = active;
         hudDebugPerformanceFrame.removeFromHudDebug();
     }
+
     @Override
     public void renderTestScreen(float dt) {
         engine.update(dt);
