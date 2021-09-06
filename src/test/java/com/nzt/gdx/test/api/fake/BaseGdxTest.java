@@ -4,6 +4,9 @@ import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.backends.headless.HeadlessApplication;
 
+/**
+ * Use it for junit with GDX
+ */
 public class BaseGdxTest {
 
     public BaseGdxTest() {

@@ -8,6 +8,7 @@ import com.nzt.gdx.logger.config.InputLoggerConfig;
 import com.nzt.gdx.math.vectors.V2;
 import com.nzt.gdx.math.vectors.V3;
 
+//TODO a voir si on met pas ds test
 public abstract class SimpleClickInputHandler extends MouseInputHandler {
 
     public final static int LEFT_CLICK = 0;

@@ -6,7 +6,7 @@ import com.nzt.gdx.screen.loading.BaseLoadingScreen;
 import com.nzt.gdx.screen.manager.AbstractScreenManager;
 
 /**
- * Screen maanger for Start fast
+ * Screen manager for Start fast dev
  */
 public abstract class FastDevScreenManager extends AbstractScreenManager {
 
