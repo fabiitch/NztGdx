@@ -27,6 +27,10 @@ public class V2 {
         return tmp.set(vector3.x, vector3.y);
     } //TODO use pools
 
+    public static Vector2 setAngle(Vector2 v, Vector2 dir) {
+        return v.setAngleRad(dir.angleRad());
+    }
+
     public static Vector2 getNormal(Vector2 from, Vector2 to, Vector2 result) {
         directionTo(from, to, tmp);
         return getNormal(tmp, result);
