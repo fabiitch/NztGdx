@@ -7,8 +7,8 @@ import com.nzt.gdx.math.shapes.utils.RectangleUtils;
 
 public class IntersectorRectangle {
 
-    private static float[] tmpVerticesArray = new float[8];
-    private static float[] tmp2VerticesArray = new float[8];
+    private static final float[] tmpVerticesArray = new float[8];
+    private static final float[] tmp2VerticesArray = new float[8];
 
     public static boolean polygon(Rectangle rectangle, Polygon polygon) {
         return Intersector.overlapConvexPolygons(RectangleUtils.getAsVertices(rectangle, tmpVerticesArray), polygon.getTransformedVertices(), null);

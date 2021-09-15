@@ -9,11 +9,11 @@ public class BitsGeneratorTest {
 
     @Test
     public void generateTest() {
+        testBinary("0", BitsGenerator.getBits());
         testBinary("1", BitsGenerator.getBits(0));
         testBinary("11", BitsGenerator.getBits(0, 1));
         testBinary("10001100010", BitsGenerator.getBits(1, 5, 6, 10));
     }
-
 
 
     @Test

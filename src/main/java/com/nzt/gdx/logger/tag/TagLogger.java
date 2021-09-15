@@ -13,21 +13,20 @@ import java.util.Set;
 /**
  * wrapper class for active/desactive tag on logger a tag is active by default
  * the log/debug/error effective if gdx.log.level is correct
- *
  */
 
 //TODO tres important vérifié les nb d'instance d'enum
-    //TODO a revoir pour le fameux final sur loglevel
-    //TODO com.badlogic.gdx.ApplicationLogger  doit extends sa
+//TODO a revoir pour le fameux final sur loglevel
+//TODO com.badlogic.gdx.ApplicationLogger  doit extends sa
 public class TagLogger {
 
-	private final static Map<Enum<?>, Boolean> tagMap = new HashMap<Enum<?>, Boolean>();
-	public static boolean DONT_LOG = false;
+    private final static Map<Enum<?>, Boolean> tagMap = new HashMap<Enum<?>, Boolean>();
+    public static boolean DONT_LOG = false;
 
-	private TagLogger() {
+    private TagLogger() {
 
     }
-	
+
     public static void clearTags() {
         tagMap.clear();
     }
@@ -118,6 +117,7 @@ public class TagLogger {
         if (!DONT_LOG && getTag(tag))
             Gdx.app.log(tag.name(), message);
     }
+
     public static <E extends Enum<E>> void infoBlock(E tag, String msg, NzLoggable objectToLog) {
         if (!DONT_LOG && getTag(tag)) {
             TagLoggerUtils.infoStart(tag.name(), msg);
@@ -125,6 +125,7 @@ public class TagLogger {
             TagLoggerUtils.infoEnd(tag.name(), msg);
         }
     }
+
     public static <E extends Enum<E>> void infoBlock(E tag, String msg, NzLoggable... objectToLogs) {
         if (!DONT_LOG && getTag(tag)) {
             TagLoggerUtils.infoStart(tag.name(), msg);

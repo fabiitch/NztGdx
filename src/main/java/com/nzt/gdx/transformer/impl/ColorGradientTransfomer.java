@@ -5,26 +5,26 @@ import com.nzt.gdx.transformer.BaseTransformer;
 
 public class ColorGradientTransfomer extends BaseTransformer<Color> {
 
-	private float r, g, b;
+    private float r, g, b;
 
-	@Override
-	protected void begin() {
-		r = value.r;
-		g = value.g;
-		b = value.b;
-	}
+    @Override
+    protected void begin() {
+        r = value.r;
+        g = value.g;
+        b = value.b;
+    }
 
-	@Override
-	protected void act(float percent) {
-		value.r = r + (target.r - r) * percent;
-		value.g = g + (target.g - g) * percent;
-		value.b = b + (target.b - b) * percent;
+    @Override
+    protected void act(float percent) {
+        value.r = r + (target.r - r) * percent;
+        value.g = g + (target.g - g) * percent;
+        value.b = b + (target.b - b) * percent;
 
-	}
+    }
 
-	@Override
-	public void restart() {
+    @Override
+    public void restart() {
 
-	}
+    }
 
 }

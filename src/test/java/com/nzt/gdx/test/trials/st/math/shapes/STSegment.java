@@ -11,7 +11,7 @@ import com.nzt.gdx.utils.GdxUtils;
 
 @TestScreenList(group = "math.shapes")
 public class STSegment extends TestScreen {
-    private Segment segment;
+    private final Segment segment;
 
     private boolean rotate = true;
 

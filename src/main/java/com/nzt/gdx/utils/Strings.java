@@ -12,7 +12,8 @@ public class Strings {
     }
 
     private static final StringBuilder builder = new StringBuilder();
-//TODO a voir si vraiment bien
+
+    //TODO a voir si vraiment bien
     public static StringBuilder getBuilder() {
         builder.setLength(0);
         return builder;

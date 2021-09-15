@@ -8,13 +8,13 @@ import com.nzt.gdx.math.vectors.V2;
 
 public class IntersectorCircle {
 
-    private static Vector2 tmp = new Vector2(); //TODO group tous les tmp
-    private static Vector2 tmp2 = new Vector2();
-    private static Vector2 tmp3 = new Vector2();
-    private static Vector2 tmp4 = new Vector2();
-    private static Vector2 tmp5 = new Vector2();
+    private static final Vector2 tmp = new Vector2(); //TODO group tous les tmp
+    private static final Vector2 tmp2 = new Vector2();
+    private static final Vector2 tmp3 = new Vector2();
+    private static final Vector2 tmp4 = new Vector2();
+    private static final Vector2 tmp5 = new Vector2();
 
-    private static float[] tmpRectVertices = new float[8];
+    private static final float[] tmpRectVertices = new float[8];
 
 
     public static boolean polygon(Circle circle, Polygon polygon) {
@@ -100,6 +100,7 @@ public class IntersectorCircle {
         int nbIntersection = segmentIntersection(circle, segment, intersection, null);
         return nbIntersection > 0;
     }
+
     /**
      * @return nbIntersection
      */

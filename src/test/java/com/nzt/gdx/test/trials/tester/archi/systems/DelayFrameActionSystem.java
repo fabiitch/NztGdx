@@ -10,39 +10,39 @@ import java.util.concurrent.Callable;
  */
 public class DelayFrameActionSystem extends EntitySystem {
 
-	private long loopCount = 0;
-	private final HashMap<Long, Callable> functionToCalls = new HashMap<>();
+    private long loopCount = 0;
+    private final HashMap<Long, Callable> functionToCalls = new HashMap<>();
 
-	public DelayFrameActionSystem() {
-		super();
-	}
+    public DelayFrameActionSystem() {
+        super();
+    }
 
-	public DelayFrameActionSystem(int priority) {
-		super(priority);
-	}
+    public DelayFrameActionSystem(int priority) {
+        super(priority);
+    }
 
-	public void addFunctionToCall(long loopCount, Callable<Boolean> fct) {
-		functionToCalls.put(loopCount, fct);
-	}
+    public void addFunctionToCall(long loopCount, Callable<Boolean> fct) {
+        functionToCalls.put(loopCount, fct);
+    }
 
-	public void reset() {
+    public void reset() {
 
-	}
+    }
 
-	@Override
-	public void update(float dt) {
-		loopCount++;
-		Callable functionToCall = functionToCalls.get(loopCount);
-		if (functionToCall != null) {
-			try {
-				functionToCall.call();
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
-		if (loopCount == Long.MAX_VALUE)
-			loopCount = 0;
+    @Override
+    public void update(float dt) {
+        loopCount++;
+        Callable functionToCall = functionToCalls.get(loopCount);
+        if (functionToCall != null) {
+            try {
+                functionToCall.call();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        if (loopCount == Long.MAX_VALUE)
+            loopCount = 0;
 
-	}
+    }
 
 }

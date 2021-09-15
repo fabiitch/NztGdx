@@ -35,9 +35,9 @@ public class STSimpleTimer extends com.nzt.gdx.test.trials.tester.archi.screens.
             }
         };
 
-        Timer.schedule(task1,2);
-        Timer.schedule(task2,5);
-        Timer.schedule(taskRepeat,1,1);
+        Timer.schedule(task1, 2);
+        Timer.schedule(task2, 5);
+        Timer.schedule(taskRepeat, 1, 1);
 
         HudDebug.addItem("Task1", "0 s", HudDebugPosition.BOT_LEFT);
         HudDebug.addItem("getExecuteTimeMillis1", task1.getExecuteTimeMillis(), HudDebugPosition.BOT_LEFT);

@@ -7,7 +7,7 @@ import com.nzt.gdx.test.trials.tester.selector.TestScreenList;
 import com.nzt.gdx.utils.GdxUtils;
 
 @TestScreenList(group = "math.shapes.segment")
- abstract class BaseSTSegment extends TestScreen {
+abstract class BaseSTSegment extends TestScreen {
 
     protected Segment segment;
 

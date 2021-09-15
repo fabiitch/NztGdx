@@ -18,47 +18,47 @@ import com.nzt.gdx.test.trials.tester.selector.TestScreenList;
 
 @TestScreenList(group = "utils.perf")
 public class STPerformanceFrame extends com.nzt.gdx.test.trials.tester.archi.screens.TestScreen {
-	Engine engine;
-	BaseEntityFactory factory;
-	Texture texture = new Texture("badlogic.jpg");
+    Engine engine;
+    BaseEntityFactory factory;
+    Texture texture = new Texture("badlogic.jpg");
 
-	Camera camera;
-	HudDebugPerformanceFrame perf;
+    Camera camera;
+    HudDebugPerformanceFrame perf;
 
-	public STPerformanceFrame(FastTesterMain main) {
-		super(main);
-		engine = new Engine();
-		factory = new BaseEntityFactory(engine);
-		camera = new OrthographicCamera(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+    public STPerformanceFrame(FastTesterMain main) {
+        super(main);
+        engine = new Engine();
+        factory = new BaseEntityFactory(engine);
+        camera = new OrthographicCamera(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 
-		engine.addSystem(new SpriteRenderSystem(camera, main.sb));
-		for (int i = 0; i < 10; i++) {
-			Sprite sprite = new Sprite(texture);
-			sprite.setBounds(i * 50, 0, 50, 50);
-			factory.createEntity().add(factory.rendersFactory.sprite(sprite));
-		}
+        engine.addSystem(new SpriteRenderSystem(camera, main.sb));
+        for (int i = 0; i < 10; i++) {
+            Sprite sprite = new Sprite(texture);
+            sprite.setBounds(i * 50, 0, 50, 50);
+            factory.createEntity().add(factory.rendersFactory.sprite(sprite));
+        }
 
-		engine.addSystem(new ShapeRenderSystem(main.nzShapeRenderer));
-		engine.addSystem(new Velocity2DSystem());
+        engine.addSystem(new ShapeRenderSystem(main.nzShapeRenderer));
+        engine.addSystem(new Velocity2DSystem());
 
-		perf = new HudDebugPerformanceFrame(HudDebugPosition.TOP_LEFT, Color.CYAN);
-	}
+        perf = new HudDebugPerformanceFrame(HudDebugPosition.TOP_LEFT, Color.CYAN);
+    }
 
-	@Override
-	public String getTestExplication() {
-		return "Performance frame Test";
-	}
+    @Override
+    public String getTestExplication() {
+        return "Performance frame Test";
+    }
 
-	@Override
-	public void renderTestScreen(float dt) {
-		camera.update();
-		engine.update(dt);
-		perf.update(dt);
-	}
+    @Override
+    public void renderTestScreen(float dt) {
+        camera.update();
+        engine.update(dt);
+        perf.update(dt);
+    }
 
-	@Override
-	public void disposeTestScreen() {
-		texture.dispose();
-	}
+    @Override
+    public void disposeTestScreen() {
+        texture.dispose();
+    }
 
 }

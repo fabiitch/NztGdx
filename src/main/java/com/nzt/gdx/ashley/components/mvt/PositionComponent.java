@@ -34,7 +34,7 @@ public class PositionComponent extends PoolableComponent {
         this.position.y = position.y;
     }
 
-    public void setAngleDeg(float angleDeg){
+    public void setAngleDeg(float angleDeg) {
         this.angleRadian = MathUtils.degRad * angleDeg;
     }
 

@@ -12,40 +12,40 @@ import com.nzt.gdx.graphics.renderables.ShapeRenderable;
 
 public class RendersComponentFactory extends BaseComponentFactory {
 
-	public RendersComponentFactory(Engine engine) {
-		super(engine);
-	}
+    public RendersComponentFactory(Engine engine) {
+        super(engine);
+    }
 
-	public SpriteComponent sprite(Sprite sprite) {
-		SpriteComponent spriteComponent = new SpriteComponent(sprite);
-		return spriteComponent;
-	}
+    public SpriteComponent sprite(Sprite sprite) {
+        SpriteComponent spriteComponent = new SpriteComponent(sprite);
+        return spriteComponent;
+    }
 
-	public SpriteComponent sprite(Texture texture, float width, float height) {
-		SpriteComponent spriteComponent = new SpriteComponent(texture, width, height);
-		return spriteComponent;
-	}
+    public SpriteComponent sprite(Texture texture, float width, float height) {
+        SpriteComponent spriteComponent = new SpriteComponent(texture, width, height);
+        return spriteComponent;
+    }
 
-	public SpriteComponent sprite(Texture texture, float rayon) {
-		return sprite(texture, rayon, rayon);
-	}
+    public SpriteComponent sprite(Texture texture, float rayon) {
+        return sprite(texture, rayon, rayon);
+    }
 
-	public ShapeRenderableArrayComponent shapeArray(ShapeRenderable shapeRenderable) {
-		ShapeRenderableArrayComponent shapeArrayComponent = engine.createComponent(ShapeRenderableArrayComponent.class);
-		shapeArrayComponent.addShape(shapeRenderable);
-		return shapeArrayComponent;
-	}
+    public ShapeRenderableArrayComponent shapeArray(ShapeRenderable shapeRenderable) {
+        ShapeRenderableArrayComponent shapeArrayComponent = engine.createComponent(ShapeRenderableArrayComponent.class);
+        shapeArrayComponent.addShape(shapeRenderable);
+        return shapeArrayComponent;
+    }
 
-	public Model3DComponent modelInstance(ModelInstance modelInstance) {
-		Model3DComponent modelComponent = engine.createComponent(Model3DComponent.class);
-		modelComponent.modelInstance = modelInstance;
-		return modelComponent;
-	}
+    public Model3DComponent modelInstance(ModelInstance modelInstance) {
+        Model3DComponent modelComponent = engine.createComponent(Model3DComponent.class);
+        modelComponent.modelInstance = modelInstance;
+        return modelComponent;
+    }
 
-	public Model3DComponent modelInstance(ModelInstance modelInstance, Environment environment) {
-		Model3DComponent modelComponent = engine.createComponent(Model3DComponent.class);
-		modelComponent.modelInstance = modelInstance;
-		modelComponent.environment = environment;
-		return modelComponent;
-	}
+    public Model3DComponent modelInstance(ModelInstance modelInstance, Environment environment) {
+        Model3DComponent modelComponent = engine.createComponent(Model3DComponent.class);
+        modelComponent.modelInstance = modelInstance;
+        modelComponent.environment = environment;
+        return modelComponent;
+    }
 }

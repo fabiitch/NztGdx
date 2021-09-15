@@ -49,6 +49,7 @@ public class HudDebug {
             return instance.container.exist(key);
         }
     }
+
     public static Color getColor(String key) {
         if (instance == null) {
             for (HudDebugPreInitItem item : arrayBeforeInit)
@@ -59,6 +60,7 @@ public class HudDebug {
             return instance.container.getColor(key);
         }
     }
+
     public static void removeGroup(String startKey) {
         if (instance == null) {
             for (HudDebugPreInitItem item : arrayBeforeInit) {
@@ -71,6 +73,7 @@ public class HudDebug {
             instance.container.removeGroup(startKey);
         }
     }
+
     public static void remove(String key) {
         if (instance == null) {
             for (HudDebugPreInitItem item : arrayBeforeInit) {
@@ -94,7 +97,7 @@ public class HudDebug {
             instance.container.update(key, name, value);
     }
 
-    public static void update(String key, Object value,Color color) {
+    public static void update(String key, Object value, Color color) {
         if (instance != null)
             instance.container.update(key, value, color);
     }

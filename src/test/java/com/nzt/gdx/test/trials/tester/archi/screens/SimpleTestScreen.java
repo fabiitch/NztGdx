@@ -13,7 +13,7 @@ public abstract class SimpleTestScreen extends SimpleScreen<FastTesterMain> {
     public SimpleTestScreen(FastTesterMain main) {
         super(main);
         if (this.getClass().getSimpleName().startsWith("ST"))
-            className =this.getClass().getSimpleName().substring(2);
+            className = this.getClass().getSimpleName().substring(2);
         else
             className = this.getClass().getSimpleName();
     }

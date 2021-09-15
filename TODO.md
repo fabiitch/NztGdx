@@ -1,4 +1,4 @@
-- Pools utilisation ...  la méthode free n'est pas appelé
+- Pools utilisation ... la méthode free n'est pas appelé
 
 - allocate memory test, doivent tous passé sans up
 

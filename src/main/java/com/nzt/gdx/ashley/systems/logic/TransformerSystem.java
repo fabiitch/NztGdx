@@ -11,20 +11,20 @@ import com.nzt.gdx.ashley.components.TransformersComponent;
 // pas fini , modifier avec interpolation sur entity
 public class TransformerSystem extends NzIteratingSystem {
 
-	private final static ComponentMapper<TransformersComponent> transformMapper = TransformersComponent.mapper;
+    private final static ComponentMapper<TransformersComponent> transformMapper = TransformersComponent.mapper;
 
-	public TransformerSystem() {
-		this(NztSystemsOrder.CALCUL);
-	}
+    public TransformerSystem() {
+        this(NztSystemsOrder.CALCUL);
+    }
 
-	public TransformerSystem(int order) {
-		super(Family.one(TransformersComponent.class).get(), order);
-	}
-	
+    public TransformerSystem(int order) {
+        super(Family.one(TransformersComponent.class).get(), order);
+    }
 
-	@Override
-	protected void processEntity(Entity entity, float deltaTime) {
-		transformMapper.get(entity).update(deltaTime);
-	}
+
+    @Override
+    protected void processEntity(Entity entity, float deltaTime) {
+        transformMapper.get(entity).update(deltaTime);
+    }
 
 }

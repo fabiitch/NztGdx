@@ -5,15 +5,15 @@ import com.badlogic.gdx.utils.Array;
 
 public class V {
 
-	private V() {
+    private V() {
 
-	}
+    }
 
     public static <V extends Vector<V>> V directionTo(V from, V to, V result) {
         return result.set(from).sub(to).nor();
     }
 
-    public static <V extends Vector<V>> V getVelocityTo(float time, V from, V to,V result) {
+    public static <V extends Vector<V>> V getVelocityTo(float time, V from, V to, V result) {
         V directionTo = directionTo(from, to, result);
         float dst = from.dst(to);
         V scl = directionTo.scl(dst / time);

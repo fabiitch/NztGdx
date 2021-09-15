@@ -61,7 +61,7 @@ public class ModelRenderSystem extends IteratingSystem {
             modelInstance.calculateTransforms();//TODO
 
 //            if (!camera.frustum.boundsInFrustum(modelInstance.calculateBoundingBox(boundingBox))){//TODO
-                modelBatch.render(modelInstance, model3dComponent.environment);// TODO voir le param environement
+            modelBatch.render(modelInstance, model3dComponent.environment);// TODO voir le param environement
 //            }else{
 //                System.out.println("OUUUT");
 //            }

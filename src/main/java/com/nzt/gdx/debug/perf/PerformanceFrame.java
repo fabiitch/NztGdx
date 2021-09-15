@@ -18,7 +18,7 @@ public class PerformanceFrame {
     public static long timeFrameAverage;
 
     private static long nanoStartFrame;
-    
+
 
     private PerformanceFrame() {
         this.container = new PerformanceContainer();
@@ -42,21 +42,21 @@ public class PerformanceFrame {
         if (enabled) {
             long stopTime = System.nanoTime();
             timeLastFrame = stopTime - nanoStartFrame;
-			instance.container.endFrame(timeLastFrame);
-		}
-	}
+            instance.container.endFrame(timeLastFrame);
+        }
+    }
 
-	public static void keepOnlyClass(Class<?>... classToKeep) {
-		if (enabled) {
-			String[] actionToKeep = new String[classToKeep.length];
-			int i = 0;
-			for (Class<?> c : classToKeep) {
-				actionToKeep[i] = c.getSimpleName();
-				i++;
-			}
-			instance.container.keepOnly(actionToKeep);
+    public static void keepOnlyClass(Class<?>... classToKeep) {
+        if (enabled) {
+            String[] actionToKeep = new String[classToKeep.length];
+            int i = 0;
+            for (Class<?> c : classToKeep) {
+                actionToKeep[i] = c.getSimpleName();
+                i++;
+            }
+            instance.container.keepOnly(actionToKeep);
 
-		}
+        }
     }
 
     public static void keepOnly(String... actions) {
@@ -70,16 +70,16 @@ public class PerformanceFrame {
     }
 
     public static void add(String action) {
-		if (enabled)
-			instance.container.add(action);
-	}
+        if (enabled)
+            instance.container.add(action);
+    }
 
-	public static void add(Class classz) {
+    public static void add(Class classz) {
         if (enabled)
             instance.container.add(classz.getSimpleName());
     }
 
-	public static void startAction(String action) {
+    public static void startAction(String action) {
         if (enabled)
             instance.container.startAction(action);
     }

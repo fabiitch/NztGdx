@@ -12,7 +12,7 @@ public class Cam2DZoomController extends Cam2DController {
     public int ZOOM = Input.Keys.T;
     public int DEZOOM = Input.Keys.G;
 
-    private boolean isOrthoCam;
+    private final boolean isOrthoCam;
     private OrthographicCamera orthoCam;
 
     public Cam2DZoomController(Camera camera) {

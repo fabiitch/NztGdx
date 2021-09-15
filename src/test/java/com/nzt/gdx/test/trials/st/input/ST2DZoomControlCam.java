@@ -7,7 +7,7 @@ import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
 
 public class ST2DZoomControlCam extends BaseST2DControlCam {
 
-    private Cam2DController cam2DController;
+    private final Cam2DController cam2DController;
 
     public ST2DZoomControlCam(FastTesterMain main) {
         super(main);

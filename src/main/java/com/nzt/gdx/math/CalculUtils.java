@@ -6,6 +6,7 @@ public class CalculUtils {
         int r = x - floorDiv(x, y) * y;
         return r;
     }
+
     //TODO présent en java8 sur Math
     public static int floorDiv(int x, int y) {
         int r = x / y;

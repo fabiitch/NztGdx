@@ -46,6 +46,7 @@ public abstract class BaseST3D extends TestScreen {
         this.camController.camera = this.camera;
         this.camController.reset();
     }
+
     public abstract void createCamera();
 
     public abstract void render3D(float dt);

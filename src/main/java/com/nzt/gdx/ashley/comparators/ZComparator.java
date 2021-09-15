@@ -7,16 +7,16 @@ import com.nzt.gdx.ashley.components.mvt.PositionComponent;
 import java.util.Comparator;
 
 public class ZComparator implements Comparator<Entity> {
-	private final ComponentMapper<PositionComponent> transformM = PositionComponent.mapper;
+    private final ComponentMapper<PositionComponent> transformM = PositionComponent.mapper;
 
-	public ZComparator() {
-	}
+    public ZComparator() {
+    }
 
-	@Override
-	public int compare(Entity entityA, Entity entityB) {
-		float posZA = transformM.get(entityA).position.z;
-		float posZB = transformM.get(entityB).position.z;
-		return Float.compare(posZA, posZB);//BOF aussi
+    @Override
+    public int compare(Entity entityA, Entity entityB) {
+        float posZA = transformM.get(entityA).position.z;
+        float posZB = transformM.get(entityB).position.z;
+        return Float.compare(posZA, posZB);//BOF aussi
 //		return (int) Math.signum(transformM.get(entityB).position.z - transformM.get(entityA).position.z); //TODO sure sa ya une native
-	}
+    }
 }

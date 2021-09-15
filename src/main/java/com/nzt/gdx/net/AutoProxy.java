@@ -16,30 +16,30 @@ import java.util.List;
  */
 public class AutoProxy {
 
-	private AutoProxy() {
+    private AutoProxy() {
 
-	}
+    }
 
-	public static void init() {
-		try {
-			System.setProperty("java.net.useSystemProxies", "true");
-			List<Proxy> l = ProxySelector.getDefault().select(new URI("http://www.yahoo.com/"));
+    public static void init() {
+        try {
+            System.setProperty("java.net.useSystemProxies", "true");
+            List<Proxy> l = ProxySelector.getDefault().select(new URI("http://www.yahoo.com/"));
 
-			for (Iterator<Proxy> iter = l.iterator(); iter.hasNext();) {
+            for (Iterator<Proxy> iter = l.iterator(); iter.hasNext(); ) {
 
-				Proxy proxy = iter.next();
-				TagLogger.error(LogTagsBase.NET, "Proxy", "type : " + proxy.type());
+                Proxy proxy = iter.next();
+                TagLogger.error(LogTagsBase.NET, "Proxy", "type : " + proxy.type());
 
-				InetSocketAddress addr = (InetSocketAddress) proxy.address();
-				if (addr == null) {
-					TagLogger.error(LogTagsBase.NET, "Proxy", "no proxy");
-				} else {
-					TagLogger.error(LogTagsBase.NET, "Proxy", "hostname : " + addr.getHostName());
-					TagLogger.error(LogTagsBase.NET, "port : " + addr.getPort());
-				}
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
+                InetSocketAddress addr = (InetSocketAddress) proxy.address();
+                if (addr == null) {
+                    TagLogger.error(LogTagsBase.NET, "Proxy", "no proxy");
+                } else {
+                    TagLogger.error(LogTagsBase.NET, "Proxy", "hostname : " + addr.getHostName());
+                    TagLogger.error(LogTagsBase.NET, "port : " + addr.getPort());
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

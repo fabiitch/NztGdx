@@ -21,12 +21,12 @@ public class STTriangle extends TestScreen {
 
     private int mode = 0;
     private Triangle triangle;
-    private BitmapFont font;
+    private final BitmapFont font;
 
-    private Vector2 middle = GdxUtils.getScreenCenter(new Vector2());
-    private Vector2 centerTriangle = new Vector2();
+    private final Vector2 middle = GdxUtils.getScreenCenter(new Vector2());
+    private final Vector2 centerTriangle = new Vector2();
     private final Vector2 tmp = new Vector2();
-    private Color colorRender = Randoms.newRandomColor();
+    private final Color colorRender = Randoms.newRandomColor();
     //scale
     float scaleAmt = 1;
     boolean scale = true;

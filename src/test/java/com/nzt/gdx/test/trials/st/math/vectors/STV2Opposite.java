@@ -53,7 +53,6 @@ public class STV2Opposite extends TestScreen {
                 return false;
             }
         };
-        ;
         Gdx.input.setInputProcessor(simpleClickInputHandler);
     }
 

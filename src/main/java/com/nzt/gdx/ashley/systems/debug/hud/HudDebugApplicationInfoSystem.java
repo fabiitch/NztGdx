@@ -7,20 +7,20 @@ import com.nzt.gdx.debug.hud.HudDebugApplicationInfo;
 
 public class HudDebugApplicationInfoSystem extends EntitySystem {
 
-	public final HudDebugApplicationInfo hudGlobalInfo;
+    public final HudDebugApplicationInfo hudGlobalInfo;
 
-	public HudDebugApplicationInfoSystem(int positionHudDebug, Color color) {
-		this(positionHudDebug, color, NztSystemsOrder.HUD_DEBUG);
-	}
+    public HudDebugApplicationInfoSystem(int positionHudDebug, Color color) {
+        this(positionHudDebug, color, NztSystemsOrder.HUD_DEBUG);
+    }
 
-	public HudDebugApplicationInfoSystem(int positionHudDebug, Color color, int priority) {
-		super(priority);
-		this.hudGlobalInfo = new HudDebugApplicationInfo(positionHudDebug, color);
-	}
-	
+    public HudDebugApplicationInfoSystem(int positionHudDebug, Color color, int priority) {
+        super(priority);
+        this.hudGlobalInfo = new HudDebugApplicationInfo(positionHudDebug, color);
+    }
 
-	@Override
-	public void update(float dt) {
-		this.hudGlobalInfo.update(dt);
-	}
+
+    @Override
+    public void update(float dt) {
+        this.hudGlobalInfo.update(dt);
+    }
 }

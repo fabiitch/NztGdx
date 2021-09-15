@@ -16,33 +16,33 @@ import com.nzt.gdx.test.trials.tester.selector.TestScreenList;
  */
 @TestScreenList(group = "scene2D.hud debug")
 public class STHudDebugSystems extends BaseSystemTestScreen {
-	private HudDebug debugHud;
+    private HudDebug debugHud;
 
-	public STHudDebugSystems(FastTesterMain main) {
-		super(main);
-		HudSystem hudSystem = new HudSystem(nzStage);
-		engine.addSystem(hudSystem);
+    public STHudDebugSystems(FastTesterMain main) {
+        super(main);
+        HudSystem hudSystem = new HudSystem(nzStage);
+        engine.addSystem(hudSystem);
 
-		HudDebugApplicationInfoSystem hudDebugGlobalInfoSystem = new HudDebugApplicationInfoSystem(
-				HudDebugPosition.TOP_LEFT, Color.CYAN);
-		engine.addSystem(hudDebugGlobalInfoSystem);
+        HudDebugApplicationInfoSystem hudDebugGlobalInfoSystem = new HudDebugApplicationInfoSystem(
+                HudDebugPosition.TOP_LEFT, Color.CYAN);
+        engine.addSystem(hudDebugGlobalInfoSystem);
 
-		HudDebugGlProfilerSystem glProfilerSystem = new HudDebugGlProfilerSystem(main.logManager.nzGlProfiler,
-				HudDebugPosition.TOP_RIGHT, Color.RED);
+        HudDebugGlProfilerSystem glProfilerSystem = new HudDebugGlProfilerSystem(main.logManager.nzGlProfiler,
+                HudDebugPosition.TOP_RIGHT, Color.RED);
 
-		HudDebugPerformanceSystem perfSystem = new HudDebugPerformanceSystem(HudDebugPosition.BOT_RIGHT);
-		engine.addSystem(perfSystem);
-		engine.addSystem(glProfilerSystem);
+        HudDebugPerformanceSystem perfSystem = new HudDebugPerformanceSystem(HudDebugPosition.BOT_RIGHT);
+        engine.addSystem(perfSystem);
+        engine.addSystem(glProfilerSystem);
 
-	}
+    }
 
-	@Override
-	public String getTestExplication() {
-		return "Test des system qui log sur HudDebug";
-	}
+    @Override
+    public String getTestExplication() {
+        return "Test des system qui log sur HudDebug";
+    }
 
-	@Override
-	public void disposeTestScreen() {
-		engine.getSystem(HudDebugGlProfilerSystem.class).desactive();
-	}
+    @Override
+    public void disposeTestScreen() {
+        engine.getSystem(HudDebugGlProfilerSystem.class).desactive();
+    }
 }

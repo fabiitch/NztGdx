@@ -22,7 +22,6 @@ public class Velocity2DComponent extends PoolableComponent {
     }
 
 
-
     public void setVelocity(Vector2 vel) {
         this.velocity.set(vel);
         this.direction.set(vel).nor();

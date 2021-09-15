@@ -24,7 +24,7 @@ public class HudDebugApplicationInfo {
         HudDebug.update("FPS", Gdx.graphics.getFramesPerSecond());
         HudDebug.update("DT", dt);
         HudDebug.update("JavaHeap", GdxUtils.getHeapMb() + " MB");
-        HudDebug.update("NativeHeap", GdxUtils.getNativeHeapMb()+ " MB");
+        HudDebug.update("NativeHeap", GdxUtils.getNativeHeapMb() + " MB");
 
         HudDebug.update("NbThread", "" + Thread.activeCount());
         HudDebug.update("CurrentThread", Thread.currentThread().getName());

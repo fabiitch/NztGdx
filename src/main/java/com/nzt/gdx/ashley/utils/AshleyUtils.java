@@ -9,12 +9,12 @@ import com.nzt.gdx.logger.tag.TagLogger;
 
 public class AshleyUtils {
 
-	public static void debugEntity(Entity entity) {
-		TagLoggerBlockUtils.startBlockDebug(LogTagsBase.DEBUG, "Entity");
-		ImmutableArray<Component> components = entity.getComponents();
-		for (Component component : components) {
-			TagLogger.debug(LogTagsBase.DEBUG, component.getClass().getSimpleName(), component.toString());
-		}
-		TagLoggerBlockUtils.endBlockDebug(LogTagsBase.DEBUG, "Entity");
-	}
+    public static void debugEntity(Entity entity) {
+        TagLoggerBlockUtils.startBlockDebug(LogTagsBase.DEBUG, "Entity");
+        ImmutableArray<Component> components = entity.getComponents();
+        for (Component component : components) {
+            TagLogger.debug(LogTagsBase.DEBUG, component.getClass().getSimpleName(), component.toString());
+        }
+        TagLoggerBlockUtils.endBlockDebug(LogTagsBase.DEBUG, "Entity");
+    }
 }

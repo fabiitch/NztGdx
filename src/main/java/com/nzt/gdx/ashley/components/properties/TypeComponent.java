@@ -5,20 +5,20 @@ import com.nzt.gdx.ashley.base.components.PoolableComponent;
 
 public class TypeComponent extends PoolableComponent {
 
-	public static final ComponentMapper<TypeComponent> mapper = ComponentMapper.getFor(TypeComponent.class);
-	
-	public short mask;
-	public String name;
+    public static final ComponentMapper<TypeComponent> mapper = ComponentMapper.getFor(TypeComponent.class);
 
-	@Override
-	public void reset() {
-		mask = 0;
-		name = null;
-	}
+    public short mask;
+    public String name;
 
-	@Override
-	public String toString() {
-		return "TypeComponent [mask=" + mask + ", name=" + name + "]";
-	}
+    @Override
+    public void reset() {
+        mask = 0;
+        name = null;
+    }
+
+    @Override
+    public String toString() {
+        return "TypeComponent [mask=" + mask + ", name=" + name + "]";
+    }
 
 }

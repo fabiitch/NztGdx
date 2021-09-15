@@ -10,28 +10,28 @@ import com.nzt.gdx.transformer.BaseTransformer;
 //TODO a reprendre complet
 public class TransformersComponent extends PoolableComponent {
 
-	public static final ComponentMapper<TransformersComponent> mapper = ComponentMapper.getFor(TransformersComponent.class);
+    public static final ComponentMapper<TransformersComponent> mapper = ComponentMapper.getFor(TransformersComponent.class);
 
-	public TransformersComponent() {
-		transformerArray = new Array<>();
-	}
+    public TransformersComponent() {
+        transformerArray = new Array<>();
+    }
 
-	public Array<BaseTransformer<?>> transformerArray;
+    public Array<BaseTransformer<?>> transformerArray;
 
-	public void addTransformer(BaseTransformer<?> transformer) {
-		transformerArray.add(transformer);
-	}
+    public void addTransformer(BaseTransformer<?> transformer) {
+        transformerArray.add(transformer);
+    }
 
-	public void update(float dt) {
-		for (BaseTransformer<?> transformer : transformerArray) {
-			transformer.update(dt);
-		}
-	}
+    public void update(float dt) {
+        for (BaseTransformer<?> transformer : transformerArray) {
+            transformer.update(dt);
+        }
+    }
 
-	@Override
-	public void reset() {
-		Pools.freeAll(transformerArray);
-		transformerArray.clear();
-	}
+    @Override
+    public void reset() {
+        Pools.freeAll(transformerArray);
+        transformerArray.clear();
+    }
 
 }

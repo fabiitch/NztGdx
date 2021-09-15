@@ -19,6 +19,7 @@ public class ST3DBasic extends BaseST3D {
     public Model model;
     public ModelInstance instance;
     public Environment environment;
+
     public ST3DBasic(FastTesterMain main) {
         super(main);
     }

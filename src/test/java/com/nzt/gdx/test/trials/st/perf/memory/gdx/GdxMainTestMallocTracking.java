@@ -22,6 +22,7 @@ class GdxMainTestMallocTracking implements ApplicationListener {
     }
 
     private long memoryStart;
+
     @Override
     public void render() {
         if (Gdx.app.getJavaHeap() > memoryStart) {
