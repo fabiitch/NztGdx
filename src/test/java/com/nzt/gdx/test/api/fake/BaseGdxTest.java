@@ -18,12 +18,12 @@ public abstract class BaseGdxTest {
     public final static float MIN_DT = 1 / 80f;
 
     public float secondElapsed = 0f;
-    public Array<PredicateSuccess> successesConditions = new Array<>();
+    public final Array<PredicateSuccess> successesConditions = new Array<>();
     private final Array<PredicateSuccess> tmpSuccess = new Array<>();
 
-    public Array<PredicateKO> koConditions = new Array<>();
+    public final Array<PredicateKO> koConditions = new Array<>();
 
-    public Array<TestConditions> testConditions = new Array<>();
+    public final Array<TestConditions> testConditions = new Array<>();
     private final Array<TestConditions> tmpConditions = new Array<>();
 
     public float maxTimeTestDuration = 20f;

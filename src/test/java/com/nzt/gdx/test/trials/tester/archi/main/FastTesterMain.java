@@ -17,7 +17,7 @@ import java.lang.reflect.Constructor;
  */
 public class FastTesterMain extends AbstractMain {
 
-    Class screenClass;
+    protected Class screenClass;
 
     public FastTesterMain(Class screenClass) {
         this.screenClass = screenClass;
@@ -29,7 +29,7 @@ public class FastTesterMain extends AbstractMain {
             Object newInstance = cons.newInstance(this);
             return (BaseScreen) newInstance;
         } catch (Exception e) {
-            System.out.println("Cant instance class " + screenClass);
+            System.err.println("Cant instance class " + screenClass);
             e.printStackTrace();
         }
         return null;
@@ -38,7 +38,7 @@ public class FastTesterMain extends AbstractMain {
     @Override
     public void doCreate() {
         Gdx.app.setLogLevel(Application.LOG_DEBUG);
-        Gdx.app.log("FastTester", "Initialisation faster tester");
+        Gdx.app.log("FastTesterMain", "Initialisation FastTesterMain");
         Gdx.app.log("=============", "================");
         logManager.activeGlProfiler();
     }
