@@ -11,6 +11,7 @@ public class RemoveEntityComponent extends PoolableComponent {
     public void reset() {
 
     }
+
     public static RemoveEntityComponent getNew() {
         return Pools.obtain(RemoveEntityComponent.class);
     }

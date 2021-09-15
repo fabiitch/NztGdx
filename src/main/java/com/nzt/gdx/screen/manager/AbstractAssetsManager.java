@@ -4,8 +4,8 @@ import com.nzt.gdx.assets.IntAssetsManager;
 
 /**
  * WIP
- * @author fabiitch
  *
+ * @author fabiitch
  */
 public abstract class AbstractAssetsManager implements IntAssetsManager {
 

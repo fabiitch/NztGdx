@@ -2,12 +2,10 @@ package com.nzt.gdx.test.trials.tester.archi.main;
 
 import com.badlogic.gdx.Application;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input;
 import com.nzt.gdx.main.AbstractMain;
 import com.nzt.gdx.screen.BaseScreen;
 import com.nzt.gdx.screen.manager.AbstractAssetsManager;
 import com.nzt.gdx.screen.manager.AbstractLogManager;
-import com.nzt.gdx.test.trials.tester.selector.screen.STSelectorScreen;
 
 import java.lang.reflect.Constructor;
 
@@ -49,7 +47,7 @@ public class FastTesterMain extends AbstractMain {
     public void render() {
         float deltaTime = Gdx.graphics.getDeltaTime();
         if (deltaTime > 1) { //for debug breakpoint
-            deltaTime = 1 /60f;
+            deltaTime = 1 / 60f;
         }
         screenManager.render(deltaTime);
     }

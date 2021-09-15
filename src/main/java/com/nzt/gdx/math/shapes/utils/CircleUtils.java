@@ -4,7 +4,6 @@ import com.badlogic.gdx.math.Circle;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
-import com.nzt.gdx.math.AngleUtils;
 import com.nzt.gdx.math.vectors.V2;
 
 public class CircleUtils {
@@ -93,7 +92,7 @@ public class CircleUtils {
 
 //        float angleDiff = normal.angleDeg()
 //        reflexionDir.set(1,0)
-return normal;
+        return normal;
     }
 
 //    public static float getAngleReflexionRad(Circle circle, float angleRad) {

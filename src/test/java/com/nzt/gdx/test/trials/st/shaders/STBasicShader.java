@@ -11,40 +11,40 @@ import com.nzt.gdx.test.trials.tester.selector.TestScreenList;
 @TestScreenList(group = "shaders")
 public class STBasicShader extends com.nzt.gdx.test.trials.tester.archi.screens.TestScreen {
 
-	private final Sprite sprite;
-	private final Texture texture;
+    private final Sprite sprite;
+    private final Texture texture;
 
-	public STBasicShader(FastTesterMain main) {
-		super(main);
+    public STBasicShader(FastTesterMain main) {
+        super(main);
 
-		texture = new Texture("badlogic.jpg");
-		sprite = new Sprite(texture);
+        texture = new Texture("badlogic.jpg");
+        sprite = new Sprite(texture);
 
-		sprite.setPosition(Gdx.graphics.getWidth() / 2 - sprite.getWidth() / 2,
-				Gdx.graphics.getHeight() / 2 - sprite.getHeight() / 2);
+        sprite.setPosition(Gdx.graphics.getWidth() / 2 - sprite.getWidth() / 2,
+                Gdx.graphics.getHeight() / 2 - sprite.getHeight() / 2);
 
-		main.logManager.nzGlProfiler.active();
-		main.logManager.nzGlProfiler.initHudDebug(HudDebugPosition.TOP_RIGHT, Color.WHITE);
-	}
+        main.logManager.nzGlProfiler.active();
+        main.logManager.nzGlProfiler.initHudDebug(HudDebugPosition.TOP_RIGHT, Color.WHITE);
+    }
 
-	@Override
-	public String getTestExplication() {
-		return "Shader discover";
-	}
+    @Override
+    public String getTestExplication() {
+        return "Shader discover";
+    }
 
-	@Override
-	public void renderTestScreen(float dt) {
-		spriteBatch.begin();
-		sprite.draw(spriteBatch);
-		spriteBatch.end();
-		main.logManager.nzGlProfiler.updateHudDebug();
+    @Override
+    public void renderTestScreen(float dt) {
+        spriteBatch.begin();
+        sprite.draw(spriteBatch);
+        spriteBatch.end();
+        main.logManager.nzGlProfiler.updateHudDebug();
 
-	}
+    }
 
-	@Override
-	public void disposeTestScreen() {
-		main.logManager.nzGlProfiler.desactive();
-		texture.dispose();
+    @Override
+    public void disposeTestScreen() {
+        main.logManager.nzGlProfiler.desactive();
+        texture.dispose();
 
-	}
+    }
 }

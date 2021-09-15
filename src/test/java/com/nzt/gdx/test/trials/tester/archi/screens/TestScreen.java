@@ -59,7 +59,7 @@ public abstract class TestScreen extends SimpleTestScreen {
     }
 
     protected void debugMsg(String key, Object value) {
-        debugMsg(key, value,Color.WHITE);
+        debugMsg(key, value, Color.WHITE);
     }
 
     protected void infoMsg(String s) {

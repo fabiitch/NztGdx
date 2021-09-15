@@ -4,12 +4,11 @@ import com.badlogic.gdx.math.Circle;
 import com.badlogic.gdx.math.Intersector;
 import com.badlogic.gdx.math.Polygon;
 import com.badlogic.gdx.math.Rectangle;
-import com.nzt.gdx.math.shapes.Segment;
 import com.nzt.gdx.math.shapes.utils.RectangleUtils;
 
 public class IntersectorPolygon {
     public static Intersector.MinimumTranslationVector tmpTranslationVector = new Intersector.MinimumTranslationVector();
-    private static float[] tmpRectVertices = new float[8];
+    private static final float[] tmpRectVertices = new float[8];
 
     public static boolean circle(Circle circle, Polygon polygon) {
         return IntersectorCircle.polygon(circle, polygon);

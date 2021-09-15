@@ -1,6 +1,5 @@
 package com.nzt.gdx.test.trials.st.math.shapes.circle;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.math.Circle;

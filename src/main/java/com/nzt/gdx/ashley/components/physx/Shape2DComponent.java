@@ -59,7 +59,7 @@ public class Shape2DComponent extends PoolableComponent {
         }
     }
 
-    public static void updateShapePositionFromBody(Entity entity){
+    public static void updateShapePositionFromBody(Entity entity) {
 
     }
 

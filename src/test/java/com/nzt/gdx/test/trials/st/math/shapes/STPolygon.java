@@ -13,12 +13,12 @@ import com.nzt.gdx.utils.GdxUtils;
 
 @TestScreenList(group = "math.shapes")
 public class STPolygon extends TestScreen {
-    private BitmapFont font;
+    private final BitmapFont font;
 
 
-    private Polygon polygon;
-    private Vector2 centerPolygon = new Vector2();
-    private Vector2 tmp = new Vector2();
+    private final Polygon polygon;
+    private final Vector2 centerPolygon = new Vector2();
+    private final Vector2 tmp = new Vector2();
 
     public STPolygon(FastTesterMain main) {
         super(main);
@@ -56,9 +56,9 @@ public class STPolygon extends TestScreen {
 
         spriteBatch.begin();
         float[] vertices = polygon.getTransformedVertices();
-        for (int i = 0; i < vertices.length / 2; i ++ ) {
-            PolygonUtils.getVertex(polygon, i , tmp);
-            font.draw(spriteBatch, "" + i , tmp.x, tmp.y);
+        for (int i = 0; i < vertices.length / 2; i++) {
+            PolygonUtils.getVertex(polygon, i, tmp);
+            font.draw(spriteBatch, "" + i, tmp.x, tmp.y);
         }
         spriteBatch.end();
     }

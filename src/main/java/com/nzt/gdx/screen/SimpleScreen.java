@@ -5,6 +5,7 @@ import com.nzt.gdx.main.AbstractMain;
 /**
  * simple screen , dont need to implements all methods of screen
  * Similaire a ScreenAdapter mais pour NzT
+ *
  * @param <M>
  */
 public abstract class SimpleScreen<M extends AbstractMain> extends BaseScreen<M> {

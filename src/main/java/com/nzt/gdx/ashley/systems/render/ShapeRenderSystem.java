@@ -12,39 +12,39 @@ import com.nzt.gdx.debug.perf.PerformanceFrame;
 
 //TODO reprendre ou suppr
 public class ShapeRenderSystem extends IteratingSystem {
-	private final static ComponentMapper<ShapeRenderableArrayComponent> shapeArrayMapper = ShapeRenderableArrayComponent.mapper;
+    private final static ComponentMapper<ShapeRenderableArrayComponent> shapeArrayMapper = ShapeRenderableArrayComponent.mapper;
 
-	private final  ShapeRenderer shapeRenderer;
-	private final Array<Entity> queue;
+    private final ShapeRenderer shapeRenderer;
+    private final Array<Entity> queue;
 
-	public ShapeRenderSystem(ShapeRenderer shapeRenderer, int order) {
-		super(Family.one(ShapeRenderableArrayComponent.class).get(), order);
-		this.shapeRenderer = shapeRenderer;
-		this.queue = new Array<Entity>();
-		PerformanceFrame.addSystem(this);
-	}
+    public ShapeRenderSystem(ShapeRenderer shapeRenderer, int order) {
+        super(Family.one(ShapeRenderableArrayComponent.class).get(), order);
+        this.shapeRenderer = shapeRenderer;
+        this.queue = new Array<Entity>();
+        PerformanceFrame.addSystem(this);
+    }
 
-	public ShapeRenderSystem(ShapeRenderer shapeRenderer) {
-		this(shapeRenderer, NztSystemsOrder.RENDER);
-	}
+    public ShapeRenderSystem(ShapeRenderer shapeRenderer) {
+        this(shapeRenderer, NztSystemsOrder.RENDER);
+    }
 
-	@Override
-	public void update(float deltaTime) {
-		PerformanceFrame.startSystem(this);
-		shapeRenderer.begin();
-		super.update(deltaTime);
-		shapeRenderer.end();
-		PerformanceFrame.endSystem(this);
-	}
+    @Override
+    public void update(float deltaTime) {
+        PerformanceFrame.startSystem(this);
+        shapeRenderer.begin();
+        super.update(deltaTime);
+        shapeRenderer.end();
+        PerformanceFrame.endSystem(this);
+    }
 
-	@Override
-	protected void processEntity(Entity entity, float deltaTime) {
-		ShapeRenderableArrayComponent shapeComponent = shapeArrayMapper.get(entity);
-		shapeComponent.render(shapeRenderer);
-	}
+    @Override
+    protected void processEntity(Entity entity, float deltaTime) {
+        ShapeRenderableArrayComponent shapeComponent = shapeArrayMapper.get(entity);
+        shapeComponent.render(shapeRenderer);
+    }
 
-	public void dispose() {
-		this.queue.clear();
-	}
+    public void dispose() {
+        this.queue.clear();
+    }
 
 }

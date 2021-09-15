@@ -7,7 +7,6 @@ import com.nzt.gdx.screen.manager.AbstractScreenManager.IntAfterLoading;
 
 /**
  * Loading screen, 2 param mintime to display it,
- *
  */
 public abstract class BaseLoadingScreen<M extends AbstractMain> extends SimpleScreen<M> {
     protected IntAssetsManager assetsManager;
@@ -39,7 +38,6 @@ public abstract class BaseLoadingScreen<M extends AbstractMain> extends SimpleSc
 
     /**
      * min 0 , max 1, min between minDisplayTime and assetsManager.getProgress()
-     *
      */
     private float getProgress(float delta) {
         timeCounter += delta;

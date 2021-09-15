@@ -10,10 +10,8 @@ import com.nzt.gdx.test.api.math.vectors.VTestUtils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.util.function.Function;
-
 public class PolygonUtilsTest {
-    private static Vector2 tmp = new Vector2();
+    private static final Vector2 tmp = new Vector2();
 
     float[] vertices = new float[]{0, 0, 50, 50, 60, 60, 300, 0};
     Polygon polygon = new Polygon(vertices);
@@ -118,19 +116,19 @@ public class PolygonUtilsTest {
         Polygon rect = new Polygon(new float[]{0, 0, 100, 0, 100, 50, 0, 50});
 
         PolygonUtils.getNearestSegment(rect, new Vector2(50, 150), result);
-        Assertions.assertTrue(result.equalsPoints(new Segment(0,50,100,50)));
+        Assertions.assertTrue(result.equalsPoints(new Segment(0, 50, 100, 50)));
 
         PolygonUtils.getNearestSegment(rect, new Vector2(-25, 25), result);
-        Assertions.assertTrue(result.equalsPoints(new Segment(0,0,0,50)));
+        Assertions.assertTrue(result.equalsPoints(new Segment(0, 0, 0, 50)));
 
         PolygonUtils.getNearestSegment(rect, new Vector2(600, 25), result);
-        Assertions.assertTrue(result.equalsPoints(new Segment(100,0,100,50)));
+        Assertions.assertTrue(result.equalsPoints(new Segment(100, 0, 100, 50)));
 
         PolygonUtils.getNearestSegment(rect, new Vector2(50, -150), result);
-        Assertions.assertTrue(result.equalsPoints(new Segment(0,0,100,0)));
+        Assertions.assertTrue(result.equalsPoints(new Segment(0, 0, 100, 0)));
 
         //inside
         PolygonUtils.getNearestSegment(rect, new Vector2(50, 10), result);
-        Assertions.assertTrue(result.equalsPoints(new Segment(0,0,100,0)));
+        Assertions.assertTrue(result.equalsPoints(new Segment(0, 0, 100, 0)));
     }
 }

@@ -18,7 +18,7 @@ public class PropertiesComponentFactory extends BaseComponentFactory {
     }
 
 
-    public DebugEntityComponent debug(Object ... objectsToDebug){
+    public DebugEntityComponent debug(Object... objectsToDebug) {
         DebugEntityComponent debugEntityComponent = new DebugEntityComponent();
         debugEntityComponent.toDisplay = new Array<>(objectsToDebug);
         return debugEntityComponent;

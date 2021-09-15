@@ -4,5 +4,5 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 
 public interface ShapeRenderable {
 
-	void render(ShapeRenderer shapeRenderer);
+    void render(ShapeRenderer shapeRenderer);
 }

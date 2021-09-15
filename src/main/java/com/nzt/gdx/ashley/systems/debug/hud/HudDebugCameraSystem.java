@@ -7,7 +7,7 @@ import com.nzt.gdx.camera.HudDebugCamera;
 import com.nzt.gdx.debug.hud.HudDebugPosition;
 
 public class HudDebugCameraSystem extends EntitySystem {
-    private HudDebugCamera hudDebugCamera;
+    private final HudDebugCamera hudDebugCamera;
 
     public HudDebugCameraSystem(Camera camera, int positionOnStage, Color color) {
         this.hudDebugCamera = new HudDebugCamera(camera, positionOnStage, color);

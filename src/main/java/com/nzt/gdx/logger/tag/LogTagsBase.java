@@ -18,7 +18,8 @@ public enum LogTagsBase {
     SCREEN_ACTIONS,    // SCREEN_ACTIONS is all except render(show, resize, pause, resume, hide)
     TILED,
     UNKNOW,
-    DEBUG,;
+    DEBUG,
+    ;
 
     public static void activeBasesTags() {
         for (LogTagsBase tag : LogTagsBase.values()) {

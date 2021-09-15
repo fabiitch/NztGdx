@@ -8,7 +8,7 @@ import com.nzt.gdx.math.vectors.V2;
 public class SegmentUtils {
 
     public static Segment tmpSegment = new Segment();
-    private static Vector2 tmpV1 = new Vector2();
+    private static final Vector2 tmpV1 = new Vector2();
 
     private SegmentUtils() {
 

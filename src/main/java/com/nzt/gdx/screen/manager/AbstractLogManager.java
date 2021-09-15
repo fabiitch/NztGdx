@@ -44,5 +44,5 @@ public abstract class AbstractLogManager {
     public abstract void configureTags();
 
     public abstract InputLoggerConfig configureInputLog();
-    
+
 }

@@ -4,6 +4,6 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 
 public interface NzPositionAction {
 
-	void apply(Actor actor);
+    void apply(Actor actor);
 
 }

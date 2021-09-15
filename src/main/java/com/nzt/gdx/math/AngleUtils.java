@@ -9,15 +9,16 @@ public class AngleUtils {
     private AngleUtils() {
 
     }
-    private static Vector2 tmp = new Vector2();
+
+    private static final Vector2 tmp = new Vector2();
 
     /**
-     *  Angle incidence, angle collision
-     *  Angle reflexion, angle rebond
+     * Angle incidence, angle collision
+     * Angle reflexion, angle rebond
      * https://fr.wikipedia.org/wiki/Lois_de_Snell-Descartes
      * https://upload.wikimedia.org/wikipedia/commons/9/91/Reflexion_fr.png?uselang=fr
      * Voir Screen Test : STCircleReflexionRay
-     * */
+     */
     public static float incidenceToReflexion(float angleReflexionDeg) {
         return 180 + angleReflexionDeg;
     }

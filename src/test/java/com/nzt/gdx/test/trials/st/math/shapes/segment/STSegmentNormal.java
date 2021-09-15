@@ -25,7 +25,7 @@ public class STSegmentNormal extends BaseSTSegment {
 
                 dirToMiddle = V2.directionTo(touch, middleSeg, dirToMiddle);
 
-                normal = segment.getNormal(touch,normal);
+                normal = segment.getNormal(touch, normal);
                 return false;
             }
         };
@@ -47,7 +47,7 @@ public class STSegmentNormal extends BaseSTSegment {
         shapeRenderer.circle(middleSeg, 5);
 
         shapeRenderer.setColor(Color.BLUE);
-        shapeRenderer.circle(touch,5);
+        shapeRenderer.circle(touch, 5);
         shapeRenderer.line(touch, middleSeg);
 
         shapeRenderer.setColor(Color.CYAN);

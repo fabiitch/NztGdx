@@ -50,11 +50,13 @@ class PerformanceContainer {
             currentArrayOrdered.removeValue(perfAction, true);
         }
     }
+
     public void keepOnly(String... actions) {
         currentMap.clear();
-		for (String action : actions)
-			add(action);
+        for (String action : actions)
+            add(action);
     }
+
     public void startAction(String action) {
         PerformanceAction performanceAction = currentMap.get(action);
         if (performanceAction != null)

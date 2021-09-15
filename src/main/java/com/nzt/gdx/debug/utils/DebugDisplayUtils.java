@@ -44,7 +44,7 @@ public class DebugDisplayUtils {
             return "0";
         if (Float.isNaN(f))
             return "Nan";
-        if(Float.isInfinite(f))
+        if (Float.isInfinite(f))
             return "Infinite";
         return floatFormatter.format(f);
     }

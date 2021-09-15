@@ -1,12 +1,10 @@
 package com.nzt.gdx.math.shapes.utils;
 
 import com.badlogic.gdx.math.GeometryUtils;
-import com.badlogic.gdx.math.Intersector;
 import com.badlogic.gdx.math.Polygon;
 import com.badlogic.gdx.math.Vector2;
 import com.nzt.gdx.math.CalculUtils;
 import com.nzt.gdx.math.shapes.Segment;
-import com.nzt.gdx.math.vectors.V2;
 
 public class PolygonUtils {
 
@@ -19,9 +17,10 @@ public class PolygonUtils {
 
     }
 
-    public static Vector2 getPos(Polygon polygon, Vector2 pos){
+    public static Vector2 getPos(Polygon polygon, Vector2 pos) {
         return pos.set(polygon.getX(), polygon.getY());
     }
+
     public static float getMaxDstVertexFromZero(Polygon polygon, Vector2 vertex) {
         float[] vertices = polygon.getTransformedVertices();
         Vector2 tmp = PolygonUtils.tmpV1;
@@ -122,17 +121,17 @@ public class PolygonUtils {
         float[] vertices = polygon.getTransformedVertices();
         int i = 0;
 
-        int vertexA =0, vertexB=0;
+        int vertexA = 0, vertexB = 0;
         while (i <= vertices.length / 2) {
             result.a.set(vertices[i], vertices[i + 1]);
-            result.b.set(vertices[i+2], vertices[i + 3]);
+            result.b.set(vertices[i + 2], vertices[i + 3]);
             tmpV1.set(vertices[i], vertices[i + 1]);
             tmpV2.set(vertices[i + 2], vertices[i + 3]);
-            result.nearestPoint(point,tmpV1);
+            result.nearestPoint(point, tmpV1);
 
             float dstPoint = point.dst2(tmpV1);
             if (dstPoint < dstMin) {
-                vertexA = i/2;
+                vertexA = i / 2;
                 vertexB = vertexA++;
                 dstMin = dstPoint;
             }
@@ -145,7 +144,7 @@ public class PolygonUtils {
         float dstPoint = point.dst2(tmpV1);
         if (dstPoint < dstMin) {
             vertexA = 0;
-            vertexB = vertices.length / 2 -1;
+            vertexB = vertices.length / 2 - 1;
         }
         PolygonUtils.getVertex(polygon, vertexA, result.a);
         PolygonUtils.getVertex(polygon, vertexB, result.b);

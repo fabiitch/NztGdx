@@ -14,15 +14,15 @@ import com.nzt.gdx.utils.GdxUtils;
 @TestScreenList(group = "math.vector2")
 public class STV2CalculNormal extends TestScreen {
 
-    private Vector2 vector2 = new Vector2(150, 0);
-    private Vector2 tangent = new Vector2(50, 0);
-    private Vector2 middle;
+    private final Vector2 vector2 = new Vector2(150, 0);
+    private final Vector2 tangent = new Vector2(50, 0);
+    private final Vector2 middle;
 
 
-    private Vector2 posA = new Vector2(0, 0);
-    private Vector2 posB = new Vector2(0, 0);
-    private Vector2 middleAB = new Vector2();
-    private Vector2 normalAB = new Vector2(150, 0);
+    private final Vector2 posA = new Vector2(0, 0);
+    private final Vector2 posB = new Vector2(0, 0);
+    private final Vector2 middleAB = new Vector2();
+    private final Vector2 normalAB = new Vector2(150, 0);
     private boolean definePosA = true;
 
     public STV2CalculNormal(FastTesterMain main) {

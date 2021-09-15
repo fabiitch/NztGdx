@@ -114,7 +114,7 @@ public class IntersectorSegmentRectangleTest {
         assertEquals(RectangleUtils.getVerticalLeft(rect, new Segment()), rectSegmentIntersector);
         assertTrue(touch);
 
-        touch = IntersectorSegmentRectangle.farthest(segment2D, rect, intersectionPoint,rectSegmentIntersector);
+        touch = IntersectorSegmentRectangle.farthest(segment2D, rect, intersectionPoint, rectSegmentIntersector);
         assertEquals(new Vector2(10, 0), intersectionPoint);
         assertEquals(RectangleUtils.getHorizontalBot(rect, new Segment()), rectSegmentIntersector);
         assertTrue(touch);

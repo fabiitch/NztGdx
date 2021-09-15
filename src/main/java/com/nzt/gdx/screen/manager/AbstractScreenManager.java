@@ -32,7 +32,7 @@ public abstract class AbstractScreenManager<M extends AbstractMain> {
     }
 
     /**
-     *  create your own loading screen, if return null SimpleProgressBarScreen wil be used
+     * create your own loading screen, if return null SimpleProgressBarScreen wil be used
      */
     protected abstract BaseLoadingScreen<M> createLoadingScreen();
 

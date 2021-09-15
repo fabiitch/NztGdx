@@ -45,6 +45,7 @@ public class Segment implements Shape2D {
         rotation += degrees;
         setRotation(rotation);
     }
+
     public float dst(Vector2 point) {
         return SegmentUtils.nearestPoint(this, point, tmpv1).dst(point);
     }

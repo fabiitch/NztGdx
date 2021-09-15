@@ -7,19 +7,19 @@ import com.nzt.gdx.debug.perf.HudDebugPerformanceFrame;
 
 public class HudDebugPerformanceSystem extends EntitySystem {
 
-	private final HudDebugPerformanceFrame performanceFrame;
+    private final HudDebugPerformanceFrame performanceFrame;
 
-	public HudDebugPerformanceSystem(int positionOnStage) {
-		this(positionOnStage, Color.WHITE);
-	}
+    public HudDebugPerformanceSystem(int positionOnStage) {
+        this(positionOnStage, Color.WHITE);
+    }
 
-	public HudDebugPerformanceSystem(int positionOnStage, Color color) {
-		super(NztSystemsOrder.HUD_DEBUG);
-		performanceFrame = new HudDebugPerformanceFrame(positionOnStage, color);
-	}
+    public HudDebugPerformanceSystem(int positionOnStage, Color color) {
+        super(NztSystemsOrder.HUD_DEBUG);
+        performanceFrame = new HudDebugPerformanceFrame(positionOnStage, color);
+    }
 
-	@Override
-	public void update(float dt) {
-		performanceFrame.update(dt);
-	}
+    @Override
+    public void update(float dt) {
+        performanceFrame.update(dt);
+    }
 }

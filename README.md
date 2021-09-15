@@ -1,14 +1,13 @@
 # NztGdx
+
 Libgdx wrapper to use it easly
 
-Abstract = Really abstract 
-BaseXX = class to use
-not finish at all ^^
+Abstract = Really abstract BaseXX = class to use not finish at all ^^
 
-[![Build](https://github.com/fabiitch/NztGdx/workflows/Java%20CI/badge.svg?branch=master)](https://github.com/fabiitch/NztGdx/actions/workflows/gradle.yml) (Java CI)  
+[![Build](https://github.com/fabiitch/NztGdx/workflows/Java%20CI/badge.svg?branch=master)](https://github.com/fabiitch/NztGdx/actions/workflows/gradle.yml) (
+Java CI)
 
-
-[![Downloads](https://img.shields.io/github/downloads/fabiitch/NztGdx/total.svg)](https://github.com/fabiitch/NztGdx/releases)  
+[![Downloads](https://img.shields.io/github/downloads/fabiitch/NztGdx/total.svg)](https://github.com/fabiitch/NztGdx/releases)
 
 ## Modules
 
@@ -30,7 +29,6 @@ not finish at all ^^
 * **tiled** : utils for TmxMap
 * **transformer** : TODO like actions but out of scene2D
 * **utils** : TODO, (keep ?)
-
 
 ## Tests
 
