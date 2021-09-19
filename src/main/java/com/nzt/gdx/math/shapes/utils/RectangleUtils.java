@@ -1,5 +1,6 @@
 package com.nzt.gdx.math.shapes.utils;
 
+import com.badlogic.gdx.math.Circle;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.nzt.gdx.math.shapes.Segment;
@@ -265,4 +266,14 @@ public class RectangleUtils {
         return vertices;
     }
 
+    public static float radiusCircleInside(Rectangle rectangle) {
+        if (rectangle.width < rectangle.height)
+            return rectangle.width / 2;
+        else
+            return rectangle.height / 2;
+    }
+
+    public static Circle getCircleInside(Rectangle rectangle) {
+        return new Circle(getCenter(rectangle, tmpV1), radiusCircleInside(rectangle));
+    }
 }

@@ -41,8 +41,8 @@ public class PolygonUtilsTest {
 
     @Test
     public void getMaxDstFromZeroTest() {
-        float maxDstVertexFromZero = PolygonUtils.getMaxDstVertexFromZero(polygon, tmp);
-        float maxDstVertexFromZero2 = PolygonUtils.getMaxDstVertexFromZero(polygon);
+        float maxDstVertexFromZero = PolygonUtils.getMaxDstVertex(polygon, tmp);
+        float maxDstVertexFromZero2 = PolygonUtils.getMaxDstVertex(polygon);
 
         VTestUtils.assertEquals(new Vector2(300, 0), tmp);
         Assertions.assertEquals(300, maxDstVertexFromZero);

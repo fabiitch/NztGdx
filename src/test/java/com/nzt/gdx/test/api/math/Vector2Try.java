@@ -3,11 +3,12 @@ package com.nzt.gdx.test.api.math;
 import com.badlogic.gdx.math.Interpolation;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-
+@Disabled
 /*
  * pour test vite fait  les methode de Vector2
  */
@@ -40,6 +41,7 @@ public class Vector2Try {
     }
 
     @Test
+    @Disabled
     public void epsilonEqualsOnNor() {
         v1 = v(10, 0).nor();
         v2 = v(10, 1).nor();
@@ -53,6 +55,7 @@ public class Vector2Try {
     }
 
     @Test
+    @Disabled
     public void angleRecap() {
         printAngle(v(0, 0));
         printAngle(v(0, 1));
@@ -80,6 +83,7 @@ public class Vector2Try {
     }
 
     @Test
+    @Disabled
     public void rotationTest() {
         Vector2 v1 = v(1.0f, 0.0f);
         Vector2 v2 = v(0.99276555f, 0.120069146f);

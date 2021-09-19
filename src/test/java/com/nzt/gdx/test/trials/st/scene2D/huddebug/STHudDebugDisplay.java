@@ -4,13 +4,14 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.nzt.gdx.debug.hud.core.HudDebug;
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
+import com.nzt.gdx.test.trials.tester.archi.screens.TestScreen;
 import com.nzt.gdx.test.trials.tester.selector.TestScreenList;
 
 /**
  * Test HudDebug Display
  */
 @TestScreenList(group = "scene2D.hud debug")
-public class STHudDebugDisplay extends com.nzt.gdx.test.trials.tester.archi.screens.TestScreen {
+public class STHudDebugDisplay extends TestScreen {
 
     public STHudDebugDisplay(FastTesterMain main) {
         super(main);

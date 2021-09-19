@@ -8,13 +8,14 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.glutils.FrameBuffer;
 import com.badlogic.gdx.math.Matrix4;
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
+import com.nzt.gdx.test.trials.tester.archi.screens.TestScreen;
 import com.nzt.gdx.test.trials.tester.selector.TestScreenList;
 
 /**
  * https://gist.github.com/thomasleese/e6ab52efd2118adff696
  */
 @TestScreenList(group = "graphics")
-public class STFrameBuffer extends com.nzt.gdx.test.trials.tester.archi.screens.TestScreen {
+public class STFrameBuffer extends TestScreen {
     FrameBuffer fbo;
     TextureRegion texture;
     Texture img;
