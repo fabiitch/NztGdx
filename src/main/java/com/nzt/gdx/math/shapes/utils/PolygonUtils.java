@@ -21,7 +21,25 @@ public class PolygonUtils {
         return pos.set(polygon.getX(), polygon.getY());
     }
 
-    public static float getMaxDstVertexFromZero(Polygon polygon, Vector2 vertex) {
+    public static float getMinDstVertex(Polygon polygon, Vector2 vertex) {
+        float[] vertices = polygon.getTransformedVertices();
+        Vector2 tmp = PolygonUtils.tmpV1;
+        float dstMin = Float.MAX_VALUE;
+        int i = 0;
+        while (i < vertices.length) {
+            tmp.set(vertices[i], vertices[i + 1]);
+            float dst = tmp.dst(0, 0);
+            if (dst < dstMin) {
+                dstMin = dst;
+                if (vertex != null)
+                    vertex.set(tmp);
+            }
+            i += 2;
+        }
+        return dstMin;
+    }
+
+    public static float getMaxDstVertex(Polygon polygon, Vector2 vertex) {
         float[] vertices = polygon.getTransformedVertices();
         Vector2 tmp = PolygonUtils.tmpV1;
         float dstMax = 0;
@@ -40,8 +58,8 @@ public class PolygonUtils {
         return dstMax;
     }
 
-    public static float getMaxDstVertexFromZero(Polygon polygon) {
-        return getMaxDstVertexFromZero(polygon, null);
+    public static float getMaxDstVertex(Polygon polygon) {
+        return getMaxDstVertex(polygon, null);
     }
 
     public static Polygon getTmpPolygon(float[] vertices) {
@@ -114,6 +132,11 @@ public class PolygonUtils {
 
         return true;
     }
+
+//    //TODO pour polygon shape faire avant le centroid tout sa
+//    public static Vector2 getNearestPoint(Polygon polygon, Vector2 point, Vector2 result) {
+//        return null;
+//    }
 
     public static Segment getNearestSegment(Polygon polygon, Vector2 point, Segment result) {
         float dstMin = Float.MAX_VALUE;

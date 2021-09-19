@@ -5,11 +5,12 @@ import com.nzt.gdx.debug.hud.HudDebugApplicationInfo;
 import com.nzt.gdx.debug.hud.core.HudDebug;
 import com.nzt.gdx.debug.perf.PerformanceFrame;
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
+import com.nzt.gdx.test.trials.tester.archi.screens.TestScreen;
 import com.nzt.gdx.test.trials.tester.selector.TestScreenList;
 import com.nzt.gdx.utils.GdxUtils;
 
 @TestScreenList(group = "utils.perf.malloc")
-public class STMallocTrackingHudDebug extends com.nzt.gdx.test.trials.tester.archi.screens.TestScreen {
+public class STMallocTrackingHudDebug extends TestScreen {
     private final HudDebugApplicationInfo hudDebugApplicationInfo;
     private final long memoryStart;
 

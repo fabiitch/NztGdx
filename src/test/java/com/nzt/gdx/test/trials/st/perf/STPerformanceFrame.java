@@ -14,10 +14,11 @@ import com.nzt.gdx.ashley.systems.render.SpriteRenderSystem;
 import com.nzt.gdx.debug.hud.HudDebugPosition;
 import com.nzt.gdx.debug.perf.HudDebugPerformanceFrame;
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
+import com.nzt.gdx.test.trials.tester.archi.screens.TestScreen;
 import com.nzt.gdx.test.trials.tester.selector.TestScreenList;
 
 @TestScreenList(group = "utils.perf")
-public class STPerformanceFrame extends com.nzt.gdx.test.trials.tester.archi.screens.TestScreen {
+public class STPerformanceFrame extends TestScreen {
     Engine engine;
     BaseEntityFactory factory;
     Texture texture = new Texture("badlogic.jpg");

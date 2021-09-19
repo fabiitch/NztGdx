@@ -10,10 +10,11 @@ import com.badlogic.gdx.utils.Array;
 import com.nzt.gdx.debug.hud.core.HudDebug;
 import com.nzt.gdx.math.random.Randoms;
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
+import com.nzt.gdx.test.trials.tester.archi.screens.TestScreen;
 import com.nzt.gdx.test.trials.tester.selector.TestScreenList;
 
 @TestScreenList(group = "inputs")
-public abstract class BaseST2DControlCam extends com.nzt.gdx.test.trials.tester.archi.screens.TestScreen {
+public abstract class BaseST2DControlCam extends TestScreen {
 
     protected Array<Sprite> spriteArray;
     protected final Texture texture;

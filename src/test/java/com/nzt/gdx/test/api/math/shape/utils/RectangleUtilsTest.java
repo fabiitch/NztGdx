@@ -1,5 +1,7 @@
 package com.nzt.gdx.test.api.math.shape.utils;
 
+import com.badlogic.gdx.math.Circle;
+import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.nzt.gdx.math.shapes.Segment;
@@ -11,6 +13,8 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class RectangleUtilsTest {
+
+    private final static float DELTA = MathUtils.FLOAT_ROUNDING_ERROR;
 
     @Test
     public void getCenterTest() {
@@ -145,5 +149,15 @@ public class RectangleUtilsTest {
         float diagDst = RectangleUtils.getDiagDst(rect);
 
         Assertions.assertEquals(Math.sqrt(500), diagDst, 1);
+    }
+
+    @Test
+    public void circleInsideTest() {
+        Rectangle rect = new Rectangle(50, 50, 10, 20);
+        Circle circleInside = RectangleUtils.getCircleInside(rect);
+
+        Assertions.assertEquals(55, circleInside.x, DELTA);
+        Assertions.assertEquals(60, circleInside.y, DELTA);
+        Assertions.assertEquals(5, circleInside.radius, DELTA);
     }
 }

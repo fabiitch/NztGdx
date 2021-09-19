@@ -8,13 +8,14 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.nzt.gdx.debug.hud.HudDebugPosition;
 import com.nzt.gdx.debug.hud.core.HudDebug;
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
+import com.nzt.gdx.test.trials.tester.archi.screens.TestScreen;
 import com.nzt.gdx.test.trials.tester.selector.TestScreenList;
 
 /**
  * ST for test Add and remove On HudDebug
  */
 @TestScreenList(group = "scene2D.hud debug")
-public class STHudDebugAddRemove extends com.nzt.gdx.test.trials.tester.archi.screens.TestScreen {
+public class STHudDebugAddRemove extends TestScreen {
 
     private int topR, topM, topL, botR, botM, botL, rightM, leftM = 0;
 

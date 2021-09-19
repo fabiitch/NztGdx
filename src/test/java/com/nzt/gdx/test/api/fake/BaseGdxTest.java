@@ -32,6 +32,7 @@ public abstract class BaseGdxTest {
     public BaseGdxTest() {
         Gdx.app = new HeadlessApplication(new ApplicationAdapter() {
         });
+        Gdx.app.log("TestClass", this.getClass().getSimpleName());
         koConditions.add(new PredicateKO() {
             @Override
             public String name() {
