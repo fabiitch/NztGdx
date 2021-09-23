@@ -276,4 +276,8 @@ public class RectangleUtils {
     public static Circle getCircleInside(Rectangle rectangle) {
         return new Circle(getCenter(rectangle, tmpV1), radiusCircleInside(rectangle));
     }
+
+    public static boolean overlaps(Rectangle rectA, Rectangle rectB) {
+        return rectA.x <= rectB.x + rectB.width && rectA.x + rectA.width >= rectB.x && rectA.y <= rectB.y + rectB.height && rectA.y + rectA.height >= rectB.y;
+    }
 }

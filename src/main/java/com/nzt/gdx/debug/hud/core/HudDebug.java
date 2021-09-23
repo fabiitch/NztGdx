@@ -261,10 +261,17 @@ public class HudDebug {
         }
     }
 
+    public static void add(String name, Object value, int positionOnstage) {
+        add(name, name, value, positionOnstage, Color.WHITE);
+    }
+
     public static void add(String name, Object value, int positionOnstage, Color color) {
         add(name, name, value, positionOnstage, color);
     }
 
+    public static void add(String key, String name, Object value, int positionOnstage) {
+        add(key, name, value, positionOnstage, Color.WHITE);
+    }
     public static void add(String key, String name, Object value, int positionOnstage, Color color) {
         switch (positionOnstage) {
             case HudDebugPosition.TOP_LEFT:

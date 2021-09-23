@@ -160,4 +160,43 @@ public class RectangleUtilsTest {
         Assertions.assertEquals(60, circleInside.y, DELTA);
         Assertions.assertEquals(5, circleInside.radius, DELTA);
     }
+
+
+    @Test
+    public void testOverlaps() {
+        Rectangle a = new Rectangle(0, 0, 50, 50);
+        Rectangle b = new Rectangle(50, 0, 50, 50);
+        Assertions.assertFalse(a.overlaps(b));
+        Assertions.assertFalse(b.overlaps(a));
+        Assertions.assertTrue(RectangleUtils.overlaps(a, b));
+        Assertions.assertTrue(RectangleUtils.overlaps(b, a));
+
+        b = new Rectangle(-50, 0, 50, 50);
+        Assertions.assertTrue(RectangleUtils.overlaps(a, b));
+        Assertions.assertTrue(RectangleUtils.overlaps(b, a));
+
+        b = new Rectangle(0, 50, 50, 50);
+        Assertions.assertTrue(RectangleUtils.overlaps(a, b));
+        Assertions.assertTrue(RectangleUtils.overlaps(b, a));
+
+        b = new Rectangle(0, -50, 50, 50);
+        Assertions.assertTrue(RectangleUtils.overlaps(a, b));
+        Assertions.assertTrue(RectangleUtils.overlaps(b, a));
+
+        b = new Rectangle(51, 0, 50, 50);
+        Assertions.assertFalse(RectangleUtils.overlaps(a, b));
+        Assertions.assertFalse(RectangleUtils.overlaps(b, a));
+
+        b = new Rectangle(-51, 0, 50, 50);
+        Assertions.assertFalse(RectangleUtils.overlaps(a, b));
+        Assertions.assertFalse(RectangleUtils.overlaps(b, a));
+
+        b = new Rectangle(0, 51, 50, 50);
+        Assertions.assertFalse(RectangleUtils.overlaps(a, b));
+        Assertions.assertFalse(RectangleUtils.overlaps(b, a));
+
+        b = new Rectangle(0, -51, 50, 50);
+        Assertions.assertFalse(RectangleUtils.overlaps(a, b));
+        Assertions.assertFalse(RectangleUtils.overlaps(b, a));
+    }
 }
