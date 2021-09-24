@@ -3,9 +3,17 @@ package com.nzt.gdx.test.api.fake;
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.backends.headless.HeadlessApplication;
+import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.math.MathUtils;
-import com.badlogic.gdx.utils.Array;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.extension.AfterEachCallback;
+import org.junit.jupiter.api.extension.BeforeAllCallback;
+import org.junit.jupiter.api.extension.ExtensionContext;
+import org.mockito.Mockito;
+
+import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  * Use it for junit with GDX
@@ -18,20 +26,21 @@ public abstract class BaseGdxTest {
     public final static float MIN_DT = 1 / 80f;
 
     public float secondElapsed = 0f;
-    public final Array<PredicateSuccess> successesConditions = new Array<>();
-    private final Array<PredicateSuccess> tmpSuccess = new Array<>();
+    public final ArrayList<PredicateSuccess> successesConditions = new ArrayList<>();
 
-    public final Array<PredicateKO> koConditions = new Array<>();
+    public final ArrayList<PredicateKO> koConditions = new ArrayList<>();
 
-    public final Array<TestConditions> testConditions = new Array<>();
-    private final Array<TestConditions> tmpConditions = new Array<>();
+    public final ArrayList<TestCondition> testConditions = new ArrayList<>();
 
-    public float maxTimeTestDuration = 20f;
+    public float maxTimeTestDuration = 10f;
 
 
     public BaseGdxTest() {
-        Gdx.app = new HeadlessApplication(new ApplicationAdapter() {
-        });
+        Gdx.app = new HeadlessApplication(new ApplicationAdapter() {});
+        // Mock any calls to OpenGL
+        Gdx.gl20 = Mockito.mock(GL20.class);
+        Gdx.gl = Gdx.gl20;
+
         Gdx.app.log("TestClass", this.getClass().getSimpleName());
         koConditions.add(new PredicateKO() {
             @Override
@@ -47,36 +56,28 @@ public abstract class BaseGdxTest {
     }
 
     public BaseGdxTest(int logLevel) {
-        Gdx.app = new HeadlessApplication(new ApplicationAdapter() {
-            @Override
-            public void render() {
-                renderTest(Gdx.graphics.getDeltaTime());
-            }
-        });
+        this();
         Gdx.app.setLogLevel(logLevel);
     }
 
     public void doRender(float dt) {
         secondElapsed += dt / 1000;
         renderTest(dt);
-        for (PredicateSuccess success : successesConditions) {
-            if (success.testOk()) {
-                Gdx.app.log("Condition Ok ", success.name());
-            } else {
-                tmpSuccess.add(success);
+        Iterator<PredicateSuccess> iteratorSuccess = successesConditions.iterator();
+        while (iteratorSuccess.hasNext()) {
+            PredicateSuccess condition = iteratorSuccess.next();
+            if (condition.testOk()) {
+                Gdx.app.log("Condition Ok ", condition.name());
+                iteratorSuccess.remove();
             }
         }
-        successesConditions.clear();
-        successesConditions.addAll(tmpSuccess);
-        tmpSuccess.clear();
-
-
-        for (TestConditions testCondition : testConditions) {
+        Iterator<TestCondition> iteratorTestCondition = testConditions.iterator();
+        while (iteratorTestCondition.hasNext()) {
+            TestCondition testCondition = iteratorTestCondition.next();
             Boolean testOk = testCondition.ok();
-            if (testOk == null) {
-                tmpConditions.add(testCondition);
-            } else if (testOk) {
+            if (testOk) {
                 Gdx.app.log("Condition Ok ", testCondition.name());
+                iteratorTestCondition.remove();
             } else {
                 Assertions.fail("Condition Ko :" + testCondition.name());
             }
@@ -86,13 +87,20 @@ public abstract class BaseGdxTest {
             if (ko.testKO())
                 Assertions.fail("Condition Ko :" + ko.name());
         }
+    }
 
+    @AfterEach
+    public void cleanNztGdxTest() {
+        secondElapsed = 0;
+        successesConditions.clear();
+        koConditions.clear();
+        testConditions.clear();
     }
 
     public abstract void renderTest(float dt);
 
     public void renderLoop(float dt) {
-        while (successesConditions.size > 0 || testConditions.size > 0) doRender(dt);
+        while (successesConditions.size() > 0 || testConditions.size() > 0) doRender(dt);
     }
 
     public void renderLoop60FPS() {
@@ -110,5 +118,6 @@ public abstract class BaseGdxTest {
     public void renderLoopRdm() {
         renderLoopRdm(MIN_DT, MAX_DT);
     }
+
 
 }
