@@ -8,10 +8,10 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-@Disabled
 /*
  * pour test vite fait  les methode de Vector2
  */
+@Disabled
 public class Vector2Try {
     private static final float DELTA_01 = 0.1f;
 
