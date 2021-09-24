@@ -67,7 +67,7 @@ public abstract class BaseGdxTest {
         while (iteratorSuccess.hasNext()) {
             PredicateSuccess condition = iteratorSuccess.next();
             if (condition.testOk()) {
-                Gdx.app.log("Condition Ok ", condition.name());
+                Gdx.app.log("Condition OK", condition.name());
                 iteratorSuccess.remove();
             }
         }
@@ -76,16 +76,16 @@ public abstract class BaseGdxTest {
             TestCondition testCondition = iteratorTestCondition.next();
             Boolean testOk = testCondition.ok();
             if (testOk) {
-                Gdx.app.log("Condition Ok ", testCondition.name());
+                Gdx.app.log("Condition OK", testCondition.name());
                 iteratorTestCondition.remove();
             } else {
-                Assertions.fail("Condition Ko :" + testCondition.name());
+                Assertions.fail("Condition KO :" + testCondition.name());
             }
         }
 
         for (PredicateKO ko : koConditions) {
             if (ko.testKO())
-                Assertions.fail("Condition Ko :" + ko.name());
+                Assertions.fail("Condition KO :" + ko.name());
         }
     }
 
