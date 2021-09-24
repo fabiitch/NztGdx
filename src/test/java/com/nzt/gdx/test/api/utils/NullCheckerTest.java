@@ -16,12 +16,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class NullCheckerTest {
     @Test
     public void isNullTest() {
-
-        System.out.println(DebugDisplayUtils.printValue(2.53213213123f));
-        System.out.println(DebugDisplayUtils.printValue(222));
-        System.out.println(DebugDisplayUtils.printValue(44l));
-        System.out.println(DebugDisplayUtils.printValue("ttt"));
-
         Object nullObject = null;
         Object notNullObject = new Object();
 
@@ -34,7 +28,6 @@ public class NullCheckerTest {
 
     @Test
     public void isNotNullTest() {
-
         Object nullObject = null;
         Object notNullObject = new Object();
         assertFalse(NullChecker.isNotNull(nullObject));
