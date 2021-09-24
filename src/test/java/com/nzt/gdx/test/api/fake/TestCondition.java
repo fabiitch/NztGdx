@@ -1,6 +1,6 @@
 package com.nzt.gdx.test.api.fake;
 
-public interface TestConditions {
+public interface TestCondition {
 
     String name();
 
