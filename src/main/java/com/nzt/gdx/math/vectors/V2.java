@@ -6,7 +6,7 @@ import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.utils.Array;
 
 /**
- * Static method for Vector2 using mathUtils (no native)
+ * Static method for Vector2 using mathUtils (no jni)
  */
 public class V2 {
     public static Vector2 tmp = new Vector2(); // TODO use ? server pb?
@@ -118,5 +118,17 @@ public class V2 {
     public static Vector2 middle(float x1, float y1, float x2, float y2, Vector2 vReturn) {
         vReturn.set((x2 + x1) / 2, (y2 + y1) / 2);
         return vReturn;
+    }
+
+    public static Vector2 min(Vector2 v, float minValue) {
+        v.x = Math.max(minValue, v.x);
+        v.y = Math.max(minValue, v.y);
+        return v;
+    }
+
+    public static Vector2 max(Vector2 v, float maxValue) {
+        v.x = Math.min(maxValue, v.x);
+        v.y = Math.min(maxValue, v.y);
+        return v;
     }
 }

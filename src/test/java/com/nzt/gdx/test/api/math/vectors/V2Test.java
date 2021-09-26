@@ -87,6 +87,33 @@ public class V2Test {
         Assertions.assertEquals(90, angle, 0.1f);
     }
 
+
+    @Test
+    public void minTest() {
+        Vector2 min;
+        min = V2.min(v(50, -50), 0);
+        VTestUtils.assertEquals(50, 0, min);
+
+        min = V2.min(v(-50, -50), 0);
+        VTestUtils.assertEquals(0, 0, min);
+
+        min = V2.min(v(50, 50), 0);
+        VTestUtils.assertEquals(50, 50, min);
+    }
+
+    @Test
+    public void maxTest() {
+        Vector2 max;
+        max = V2.max(v(50, -50), 0);
+        VTestUtils.assertEquals(0, -50, max);
+
+        max = V2.max(v(-50, -50), 0);
+        VTestUtils.assertEquals(-50, -50, max);
+
+        max = V2.max(v(50, 50), 0);
+        VTestUtils.assertEquals(0, 0, max);
+    }
+
     private Vector2 v() {
         return new Vector2();
     }
