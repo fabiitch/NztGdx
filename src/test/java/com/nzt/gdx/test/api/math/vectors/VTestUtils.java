@@ -11,95 +11,63 @@ import org.junit.jupiter.api.Assertions;
 public class VTestUtils {
     private static final float TOLERANCE = MathUtils.FLOAT_ROUNDING_ERROR;
 
+    //  V2  ========================
+    public static void assertEquals(float x, float y, Vector2 v, float tolerance, String msgError) {
+        Assertions.assertEquals(x, v.x, tolerance, msgError == null ? "x not equals" : msgError);
+        Assertions.assertEquals(y, v.y, tolerance, msgError == null ? "y not equals" : msgError);
+    }
+
+    public static void assertEquals(Vector2 v1, Vector2 v2, float tolerance, String msgError) {
+        assertEquals(v1.x, v1.y, v2, tolerance, msgError);
+    }
+
     public static void assertEquals(Vector2 v1, Vector2 v2) {
         assertEquals(v1, v2, TOLERANCE);
     }
 
-    public static void assertEquals(Vector2 v1, Vector2 v2, float tolerance) {
-        float x1 = v1.x;
-        float y1 = v1.y;
-        float x2 = v2.x;
-        float y2 = v2.y;
+    public static void assertEquals(float x, float y, Vector2 v) {
+        assertEquals(x, y, v, TOLERANCE, null);
+    }
 
-        Assertions.assertEquals(x1, x2, tolerance, "x not equals");
-        Assertions.assertEquals(y1, y2, tolerance, "y not equals");
+    public static void assertEquals(Vector2 v1, Vector2 v2, float tolerance) {
+        assertEquals(v1, v2, tolerance, null);
     }
 
     public static void assertEquals(Vector2 v1, Vector2 v2, String msgError) {
         assertEquals(v1, v2, TOLERANCE, msgError);
     }
 
-    public static void assertEquals(Vector2 v1, Vector2 v2, float tolerance, String msgError) {
-        float x1 = v1.x;
-        float y1 = v1.y;
-        float x2 = v2.x;
-        float y2 = v2.y;
 
-        Assertions.assertEquals(x1, x2, tolerance, msgError);
-        Assertions.assertEquals(y1, y2, tolerance, msgError);
+    //  V3  ========================
+    public static void assertEquals(Vector3 v1, Vector3 v2, float tolerance, String msgError) {
+        Assertions.assertEquals(v1.x, v2.x, tolerance, msgError == null ? "x not equals" : msgError);
+        Assertions.assertEquals(v1.y, v2.y, tolerance, msgError == null ? "y not equals" : msgError);
+        Assertions.assertEquals(v1.z, v2.z, tolerance, msgError == null ? "z not equals" : msgError);
     }
 
     public static void assertEquals(Vector3 v1, Vector3 v2, String msgError) {
         assertEquals(v1, v2, TOLERANCE, msgError);
     }
 
-    public static void assertEquals(Vector3 v1, Vector3 v2, float tolerance, String msgError) {
-        float x1 = v1.x;
-        float y1 = v1.y;
-        float z1 = v1.z;
-
-        float x2 = v2.x;
-        float y2 = v2.y;
-        float z2 = v2.z;
-        Assertions.assertEquals(x1, x2, tolerance, msgError);
-        Assertions.assertEquals(y1, y2, tolerance, msgError);
-        Assertions.assertEquals(z1, z2, tolerance, msgError);
-    }
-
     public static void assertEquals(Vector3 v1, Vector3 v2) {
-        assertEquals(v1, v2, MathUtils.FLOAT_ROUNDING_ERROR);
+        assertEquals(v1, v2, TOLERANCE);
     }
 
     public static void assertEquals(Vector3 v1, Vector3 v2, float tolerance) {
-        float x1 = v1.x;
-        float y1 = v1.y;
-        float z1 = v1.z;
-
-        float x2 = v2.x;
-        float y2 = v2.y;
-        float z2 = v2.z;
-
-        Assertions.assertEquals(x1, x2, tolerance, "x not equals");
-        Assertions.assertEquals(y1, y2, tolerance, "y not equals");
-        Assertions.assertEquals(z1, z2, tolerance, "z not equals");
+        assertEquals(v1, v2, tolerance, null);
     }
 
-    //========================================================
-    public static void assertNotEquals(Vector2 v1, Vector2 v2, float tolerance) {
-        float x1 = v1.x;
-        float y1 = v1.y;
-        float x2 = v2.x;
-        float y2 = v2.y;
+    //  !V2  ========================
+    public static void assertNotEquals(Vector2 v1, Vector2 v2, float tolerance, String errorMsg) {
+        Assertions.assertNotEquals(v1.x, v2.x, tolerance, errorMsg == null ? "x equals" : errorMsg);
+        Assertions.assertNotEquals(v1.y, v2.y, tolerance, errorMsg == null ? "y equals" : errorMsg);
+    }
 
-        Assertions.assertNotEquals(x1, x2, tolerance, "x equals");
-        Assertions.assertNotEquals(y1, y2, tolerance, "y equals");
+    public static void assertNotEquals(Vector2 v1, Vector2 v2, float tolerance) {
+        assertNotEquals(v1, v2, tolerance, null);
     }
 
     public static void assertNotEquals(Vector2 v1, Vector2 v2, String msgError) {
-        assertNotEquals(v1, v2, TOLERANCE, msgError);
-    }
-
-    public static void assertNotEquals(Vector2 v1, Vector2 v2, float tolerance, String msgError) {
-        float x1 = v1.x;
-        float y1 = v1.y;
-        float x2 = v2.x;
-        float y2 = v2.y;
-
-        Assertions.assertNotEquals(x1, x2, tolerance, msgError);
-        Assertions.assertNotEquals(y1, y2, tolerance, msgError);
-    }
-
-    public static void assertNotEquals(Vector3 v1, Vector3 v2, String msgError) {
         assertNotEquals(v1, v2, TOLERANCE, msgError);
     }
 
@@ -107,34 +75,18 @@ public class VTestUtils {
         assertNotEquals(v1, v2, TOLERANCE);
     }
 
-    public static void assertNotEquals(Vector3 v1, Vector3 v2, float tolerance, String msgError) {
-        float x1 = v1.x;
-        float y1 = v1.y;
-        float z1 = v1.z;
-
-        float x2 = v2.x;
-        float y2 = v2.y;
-        float z2 = v2.z;
-        Assertions.assertNotEquals(x1, x2, tolerance, msgError);
-        Assertions.assertNotEquals(y1, y2, tolerance, msgError);
-        Assertions.assertNotEquals(z1, z2, tolerance, msgError);
+    //  !V3  ========================
+    public static void assertNotEquals(Vector3 v1, Vector3 v2, float tolerance, String errorMsg) {
+        Assertions.assertNotEquals(v1.x, v2.x, tolerance, errorMsg == null ? "x equals" : errorMsg);
+        Assertions.assertNotEquals(v1.y, v2.y, tolerance, errorMsg == null ? "y equals" : errorMsg);
+        Assertions.assertNotEquals(v1.z, v2.z, tolerance, errorMsg == null ? "z equals" : errorMsg);
     }
 
     public static void assertNotEquals(Vector3 v1, Vector3 v2) {
-        assertEquals(v1, v2, MathUtils.FLOAT_ROUNDING_ERROR);
+        assertNotEquals(v1, v2, MathUtils.FLOAT_ROUNDING_ERROR, null);
     }
 
     public static void assertNotEquals(Vector3 v1, Vector3 v2, float tolerance) {
-        float x1 = v1.x;
-        float y1 = v1.y;
-        float z1 = v1.z;
-
-        float x2 = v2.x;
-        float y2 = v2.y;
-        float z2 = v2.z;
-
-        Assertions.assertNotEquals(x1, x2, tolerance, "x equals");
-        Assertions.assertNotEquals(y1, y2, tolerance, "y equals");
-        Assertions.assertNotEquals(z1, z2, tolerance, "z equals");
+        assertNotEquals(v1, v2, tolerance, null);
     }
 }
