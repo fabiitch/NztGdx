@@ -16,7 +16,7 @@ public class STBasicShader extends TestScreen {
     private final Texture texture;
 
     public STBasicShader(FastTesterMain main) {
-        super(main);
+        super(main,true);
 
         texture = new Texture("badlogic.jpg");
         sprite = new Sprite(texture);
