@@ -3,7 +3,7 @@ package com.nzt.gdx.math.shapes.utils;
 import com.badlogic.gdx.math.GeometryUtils;
 import com.badlogic.gdx.math.Polygon;
 import com.badlogic.gdx.math.Vector2;
-import com.nzt.gdx.math.CalculUtils;
+import com.nzt.gdx.math.NzMath;
 import com.nzt.gdx.math.shapes.Segment;
 
 public class PolygonUtils {
@@ -86,7 +86,7 @@ public class PolygonUtils {
     }
 
     public static int getVertexBefore(Polygon polygon, int vertex) {
-        return CalculUtils.floorMod(vertex - 1, polygon.getVertices().length / 2);
+        return NzMath.floorMod(vertex - 1, polygon.getVertices().length / 2);
     }
 
     public static int getVertexAfter(Polygon polygon, int vertex) {
