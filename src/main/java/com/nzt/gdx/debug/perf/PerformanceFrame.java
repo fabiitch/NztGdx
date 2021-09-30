@@ -14,7 +14,10 @@ public class PerformanceFrame {
 
     public static boolean enabled = true;
 
-    public static long timeLastFrame;
+    /**
+     * time last frame in
+     */
+    public static long timeLastFrameNano;
     public static long timeFrameAverage;
 
     private static long nanoStartFrame;
@@ -41,8 +44,8 @@ public class PerformanceFrame {
     public static void endFrame() {
         if (enabled) {
             long stopTime = System.nanoTime();
-            timeLastFrame = stopTime - nanoStartFrame;
-            instance.container.endFrame(timeLastFrame);
+            timeLastFrameNano = stopTime - nanoStartFrame;
+            instance.container.endFrame(timeLastFrameNano);
         }
     }
 

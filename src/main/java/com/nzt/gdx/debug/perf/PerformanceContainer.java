@@ -6,7 +6,8 @@ import com.nzt.gdx.screen.AbstractScreen;
 import java.util.HashMap;
 
 class PerformanceContainer {
-    private final HashMap<String, HashMap<String, PerformanceAction>> mapByScreen;
+                            //<ScreenClass,Action,Value>
+    private final HashMap<Class, HashMap<String, PerformanceAction>> mapByScreen;
     private HashMap<String, PerformanceAction> currentMap;
     private final Array<PerformanceAction> currentArrayOrdered;
 
@@ -22,10 +23,10 @@ class PerformanceContainer {
 
     public void changeScreen(AbstractScreen screen) {
         currentArrayOrdered.clear();
-        HashMap<String, PerformanceAction> mapForScreen = mapByScreen.get(screen.getClass().getSimpleName());
+        HashMap<String, PerformanceAction> mapForScreen = mapByScreen.get(screen.getClass());
         if (mapForScreen == null) {
             mapForScreen = new HashMap<>();
-            mapByScreen.put(screen.getClass().getSimpleName(), mapForScreen);
+            mapByScreen.put(screen.getClass(), mapForScreen);
         } else {
             for (PerformanceAction value : mapForScreen.values()) {
                 currentArrayOrdered.add(value);
@@ -82,7 +83,7 @@ class PerformanceContainer {
     }
 
     public void resetScreen(AbstractScreen screen) {
-        HashMap<String, PerformanceAction> mapForScreen = mapByScreen.get(screen.getClass().getSimpleName());
+        HashMap<String, PerformanceAction> mapForScreen = mapByScreen.get(screen.getClass());
         if (mapForScreen != null)
             mapForScreen.clear();
         mapByScreen.remove(screen);

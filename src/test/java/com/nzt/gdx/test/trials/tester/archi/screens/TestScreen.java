@@ -6,6 +6,8 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.nzt.gdx.debug.gl.NzGLProfiler;
 import com.nzt.gdx.debug.hud.HudDebugPosition;
 import com.nzt.gdx.debug.hud.core.HudDebug;
+import com.nzt.gdx.debug.perf.DT_Tracker;
+import com.nzt.gdx.debug.perf.HudDebugPerformanceFrame;
 import com.nzt.gdx.scene2D.nz.NzStage;
 import com.nzt.gdx.test.trials.st.scene2D.Scene2DTestConstants;
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
@@ -19,14 +21,15 @@ public abstract class TestScreen extends SimpleTestScreen {
     protected Skin skin;
     private final HudDebug debugHud;
     protected NzGLProfiler glProfiler;
+    protected DT_Tracker dt_tracker;
+    protected HudDebugPerformanceFrame hudDebugPerformanceFrame;
 
     public TestScreen(FastTesterMain main) {
         super(main);
         this.nzStage = new NzStage();
         this.skin = new Skin(Gdx.files.internal(Scene2DTestConstants.UI_SKIN));
         this.debugHud = new HudDebug(nzStage, skin);
-        this.glProfiler = main.logManager.nzGlProfiler;
-        glProfiler.setScreen(this);
+
         addInfoTestMsg();
     }
 
@@ -44,7 +47,7 @@ public abstract class TestScreen extends SimpleTestScreen {
 
     protected void addInfoTestMsg() {
         if (getTestExplication() != null) {
-            HudDebug.addTopLeft("ST Target", getTestExplication());
+            HudDebug.addTopLeft("ST Target", getTestExplication(),Color.RED);
             HudDebug.addTopLeft("--------", "--------");
         }
     }
@@ -93,6 +96,8 @@ public abstract class TestScreen extends SimpleTestScreen {
         nzStage.act();
         nzStage.draw();
         glProfiler.updateHudDebug();
+        dt_tracker.update();
+        hudDebugPerformanceFrame.update(dt);
     }
 
     public abstract void disposeTestScreen();

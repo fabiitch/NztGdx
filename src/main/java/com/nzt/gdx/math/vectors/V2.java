@@ -14,6 +14,13 @@ public class V2 {
     private V2() {
 
     }
+    public static Vector2 ins() {
+        return new Vector2();
+    }
+
+    public static Vector2 ins(float x, float y) {
+        return new Vector2(x, y);
+    }
 
     public static Vector2 tmp(float x, float y) {
         return tmp.set(x, y);

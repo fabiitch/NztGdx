@@ -68,6 +68,8 @@ public class NzGLProfiler {
     }
 
     public void updateHudDebug() {
+        if (!profiler.isEnabled())
+            return;
         HudDebug.update("GlListener enabled", profiler.isEnabled() + "");
         HudDebug.update("getCalls", profiler.getCalls());
         HudDebug.update("getDrawCalls", profiler.getDrawCalls());
