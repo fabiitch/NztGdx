@@ -12,18 +12,21 @@ import java.util.concurrent.TimeUnit;
 public class HudDebugPerformanceFrame {
 
     private static final String KEY = "PerfFrame-";
-    private static final String TOTAL_TIME = "Total Time";
-    private static final String TOTAL_TIME_PERCENT = "Total Time Percent";
 
+    public DT_Tracker dt_tracker;
     private int nbActions = 0;
     private final int positionOnStage;
     private final Color color;
 
     public HudDebugPerformanceFrame(int positionOnStage, Color color) {
+        this(positionOnStage, color, true);
+    }
+
+    public HudDebugPerformanceFrame(int positionOnStage, Color color, boolean dt_Tracker) {
         this.positionOnStage = positionOnStage;
         this.color = color;
-        HudDebug.addItem(TOTAL_TIME, 1000f, positionOnStage, Color.RED);
-        HudDebug.addItem(TOTAL_TIME_PERCENT, "100%", positionOnStage, Color.RED);
+        if (dt_Tracker)
+            dt_tracker = new DT_Tracker(positionOnStage, color);
     }
 
     public HudDebugPerformanceFrame() {
@@ -53,11 +56,8 @@ public class HudDebugPerformanceFrame {
         Array<PerformanceAction> actions = PerformanceFrame.getActions();
         addRemoveActionOnHudDebug(actions.size);
         internalTimer += dt;
-        if (internalTimer > 0.5) {
-            HudDebug.update(TOTAL_TIME, DebugDisplayUtils.printNanoToMs(PerformanceFrame.timeLastFrame));
-            HudDebug.update(TOTAL_TIME_PERCENT,
-                    Percentage.getPercent(PerformanceFrame.timeLastFrame, TimeUnit.SECONDS.toNanos(1) / 80f) + " %");
 
+        if (internalTimer > 0.5) {
             for (int i = 0, n = actions.size; i < n; i++) {
                 PerformanceAction performanceAction = actions.get(i);
                 HudDebug.update(KEY + i, performanceAction.action,

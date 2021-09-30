@@ -17,15 +17,12 @@ public abstract class BaseSystemTestScreen extends TestScreen {
     protected Engine engine;
     protected DelayFrameActionSystem delayActionSystem;
     protected BaseEntityFactory baseEntityFactory;
-    protected HudDebugPerformanceFrame hudDebugPerformanceFrame;
 
     public BaseSystemTestScreen(FastTesterMain main) {
         super(main);
         this.engine = new Engine();
         baseEntityFactory = new BaseEntityFactory(engine);
-        hudDebugPerformanceFrame = new HudDebugPerformanceFrame(HudDebugPosition.BOT_LEFT, Color.WHITE);
 
-        PerformanceFrame.enabled = true;
         this.delayActionSystem = new DelayFrameActionSystem();
         engine.addSystem(delayActionSystem);
     }
@@ -34,14 +31,8 @@ public abstract class BaseSystemTestScreen extends TestScreen {
         delayActionSystem.addFunctionToCall(loopCount, fct);
     }
 
-    protected void activePerfFrame(boolean active) {
-        PerformanceFrame.enabled = active;
-        hudDebugPerformanceFrame.removeFromHudDebug();
-    }
-
     @Override
     public void renderTestScreen(float dt) {
         engine.update(dt);
-        hudDebugPerformanceFrame.update(dt);
     }
 }
