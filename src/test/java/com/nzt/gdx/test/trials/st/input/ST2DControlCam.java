@@ -2,7 +2,7 @@ package com.nzt.gdx.test.trials.st.input;
 
 import com.badlogic.gdx.Gdx;
 import com.nzt.gdx.input.camera.Cam2DController;
-import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
+import com.nzt.gdx.test.trials.tester.archi.mains.FastTesterMain;
 
 public class ST2DControlCam extends BaseST2DControlCam {
 

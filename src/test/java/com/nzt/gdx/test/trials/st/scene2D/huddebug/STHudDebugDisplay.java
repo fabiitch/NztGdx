@@ -3,7 +3,7 @@ package com.nzt.gdx.test.trials.st.scene2D.huddebug;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.nzt.gdx.debug.hud.core.HudDebug;
-import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
+import com.nzt.gdx.test.trials.tester.archi.mains.FastTesterMain;
 import com.nzt.gdx.test.trials.tester.archi.screens.TestScreen;
 import com.nzt.gdx.test.trials.tester.selector.TestScreenList;
 
@@ -38,10 +38,10 @@ public class STHudDebugDisplay extends TestScreen {
             HudDebug.addBotRight("addBotRight" + i, Gdx.app.getJavaHeap(), Color.BROWN);
         }
         for (int i = 0; i < 5; i++) {
-            HudDebug.addRightMiddle("addRightMiddle" + i, Gdx.app.getJavaHeap(), Color.GRAY);
+            HudDebug.addMiddleRight("addRightMiddle" + i, Gdx.app.getJavaHeap(), Color.GRAY);
         }
         for (int i = 0; i < 5; i++) {
-            HudDebug.addLeftMiddle("addLeftMiddle" + i, Gdx.app.getJavaHeap(), Color.CYAN);
+            HudDebug.addMiddleLeft("addLeftMiddle" + i, Gdx.app.getJavaHeap(), Color.CYAN);
         }
     }
 

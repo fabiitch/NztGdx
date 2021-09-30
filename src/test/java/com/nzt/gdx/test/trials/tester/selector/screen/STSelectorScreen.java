@@ -15,7 +15,7 @@ import com.nzt.gdx.scene2D.nz.NzStage;
 import com.nzt.gdx.screen.AbstractScreen;
 import com.nzt.gdx.screen.SimpleScreen;
 import com.nzt.gdx.test.trials.st.scene2D.Scene2DTestConstants;
-import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
+import com.nzt.gdx.test.trials.tester.archi.mains.FastTesterMain;
 
 import java.lang.reflect.Constructor;
 

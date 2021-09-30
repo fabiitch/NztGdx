@@ -216,7 +216,7 @@ public class HudDebug {
     }
 
 
-    public static void addLeftMiddle(String key, String name, Object value, Color color) {
+    public static void addMiddleLeft(String key, String name, Object value, Color color) {
         if (instance == null) {
             addInitList(key, name, value, HudDebugPosition.LEFT_MIDDLE, color);
         } else {
@@ -224,16 +224,16 @@ public class HudDebug {
         }
     }
 
-    public static void addLeftMiddle(String name, Object value, Color color) {
-        addLeftMiddle(null, name, value, color);
+    public static void addMiddleLeft(String name, Object value, Color color) {
+        addMiddleLeft(null, name, value, color);
     }
 
-    public static void addLeftMiddle(String name, Object value) {
-        addLeftMiddle(null, name, value, Color.WHITE);
+    public static void addMiddleLeft(String name, Object value) {
+        addMiddleLeft(null, name, value, Color.WHITE);
     }
 
 
-    public static void addRightMiddle(String key, String name, Object value, Color color) {
+    public static void addMiddleRight(String key, String name, Object value, Color color) {
         if (instance == null) {
             addInitList(key, name, value, HudDebugPosition.RIGHT_MIDDLE, color);
         } else {
@@ -241,12 +241,12 @@ public class HudDebug {
         }
     }
 
-    public static void addRightMiddle(String name, Object value, Color color) {
-        addRightMiddle(null, name, value, color);
+    public static void addMiddleRight(String name, Object value, Color color) {
+        addMiddleRight(null, name, value, color);
     }
 
-    public static void addRightMiddle(String name, Object value) {
-        addRightMiddle(null, name, value, Color.WHITE);
+    public static void addMiddleRight(String name, Object value) {
+        addMiddleRight(null, name, value, Color.WHITE);
     }
 
     public static void addItem(String name, Object value, int positionOnStage) {
@@ -272,6 +272,7 @@ public class HudDebug {
     public static void add(String key, String name, Object value, int positionOnstage) {
         add(key, name, value, positionOnstage, Color.WHITE);
     }
+
     public static void add(String key, String name, Object value, int positionOnstage, Color color) {
         switch (positionOnstage) {
             case HudDebugPosition.TOP_LEFT:
@@ -293,10 +294,10 @@ public class HudDebug {
                 HudDebug.addBotRight(key, name, value, color);
                 break;
             case HudDebugPosition.LEFT_MIDDLE:
-                HudDebug.addLeftMiddle(key, name, value, color);
+                HudDebug.addMiddleLeft(key, name, value, color);
                 break;
             case HudDebugPosition.RIGHT_MIDDLE:
-                HudDebug.addRightMiddle(key, name, value, color);
+                HudDebug.addMiddleRight(key, name, value, color);
                 break;
         }
     }

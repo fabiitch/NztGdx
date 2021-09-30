@@ -4,7 +4,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.utils.Timer;
 import com.nzt.gdx.debug.hud.HudDebugPosition;
 import com.nzt.gdx.debug.hud.core.HudDebug;
-import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
+import com.nzt.gdx.test.trials.tester.archi.mains.FastTesterMain;
 import com.nzt.gdx.test.trials.tester.archi.screens.TestScreen;
 import com.nzt.gdx.test.trials.tester.selector.TestScreenList;
 
@@ -25,7 +25,7 @@ public class STSimpleTimer extends TestScreen {
         task2 = new Timer.Task() {
             @Override
             public void run() {
-                HudDebug.addRightMiddle("task2", "Done", Color.RED);
+                HudDebug.addMiddleRight("task2", "Done", Color.RED);
             }
         };
         taskRepeat = new Timer.Task() {

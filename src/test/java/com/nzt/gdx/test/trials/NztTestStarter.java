@@ -1,9 +1,8 @@
 package com.nzt.gdx.test.trials;
 
 import com.nzt.gdx.test.trials.st.math.shapes.circle.STCircleReflexionRay;
-import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
-import com.nzt.gdx.test.trials.tester.archi.main.StarterTestConfig;
-import com.nzt.gdx.test.trials.tester.single.SingleScreenTestMain;
+import com.nzt.gdx.test.trials.tester.archi.mains.SingleScreenTestMain;
+import com.nzt.gdx.test.trials.tester.archi.mains.StarterTestConfig;
 
 /*
 Use it for Test one class with screenTestClass

@@ -20,7 +20,7 @@ public class IntersectorRectangle {
 
     public static boolean rectangles(Rectangle rectangle1, Rectangle rectangle2, Intersector.MinimumTranslationVector translationVector) {
         translationVector.normal.setZero();
-        if (RectangleUtils.overlaps(rectangle1,rectangle2)) {
+        if (RectangleUtils.overlaps(rectangle1, rectangle2)) {
             Intersector.overlapConvexPolygons(RectangleUtils.getAsVertices(rectangle1, tmpVerticesArray), RectangleUtils.getAsVertices(rectangle2, tmp2VerticesArray), translationVector);
             return true;
         }

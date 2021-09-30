@@ -1,12 +1,8 @@
 package com.nzt.gdx.test.trials.tester.archi.screens;
 
 import com.badlogic.ashley.core.Engine;
-import com.badlogic.gdx.graphics.Color;
 import com.nzt.gdx.ashley.base.factories.BaseEntityFactory;
-import com.nzt.gdx.debug.hud.HudDebugPosition;
-import com.nzt.gdx.debug.perf.HudDebugPerformanceFrame;
-import com.nzt.gdx.debug.perf.PerformanceFrame;
-import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
+import com.nzt.gdx.test.trials.tester.archi.mains.FastTesterMain;
 import com.nzt.gdx.test.trials.tester.archi.systems.DelayFrameActionSystem;
 
 import java.util.concurrent.Callable;

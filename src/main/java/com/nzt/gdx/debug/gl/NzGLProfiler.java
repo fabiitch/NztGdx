@@ -37,7 +37,7 @@ public class NzGLProfiler {
         profiler.disable();
     }
 
-    public void endFrame() {
+    public void reset() {
         if (profiler.isEnabled()) {
             if (logOneShot) {
                 logOneShot = false;

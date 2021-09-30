@@ -1,6 +1,6 @@
 package com.nzt.gdx.test.trials;
 
-import com.nzt.gdx.test.trials.tester.archi.main.StarterTestConfig;
+import com.nzt.gdx.test.trials.tester.archi.mains.StarterTestConfig;
 import com.nzt.gdx.test.trials.tester.selector.screen.ScreenSelectorTestMain;
 
 /**

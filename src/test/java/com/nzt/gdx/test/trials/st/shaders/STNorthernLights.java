@@ -8,7 +8,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShaderProgram;
 import com.badlogic.gdx.scenes.scene2d.utils.UIUtils;
 import com.badlogic.gdx.utils.TimeUtils;
-import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
+import com.nzt.gdx.test.trials.tester.archi.mains.FastTesterMain;
 import com.nzt.gdx.test.trials.tester.archi.screens.TestScreen;
 import com.nzt.gdx.test.trials.tester.selector.TestScreenList;
 
@@ -24,6 +24,7 @@ public class STNorthernLights extends TestScreen {
     private long startTime;
     private float seed;
     private int width, height;
+
     public STNorthernLights(FastTesterMain main) {
         super(main, true);
         batch = new SpriteBatch();
@@ -67,12 +68,10 @@ public class STNorthernLights extends TestScreen {
     public void renderTestScreen(float dt) {
         Gdx.gl.glClearColor(0f, 0f, 0f, 0f);
         Gdx.gl.glClear(Gdx.gl.GL_COLOR_BUFFER_BIT);
-        if(Gdx.input.isKeyJustPressed(Input.Keys.ENTER) && UIUtils.alt())
-        {
-            if(Gdx.graphics.isFullscreen())
+        if (Gdx.input.isKeyJustPressed(Input.Keys.ENTER) && UIUtils.alt()) {
+            if (Gdx.graphics.isFullscreen())
                 Gdx.graphics.setWindowedMode(480, 320);
-            else
-            {
+            else {
                 Gdx.graphics.setFullscreenMode(Gdx.graphics.getDisplayMode());
             }
         }
@@ -86,11 +85,12 @@ public class STNorthernLights extends TestScreen {
     }
 
     @Override
-    public void doResize (int width, int height) {
+    public void doResize(int width, int height) {
         this.width = width;
         this.height = height;
         batch.getProjectionMatrix().setToOrtho2D(0, 0, width, height);
     }
+
     @Override
     public void disposeTestScreen() {
         batch.dispose();

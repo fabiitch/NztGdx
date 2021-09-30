@@ -14,6 +14,7 @@ public class V2 {
     private V2() {
 
     }
+
     public static Vector2 ins() {
         return new Vector2();
     }

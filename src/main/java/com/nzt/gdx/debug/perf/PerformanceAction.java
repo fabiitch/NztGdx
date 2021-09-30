@@ -2,8 +2,9 @@ package com.nzt.gdx.debug.perf;
 
 import com.nzt.gdx.math.Percentage;
 
-/*
+/**
  * simple class for stock perf time
+ * Time are in nano
  */
 class PerformanceAction implements Comparable<PerformanceAction> {
 
