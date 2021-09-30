@@ -7,9 +7,6 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.math.MathUtils;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.extension.AfterEachCallback;
-import org.junit.jupiter.api.extension.BeforeAllCallback;
-import org.junit.jupiter.api.extension.ExtensionContext;
 import org.mockito.Mockito;
 
 import java.util.ArrayList;
@@ -36,7 +33,8 @@ public abstract class BaseGdxTest {
 
 
     public BaseGdxTest() {
-        Gdx.app = new HeadlessApplication(new ApplicationAdapter() {});
+        Gdx.app = new HeadlessApplication(new ApplicationAdapter() {
+        });
         // Mock any calls to OpenGL
         Gdx.gl20 = Mockito.mock(GL20.class);
         Gdx.gl = Gdx.gl20;

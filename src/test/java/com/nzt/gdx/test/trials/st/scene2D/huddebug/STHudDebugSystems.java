@@ -6,7 +6,7 @@ import com.nzt.gdx.ashley.systems.debug.hud.HudDebugGlProfilerSystem;
 import com.nzt.gdx.ashley.systems.debug.hud.HudDebugPerformanceSystem;
 import com.nzt.gdx.debug.hud.HudDebugPosition;
 import com.nzt.gdx.debug.hud.core.HudDebug;
-import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
+import com.nzt.gdx.test.trials.tester.archi.mains.FastTesterMain;
 import com.nzt.gdx.test.trials.tester.archi.screens.BaseSystemTestScreen;
 import com.nzt.gdx.test.trials.tester.archi.systems.HudSystem;
 import com.nzt.gdx.test.trials.tester.selector.TestScreenList;

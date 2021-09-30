@@ -7,7 +7,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.nzt.gdx.debug.hud.HudDebugPosition;
 import com.nzt.gdx.debug.hud.core.HudDebug;
-import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
+import com.nzt.gdx.test.trials.tester.archi.mains.FastTesterMain;
 import com.nzt.gdx.test.trials.tester.archi.screens.TestScreen;
 import com.nzt.gdx.test.trials.tester.selector.TestScreenList;
 
@@ -148,10 +148,10 @@ public class STHudDebugAddRemove extends TestScreen {
         HudDebug.addBotRight("BOT_RIGHT" + botR, "", Color.PINK);
 
         leftM++;
-        HudDebug.addLeftMiddle("LEFT_MIDDLE" + leftM, "", Color.PURPLE);
+        HudDebug.addMiddleLeft("LEFT_MIDDLE" + leftM, "", Color.PURPLE);
 
         rightM++;
-        HudDebug.addRightMiddle("RIGHT_MIDDLE" + rightM, "", Color.RED);
+        HudDebug.addMiddleRight("RIGHT_MIDDLE" + rightM, "", Color.RED);
     }
 
     private void addListener(TextButton button, int positionOnstage, boolean add) {
@@ -228,7 +228,7 @@ public class STHudDebugAddRemove extends TestScreen {
                     case HudDebugPosition.LEFT_MIDDLE:
                         if (add) {
                             leftM++;
-                            HudDebug.addLeftMiddle("LEFT_MIDDLE" + leftM, "", Color.PURPLE);
+                            HudDebug.addMiddleLeft("LEFT_MIDDLE" + leftM, "", Color.PURPLE);
                         } else {
                             if (topL > 0) {
                                 HudDebug.remove("LEFT_MIDDLE" + leftM);
@@ -239,7 +239,7 @@ public class STHudDebugAddRemove extends TestScreen {
                     case HudDebugPosition.RIGHT_MIDDLE:
                         if (add) {
                             rightM++;
-                            HudDebug.addRightMiddle("RIGHT_MIDDLE" + rightM, "", Color.RED);
+                            HudDebug.addMiddleRight("RIGHT_MIDDLE" + rightM, "", Color.RED);
                         } else {
                             if (topL > 0) {
                                 HudDebug.remove("RIGHT_MIDDLE" + rightM);

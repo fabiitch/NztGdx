@@ -11,7 +11,7 @@ import com.nzt.gdx.input.impl.simple.MouseInputHandler;
 import com.nzt.gdx.math.random.Randoms;
 import com.nzt.gdx.math.shapes.Triangle;
 import com.nzt.gdx.math.shapes.builders.TriangleBuilder;
-import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
+import com.nzt.gdx.test.trials.tester.archi.mains.FastTesterMain;
 import com.nzt.gdx.test.trials.tester.archi.screens.TestScreen;
 import com.nzt.gdx.test.trials.tester.selector.TestScreenList;
 import com.nzt.gdx.utils.GdxUtils;
@@ -57,13 +57,13 @@ public class STTriangle extends TestScreen {
         HudDebug.addTopLeft("VertexCreation", vertexNum);
         HudDebug.addTopLeft("Origin", "middle");
 
-        HudDebug.addLeftMiddle("Dir AB", Vector2.X);
-        HudDebug.addLeftMiddle("Dir AC", Vector2.X);
-        HudDebug.addLeftMiddle("Dir BC", Vector2.X);
+        HudDebug.addMiddleLeft("Dir AB", Vector2.X);
+        HudDebug.addMiddleLeft("Dir AC", Vector2.X);
+        HudDebug.addMiddleLeft("Dir BC", Vector2.X);
 
-        HudDebug.addRightMiddle("ScaleX", "1", Color.BLUE);
-        HudDebug.addRightMiddle("ScaleY", "1", Color.BLUE);
-        HudDebug.addRightMiddle("Rotation", 0);
+        HudDebug.addMiddleRight("ScaleX", "1", Color.BLUE);
+        HudDebug.addMiddleRight("ScaleY", "1", Color.BLUE);
+        HudDebug.addMiddleRight("Rotation", 0);
 
 
         MouseInputHandler inputHandler = new MouseInputHandler() {

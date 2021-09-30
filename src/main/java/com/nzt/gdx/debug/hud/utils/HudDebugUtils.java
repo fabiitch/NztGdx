@@ -39,7 +39,7 @@ public class HudDebugUtils {
                 break;
             case HudDebugPosition.TOP_RIGHT:
                 float witdhMax = Math.max(label.getWidth(), standartRight);
-                label.setPosition(stage.getViewport().getWorldWidth() - witdhMax - 10,
+                label.setPosition(stage.getViewport().getWorldWidth() - witdhMax - 20,
                         stage.getViewport().getWorldHeight() - label.getHeight() * label.position - 1);
                 break;
             case HudDebugPosition.BOT_LEFT:
@@ -51,7 +51,7 @@ public class HudDebugUtils {
                         label.getHeight() * (label.position - 1) + 1);
                 break;
             case HudDebugPosition.BOT_RIGHT:
-                x = Math.max(label.getWidth() + 2, standartRight);
+                x = Math.max(label.getWidth(), standartRight);
                 label.setPosition(stage.getViewport().getWorldWidth() - x, label.getHeight() * (label.position - 1) + 1);
                 break;
             case HudDebugPosition.LEFT_MIDDLE:

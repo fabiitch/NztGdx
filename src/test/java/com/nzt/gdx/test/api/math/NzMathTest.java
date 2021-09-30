@@ -34,6 +34,6 @@ public class NzMathTest {
         Assertions.assertTrue(NzMath.sameSignWithZero(-25, -0));
         Assertions.assertTrue(NzMath.sameSignWithZero(-55.323232f, 0));
 
-        Assertions.assertTrue(NzMath.sameSignWithZero(-55.323232f, 0.1f,0.5f));
+        Assertions.assertTrue(NzMath.sameSignWithZero(-55.323232f, 0.1f, 0.5f));
     }
 }

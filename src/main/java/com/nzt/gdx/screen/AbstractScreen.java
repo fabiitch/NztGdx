@@ -71,7 +71,7 @@ public abstract class AbstractScreen<M extends AbstractMain> implements Screen {
     @Override
     public void render(float dt) {
         PerformanceFrame.startFrame();
-        nzGLProfiler.endFrame();
+        nzGLProfiler.reset();
         clearScreen();
         setTitle(dt);
         renderScreen(dt);

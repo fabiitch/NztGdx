@@ -1,4 +1,4 @@
-package com.nzt.gdx.test.trials.tester.archi.main;
+package com.nzt.gdx.test.trials.tester.archi.mains;
 
 import com.badlogic.gdx.Application;
 import com.badlogic.gdx.Gdx;

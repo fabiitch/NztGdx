@@ -5,9 +5,6 @@ import com.badlogic.gdx.utils.Array;
 import com.nzt.gdx.debug.hud.HudDebugPosition;
 import com.nzt.gdx.debug.hud.core.HudDebug;
 import com.nzt.gdx.debug.utils.DebugDisplayUtils;
-import com.nzt.gdx.math.Percentage;
-
-import java.util.concurrent.TimeUnit;
 
 public class HudDebugPerformanceFrame {
 
@@ -38,9 +35,13 @@ public class HudDebugPerformanceFrame {
     }
 
     private void addRemoveActionOnHudDebug(int newNbActions) {
+        Array<PerformanceAction> actions = PerformanceFrame.getActions();
         if (newNbActions > nbActions) {
-            for (int i = nbActions; i < newNbActions; i++)
-                HudDebug.add(KEY + i, "5000", 5000, positionOnStage, color);
+            for (int i = nbActions; i < newNbActions; i++) {
+                PerformanceAction performanceAction = actions.get(i);
+                HudDebug.add(KEY + i, performanceAction.action, "1000 %", positionOnStage, color);
+            }
+
         } else if (newNbActions < nbActions) {
             for (int i = nbActions; i > newNbActions; i--)
                 HudDebug.remove(KEY + i);
@@ -56,8 +57,9 @@ public class HudDebugPerformanceFrame {
         Array<PerformanceAction> actions = PerformanceFrame.getActions();
         addRemoveActionOnHudDebug(actions.size);
         internalTimer += dt;
-
         if (internalTimer > 0.5) {
+            if (dt_tracker != null)
+                dt_tracker.update();
             for (int i = 0, n = actions.size; i < n; i++) {
                 PerformanceAction performanceAction = actions.get(i);
                 HudDebug.update(KEY + i, performanceAction.action,

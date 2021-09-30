@@ -6,7 +6,7 @@ import com.nzt.gdx.screen.AbstractScreen;
 import java.util.HashMap;
 
 class PerformanceContainer {
-                            //<ScreenClass,Action,Value>
+    //<ScreenClass,Action,Value>
     private final HashMap<Class, HashMap<String, PerformanceAction>> mapByScreen;
     private HashMap<String, PerformanceAction> currentMap;
     private final Array<PerformanceAction> currentArrayOrdered;

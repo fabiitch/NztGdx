@@ -4,9 +4,8 @@ Libgdx wrapper to use it easly
 
 Abstract = Really abstract BaseXX = class to use not finish at all ^^
 
-[![Build](https://github.com/fabiitch/NztGdx/workflows/Java%20CI/badge.svg?branch=master)](https://github.com/fabiitch/NztGdx/actions/workflows/gradle.yml) 
+[![Build](https://github.com/fabiitch/NztGdx/workflows/Java%20CI/badge.svg?branch=master)](https://github.com/fabiitch/NztGdx/actions/workflows/gradle.yml)
 [![Build](https://github.com/fabiitch/NztGdx/workflows/CodeQL/badge.svg?branch=master)](https://github.com/fabiitch/NztGdx/actions/workflows/codeql-analysis.yml)
-
 
 [![Downloads](https://img.shields.io/github/downloads/fabiitch/NztGdx/total.svg)](https://github.com/fabiitch/NztGdx/releases)
 

@@ -37,17 +37,17 @@ vec3 swayRandomized(vec3 sc, vec3 seed, vec3 value)
 
 void main()
 {
-   v_color = a_color;
-   v_color.a = v_color.a * (255.0/254.0);
-   v_texCoords = vec2(a_texCoord0.x, a_texCoord0.y);
+    v_color = a_color;
+    v_color.a = v_color.a * (255.0/254.0);
+    v_texCoords = vec2(a_texCoord0.x, a_texCoord0.y);
 
-   v_time = u_time * 0.03125;
-   v_coeffs = fract((u_seed + 23.4567) * vec3(0.8191, 0.671, 0.5497)) + 0.5;
-   v_section = fract(v_coeffs.zxy - v_coeffs.yzx * 1.618);
+    v_time = u_time * 0.03125;
+    v_coeffs = fract((u_seed + 23.4567) * vec3(0.8191, 0.671, 0.5497)) + 0.5;
+    v_section = fract(v_coeffs.zxy - v_coeffs.yzx * 1.618);
 
-   v_s = (swayRandomized(v_section, vec3(34.0, 76.0, 59.0), v_time + adj)) * 0.25;
-   v_c = (swayRandomized(v_section, vec3(27.0, 67.0, 45.0), v_time - adj)) * 0.25;
+    v_s = (swayRandomized(v_section, vec3(34.0, 76.0, 59.0), v_time + adj)) * 0.25;
+    v_c = (swayRandomized(v_section, vec3(27.0, 67.0, 45.0), v_time - adj)) * 0.25;
 
-   gl_Position =  u_projTrans * a_position;
+    gl_Position =  u_projTrans * a_position;
 
 }

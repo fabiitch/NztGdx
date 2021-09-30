@@ -13,7 +13,7 @@ import com.nzt.gdx.ashley.systems.render.ShapeRenderSystem;
 import com.nzt.gdx.ashley.systems.render.SpriteRenderSystem;
 import com.nzt.gdx.debug.hud.HudDebugPosition;
 import com.nzt.gdx.debug.perf.HudDebugPerformanceFrame;
-import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
+import com.nzt.gdx.test.trials.tester.archi.mains.FastTesterMain;
 import com.nzt.gdx.test.trials.tester.archi.screens.TestScreen;
 import com.nzt.gdx.test.trials.tester.selector.TestScreenList;
 

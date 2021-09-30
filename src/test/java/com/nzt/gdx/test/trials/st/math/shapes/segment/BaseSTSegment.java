@@ -1,7 +1,7 @@
 package com.nzt.gdx.test.trials.st.math.shapes.segment;
 
 import com.nzt.gdx.math.shapes.Segment;
-import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
+import com.nzt.gdx.test.trials.tester.archi.mains.FastTesterMain;
 import com.nzt.gdx.test.trials.tester.archi.screens.TestScreen;
 import com.nzt.gdx.test.trials.tester.selector.TestScreenList;
 import com.nzt.gdx.utils.GdxUtils;

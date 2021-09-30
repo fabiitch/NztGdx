@@ -10,7 +10,7 @@ import com.nzt.gdx.debug.perf.DT_Tracker;
 import com.nzt.gdx.debug.perf.HudDebugPerformanceFrame;
 import com.nzt.gdx.scene2D.nz.NzStage;
 import com.nzt.gdx.test.trials.st.scene2D.Scene2DTestConstants;
-import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
+import com.nzt.gdx.test.trials.tester.archi.mains.FastTesterMain;
 
 /**
  * Test Screen with hudDebug
@@ -29,8 +29,11 @@ public abstract class TestScreen extends SimpleTestScreen {
         this.nzStage = new NzStage();
         this.skin = new Skin(Gdx.files.internal(Scene2DTestConstants.UI_SKIN));
         this.debugHud = new HudDebug(nzStage, skin);
-
-        addInfoTestMsg();
+        this.glProfiler = main.logManager.nzGlProfiler;
+        this.glProfiler.setScreen(this);
+        this.hudDebugPerformanceFrame = new HudDebugPerformanceFrame(HudDebugPosition.BOT_RIGHT, Color.WHITE, false);
+        this.addInfoTestMsg();
+        this.dt_tracker = new DT_Tracker(HudDebugPosition.TOP_LEFT, Color.WHITE, 60, 120);
     }
 
     /**
@@ -47,8 +50,8 @@ public abstract class TestScreen extends SimpleTestScreen {
 
     protected void addInfoTestMsg() {
         if (getTestExplication() != null) {
-            HudDebug.addTopLeft("ST Target", getTestExplication(),Color.RED);
-            HudDebug.addTopLeft("--------", "--------");
+            HudDebug.addTopLeft("ST Target", getTestExplication(), Color.RED);
+            HudDebug.addTopLeft("-------", "-------");
         }
     }
 
@@ -84,6 +87,7 @@ public abstract class TestScreen extends SimpleTestScreen {
 
     public abstract String getTestExplication();
 
+    //TODO ???
     public void addHudToGlProfiler() {
         glProfiler.initHudDebug(HudDebugPosition.BOT_RIGHT, Color.WHITE);
     }
@@ -125,8 +129,8 @@ public abstract class TestScreen extends SimpleTestScreen {
         HudDebug.addBotRight("Not", "Impl", Color.RED);
         HudDebug.addBotLeft("Not", "Impl", Color.RED);
         HudDebug.addBotMiddle("Not", "Impl", Color.RED);
-        HudDebug.addRightMiddle("Not", "Impl", Color.RED);
-        HudDebug.addLeftMiddle("Not", "Impl", Color.RED);
+        HudDebug.addMiddleRight("Not", "Impl", Color.RED);
+        HudDebug.addMiddleLeft("Not", "Impl", Color.RED);
     }
 
     protected void setMsg(String msg) {
@@ -137,8 +141,8 @@ public abstract class TestScreen extends SimpleTestScreen {
         HudDebug.addBotRight(msg, msg, Color.RED);
         HudDebug.addBotLeft(msg, msg, Color.RED);
         HudDebug.addBotMiddle(msg, msg, Color.RED);
-        HudDebug.addRightMiddle(msg, msg, Color.RED);
-        HudDebug.addLeftMiddle(msg, msg, Color.RED);
+        HudDebug.addMiddleRight(msg, msg, Color.RED);
+        HudDebug.addMiddleLeft(msg, msg, Color.RED);
     }
 
     protected void setMsgWIP() {
@@ -149,7 +153,7 @@ public abstract class TestScreen extends SimpleTestScreen {
         HudDebug.addBotRight("WIP", "WIP", Color.RED);
         HudDebug.addBotLeft("WIP", "WIP", Color.RED);
         HudDebug.addBotMiddle("WIP", "WIP", Color.RED);
-        HudDebug.addRightMiddle("WIP", "WIP", Color.RED);
-        HudDebug.addLeftMiddle("WIP", "WIP", Color.RED);
+        HudDebug.addMiddleRight("WIP", "WIP", Color.RED);
+        HudDebug.addMiddleLeft("WIP", "WIP", Color.RED);
     }
 }
