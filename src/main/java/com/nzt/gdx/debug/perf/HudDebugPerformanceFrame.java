@@ -20,6 +20,7 @@ public class HudDebugPerformanceFrame {
     }
 
     public HudDebugPerformanceFrame(int positionOnStage, Color color, boolean dt_Tracker) {
+        removeFromHudDebug(); //clean older
         this.positionOnStage = positionOnStage;
         this.color = color;
         if (dt_Tracker)
