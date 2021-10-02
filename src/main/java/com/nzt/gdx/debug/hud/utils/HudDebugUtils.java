@@ -12,6 +12,7 @@ import java.util.Map;
 
 public class HudDebugUtils {
     private final static float standartRight = 100;
+    private final static float right_decal_safe = 50;
 
     private HudDebugUtils() {
 
@@ -39,7 +40,7 @@ public class HudDebugUtils {
                 break;
             case HudDebugPosition.TOP_RIGHT:
                 float witdhMax = Math.max(label.getWidth(), standartRight);
-                label.setPosition(stage.getViewport().getWorldWidth() - witdhMax - 20,
+                label.setPosition(stage.getViewport().getWorldWidth() - witdhMax - right_decal_safe,
                         stage.getViewport().getWorldHeight() - label.getHeight() * label.position - 1);
                 break;
             case HudDebugPosition.BOT_LEFT:
@@ -52,7 +53,7 @@ public class HudDebugUtils {
                 break;
             case HudDebugPosition.BOT_RIGHT:
                 x = Math.max(label.getWidth(), standartRight);
-                label.setPosition(stage.getViewport().getWorldWidth() - x, label.getHeight() * (label.position - 1) + 1);
+                label.setPosition(stage.getViewport().getWorldWidth() - x - right_decal_safe, label.getHeight() * (label.position - 1) + 1);
                 break;
             case HudDebugPosition.LEFT_MIDDLE:
                 label.setPosition(1, stage.getViewport().getWorldHeight() / 2 + stage.getViewport().getWorldHeight() / 6
@@ -60,7 +61,7 @@ public class HudDebugUtils {
                 break;
             case HudDebugPosition.RIGHT_MIDDLE:
                 x = Math.max(label.getWidth() + 2, standartRight);
-                label.setPosition(stage.getViewport().getWorldWidth() - x,
+                label.setPosition(stage.getViewport().getWorldWidth() - x - right_decal_safe,
                         stage.getViewport().getWorldHeight() / 2 + stage.getViewport().getWorldHeight() / 6
                                 - label.getHeight() * label.position - 1 - Gdx.graphics.getSafeInsetTop());
                 break;

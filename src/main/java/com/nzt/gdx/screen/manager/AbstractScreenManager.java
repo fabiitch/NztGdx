@@ -62,7 +62,7 @@ public abstract class AbstractScreenManager<M extends AbstractMain> {
     }
 
     public void setScreenWithLoadingTransition(final AbstractScreen<M> screen, float minTimeDisplay) {
-        setScreenWithLoadingTransition(screen);
+        this.setScreenWithLoadingTransition(screen);
         loadingScreen.setMinDisplayTime(minTimeDisplay);
     }
 
