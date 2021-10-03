@@ -58,7 +58,6 @@ public class PerformanceFrame {
                 i++;
             }
             instance.container.keepOnly(actionToKeep);
-
         }
     }
 
@@ -84,6 +83,11 @@ public class PerformanceFrame {
 
     public static void startAction(String action) {
         if (enabled)
+            instance.container.startAction(action);
+    }
+
+    public static void startAction(String action,boolean add) {
+        if (enabled && add)
             instance.container.startAction(action);
     }
 

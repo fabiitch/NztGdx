@@ -22,9 +22,19 @@ public abstract class TestScreen extends SimpleTestScreen {
     private final HudDebug debugHud;
     protected NzGLProfiler glProfiler;
     protected DT_Tracker dt_tracker;
-    protected HudDebugPerformanceFrame hudDebugPerformanceFrame;
+    private HudDebugPerformanceFrame hudDebugPerformanceFrame;
 
     public TestScreen(FastTesterMain main) {
+        super(main);
+        this.nzStage = new NzStage();
+        this.skin = new Skin(Gdx.files.internal(Scene2DTestConstants.UI_SKIN));
+        this.debugHud = new HudDebug(nzStage, skin);
+        this.glProfiler = main.logManager.nzGlProfiler;
+        this.glProfiler.setScreen(this);
+        this.hudDebugPerformanceFrame = new HudDebugPerformanceFrame(HudDebugPosition.BOT_RIGHT, Color.WHITE, false);
+        this.addInfoTestMsg();
+        this.dt_tracker = new DT_Tracker(HudDebugPosition.TOP_LEFT, Color.WHITE, 60, 120);
+    }    public TestScreen(FastTesterMain main,HudDebugPerformanceFrame hudDebugPerformanceFrame) {
         super(main);
         this.nzStage = new NzStage();
         this.skin = new Skin(Gdx.files.internal(Scene2DTestConstants.UI_SKIN));

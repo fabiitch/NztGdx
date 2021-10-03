@@ -37,7 +37,7 @@ public class STHudDebugRightDisplay extends TestScreen {
 
     @Override
     public String getTestExplication() {
-        return "Test le display sur le right";
+        return "Test le display sur le right pour le décalage";
     }
 
     @Override
