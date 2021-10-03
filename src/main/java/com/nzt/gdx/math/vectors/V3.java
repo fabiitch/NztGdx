@@ -11,6 +11,14 @@ public class V3 {
 
     }
 
+    public static Vector3 v() {
+        return new Vector3();
+    }
+
+    public static Vector3 v(float x, float y, float z) {
+        return new Vector3(x, y, z);
+    }
+
     public static Vector3 tmp(float x, float y) {
         return tmp.set(x, y, 0);
     }
