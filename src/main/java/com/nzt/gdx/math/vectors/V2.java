@@ -15,11 +15,11 @@ public class V2 {
 
     }
 
-    public static Vector2 ins() {
+    public static Vector2 v() {
         return new Vector2();
     }
 
-    public static Vector2 ins(float x, float y) {
+    public static Vector2 v(float x, float y) {
         return new Vector2(x, y);
     }
 

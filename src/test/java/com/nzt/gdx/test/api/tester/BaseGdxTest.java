@@ -1,4 +1,4 @@
-package com.nzt.gdx.test.api.fake;
+package com.nzt.gdx.test.api.tester;
 
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;

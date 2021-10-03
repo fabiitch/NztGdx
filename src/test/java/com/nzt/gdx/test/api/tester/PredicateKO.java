@@ -1,4 +1,4 @@
-package com.nzt.gdx.test.api.fake;
+package com.nzt.gdx.test.api.tester;
 
 public interface PredicateKO {
 
