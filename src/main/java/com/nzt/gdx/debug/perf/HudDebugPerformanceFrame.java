@@ -64,7 +64,9 @@ public class HudDebugPerformanceFrame {
             for (int i = 0, n = actions.size; i < n; i++) {
                 PerformanceAction performanceAction = actions.get(i);
                 HudDebug.update(KEY + i, performanceAction.action,
-                        DebugDisplayUtils.printFloat(performanceAction.percentFrameAverage) + " %");
+                        DebugDisplayUtils.printFloat(performanceAction.percentFrameCurrent) + " %");
+                if(performanceAction.action.equals("BoxRenderTime"))
+                    System.out.println(performanceAction.averageTime);
             }
             internalTimer = 0f;
         }

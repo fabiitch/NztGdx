@@ -12,7 +12,7 @@ import com.nzt.gdx.test.trials.tester.archi.screens.TestScreen;
 import com.nzt.gdx.test.trials.tester.selector.TestScreenList;
 
 /**
- * https://github.com/libgdx/libgdx/wiki/Masking
+ * https://github.com/libgdx/libgdx/wiki/Masking#2-masking-using-the-scissorstack-rectangles
  */
 @TestScreenList(group = "graphics.masking")
 public class STMaskingScissorStack extends TestScreen {
@@ -21,7 +21,8 @@ public class STMaskingScissorStack extends TestScreen {
     private Rectangle scissors, clipBounds;
 
     public STMaskingScissorStack(FastTesterMain main) {
-        super(main);    /* The ScissorStack needs a camera to transform the clipping rectangles. */
+        super(main, true);// The ScissorStack needs a camera to transform the clipping rectangles. */
+        infoMsg("https://github.com/libgdx/libgdx/wiki/Masking#2-masking-using-the-scissorstack-rectangles");
         camera = new OrthographicCamera();
         camera.setToOrtho(false, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 

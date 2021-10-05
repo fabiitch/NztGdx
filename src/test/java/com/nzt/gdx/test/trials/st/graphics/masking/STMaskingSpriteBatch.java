@@ -12,7 +12,7 @@ import com.nzt.gdx.test.trials.tester.archi.screens.TestScreen;
 import com.nzt.gdx.test.trials.tester.selector.TestScreenList;
 
 /**
- * https://github.com/libgdx/libgdx/wiki/Masking
+ * https://github.com/libgdx/libgdx/wiki/Masking#4-masking-using-the-spritebatch-any-shape
  */
 @TestScreenList(group = "graphics.masking")
 public class STMaskingSpriteBatch extends TestScreen {
@@ -21,7 +21,8 @@ public class STMaskingSpriteBatch extends TestScreen {
     private Sprite mask, maskedSprite, alphaInvertedMaskedSprite;
 
     public STMaskingSpriteBatch(FastTesterMain main) {
-        super(main);
+        super(main, true);
+        infoMsg("https://github.com/libgdx/libgdx/wiki/Masking#4-masking-using-the-spritebatch-any-shape");
         spriteBatch = new SpriteBatch();
 
         /* Load the mask containing the alpha information. */

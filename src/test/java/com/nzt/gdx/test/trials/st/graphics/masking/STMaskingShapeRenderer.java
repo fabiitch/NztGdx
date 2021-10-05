@@ -12,14 +12,15 @@ import com.nzt.gdx.test.trials.tester.selector.TestScreenList;
 import static com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType.Line;
 
 /**
- * https://github.com/libgdx/libgdx/wiki/Masking
+ * https://github.com/libgdx/libgdx/wiki/Masking#3-masking-using-the-shaperenderer-various-shapes
  */
 @TestScreenList(group = "graphics.masking")
 public class STMaskingShapeRenderer extends TestScreen {
     private ShapeRenderer shapeRenderer;
 
     public STMaskingShapeRenderer(FastTesterMain main) {
-        super(main);
+        super(main, true);
+        infoMsg("https://github.com/libgdx/libgdx/wiki/Masking#3-masking-using-the-shaperenderer-various-shapes");
         /* We can use a SpriteBatch or a ShapeRenderer to draw our masked elements. */
         shapeRenderer = new ShapeRenderer();
         shapeRenderer.setAutoShapeType(true);
