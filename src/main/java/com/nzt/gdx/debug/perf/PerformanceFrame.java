@@ -6,6 +6,7 @@ import com.nzt.gdx.screen.AbstractScreen;
 
 /**
  * Simple static class to Use PerformanceContainer
+ * //TODO Utilisé un jour com.badlogic.gdx.utils.PerformanceCounter
  */
 public class PerformanceFrame {
 
@@ -15,12 +16,12 @@ public class PerformanceFrame {
     public static boolean enabled = true;
 
     /**
-     * time last frame in
+     * time last frame in //TODO utilisé performanceCounter de gdx
      */
     public static long timeLastFrameNano;
     public static long timeFrameAverage;
 
-    private static long nanoStartFrame;
+    private static long nanoStartRender;
 
 
     private PerformanceFrame() {
@@ -34,7 +35,7 @@ public class PerformanceFrame {
 
     public static void startFrame() {
         if (enabled)
-            nanoStartFrame = System.nanoTime();
+            nanoStartRender = System.nanoTime();
     }
 
     public static Array<PerformanceAction> getActions() {
@@ -44,7 +45,7 @@ public class PerformanceFrame {
     public static void endFrame() {
         if (enabled) {
             long stopTime = System.nanoTime();
-            timeLastFrameNano = stopTime - nanoStartFrame;
+            timeLastFrameNano = stopTime - nanoStartRender;
             instance.container.endFrame(timeLastFrameNano);
         }
     }
@@ -86,7 +87,7 @@ public class PerformanceFrame {
             instance.container.startAction(action);
     }
 
-    public static void startAction(String action,boolean add) {
+    public static void startAction(String action, boolean add) {
         if (enabled && add)
             instance.container.startAction(action);
     }
