@@ -1,7 +1,10 @@
 package com.nzt.gdx.debug.perf;
 
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.utils.Array;
+import com.badlogic.gdx.utils.TimeUtils;
+import com.badlogic.gdx.utils.Timer;
 import com.nzt.gdx.debug.hud.HudDebugPosition;
 import com.nzt.gdx.debug.hud.core.HudDebug;
 import com.nzt.gdx.debug.utils.DebugDisplayUtils;
@@ -65,8 +68,6 @@ public class HudDebugPerformanceFrame {
                 PerformanceAction performanceAction = actions.get(i);
                 HudDebug.update(KEY + i, performanceAction.action,
                         DebugDisplayUtils.printFloat(performanceAction.percentFrameCurrent) + " %");
-                if(performanceAction.action.equals("BoxRenderTime"))
-                    System.out.println(performanceAction.averageTime);
             }
             internalTimer = 0f;
         }

@@ -11,9 +11,9 @@ import java.util.concurrent.TimeUnit;
 
 public class DT_Tracker {
 
-    private static final String TOTAL_TIME = "Total Time";
-    private static final String TOTAL_TIME_PERCENT = "Percent time ";
-    private static final String MAX_FPS_POSSIBLE = "Max Fps";
+    private static final String TOTAL_TIME = "render()";
+    private static final String TOTAL_TIME_PERCENT = "% to";
+    private static final String MAX_FPS_POSSIBLE = "Max Fps possible";
     private static final String DT_SEPARATOR = "-----";
 
     private static final int FPS_DEFAULT = 100;
@@ -26,7 +26,7 @@ public class DT_Tracker {
 
         removeFromHudDebug();//clean older
         for (int fpsTarget : fpsTargets) {
-            HudDebug.addItem(TOTAL_TIME_PERCENT + " Target=" + fpsTarget, "100%", positionOnStage, color);
+            HudDebug.addItem(TOTAL_TIME_PERCENT + fpsTarget + "FPS", "100%", positionOnStage, color);
         }
         HudDebug.addItem(MAX_FPS_POSSIBLE, 500, positionOnStage, color);
         HudDebug.addItem(DT_SEPARATOR, DT_SEPARATOR, positionOnStage, color);
