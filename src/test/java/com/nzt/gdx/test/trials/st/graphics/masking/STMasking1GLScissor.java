@@ -12,13 +12,17 @@ import com.nzt.gdx.test.trials.tester.selector.TestScreenList;
  * https://github.com/libgdx/libgdx/wiki/Masking#1-masking-using-glScissor-rectangle
  */
 @TestScreenList(group = "graphics.masking")
-public class STMaskingGLScissor extends TestScreen {
+public class STMasking1GLScissor extends TestScreen {
+
+    @Override
+    public String getTestExplication() {
+        return "Masking using glScissor (Rectangle)";
+    }
 
     private ShapeRenderer shapeRenderer;
 
-    public STMaskingGLScissor(FastTesterMain main) {
+    public STMasking1GLScissor(FastTesterMain main) {
         super(main, true);
-        infoMsg("https://github.com/libgdx/libgdx/wiki/Masking#1-masking-using-glScissor-rectangle");
 
         /* We can use a SpriteBatch or a ShapeRenderer to draw our masked elements. */
         shapeRenderer = new ShapeRenderer();
@@ -62,10 +66,6 @@ public class STMaskingGLScissor extends TestScreen {
         shapeRenderer.rect(100, 100, 200, 200);
     }
 
-    @Override
-    public String getTestExplication() {
-        return "Masking using glScissor (Rectangle)";
-    }
 
     @Override
     public void renderTestScreen(float dt) {

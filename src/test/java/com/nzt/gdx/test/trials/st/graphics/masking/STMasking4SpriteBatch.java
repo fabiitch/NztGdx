@@ -16,24 +16,30 @@ import com.nzt.gdx.test.trials.tester.selector.TestScreenList;
  */
 @TestScreenList(group = "graphics.masking")
 public class STMasking4SpriteBatch extends TestScreen {
+
+    @Override
+    public String getTestExplication() {
+        return "Masking using the SpriteBatch";
+    }
+
+
     /* Some attributes we're gonna need. */
     private SpriteBatch spriteBatch;
     private Sprite mask, maskedSprite, alphaInvertedMaskedSprite;
 
     public STMasking4SpriteBatch(FastTesterMain main) {
         super(main, true);
-        infoMsg("https://github.com/libgdx/libgdx/wiki/Masking#4-masking-using-the-spritebatch-any-shape");
         spriteBatch = new SpriteBatch();
 
         /* Load the mask containing the alpha information. */
-        mask = new Sprite(new Texture("graphics/masking/mask.png"));
+        mask = new Sprite(new Texture("graphics/masking/4/mask.png"));
 
         /* Load the sprite which will be masked. */
-        maskedSprite = new Sprite(new Texture("graphics/masking/sprite.png"));
+        maskedSprite = new Sprite(new Texture("graphics/masking/4/sprite.png"));
         maskedSprite.setColor(Color.RED);
 
         /* The technique requires us to provide the inverted alpha version of the sprite we want to mask. */
-        alphaInvertedMaskedSprite = new Sprite(new Texture("graphics/masking/alphaInvertedSprite.png"));
+        alphaInvertedMaskedSprite = new Sprite(new Texture("graphics/masking/4/alphaInvertedSprite.png"));
     }
 
     private void drawMasks() {
@@ -80,10 +86,6 @@ public class STMasking4SpriteBatch extends TestScreen {
         spriteBatch.draw(alphaInvertedMaskedSprite, 512, 256);
     }
 
-    @Override
-    public String getTestExplication() {
-        return "Masking using SpriteBatch https://github.com/libgdx/libgdx/wiki/Masking";
-    }
 
     @Override
     public void renderTestScreen(float dt) {
