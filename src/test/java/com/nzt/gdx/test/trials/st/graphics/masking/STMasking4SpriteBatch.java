@@ -15,12 +15,12 @@ import com.nzt.gdx.test.trials.tester.selector.TestScreenList;
  * https://github.com/libgdx/libgdx/wiki/Masking#4-masking-using-the-spritebatch-any-shape
  */
 @TestScreenList(group = "graphics.masking")
-public class STMaskingSpriteBatch extends TestScreen {
+public class STMasking4SpriteBatch extends TestScreen {
     /* Some attributes we're gonna need. */
     private SpriteBatch spriteBatch;
     private Sprite mask, maskedSprite, alphaInvertedMaskedSprite;
 
-    public STMaskingSpriteBatch(FastTesterMain main) {
+    public STMasking4SpriteBatch(FastTesterMain main) {
         super(main, true);
         infoMsg("https://github.com/libgdx/libgdx/wiki/Masking#4-masking-using-the-spritebatch-any-shape");
         spriteBatch = new SpriteBatch();

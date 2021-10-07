@@ -16,14 +16,14 @@ import com.nzt.gdx.test.trials.tester.selector.TestScreenList;
  * https://github.com/libgdx/libgdx/wiki/Masking#5-masking-using-pixmaps-any-shape
  */
 @TestScreenList(group = "graphics.masking")
-public class STMaskingPixmaps extends TestScreen {
+public class STMasking5Pixmaps extends TestScreen {
     private ShapeRenderer shapeRenderer;
     private SpriteBatch spriteBatch;
     private Texture masked, original;
     private Pixmap pixmap;
     private final int size = 256;
 
-    public STMaskingPixmaps(FastTesterMain main) {
+    public STMasking5Pixmaps(FastTesterMain main) {
         super(main, true);
         infoMsg("https://github.com/libgdx/libgdx/wiki/Masking#5-masking-using-pixmaps-any-shape");
 
