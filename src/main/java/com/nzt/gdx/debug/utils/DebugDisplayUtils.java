@@ -2,19 +2,30 @@ package com.nzt.gdx.debug.utils;
 
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
+import com.badlogic.gdx.utils.StringBuilder;
 import com.badlogic.gdx.utils.TimeUtils;
 
 import java.text.DecimalFormat;
+import java.text.FieldPosition;
 
+/**
+ * not thread safe
+ */
 public class DebugDisplayUtils {
     private static final DecimalFormat floatFormatter = new DecimalFormat();
     private static final DecimalFormat msFormatter = new DecimalFormat();
-    private static final Float nan = Float.valueOf(Float.NaN);
 
-    {
-        floatFormatter.setMaximumFractionDigits(2);
-        msFormatter.setMaximumFractionDigits(0);
-    }
+    private static StringBuffer sb = new StringBuffer();
+    private static FieldPosition fieldPosition = new FieldPosition(0);
+    private static final Float nan = Float.valueOf(Float.NaN);//TODO ??
+
+  static  {
+      floatFormatter.setMaximumFractionDigits(3);
+      floatFormatter.setGroupingUsed(false);
+
+      msFormatter.setMaximumFractionDigits(0);
+      msFormatter.setGroupingUsed(false);
+  }
 
     public static String printNano(float f) {
         return f + "ns";
@@ -29,8 +40,11 @@ public class DebugDisplayUtils {
     }
 
     public static String printValue(Object o) {
-        if (o instanceof Number)
-            return floatFormatter.format(o);
+        if (o instanceof Number) {
+            String s = floatFormatter.format(o, sb, fieldPosition).toString();
+            sb.setLength(0);
+            return s;
+        }
         if (o instanceof Vector2)
             return printVector2((Vector2) o);
         if (o instanceof Vector3)
@@ -46,18 +60,20 @@ public class DebugDisplayUtils {
             return "Nan";
         if (Float.isInfinite(f))
             return "Infinite";
-        return floatFormatter.format(f);
+        String s = floatFormatter.format(f, sb, fieldPosition).toString();
+        sb.setLength(0);
+        return s;
     }
 
     public static String printVector2(Vector2 v) {
         if (v.isZero())
             return Vector2.Zero.toString();
-        return "(" + floatFormatter.format(v.x) + " , " + floatFormatter.format(v.y) + ")";
+        return "(" + printFloat(v.x) + " , " + printFloat(v.y) + ")";
     }
 
     public static String printVector3(Vector3 v) {
         if (v.isZero())
             return Vector3.Zero.toString();
-        return "(" + floatFormatter.format(v.x) + " , " + floatFormatter.format(v.y) + " , " + floatFormatter.format(v.z) + ")";
+        return "(" + printFloat(v.x) + " , " + printFloat(v.y) + " , " + printFloat(v.z) + ")";
     }
 }

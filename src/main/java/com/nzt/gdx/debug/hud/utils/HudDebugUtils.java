@@ -12,7 +12,7 @@ import java.util.Map;
 
 public class HudDebugUtils {
     private final static float standartRight = 100;
-    private final static float right_decal_safe = 50;
+    private final static float right_decal_safe = 15;
 
     private HudDebugUtils() {
 
