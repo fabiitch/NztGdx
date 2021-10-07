@@ -17,6 +17,12 @@ import com.nzt.gdx.test.trials.tester.selector.TestScreenList;
  */
 @TestScreenList(group = "graphics.masking")
 public class STMasking5Pixmaps extends TestScreen {
+
+    @Override
+    public String getTestExplication() {
+        return "Masking using Pixmaps (Any shape)";
+    }
+
     private ShapeRenderer shapeRenderer;
     private SpriteBatch spriteBatch;
     private Texture masked, original;
@@ -25,8 +31,6 @@ public class STMasking5Pixmaps extends TestScreen {
 
     public STMasking5Pixmaps(FastTesterMain main) {
         super(main, true);
-        infoMsg("https://github.com/libgdx/libgdx/wiki/Masking#5-masking-using-pixmaps-any-shape");
-
 
         //Step 1 - Preparations
         shapeRenderer = new ShapeRenderer();
@@ -38,7 +42,7 @@ public class STMasking5Pixmaps extends TestScreen {
 
         /* The path to the image to mask. */
 
-        FileHandle imagePath = Gdx.files.internal("graphics/masking/weirdShape.png");
+        FileHandle imagePath = Gdx.files.internal("graphics/masking/5/weirdShape.png");
         /* Load the pixels of our image into a Pixmap. */
         pixmap = new Pixmap(imagePath);
 
@@ -111,11 +115,6 @@ public class STMasking5Pixmaps extends TestScreen {
         shapeRenderer.setColor(Color.CYAN);
         shapeRenderer.circle(size / 2f, size / 2f, size / 2f);
         shapeRenderer.rect(size / 2f, 0, size / 2f, size / 2f);
-    }
-
-    @Override
-    public String getTestExplication() {
-        return "Masking using Pixmaps (Any shape)";
     }
 
     @Override
