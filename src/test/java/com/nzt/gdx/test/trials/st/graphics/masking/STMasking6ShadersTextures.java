@@ -64,7 +64,7 @@ public class STMasking6ShadersTextures extends TestScreen {
         /* The fragment shader simply multiplies the fragment's usual alpha with
          * our mask alpha, since we only care about the alpha channel, the Alpha
          * Pixmap format is just what we need. */
-        Pixmap pixmapMask = new Pixmap(size, size, Pixmap.Format.Alpha);
+         pixmapMask = new Pixmap(size, size, Pixmap.Format.Alpha);
         /* Pixmap blending can result in some funky looking lines when
          * drawing. You may need to disable it. */
         pixmapMask.setBlending(Pixmap.Blending.None);
@@ -81,7 +81,7 @@ public class STMasking6ShadersTextures extends TestScreen {
         /* Create a Texture based on the pixmapMask.
          * IMPORTANT: How we create the texture doesn't matter, this technique
          * also allows, for example, to create it out of any supported format image */
-        Texture pixmapTex = new Texture(pixmapMask);
+         pixmapTex = new Texture(pixmapMask);
 
         /* Bind the mask texture to TEXTURE<N> (TEXTURE1 for our purposes),
          * which also sets the currently active texture unit. */
