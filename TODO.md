@@ -15,3 +15,7 @@ GL error vient de com.badlogic.gdx.tests.utils.GdxTestWrapper
 			});
 			profiler.enable();
 		}
+
+
+- gdx-lwjgl3-angle a faite  
+  https://github.com/libgdx/libgdx/pull/6672
