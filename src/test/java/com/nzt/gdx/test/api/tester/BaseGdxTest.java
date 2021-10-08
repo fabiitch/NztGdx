@@ -98,7 +98,11 @@ public abstract class BaseGdxTest {
     public abstract void renderTest(float dt);
 
     public void renderLoop(float dt) {
-        while (successesConditions.size() > 0 || testConditions.size() > 0) doRender(dt);
+        try {
+            while (successesConditions.size() > 0 || testConditions.size() > 0) doRender(dt);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public void renderLoop60FPS() {
