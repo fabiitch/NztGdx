@@ -242,10 +242,6 @@ public class STTriangle extends TestScreen {
 
     }
 
-    private Vector2 v(float x, float y) {
-        return new Vector2(x, y).add(middle);
-    }
-
     public void disposeTestScreen() {
         font.dispose();
     }
