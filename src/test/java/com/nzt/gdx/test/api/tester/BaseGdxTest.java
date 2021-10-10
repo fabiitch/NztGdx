@@ -5,6 +5,8 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.backends.headless.HeadlessApplication;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.math.MathUtils;
+import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.math.Vector3;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.mockito.Mockito;
@@ -121,5 +123,11 @@ public abstract class BaseGdxTest {
         renderLoopRdm(MIN_DT, MAX_DT);
     }
 
+    public Vector2 v(float x, float y) {
+        return new Vector2(x, y);
+    }
 
+    public Vector3 v(float x, float y, float z) {
+        return new Vector3(x, y, z);
+    }
 }

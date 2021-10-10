@@ -2,6 +2,8 @@ package com.nzt.gdx.test.trials.tester.archi.screens;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.nzt.gdx.debug.gl.NzGLProfiler;
 import com.nzt.gdx.debug.hud.HudDebugPosition;
@@ -167,5 +169,13 @@ public abstract class TestScreen extends SimpleTestScreen {
         HudDebug.addBotMiddle("WIP", "WIP", Color.RED);
         HudDebug.addMiddleRight("WIP", "WIP", Color.RED);
         HudDebug.addMiddleLeft("WIP", "WIP", Color.RED);
+    }
+
+    public Vector2 v(float x, float y) {
+        return new Vector2(x, y);
+    }
+
+    public Vector3 v(float x, float y, float z) {
+        return new Vector3(x, y, z);
     }
 }
