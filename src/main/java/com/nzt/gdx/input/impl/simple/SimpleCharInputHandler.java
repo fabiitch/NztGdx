@@ -3,7 +3,7 @@ package com.nzt.gdx.input.impl.simple;
 import com.nzt.gdx.input.base.BaseInputHandler;
 
 //TODO a voir si on met pas ds test
-public abstract class SimpleKeyInputHandler extends BaseInputHandler {
+public abstract class SimpleCharInputHandler extends BaseInputHandler {
     @Override
     public boolean doKeyDown(int keycode) {
         return false;

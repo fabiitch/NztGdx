@@ -17,6 +17,15 @@ public class PolygonUtilsTest {
     Polygon polygon = new Polygon(vertices);
 
     @Test
+    public void verticesAsVectorsTest() {
+        Vector2[] verticesAsVectors = PolygonUtils.getVerticesAsVectors(polygon);
+        VTestUtils.assertEquals(new Vector2(0, 0), verticesAsVectors[0]);
+        VTestUtils.assertEquals(new Vector2(50, 50), verticesAsVectors[1]);
+        VTestUtils.assertEquals(new Vector2(60, 60), verticesAsVectors[2]);
+        VTestUtils.assertEquals(new Vector2(300, 0), verticesAsVectors[3]);
+    }
+
+    @Test
     public void getVertexBeforeTest() {
         int maxIndex = vertices.length / 2 - 1; //3
         Assertions.assertEquals(maxIndex, PolygonUtils.getVertexBefore(polygon, 0));
