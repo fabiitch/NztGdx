@@ -17,6 +17,19 @@ public class PolygonUtils {
 
     }
 
+    /**
+     * Warning, create new [] and newVector
+     */
+    public static Vector2[] getVerticesAsVectors(Polygon polygon) {
+        float[] transformedVertices = polygon.getTransformedVertices();
+
+        Vector2[] vertices = new Vector2[transformedVertices.length / 2];
+        for (int i = 0; i < transformedVertices.length ; i += 2) {
+            vertices[i / 2] = new Vector2(transformedVertices[i], transformedVertices[i + 1]);
+        }
+        return vertices;
+    }
+
     public static Vector2 getPos(Polygon polygon, Vector2 pos) {
         return pos.set(polygon.getX(), polygon.getY());
     }
