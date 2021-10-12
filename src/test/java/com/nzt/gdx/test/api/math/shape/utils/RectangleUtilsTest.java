@@ -168,35 +168,35 @@ public class RectangleUtilsTest {
         Rectangle b = new Rectangle(50, 0, 50, 50);
         Assertions.assertFalse(a.overlaps(b));
         Assertions.assertFalse(b.overlaps(a));
-        Assertions.assertTrue(RectangleUtils.overlaps(a, b));
-        Assertions.assertTrue(RectangleUtils.overlaps(b, a));
+        Assertions.assertTrue(RectangleUtils.overlapsStick(a, b));
+        Assertions.assertTrue(RectangleUtils.overlapsStick(b, a));
 
         b = new Rectangle(-50, 0, 50, 50);
-        Assertions.assertTrue(RectangleUtils.overlaps(a, b));
-        Assertions.assertTrue(RectangleUtils.overlaps(b, a));
+        Assertions.assertTrue(RectangleUtils.overlapsStick(a, b));
+        Assertions.assertTrue(RectangleUtils.overlapsStick(b, a));
 
         b = new Rectangle(0, 50, 50, 50);
-        Assertions.assertTrue(RectangleUtils.overlaps(a, b));
-        Assertions.assertTrue(RectangleUtils.overlaps(b, a));
+        Assertions.assertTrue(RectangleUtils.overlapsStick(a, b));
+        Assertions.assertTrue(RectangleUtils.overlapsStick(b, a));
 
         b = new Rectangle(0, -50, 50, 50);
-        Assertions.assertTrue(RectangleUtils.overlaps(a, b));
-        Assertions.assertTrue(RectangleUtils.overlaps(b, a));
+        Assertions.assertTrue(RectangleUtils.overlapsStick(a, b));
+        Assertions.assertTrue(RectangleUtils.overlapsStick(b, a));
 
         b = new Rectangle(51, 0, 50, 50);
-        Assertions.assertFalse(RectangleUtils.overlaps(a, b));
-        Assertions.assertFalse(RectangleUtils.overlaps(b, a));
+        Assertions.assertFalse(RectangleUtils.overlapsStick(a, b));
+        Assertions.assertFalse(RectangleUtils.overlapsStick(b, a));
 
         b = new Rectangle(-51, 0, 50, 50);
-        Assertions.assertFalse(RectangleUtils.overlaps(a, b));
-        Assertions.assertFalse(RectangleUtils.overlaps(b, a));
+        Assertions.assertFalse(RectangleUtils.overlapsStick(a, b));
+        Assertions.assertFalse(RectangleUtils.overlapsStick(b, a));
 
         b = new Rectangle(0, 51, 50, 50);
-        Assertions.assertFalse(RectangleUtils.overlaps(a, b));
-        Assertions.assertFalse(RectangleUtils.overlaps(b, a));
+        Assertions.assertFalse(RectangleUtils.overlapsStick(a, b));
+        Assertions.assertFalse(RectangleUtils.overlapsStick(b, a));
 
         b = new Rectangle(0, -51, 50, 50);
-        Assertions.assertFalse(RectangleUtils.overlaps(a, b));
-        Assertions.assertFalse(RectangleUtils.overlaps(b, a));
+        Assertions.assertFalse(RectangleUtils.overlapsStick(a, b));
+        Assertions.assertFalse(RectangleUtils.overlapsStick(b, a));
     }
 }

@@ -2,6 +2,7 @@ package com.nzt.gdx.math.shapes.builders;
 
 import com.badlogic.gdx.math.Polygon;
 import com.badlogic.gdx.math.Vector2;
+import com.nzt.gdx.math.shapes.utils.RectangleUtils;
 
 public class PolygonBuilder {
 
@@ -10,13 +11,7 @@ public class PolygonBuilder {
     }
 
     public static Polygon rectangle(float width, float height, boolean setCenterRect) {
-        float vertices[];
-        if (setCenterRect) {
-            vertices = new float[]{-width / 2, -height / 2, width / 2, -height / 2, width / 2, height / 2, -width / 2, height / 2};
-        } else {
-            vertices = new float[]{0, 0, width, 0, width, height, 0, height};
-        }
-        return new Polygon(vertices);
+        return new Polygon(RectangleUtils.toVertices(width, height, setCenterRect));
     }
 
     public static Polygon polygon(Vector2... verticesV) {

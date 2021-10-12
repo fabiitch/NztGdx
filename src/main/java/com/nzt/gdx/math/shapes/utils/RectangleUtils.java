@@ -277,7 +277,22 @@ public class RectangleUtils {
         return new Circle(getCenter(rectangle, tmpV1), radiusCircleInside(rectangle));
     }
 
-    public static boolean overlaps(Rectangle rectA, Rectangle rectB) {
+    public static boolean overlapsStick(Rectangle rectA, Rectangle rectB) {
         return rectA.x <= rectB.x + rectB.width && rectA.x + rectA.width >= rectB.x && rectA.y <= rectB.y + rectB.height && rectA.y + rectA.height >= rectB.y;
     }
+
+    public static float[] toVertices(Rectangle rect, boolean setCenterRect) {
+        return toVertices(rect.width, rect.height, setCenterRect);
+    }
+
+    public static float[] toVertices(float width, float height, boolean setCenterRect) {
+        float vertices[];
+        if (setCenterRect) {
+            vertices = new float[]{-width / 2, -height / 2, width / 2, -height / 2, width / 2, height / 2, -width / 2, height / 2};
+        } else {
+            vertices = new float[]{0, 0, width, 0, width, height, 0, height};
+        }
+        return vertices;
+    }
+
 }
