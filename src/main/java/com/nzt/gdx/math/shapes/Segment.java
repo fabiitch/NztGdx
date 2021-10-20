@@ -34,6 +34,11 @@ public class Segment implements Shape2D {
         this.b = new Vector2(bX, bY);
     }
 
+    public void move(float x, float y) {
+        this.a.add(x, y);
+        this.b.add(x, y);
+    }
+
     public void setRotation(float degrees) {
         this.rotation = degrees;
         getMiddle(tmpv1);
@@ -47,11 +52,11 @@ public class Segment implements Shape2D {
     }
 
     public float dst(Vector2 point) {
-        return SegmentUtils.nearestPoint(this, point, tmpv1).dst(point);
+        return SegmentUtils.closestPoint(this, point, tmpv1).dst(point);
     }
 
-    public Vector2 nearestPoint(Vector2 point, Vector2 result) {
-        return SegmentUtils.nearestPoint(this, point, result);
+    public Vector2 closestPoint(Vector2 point, Vector2 result) {
+        return SegmentUtils.closestPoint(this, point, result);
     }
 
     public Vector2 getDir(Vector2 dir) {

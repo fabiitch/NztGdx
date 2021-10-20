@@ -18,13 +18,13 @@ import com.nzt.gdx.test.trials.tester.selector.TestScreenList;
 import java.security.Key;
 
 @TestScreenList(group = "pullrequest")
-public class STPullBugIntersectPolyRect extends TestScreen {
+public class STPrBugIntersectPolyRect extends TestScreen {
     float[] vertices1 = new float[]{-50, 0, 50, 0, 50, 50, -50, 50};
     float[] vertices2 = new float[]{-10, -100, 10, -100, 10, 100, -10, 100};
     Polygon poly1 = new Polygon(vertices1);
     Polygon poly2 = new Polygon(vertices2);
 
-    public STPullBugIntersectPolyRect(FastTesterMain main) {
+    public STPrBugIntersectPolyRect(FastTesterMain main) {
         super(main);
         HudDebug.addBotLeft("Intersector.intersectPolygons (Polygon p1, Polygon p2, Polygon overlap)", false);
         HudDebug.addBotLeft("Intersector.intersectPolygons (FloatArray polygon1, FloatArray polygon2)", false);

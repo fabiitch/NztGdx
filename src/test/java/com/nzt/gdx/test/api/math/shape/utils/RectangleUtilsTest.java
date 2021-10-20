@@ -17,16 +17,19 @@ public class RectangleUtilsTest {
     private final static float DELTA = MathUtils.FLOAT_ROUNDING_ERROR;
 
     @Test
-    public void getCenterTest() {
-        Rectangle rect1 = new Rectangle(10, 20, 100, 50);
-        Vector2 center1 = RectangleUtils.getCenter(rect1, new Vector2());
-        VTestUtils.assertEquals(new Vector2(60, 45), center1);
+    public void getVertexTest() {
+        Rectangle rect = new Rectangle(10, 20, 100, 50);
+        Vector2 vertexPos = new Vector2();
+        VTestUtils.assertEquals(10, 20, RectangleUtils.getA(rect, vertexPos));
+        VTestUtils.assertEquals(110, 20, RectangleUtils.getB(rect, vertexPos));
+        VTestUtils.assertEquals(110, 70, RectangleUtils.getC(rect, vertexPos));
+        VTestUtils.assertEquals(10, 70, RectangleUtils.getD(rect, vertexPos));
 
-        Rectangle rect2 = new Rectangle(100, 200, 500, 150);
-        Vector2 center2 = RectangleUtils.getCenter(rect2, new Vector2());
-        VTestUtils.assertEquals(new Vector2(100 + 250, 200 + 75), center2);
+        VTestUtils.assertEquals(10, 20, RectangleUtils.getVertex(rect, 0, vertexPos));
+        VTestUtils.assertEquals(110, 20, RectangleUtils.getVertex(rect, 1, vertexPos));
+        VTestUtils.assertEquals(110, 70, RectangleUtils.getVertex(rect, 2, vertexPos));
+        VTestUtils.assertEquals(10, 70, RectangleUtils.getVertex(rect, 3, vertexPos));
     }
-
 
     @Test
     public void getEdgeTest() {
@@ -37,8 +40,19 @@ public class RectangleUtilsTest {
         Assertions.assertTrue(RectangleUtils.getBC(rect, tmp1).equalsPoints(tmp2.set(110, 20, 110, 70)));
         Assertions.assertTrue(RectangleUtils.getCD(rect, tmp1).equalsPoints(tmp2.set(110, 70, 10, 70)));
         Assertions.assertTrue(RectangleUtils.getAD(rect, tmp1).equalsPoints(tmp2.set(10, 20, 10, 70)));
-
     }
+
+    @Test
+    public void getCenterTest() {
+        Rectangle rect1 = new Rectangle(10, 20, 100, 50);
+        Vector2 center1 = RectangleUtils.getCenter(rect1, new Vector2());
+        VTestUtils.assertEquals(60, 45, center1);
+
+        Rectangle rect2 = new Rectangle(100, 200, 500, 150);
+        Vector2 center2 = RectangleUtils.getCenter(rect2, new Vector2());
+        VTestUtils.assertEquals(100 + 250, 200 + 75, center2);
+    }
+
 
     @Test
     public void getAsVerticesTest() {
@@ -72,75 +86,77 @@ public class RectangleUtilsTest {
     }
 
     @Test
-    public void testIsSquare() {
-        boolean isSquare;
+    public void testIsVertex() {
+        int vertexNum;
         Vector2 v = new Vector2();
         Rectangle rect = new Rectangle(10, 10, 5, 5);
-        isSquare = RectangleUtils.isVertex(rect, v.set(10, 10));
-        assertTrue(isSquare);
+        vertexNum = RectangleUtils.isVertex(rect, v.set(10, 10));
+        assertEquals(0, vertexNum);
 
-        isSquare = RectangleUtils.isVertex(rect, v.set(15, 10));
-        assertTrue(isSquare);
+        vertexNum = RectangleUtils.isVertex(rect, v.set(15, 10));
+        assertEquals(1, vertexNum);
 
-        isSquare = RectangleUtils.isVertex(rect, v.set(10, 15));
-        assertTrue(isSquare);
+        vertexNum = RectangleUtils.isVertex(rect, v.set(15, 15));
+        assertEquals(2, vertexNum);
 
-        isSquare = RectangleUtils.isVertex(rect, v.set(15, 15));
-        assertTrue(isSquare);
+        vertexNum = RectangleUtils.isVertex(rect, v.set(10, 15));
+        assertEquals(3, vertexNum);
 
-        isSquare = RectangleUtils.isVertex(rect, v.set(11, 10));
-        assertFalse(isSquare);
+        vertexNum = RectangleUtils.isVertex(rect, v.set(11, 10));
+        assertEquals(-1, vertexNum);
     }
 
     @Test
     public void getClosestVertexTest() {
         Rectangle rect = new Rectangle(0, 0, 100, 50);
+        Vector2 closestVertex = new Vector2();
 
-        int vertexClosest = RectangleUtils.getClosestVertex(rect, -1, -1);
+        int vertexClosest = RectangleUtils.getNumClosestVertex(rect, -1, -1);
+        RectangleUtils.getNumClosestVertex(rect, -1, -1, closestVertex);
+        assertTrue(vertexClosest == 0);
+
+        vertexClosest = RectangleUtils.getNumClosestVertex(rect, 102, 1);
         assertTrue(vertexClosest == 1);
 
-        vertexClosest = RectangleUtils.getClosestVertex(rect, 102, 1);
+        vertexClosest = RectangleUtils.getNumClosestVertex(rect, 110, 55);
         assertTrue(vertexClosest == 2);
 
-        vertexClosest = RectangleUtils.getClosestVertex(rect, 110, 55);
+        vertexClosest = RectangleUtils.getNumClosestVertex(rect, -1, 55);
         assertTrue(vertexClosest == 3);
-
-        vertexClosest = RectangleUtils.getClosestVertex(rect, -1, 55);
-        assertTrue(vertexClosest == 4);
     }
 
     @Test
-    public void getNearestPointTest() {
+    public void getClosestPointTest() {
         Rectangle rect = new Rectangle(0, 0, 100, 50);
-        Vector2 nearestPoint = new Vector2();
+        Vector2 closestPoint = new Vector2();
 
-        RectangleUtils.getNearestPoint(rect, new Vector2(50, 150), nearestPoint);
-        VTestUtils.assertEquals(new Vector2(50, 50), nearestPoint);
+        RectangleUtils.closestPoint(rect, new Vector2(50, 150), closestPoint);
+        VTestUtils.assertEquals(new Vector2(50, 50), closestPoint);
 
-        RectangleUtils.getNearestPoint(rect, new Vector2(150, 25), nearestPoint);
-        VTestUtils.assertEquals(new Vector2(100, 25), nearestPoint);
+        RectangleUtils.closestPoint(rect, new Vector2(150, 25), closestPoint);
+        VTestUtils.assertEquals(new Vector2(100, 25), closestPoint);
 
-        RectangleUtils.getNearestPoint(rect, new Vector2(-100, 25), nearestPoint);
-        VTestUtils.assertEquals(new Vector2(0, 25), nearestPoint);
+        RectangleUtils.closestPoint(rect, new Vector2(-100, 25), closestPoint);
+        VTestUtils.assertEquals(new Vector2(0, 25), closestPoint);
     }
 
     @Test
-    public void getNearestSegmentTest() {
+    public void getClosestSegmentTest() {
         Rectangle rect = new Rectangle(0, 0, 100, 50);
         Segment tmp = new Segment();
-        Segment segmentNearest = new Segment();
+        Segment closestSegment = new Segment();
 
-        RectangleUtils.getNearestSegment(rect, new Vector2(50, 150), segmentNearest);
-        Assertions.assertTrue(RectangleUtils.getHorizontalTop(rect, tmp).equalsPoints(segmentNearest));
+        RectangleUtils.closestSegment(rect, new Vector2(50, 150), closestSegment);
+        Assertions.assertTrue(RectangleUtils.getHorizontalTop(rect, tmp).equalsPoints(closestSegment));
 
-        RectangleUtils.getNearestSegment(rect, new Vector2(50, -10), segmentNearest);
-        Assertions.assertTrue(RectangleUtils.getHorizontalBot(rect, tmp).equalsPoints(segmentNearest));
+        RectangleUtils.closestSegment(rect, new Vector2(50, -10), closestSegment);
+        Assertions.assertTrue(RectangleUtils.getHorizontalBot(rect, tmp).equalsPoints(closestSegment));
 
-        RectangleUtils.getNearestSegment(rect, new Vector2(-15, 25), segmentNearest);
-        Assertions.assertTrue(RectangleUtils.getVerticalLeft(rect, tmp).equalsPoints(segmentNearest));
+        RectangleUtils.closestSegment(rect, new Vector2(-15, 25), closestSegment);
+        Assertions.assertTrue(RectangleUtils.getVerticalLeft(rect, tmp).equalsPoints(closestSegment));
 
-        RectangleUtils.getNearestSegment(rect, new Vector2(300, 25), segmentNearest);
-        Assertions.assertTrue(RectangleUtils.getVerticalRight(rect, tmp).equalsPoints(segmentNearest));
+        RectangleUtils.closestSegment(rect, new Vector2(300, 25), closestSegment);
+        Assertions.assertTrue(RectangleUtils.getVerticalRight(rect, tmp).equalsPoints(closestSegment));
     }
 
     @Test
@@ -198,5 +214,70 @@ public class RectangleUtilsTest {
         b = new Rectangle(0, -51, 50, 50);
         Assertions.assertFalse(RectangleUtils.overlapsStick(a, b));
         Assertions.assertFalse(RectangleUtils.overlapsStick(b, a));
+    }
+
+    @Test
+    public void getEdgeWithAngleTest() {
+        Rectangle rect = new Rectangle(0, 0, 20, 10);  //center (10,5)
+        Segment edge = new Segment();
+
+        RectangleUtils.getEdgeWithAngle(rect, 0, edge);
+        assertEquals(new Segment(20, 0, 20, 10), edge);
+        //TODO reprendre ici
+
+    }
+
+    @Test
+    public void posOnEdgeAngleTest() {
+        final float TOLERANCE = 0.1f;
+        Rectangle rect = new Rectangle(0, 0, 20, 10);  //center (10,5)
+        Vector2 point = new Vector2();
+
+//        RectangleUtils.posOnEdgeAngle(rect, MathUtils.degreesToRadians * 0, point);
+//        VTestUtils.assertEquals(20, 5, point, TOLERANCE);
+//
+//        RectangleUtils.posOnEdgeAngle(rect, MathUtils.degreesToRadians * 90, point);
+//        VTestUtils.assertEquals(10, 10, point, TOLERANCE);
+//
+//        RectangleUtils.posOnEdgeAngle(rect, MathUtils.degreesToRadians * 180, point);
+//        VTestUtils.assertEquals(0, 5, point, TOLERANCE);
+//
+//        RectangleUtils.posOnEdgeAngle(rect, MathUtils.degreesToRadians * 270, point);
+//        VTestUtils.assertEquals(10, 0, point, TOLERANCE);
+//
+//        RectangleUtils.posOnEdgeAngle(rect, MathUtils.degreesToRadians * 360, point);
+//        VTestUtils.assertEquals(20, 5, point, TOLERANCE);
+//
+//        RectangleUtils.posOnEdgeAngle(rect, MathUtils.degreesToRadians * 540, point);
+//        VTestUtils.assertEquals(0, 5, point, TOLERANCE);
+
+        RectangleUtils.posOnEdgeAngle(rect, MathUtils.degreesToRadians * 45, point);
+        VTestUtils.assertEquals(20, 10, point, TOLERANCE);
+
+        RectangleUtils.posOnEdgeAngle(rect, MathUtils.degreesToRadians * 135, point);
+        VTestUtils.assertEquals(-20, 10, point, TOLERANCE);
+
+        RectangleUtils.posOnEdgeAngle(rect, MathUtils.degreesToRadians * 225, point);
+        VTestUtils.assertEquals(-20, 10, point, TOLERANCE);
+
+        RectangleUtils.posOnEdgeAngle(rect, MathUtils.degreesToRadians * 315, point);
+        VTestUtils.assertEquals(-20, 10, point, TOLERANCE);
+
+
+        //Negatif
+//        RectangleUtils.posOnEdgeAngle(rect, MathUtils.degreesToRadians * -0, point);
+//        VTestUtils.assertEquals(20, 5, point, TOLERANCE);
+//
+//        RectangleUtils.posOnEdgeAngle(rect, MathUtils.degreesToRadians * -90, point);
+//        VTestUtils.assertEquals(10, 0, point, TOLERANCE);
+//
+//        RectangleUtils.posOnEdgeAngle(rect, MathUtils.degreesToRadians * -180, point);
+//        VTestUtils.assertEquals(0, 5, point, TOLERANCE);
+//
+//        RectangleUtils.posOnEdgeAngle(rect, MathUtils.degreesToRadians * -270, point);
+//        VTestUtils.assertEquals(10, 10, point, TOLERANCE);
+//
+//        RectangleUtils.posOnEdgeAngle(rect, MathUtils.degreesToRadians * -360, point);
+//        VTestUtils.assertEquals(20, 5, point, TOLERANCE);
     }
 }

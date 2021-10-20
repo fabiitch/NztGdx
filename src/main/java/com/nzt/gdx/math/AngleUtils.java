@@ -85,4 +85,29 @@ public class AngleUtils {
     public static float distanceSigned(Vector2 v1, Vector2 v2) {
         return distanceSigned(V2.angleDeg(v1), V2.angleDeg(v2));
     }
+
+
+    /**
+     * Normalize an angle so that it is between 0 and 360.
+     */
+    public static float normaliseDeg(float angleDeg) {
+        return (angleDeg >= 0 ? angleDeg : (360 - ((-angleDeg) % 360))) % 360;
+    }
+
+    /**
+     * normalize an angle between 0 and 2pi
+     * see org.apache.commons.math3.util.MathUtils#normalizeAngle(double, double)
+     */
+    public static float normaliseRad02Pi(float angleRad) {
+        return angleRad - MathUtils.PI2 * MathUtils.floor(angleRad / MathUtils.PI2);
+    }
+
+    /**
+     * normalize an angle between -pi and +pi
+     * see org.apache.commons.math3.util.MathUtils#normalizeAngle(double, double)
+     */
+    public static float normaliseRadPiNPi(float angleRad) {
+        return angleRad - MathUtils.PI2 * MathUtils.floor((angleRad + MathUtils.PI) / MathUtils.PI2);
+    }
+
 }
