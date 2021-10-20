@@ -151,7 +151,7 @@ public class PolygonUtils {
 //        return null;
 //    }
 
-    public static Segment getNearestSegment(Polygon polygon, Vector2 point, Segment result) {
+    public static Segment getClosestSegment(Polygon polygon, Vector2 point, Segment result) {
         float dstMin = Float.MAX_VALUE;
 
         float[] vertices = polygon.getTransformedVertices();
@@ -163,7 +163,7 @@ public class PolygonUtils {
             result.b.set(vertices[i + 2], vertices[i + 3]);
             tmpV1.set(vertices[i], vertices[i + 1]);
             tmpV2.set(vertices[i + 2], vertices[i + 3]);
-            result.nearestPoint(point, tmpV1);
+            result.closestPoint(point, tmpV1);
 
             float dstPoint = point.dst2(tmpV1);
             if (dstPoint < dstMin) {
@@ -176,7 +176,7 @@ public class PolygonUtils {
         //last and first point
         result.a.set(vertices[0], vertices[1]);
         result.b.set(vertices[vertices.length - 2], vertices[vertices.length - 1]);
-        result.nearestPoint(point, tmpV1);
+        result.closestPoint(point, tmpV1);
         float dstPoint = point.dst2(tmpV1);
         if (dstPoint < dstMin) {
             vertexA = 0;

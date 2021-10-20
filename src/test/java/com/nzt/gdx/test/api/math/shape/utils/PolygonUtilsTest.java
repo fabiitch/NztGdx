@@ -120,24 +120,24 @@ public class PolygonUtilsTest {
     }
 
     @Test
-    public void getNearestSegment() {
+    public void getClosestSegment() {
         Segment result = new Segment();
         Polygon rect = new Polygon(new float[]{0, 0, 100, 0, 100, 50, 0, 50});
 
-        PolygonUtils.getNearestSegment(rect, new Vector2(50, 150), result);
+        PolygonUtils.getClosestSegment(rect, new Vector2(50, 150), result);
         Assertions.assertTrue(result.equalsPoints(new Segment(0, 50, 100, 50)));
 
-        PolygonUtils.getNearestSegment(rect, new Vector2(-25, 25), result);
+        PolygonUtils.getClosestSegment(rect, new Vector2(-25, 25), result);
         Assertions.assertTrue(result.equalsPoints(new Segment(0, 0, 0, 50)));
 
-        PolygonUtils.getNearestSegment(rect, new Vector2(600, 25), result);
+        PolygonUtils.getClosestSegment(rect, new Vector2(600, 25), result);
         Assertions.assertTrue(result.equalsPoints(new Segment(100, 0, 100, 50)));
 
-        PolygonUtils.getNearestSegment(rect, new Vector2(50, -150), result);
+        PolygonUtils.getClosestSegment(rect, new Vector2(50, -150), result);
         Assertions.assertTrue(result.equalsPoints(new Segment(0, 0, 100, 0)));
 
         //inside
-        PolygonUtils.getNearestSegment(rect, new Vector2(50, 10), result);
+        PolygonUtils.getClosestSegment(rect, new Vector2(50, 10), result);
         Assertions.assertTrue(result.equalsPoints(new Segment(0, 0, 100, 0)));
     }
 }

@@ -1,10 +1,12 @@
 package com.nzt.gdx.test.api.math;
 
+import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 import com.nzt.gdx.math.AngleUtils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import static com.nzt.gdx.math.AngleUtils.normaliseDeg;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class AngleUtilsTest {
@@ -41,6 +43,42 @@ public class AngleUtilsTest {
 
         float dst2 = AngleUtils.distanceAbs(v(1, 0), v(-1, 0));
         assertEquals(180, dst2, DELTA_0);
+    }
+
+    @Test
+    public void normaliseAngleDegTest() {
+        assertEquals(0, normaliseDeg(0), DELTA_01);
+        assertEquals(50, normaliseDeg(50), DELTA_01);
+        assertEquals(0, normaliseDeg(360), DELTA_01);
+        assertEquals(5, normaliseDeg(365), DELTA_01);
+        assertEquals(0, normaliseDeg(720), DELTA_01);
+
+        assertEquals(355, normaliseDeg(-5), DELTA_01);
+        assertEquals(180, normaliseDeg(-180), DELTA_01);
+        assertEquals(0, normaliseDeg(-720), DELTA_01);
+    }
+
+
+    @Test
+    public void normaliseAngleRad02PiTest() {
+        assertEquals(0, AngleUtils.normaliseRad02Pi(0), DELTA_01);
+        assertEquals(MathUtils.PI, AngleUtils.normaliseRad02Pi(MathUtils.PI), DELTA_01);
+        assertEquals(MathUtils.PI, AngleUtils.normaliseRad02Pi(-MathUtils.PI), DELTA_01);
+        assertEquals(0, AngleUtils.normaliseRad02Pi(-MathUtils.PI2), DELTA_01);
+
+        assertEquals(MathUtils.PI, AngleUtils.normaliseRad02Pi(MathUtils.PI * 3), DELTA_01);
+        assertEquals(0, AngleUtils.normaliseRad02Pi(MathUtils.PI * 4), DELTA_01);
+    }
+
+    @Test
+    public void normaliseAngleRad2PiTest() {
+        assertEquals(0, AngleUtils.normaliseRadPiNPi(0), DELTA_01);
+        assertEquals(MathUtils.PI, AngleUtils.normaliseRadPiNPi(MathUtils.PI), DELTA_01);
+        assertEquals(-MathUtils.PI, AngleUtils.normaliseRadPiNPi(-MathUtils.PI), DELTA_01);
+        assertEquals(0, AngleUtils.normaliseRadPiNPi(-MathUtils.PI2), DELTA_01);
+
+        assertEquals(MathUtils.PI, AngleUtils.normaliseRadPiNPi(MathUtils.PI * 3), DELTA_01);
+        assertEquals(0, AngleUtils.normaliseRadPiNPi(MathUtils.PI * 4), DELTA_01);
     }
 
     private Vector2 v(float a, float b) {

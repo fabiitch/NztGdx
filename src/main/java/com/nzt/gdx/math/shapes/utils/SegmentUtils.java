@@ -14,26 +14,12 @@ public class SegmentUtils {
 
     }
 
-    public static Vector2 nearestPoint(Segment segment2D, Vector2 point, Vector2 result) {
+    public static Vector2 closestPoint(Segment segment2D, Vector2 point, Vector2 result) {
         return Intersector.nearestSegmentPoint(segment2D.a, segment2D.b, point, result);
-    }
-
-    public static Vector2 getSegmentIntersection(Segment s1, Segment s2) {
-        return getSegmentIntersection(s1.a, s1.b, s2.a, s2.b);
-    }
-
-    public static Vector2 intersect(Segment s1, Segment s2) {
-        return getSegmentIntersection(s1.a, s1.b, s2.a, s2.b);
     }
 
     public static boolean getSegmentIntersection(Segment s1, Segment s2, Vector2 intersection) {
         return Intersector.intersectSegments(s1.a, s1.b, s2.a, s2.b, intersection);
-    }
-
-    public static Vector2 getSegmentIntersection(Vector2 p1Start, Vector2 p1End, Vector2 p2Start, Vector2 p2End) {
-        Vector2 intersection = new Vector2();
-        boolean b = Intersector.intersectSegments(p1Start, p1End, p2Start, p2End, intersection);
-        return b ? intersection : null;
     }
 
     public static float getAngleReflexionDeg(Segment segment, Vector2 direction) {
