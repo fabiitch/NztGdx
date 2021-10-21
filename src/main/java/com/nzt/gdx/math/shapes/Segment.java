@@ -14,7 +14,6 @@ public class Segment implements Shape2D {
     private final static Vector2 tmpv1 = new Vector2(); //TODO groups pools
     private final static Vector2 tmpv2 = new Vector2(); //TODO groups pools
 
-
     public Vector2 a;
     public Vector2 b;
     public float rotation;

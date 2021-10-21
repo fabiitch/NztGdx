@@ -34,6 +34,17 @@ public class IntersectorRectangle {
         return false;
     }
 
+    public static boolean rectangles(Rectangle rectangle1, Rectangle rectangle2, Rectangle result) {
+        if (RectangleUtils.overlapsStick(rectangle1, rectangle2)) {
+            result.x = Math.max(rectangle1.x, rectangle2.x);
+            result.width = Math.min(rectangle1.x + rectangle1.width, rectangle2.x + rectangle2.width) - result.x;
+            result.y = Math.max(rectangle1.y, rectangle2.y);
+            result.height = Math.min(rectangle1.y + rectangle1.height, rectangle2.y + rectangle2.height) - result.y;
+            return true;
+        }
+        return false;
+    }
+
     //TODO group tmp
     private static final Vector2 tmp1 = new Vector2();
     private static final Vector2 tmp2 = new Vector2();

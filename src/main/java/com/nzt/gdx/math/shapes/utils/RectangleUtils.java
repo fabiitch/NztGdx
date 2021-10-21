@@ -5,6 +5,7 @@ import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.nzt.gdx.math.AngleUtils;
+import com.nzt.gdx.math.NzMath;
 import com.nzt.gdx.math.shapes.Segment;
 import com.nzt.gdx.math.vectors.V2;
 import org.graalvm.compiler.loop.MathUtil;
@@ -111,24 +112,6 @@ public class RectangleUtils {
         return createFromCenter(center.x, center.y, width, height);
     }
 
-    /**
-     * intersection between ray from center and edge
-     * TODO remove new (attention les tmp sont utilisé dans les sous methodes)
-     */
-    public static Vector2 posOnEdgeAngle(Rectangle rect, float angleRadian, Vector2 result) {
-        Vector2 tmpCenter = getCenter(rect, new Vector2());
-        Vector2 centerRect = V2.tmp(tmpCenter);
-        Vector2 posDir = tmpCenter.add(tmpV2.set(getMaxWidthHeight(rect), 0).setAngleRad(angleRadian));
-
-        Segment edgeRect = closestSegment(rect, posDir, new Segment());
-
-        Segment rayFromCenter = new Segment(centerRect, posDir);
-
-        boolean intersection = SegmentUtils.getSegmentIntersection(rayFromCenter, edgeRect, result);
-        if (!intersection)
-            result.setZero();
-        return result;
-    }
 
     /**
      * return the closest point on edge
@@ -343,7 +326,6 @@ public class RectangleUtils {
     public static Segment getEdgeWithAngle(Rectangle rect, float angleDeg, Segment result) {
         float angle = AngleUtils.normaliseDeg(angleDeg);
 
-        System.out.println(angle);
         if (angle >= 315 || angle < 45) {
             return getVerticalRight(rect, result);
         } else if (angle >= 45 && angle < 135) {
@@ -355,4 +337,48 @@ public class RectangleUtils {
         }
     }
 
+    /**
+     * intersection between ray from center and edge
+     */
+//    public static Vector2 posOnEdgeAngle(Rectangle rect, float angleDeg, Vector2 result) {
+//        angleDeg = Math.abs(angleDeg % 45);
+//        Segment edgeWithAngle = getEdgeWithAngle(rect, angleDeg, tmpSegment);
+//        float hypoLen = TriangleRectUtils.hypoFromAdjacent(edgeWithAngle.dst(tmpV1) / 2, angleDeg);
+//
+//        result = getCenter(rect, result);
+//        result.add(tmpV1.set(hypoLen, 0).setAngleDeg(angleDeg));
+//
+//        return result;
+//    }
+
+    //https://stackoverflow.com/questions/4061576/finding-points-on-a-rectangle-at-a-given-angle
+//    public static Vector2 posOnEdgeAngle(Rectangle rect, float angleRad, Vector2 result)
+//    {
+//        float theta = AngleUtils.normaliseRad02Pi(angleRad);
+//        float diag = MathUtils.atan2(rect.height, rect.width);
+//        float tangent = (float)Math.tan(angleRad);
+//
+//        if (theta > -diag && theta <= diag)
+//        {
+//            result.x = rect.width / 2f;
+//            result.y = rect.width / 2f * tangent;
+//        }
+//        else if(theta > diag && theta <= MathUtils.PI - diag)
+//        {
+//            result.x = rect.height / 2f / tangent;
+//            result.y = rect.height / 2f;
+//        }
+//        else if(theta > MathUtils.PI - diag && theta <= MathUtils.PI + diag)
+//        {
+//            result.x = -rect.width / 2f;
+//            result.y = -rect.width / 2f * tangent;
+//        }
+//        else
+//        {
+//            result.x = -rect.height / 2f / tangent;
+//            result.y = -rect.height / 2f;
+//        }
+//
+//        return result;
+//    }
 }
