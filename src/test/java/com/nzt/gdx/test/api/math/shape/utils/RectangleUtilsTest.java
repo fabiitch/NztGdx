@@ -141,22 +141,26 @@ public class RectangleUtilsTest {
     }
 
     @Test
-    public void getClosestSegmentTest() {
+    public void getClosestEdgeFromPointTest() {
         Rectangle rect = new Rectangle(0, 0, 100, 50);
         Segment tmp = new Segment();
         Segment closestSegment = new Segment();
 
-        RectangleUtils.closestSegment(rect, new Vector2(50, 150), closestSegment);
+        RectangleUtils.closestEdge(rect, new Vector2(50, 150), closestSegment);
         Assertions.assertTrue(RectangleUtils.getHorizontalTop(rect, tmp).equalsPoints(closestSegment));
 
-        RectangleUtils.closestSegment(rect, new Vector2(50, -10), closestSegment);
+        RectangleUtils.closestEdge(rect, new Vector2(50, -10), closestSegment);
         Assertions.assertTrue(RectangleUtils.getHorizontalBot(rect, tmp).equalsPoints(closestSegment));
 
-        RectangleUtils.closestSegment(rect, new Vector2(-15, 25), closestSegment);
+        RectangleUtils.closestEdge(rect, new Vector2(-15, 25), closestSegment);
         Assertions.assertTrue(RectangleUtils.getVerticalLeft(rect, tmp).equalsPoints(closestSegment));
 
-        RectangleUtils.closestSegment(rect, new Vector2(300, 25), closestSegment);
+        RectangleUtils.closestEdge(rect, new Vector2(300, 25), closestSegment);
         Assertions.assertTrue(RectangleUtils.getVerticalRight(rect, tmp).equalsPoints(closestSegment));
+
+        //on rect
+        RectangleUtils.closestEdge(rect, new Vector2(50, 0), closestSegment);
+        Assertions.assertTrue(RectangleUtils.getHorizontalBot(rect, tmp).equalsPoints(closestSegment));
     }
 
     @Test

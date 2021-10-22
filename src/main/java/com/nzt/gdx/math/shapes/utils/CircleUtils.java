@@ -1,9 +1,6 @@
 package com.nzt.gdx.math.shapes.utils;
 
-import com.badlogic.gdx.math.Circle;
-import com.badlogic.gdx.math.MathUtils;
-import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.math.Vector3;
+import com.badlogic.gdx.math.*;
 import com.nzt.gdx.math.vectors.V2;
 
 public class CircleUtils {
@@ -77,6 +74,7 @@ public class CircleUtils {
         return returnV;
     }
 
+
     public static Vector2 posWithAngleRad(Vector2 positionStart, float rayon, float angleRadian, Vector2 returnV) {
         return posWithAngleRad(positionStart.x, positionStart.y, rayon, angleRadian, returnV);
     }
@@ -93,6 +91,12 @@ public class CircleUtils {
 //        float angleDiff = normal.angleDeg()
 //        reflexionDir.set(1,0)
         return normal;
+    }
+
+    public static Rectangle getRectBounds(Circle circle, Rectangle rectangle) {
+        float radius = circle.radius;
+        rectangle.set(circle.x - radius, circle.y - radius, radius * 2, radius * 2);
+        return rectangle;
     }
 
 //    public static float getAngleReflexionRad(Circle circle, float angleRad) {

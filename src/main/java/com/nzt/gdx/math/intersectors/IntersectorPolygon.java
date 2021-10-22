@@ -7,6 +7,10 @@ import com.badlogic.gdx.math.Rectangle;
 import com.nzt.gdx.math.shapes.utils.RectangleUtils;
 
 public class IntersectorPolygon {
+
+    private IntersectorPolygon() {
+    }
+
     public static Intersector.MinimumTranslationVector tmpTranslationVector = new Intersector.MinimumTranslationVector();
     private static final float[] tmpRectVertices = new float[8];
 
@@ -19,7 +23,7 @@ public class IntersectorPolygon {
     }
 
     public static boolean rectangle(Polygon polygon, Rectangle rectangle) {
-        return Intersector.overlapConvexPolygons(polygon.getTransformedVertices(), RectangleUtils.getAsVertices(rectangle, tmpRectVertices), null);
+        return rectangle(polygon, rectangle, null);
     }
 
     public static boolean rectangle(Polygon polygon, Rectangle rectangle, Intersector.MinimumTranslationVector translationVector) {

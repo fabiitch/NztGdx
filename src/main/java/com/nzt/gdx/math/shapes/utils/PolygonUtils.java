@@ -14,7 +14,6 @@ public class PolygonUtils {
     public static Vector2 tmpV3 = new Vector2();
 
     private PolygonUtils() {
-
     }
 
     /**
@@ -24,7 +23,7 @@ public class PolygonUtils {
         float[] transformedVertices = polygon.getTransformedVertices();
 
         Vector2[] vertices = new Vector2[transformedVertices.length / 2];
-        for (int i = 0; i < transformedVertices.length ; i += 2) {
+        for (int i = 0; i < transformedVertices.length; i += 2) {
             vertices[i / 2] = new Vector2(transformedVertices[i], transformedVertices[i + 1]);
         }
         return vertices;
@@ -91,11 +90,11 @@ public class PolygonUtils {
         return vertices[2 * vertexNum + 1];
     }
 
-    public static Vector2 getVertex(Polygon polygon, int vertexNum, Vector2 pos) {
+    public static Vector2 getVertex(Polygon polygon, int vertexNum, Vector2 result) {
         float[] vertices = polygon.getTransformedVertices();
         if (vertexNum < 0 || vertexNum > vertices.length / 2)
             throw new IllegalArgumentException("getVertex can return vertex range (0,2)");
-        return pos.set(getVertexValue(polygon, vertexNum, true), getVertexValue(polygon, vertexNum, false));
+        return result.set(getVertexValue(polygon, vertexNum, true), getVertexValue(polygon, vertexNum, false));
     }
 
     public static int getVertexBefore(Polygon polygon, int vertex) {
@@ -132,11 +131,11 @@ public class PolygonUtils {
         int n = vertices.length / 2;
 
         for (int i = 0; i < n; i++) {
-            double dx1 = getVertexValue(polygon, (i + 2) % n, true) - getVertexValue(polygon, (i + 1) % n, true);
-            double dy1 = getVertexValue(polygon, (i + 2) % n, false) - getVertexValue(polygon, (i + 1) % n, false);
-            double dx2 = getVertexValue(polygon, (i), true) - getVertexValue(polygon, (i + 1) % n, true);
-            double dy2 = getVertexValue(polygon, (i) % n, false) - getVertexValue(polygon, (i + 1) % n, false);
-            double zcrossproduct = dx1 * dy2 - dy1 * dx2;
+            float dx1 = getVertexValue(polygon, (i + 2) % n, true) - getVertexValue(polygon, (i + 1) % n, true);
+            float dy1 = getVertexValue(polygon, (i + 2) % n, false) - getVertexValue(polygon, (i + 1) % n, false);
+            float dx2 = getVertexValue(polygon, (i), true) - getVertexValue(polygon, (i + 1) % n, true);
+            float dy2 = getVertexValue(polygon, (i) % n, false) - getVertexValue(polygon, (i + 1) % n, false);
+            float zcrossproduct = dx1 * dy2 - dy1 * dx2;
             if (i == 0)
                 sign = zcrossproduct > 0;
             else if (sign != (zcrossproduct > 0))
@@ -146,23 +145,16 @@ public class PolygonUtils {
         return true;
     }
 
-//    //TODO pour polygon shape faire avant le centroid tout sa
-//    public static Vector2 getNearestPoint(Polygon polygon, Vector2 point, Vector2 result) {
-//        return null;
-//    }
-
-    public static Segment getClosestSegment(Polygon polygon, Vector2 point, Segment result) {
+    public static Segment getClosestEdge(Polygon polygon, Vector2 point, Segment result) {
         float dstMin = Float.MAX_VALUE;
-
+        boolean intersectionFind = false;
         float[] vertices = polygon.getTransformedVertices();
         int i = 0;
-
         int vertexA = 0, vertexB = 0;
+
         while (i <= vertices.length / 2) {
             result.a.set(vertices[i], vertices[i + 1]);
             result.b.set(vertices[i + 2], vertices[i + 3]);
-            tmpV1.set(vertices[i], vertices[i + 1]);
-            tmpV2.set(vertices[i + 2], vertices[i + 3]);
             result.closestPoint(point, tmpV1);
 
             float dstPoint = point.dst2(tmpV1);
@@ -170,17 +162,63 @@ public class PolygonUtils {
                 vertexA = i / 2;
                 vertexB = vertexA++;
                 dstMin = dstPoint;
+                if (NzMath.isZero(dstPoint)) {
+                    intersectionFind = true;
+                    break;
+                }
+
             }
             i += 2;
         }
         //last and first point
-        result.a.set(vertices[0], vertices[1]);
-        result.b.set(vertices[vertices.length - 2], vertices[vertices.length - 1]);
-        result.closestPoint(point, tmpV1);
-        float dstPoint = point.dst2(tmpV1);
-        if (dstPoint < dstMin) {
-            vertexA = 0;
-            vertexB = vertices.length / 2 - 1;
+        if (!intersectionFind) {
+            result.a.set(vertices[0], vertices[1]);
+            result.b.set(vertices[vertices.length - 2], vertices[vertices.length - 1]);
+            result.closestPoint(point, tmpV1);
+            float dstPoint = point.dst2(tmpV1);
+            if (dstPoint < dstMin) {
+                vertexA = 0;
+                vertexB = vertices.length / 2 - 1;
+            }
+        }
+        PolygonUtils.getVertex(polygon, vertexA, result.a);
+        PolygonUtils.getVertex(polygon, vertexB, result.b);
+        return result;
+    }
+
+    public static Segment getClosestEdge(Polygon polygon, Segment segment, Segment result) {
+        float dstMinEdgeSegment = Float.MAX_VALUE;
+        boolean intersectionFind = false;
+        float[] vertices = polygon.getTransformedVertices();
+        int i = 0;
+        int vertexA = 0, vertexB = 0;
+
+        while (i <= vertices.length / 2) {
+            result.a.set(vertices[i], vertices[i + 1]);
+            result.b.set(vertices[i + 2], vertices[i + 3]);
+
+            float dstToEdge = SegmentUtils.dstMin(result, segment);
+            if (dstToEdge < dstMinEdgeSegment) {
+                vertexA = i / 2;
+                vertexB = vertexA++;
+                dstMinEdgeSegment = dstToEdge;
+                if (NzMath.isZero(dstToEdge)) {
+                    intersectionFind = true;
+                    break;
+                }
+            }
+            i += 2;
+        }
+
+        //last and first point
+        if (!intersectionFind) {
+            result.a.set(vertices[0], vertices[1]);
+            result.b.set(vertices[vertices.length - 2], vertices[vertices.length - 1]);
+            float dstToEdge = SegmentUtils.dstMin(result, segment);
+            if (dstToEdge < dstMinEdgeSegment) {
+                vertexA = 0;
+                vertexB = vertices.length / 2 - 1;
+            }
         }
         PolygonUtils.getVertex(polygon, vertexA, result.a);
         PolygonUtils.getVertex(polygon, vertexB, result.b);

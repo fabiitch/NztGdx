@@ -34,11 +34,11 @@ public class STCircleReflexionRay extends BaseSTCircle {
         super(main);
         infoMsg("Click for define first and second point of segment");
         infoMsg("----------", "---------");
-        infoMsg("cyan ", "segment");
-        infoMsg("green ", "tangentCircle");
-        infoMsg("blue", "normal of tangentCircle");
-        infoMsg("yellow ", "incidence");
-        infoMsg("purple ", "reflexion");
+        infoMsg("cyan ", "segment", Color.CYAN);
+        infoMsg("green ", "tangentCircle",Color.GREEN);
+        infoMsg("blue", "normal of tangentCircle",Color.BLUE);
+        infoMsg("yellow ", "incidence",Color.YELLOW);
+        infoMsg("purple ", "reflexion",Color.PURPLE);
     }
 
     @Override

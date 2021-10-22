@@ -1,9 +1,11 @@
 package com.nzt.gdx.test.api.math.shape.utils;
 
 import com.badlogic.gdx.math.Circle;
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.nzt.gdx.math.shapes.utils.CircleUtils;
 import com.nzt.gdx.test.api.math.vectors.VTestUtils;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class CircleUtilsTest {
@@ -91,6 +93,17 @@ public class CircleUtilsTest {
 
         normal = CircleUtils.dirToCenter(circle, 90, v());
         VTestUtils.assertEquals(v(0, -1), normal);
+    }
+
+    @Test
+    public void getRectBoundsTest() {
+        Circle circle = new Circle(0, 0, 100);
+        Rectangle rectBounds = CircleUtils.getRectBounds(circle, new Rectangle());
+        Assertions.assertEquals(new Rectangle(-100, -100, 200, 200), rectBounds);
+
+        circle = new Circle(200, 200, 200);
+        rectBounds = CircleUtils.getRectBounds(circle, new Rectangle());
+        Assertions.assertEquals(new Rectangle(0, 0, 400, 400), rectBounds);
     }
 
     private Vector2 v() {

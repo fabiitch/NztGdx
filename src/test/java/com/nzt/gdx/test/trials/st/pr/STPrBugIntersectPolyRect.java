@@ -31,7 +31,7 @@ public class STPrBugIntersectPolyRect extends TestScreen {
         HudDebug.addBotLeft("Intersector.intersectPolygonEdges (FloatArray polygon1, FloatArray polygon2)", false);
         poly1.setPosition(200, 200);
         poly2.setPosition(200, 200);
-
+        infoMsg("Intersector.intersectPolygons (Polygon p1, Polygon p2, Polygon overlap) dont work for rectangles");
 
         HudDebug.addTopRight("Poly1 rotation", 0);
         HudDebug.addTopRight("Poly2 rotation", 0);
@@ -59,7 +59,7 @@ public class STPrBugIntersectPolyRect extends TestScreen {
 
     @Override
     public String getTestExplication() {
-        return "Test intersect two Polygon rectangle";
+        return "Test intersect two Polygon rectangles methods";
     }
 
     @Override

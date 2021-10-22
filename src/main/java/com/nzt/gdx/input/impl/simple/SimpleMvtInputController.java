@@ -2,34 +2,51 @@ package com.nzt.gdx.input.impl.simple;
 
 import com.badlogic.gdx.Input;
 import com.nzt.gdx.input.base.BaseInputHandler;
+import com.nzt.gdx.logger.config.InputLoggerConfig;
 
 //TODO a voir si on met pas ds test
 public abstract class SimpleMvtInputController extends BaseInputHandler {
 
-    public abstract void up();
+    public SimpleMvtInputController() {
+    }
 
-    public abstract void down();
+    public SimpleMvtInputController(InputLoggerConfig loggerConfig) {
+        super(loggerConfig);
+    }
 
-    public abstract void left();
+    public abstract void up(boolean pressed);
 
-    public abstract void right();
+    public abstract void down(boolean pressed);
+
+    public abstract void left(boolean pressed);
+
+    public abstract void right(boolean pressed);
 
     @Override
     public boolean doKeyDown(int keycode) {
         if (keycode == Input.Keys.Z || keycode == Input.Keys.W || keycode == Input.Keys.UP) {
-            up();
+            up(true);
         } else if (keycode == Input.Keys.A || keycode == Input.Keys.Q || keycode == Input.Keys.LEFT) {
-            left();
+            left(true);
         } else if (keycode == Input.Keys.S || keycode == Input.Keys.DOWN) {
-            down();
+            down(true);
         } else if (keycode == Input.Keys.D || keycode == Input.Keys.RIGHT) {
-            right();
+            right(true);
         }
         return false;
     }
 
     @Override
     public boolean doKeyUp(int keycode) {
+        if (keycode == Input.Keys.Z || keycode == Input.Keys.W || keycode == Input.Keys.UP) {
+            up(false);
+        } else if (keycode == Input.Keys.A || keycode == Input.Keys.Q || keycode == Input.Keys.LEFT) {
+            left(false);
+        } else if (keycode == Input.Keys.S || keycode == Input.Keys.DOWN) {
+            down(false);
+        } else if (keycode == Input.Keys.D || keycode == Input.Keys.RIGHT) {
+            right(false);
+        }
         return false;
     }
 

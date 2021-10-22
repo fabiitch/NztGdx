@@ -7,6 +7,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.nzt.gdx.math.AngleUtils;
 import com.nzt.gdx.math.NzMath;
 import com.nzt.gdx.math.shapes.Segment;
+import com.nzt.gdx.math.shapes.builders.PolygonBuilder;
 import com.nzt.gdx.math.vectors.V2;
 import org.graalvm.compiler.loop.MathUtil;
 
@@ -143,33 +144,79 @@ public class RectangleUtils {
         return closestPoint;
     }
 
-    public static Segment closestSegment(Rectangle rectangle, Vector2 point, Segment result) {
-        Vector2 closestPointTmp = tmpV1;
-        Vector2 nextPoint = tmpV2;
-        Segment horizontalBot = RectangleUtils.getHorizontalBot(rectangle, tmpSegment);
-        SegmentUtils.closestPoint(horizontalBot, point, closestPointTmp);
-        result.set(horizontalBot);
+    public static Segment closestEdge(Rectangle rectangle, Segment segment, Segment result) {
+        float dstMin, newDstCompare;
+
+        Segment horizontalBot = RectangleUtils.getHorizontalBot(rectangle, result);
+        dstMin = SegmentUtils.dstMin(horizontalBot, segment);
+        if (NzMath.isZero(dstMin)) {
+            return result;
+        }
 
         Segment horizontalTop = RectangleUtils.getHorizontalTop(rectangle, tmpSegment);
-        SegmentUtils.closestPoint(horizontalTop, point, nextPoint);
-        if (nextPoint.dst2(point) < closestPointTmp.dst2(point)) {
-            closestPointTmp.set(nextPoint);
+        newDstCompare = SegmentUtils.dstMin(horizontalTop, segment);
+        if (newDstCompare < dstMin) {
+            if (NzMath.isZero(newDstCompare))
+                return result.set(horizontalTop);
+            dstMin = newDstCompare;
             result.set(horizontalTop);
         }
 
+        Segment verticalRight = RectangleUtils.getVerticalRight(rectangle, tmpSegment);
+        newDstCompare = SegmentUtils.dstMin(verticalRight, segment);
+        if (newDstCompare < dstMin) {
+            if (NzMath.isZero(newDstCompare))
+                return result.set(verticalRight);
+            dstMin = newDstCompare;
+            result.set(verticalRight);
+        }
+
         Segment verticalLeft = RectangleUtils.getVerticalLeft(rectangle, tmpSegment);
-        SegmentUtils.closestPoint(verticalLeft, point, nextPoint);
-        if (nextPoint.dst2(point) < closestPointTmp.dst2(point)) {
-            closestPointTmp.set(nextPoint);
+        newDstCompare = SegmentUtils.dstMin(verticalLeft, segment);
+        if (newDstCompare < dstMin) {
             result.set(verticalLeft);
         }
 
-        Segment verticalRight = RectangleUtils.getVerticalRight(rectangle, tmpSegment);
-        SegmentUtils.closestPoint(verticalRight, point, nextPoint);
-        if (nextPoint.dst2(point) < closestPointTmp.dst2(point)) {
-            closestPointTmp.set(nextPoint);
-            result.set(verticalRight);
+        return result;
+    }
+
+    public static Segment closestEdge(Rectangle rectangle, Vector2 point, Segment result) {
+        float minDst2, newDst2;
+        Vector2 nextPointToTest = tmpV1;
+
+        Segment horizontalBot = RectangleUtils.getHorizontalBot(rectangle, tmpSegment);
+        SegmentUtils.closestPoint(horizontalBot, point, nextPointToTest);
+        result.set(horizontalBot);
+        minDst2 = nextPointToTest.dst2(point);
+        if (MathUtils.isZero(minDst2))
+            return result;
+
+        Segment horizontalTop = RectangleUtils.getHorizontalTop(rectangle, tmpSegment);
+        SegmentUtils.closestPoint(horizontalTop, point, nextPointToTest);
+        newDst2 = nextPointToTest.dst2(point);
+        if (MathUtils.isZero(minDst2))
+            return result.set(horizontalTop);
+        if (newDst2 < minDst2) {
+            result.set(horizontalTop);
+            minDst2 = newDst2;
         }
+
+        Segment verticalLeft = RectangleUtils.getVerticalLeft(rectangle, tmpSegment);
+        SegmentUtils.closestPoint(verticalLeft, point, nextPointToTest);
+        newDst2 = nextPointToTest.dst2(point);
+        if (MathUtils.isZero(minDst2))
+            return result.set(verticalLeft);
+        if (newDst2 < minDst2) {
+            result.set(verticalLeft);
+            minDst2 = newDst2;
+        }
+
+        Segment verticalRight = RectangleUtils.getVerticalRight(rectangle, tmpSegment);
+        SegmentUtils.closestPoint(verticalRight, point, nextPointToTest);
+        newDst2 = nextPointToTest.dst2(point);
+        if (newDst2 < minDst2)
+            return result.set(verticalRight);
+
         return result;
     }
 

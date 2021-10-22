@@ -1,6 +1,7 @@
 package com.nzt.gdx.math.shapes.builders;
 
 import com.badlogic.gdx.math.Polygon;
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.nzt.gdx.math.shapes.utils.RectangleUtils;
 
@@ -8,6 +9,10 @@ public class PolygonBuilder {
 
     private PolygonBuilder() {
 
+    }
+
+    public static Polygon rectangle(Rectangle rect, boolean setCenterRect) {
+        return new Polygon(RectangleUtils.toVertices(rect, setCenterRect));
     }
 
     public static Polygon rectangle(float width, float height, boolean setCenterRect) {

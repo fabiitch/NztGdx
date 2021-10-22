@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class PolygonUtilsTest {
-    private static final Vector2 tmp = new Vector2();
+    private static final Vector2 tmp = v(0,0);
 
     float[] vertices = new float[]{0, 0, 50, 50, 60, 60, 300, 0};
     Polygon polygon = new Polygon(vertices);
@@ -19,10 +19,10 @@ public class PolygonUtilsTest {
     @Test
     public void verticesAsVectorsTest() {
         Vector2[] verticesAsVectors = PolygonUtils.getVerticesAsVectors(polygon);
-        VTestUtils.assertEquals(new Vector2(0, 0), verticesAsVectors[0]);
-        VTestUtils.assertEquals(new Vector2(50, 50), verticesAsVectors[1]);
-        VTestUtils.assertEquals(new Vector2(60, 60), verticesAsVectors[2]);
-        VTestUtils.assertEquals(new Vector2(300, 0), verticesAsVectors[3]);
+        VTestUtils.assertEquals(v(0, 0), verticesAsVectors[0]);
+        VTestUtils.assertEquals(v(50, 50), verticesAsVectors[1]);
+        VTestUtils.assertEquals(v(60, 60), verticesAsVectors[2]);
+        VTestUtils.assertEquals(v(300, 0), verticesAsVectors[3]);
     }
 
     @Test
@@ -53,24 +53,24 @@ public class PolygonUtilsTest {
         float maxDstVertexFromZero = PolygonUtils.getMaxDstVertex(polygon, tmp);
         float maxDstVertexFromZero2 = PolygonUtils.getMaxDstVertex(polygon);
 
-        VTestUtils.assertEquals(new Vector2(300, 0), tmp);
+        VTestUtils.assertEquals(v(300, 0), tmp);
         Assertions.assertEquals(300, maxDstVertexFromZero);
         Assertions.assertEquals(300, maxDstVertexFromZero2);
     }
 
     @Test
-    public void getVertex() {
+    public void getVertexTest() {
         PolygonUtils.getVertex(polygon, 0, tmp);
-        VTestUtils.assertEquals(new Vector2(0, 0), tmp);
+        VTestUtils.assertEquals(v(0, 0), tmp);
 
         PolygonUtils.getVertex(polygon, 1, tmp);
-        VTestUtils.assertEquals(new Vector2(50, 50), tmp);
+        VTestUtils.assertEquals(v(50, 50), tmp);
 
         PolygonUtils.getVertex(polygon, 2, tmp);
-        VTestUtils.assertEquals(new Vector2(60, 60), tmp);
+        VTestUtils.assertEquals(v(60, 60), tmp);
 
         PolygonUtils.getVertex(polygon, 3, tmp);
-        VTestUtils.assertEquals(new Vector2(300, 0), tmp);
+        VTestUtils.assertEquals(v(300, 0), tmp);
     }
 
     @Test
@@ -92,7 +92,7 @@ public class PolygonUtilsTest {
 
     @Test
     public void getVertexAngleTest2() {
-        Triangle triangle = TriangleBuilder.isoscelesRectangle(0, new Vector2(), 50);
+        Triangle triangle = TriangleBuilder.isoscelesRectangle(0, v(0,0), 50);
 
         float angleA = PolygonUtils.getVertexAngleDeg(triangle, 0);
         Assertions.assertEquals(90, angleA, 0);
@@ -106,11 +106,11 @@ public class PolygonUtilsTest {
     }
 
     @Test
-    public void isConvex() {
+    public void isConvexTest() {
         Polygon rect = new Polygon(new float[]{0, 0, 100, 0, 100, 50, 0, 50});
         Assertions.assertTrue(PolygonUtils.isConvex(rect));
 
-        Triangle triangle = TriangleBuilder.isoscelesRectangle(0, new Vector2(), 50);
+        Triangle triangle = TriangleBuilder.isoscelesRectangle(0, v(0,0), 50);
         Assertions.assertTrue(PolygonUtils.isConvex(triangle));
 
         Assertions.assertTrue(PolygonUtils.isConvex(polygon));
@@ -120,24 +120,59 @@ public class PolygonUtilsTest {
     }
 
     @Test
-    public void getClosestSegment() {
+    public void getClosestEdgeFromPointTest() {
         Segment result = new Segment();
         Polygon rect = new Polygon(new float[]{0, 0, 100, 0, 100, 50, 0, 50});
 
-        PolygonUtils.getClosestSegment(rect, new Vector2(50, 150), result);
-        Assertions.assertTrue(result.equalsPoints(new Segment(0, 50, 100, 50)));
+        PolygonUtils.getClosestEdge(rect, v(50, 150), result);
+        Assertions.assertTrue(result.equalsPoints(s(0, 50, 100, 50)));
 
-        PolygonUtils.getClosestSegment(rect, new Vector2(-25, 25), result);
-        Assertions.assertTrue(result.equalsPoints(new Segment(0, 0, 0, 50)));
+        PolygonUtils.getClosestEdge(rect, v(-25, 25), result);
+        Assertions.assertTrue(result.equalsPoints(s(0, 0, 0, 50)));
 
-        PolygonUtils.getClosestSegment(rect, new Vector2(600, 25), result);
-        Assertions.assertTrue(result.equalsPoints(new Segment(100, 0, 100, 50)));
+        PolygonUtils.getClosestEdge(rect, v(600, 25), result);
+        Assertions.assertTrue(result.equalsPoints(s(100, 0, 100, 50)));
 
-        PolygonUtils.getClosestSegment(rect, new Vector2(50, -150), result);
-        Assertions.assertTrue(result.equalsPoints(new Segment(0, 0, 100, 0)));
+        PolygonUtils.getClosestEdge(rect, v(50, -150), result);
+        Assertions.assertTrue(result.equalsPoints(s(0, 0, 100, 0)));
 
         //inside
-        PolygonUtils.getClosestSegment(rect, new Vector2(50, 10), result);
-        Assertions.assertTrue(result.equalsPoints(new Segment(0, 0, 100, 0)));
+        PolygonUtils.getClosestEdge(rect, v(50, 10), result);
+        Assertions.assertTrue(result.equalsPoints(s(0, 0, 100, 0)));
+
+        //on edge
+        PolygonUtils.getClosestEdge(rect, v(50, 0), result);
+        Assertions.assertTrue(result.equalsPoints(s(0, 0, 100, 0)));
     }
+
+    @Test
+    public void getClosestEdgeFromSegmentTest() {
+        Segment result = new Segment();
+        Polygon rect = new Polygon(new float[]{0, 0, 100, 0, 100, 50, 0, 50});
+
+        //perp left
+        PolygonUtils.getClosestEdge(rect, s(-50,25,10,25), result);
+        Assertions.assertTrue(result.equalsPoints(s(0, 0, 0, 50)));
+
+        //parallel left
+        PolygonUtils.getClosestEdge(rect, s(-100,25,-50,25), result);
+        Assertions.assertTrue(result.equalsPoints(s(0, 0, 0, 50)));
+
+        //intersectTop
+        PolygonUtils.getClosestEdge(rect, s(25,100,25,25), result);
+        Assertions.assertTrue(result.equalsPoints(s(0, 50, 100, 50)));
+
+        //intersectTopBot
+        PolygonUtils.getClosestEdge(rect, s(25,100,25,-50), result);
+        Assertions.assertTrue(result.equalsPoints(s(0, 50, 100, 50)) || result.equalsPoints(s(0, 0, 100, 0)));
+    }
+
+    private static Segment s(float aX, float aY, float bX, float bY) {
+        return new Segment(aX, aY, bX, bY);
+    }
+
+    private static Vector2 v(float a, float b) {
+        return new Vector2(a, b);
+    }
+
 }

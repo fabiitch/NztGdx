@@ -1,6 +1,7 @@
 package com.nzt.gdx.test.trials;
 
 import com.nzt.gdx.test.trials.st.math.shapes.circle.STCircleReflexionRay;
+import com.nzt.gdx.test.trials.st.math.shapes.polygons.STPolygonIntersector;
 import com.nzt.gdx.test.trials.tester.archi.mains.SingleScreenTestMain;
 import com.nzt.gdx.test.trials.tester.archi.mains.StarterTestConfig;
 
@@ -8,7 +9,7 @@ import com.nzt.gdx.test.trials.tester.archi.mains.StarterTestConfig;
 Use it for Test one class with screenTestClass
  */
 public class NztTestStarter {
-    private static final Class screenTestClass = STCircleReflexionRay.class;
+    private static final Class screenTestClass = STPolygonIntersector.class;
 
     public static void startScreen(Class screenTestClass) {
         StarterTestConfig.startLwjgl3(new SingleScreenTestMain(screenTestClass),

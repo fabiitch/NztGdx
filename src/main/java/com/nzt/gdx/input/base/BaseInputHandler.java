@@ -10,8 +10,10 @@ import com.nzt.gdx.logger.config.InputLoggerConfig;
 import com.nzt.gdx.logger.tag.LogTagsBase;
 import com.nzt.gdx.logger.tag.TagLogger;
 
+
 /**
  * Simple InputProcessor with TagLogger on events, see {@link LogTagsBase#INPUT}
+ * //TODO a viré tous les if, transfo en debugInputHandler
  * and {@link TagLogger}
  *
  * @author fabiitch
