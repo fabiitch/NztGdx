@@ -7,6 +7,7 @@ import com.nzt.gdx.test.api.math.vectors.VTestUtils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import static com.nzt.gdx.math.shapes.utils.SegmentUtils.dstMin;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -34,7 +35,7 @@ public class SegmentUtilsTest {
         boolean intersect = SegmentUtils.getSegmentIntersection(s1, s2, intersection);
 
         assertTrue(intersect);
-        VTestUtils.assertEquals(92.14f, 102.08f, intersection,TOLERANCE);
+        VTestUtils.assertEquals(92.14f, 102.08f, intersection, TOLERANCE);
     }
 
     @Test
@@ -45,7 +46,7 @@ public class SegmentUtilsTest {
         boolean intersect = SegmentUtils.getSegmentIntersection(s1, s2, intersection);
 
         assertFalse(intersect);
-        VTestUtils.assertEquals(0, 0, intersection,TOLERANCE);
+        VTestUtils.assertEquals(0, 0, intersection, TOLERANCE);
     }
 
     @Test
@@ -62,6 +63,32 @@ public class SegmentUtilsTest {
         Vector2 direction = v(1, 1).nor();
         float angleReflexion = SegmentUtils.getAngleReflexionDeg(s1, direction);
         Assertions.assertEquals(135f, angleReflexion, 0.1f);
+    }
+
+
+    @Test
+    public void minDistanceTest() {
+        Segment s1, s2;
+        //parralel
+        s1 = s(0, 0, 50, 0);
+        s2 = s(-50, -50, 0, -50);
+        Assertions.assertEquals(50, dstMin(s1, s2));
+
+        //intersect
+        s1 = s(0, 0, 50, 0);
+        s2 = s(25, 25, 0, -50);
+        Assertions.assertEquals(0, dstMin(s1, s2));
+
+
+        //perpendiculary not intersect
+        s1 = s(0, 0, 50, 0);
+        s2 = s(25, 100, 0, 10);
+        Assertions.assertEquals(10, dstMin(s1, s2));
+
+        //random
+        s1 = s(0, 0, 50, 0);
+        s2 = s(-50, 100, 20, 10);
+        Assertions.assertEquals(10, dstMin(s1, s2));
     }
 
     private Segment s(float aX, float aY, float bX, float bY) {

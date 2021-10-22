@@ -1,4 +1,4 @@
-package com.nzt.gdx.test.trials.st.math.shapes;
+package com.nzt.gdx.test.trials.st.math.shapes.polygons;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
@@ -11,14 +11,14 @@ import com.nzt.gdx.test.trials.tester.archi.screens.TestScreen;
 import com.nzt.gdx.test.trials.tester.selector.TestScreenList;
 import com.nzt.gdx.utils.GdxUtils;
 
-@TestScreenList(group = "math.shapes")
+@TestScreenList(group = "math.shapes.polygon")
 public class STPolygon extends TestScreen {
     private final BitmapFont font;
 
 
-    private final Polygon polygon;
-    private final Vector2 centerPolygon = new Vector2();
-    private final Vector2 tmp = new Vector2();
+    protected final Polygon polygon;
+    protected final Vector2 centerPolygon = new Vector2();
+    protected final Vector2 tmp = new Vector2();
 
     public STPolygon(FastTesterMain main) {
         super(main);

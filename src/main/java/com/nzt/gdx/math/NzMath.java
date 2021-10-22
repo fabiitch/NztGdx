@@ -4,8 +4,19 @@ import com.badlogic.gdx.math.MathUtils;
 
 public class NzMath {
 
+    public static final float FLOAT_ROUNDING_ERROR = MathUtils.FLOAT_ROUNDING_ERROR;
+
     private NzMath() {
 
+    }
+
+    //TODO plein de replace a faire sur les distance qui ne peuvent etre negative
+    public static boolean isZero(float positive) {
+        return positive <= FLOAT_ROUNDING_ERROR;
+    }
+
+    public static boolean isZero(float positive, float tolerance) {
+        return positive <= tolerance;
     }
 
     //TODO présent en java8 sur Math
