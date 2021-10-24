@@ -7,9 +7,6 @@ import com.badlogic.gdx.math.Vector2;
 import com.nzt.gdx.math.AngleUtils;
 import com.nzt.gdx.math.NzMath;
 import com.nzt.gdx.math.shapes.Segment;
-import com.nzt.gdx.math.shapes.builders.PolygonBuilder;
-import com.nzt.gdx.math.vectors.V2;
-import org.graalvm.compiler.loop.MathUtil;
 
 //TODO groupé les math tmpV1 vector segment ect
 
@@ -188,13 +185,13 @@ public class RectangleUtils {
         SegmentUtils.closestPoint(horizontalBot, point, nextPointToTest);
         result.set(horizontalBot);
         minDst2 = nextPointToTest.dst2(point);
-        if (MathUtils.isZero(minDst2))
+        if (NzMath.isZero(minDst2))
             return result;
 
         Segment horizontalTop = RectangleUtils.getHorizontalTop(rectangle, tmpSegment);
         SegmentUtils.closestPoint(horizontalTop, point, nextPointToTest);
         newDst2 = nextPointToTest.dst2(point);
-        if (MathUtils.isZero(minDst2))
+        if (NzMath.isZero(minDst2))
             return result.set(horizontalTop);
         if (newDst2 < minDst2) {
             result.set(horizontalTop);
@@ -204,7 +201,7 @@ public class RectangleUtils {
         Segment verticalLeft = RectangleUtils.getVerticalLeft(rectangle, tmpSegment);
         SegmentUtils.closestPoint(verticalLeft, point, nextPointToTest);
         newDst2 = nextPointToTest.dst2(point);
-        if (MathUtils.isZero(minDst2))
+        if (NzMath.isZero(minDst2))
             return result.set(verticalLeft);
         if (newDst2 < minDst2) {
             result.set(verticalLeft);
