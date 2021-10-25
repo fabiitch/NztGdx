@@ -4,17 +4,21 @@ import com.badlogic.gdx.math.Circle;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.nzt.gdx.math.shapes.utils.CircleUtils;
+import com.nzt.gdx.test.api.math.AbstractMathTest;
 import com.nzt.gdx.test.api.math.vectors.VTestUtils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class CircleUtilsTest {
+import static com.nzt.gdx.test.api.math.AbstractMathTest.c;
+import static com.nzt.gdx.test.api.math.AbstractMathTest.v;
+
+public class CircleUtilsTest extends AbstractMathTest {
     private final static Vector2 tmp = new Vector2();
     private final static float TOLERANCE = 0.001f;
 
     @Test
     public void getCenterTest() {
-        Circle circle = new Circle(50, 50, 50);
+        Circle circle = c(50, 50, 50);
         Vector2 center = CircleUtils.getCenter(circle, tmp);
         VTestUtils.assertEquals(center, v(50, 50));
     }
@@ -22,7 +26,7 @@ public class CircleUtilsTest {
     @Test
     public void posWithAngleDegTest() {
 
-        Circle circle = new Circle(0, 0, 50);
+        Circle circle = c(0, 0, 50);
         Vector2 pos;
 
         pos = CircleUtils.posWithAngleDeg(circle, 0, tmp);
@@ -44,7 +48,7 @@ public class CircleUtilsTest {
 
     @Test
     public void getTangentTest() {
-        Circle circle = new Circle(0, 0, 50);
+        Circle circle = c(0, 0, 50);
         Vector2 tangent;
 
         tangent = CircleUtils.getTangentDeg(circle, 0, tmp);
@@ -63,7 +67,7 @@ public class CircleUtilsTest {
 
     @Test
     public void dirFromCenter() {
-        Circle circle = new Circle(0, 0, 50);
+        Circle circle = c(0, 0, 50);
         Vector2 normal;
         normal = CircleUtils.dirFromCenter(circle, v(50, 0), v());
         VTestUtils.assertEquals(v(1, 0), normal);
@@ -80,7 +84,7 @@ public class CircleUtilsTest {
 
     @Test
     public void dirToCenter() {
-        Circle circle = new Circle(0, 0, 50);
+        Circle circle = c(0, 0, 50);
         Vector2 normal;
         normal = CircleUtils.dirToCenter(circle, v(50, 0), v());
         VTestUtils.assertEquals(v(-1, 0), normal);
@@ -97,20 +101,14 @@ public class CircleUtilsTest {
 
     @Test
     public void getRectBoundsTest() {
-        Circle circle = new Circle(0, 0, 100);
+        Circle circle = c(0, 0, 100);
         Rectangle rectBounds = CircleUtils.getRectBounds(circle, new Rectangle());
         Assertions.assertEquals(new Rectangle(-100, -100, 200, 200), rectBounds);
 
-        circle = new Circle(200, 200, 200);
+        circle = c(200, 200, 200);
         rectBounds = CircleUtils.getRectBounds(circle, new Rectangle());
         Assertions.assertEquals(new Rectangle(0, 0, 400, 400), rectBounds);
     }
 
-    private Vector2 v() {
-        return new Vector2();
-    }
 
-    private Vector2 v(float x, float y) {
-        return new Vector2(x, y);
-    }
 }

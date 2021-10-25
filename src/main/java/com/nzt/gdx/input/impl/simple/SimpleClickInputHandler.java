@@ -27,6 +27,11 @@ public abstract class SimpleClickInputHandler extends MouseInputHandler {
         return V2.set(clickPos, camera.unproject(V3.tmp(screenX, screenY)));
     }
 
+    public Vector2 getClickPos(Camera camera, int screenX, int screenY) {
+        return V2.set(new Vector2(), camera.unproject(V3.tmp(screenX, screenY)));
+    }
+
+
     public Vector2 getClickPos(int screenX, int screenY, Vector2 clickPos) {
         return clickPos.set(screenX, Gdx.graphics.getHeight() - screenY);
     }

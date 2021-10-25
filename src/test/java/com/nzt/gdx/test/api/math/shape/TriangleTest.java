@@ -3,6 +3,7 @@ package com.nzt.gdx.test.api.math.shape;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 import com.nzt.gdx.math.shapes.Triangle;
+import com.nzt.gdx.test.api.math.AbstractMathTest;
 import com.nzt.gdx.test.api.math.vectors.VTestUtils;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -11,7 +12,7 @@ import org.junit.jupiter.api.TestInstance;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-public class TriangleTest {
+public class TriangleTest extends AbstractMathTest {
     private static final float ANGLE_TOLERANCE = 1f;
     private static final float POSITION_TOLERANCE = 0.01f;
 
@@ -104,7 +105,4 @@ public class TriangleTest {
         assertEquals(1, 10 % 3);
     }
 
-    private Vector2 v(float a, float b) {
-        return new Vector2(a, b);
-    }
 }

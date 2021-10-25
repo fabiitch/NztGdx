@@ -1,12 +1,12 @@
 package com.nzt.gdx.test.api.math;
 
 import com.badlogic.gdx.math.MathUtils;
-import com.badlogic.gdx.math.Vector2;
 import com.nzt.gdx.math.AngleUtils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static com.nzt.gdx.math.AngleUtils.normaliseDeg;
+import static com.nzt.gdx.test.api.math.AbstractMathTest.v;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class AngleUtilsTest {
@@ -81,7 +81,4 @@ public class AngleUtilsTest {
         assertEquals(0, AngleUtils.normaliseRadPiNPi(MathUtils.PI * 4), DELTA_01);
     }
 
-    private Vector2 v(float a, float b) {
-        return new Vector2(a, b);
-    }
 }

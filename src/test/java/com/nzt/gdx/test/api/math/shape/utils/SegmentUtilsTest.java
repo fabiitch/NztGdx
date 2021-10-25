@@ -3,6 +3,7 @@ package com.nzt.gdx.test.api.math.shape.utils;
 import com.badlogic.gdx.math.Vector2;
 import com.nzt.gdx.math.shapes.Segment;
 import com.nzt.gdx.math.shapes.utils.SegmentUtils;
+import com.nzt.gdx.test.api.math.AbstractMathTest;
 import com.nzt.gdx.test.api.math.vectors.VTestUtils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -11,7 +12,7 @@ import static com.nzt.gdx.math.shapes.utils.SegmentUtils.dstMin;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class SegmentUtilsTest {
+public class SegmentUtilsTest extends AbstractMathTest {
 
     private static final float TOLERANCE = 0.01f;
 
@@ -91,12 +92,5 @@ public class SegmentUtilsTest {
         Assertions.assertEquals(10, dstMin(s1, s2));
     }
 
-    private Segment s(float aX, float aY, float bX, float bY) {
-        return new Segment(aX, aY, bX, bY);
-    }
-
-    private Vector2 v(float a, float b) {
-        return new Vector2(a, b);
-    }
 
 }

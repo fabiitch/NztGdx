@@ -382,6 +382,32 @@ public class RectangleUtils {
     }
 
     /**
+     * grow rect to get this pos inside
+     */
+    public static Rectangle growRect(Rectangle rect, Vector2 pos) {
+        return growRect(rect, pos.x, pos.y);
+    }
+
+    /**
+     * grow rect to get this pos inside
+     */
+    public static Rectangle growRect(Rectangle rect, float x, float y) {
+        if (x < rect.x) {
+            rect.width += rect.x - x;
+            rect.x = x;
+        } else if (x > rect.x + rect.width)
+            rect.width = x - rect.x;
+
+        if (y < rect.y) {
+            rect.height += rect.y - y;
+            rect.y = y;
+        } else if (y > rect.y + rect.height)
+            rect.height = y - rect.y;
+        return rect;
+    }
+
+
+    /**
      * intersection between ray from center and edge
      */
 //    public static Vector2 posOnEdgeAngle(Rectangle rect, float angleDeg, Vector2 result) {
