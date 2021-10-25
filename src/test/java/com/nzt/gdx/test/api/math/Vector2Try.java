@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * pour test vite fait  les methode de Vector2
  */
 @Disabled
-public class Vector2Try {
+public class Vector2Try extends AbstractMathTest{
     private static final float DELTA_01 = 0.1f;
 
     private Vector2 v1;
@@ -150,9 +150,5 @@ public class Vector2Try {
                 v.y /= len;
             }
         }
-    }
-
-    private Vector2 v(float a, float b) {
-        return new Vector2(a, b);
     }
 }

@@ -4,10 +4,13 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
 import com.nzt.gdx.math.vectors.V;
 import com.nzt.gdx.math.vectors.V2;
+import com.nzt.gdx.test.api.math.AbstractMathTest;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class V2Test {
+import static com.nzt.gdx.test.api.math.AbstractMathTest.v;
+
+public class V2Test extends AbstractMathTest {
 
     @Test
     public void getClosestTest() {
@@ -112,13 +115,5 @@ public class V2Test {
 
         max = V2.max(v(50, 50), 0);
         VTestUtils.assertEquals(0, 0, max);
-    }
-
-    private Vector2 v() {
-        return new Vector2();
-    }
-
-    private Vector2 v(float a, float b) {
-        return new Vector2(a, b);
     }
 }

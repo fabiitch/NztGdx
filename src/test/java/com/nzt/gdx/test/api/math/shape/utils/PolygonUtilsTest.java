@@ -10,6 +10,9 @@ import com.nzt.gdx.test.api.math.vectors.VTestUtils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import static com.nzt.gdx.test.api.math.AbstractMathTest.s;
+import static com.nzt.gdx.test.api.math.AbstractMathTest.v;
+
 public class PolygonUtilsTest {
     private static final Vector2 tmp = v(0,0);
 
@@ -167,12 +170,5 @@ public class PolygonUtilsTest {
         Assertions.assertTrue(result.equalsPoints(s(0, 50, 100, 50)) || result.equalsPoints(s(0, 0, 100, 0)));
     }
 
-    private static Segment s(float aX, float aY, float bX, float bY) {
-        return new Segment(aX, aY, bX, bY);
-    }
-
-    private static Vector2 v(float a, float b) {
-        return new Vector2(a, b);
-    }
 
 }

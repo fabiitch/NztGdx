@@ -6,13 +6,14 @@ import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.nzt.gdx.math.shapes.Segment;
 import com.nzt.gdx.math.shapes.utils.RectangleUtils;
+import com.nzt.gdx.test.api.math.AbstractMathTest;
 import com.nzt.gdx.test.api.math.vectors.VTestUtils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class RectangleUtilsTest {
+public class RectangleUtilsTest extends AbstractMathTest {
 
     private final static float DELTA = MathUtils.FLOAT_ROUNDING_ERROR;
 
@@ -281,6 +282,35 @@ public class RectangleUtilsTest {
 
     }
 
+    @Test
+    public void growRectTest() {
+        Rectangle rect = r(100, 100);
+
+        RectangleUtils.growRect(rect, 50, 50); //contains
+        Assertions.assertEquals(r(0, 0, 100, 100), rect);
+
+        RectangleUtils.growRect(rect, -10, 50); //grow -x
+        Assertions.assertEquals(r(-10, 0, 110, 100), rect);
+
+        RectangleUtils.growRect(rect, -5, 50);//contains
+        Assertions.assertEquals(r(-10, 0, 110, 100), rect);
+
+        RectangleUtils.growRect(rect, 0, -10); //grow -y
+        Assertions.assertEquals(r(-10, -10, 110, 110), rect);
+
+        RectangleUtils.growRect(rect, 0, -5); //contains
+        Assertions.assertEquals(r(-10, -10, 110, 110), rect);
+
+        RectangleUtils.growRect(rect, 150, -10); //grow +x
+        Assertions.assertEquals(r(-10, -10, 160, 110), rect);
+
+        RectangleUtils.growRect(rect, 100, -10);//contains
+        Assertions.assertEquals(r(-10, -10, 160, 110), rect);
+
+        RectangleUtils.growRect(rect, 100, 150); //grow +y
+        Assertions.assertEquals(r(-10, -10, 160, 160), rect);
+    }
+
     //TODO marche pas
 //    @Test
 //    public void posOnEdgeAngleTest() {
@@ -335,4 +365,6 @@ public class RectangleUtilsTest {
 ////        RectangleUtils.posOnEdgeAngle(rect, MathUtils.degreesToRadians * -360, point);
 ////        VTestUtils.assertEquals(20, 5, point, TOLERANCE);
 //    }
+
+
 }
