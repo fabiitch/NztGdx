@@ -1,5 +1,6 @@
 package com.nzt.gdx.test.api.math.vectors;
 
+import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
 import com.nzt.gdx.math.vectors.V;
@@ -8,9 +9,17 @@ import com.nzt.gdx.test.api.math.AbstractMathTest;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import static com.nzt.gdx.test.api.math.AbstractMathTest.v;
-
 public class V2Test extends AbstractMathTest {
+
+    @Test
+    public void isZeroTest() {
+        Assertions.assertTrue(V2.isZero(v()));
+        Assertions.assertTrue(V2.isZero(v(MathUtils.FLOAT_ROUNDING_ERROR / 2, MathUtils.FLOAT_ROUNDING_ERROR / 2)));
+        Assertions.assertTrue(V2.isZero(v(0.1f, 0.1f), 0.1f));
+
+        Assertions.assertFalse(V2.isZero(v(1, 0)));
+        Assertions.assertFalse(V2.isZero(v(0.11f, 0.11f), 0.1f));
+    }
 
     @Test
     public void getClosestTest() {

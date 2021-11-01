@@ -18,7 +18,6 @@ import com.nzt.gdx.math.shapes.Segment;
 public class RectangleUtils {
 
     private static final Vector2 tmpV1 = new Vector2();
-    private static final Vector2 tmpV2 = new Vector2();
     private static final Segment tmpSegment = new Segment();
 
     /**
@@ -266,20 +265,29 @@ public class RectangleUtils {
         return -1;
     }
 
+    public static boolean isCenter(Rectangle rect, Vector2 pos) {
+        return MathUtils.isEqual(rect.x + rect.width / 2, pos.x)
+                && MathUtils.isEqual(rect.y + rect.height / 2, pos.y);
+    }
+
     public static boolean isPosA(Rectangle rect, Vector2 pos) {
-        return MathUtils.isEqual(rect.x, pos.x) && MathUtils.isEqual(rect.y, pos.y);
+        return MathUtils.isEqual(rect.x, pos.x)
+                && MathUtils.isEqual(rect.y, pos.y);
     }
 
     public static boolean isPosB(Rectangle rect, Vector2 pos) {
-        return MathUtils.isEqual(rect.x + rect.width, pos.x) && MathUtils.isEqual(rect.y, pos.y);
+        return MathUtils.isEqual(rect.x + rect.width, pos.x)
+                && MathUtils.isEqual(rect.y, pos.y);
     }
 
     public static boolean isPosC(Rectangle rect, Vector2 pos) {
-        return MathUtils.isEqual(rect.x + rect.width, pos.x) && MathUtils.isEqual(rect.y + rect.width, pos.y);
+        return MathUtils.isEqual(rect.x + rect.width, pos.x)
+                && MathUtils.isEqual(rect.y + rect.width, pos.y);
     }
 
     public static boolean isPosD(Rectangle rect, Vector2 pos) {
-        return MathUtils.isEqual(rect.x, pos.x) && MathUtils.isEqual(rect.y + rect.width, pos.y);
+        return MathUtils.isEqual(rect.x, pos.x)
+                && MathUtils.isEqual(rect.y + rect.width, pos.y);
     }
 
     public static Segment getHorizontalBot(Rectangle rect, Segment segment) {
@@ -404,6 +412,77 @@ public class RectangleUtils {
         } else if (y > rect.y + rect.height)
             rect.height = y - rect.y;
         return rect;
+    }
+
+    /**
+     * 1-8 = out
+     * 9-12 = inside
+     * 13 = center
+     */
+    public static int getRegion(Rectangle rect, Vector2 position) {
+        int pos = getRegionOutside(rect, position);
+        if (pos == 0)
+            pos = getRegionInside(rect, position) + 8;
+        return pos;
+    }
+
+    /**
+     * 0 = outside
+     * 5 = center
+     * ________
+     * | 4 | 3 |
+     * |_1_|_2_|
+     */
+    public static int getRegionInside(Rectangle rect, Vector2 position) {
+        float x = position.x, y = position.y;
+        float midX = rect.x + rect.width / 2, midY = rect.y + rect.height / 2;
+        if (!rect.contains(x, y))
+            return 0;
+        if (isCenter(rect, tmpV1.set(x, y)))
+            return 5;
+        if (x > midX) {
+            if (y > midY)
+                return 3;
+            else
+                return 2;
+        } else if (y > midY)
+            return 4;
+        else
+            return 1;
+    }
+
+    /**
+     * Renvoi la position relative au rect
+     * 0 = inside
+     * 4 |  3 | 2
+     * __|____|__
+     * 5 |  0 | 1
+     * __|____|___
+     * 6 |  7 | 8
+     */
+    public static int getRegionOutside(Rectangle rect, Vector2 position) {
+        float x = position.x, y = position.y;
+        int result = 0;
+        float rectX = rect.x, rectY = rect.y;
+        if (x < rectX) {
+            result = 5;
+            if (y < rectY)
+                result = 6;
+            else if (y > rectY + rect.height)
+                result = 4;
+        } else if (x > rectX + rect.width) {
+            result = 1;
+            if (y < rectY)
+                result = 8;
+            else if (y > rectY + rect.height)
+                result = 2;
+        } else {
+            if (y < rectY)
+                result = 7;
+            else if (y > rectY + rect.height)
+                result = 3;
+        }
+        return result;
     }
 
 

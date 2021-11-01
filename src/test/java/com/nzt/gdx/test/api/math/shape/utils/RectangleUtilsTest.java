@@ -11,7 +11,8 @@ import com.nzt.gdx.test.api.math.vectors.VTestUtils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class RectangleUtilsTest extends AbstractMathTest {
 
@@ -279,7 +280,6 @@ public class RectangleUtilsTest extends AbstractMathTest {
 
         RectangleUtils.getEdgeWithAngle(rect, 314 + -720, edge);
         assertEquals(RectangleUtils.getHorizontalBot(rect, new Segment()), edge);
-
     }
 
     @Test
@@ -309,6 +309,76 @@ public class RectangleUtilsTest extends AbstractMathTest {
 
         RectangleUtils.growRect(rect, 100, 150); //grow +y
         Assertions.assertEquals(r(-10, -10, 160, 160), rect);
+    }
+
+    /**
+     * 0 = outside
+     * 5 = center
+     * ________
+     * | 4 | 3 |
+     * |_1_|_2_|
+     */
+    @Test
+    public void getRegionInsideTest() {
+        Rectangle rect = r(200, 100);
+        Assertions.assertEquals(0, RectangleUtils.getRegionInside(rect, v(-10, -10)));
+        Assertions.assertEquals(1, RectangleUtils.getRegionInside(rect, v(50, 25)));
+        Assertions.assertEquals(2, RectangleUtils.getRegionInside(rect, v(150, 25)));
+        Assertions.assertEquals(3, RectangleUtils.getRegionInside(rect, v(150, 75)));
+        Assertions.assertEquals(4, RectangleUtils.getRegionInside(rect, v(50, 75)));
+        Assertions.assertEquals(5, RectangleUtils.getRegionInside(rect, v(100, 50)));
+    }
+
+    /**
+     * Renvoi la position relative au rect
+     * 0 = inside
+     * 4 |  3 | 2
+     * __|____|__
+     * 5 |  0 | 1
+     * __|____|___
+     * 6 |  7 | 8
+     */
+    @Test
+    public void getRegionOutsideTest() {
+        Rectangle rect = r(200, 100);
+        float lowX = -50, hightX = 250, inX = 100;
+        float lowY = -25, hightY = 125, inY = 50;
+        Assertions.assertEquals(0, RectangleUtils.getRegionOutside(rect, v(inX, inY)));
+        Assertions.assertEquals(1, RectangleUtils.getRegionOutside(rect, v(hightX, inY)));
+        Assertions.assertEquals(2, RectangleUtils.getRegionOutside(rect, v(hightX, hightY)));
+        Assertions.assertEquals(3, RectangleUtils.getRegionOutside(rect, v(inX, hightY)));
+        Assertions.assertEquals(4, RectangleUtils.getRegionOutside(rect, v(lowX, hightY)));
+        Assertions.assertEquals(5, RectangleUtils.getRegionOutside(rect, v(lowX, inY)));
+        Assertions.assertEquals(6, RectangleUtils.getRegionOutside(rect, v(lowX, lowY)));
+        Assertions.assertEquals(7, RectangleUtils.getRegionOutside(rect, v(inX, lowY)));
+        Assertions.assertEquals(8, RectangleUtils.getRegionOutside(rect, v(hightX, lowY)));
+
+        //vertex
+        Assertions.assertEquals(0, RectangleUtils.getRegionOutside(rect, v(0, 0)));
+        Assertions.assertEquals(0, RectangleUtils.getRegionOutside(rect, v(rect.width, rect.height)));
+        Assertions.assertEquals(0, RectangleUtils.getRegionOutside(rect, v(0, rect.height)));
+        Assertions.assertEquals(0, RectangleUtils.getRegionOutside(rect, v(rect.width, 0)));
+    }
+
+    @Test
+    public void getRegionTest() {
+        Rectangle rect = r(200, 100);
+        float lowX = -50, hightX = 250, inX = 100;
+        float lowY = -25, hightY = 125, inY = 50;
+        Assertions.assertEquals(1, RectangleUtils.getRegion(rect, v(hightX, inY)));
+        Assertions.assertEquals(2, RectangleUtils.getRegion(rect, v(hightX, hightY)));
+        Assertions.assertEquals(3, RectangleUtils.getRegion(rect, v(inX, hightY)));
+        Assertions.assertEquals(4, RectangleUtils.getRegion(rect, v(lowX, hightY)));
+        Assertions.assertEquals(5, RectangleUtils.getRegion(rect, v(lowX, inY)));
+        Assertions.assertEquals(6, RectangleUtils.getRegion(rect, v(lowX, lowY)));
+        Assertions.assertEquals(7, RectangleUtils.getRegion(rect, v(inX, lowY)));
+        Assertions.assertEquals(8, RectangleUtils.getRegion(rect, v(hightX, lowY)));
+
+        Assertions.assertEquals(9, RectangleUtils.getRegion(rect, v(50, 25)));
+        Assertions.assertEquals(10, RectangleUtils.getRegion(rect, v(150, 25)));
+        Assertions.assertEquals(11, RectangleUtils.getRegion(rect, v(150, 75)));
+        Assertions.assertEquals(12, RectangleUtils.getRegion(rect, v(50, 75)));
+        Assertions.assertEquals(13, RectangleUtils.getRegion(rect, v(100, 50)));
     }
 
     //TODO marche pas

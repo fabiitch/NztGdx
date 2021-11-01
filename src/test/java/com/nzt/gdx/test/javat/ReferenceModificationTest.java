@@ -4,8 +4,10 @@ import com.badlogic.gdx.math.Vector2;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+/**
+ * Test modif d'une reférence attribué
+ */
 public class ReferenceModificationTest {
-
 
     @Test
     public void reassigneRefTest() {

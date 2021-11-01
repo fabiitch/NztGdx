@@ -4,7 +4,17 @@ import com.nzt.gdx.utils.ArrayUtils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
+
 public class ArrayUtilsTest {
+
+    @Test
+    public void clearValuesTest(){
+        Integer[] array = new Integer[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+        ArrayUtils.clearValues(array);
+        Assertions.assertEquals(10, array.length);
+        Arrays.stream(array).forEach(i-> Assertions.assertNull(i));
+    }
 
     @Test
     public void removeAndDecalTest() {
