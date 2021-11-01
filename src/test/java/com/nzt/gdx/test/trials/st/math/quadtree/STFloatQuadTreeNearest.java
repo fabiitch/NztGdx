@@ -12,43 +12,42 @@ import com.nzt.gdx.test.trials.tester.archi.screens.TestScreen;
 import com.nzt.gdx.test.trials.tester.selector.TestScreenList;
 
 @TestScreenList(group = "math.quadtree")
-public class QuadTreeTest extends TestScreen {
+public class STFloatQuadTreeNearest extends TestScreen {
     QuadTreeFloat q = new QuadTreeFloat();
+    FloatArray points = new FloatArray(100 * 2);
     FloatArray results = new FloatArray(false, 16);
 
-    public QuadTreeTest(FastTesterMain main) {
+    public STFloatQuadTreeNearest(FastTesterMain main) {
         super(main);
         q.setBounds(10, 10, 400, 400);
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 30; i++) {
             float x = MathUtils.random(10, 400);
             float y = MathUtils.random(10, 400);
-            q.add(x + y * 410, x, y);
+            points.add(x, y);
+            q.add(i, x, y);
         }
-        for (int i = 0; i < q.maxDepth; i++)
-            q.add(100 + 100 * 410, 100, 100);
     }
 
     @Override
     public String getTestExplication() {
-        return "QuadTree from Gdx tests project";
+        return "QuadTreeNearest test from Gdx tests project";
     }
 
     @Override
     public void renderTestScreen(float dt) {
-        float radius = 50, x = Gdx.input.getX(), y = Gdx.graphics.getHeight() - Gdx.input.getY();
+        float x = Gdx.input.getX(), y = Gdx.graphics.getHeight() - Gdx.input.getY();
         results.clear();
-        q.query(x, y, radius, results);
+        boolean found = q.nearest(x, y, results);
 
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         shapeRenderer.begin(ShapeRenderer.ShapeType.Line);
         draw(q);
         shapeRenderer.setColor(Color.GREEN);
-        shapeRenderer.circle(x, y, radius, 64);
-        for (int i = 0, n = results.size; i < n; i += 4) {
-            float value = results.get(i);
-            float valueX = value % 410;
-            float valueY = value / 410;
-            shapeRenderer.circle(valueX, valueY, 10);
+        if (found) {
+            float radius = (float) Math.sqrt(results.get(QuadTreeFloat.DISTSQR));
+            shapeRenderer.circle(x, y, radius);
+            float foundX = results.get(QuadTreeFloat.X), foundY = results.get(QuadTreeFloat.Y);
+            shapeRenderer.circle(foundX, foundY, 10);
         }
         shapeRenderer.end();
     }
@@ -57,9 +56,10 @@ public class QuadTreeTest extends TestScreen {
         shapeRenderer.setColor(Color.WHITE);
         shapeRenderer.rect(q.x, q.y, q.width, q.height);
         if (q.values != null) {
-            shapeRenderer.setColor(Color.RED);
-            for (int i = 1, n = q.count; i < n; i += 3)
-                shapeRenderer.x(q.values[i], q.values[i + 1], 7);
+            for (int i = 0, n = q.count; i < n; i += 3) {
+                shapeRenderer.setColor(!results.isEmpty() && q.values[i] == results.get(QuadTreeFloat.VALUE) ? Color.YELLOW : Color.RED);
+                shapeRenderer.x(q.values[i + 1], q.values[i + 2], 7);
+            }
         }
         if (q.nw != null) draw(q.nw);
         if (q.sw != null) draw(q.sw);

@@ -52,18 +52,16 @@ dependencies {
     testImplementation group: 'org.reflections', name: 'reflections', version: '0.9.12'
 
     testImplementation "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
-
     testImplementation "com.badlogicgames.gdx:gdx-backend-headless:$gdxVersion"
-
     testImplementation "com.badlogicgames.gdx:gdx-backend-lwjgl3:$gdxVersion"
-
     testImplementation "com.badlogicgames.gdx:gdx-freetype-platform:$gdxVersion:natives-desktop"
 
+// https://mvnrepository.com/artifact/org.apache.commons/commons-math3
+    implementation group: 'org.apache.commons', name: 'commons-math3', version: '3.2' //TODO remove
 
     api "com.badlogicgames.gdx:gdx:$gdxVersion"
     api "com.badlogicgames.ashley:ashley:$ashleyVersion"
     api "com.badlogicgames.gdx:gdx-ai:$aiVersion"
-    api 'org.apache.commons:commons-math3:3.0'
 }
 
 

@@ -2,6 +2,7 @@ package com.nzt.gdx.test.api.math;
 
 import com.badlogic.gdx.math.MathUtils;
 import com.nzt.gdx.math.AngleUtils;
+import org.apache.commons.math3.util.FastMath;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -71,13 +72,14 @@ public class AngleUtilsTest {
     }
 
     @Test
-    public void normaliseAngleRad2PiTest() {
+    public void normaliseRadPiNPiTest() {
         assertEquals(0, AngleUtils.normaliseRadPiNPi(0), DELTA_01);
-        assertEquals(MathUtils.PI, AngleUtils.normaliseRadPiNPi(MathUtils.PI), DELTA_01);
+        assertEquals(-MathUtils.PI, AngleUtils.normaliseRadPiNPi(MathUtils.PI), DELTA_01);
+
         assertEquals(-MathUtils.PI, AngleUtils.normaliseRadPiNPi(-MathUtils.PI), DELTA_01);
         assertEquals(0, AngleUtils.normaliseRadPiNPi(-MathUtils.PI2), DELTA_01);
 
-        assertEquals(MathUtils.PI, AngleUtils.normaliseRadPiNPi(MathUtils.PI * 3), DELTA_01);
+        assertEquals(-MathUtils.PI, AngleUtils.normaliseRadPiNPi(MathUtils.PI * 3), DELTA_01);
         assertEquals(0, AngleUtils.normaliseRadPiNPi(MathUtils.PI * 4), DELTA_01);
     }
 

@@ -4,6 +4,7 @@ import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 import com.nzt.gdx.math.shapes.Segment;
 import com.nzt.gdx.math.vectors.V2;
+import org.apache.commons.math3.util.FastMath;
 
 public class AngleUtils {
     private AngleUtils() {
