@@ -3,7 +3,7 @@ package com.nzt.gdx.test.javat;
 /**
  * Bof
  */
-public class StrictFloatingPointTest {
+public class JavaT_StrictFloatingPointTest {
     public static void main(String[] args) {
         new Strict().test();
         System.out.println("====================");

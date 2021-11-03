@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 /**
  * Test modif d'une reférence attribué
  */
-public class ReferenceModificationTest {
+public class JavaT_ReferenceModificationTest {
 
     @Test
     public void reassigneRefTest() {
@@ -21,11 +21,15 @@ public class ReferenceModificationTest {
     @Test
     public void createRefInMethodTest() {
         Vector2 t1 = null;
-        initNullVector(t1);
+        initVector(t1);
         Assertions.assertNull(t1);
+
+        Vector2 t2 = new Vector2(0,0);
+        initVector(t2);
+        Assertions.assertEquals(0, t2.x);
     }
 
-    private void initNullVector(Vector2 init) {
+    private void initVector(Vector2 init) {
         init = new Vector2(100,100);
     }
 }
