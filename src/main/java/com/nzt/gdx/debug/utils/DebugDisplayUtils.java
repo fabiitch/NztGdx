@@ -6,6 +6,7 @@ import com.badlogic.gdx.utils.StringBuilder;
 import com.badlogic.gdx.utils.TimeUtils;
 
 import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 import java.text.FieldPosition;
 
 /**
@@ -22,6 +23,9 @@ public class DebugDisplayUtils {
   static  {
       floatFormatter.setMaximumFractionDigits(3);
       floatFormatter.setGroupingUsed(false);
+      DecimalFormatSymbols decimalFormatSymbols = new DecimalFormatSymbols();
+      decimalFormatSymbols.setDecimalSeparator(',');
+      floatFormatter.setDecimalFormatSymbols(decimalFormatSymbols);
 
       msFormatter.setMaximumFractionDigits(0);
       msFormatter.setGroupingUsed(false);
