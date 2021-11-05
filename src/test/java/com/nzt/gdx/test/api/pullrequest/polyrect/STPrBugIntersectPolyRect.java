@@ -1,4 +1,4 @@
-package com.nzt.gdx.test.trials.st.pr;
+package com.nzt.gdx.test.api.pullrequest.polyrect;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
@@ -15,8 +15,9 @@ import com.nzt.gdx.test.trials.tester.archi.mains.FastTesterMain;
 import com.nzt.gdx.test.trials.tester.archi.screens.TestScreen;
 import com.nzt.gdx.test.trials.tester.selector.TestScreenList;
 
-import java.security.Key;
-
+/**
+ * https://github.com/libgdx/libgdx/issues/6679
+ */
 @TestScreenList(group = "pullrequest")
 public class STPrBugIntersectPolyRect extends TestScreen {
     float[] vertices1 = new float[]{-50, 0, 50, 0, 50, 50, -50, 50};
@@ -59,7 +60,7 @@ public class STPrBugIntersectPolyRect extends TestScreen {
 
     @Override
     public String getTestExplication() {
-        return "Test intersect two Polygon rectangles methods";
+        return "Test intersect two Polygon rectangles methods see https://github.com/libgdx/libgdx/issues/6679";
     }
 
     @Override
