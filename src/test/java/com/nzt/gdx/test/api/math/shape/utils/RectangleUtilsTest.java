@@ -283,33 +283,42 @@ public class RectangleUtilsTest extends AbstractMathTest {
     }
 
     @Test
-    public void growRectTest() {
+    public void mergeRectTest() {
         Rectangle rect = r(100, 100);
 
-        RectangleUtils.growRect(rect, 50, 50); //contains
+        rect.merge(50, 50); //contains
         Assertions.assertEquals(r(0, 0, 100, 100), rect);
+        Assertions.assertTrue(rect.contains(50, 50));
 
-        RectangleUtils.growRect(rect, -10, 50); //grow -x
+        rect.merge(-10, 50); //grow -x
         Assertions.assertEquals(r(-10, 0, 110, 100), rect);
+        Assertions.assertTrue(rect.contains(-10, 50));
 
-        RectangleUtils.growRect(rect, -5, 50);//contains
+        rect.merge(-5, 50);//contains
         Assertions.assertEquals(r(-10, 0, 110, 100), rect);
+        Assertions.assertTrue(rect.contains(-5, 50));
 
-        RectangleUtils.growRect(rect, 0, -10); //grow -y
+        rect.merge(0, -10); //grow -y
         Assertions.assertEquals(r(-10, -10, 110, 110), rect);
+        Assertions.assertTrue(rect.contains(0, -10));
 
-        RectangleUtils.growRect(rect, 0, -5); //contains
+        rect.merge(0, -5); //contains
         Assertions.assertEquals(r(-10, -10, 110, 110), rect);
+        Assertions.assertTrue(rect.contains(0, -5));
 
-        RectangleUtils.growRect(rect, 150, -10); //grow +x
+        rect.merge(150, -10); //grow +x
         Assertions.assertEquals(r(-10, -10, 160, 110), rect);
+        Assertions.assertTrue(rect.contains(150, -10));
 
-        RectangleUtils.growRect(rect, 100, -10);//contains
+        rect.merge(100, -10);//contains
         Assertions.assertEquals(r(-10, -10, 160, 110), rect);
+        Assertions.assertTrue(rect.contains(100, -10));
 
-        RectangleUtils.growRect(rect, 100, 150); //grow +y
+        rect.merge(100, 150); //grow +y
         Assertions.assertEquals(r(-10, -10, 160, 160), rect);
+        Assertions.assertTrue(rect.contains(100, 150));
     }
+
 
     /**
      * 0 = outside
@@ -381,6 +390,20 @@ public class RectangleUtilsTest extends AbstractMathTest {
         Assertions.assertEquals(13, RectangleUtils.getRegion(rect, v(100, 50)));
     }
 
+    @Test
+    public void containsSickTest(){
+        Rectangle rectA = new Rectangle(0,0,200,200);
+        Rectangle rectB = new Rectangle(10,290,20,20 );
+        rectA.merge(rectB);
+        Assertions.assertTrue(RectangleUtils.containsStick(rectA, rectB));
+
+        rectA = new Rectangle(0,0,200,200);
+        rectB = new Rectangle(10,290.96002f,20,20 );
+
+        rectA.merge(rectB);
+        Assertions.assertTrue(RectangleUtils.containsStick(rectA, rectB));
+
+    }
     //TODO marche pas
 //    @Test
 //    public void posOnEdgeAngleTest() {

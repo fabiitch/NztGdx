@@ -349,6 +349,16 @@ public class RectangleUtils {
         return new Circle(getCenter(rectangle, tmpV1), radiusCircleInside(rectangle));
     }
 
+    public static boolean containsStick(Rectangle rectA, Rectangle rectB) {
+        float xMinA = rectA.x, xMaxA = xMinA + rectA.width;
+        float yMinA = rectA.y, yMaxA = yMinA + rectA.height;
+
+        float xMinB = rectB.x, xMaxB = xMinA + rectB.width;
+        float yMinB = rectB.y, yMaxB = yMinA + rectB.height;
+
+        return ((xMinB >= xMinA && xMinB <= xMaxA) && (xMaxB >= xMinA && xMaxB < xMaxA))
+                && ((yMinB >= yMinA && yMinB <= yMaxA) && (yMaxB >= yMinA && yMaxB < yMaxA));
+    }
 
     public static boolean overlapsStick(Rectangle rectA, Rectangle rectB) {
         return rectA.x <= rectB.x + rectB.width
@@ -387,31 +397,6 @@ public class RectangleUtils {
         } else {
             return getHorizontalBot(rect, result);
         }
-    }
-
-    /**
-     * grow rect to get this pos inside
-     */
-    public static Rectangle growRect(Rectangle rect, Vector2 pos) {
-        return growRect(rect, pos.x, pos.y);
-    }
-
-    /**
-     * grow rect to get this pos inside
-     */
-    public static Rectangle growRect(Rectangle rect, float x, float y) {
-        if (x < rect.x) {
-            rect.width += rect.x - x;
-            rect.x = x;
-        } else if (x > rect.x + rect.width)
-            rect.width = x - rect.x;
-
-        if (y < rect.y) {
-            rect.height += rect.y - y;
-            rect.y = y;
-        } else if (y > rect.y + rect.height)
-            rect.height = y - rect.y;
-        return rect;
     }
 
     /**
