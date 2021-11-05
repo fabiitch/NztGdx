@@ -1,6 +1,21 @@
 package com.nzt.gdx.utils;
 
 public class ArrayUtils {
+    private ArrayUtils() {
+
+    }
+
+    public static <T> void clearValues(T[] array, int begin) {
+        for (int i = begin, n = array.length; i < n; i++) {
+            array[i] = null;
+        }
+    }
+
+    public static <T> void clearValues(T[] array, int begin, int end) {
+        for (int i = begin; i <= end; i++) {
+            array[i] = null;
+        }
+    }
 
     /**
      * all value to null
