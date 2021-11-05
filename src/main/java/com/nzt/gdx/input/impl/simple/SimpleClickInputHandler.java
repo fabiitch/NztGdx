@@ -46,6 +46,10 @@ public abstract class SimpleClickInputHandler extends MouseInputHandler {
 
     public abstract boolean click(int screenX, int screenY, int pointer, int button);
 
+    public  boolean endClick(int screenX, int screenY, int pointer, int button){
+        return false;
+    }
+
     @Override
     public boolean doTouchDown(int screenX, int screenY, int pointer, int button) {
         return click(screenX, screenY, pointer, button);
@@ -53,6 +57,6 @@ public abstract class SimpleClickInputHandler extends MouseInputHandler {
 
     @Override
     public boolean doTouchUp(int screenX, int screenY, int pointer, int button) {
-        return false;
+        return endClick(screenX, screenY, pointer, button);
     }
 }

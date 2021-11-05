@@ -9,16 +9,41 @@ import java.util.Arrays;
 public class ArrayUtilsTest {
 
     @Test
-    public void clearValuesTest(){
+    public void clearValuesBeginEndTest() {
+        Integer[] array = new Integer[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+        ArrayUtils.clearValues(array, 3, 8);
+        Assertions.assertEquals(10, array.length);
+        for (int i = 0; i < 10; i++) {
+            if (i >= 3 && i <= 8)
+                Assertions.assertNull(array[i]);
+            else
+                Assertions.assertNotNull(array[i]);
+        }
+    }
+    @Test
+    public void clearValuesBeginTest() {
+        Integer[] array = new Integer[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+        ArrayUtils.clearValues(array, 3);
+        Assertions.assertEquals(10, array.length);
+        for (int i = 0; i < array.length; i++) {
+            if (i >= 3)
+                Assertions.assertNull(array[i]);
+            else
+                Assertions.assertNotNull(array[i]);
+        }
+    }
+
+
+    @Test
+    public void clearValuesTest() {
         Integer[] array = new Integer[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
         ArrayUtils.clearValues(array);
         Assertions.assertEquals(10, array.length);
-        Arrays.stream(array).forEach(i-> Assertions.assertNull(i));
+        Arrays.stream(array).forEach(i -> Assertions.assertNull(i));
     }
 
     @Test
     public void removeAndDecalTest() {
-
         Integer[] array = new Integer[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
         ArrayUtils.removeAndDecal(array, 5);
 
