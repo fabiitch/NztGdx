@@ -36,7 +36,6 @@ public class V3 {
         v.y = values.y;
         return v;
     }
-
     public static Vector3 add(Vector3 v, Vector2 values) {
         v.x += values.x;
         v.y += values.y;

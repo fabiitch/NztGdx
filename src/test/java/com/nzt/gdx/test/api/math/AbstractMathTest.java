@@ -23,6 +23,10 @@ public class AbstractMathTest {
         return r(0, 0, witdh, height);
     }
 
+    public static Rectangle r() {
+        return r(0, 0, 0, 0);
+    }
+
     public static Segment s(float aX, float aY, float bX, float bY) {
         return new Segment(aX, aY, bX, bY);
     }

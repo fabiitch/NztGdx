@@ -22,7 +22,7 @@ public class SegmentTest {
         Vector2 middle = segment.getMiddle(tmp);
         assertEquals(new Vector2(25, 0), middle);
 
-        float dst = segment.getDst();
+        float dst = segment.dst();
         assertEquals(50f, dst, 0.1f);
 
         Vector2 normale = segment.getNormal(tmp);

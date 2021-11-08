@@ -41,8 +41,8 @@ public class Segment implements Shape2D {
     public void setRotation(float degrees) {
         this.rotation = degrees;
         getMiddle(tmpv1);
-        a.set(CircleUtils.posWithAngleDeg(tmpv1, getDst() / 2, degrees, tmpv2));
-        b.set(CircleUtils.posWithAngleDeg(tmpv1, getDst() / 2, degrees + 180, tmpv2));
+        a.set(CircleUtils.posWithAngleDeg(tmpv1, dst() / 2, degrees, tmpv2));
+        b.set(CircleUtils.posWithAngleDeg(tmpv1, dst() / 2, degrees + 180, tmpv2));
     }
 
     public void rotate(float degrees) {
@@ -68,7 +68,7 @@ public class Segment implements Shape2D {
         return result.set((a.x + b.x) / 2, (a.y + b.y) / 2);
     }
 
-    public float getDst() {
+    public float dst() {
         return a.dst(b);
     }
 

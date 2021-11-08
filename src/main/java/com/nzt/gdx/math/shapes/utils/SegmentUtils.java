@@ -30,7 +30,6 @@ public class SegmentUtils {
         return angleReflection;
     }
 
-
     public static float dstMin(Segment segment1, Segment segment2) {
         if (getSegmentIntersection(segment1, segment2, null)) {
             return 0;

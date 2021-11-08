@@ -1,8 +1,10 @@
 package com.nzt.gdx.test.api.math.shape.utils;
 
-import com.nzt.gdx.math.shapes.utils.TriangleRectUtils;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
+import static com.nzt.gdx.math.shapes.utils.TriangleRectUtils.hypoFromAdjacent;
 
 public class TriangleRectUtilsTest {
 
@@ -13,9 +15,9 @@ public class TriangleRectUtilsTest {
      */
     @Test
     public void hypoFromAdjacentTest() {
-        Assertions.assertEquals(14.14f, TriangleRectUtils.hypoFromAdjacent(10, 45), TOLERANCE);
-        Assertions.assertEquals(25.56f, TriangleRectUtils.hypoFromAdjacent(25, 12), TOLERANCE);
-        Assertions.assertEquals(25.56f, TriangleRectUtils.hypoFromAdjacent(25, 12), TOLERANCE);
-        Assertions.assertEquals(190.04f, TriangleRectUtils.hypoFromAdjacent(33, 80), TOLERANCE);
+        Assertions.assertEquals(14.14f, hypoFromAdjacent(10, 45), TOLERANCE);
+        Assertions.assertEquals(25.56f, hypoFromAdjacent(25, 12), TOLERANCE);
+        Assertions.assertEquals(25.56f, hypoFromAdjacent(25, 12), TOLERANCE);
+        Assertions.assertEquals(190.04f, hypoFromAdjacent(33, 80), TOLERANCE);
     }
 }

@@ -72,14 +72,14 @@ public class RectangleUtils {
     }
 
     public static Segment getCD(Rectangle rect, Segment segment) {
-        getC(rect, segment.b);
-        getD(rect, segment.a);
+        getC(rect, segment.a);
+        getD(rect, segment.b);
         return segment;
     }
 
     public static Segment getAD(Rectangle rect, Segment segment) {
-        getA(rect, segment.b);
-        getD(rect, segment.a);
+        getA(rect, segment.a);
+        getD(rect, segment.b);
         return segment;
     }
 
@@ -349,15 +349,33 @@ public class RectangleUtils {
         return new Circle(getCenter(rectangle, tmpV1), radiusCircleInside(rectangle));
     }
 
+    public static Rectangle floorCeil(Rectangle rect) {
+        return rect.set(MathUtils.floor(rect.x), MathUtils.floor(rect.y),
+                MathUtils.ceil(rect.width), MathUtils.ceil(rect.height));
+    }
+
+    public static Rectangle mergeFloorCeil(Rectangle root, Rectangle other) {
+        float minX = (float) Math.floor(Math.min(root.x, other.x));
+        float maxX = (float) Math.ceil(Math.max(root.x + root.width, other.x + other.width));
+        root.x = minX;
+        root.width =  maxX - minX;
+
+        float minY = (float) Math.floor(Math.min(root.y, other.y));
+        float maxY = (float) Math.ceil(Math.max(root.y + root.height, other.y + other.height));
+        root.y = minY;
+        root.height = maxY - minY;
+        return root;
+    }
+
     public static boolean containsStick(Rectangle rectA, Rectangle rectB) {
         float xMinA = rectA.x, xMaxA = xMinA + rectA.width;
         float yMinA = rectA.y, yMaxA = yMinA + rectA.height;
 
-        float xMinB = rectB.x, xMaxB = xMinA + rectB.width;
-        float yMinB = rectB.y, yMaxB = yMinA + rectB.height;
+        float xMinB = rectB.x, xMaxB = xMinB + rectB.width;
+        float yMinB = rectB.y, yMaxB = yMinB + rectB.height;
 
-        return ((xMinB >= xMinA && xMinB <= xMaxA) && (xMaxB >= xMinA && xMaxB < xMaxA))
-                && ((yMinB >= yMinA && yMinB <= yMaxA) && (yMaxB >= yMinA && yMaxB < yMaxA));
+        return ((xMinB >= xMinA && xMinB <= xMaxA) && (xMaxB >= xMinA && xMaxB <= xMaxA))
+                && ((yMinB >= yMinA && yMinB <= yMaxA) && (yMaxB >= yMinA && yMaxB <= yMaxA));
     }
 
     public static boolean overlapsStick(Rectangle rectA, Rectangle rectB) {
