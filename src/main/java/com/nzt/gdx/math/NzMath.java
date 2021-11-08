@@ -62,7 +62,7 @@ public class NzMath {
         if (x >= Float.MAX_VALUE || x <= -Float.MIN_VALUE) {
             return x;
         }
-        y = (long) x;
+        y = (int) x;
         if (x < 0 && y != x) {
             y--;
         }

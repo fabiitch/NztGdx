@@ -1,6 +1,7 @@
 package com.nzt.gdx.input.impl.simple;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
@@ -11,9 +12,9 @@ import com.nzt.gdx.math.vectors.V3;
 //TODO a voir si on met pas ds test
 public abstract class SimpleClickInputHandler extends MouseInputHandler {
 
-    public final static int LEFT_CLICK = 0;
-    public final static int RIGHT_CLICK = 1;
-    public final static int WHEEL_CLICK = 2;
+    public final static int LEFT_CLICK = Input.Buttons.LEFT;
+    public final static int RIGHT_CLICK =Input.Buttons.RIGHT;
+    public final static int WHEEL_CLICK = Input.Buttons.MIDDLE;
 
     public SimpleClickInputHandler() {
         super();

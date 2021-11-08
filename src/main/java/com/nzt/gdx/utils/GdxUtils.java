@@ -55,12 +55,6 @@ public class GdxUtils {
         return Gdx.graphics.getHeight() / 2;
     }
 
-    public static Rectangle screenAsRectangle(Rectangle rect, boolean centerAs0) {
-        if (centerAs0) {
-            return rect.set(-Gdx.graphics.getWidth() / 2, -Gdx.graphics.getHeight() / 2,
-                    Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-        } else {
-            return rect.set(0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-        }
-    }
+
+
 }
