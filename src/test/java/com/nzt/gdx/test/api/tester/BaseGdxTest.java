@@ -24,7 +24,7 @@ public abstract class BaseGdxTest {
     public final static float MAX_DT = 1 / 10f;
     public final static float MIN_DT = 1 / 80f;
 
-    public float secondElapsed = 0f;
+    public float timeElapsed = 0f;
     public final ArrayList<PredicateSuccess> successesConditions = new ArrayList<>();
 
     public final ArrayList<PredicateKO> koConditions = new ArrayList<>();
@@ -50,7 +50,7 @@ public abstract class BaseGdxTest {
 
             @Override
             public boolean testKO() {
-                return secondElapsed > maxTimeTestDuration;
+                return timeElapsed * 1000 > maxTimeTestDuration;
             }
         });
     }
@@ -61,7 +61,7 @@ public abstract class BaseGdxTest {
     }
 
     public void doRender(float dt) {
-        secondElapsed += dt / 1000;
+        timeElapsed += dt;
         renderTest(dt);
         Iterator<PredicateSuccess> iteratorSuccess = successesConditions.iterator();
         while (iteratorSuccess.hasNext()) {
@@ -91,7 +91,7 @@ public abstract class BaseGdxTest {
 
     @AfterEach
     public void cleanNztGdxTest() {
-        secondElapsed = 0;
+        timeElapsed = 0;
         successesConditions.clear();
         koConditions.clear();
         testConditions.clear();
