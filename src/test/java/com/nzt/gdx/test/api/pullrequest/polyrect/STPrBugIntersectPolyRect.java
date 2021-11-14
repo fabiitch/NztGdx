@@ -11,6 +11,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.FloatArray;
 import com.nzt.gdx.debug.hud.core.HudDebug;
 import com.nzt.gdx.input.impl.simple.SimpleClickInputHandler;
+import com.nzt.gdx.math.shapes.utils.PolygonUtils;
 import com.nzt.gdx.test.trials.tester.archi.mains.FastTesterMain;
 import com.nzt.gdx.test.trials.tester.archi.screens.TestScreen;
 import com.nzt.gdx.test.trials.tester.selector.TestScreenList;
@@ -20,13 +21,23 @@ import com.nzt.gdx.test.trials.tester.selector.TestScreenList;
  */
 @TestScreenList(group = "pullrequest")
 public class STPrBugIntersectPolyRect extends TestScreen {
-    float[] vertices1 = new float[]{-50, 0, 50, 0, 50, 50, -50, 50};
-    float[] vertices2 = new float[]{-10, -100, 10, -100, 10, 100, -10, 100};
+//    float[] vertices1 = new float[]{-50, 0, 50, 0, 50, 50, -50, 50};
+//    float[] vertices2 = new float[]{-10, -100, 10, -100, 10, 100, -10, 100};
+float[] vertices1 = new float[]{-50, 0, 50, 0, 50, 50};
+    float[] vertices2 = new float[]{-10, -100, 10, -100, 10, 10};
+
     Polygon poly1 = new Polygon(vertices1);
     Polygon poly2 = new Polygon(vertices2);
 
     public STPrBugIntersectPolyRect(FastTesterMain main) {
         super(main);
+        HudDebug.addTopRight("poly1 CCW", PolygonUtils.isCCW(poly1));
+        HudDebug.addTopRight("poly1 isClockwise", PolygonUtils.isClockwise(poly1));
+        HudDebug.addTopRight("poly2 CCW", PolygonUtils.isCCW(poly2));
+        HudDebug.addTopRight("poly2 isClockwise", PolygonUtils.isClockwise(poly2));
+        PolygonUtils.reverseVertices(poly1);
+//        PolygonUtils.reverseVertices(poly2);
+
         HudDebug.addBotLeft("Intersector.intersectPolygons (Polygon p1, Polygon p2, Polygon overlap)", false);
         HudDebug.addBotLeft("Intersector.intersectPolygons (FloatArray polygon1, FloatArray polygon2)", false);
         HudDebug.addBotLeft("Intersector.intersectPolygonEdges (FloatArray polygon1, FloatArray polygon2)", false);

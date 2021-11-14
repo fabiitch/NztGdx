@@ -1,9 +1,6 @@
 package com.nzt.gdx.math.intersectors;
 
-import com.badlogic.gdx.math.Intersector;
-import com.badlogic.gdx.math.Polygon;
-import com.badlogic.gdx.math.Rectangle;
-import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.math.*;
 import com.nzt.gdx.math.shapes.utils.RectangleUtils;
 
 
@@ -15,6 +12,10 @@ public class IntersectorRectangle {
 
     private static final float[] tmpVerticesArray = new float[8];
     private static final float[] tmp2VerticesArray = new float[8];
+
+    public static boolean overlapStickCircle(Rectangle r, Circle c) {
+        return IntersectorCircle.overlapStickRectangle(c, r);
+    }
 
     public static boolean polygon(Rectangle rectangle, Polygon polygon) {
         return Intersector.overlapConvexPolygons(RectangleUtils.getAsVertices(rectangle, tmpVerticesArray), polygon.getTransformedVertices(), null);
@@ -34,7 +35,7 @@ public class IntersectorRectangle {
         return false;
     }
 
-    public static boolean rectangles(Rectangle rectangle1, Rectangle rectangle2, Rectangle result) {
+    public static boolean rectangles(Rectangle rectangle1, Rectangle rectangle2, Rectangle result) {//TODO mergeRect??
         if (RectangleUtils.overlapsStick(rectangle1, rectangle2)) {
             result.x = Math.max(rectangle1.x, rectangle2.x);
             result.width = Math.min(rectangle1.x + rectangle1.width, rectangle2.x + rectangle2.width) - result.x;

@@ -19,9 +19,9 @@ public class GdxTestUtils {
     public static Rectangle screenAsRectangle(Camera camera, boolean centerAs0) {
         Rectangle rect = new Rectangle();
         if (centerAs0) {
-            return   RectangleUtils.createFromCenter(0,0,camera.viewportWidth, camera.viewportHeight);
+            return RectangleUtils.createFromCenter(0, 0, camera.viewportWidth, camera.viewportHeight);
         } else {
-            return rect.set(0, 0,  camera.viewportWidth, camera.viewportHeight);
+            return rect.set(0, 0, camera.viewportWidth, camera.viewportHeight);
         }
     }
 }

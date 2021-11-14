@@ -1,6 +1,6 @@
 package com.nzt.gdx.test.api.utils;
 
-import com.nzt.gdx.utils.ArrayUtils;
+import com.nzt.gdx.utils.arrays.ArrayUtils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

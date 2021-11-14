@@ -137,14 +137,12 @@ public abstract class TestScreen extends SimpleTestScreen {
 
     protected void setMsgNotImpl() {
         glProfiler.removeHudDebug();
-        HudDebug.addTopRight("Not", "Impl", Color.RED);
-        HudDebug.addTopMiddle("Not", "Impl", Color.RED);
-        HudDebug.addTopLeft("Not", "Impl", Color.RED);
-        HudDebug.addBotRight("Not", "Impl", Color.RED);
-        HudDebug.addBotLeft("Not", "Impl", Color.RED);
-        HudDebug.addBotMiddle("Not", "Impl", Color.RED);
-        HudDebug.addMiddleRight("Not", "Impl", Color.RED);
-        HudDebug.addMiddleLeft("Not", "Impl", Color.RED);
+        setMsg("Not Impl");
+    }
+
+    protected void setMsgWIP() {
+        glProfiler.removeHudDebug();
+        setMsg("WIP");
     }
 
     protected void setMsg(String msg) {
@@ -157,18 +155,6 @@ public abstract class TestScreen extends SimpleTestScreen {
         HudDebug.addBotMiddle(msg, msg, Color.RED);
         HudDebug.addMiddleRight(msg, msg, Color.RED);
         HudDebug.addMiddleLeft(msg, msg, Color.RED);
-    }
-
-    protected void setMsgWIP() {
-        glProfiler.removeHudDebug();
-        HudDebug.addTopRight("WIP", "WIP", Color.RED);
-        HudDebug.addTopMiddle("WIP", "WIP", Color.RED);
-        HudDebug.addTopLeft("WIP", "WIP", Color.RED);
-        HudDebug.addBotRight("WIP", "WIP", Color.RED);
-        HudDebug.addBotLeft("WIP", "WIP", Color.RED);
-        HudDebug.addBotMiddle("WIP", "WIP", Color.RED);
-        HudDebug.addMiddleRight("WIP", "WIP", Color.RED);
-        HudDebug.addMiddleLeft("WIP", "WIP", Color.RED);
     }
 
     public Vector2 v(float x, float y) {

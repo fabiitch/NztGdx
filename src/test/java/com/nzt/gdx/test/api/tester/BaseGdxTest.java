@@ -45,12 +45,12 @@ public abstract class BaseGdxTest {
         koConditions.add(new PredicateKO() {
             @Override
             public String name() {
-                return "Duration Test";
+                return "Duration Test : timeMax=" + maxTimeTestDuration;
             }
 
             @Override
             public boolean testKO() {
-                return timeElapsed * 1000 > maxTimeTestDuration;
+                return timeElapsed > maxTimeTestDuration;
             }
         });
     }
@@ -62,6 +62,7 @@ public abstract class BaseGdxTest {
 
     public void doRender(float dt) {
         timeElapsed += dt;
+        System.out.println("timeElapsed="+timeElapsed);
         renderTest(dt);
         Iterator<PredicateSuccess> iteratorSuccess = successesConditions.iterator();
         while (iteratorSuccess.hasNext()) {

@@ -225,4 +225,34 @@ public class PolygonUtils {
         return result;
     }
 
+    public static boolean isClockwise(Polygon polygon) {
+        return GeometryUtils.isClockwise(polygon.getVertices(), 0, polygon.getVertices().length);
+    }
+
+    public static boolean isCCW(Polygon polygon) {
+        return !GeometryUtils.isClockwise(polygon.getVertices(), 0, polygon.getVertices().length);
+    }
+
+    public static void ensureCCW(Polygon polygon) {
+        GeometryUtils.ensureCCW(polygon.getVertices());
+    }
+
+    public static void ensureClockWise(Polygon polygon) {
+        if(!isClockwise(polygon))
+            reverseVertices(polygon);
+    }
+
+    public static void reverseVertices(Polygon polygon) {
+        float[] vertices = polygon.getVertices();
+        int lastX = vertices.length - 2;
+        for (int i = 0, n = vertices.length / 2; i < n; i += 2) {
+            int other = lastX - i;
+            float x = vertices[i];
+            float y = vertices[i + 1];
+            vertices[i] = vertices[other];
+            vertices[i + 1] = vertices[other + 1];
+            vertices[other] = x;
+            vertices[other + 1] = y;
+        }
+    }
 }

@@ -1,4 +1,4 @@
-package com.nzt.gdx.utils;
+package com.nzt.gdx.utils.arrays;
 
 import com.badlogic.gdx.utils.Array;
 

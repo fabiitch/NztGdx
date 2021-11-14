@@ -1,7 +1,7 @@
 package com.nzt.gdx.test.api.utils;
 
 import com.badlogic.gdx.utils.Array;
-import com.nzt.gdx.utils.GdxArrayUtils;
+import com.nzt.gdx.utils.arrays.GdxArrayUtils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

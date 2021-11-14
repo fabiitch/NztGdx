@@ -19,8 +19,6 @@ class PerformanceAction implements Comparable<PerformanceAction> {
     public float percentFrameCurrent;
     public float percentFrameAverage;
 
-
-
     public PerformanceAction(String action) {
         this.action = action;
     }
