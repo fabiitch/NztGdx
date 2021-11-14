@@ -326,14 +326,20 @@ public class RectangleUtils {
         return getAsVertices(rect, new float[8]);
     }
 
+    /**
+     * clockwise
+     */
     public static float[] getAsVertices(Rectangle rect, float[] vertices) {
         vertices[0] = rect.x;
         vertices[1] = rect.y;
-        vertices[2] = rect.x + rect.width;
-        vertices[3] = rect.y;
+
+        vertices[2] = rect.x;
+        vertices[3] = rect.y + rect.height;
+
         vertices[4] = rect.x + rect.width;
-        vertices[5] = rect.y + rect.height;
-        vertices[6] = rect.x;
+        vertices[5] = rect.y;
+
+        vertices[6] = rect.x + rect.width;
         vertices[7] = rect.y + rect.height;
         return vertices;
     }
