@@ -337,10 +337,10 @@ public class RectangleUtils {
         vertices[3] = rect.y + rect.height;
 
         vertices[4] = rect.x + rect.width;
-        vertices[5] = rect.y;
+        vertices[5] = rect.y + rect.height;
 
         vertices[6] = rect.x + rect.width;
-        vertices[7] = rect.y + rect.height;
+        vertices[7] = rect.y;
         return vertices;
     }
 
