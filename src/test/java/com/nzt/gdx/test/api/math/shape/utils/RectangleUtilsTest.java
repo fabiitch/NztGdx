@@ -59,14 +59,18 @@ public class RectangleUtilsTest extends AbstractMathTest {
     public void getAsVerticesTest() {
         Rectangle rect1 = r(10, 20, 100, 50);
         float[] asVertices = getAsVertices(rect1);
+
         assertEquals(10, asVertices[0]);
         assertEquals(20, asVertices[1]);
-        assertEquals(110, asVertices[2]);
-        assertEquals(20, asVertices[3]);
+
+        assertEquals(10, asVertices[2]);
+        assertEquals(70, asVertices[3]);
+
         assertEquals(110, asVertices[4]);
         assertEquals(70, asVertices[5]);
-        assertEquals(10, asVertices[6]);
-        assertEquals(70, asVertices[7]);
+
+        assertEquals(110, asVertices[6]);
+        assertEquals(20, asVertices[7]);
     }
 
     @Test
