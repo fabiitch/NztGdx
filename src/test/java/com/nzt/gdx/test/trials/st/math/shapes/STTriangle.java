@@ -238,6 +238,7 @@ public class STTriangle extends TestScreen {
                 changeMode();
                 break;
         }
+        triangle.setPosition(middle);
         changeOrigin();
 
     }

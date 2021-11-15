@@ -21,7 +21,7 @@ import com.nzt.gdx.test.trials.tester.archi.mains.FastTesterMain;
 public abstract class TestScreen extends SimpleTestScreen {
     protected NzStage nzStage;
     protected Skin skin;
-    private final HudDebug debugHud;
+    private final HudDebug hudDebug;
     protected NzGLProfiler glProfiler;
     protected DT_Tracker dt_tracker;
     private HudDebugPerformanceFrame hudDebugPerformanceFrame;
@@ -30,7 +30,7 @@ public abstract class TestScreen extends SimpleTestScreen {
         super(main);
         this.nzStage = new NzStage();
         this.skin = new Skin(Gdx.files.internal(Scene2DTestConstants.UI_SKIN));
-        this.debugHud = new HudDebug(nzStage, skin);
+        this.hudDebug = new HudDebug(nzStage, skin);
         this.glProfiler = main.logManager.nzGlProfiler;
         this.glProfiler.setScreen(this);
         this.hudDebugPerformanceFrame = new HudDebugPerformanceFrame(HudDebugPosition.BOT_RIGHT, Color.WHITE, false);
@@ -42,7 +42,7 @@ public abstract class TestScreen extends SimpleTestScreen {
         super(main);
         this.nzStage = new NzStage();
         this.skin = new Skin(Gdx.files.internal(Scene2DTestConstants.UI_SKIN));
-        this.debugHud = new HudDebug(nzStage, skin);
+        this.hudDebug = new HudDebug(nzStage, skin);
         this.glProfiler = main.logManager.nzGlProfiler;
         this.glProfiler.setScreen(this);
         this.hudDebugPerformanceFrame = hudDebugPerformanceFrame;
