@@ -1,4 +1,4 @@
-package com.nzt.gdx;
+package com.nzt.gdx.scene2D;
 
 public class PlacementsLine {
 

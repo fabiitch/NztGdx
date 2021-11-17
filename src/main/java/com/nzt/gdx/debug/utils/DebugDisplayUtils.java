@@ -2,8 +2,8 @@ package com.nzt.gdx.debug.utils;
 
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
-import com.badlogic.gdx.utils.StringBuilder;
 import com.badlogic.gdx.utils.TimeUtils;
+import com.nzt.gdx.counter.IntCounter;
 
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
@@ -53,8 +53,17 @@ public class DebugDisplayUtils {
             return printVector2((Vector2) o);
         if (o instanceof Vector3)
             return printVector3((Vector3) o);
+        if(o instanceof IntCounter)
+            return printIntCounter((IntCounter) o);
 
         return o.toString();
+    }
+
+    private static String printIntCounter(IntCounter o) {
+        if (o.count == 0) {
+            return "Waiting Data ...";
+        }
+        return o.toStringCurrentAverage();
     }
 
     public static String printFloat(float f) {
