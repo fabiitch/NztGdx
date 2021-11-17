@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 /**
  * Test modif d'une reférence attribué
  */
-public class JavaT_ReferenceModificationTest {
+ class JavaT_ReferenceModificationTest {
 
     @Test
     public void reassigneRefTest() {

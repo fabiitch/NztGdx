@@ -5,7 +5,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 
-public class JavaT_TestConditionIfAlready {
+ class JavaT_TestConditionIfAlready {
 
 
     int count = 0;
