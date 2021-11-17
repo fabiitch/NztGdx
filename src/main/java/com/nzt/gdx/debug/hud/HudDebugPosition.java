@@ -15,4 +15,29 @@ public class HudDebugPosition {
 
     public static final int LEFT_MIDDLE = 7;
     public static final int RIGHT_MIDDLE = 8;
+
+
+    public static boolean isLeft(int positionOnStage) {
+        return positionOnStage == TOP_LEFT || positionOnStage == BOT_LEFT || positionOnStage == LEFT_MIDDLE;
+    }
+
+    public static boolean isRight(int positionOnStage) {
+        return positionOnStage == TOP_RIGHT || positionOnStage == BOT_RIGHT || positionOnStage == RIGHT_MIDDLE;
+    }
+
+    public static boolean isTop(int positionOnStage) {
+        return positionOnStage == TOP_LEFT || positionOnStage == TOP_MIDDLE || positionOnStage == TOP_RIGHT;
+    }
+
+    public static boolean isBot(int positionOnStage) {
+        return positionOnStage == BOT_LEFT || positionOnStage == BOT_MIDDLE || positionOnStage == BOT_RIGHT;
+    }
+
+    public static boolean isMiddleHorizontal(int positionOnStage) {
+        return positionOnStage == TOP_MIDDLE || positionOnStage == BOT_MIDDLE;
+    }
+
+    public static boolean isMiddleVertical(int positionOnStage) {
+        return positionOnStage == LEFT_MIDDLE || positionOnStage == RIGHT_MIDDLE;
+    }
 }

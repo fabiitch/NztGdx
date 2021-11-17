@@ -1,6 +1,6 @@
 package com.nzt.gdx.test.api;
 
-import com.nzt.gdx.PlacementsLine;
+import com.nzt.gdx.scene2D.PlacementsLine;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

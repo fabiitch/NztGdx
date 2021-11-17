@@ -1,20 +1,19 @@
-package com.nzt.gdx.debug.hud.utils;
+package com.nzt.gdx.debug.hud.core;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.Array;
 import com.nzt.gdx.debug.hud.HudDebugPosition;
-import com.nzt.gdx.debug.hud.core.HudDebugLabel;
 
 import java.util.Collection;
 import java.util.Map;
 
-public class HudDebugUtils {
+public class HudContainerUtils {
     private final static float standartRight = 100;
     private final static float right_decal_safe = 15;
 
-    private HudDebugUtils() {
+    private HudContainerUtils() {
 
     }
 

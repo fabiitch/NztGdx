@@ -1,4 +1,4 @@
-package com.nzt.gdx.debug.hud.utils;
+package com.nzt.gdx.debug.hud.core;
 
 import com.badlogic.gdx.graphics.Color;
 import com.nzt.gdx.debug.hud.HudDebugPosition;
