@@ -25,8 +25,8 @@ ext {
     roboVMVersion = '2.3.12'
     ashleyVersion = '1.7.4'
     aiVersion = '1.8.2'
-    mockitoVersion = '3.11.2'
-    junitVersion = '5.7.2'
+    junitVersion = '5.8.1'
+    mockitoVersion = '4.0.0'
 }
 
 repositories {
@@ -57,7 +57,7 @@ dependencies {
     testImplementation "com.badlogicgames.gdx:gdx-freetype-platform:$gdxVersion:natives-desktop"
 
 // https://mvnrepository.com/artifact/org.apache.commons/commons-math3
-    implementation group: 'org.apache.commons', name: 'commons-math3', version: '3.2' //TODO remove
+    api group: 'org.apache.commons', name: 'commons-math3', version: '3.6.1' //TODO remove
 
     api "com.badlogicgames.gdx:gdx:$gdxVersion"
     api "com.badlogicgames.ashley:ashley:$ashleyVersion"
