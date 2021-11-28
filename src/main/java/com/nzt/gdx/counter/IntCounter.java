@@ -12,13 +12,15 @@ public class IntCounter implements Pool.Poolable {
     public float average;
 
     public void add(int value) {
+        if (total >= Integer.MAX_VALUE || count >= Integer.MAX_VALUE) {
+            reset();
+        }
         count++;
         this.total += value;
         this.current = value;
         this.min = Math.min(min, current);
         this.max = Math.max(max, current);
         this.average = total / count;
-
     }
 
     public void addCurrent() {
