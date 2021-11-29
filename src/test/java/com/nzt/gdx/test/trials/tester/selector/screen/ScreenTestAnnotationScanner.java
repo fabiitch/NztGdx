@@ -6,7 +6,7 @@ import org.reflections.Reflections;
 import java.lang.reflect.Modifier;
 import java.util.Set;
 
-public class STScanner {
+public class ScreenTestAnnotationScanner {
 
     /**
      * Scan all class with @TestScreen annotation

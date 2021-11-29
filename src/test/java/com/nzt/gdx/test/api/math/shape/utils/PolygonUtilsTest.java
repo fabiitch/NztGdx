@@ -12,8 +12,9 @@ import org.junit.jupiter.api.Test;
 import static com.nzt.gdx.math.shapes.utils.PolygonUtils.*;
 import static com.nzt.gdx.test.api.math.AbstractMathTest.s;
 import static com.nzt.gdx.test.api.math.AbstractMathTest.v;
+
 public class PolygonUtilsTest {
-    private static final Vector2 tmp = v(0,0);
+    private static final Vector2 tmp = v(0, 0);
 
     float[] vertices = new float[]{0, 0, 50, 50, 60, 60, 300, 0};
     Polygon polygon = new Polygon(vertices);
@@ -61,6 +62,17 @@ public class PolygonUtilsTest {
     }
 
     @Test
+    public void getMinDstFromZeroTest() {
+        float maxDstVertexFromZero = getMinDstVertex(polygon, tmp);
+        float maxDstVertexFromZero2 = getMinDstVertex(polygon);
+
+        VTestUtils.assertEquals(v(0, 0), tmp);
+        Assertions.assertEquals(0, maxDstVertexFromZero);
+        Assertions.assertEquals(0, maxDstVertexFromZero2);
+    }
+
+
+    @Test
     public void getVertexTest() {
         getVertex(polygon, 0, tmp);
         VTestUtils.assertEquals(v(0, 0), tmp);
@@ -94,7 +106,7 @@ public class PolygonUtilsTest {
 
     @Test
     public void getVertexAngleTest2() {
-        Triangle triangle = TriangleBuilder.isoscelesRectangle(0, v(0,0), 50);
+        Triangle triangle = TriangleBuilder.isoscelesRectangle(0, v(0, 0), 50);
 
         float angleA = getVertexAngleDeg(triangle, 0);
         Assertions.assertEquals(90, angleA, 0);
@@ -112,7 +124,7 @@ public class PolygonUtilsTest {
         Polygon rect = new Polygon(new float[]{0, 0, 100, 0, 100, 50, 0, 50});
         Assertions.assertTrue(isConvex(rect));
 
-        Triangle triangle = TriangleBuilder.isoscelesRectangle(0, v(0,0), 50);
+        Triangle triangle = TriangleBuilder.isoscelesRectangle(0, v(0, 0), 50);
         Assertions.assertTrue(isConvex(triangle));
 
         Assertions.assertTrue(isConvex(polygon));
@@ -153,19 +165,19 @@ public class PolygonUtilsTest {
         Polygon rect = new Polygon(new float[]{0, 0, 100, 0, 100, 50, 0, 50});
 
         //perp left
-        getClosestEdge(rect, s(-50,25,10,25), result);
+        getClosestEdge(rect, s(-50, 25, 10, 25), result);
         Assertions.assertTrue(result.equalsPoints(s(0, 0, 0, 50)));
 
         //parallel left
-        getClosestEdge(rect, s(-100,25,-50,25), result);
+        getClosestEdge(rect, s(-100, 25, -50, 25), result);
         Assertions.assertTrue(result.equalsPoints(s(0, 0, 0, 50)));
 
         //intersectTop
-        getClosestEdge(rect, s(25,100,25,25), result);
+        getClosestEdge(rect, s(25, 100, 25, 25), result);
         Assertions.assertTrue(result.equalsPoints(s(0, 50, 100, 50)));
 
         //intersectTopBot
-        getClosestEdge(rect, s(25,100,25,-50), result);
+        getClosestEdge(rect, s(25, 100, 25, -50), result);
         Assertions.assertTrue(result.equalsPoints(s(0, 50, 100, 50)) || result.equalsPoints(s(0, 0, 100, 0)));
     }
 

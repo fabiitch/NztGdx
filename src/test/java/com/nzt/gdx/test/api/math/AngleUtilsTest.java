@@ -2,7 +2,6 @@ package com.nzt.gdx.test.api.math;
 
 import com.badlogic.gdx.math.MathUtils;
 import com.nzt.gdx.math.AngleUtils;
-import org.apache.commons.math3.util.FastMath;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

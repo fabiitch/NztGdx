@@ -23,7 +23,7 @@ public class STMasking4SpriteBatch extends TestScreen {
     }
 
 
-    /* Some attributes we're gonna need. */
+    /* Some attributes we're going to need. */
     private SpriteBatch spriteBatch;
     private Sprite mask, maskedSprite, alphaInvertedMaskedSprite;
 

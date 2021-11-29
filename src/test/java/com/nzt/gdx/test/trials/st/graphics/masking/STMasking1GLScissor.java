@@ -34,7 +34,7 @@ public class STMasking1GLScissor extends TestScreen {
 
     private void drawMasked() {
         /* To activate the scissor test, first enable the GL_SCISSOR_TEST enumerator.
-         * Once enabled, pixels outside of the scissor box will be discarded. */
+         * Once enabled, pixels outside the scissor box will be discarded. */
         Gdx.gl.glEnable(GL20.GL_SCISSOR_TEST);
 
         /* To define the scissor box, use this function: */

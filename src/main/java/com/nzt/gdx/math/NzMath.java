@@ -53,22 +53,4 @@ public class NzMath {
         return (a >= 0) ^ (b < 0);
     }
 
-    //TODO a voir cpy from  org.apache.commons.math3.util.FastMath.floor
-    public static float floatFloor(float x) {
-        long y;
-        if (x != x) { // NaN
-            return x;
-        }
-        if (x >= Float.MAX_VALUE || x <= -Float.MIN_VALUE) {
-            return x;
-        }
-        y = (int) x;
-        if (x < 0 && y != x) {
-            y--;
-        }
-        if (y == 0) {
-            return x * y;
-        }
-        return y;
-    }
 }

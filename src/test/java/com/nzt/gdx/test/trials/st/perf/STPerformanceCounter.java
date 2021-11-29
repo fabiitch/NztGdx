@@ -14,6 +14,7 @@ import com.nzt.gdx.test.trials.tester.selector.TestScreenList;
 /**
  * Test class PerformanceCounters
  */
+@SuppressWarnings("GDXJavaProfilingCode")
 @TestScreenList(group = "utils.perf")
 public class STPerformanceCounter extends TestScreen {
     private final PerformanceCounters counters;

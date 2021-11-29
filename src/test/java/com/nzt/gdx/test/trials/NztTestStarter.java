@@ -1,6 +1,5 @@
 package com.nzt.gdx.test.trials;
 
-import com.nzt.gdx.test.trials.st.math.shapes.circle.STCircleReflexionRay;
 import com.nzt.gdx.test.trials.st.math.shapes.polygons.STPolygonIntersector;
 import com.nzt.gdx.test.trials.tester.archi.mains.SingleScreenTestMain;
 import com.nzt.gdx.test.trials.tester.archi.mains.StarterTestConfig;

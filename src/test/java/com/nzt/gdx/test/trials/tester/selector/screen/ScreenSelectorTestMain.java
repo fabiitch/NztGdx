@@ -18,10 +18,11 @@ public class ScreenSelectorTestMain extends FastTesterMain {
 
     public ScreenSelectorTestMain(Class screenClass, String packagePath) {
         super(screenClass);
-        this.rootCase = STScanner.scanTestScreens(packagePath);
+        this.rootCase = ScreenTestAnnotationScanner.scanTestScreens(packagePath);
         this.lastGroupCase = rootCase;
     }
 
+    @SuppressWarnings("GDXJavaLogLevel")
     @Override
     public void doCreate() {
         Gdx.app.setLogLevel(Application.LOG_DEBUG);

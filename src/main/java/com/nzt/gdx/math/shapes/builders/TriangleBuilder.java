@@ -9,7 +9,7 @@ public class TriangleBuilder {
     }
 
     public static Triangle fromOneVertex(int vertexNum, Vector2 posVertex, float angleDegVertex, float lenghtSeg1, float lenghtSeg2) {
-        vertexNum = vertexNum % 3;
+        vertexNum %= 3;
         float[] vertices = createVertices(vertexNum, posVertex);
 
         vertexNum = getNextVertex(vertexNum);
@@ -22,7 +22,7 @@ public class TriangleBuilder {
 
 
     public static Triangle rectangle(int vertexNum, Vector2 posVertex, float lenghtSeg1, float lenghtSeg2) {
-        vertexNum = vertexNum % 3;
+        vertexNum %= 3;
         float[] vertices = createVertices(vertexNum, posVertex);
 
         vertexNum = getNextVertex(vertexNum);
@@ -38,7 +38,7 @@ public class TriangleBuilder {
     }
 
     public static Triangle isosceles(int vertexNum, Vector2 posVertex, float angleVertex, float lenghtSegments) {
-        vertexNum = vertexNum % 3;
+        vertexNum %= 3;
         float[] vertices = createVertices(vertexNum, posVertex);
 
         vertexNum = getNextVertex(vertexNum);
@@ -50,7 +50,7 @@ public class TriangleBuilder {
     }
 
     public static Triangle equilateral(int vertexNum, Vector2 posVertex, float lenghtSegments) {
-        vertexNum = vertexNum % 3;
+        vertexNum %= 3;
         float[] vertices = createVertices(vertexNum, posVertex);
 
         vertexNum = getNextVertex(vertexNum);
