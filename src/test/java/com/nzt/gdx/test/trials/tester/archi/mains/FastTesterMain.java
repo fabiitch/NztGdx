@@ -35,6 +35,7 @@ public class FastTesterMain extends AbstractMain {
         return null;
     }
 
+    @SuppressWarnings("GDXJavaLogLevel")
     @Override
     public void doCreate() {
         Gdx.app.setLogLevel(Application.LOG_DEBUG);

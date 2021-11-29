@@ -41,8 +41,9 @@ public abstract class BaseST2DControlCam extends TestScreen {
         camera.update();
         spriteBatch.setProjectionMatrix(camera.combined);
         spriteBatch.begin();
-        for (Sprite sprite : spriteArray)
+        for (Sprite sprite : spriteArray) {
             sprite.draw(spriteBatch);
+        }
         spriteBatch.end();
         HudDebug.update("Cam pos", camera.position);
     }

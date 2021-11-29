@@ -4,7 +4,6 @@ import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 import com.nzt.gdx.math.shapes.Segment;
 import com.nzt.gdx.math.vectors.V2;
-import org.apache.commons.math3.util.FastMath;
 
 public class AngleUtils {
     private AngleUtils() {
@@ -65,8 +64,7 @@ public class AngleUtils {
 
     public static float distanceAbs(float alpha, float beta) {
         float phi = Math.abs(beta - alpha) % 360; // This is either the distance or 360 - distance
-        float distance = phi > 180 ? 360 - phi : phi;
-        return distance;
+        return phi > 180 ? 360 - phi : phi;
     }
 
     public static float distanceAbs(Vector2 dir, Vector2 input) {

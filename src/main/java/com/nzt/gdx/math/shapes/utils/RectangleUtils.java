@@ -101,8 +101,7 @@ public class RectangleUtils {
     }
 
     public static Rectangle createFromCenter(float centerX, float centerY, float width, float height) {
-        Rectangle rect = new Rectangle(centerX - width / 2, centerY - height / 2, width, height);
-        return rect;
+        return new Rectangle(centerX - width / 2, centerY - height / 2, width, height);
     }
 
     public static Rectangle createFromCenter(Vector2 center, float width, float height) {

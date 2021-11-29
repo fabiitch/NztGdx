@@ -12,6 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  *
  * @author fabiitch
  */
+@SuppressWarnings("ConstantConditions")
 public class NullCheckerTest {
     @Test
     public void isNullTest() {

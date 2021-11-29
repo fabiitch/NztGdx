@@ -30,7 +30,7 @@ public enum LogTagsBase {
     public static void activeBasesTagsExcept(LogTagsBase... tags) {
         Array<LogTagsBase> array = new Array<LogTagsBase>(tags);
         for (LogTagsBase tag : LogTagsBase.values()) {
-            if (tags != null && !array.contains(tag, true))
+            if (tag != null && !array.contains(tag, true))
                 TagLogger.activeTag(tag);
         }
     }
@@ -50,7 +50,7 @@ public enum LogTagsBase {
     public static void desactiveBasesTagsExcept(LogTagsBase... tags) {
         Array<LogTagsBase> array = new Array<LogTagsBase>(tags);
         for (LogTagsBase tag : LogTagsBase.values()) {
-            if (tags != null && !array.contains(tag, true))
+            if (tag != null && !array.contains(tag, true))
                 TagLogger.desactiveTag(tag);
         }
     }

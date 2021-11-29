@@ -23,7 +23,7 @@ public class AutoProxy {
     public static void init() {
         try {
             System.setProperty("java.net.useSystemProxies", "true");
-            List<Proxy> l = ProxySelector.getDefault().select(new URI("http://www.yahoo.com/"));
+            List<Proxy> l = ProxySelector.getDefault().select(new URI("https://www.yahoo.com/")); //TODO change uri
 
             for (Iterator<Proxy> iter = l.iterator(); iter.hasNext(); ) {
 

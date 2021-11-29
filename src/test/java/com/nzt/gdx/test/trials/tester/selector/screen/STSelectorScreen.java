@@ -39,7 +39,7 @@ public class STSelectorScreen extends SimpleScreen<ScreenSelectorTestMain> {
         int i = 0;
         if (rootCaseTest.isGroup) {
             main.lastGroupCase = rootCaseTest.parent;
-            Label nameLabel = new Label(STScanner.getNameOfGroupAndParent(rootCaseTest), skin);
+            Label nameLabel = new Label(ScreenTestAnnotationScanner.getNameOfGroupAndParent(rootCaseTest), skin);
             StagePlacementUtils.placeCenterX(nameLabel, Gdx.graphics.getWidth() / 2);
             StagePlacementUtils.placeCenterY(nameLabel, Gdx.graphics.getHeight() - 50);
             stage.addActor(nameLabel);

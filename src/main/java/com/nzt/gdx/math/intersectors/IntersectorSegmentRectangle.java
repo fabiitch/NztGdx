@@ -20,7 +20,7 @@ public class IntersectorSegmentRectangle {
     private static final Vector2 tmp3 = new Vector2();
     private static final Vector2 tmp4 = new Vector2();
 
-    private static final Array<Vector2> arrayTmp = new Array<>(4);
+    private static final Array<Vector2> arrayTmp = new Array<>(4); //TODO
 
     private static final Segment tmpSeg = new Segment();
 

@@ -6,8 +6,6 @@ import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.FloatArray;
 import com.nzt.gdx.math.shapes.builders.PolygonBuilder;
-import com.nzt.gdx.math.shapes.utils.PolygonUtils;
-import com.nzt.gdx.math.shapes.utils.RectangleUtils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;

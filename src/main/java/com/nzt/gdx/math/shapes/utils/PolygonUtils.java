@@ -33,46 +33,41 @@ public class PolygonUtils {
         return pos.set(polygon.getX(), polygon.getY());
     }
 
-    public static float getMinDstVertex(Polygon polygon, Vector2 vertex) {
+
+    private static float getMinOrMaxDstVertex(Polygon polygon, boolean getMax, Vector2 vertexReturn) {
         float[] vertices = polygon.getTransformedVertices();
         Vector2 tmp = PolygonUtils.tmpV1;
-        float dstMin = Float.MAX_VALUE;
+        float dstKeep = getMax ? Float.MIN_VALUE : Float.MAX_VALUE;
         int i = 0;
         while (i < vertices.length) {
             tmp.set(vertices[i], vertices[i + 1]);
-            float dst = tmp.dst(0, 0);
-            if (dst < dstMin) {
-                dstMin = dst;
-                if (vertex != null)
-                    vertex.set(tmp);
+            float dstVertex = tmp.dst(0, 0);
+            if (getMax ? dstVertex > dstKeep : dstVertex < dstKeep) {
+                dstKeep = dstVertex;
+                if (vertexReturn != null)
+                    vertexReturn.set(tmp);
             }
             i += 2;
         }
-        return dstMin;
+        return dstKeep;
+    }
+
+    public static float getMinDstVertex(Polygon polygon, Vector2 vertex) {
+        return getMinOrMaxDstVertex(polygon, false, vertex);
+    }
+
+    public static float getMinDstVertex(Polygon polygon) {
+        return getMinDstVertex(polygon, null);
     }
 
     public static float getMaxDstVertex(Polygon polygon, Vector2 vertex) {
-        float[] vertices = polygon.getTransformedVertices();
-        Vector2 tmp = PolygonUtils.tmpV1;
-        float dstMax = 0;
-
-        int i = 0;
-        while (i < vertices.length) {
-            tmp.set(vertices[i], vertices[i + 1]);
-            float dst = tmp.dst(0, 0);
-            if (dst > dstMax) {
-                dstMax = dst;
-                if (vertex != null)
-                    vertex.set(tmp);
-            }
-            i += 2;
-        }
-        return dstMax;
+        return getMinOrMaxDstVertex(polygon, true, vertex);
     }
 
     public static float getMaxDstVertex(Polygon polygon) {
         return getMaxDstVertex(polygon, null);
     }
+
 
     public static Polygon getTmpPolygon(float[] vertices) {
         tmpPolygon.setVertices(vertices);
@@ -238,7 +233,7 @@ public class PolygonUtils {
     }
 
     public static void ensureClockWise(Polygon polygon) {
-        if(!isClockwise(polygon))
+        if (!isClockwise(polygon))
             reverseVertices(polygon);
     }
 

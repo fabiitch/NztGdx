@@ -7,7 +7,8 @@ import org.junit.jupiter.api.Test;
 /**
  * Test modif d'une reférence attribué
  */
- class JavaT_ReferenceModificationTest {
+@SuppressWarnings("ConstantConditions")
+class JavaT_ReferenceModificationTest {
 
     @Test
     public void reassigneRefTest() {

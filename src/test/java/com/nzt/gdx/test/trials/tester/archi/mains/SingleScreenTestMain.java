@@ -13,6 +13,7 @@ public class SingleScreenTestMain extends FastTesterMain {
         super(screenClass);
     }
 
+    @SuppressWarnings("GDXJavaLogLevel")
     @Override
     public void doCreate() {
         Gdx.app.setLogLevel(Application.LOG_DEBUG);
