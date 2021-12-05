@@ -22,14 +22,14 @@ public class DT_Tracker {
 
     public DT_Tracker(int positionOnStage, Color color, int... fpsTargets) {
         this.fpsTargets = fpsTargets;
-        HudDebug.addItem(TOTAL_TIME, 100000f, positionOnStage, color);
+        HudDebug.add(TOTAL_TIME, 100000f, positionOnStage, color);
 
         removeFromHudDebug();//clean older
         for (int fpsTarget : fpsTargets) {
-            HudDebug.addItem(TOTAL_TIME_PERCENT + fpsTarget + "FPS", "100%", positionOnStage, color);
+            HudDebug.add(TOTAL_TIME_PERCENT + fpsTarget + "FPS", "100%", positionOnStage, color);
         }
-        HudDebug.addItem(MAX_FPS_POSSIBLE, 500, positionOnStage, color);
-        HudDebug.addItem(DT_SEPARATOR, DT_SEPARATOR, positionOnStage, color);
+        HudDebug.add(MAX_FPS_POSSIBLE, 500, positionOnStage, color);
+        HudDebug.add(DT_SEPARATOR, DT_SEPARATOR, positionOnStage, color);
 
     }
 

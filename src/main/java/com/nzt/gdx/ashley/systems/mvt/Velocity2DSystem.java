@@ -9,7 +9,7 @@ import com.nzt.gdx.ashley.components.mvt.PositionComponent;
 import com.nzt.gdx.ashley.components.mvt.Velocity2DComponent;
 
 /*
-Simple update position with velocity
+Simple update order with velocity
  */
 public class Velocity2DSystem extends NzIteratingSystem {
     private final static ComponentMapper<PositionComponent> posMapper = PositionComponent.mapper;

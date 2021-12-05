@@ -56,7 +56,7 @@ public abstract class AbstractMain implements ApplicationListener {
 
     public void createRenderObjects() {
         this.sb = new SpriteBatch();
-        sb.enableBlending();
+        this.sb.enableBlending();
         this.nzShapeRenderer = new NzShapeRenderer();
         this.nzShapeRenderer.setAutoShapeType(true);
         this.modelBatch = new ModelBatch();

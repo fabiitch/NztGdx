@@ -7,7 +7,7 @@ import com.badlogic.gdx.math.Vector3;
 import com.nzt.gdx.ashley.base.components.PoolableComponent;
 
 /**
- * Position component, contains V3 position and rotation.
+ * Position component, contains V3 order and rotation.
  */
 public class PositionComponent extends PoolableComponent {
 
