@@ -1,12 +1,12 @@
-package com.nzt.gdx.test.runnable.tester;
+package com.nzt.gdx.test.st.tester;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
-import com.nzt.gdx.test.runnable.tester.conditions.PredicateKO;
-import com.nzt.gdx.test.runnable.tester.conditions.PredicateSuccess;
-import com.nzt.gdx.test.runnable.tester.conditions.TestCondition;
+import com.nzt.gdx.test.st.tester.conditions.PredicateKO;
+import com.nzt.gdx.test.st.tester.conditions.PredicateSuccess;
+import com.nzt.gdx.test.st.tester.conditions.TestCondition;
 import com.nzt.gdx.test.utils.archi.mains.mains.FastTesterMain;
 import com.nzt.gdx.test.utils.archi.screens.ScreenTry;
 import org.junit.jupiter.api.AfterEach;

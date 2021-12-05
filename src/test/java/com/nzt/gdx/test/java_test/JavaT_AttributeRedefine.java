@@ -1,4 +1,4 @@
-package com.nzt.gdx.test.javat;
+package com.nzt.gdx.test.java_test;
 
 import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.OrthographicCamera;

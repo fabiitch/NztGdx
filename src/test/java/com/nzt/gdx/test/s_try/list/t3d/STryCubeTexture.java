@@ -13,7 +13,7 @@
 //import com.badlogic.gdx.graphics.g3d.utils.ModelBuilder;
 //import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
 //
-//public class STCubeTexture extends BaseST3D {
+//public class STryCubeTexture extends BaseST3D {
 //    public Model model;
 //    public ModelInstance instance;
 //    public Environment environment;

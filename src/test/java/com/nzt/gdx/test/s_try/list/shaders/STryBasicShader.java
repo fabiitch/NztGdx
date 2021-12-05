@@ -10,12 +10,12 @@ import com.nzt.gdx.test.utils.archi.screens.ScreenTry;
 import com.nzt.gdx.test.utils.screen_selector.TestScreen;
 
 @TestScreen(group = "shaders")
-public class STBasicShader extends ScreenTry {
+public class STryBasicShader extends ScreenTry {
 
     private final Sprite sprite;
     private final Texture texture;
 
-    public STBasicShader(FastTesterMain main) {
+    public STryBasicShader(FastTesterMain main) {
         super(main, true);
 
         texture = new Texture("badlogic.jpg");

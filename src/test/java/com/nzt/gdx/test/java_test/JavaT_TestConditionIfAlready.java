@@ -1,4 +1,4 @@
-package com.nzt.gdx.test.javat;
+package com.nzt.gdx.test.java_test;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
