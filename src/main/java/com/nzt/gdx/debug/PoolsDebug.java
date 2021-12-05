@@ -32,7 +32,7 @@ public class PoolsDebug {
             if (exist) {
                 HudDebug.update("Pool " + key.getSimpleName(), sb.toString());
             } else {
-                HudDebug.addItem("Pool " + key.getSimpleName(), sb.toString(), position, color);
+                HudDebug.add("Pool " + key.getSimpleName(), sb.toString(), position, color);
             }
             sb.setLength(0);
         }

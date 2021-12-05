@@ -19,7 +19,7 @@ public class HudDebug {
 
         if (arrayBeforeInit != null) {
             for (HudDebugPreInitItem item : arrayBeforeInit) {
-                this.container.addItem(item);
+                instance.container.createLabel(item.positionOnStage,item.key, item.name, item.value, item.color);
             }
             HudDebug.arrayBeforeInit.clear();
             HudDebug.arrayBeforeInit = null;
@@ -36,6 +36,13 @@ public class HudDebug {
         } else {
             instance.container.clear();
         }
+    }
+
+    public HudDebugLabel get(String key) {
+        if (instance == null) {
+            return null;
+        }
+        return instance.container.get(key);
     }
 
     public static boolean exist(String key) {
@@ -122,7 +129,7 @@ public class HudDebug {
         if (instance == null) {
             addInitList(key, name, value, HudDebugPosition.TOP_LEFT, color);
         } else {
-            instance.container.addTopLeft(key, name, value, color);
+            instance.container.createLabel(HudDebugPosition.TOP_LEFT, key, name, value, color);
         }
     }
 
@@ -138,7 +145,7 @@ public class HudDebug {
         if (instance == null) {
             addInitList(key, name, value, HudDebugPosition.TOP_MIDDLE, color);
         } else {
-            instance.container.addTopMiddle(key, name, value, color);
+            instance.container.createLabel(HudDebugPosition.TOP_MIDDLE, key, name, value, color);
         }
     }
 
@@ -154,7 +161,7 @@ public class HudDebug {
         if (instance == null) {
             addInitList(key, name, value, HudDebugPosition.TOP_RIGHT, color);
         } else {
-            instance.container.addTopRight(key, name, value, color);
+            instance.container.createLabel(HudDebugPosition.TOP_RIGHT, key, name, value, color);
         }
     }
 
@@ -170,7 +177,7 @@ public class HudDebug {
         if (instance == null) {
             addInitList(key, name, value, HudDebugPosition.BOT_LEFT, color);
         } else {
-            instance.container.addBotLeft(key, name, value, color);
+            instance.container.createLabel(HudDebugPosition.BOT_LEFT, key, name, value, color);
         }
     }
 
@@ -186,7 +193,7 @@ public class HudDebug {
         if (instance == null) {
             addInitList(key, name, value, HudDebugPosition.BOT_MIDDLE, color);
         } else {
-            instance.container.addBotMiddle(key, name, value, color);
+            instance.container.createLabel(HudDebugPosition.BOT_MIDDLE, key, name, value, color);
         }
     }
 
@@ -202,7 +209,7 @@ public class HudDebug {
         if (instance == null) {
             addInitList(key, name, value, HudDebugPosition.BOT_RIGHT, color);
         } else {
-            instance.container.addBotRight(key, name, value, color);
+            instance.container.createLabel(HudDebugPosition.BOT_RIGHT, key, name, value, color);
         }
     }
 
@@ -219,7 +226,7 @@ public class HudDebug {
         if (instance == null) {
             addInitList(key, name, value, HudDebugPosition.LEFT_MIDDLE, color);
         } else {
-            instance.container.addLeftMiddle(key, name, value, color);
+            instance.container.createLabel(HudDebugPosition.LEFT_MIDDLE, key, name, value, color);
         }
     }
 
@@ -236,7 +243,7 @@ public class HudDebug {
         if (instance == null) {
             addInitList(key, name, value, HudDebugPosition.RIGHT_MIDDLE, color);
         } else {
-            instance.container.addRightMiddle(key, name, value, color);
+            instance.container.createLabel(HudDebugPosition.RIGHT_MIDDLE, key, name, value, color);
         }
     }
 
@@ -246,18 +253,6 @@ public class HudDebug {
 
     public static void addMiddleRight(String name, Object value) {
         addMiddleRight(null, name, value, Color.WHITE);
-    }
-
-    public static void addItem(String name, Object value, int positionOnStage) {
-        addItem(name, value, positionOnStage, Color.WHITE);
-    }
-
-    public static void addItem(String name, Object value, int positionOnStage, Color color) {
-        if (instance == null) {
-            addInitList(null, name, value, positionOnStage, color);
-        } else {
-            add(null, name, value, positionOnStage, color);
-        }
     }
 
     public static void add(String name, Object value, int positionOnstage) {

@@ -59,12 +59,12 @@ public class NzGLProfiler {
     }
 
     public void initHudDebug(int positionOnStage, Color color) {
-        HudDebug.addItem("GlListener enabled", profiler.isEnabled() + "", positionOnStage, color);
-        HudDebug.addItem("getCalls", 100000, positionOnStage, color);
-        HudDebug.addItem("getDrawCalls", 100000, positionOnStage, color);
-        HudDebug.addItem("getShaderSwitches", 100000, positionOnStage, color);
-        HudDebug.addItem("getTextureBindings", 100000, positionOnStage, color);
-        HudDebug.addItem("getVertexCountAverage", 100000, positionOnStage, color);
+        HudDebug.add("GlListener enabled", profiler.isEnabled() + "", positionOnStage, color);
+        HudDebug.add("getCalls", 100000, positionOnStage, color);
+        HudDebug.add("getDrawCalls", 100000, positionOnStage, color);
+        HudDebug.add("getShaderSwitches", 100000, positionOnStage, color);
+        HudDebug.add("getTextureBindings", 100000, positionOnStage, color);
+        HudDebug.add("getVertexCountAverage", 100000, positionOnStage, color);
     }
 
     public void updateHudDebug() {

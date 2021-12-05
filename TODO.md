@@ -19,3 +19,6 @@ GL error vient de com.badlogic.gdx.tests.utils.GdxTestWrapper
 
 - gdx-lwjgl3-angle a faite  
   https://github.com/libgdx/libgdx/pull/6672
+
+
+icone NZT !

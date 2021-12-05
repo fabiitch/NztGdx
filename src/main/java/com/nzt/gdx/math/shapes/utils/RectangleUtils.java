@@ -460,7 +460,7 @@ public class RectangleUtils {
     }
 
     /**
-     * Renvoi la position relative au rect
+     * Renvoi la order relative au rect
      * 0 = inside
      * 4 |  3 | 2
      * __|____|__

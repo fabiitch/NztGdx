@@ -8,12 +8,12 @@ import com.nzt.gdx.utils.GdxUtils;
 public class HudDebugApplicationInfo {
 
     public HudDebugApplicationInfo(int positionOnStage, Color color) {
-        HudDebug.addItem("FPS", Gdx.graphics.getFramesPerSecond(), positionOnStage, color);
-        HudDebug.addItem("DT", 0, positionOnStage, color);
-        HudDebug.addItem("JavaHeap", GdxUtils.getHeapMb() + " MB", positionOnStage, color);
-        HudDebug.addItem("NativeHeap", GdxUtils.getNativeHeapMb() + " MB", positionOnStage, color);
-        HudDebug.addItem("NbThread", Thread.activeCount(), positionOnStage, color);
-        HudDebug.addItem("CurrentThread", Thread.currentThread().getName(), positionOnStage, color);
+        HudDebug.add("FPS", Gdx.graphics.getFramesPerSecond(), positionOnStage, color);
+        HudDebug.add("DT", 0, positionOnStage, color);
+        HudDebug.add("JavaHeap", GdxUtils.getHeapMb() + " MB", positionOnStage, color);
+        HudDebug.add("NativeHeap", GdxUtils.getNativeHeapMb() + " MB", positionOnStage, color);
+        HudDebug.add("NbThread", Thread.activeCount(), positionOnStage, color);
+        HudDebug.add("CurrentThread", Thread.currentThread().getName(), positionOnStage, color);
     }
 
     public HudDebugApplicationInfo() {

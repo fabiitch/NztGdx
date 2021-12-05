@@ -33,7 +33,7 @@ public class SpriteRenderSystem extends SortedIteratingSystem {
 
     private final Array<Entity> renderQueue; // an array used to allow sorting of images allowing us to draw images on top of
     // each other
-    private final Comparator<Entity> comparator = new ZComparator(); // a comparator to sort images based on the z position of
+    private final Comparator<Entity> comparator = new ZComparator(); // a comparator to sort images based on the z order of
     // the
 
     public SpriteRenderSystem(Camera camera, SpriteBatch sb, int order) {
