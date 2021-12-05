@@ -1,4 +1,4 @@
-package com.nzt.gdx.test.runnable.tester.conditions;
+package com.nzt.gdx.test.st.tester.conditions;
 
 public interface PredicateKO {
 

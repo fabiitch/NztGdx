@@ -1,4 +1,4 @@
-package com.nzt.gdx.test.javat;
+package com.nzt.gdx.test.java_test;
 
 import com.badlogic.gdx.math.Vector2;
 import org.junit.jupiter.api.Assertions;

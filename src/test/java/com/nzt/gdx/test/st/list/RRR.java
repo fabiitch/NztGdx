@@ -1,4 +1,4 @@
-package com.nzt.gdx.test.runnable.list;
+package com.nzt.gdx.test.st.list;
 
 import com.nzt.gdx.test.utils.archi.mains.StarterTestConfig;
 import com.nzt.gdx.test.utils.archi.mains.mains.SingleScreenTestMain;

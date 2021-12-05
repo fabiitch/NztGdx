@@ -24,7 +24,7 @@ import java.util.Arrays;
  * https://github.com/yellowstonegames/SquidLib-Demos/tree/master/WorldViewer
  */
 @TestScreen(group = "shaders")
-public class STWorldViewer extends ScreenTry {
+public class STryWorldViewer extends ScreenTry {
     private FitViewport viewport;
     private PerspectiveCamera camera;
     private CameraInputController cameraController;
@@ -37,7 +37,7 @@ public class STWorldViewer extends ScreenTry {
     private DirectionalLight sunLight;
     private DirectionalLight cameraLight;
 
-    public STWorldViewer(FastTesterMain main) {
+    public STryWorldViewer(FastTesterMain main) {
         super(main, true);
         // camera
         camera = new PerspectiveCamera();

@@ -1,8 +1,8 @@
-package com.nzt.gdx.test.runnable.list;
+package com.nzt.gdx.test.st.list;
 
 import com.badlogic.gdx.math.Rectangle;
-import com.nzt.gdx.test.runnable.tester.UnitTestScreen;
-import com.nzt.gdx.test.runnable.tester.conditions.TestCondition;
+import com.nzt.gdx.test.st.tester.UnitTestScreen;
+import com.nzt.gdx.test.st.tester.conditions.TestCondition;
 import com.nzt.gdx.test.utils.archi.mains.mains.FastTesterMain;
 import com.nzt.gdx.test.utils.screen_selector.TestScreen;
 

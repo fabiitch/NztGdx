@@ -16,7 +16,7 @@ import com.nzt.gdx.test.utils.screen_selector.TestScreen;
  * https://github.com/yellowstonegames/SquidLib-Demos/blob/master/NorthernLights/core/src/main/java/com/squidpony/demo/NorthernLights.java
  */
 @TestScreen(group = "shaders")
-public class STNorthernLights extends ScreenTry {
+public class STryNorthernLights extends ScreenTry {
     private SpriteBatch batch;
     private Texture pixel;
     private ShaderProgram shader;
@@ -25,7 +25,7 @@ public class STNorthernLights extends ScreenTry {
     private float seed;
     private int width, height;
 
-    public STNorthernLights(FastTesterMain main) {
+    public STryNorthernLights(FastTesterMain main) {
         super(main, true);
         batch = new SpriteBatch();
 

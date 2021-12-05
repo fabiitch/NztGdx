@@ -23,7 +23,7 @@ import com.nzt.gdx.test.utils.screen_selector.TestScreen;
  * https://github.com/vikrorcz/watershader
  */
 @TestScreen(group = "shaders")
-public class STWaterShader extends ScreenTry {
+public class STryWaterShader extends ScreenTry {
     private SpriteBatch batch;
 
     private ShaderProgram cloakShader;
@@ -53,7 +53,7 @@ public class STWaterShader extends ScreenTry {
 
     private final static String ASSET_PATH = "shaders/water/";
 
-    public STWaterShader(FastTesterMain main) {
+    public STryWaterShader(FastTesterMain main) {
         super(main, true);
 
         batch = new SpriteBatch();

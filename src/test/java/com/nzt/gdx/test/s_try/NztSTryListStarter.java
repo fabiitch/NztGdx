@@ -12,6 +12,6 @@ public class NztSTryListStarter {
 
     public static void main(String[] args) {
         StarterTestConfig.startLwjgl3(new ScreenSelectorTestMain(NztSTryListStarter.class,
-                        "com.nzt.gdx.test.st.list"), witdh, height);
+                        "com.nzt.gdx.test.s_try.list"), witdh, height);
     }
 }
