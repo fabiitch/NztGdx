@@ -4,6 +4,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.utils.TimeUtils;
 import com.nzt.gdx.counter.IntCounter;
+import com.nzt.gdx.utils.CommonString;
 
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
@@ -44,6 +45,8 @@ public class DebugDisplayUtils {
     }
 
     public static String printValue(Object o) {
+      if(o == null)
+          return CommonString.Null;
         if (o instanceof Number) {
             String s = floatFormatter.format(o, sb, fieldPosition).toString();
             sb.setLength(0);
