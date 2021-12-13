@@ -8,6 +8,7 @@ import com.nzt.gdx.math.shapes.Segment;
 import com.nzt.gdx.math.shapes.utils.RectangleUtils;
 import com.nzt.gdx.test.unit.math.AbstractMathTest;
 import com.nzt.gdx.test.unit.math.vectors.VTestUtils;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static com.nzt.gdx.math.shapes.utils.RectangleUtils.*;
@@ -430,11 +431,35 @@ public class RectangleUtilsTest extends AbstractMathTest {
         RectangleUtils.mergeFloorCeil(rect, r(-5.555f, -6.00000554f, 10, 10));
         assertEquals(r(-6, -7, 107, 208), rect);
 
-         rect = r(100, 200);
+        rect = r(100, 200);
         RectangleUtils.mergeFloorCeil(rect, r(-6f, -7f, 10, 10));
         assertEquals(r(-6, -7, 106, 207), rect);
     }
 
+
+    @Test
+    public void getRectsAroundTest() {
+        Rectangle rect1 = r(0, 0, 100, 50);
+        Rectangle[] rectsAround1 = getRectsAround(rect1, 10);
+        Assertions.assertEquals(r(0, -10, 100, 10), rectsAround1[0]);
+        Assertions.assertEquals(r(0, 50, 100, 10), rectsAround1[1]);
+        Assertions.assertEquals(r(-10, 0, 10, 50), rectsAround1[2]);
+        Assertions.assertEquals(r(100, 0, 10, 50), rectsAround1[3]);
+
+        Rectangle rect2 = r(-200, 100, 200, 100);
+        Rectangle[] rectsAround2 = getRectsAround(rect2, 50);
+        Assertions.assertEquals(r(-200, 100 - 50, 200, 50), rectsAround2[0]);
+        Assertions.assertEquals(r(-200, 200, 200, 50), rectsAround2[1]);
+        Assertions.assertEquals(r(-200 - 50, 100, 50, 100), rectsAround2[2]);
+        Assertions.assertEquals(r(-200 + 200, 100, 50, 100), rectsAround2[3]);
+    }
+
+    @Test
+    public void getRandomPosTest() {
+        Rectangle rect1 = r(0, 0, 100, 50);
+        for (int i = 0; i < 100; i++)
+            Assertions.assertTrue(rect1.contains(RectangleUtils.getRandomPos(rect1, v())));
+    }
 
     //TODO marche pas
 //    @Test
