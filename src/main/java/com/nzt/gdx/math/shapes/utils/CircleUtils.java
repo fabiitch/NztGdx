@@ -99,6 +99,14 @@ public class CircleUtils {
         return rectangle;
     }
 
+    public static Vector2 getRandomPos(Circle circle, Vector2 pos) {
+        float r = (float) (circle.radius * Math.sqrt(MathUtils.random()));
+        float theta = MathUtils.random() * 2 * MathUtils.PI;
+        pos.x = circle.x + r * MathUtils.cos(theta);
+        pos.y = circle.y + r * MathUtils.sin(theta);
+        return pos;
+    }
+
 //    public static float getAngleReflexionRad(Circle circle, float angleRad) {
 //        Vector2 tangent = getTangentRad(circle, angleRad, tmp);
 //        tmp2.setAngleRad(angleRad);
