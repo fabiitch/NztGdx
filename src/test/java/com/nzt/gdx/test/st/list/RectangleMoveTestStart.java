@@ -2,11 +2,13 @@ package com.nzt.gdx.test.st.list;
 
 import com.nzt.gdx.test.utils.archi.mains.StarterTestConfig;
 import com.nzt.gdx.test.utils.archi.mains.mains.SingleScreenTestMain;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.fail;
 
-public class RRR {
+@Disabled
+public class RectangleMoveTestStart {
     @Test
     public void moveTest() {
         try {
