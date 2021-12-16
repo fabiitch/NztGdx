@@ -3,6 +3,8 @@ package com.nzt.gdx.test.unit.math.shape.utils;
 import com.badlogic.gdx.math.Circle;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
+import com.nzt.gdx.math.shapes.utils.CircleUtils;
+import com.nzt.gdx.math.shapes.utils.RectangleUtils;
 import com.nzt.gdx.test.unit.math.AbstractMathTest;
 import com.nzt.gdx.test.unit.math.vectors.VTestUtils;
 import org.junit.jupiter.api.Assertions;
@@ -106,5 +108,13 @@ public class CircleUtilsTest extends AbstractMathTest {
         circle = c(200, 200, 200);
         rectBounds = getRectBounds(circle, new Rectangle());
         Assertions.assertEquals(new Rectangle(0, 0, 400, 400), rectBounds);
+    }
+
+    @Test
+    public void getRandomPosTest(){
+        Circle circle = c(0, 0, 100);
+        for(int i = 0; i < 100 ; i++){
+            Assertions.assertTrue(circle.contains(CircleUtils.getRandomPos(circle, v())));
+        }
     }
 }
