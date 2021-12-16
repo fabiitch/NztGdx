@@ -48,10 +48,10 @@ dependencies {
     // Use JUnit test framework
     testImplementation "org.junit.jupiter:junit-jupiter:$junitVersion"
     testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$junitVersion"
-    testImplementation "org.mockito:mockito-core:$mockitoVersion"
+    testImplementation 'org.mockito:mockito-core:4.2.0'
 
     // https://mvnrepository.com/artifact/org.reflections/reflections
-    implementation group: 'org.reflections', name: 'reflections', version: '0.10.2'
+    testImplementation group: 'org.reflections', name: 'reflections', version: '0.10.2'
 
     testImplementation "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
     testImplementation "com.badlogicgames.gdx:gdx-backend-headless:$gdxVersion"
@@ -69,7 +69,7 @@ dependencies {
 
 test {
     useJUnitPlatform()
-    exclude 'com/nzt/gdx/test/java_test/**'
+//    exclude 'com/nzt/gdx/test/java_test/**'
 }
 
 configurations {

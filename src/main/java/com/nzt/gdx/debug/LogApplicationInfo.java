@@ -27,6 +27,14 @@ public class LogApplicationInfo {
 
     public static void logGraphics(int logLevel) {
         TagLoggerBlockUtils.startBlock(logLevel, LogTagsBase.INIT, "Graphics Info");
+        Graphics.GraphicsType type = Gdx.graphics.getType();
+        TagLogger.logWithLevel(logLevel, LogTagsBase.INIT, "getType", "" + type.name());
+
+        if (type == Graphics.GraphicsType.Mock) {
+            TagLoggerBlockUtils.endBlock(logLevel, LogTagsBase.INIT, "Graphics Info");
+            return;
+        }
+
         TagLogger.logWithLevel(logLevel, LogTagsBase.INIT, "getWidth", "" + Gdx.graphics.getWidth());
         TagLogger.logWithLevel(logLevel, LogTagsBase.INIT, "getHeight", "" + Gdx.graphics.getHeight());
 
@@ -53,8 +61,6 @@ public class LogApplicationInfo {
                     "" + Gdx.graphics.getGL30().getClass().getSimpleName());
         else
             TagLogger.logWithLevel(logLevel, LogTagsBase.INIT, "getGL30", "No GL30");
-
-        TagLogger.logWithLevel(logLevel, LogTagsBase.INIT, "getType", "" + Gdx.graphics.getType().name());
 
         TagLogger.logWithLevel(logLevel, LogTagsBase.INIT, "getBufferFormat",
                 "" + Gdx.graphics.getBufferFormat().toString());

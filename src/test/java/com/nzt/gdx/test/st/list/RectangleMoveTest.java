@@ -3,8 +3,8 @@ package com.nzt.gdx.test.st.list;
 import com.badlogic.gdx.math.Rectangle;
 import com.nzt.gdx.test.st.tester.UnitTestScreen;
 import com.nzt.gdx.test.st.tester.conditions.TestCondition;
-import com.nzt.gdx.test.utils.archi.mains.mains.FastTesterMain;
 import com.nzt.gdx.test.utils.screen_selector.TestScreen;
+import org.junit.jupiter.api.Test;
 
 @TestScreen
 public class RectangleMoveTest extends UnitTestScreen {
@@ -16,8 +16,15 @@ public class RectangleMoveTest extends UnitTestScreen {
         return "Just test if unitTestScreenWork";
     }
 
-    public RectangleMoveTest(FastTesterMain main) {
-        super(main);
+    @Test
+    public void startTest() {
+        System.out.println("toot");
+        RectangleMoveTest tt = new RectangleMoveTest();
+        tt.renderLoop60FPS();
+    }
+
+    public RectangleMoveTest() {
+        super();
         testConditions.add(new TestCondition() {
             @Override
             public String name() {

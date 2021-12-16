@@ -2,7 +2,6 @@ package com.nzt.gdx.debug.hud.core;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.utils.Array;
-import com.nzt.gdx.debug.hud.HudDebugPosition;
 
 import java.util.function.Consumer;
 
@@ -20,6 +19,8 @@ public class HudDebugPreInitItem<T> {
     public HudDebugPreInitItem(String key, String name, T value, int positionOnStage, Color color) {
         this.key = key;
         this.name = name;
+        if (key == null)
+            this.key = name;
         this.value = value;
         this.color = color;
         this.positionOnStage = positionOnStage;

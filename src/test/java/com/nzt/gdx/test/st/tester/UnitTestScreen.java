@@ -1,16 +1,24 @@
 package com.nzt.gdx.test.st.tester;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.backends.headless.HeadlessApplication;
+import com.badlogic.gdx.graphics.g3d.ModelBatch;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
+import com.nzt.gdx.debug.gl.NzGLProfiler;
+import com.nzt.gdx.debug.hud.core.HudDebug;
+import com.nzt.gdx.scene2D.nz.NzStage;
 import com.nzt.gdx.test.st.tester.conditions.PredicateKO;
 import com.nzt.gdx.test.st.tester.conditions.PredicateSuccess;
 import com.nzt.gdx.test.st.tester.conditions.TestCondition;
 import com.nzt.gdx.test.utils.archi.mains.mains.FastTesterMain;
+import com.nzt.gdx.test.utils.archi.mains.mains.HeadlessTesterMain;
 import com.nzt.gdx.test.utils.archi.screens.ScreenTry;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
+import org.mockito.Mockito;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -21,6 +29,7 @@ import java.util.Iterator;
  * Add PredicateSuccess/PredicateKO or TestConditions for check if test is OK/KO
  * use renderLoop for run your test
  */
+
 public abstract class UnitTestScreen extends ScreenTry {
 
     public final static float MAX_DT = 1 / 10f;
@@ -32,6 +41,25 @@ public abstract class UnitTestScreen extends ScreenTry {
     public final ArrayList<TestCondition> testConditions = new ArrayList<>();
 
     public float maxTimeTestDuration = 10f;
+
+    static HeadlessTesterMain main;
+
+    @BeforeAll
+    public static void init() throws Exception {
+        main = new HeadlessTesterMain(null);
+        main.createRenderObjects();
+        HeadlessApplication app = new HeadlessApplication(main);
+        Gdx.app = app;
+    }
+
+    @Override
+    protected void renderObjects() {
+        //do nothing
+        this.nzStage = Mockito.mock(NzStage.class);
+        this.hudDebug = Mockito.mock(HudDebug.class);
+        this.modelBatch = Mockito.mock(ModelBatch.class);
+        this.glProfiler = Mockito.mock(NzGLProfiler.class);
+    }
 
     public UnitTestScreen(FastTesterMain main) {
         super(main);
@@ -46,6 +74,10 @@ public abstract class UnitTestScreen extends ScreenTry {
                 return timeElapsed > maxTimeTestDuration;
             }
         });
+    }
+
+    public UnitTestScreen() {
+        this(main);
     }
 
     public abstract void renderUnitTest(float dt);

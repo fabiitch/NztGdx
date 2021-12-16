@@ -21,33 +21,25 @@ import com.nzt.gdx.test.utils.archi.mains.mains.FastTesterMain;
 public abstract class ScreenTry extends SimpleTestScreen {
     protected NzStage nzStage;
     protected Skin skin;
-    private final HudDebug hudDebug;
+    protected HudDebug hudDebug;
     protected NzGLProfiler glProfiler;
     protected DT_Tracker dt_tracker;
-    private HudDebugPerformanceFrame hudDebugPerformanceFrame;
+    protected HudDebugPerformanceFrame hudDebugPerformanceFrame;
 
     public ScreenTry(FastTesterMain main) {
         super(main);
-        this.nzStage = new NzStage();
-        this.skin = new Skin(Gdx.files.internal(STryScene2DConstants.UI_SKIN));
-        this.hudDebug = new HudDebug(nzStage, skin);
-        this.glProfiler = main.logManager.nzGlProfiler;
-        this.glProfiler.setScreen(this);
         this.hudDebugPerformanceFrame = new HudDebugPerformanceFrame(HudDebugPosition.BOT_RIGHT, Color.WHITE, false);
         this.addInfoTestMsg();
         this.dt_tracker = new DT_Tracker(HudDebugPosition.TOP_LEFT, Color.WHITE, 60, 120);
+        renderObjects();
     }
 
-    protected ScreenTry(FastTesterMain main, HudDebugPerformanceFrame hudDebugPerformanceFrame) {
-        super(main);
+    protected void renderObjects() {
         this.nzStage = new NzStage();
         this.skin = new Skin(Gdx.files.internal(STryScene2DConstants.UI_SKIN));
         this.hudDebug = new HudDebug(nzStage, skin);
         this.glProfiler = main.logManager.nzGlProfiler;
         this.glProfiler.setScreen(this);
-        this.hudDebugPerformanceFrame = hudDebugPerformanceFrame;
-        this.addInfoTestMsg();
-        this.dt_tracker = new DT_Tracker(HudDebugPosition.TOP_LEFT, Color.WHITE, 60, 120);
     }
 
     /**
