@@ -7,6 +7,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.nzt.gdx.math.AngleUtils;
 import com.nzt.gdx.math.NzMath;
 import com.nzt.gdx.math.shapes.Segment;
+import com.nzt.gdx.math.vectors.V2;
 
 //TODO groupé les math tmpV1 vector segment ect
 
@@ -363,7 +364,7 @@ public class RectangleUtils {
         float minX = (float) Math.floor(Math.min(root.x, other.x));
         float maxX = (float) Math.ceil(Math.max(root.x + root.width, other.x + other.width));
         root.x = minX;
-        root.width =  maxX - minX;
+        root.width = maxX - minX;
 
         float minY = (float) Math.floor(Math.min(root.y, other.y));
         float maxY = (float) Math.ceil(Math.max(root.y + root.height, other.y + other.height));
@@ -493,6 +494,29 @@ public class RectangleUtils {
         return result;
     }
 
+    /**
+     * BOT / TOP / LEFT / RIGHT
+     */
+    public static Rectangle[] getRectsAround(Rectangle rect, float sizeRect) {
+        Rectangle[] rects = new Rectangle[4];
+
+        Rectangle rectBot = new Rectangle(rect.x, rect.y - sizeRect, rect.width, sizeRect);
+        rects[0] = rectBot;
+
+        Rectangle rectTop = new Rectangle(rect.x, rect.y + rect.height, rect.width, sizeRect);
+        rects[1] = rectTop;
+
+        Rectangle rectLeft = new Rectangle(rect.x - sizeRect, rect.y, sizeRect, rect.getHeight());
+        rects[2] = rectLeft;
+
+        Rectangle rectRight = new Rectangle(rect.x + rect.getWidth(), rect.y, sizeRect, rect.getHeight());
+        rects[3] = rectRight;
+        return rects;
+    }
+
+    public static Vector2 getRandomPos(Rectangle rect, Vector2 v) {
+        return v.set(MathUtils.random(rect.x, rect.x + rect.width), rect.y+rect.height);
+    }
 
     /**
      * intersection between ray from center and edge
