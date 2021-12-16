@@ -19,7 +19,7 @@ public class HudDebug {
 
         if (arrayBeforeInit != null) {
             for (HudDebugPreInitItem item : arrayBeforeInit) {
-                instance.container.createLabel(item.positionOnStage,item.key, item.name, item.value, item.color);
+                instance.container.createLabel(item.positionOnStage, item.key, item.name, item.value, item.color);
             }
             HudDebug.arrayBeforeInit.clear();
             HudDebug.arrayBeforeInit = null;
@@ -69,10 +69,12 @@ public class HudDebug {
 
     public static void removeGroup(String startKey) {
         if (instance == null) {
-            for (HudDebugPreInitItem item : arrayBeforeInit) {
-                if (item.key.startsWith(startKey)) {
-                    arrayBeforeInit.removeValue(item, true);
-                    break;
+            if (arrayBeforeInit != null) {
+                for (HudDebugPreInitItem item : arrayBeforeInit) {
+                    if (item.key.startsWith(startKey)) {
+                        arrayBeforeInit.removeValue(item, true);
+                        break;
+                    }
                 }
             }
         } else {
