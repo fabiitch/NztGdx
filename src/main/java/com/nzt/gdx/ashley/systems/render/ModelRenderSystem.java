@@ -10,7 +10,6 @@ import com.badlogic.gdx.graphics.g3d.ModelInstance;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.math.collision.BoundingBox;
-import com.nzt.gdx.ashley.NztSystemsOrder;
 import com.nzt.gdx.ashley.components.mvt.PositionComponent;
 import com.nzt.gdx.ashley.components.renders.Model3DComponent;
 import com.nzt.gdx.debug.perf.PerformanceFrame;
@@ -22,15 +21,11 @@ public class ModelRenderSystem extends IteratingSystem {
     private final static ComponentMapper<Model3DComponent> modelMapper = Model3DComponent.mapper;
     private final static ComponentMapper<PositionComponent> positionMapper = PositionComponent.mapper;
 
-    public ModelRenderSystem(Camera camera, ModelBatch modelbatch, int order) {
-        super(Family.all(PositionComponent.class, Model3DComponent.class).get(), order);
+    public ModelRenderSystem(Camera camera, ModelBatch modelbatch, int systemOrder) {
+        super(Family.all(PositionComponent.class, Model3DComponent.class).get(), systemOrder);
         this.camera = camera;
         this.modelBatch = modelbatch;
         PerformanceFrame.addSystem(this);
-    }
-
-    public ModelRenderSystem(Camera camera, ModelBatch modelbatch) {
-        this(camera, modelbatch, NztSystemsOrder.RENDER);
     }
 
     @Override

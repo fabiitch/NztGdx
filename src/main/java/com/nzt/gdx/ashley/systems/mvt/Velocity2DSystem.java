@@ -3,7 +3,6 @@ package com.nzt.gdx.ashley.systems.mvt;
 import com.badlogic.ashley.core.ComponentMapper;
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.ashley.core.Family;
-import com.nzt.gdx.ashley.NztSystemsOrder;
 import com.nzt.gdx.ashley.base.systems.NzIteratingSystem;
 import com.nzt.gdx.ashley.components.mvt.PositionComponent;
 import com.nzt.gdx.ashley.components.mvt.Velocity2DComponent;
@@ -17,10 +16,6 @@ public class Velocity2DSystem extends NzIteratingSystem {
 
     public Velocity2DSystem(int priority) {
         super(Family.all(Velocity2DComponent.class, PositionComponent.class).get(), priority);
-    }
-
-    public Velocity2DSystem() {
-        this(NztSystemsOrder.MVT);
     }
 
     @Override

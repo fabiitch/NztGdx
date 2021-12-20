@@ -8,7 +8,7 @@ import java.util.HashMap;
 class PerformanceContainer {
     //<ScreenClass,Action,Value>
     private final HashMap<Class, HashMap<String, PerformanceAction>> mapByScreen;
-    private HashMap<String, PerformanceAction> currentMap;
+    private HashMap<String, PerformanceAction> currentMap =new HashMap<>();
     private final Array<PerformanceAction> currentArrayOrdered;
 
     public Array<PerformanceAction> getActions() {

@@ -32,15 +32,15 @@ public class STryPerformanceFrame extends ScreenTry {
         factory = new BaseEntityFactory(engine);
         camera = new OrthographicCamera(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 
-        engine.addSystem(new SpriteRenderSystem(camera, main.sb));
+        engine.addSystem(new SpriteRenderSystem(camera, main.sb, 10));
         for (int i = 0; i < 10; i++) {
             Sprite sprite = new Sprite(texture);
             sprite.setBounds(i * 50, 0, 50, 50);
             factory.createEntity().add(factory.rendersFactory.sprite(sprite));
         }
 
-        engine.addSystem(new ShapeRenderSystem(main.nzShapeRenderer));
-        engine.addSystem(new Velocity2DSystem());
+        engine.addSystem(new ShapeRenderSystem(main.nzShapeRenderer, 12));
+        engine.addSystem(new Velocity2DSystem(5));
 
         perf = new HudDebugPerformanceFrame(HudDebugPosition.TOP_LEFT, Color.CYAN);
     }
