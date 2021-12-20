@@ -6,7 +6,6 @@ import com.badlogic.ashley.core.Family;
 import com.badlogic.ashley.systems.IteratingSystem;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.utils.Array;
-import com.nzt.gdx.ashley.NztSystemsOrder;
 import com.nzt.gdx.ashley.components.renders.ShapeRenderableArrayComponent;
 import com.nzt.gdx.debug.perf.PerformanceFrame;
 
@@ -22,10 +21,6 @@ public class ShapeRenderSystem extends IteratingSystem {
         this.shapeRenderer = shapeRenderer;
         this.queue = new Array<Entity>();
         PerformanceFrame.addSystem(this);
-    }
-
-    public ShapeRenderSystem(ShapeRenderer shapeRenderer) {
-        this(shapeRenderer, NztSystemsOrder.RENDER);
     }
 
     @Override

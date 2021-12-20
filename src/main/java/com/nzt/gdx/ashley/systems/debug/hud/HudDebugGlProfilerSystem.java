@@ -2,18 +2,14 @@ package com.nzt.gdx.ashley.systems.debug.hud;
 
 import com.badlogic.ashley.core.EntitySystem;
 import com.badlogic.gdx.graphics.Color;
-import com.nzt.gdx.ashley.NztSystemsOrder;
 import com.nzt.gdx.debug.gl.NzGLProfiler;
 
 public class HudDebugGlProfilerSystem extends EntitySystem {
     private final NzGLProfiler profiler;
 
-    public HudDebugGlProfilerSystem(NzGLProfiler profiler, int positionOnStage) {
-        this(profiler, positionOnStage, Color.WHITE);
-    }
-
-    public HudDebugGlProfilerSystem(NzGLProfiler profiler, int positionOnStage, Color color) {
-        super(NztSystemsOrder.HUD_DEBUG);
+    public HudDebugGlProfilerSystem(NzGLProfiler profiler, int positionOnStage,
+                                    Color color, int systemOrder) {
+        super(systemOrder);
         this.profiler = profiler;
         profiler.initHudDebug(positionOnStage, color);
         profiler.active();

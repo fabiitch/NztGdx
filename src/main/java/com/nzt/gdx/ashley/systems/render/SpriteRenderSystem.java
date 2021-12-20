@@ -10,7 +10,6 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.utils.Array;
-import com.nzt.gdx.ashley.NztSystemsOrder;
 import com.nzt.gdx.ashley.comparators.ZComparator;
 import com.nzt.gdx.ashley.components.mvt.PositionComponent;
 import com.nzt.gdx.ashley.components.renders.SpriteComponent;
@@ -36,8 +35,10 @@ public class SpriteRenderSystem extends SortedIteratingSystem {
     private final Comparator<Entity> comparator = new ZComparator(); // a comparator to sort images based on the z order of
     // the
 
-    public SpriteRenderSystem(Camera camera, SpriteBatch sb, int order) {
-        super(Family.all(PositionComponent.class, SpriteComponent.class).get(), new ZComparator(), order);
+    public SpriteRenderSystem(Camera camera, SpriteBatch sb, int systemOrder) {
+        super(Family.all(PositionComponent.class, SpriteComponent.class).get(),
+                new ZComparator(),
+                systemOrder);
         this.cam = camera;
         // create the array for sorting entities
         renderQueue = new Array<Entity>();
@@ -46,9 +47,6 @@ public class SpriteRenderSystem extends SortedIteratingSystem {
         PerformanceFrame.addSystem(this);
     }
 
-    public SpriteRenderSystem(Camera camera, SpriteBatch sb) {
-        this(camera, sb, NztSystemsOrder.RENDER);
-    }
 
     @Override
     public void update(float deltaTime) {

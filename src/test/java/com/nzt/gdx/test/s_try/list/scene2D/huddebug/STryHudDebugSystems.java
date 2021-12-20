@@ -8,7 +8,7 @@ import com.nzt.gdx.debug.hud.HudDebugPosition;
 import com.nzt.gdx.debug.hud.core.HudDebug;
 import com.nzt.gdx.test.utils.archi.mains.mains.FastTesterMain;
 import com.nzt.gdx.test.utils.archi.screens.BaseSystemTestScreen;
-import com.nzt.gdx.test.utils.archi.systems.HudSystem;
+import com.nzt.gdx.test.utils.archi.systems.HudSystemAdapter;
 import com.nzt.gdx.test.utils.screen_selector.TestScreen;
 
 /**
@@ -20,17 +20,18 @@ public class STryHudDebugSystems extends BaseSystemTestScreen {
 
     public STryHudDebugSystems(FastTesterMain main) {
         super(main);
-        HudSystem hudSystem = new HudSystem(nzStage);
+        HudSystemAdapter hudSystem = new HudSystemAdapter(nzStage);
         engine.addSystem(hudSystem);
 
         HudDebugApplicationInfoSystem hudDebugGlobalInfoSystem = new HudDebugApplicationInfoSystem(
-                HudDebugPosition.TOP_LEFT, Color.CYAN);
+                HudDebugPosition.TOP_LEFT, Color.CYAN, 10);
         engine.addSystem(hudDebugGlobalInfoSystem);
 
         HudDebugGlProfilerSystem glProfilerSystem = new HudDebugGlProfilerSystem(main.logManager.nzGlProfiler,
-                HudDebugPosition.TOP_RIGHT, Color.RED);
+                HudDebugPosition.TOP_RIGHT, Color.RED, 10);
 
-        HudDebugPerformanceSystem perfSystem = new HudDebugPerformanceSystem(HudDebugPosition.BOT_RIGHT);
+        HudDebugPerformanceSystem perfSystem = new HudDebugPerformanceSystem(HudDebugPosition.BOT_RIGHT,
+                Color.WHITE, 15);
         engine.addSystem(perfSystem);
         engine.addSystem(glProfilerSystem);
 
