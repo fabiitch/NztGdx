@@ -1,40 +1,45 @@
 package com.nzt.gdx.ashley.components.physx;
 
 import com.badlogic.ashley.core.ComponentMapper;
-import com.badlogic.ashley.core.Entity;
-import com.badlogic.gdx.math.Circle;
-import com.badlogic.gdx.math.Rectangle;
-import com.badlogic.gdx.math.Shape2D;
-import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.math.*;
 import com.nzt.gdx.ashley.base.components.PoolableComponent;
 
 public class Shape2DComponent extends PoolableComponent {
     public static final ComponentMapper<Shape2DComponent> mapper = ComponentMapper.getFor(Shape2DComponent.class);
 
-    public static final int RECTANGLE = 1;
-    public static final int CIRCLE = 2;
+    public static final int Rectangle = 1;
+    public static final int Circle = 2;
+    public static final int Polygon = 2;
 
-    private Shape2D shape;
-    private int shapeTypeNumber;
+    protected Shape2D shape;
+    protected int shapeTypeNumber;
 
     public void setRectangle(Rectangle rectangle) {
         this.shape = rectangle;
-        this.shapeTypeNumber = RECTANGLE;
+        this.shapeTypeNumber = Rectangle;
     }
-
+    public void setPolygon(Polygon polygon) {
+        this.shape = polygon;
+        this.shapeTypeNumber = Polygon;
+    }
+    public Polygon getPolygon() {
+        if (this.shapeTypeNumber == Polygon)
+            return (Polygon) shape;
+        return null;
+    }
     public Rectangle getRectangle() {
-        if (this.shapeTypeNumber == RECTANGLE)
+        if (this.shapeTypeNumber == Rectangle)
             return (Rectangle) shape;
         return null;
     }
 
     public void setCircle(Circle circle) {
         this.shape = circle;
-        this.shapeTypeNumber = CIRCLE;
+        this.shapeTypeNumber = Circle;
     }
 
     public Circle getCircle() {
-        if (this.shapeTypeNumber == CIRCLE)
+        if (this.shapeTypeNumber == Circle)
             return (Circle) shape;
         return null;
     }
@@ -50,17 +55,16 @@ public class Shape2DComponent extends PoolableComponent {
     }
 
     public void updatePosition(float x, float y) {
-        if (shapeTypeNumber == RECTANGLE) {
+        if (shapeTypeNumber == Rectangle) {
             Rectangle rect = (Rectangle) shape;
             rect.setPosition(x - rect.width / 2, y - rect.height / 2);
-        } else if (shapeTypeNumber == CIRCLE) {
+        } else if (shapeTypeNumber == Circle) {
             Circle circle = (Circle) shape;
             circle.setPosition(x, y);
+        } else if (shapeTypeNumber == Polygon) {
+            Polygon polygon = (Polygon) shape;
+            polygon.setPosition(x, y);
         }
-    }
-
-    public static void updateShapePositionFromBody(Entity entity) {
-
     }
 
     public Shape2D getShape() {

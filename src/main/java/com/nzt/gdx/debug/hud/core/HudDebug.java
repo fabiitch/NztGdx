@@ -26,10 +26,6 @@ public class HudDebug {
         }
     }
 
-    public HudDebug(Skin skin) {
-        this(new NzStage(), skin);
-    }
-
     public static void clear() {
         if (instance == null) {
             arrayBeforeInit.clear();

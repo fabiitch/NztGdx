@@ -1,4 +1,4 @@
-package com.nzt.gdx.ashley.components.renders;
+package com.nzt.gdx.ashley.components.renders.shape;
 
 import com.badlogic.ashley.core.ComponentMapper;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
