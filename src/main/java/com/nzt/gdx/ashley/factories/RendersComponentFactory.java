@@ -6,7 +6,7 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g3d.Environment;
 import com.badlogic.gdx.graphics.g3d.ModelInstance;
 import com.nzt.gdx.ashley.components.renders.Model3DComponent;
-import com.nzt.gdx.ashley.components.renders.ShapeRenderableArrayComponent;
+import com.nzt.gdx.ashley.components.renders.shape.ShapeRenderableArrayComponent;
 import com.nzt.gdx.ashley.components.renders.SpriteComponent;
 import com.nzt.gdx.graphics.renderables.ShapeRenderable;
 

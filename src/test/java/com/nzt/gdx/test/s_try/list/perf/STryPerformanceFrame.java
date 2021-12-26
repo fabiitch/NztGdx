@@ -39,7 +39,7 @@ public class STryPerformanceFrame extends ScreenTry {
             factory.createEntity().add(factory.rendersFactory.sprite(sprite));
         }
 
-        engine.addSystem(new ShapeRenderSystem(main.nzShapeRenderer, 12));
+        engine.addSystem(new ShapeRenderSystem(main.nzShapeRenderer, camera, 12));
         engine.addSystem(new Velocity2DSystem(5));
 
         perf = new HudDebugPerformanceFrame(HudDebugPosition.TOP_LEFT, Color.CYAN);

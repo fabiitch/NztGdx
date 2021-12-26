@@ -24,7 +24,6 @@ public class TagLogger {
     public static boolean DONT_LOG = false;
 
     private TagLogger() {
-
     }
 
     public static void clearTags() {
