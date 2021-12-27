@@ -5,6 +5,8 @@ import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
 import com.nzt.gdx.ashley.base.components.PoolableComponent;
+import com.nzt.gdx.math.vectors.V2;
+import com.nzt.gdx.math.vectors.V3;
 
 /**
  * Position component, contains V3 order and rotation.

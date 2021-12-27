@@ -100,6 +100,10 @@ public class RectangleUtils {
         rect.y = newCenterY - rect.height / 2;
     }
 
+    public static Rectangle create(float x , float y, float witdh, float height) {
+        return new Rectangle(x, y, witdh, height);
+    }
+
     public static Rectangle create(Vector2 pos, float witdh, float height) {
         return new Rectangle(pos.x, pos.y, witdh, height);
     }
@@ -518,7 +522,7 @@ public class RectangleUtils {
     }
 
     public static Vector2 getRandomPos(Rectangle rect, Vector2 v) {
-        return v.set(MathUtils.random(rect.x, rect.x + rect.width), rect.y+rect.height);
+        return v.set(MathUtils.random(rect.x, rect.x + rect.width), rect.y + rect.height);
     }
 
     /**
