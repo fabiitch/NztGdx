@@ -10,6 +10,7 @@ import com.nzt.gdx.ashley.factories.RendersComponentFactory;
 //TODO a voir si bien fait la factory comme sa
 //TODO un system d'interface pour rajouté de nouvelle factory implements x,y,z
 
+//TODO a rpendre je crois
 public class BaseEntityFactory {
     protected Engine engine;
     public MvtComponentFactory mvtFactory;

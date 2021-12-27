@@ -2,6 +2,10 @@ package com.nzt.gdx.ashley.components.renders.shape;
 
 import com.badlogic.ashley.core.ComponentMapper;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.math.Circle;
+import com.badlogic.gdx.math.Polygon;
+import com.badlogic.gdx.math.Rectangle;
+import com.badlogic.gdx.math.Vector3;
 import com.nzt.gdx.ashley.components.physx.Shape2DComponent;
 import com.nzt.gdx.graphics.renderers.NzShapeRenderer;
 
@@ -18,13 +22,19 @@ public class ShapeRenderableComponent extends Shape2DComponent {
         this.shapeTypeNumber = shape2DComponent.getShapeTypeNumber();
     }
 
-    public void render(NzShapeRenderer shapeRenderer) {
+    public void render(Vector3 position, NzShapeRenderer shapeRenderer) {
         shapeRenderer.setColor(color);
         if (shapeTypeNumber == Rectangle) {
-            shapeRenderer.rect(getRectangle());
+            Rectangle rectangle = getRectangle();
+            rectangle.setPosition(position.x, position.y);
+            shapeRenderer.rect(rectangle);
         } else if (shapeTypeNumber == Circle) {
-            shapeRenderer.circle(getCircle());
+            Circle circle = getCircle();
+            circle.setPosition(position.x, position.y);
+            shapeRenderer.circle(circle);
         } else if (shapeTypeNumber == Polygon) {
+           Polygon polygon = getPolygon();
+            polygon.setPosition(position.x, position.y);
             shapeRenderer.polygon(getPolygon());
         }
     }
