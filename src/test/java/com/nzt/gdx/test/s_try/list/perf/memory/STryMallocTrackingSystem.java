@@ -2,7 +2,7 @@ package com.nzt.gdx.test.s_try.list.perf.memory;
 
 import com.badlogic.gdx.math.Vector2;
 import com.nzt.gdx.ashley.systems.utils.MemoryAllocationTrackingSystem;
-import com.nzt.gdx.test.utils.archi.mains.mains.FastTesterMain;
+import com.nzt.gdx.test.utils.archi.mains.dev.FastTesterMain;
 import com.nzt.gdx.test.utils.archi.screens.BaseSystemTestScreen;
 import com.nzt.gdx.test.utils.screen_selector.TestScreen;
 

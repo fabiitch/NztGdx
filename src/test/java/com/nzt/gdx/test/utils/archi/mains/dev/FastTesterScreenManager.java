@@ -1,4 +1,4 @@
-package com.nzt.gdx.test.utils.archi.mains.screen_manager;
+package com.nzt.gdx.test.utils.archi.mains.dev;
 
 import com.nzt.gdx.main.AbstractMain;
 import com.nzt.gdx.screen.BaseScreen;

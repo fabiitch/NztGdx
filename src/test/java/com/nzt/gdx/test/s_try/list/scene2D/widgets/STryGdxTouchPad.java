@@ -12,7 +12,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Touchpad.TouchpadStyle;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 import com.nzt.gdx.test.s_try.list.scene2D.STryScene2DConstants;
-import com.nzt.gdx.test.utils.archi.mains.mains.FastTesterMain;
+import com.nzt.gdx.test.utils.archi.mains.dev.FastTesterMain;
 import com.nzt.gdx.test.utils.archi.screens.ScreenTry;
 import com.nzt.gdx.test.utils.screen_selector.TestScreen;
 

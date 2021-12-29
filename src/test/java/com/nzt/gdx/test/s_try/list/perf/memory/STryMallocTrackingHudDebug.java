@@ -4,7 +4,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.nzt.gdx.debug.hud.HudDebugApplicationInfo;
 import com.nzt.gdx.debug.hud.core.HudDebug;
 import com.nzt.gdx.debug.perf.PerformanceFrame;
-import com.nzt.gdx.test.utils.archi.mains.mains.FastTesterMain;
+import com.nzt.gdx.test.utils.archi.mains.dev.FastTesterMain;
 import com.nzt.gdx.test.utils.archi.screens.ScreenTry;
 import com.nzt.gdx.test.utils.screen_selector.TestScreen;
 import com.nzt.gdx.utils.GdxUtils;

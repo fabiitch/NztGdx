@@ -1,13 +1,14 @@
 package com.nzt.gdx.test.st.list;
 
 import com.badlogic.gdx.math.Rectangle;
+import com.nzt.gdx.main.AbstractMain;
 import com.nzt.gdx.test.st.tester.UnitTestScreen;
 import com.nzt.gdx.test.st.tester.conditions.TestCondition;
+import com.nzt.gdx.test.utils.archi.mains.dev.FastTesterMain;
 import com.nzt.gdx.test.utils.screen_selector.TestScreen;
-import org.junit.jupiter.api.Test;
 
 @TestScreen
-public class RectangleMoveTest extends UnitTestScreen {
+public class RectangleMoveST extends UnitTestScreen {
 
     Rectangle rect = new Rectangle(0, 0, 100, 100);
 
@@ -16,15 +17,9 @@ public class RectangleMoveTest extends UnitTestScreen {
         return "Just test if unitTestScreenWork";
     }
 
-    @Test
-    public void startTest() {
-        System.out.println("toot");
-        RectangleMoveTest tt = new RectangleMoveTest();
-        tt.renderLoop60FPS();
-    }
 
-    public RectangleMoveTest() {
-        super();
+    public RectangleMoveST(AbstractMain main) {
+        super(main);
         testConditions.add(new TestCondition() {
             @Override
             public String name() {

@@ -1,16 +1,17 @@
 package com.nzt.gdx.test.utils.archi.screens;
 
 import com.badlogic.gdx.Gdx;
+import com.nzt.gdx.main.AbstractMain;
 import com.nzt.gdx.screen.SimpleScreen;
-import com.nzt.gdx.test.utils.archi.mains.mains.FastTesterMain;
+import com.nzt.gdx.test.utils.archi.mains.dev.FastTesterMain;
 import com.nzt.gdx.utils.Strings;
 
-public abstract class SimpleTestScreen extends SimpleScreen<FastTesterMain> {
+public abstract class SimpleTestScreen extends SimpleScreen<AbstractMain> {
 
     private final static String FPS = "  FPS : ";
     private final String className;
 
-    public SimpleTestScreen(FastTesterMain main) {
+    public SimpleTestScreen(AbstractMain main) {
         super(main);
         if (this.getClass().getSimpleName().startsWith("ST"))
             className = this.getClass().getSimpleName().substring(2);

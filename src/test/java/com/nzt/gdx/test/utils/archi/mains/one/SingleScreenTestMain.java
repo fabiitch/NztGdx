@@ -1,9 +1,9 @@
-package com.nzt.gdx.test.utils.archi.mains.mains;
+package com.nzt.gdx.test.utils.archi.mains.one;
 
 import com.badlogic.gdx.Application;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
-import com.nzt.gdx.test.utils.archi.mains.mains.FastTesterMain;
+import com.nzt.gdx.test.utils.archi.mains.dev.FastTesterMain;
 
 /**
  * ESCAPE for exit

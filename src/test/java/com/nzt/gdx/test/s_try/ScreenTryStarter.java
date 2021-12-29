@@ -2,7 +2,7 @@ package com.nzt.gdx.test.s_try;
 
 import com.nzt.gdx.test.s_try.list.math.shapes.polygons.STryPolygonIntersector;
 import com.nzt.gdx.test.utils.TestContants;
-import com.nzt.gdx.test.utils.archi.mains.mains.SingleScreenTestMain;
+import com.nzt.gdx.test.utils.archi.mains.one.SingleScreenTestMain;
 import com.nzt.gdx.test.utils.archi.mains.StarterTestConfig;
 
 /*

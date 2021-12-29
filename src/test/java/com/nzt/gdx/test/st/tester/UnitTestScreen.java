@@ -1,23 +1,20 @@
 package com.nzt.gdx.test.st.tester;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.backends.headless.HeadlessApplication;
 import com.badlogic.gdx.graphics.g3d.ModelBatch;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
 import com.nzt.gdx.debug.gl.NzGLProfiler;
 import com.nzt.gdx.debug.hud.core.HudDebug;
+import com.nzt.gdx.main.AbstractMain;
 import com.nzt.gdx.scene2D.nz.NzStage;
 import com.nzt.gdx.test.st.tester.conditions.PredicateKO;
 import com.nzt.gdx.test.st.tester.conditions.PredicateSuccess;
 import com.nzt.gdx.test.st.tester.conditions.TestCondition;
-import com.nzt.gdx.test.utils.archi.mains.mains.FastTesterMain;
-import com.nzt.gdx.test.utils.archi.mains.mains.HeadlessTesterMain;
+import com.nzt.gdx.test.utils.archi.mains.dev.FastTesterMain;
 import com.nzt.gdx.test.utils.archi.screens.ScreenTry;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
 import org.mockito.Mockito;
 
 import java.util.ArrayList;
@@ -42,27 +39,25 @@ public abstract class UnitTestScreen extends ScreenTry {
 
     public float maxTimeTestDuration = 10f;
 
-    static HeadlessTesterMain main;
-
-    @BeforeAll
-    public static void init() throws Exception {
-        main = new HeadlessTesterMain(null);
-        main.createRenderObjects();
-        HeadlessApplication app = new HeadlessApplication(main);
-        Gdx.app = app;
-    }
-
     @Override
     protected void renderObjects() {
-        //do nothing
-        this.nzStage = Mockito.mock(NzStage.class);
-        this.hudDebug = Mockito.mock(HudDebug.class);
-        this.modelBatch = Mockito.mock(ModelBatch.class);
-        this.glProfiler = Mockito.mock(NzGLProfiler.class);
+        if (isJUnitTest()) {
+            //do nothing
+            this.nzStage = Mockito.mock(NzStage.class);
+            this.hudDebug = Mockito.mock(HudDebug.class);
+            this.modelBatch = Mockito.mock(ModelBatch.class);
+            this.glProfiler = Mockito.mock(NzGLProfiler.class);
+        } else {
+            super.renderObjects();
+        }
     }
 
-    public UnitTestScreen(FastTesterMain main) {
+    public UnitTestScreen(AbstractMain main) {
         super(main);
+        if(isJUnitTest()){
+            Gdx.app.log("ScreenTest" ,this.getClass().getSimpleName());
+            Gdx.app.log("Test", this.getTestExplication());
+        }
         koConditions.add(new PredicateKO() {
             @Override
             public String name() {
@@ -74,10 +69,6 @@ public abstract class UnitTestScreen extends ScreenTry {
                 return timeElapsed > maxTimeTestDuration;
             }
         });
-    }
-
-    public UnitTestScreen() {
-        this(main);
     }
 
     public abstract void renderUnitTest(float dt);
@@ -109,15 +100,6 @@ public abstract class UnitTestScreen extends ScreenTry {
         }
         renderUnitTest(dt);
     }
-
-    @AfterEach
-    public void cleanNztGdxTest() {
-        timeElapsed = 0;
-        successesConditions.clear();
-        koConditions.clear();
-        testConditions.clear();
-    }
-
 
     public void renderLoop(float dt) {
         try {

@@ -12,7 +12,7 @@ import com.badlogic.gdx.graphics.g3d.model.Animation;
 import com.badlogic.gdx.utils.UBJsonReader;
 import com.nzt.gdx.test.s_try.list.B2dTestConstants;
 import com.nzt.gdx.test.s_try.list.t3d.BaseSTry3D;
-import com.nzt.gdx.test.utils.archi.mains.mains.FastTesterMain;
+import com.nzt.gdx.test.utils.archi.mains.dev.FastTesterMain;
 import com.nzt.gdx.test.utils.screen_selector.TestScreen;
 
 @TestScreen(group = "3D.B2D")

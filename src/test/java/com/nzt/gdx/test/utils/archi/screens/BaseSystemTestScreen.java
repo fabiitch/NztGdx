@@ -2,7 +2,7 @@ package com.nzt.gdx.test.utils.archi.screens;
 
 import com.badlogic.ashley.core.Engine;
 import com.nzt.gdx.ashley.base.factories.BaseEntityFactory;
-import com.nzt.gdx.test.utils.archi.mains.mains.FastTesterMain;
+import com.nzt.gdx.test.utils.archi.mains.dev.FastTesterMain;
 import com.nzt.gdx.test.utils.archi.systems.DelayFrameActionSystem;
 
 import java.util.concurrent.Callable;

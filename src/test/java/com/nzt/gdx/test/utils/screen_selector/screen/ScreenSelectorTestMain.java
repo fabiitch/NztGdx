@@ -6,9 +6,9 @@ import com.badlogic.gdx.Input;
 import com.nzt.gdx.screen.BaseScreen;
 import com.nzt.gdx.screen.manager.AbstractAssetsManager;
 import com.nzt.gdx.screen.manager.AbstractLogManager;
-import com.nzt.gdx.test.utils.archi.mains.FastTesterLogManager;
-import com.nzt.gdx.test.utils.archi.mains.mains.FastTesterMain;
-import com.nzt.gdx.test.utils.archi.mains.screen_manager.FastTesterScreenManager;
+import com.nzt.gdx.test.utils.archi.mains.dev.FastTesterLogManager;
+import com.nzt.gdx.test.utils.archi.mains.dev.FastTesterMain;
+import com.nzt.gdx.test.utils.archi.mains.dev.FastTesterScreenManager;
 
 public class ScreenSelectorTestMain extends FastTesterMain {
     protected BaseScreen selectorScreenTest;

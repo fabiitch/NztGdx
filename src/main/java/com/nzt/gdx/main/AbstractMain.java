@@ -10,23 +10,24 @@ import com.nzt.gdx.net.AutoProxy;
 import com.nzt.gdx.screen.manager.AbstractAssetsManager;
 import com.nzt.gdx.screen.manager.AbstractLogManager;
 import com.nzt.gdx.screen.manager.AbstractScreenManager;
+import com.nzt.gdx.screen.manager.ScreenManager;
 
 /**
  * Base main, extends to your main SpriteBatch, ShapeRenderer and ModelBatch
  * preinit (reimplement createRenderObjects for change it)
  */
-public abstract class AbstractMain implements ApplicationListener {
+public abstract class AbstractMain <SM extends ScreenManager> implements ApplicationListener {
     public SpriteBatch sb;
     public NzShapeRenderer nzShapeRenderer;
     public ModelBatch modelBatch;
 
     public AbstractAssetsManager assetsManager;
-    public AbstractScreenManager<AbstractMain> screenManager;
+    public SM screenManager;
     public AbstractLogManager logManager;
 
     public abstract void doCreate();
 
-    public abstract AbstractScreenManager createScreenManager();
+    public abstract SM createScreenManager();
 
     public abstract AbstractAssetsManager createAssetsManager();
 

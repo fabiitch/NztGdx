@@ -2,7 +2,7 @@ package com.nzt.gdx.test.s_try.list.math.shapes.polygons;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.math.Rectangle;
-import com.nzt.gdx.test.utils.archi.mains.mains.FastTesterMain;
+import com.nzt.gdx.test.utils.archi.mains.dev.FastTesterMain;
 
 public class STryPolygonRectBounds extends STryPolygon {
 

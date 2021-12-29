@@ -10,7 +10,7 @@ import com.nzt.gdx.screen.loading.SimpleProgressBarScreen;
 /**
  * Abstract screen manager, extends it.
  */
-public abstract class AbstractScreenManager<M extends AbstractMain> {
+public abstract class AbstractScreenManager<M extends AbstractMain, S extends AbstractScreen<M>> implements ScreenManager<M,S> {
     protected M main;
 
     public AbstractScreen<M> currentScreen;
@@ -38,6 +38,7 @@ public abstract class AbstractScreenManager<M extends AbstractMain> {
 
     protected abstract void doStartApplication();
 
+    @Override
     public void startApplication(M main) {
         this.main = main;
         this.assetsManager = main.assetsManager;
@@ -53,7 +54,7 @@ public abstract class AbstractScreenManager<M extends AbstractMain> {
             }
         };
         this.loadingScreen.setAfterLoading(afterLoading);
-        setScreen(loadingScreen);
+        setScreen((S) loadingScreen);
     }
 
 
@@ -61,12 +62,12 @@ public abstract class AbstractScreenManager<M extends AbstractMain> {
         this.loadingScreen = newLoadingScreen;
     }
 
-    public void setScreenWithLoadingTransition(final AbstractScreen<M> screen, float minTimeDisplay) {
+    public void setScreenWithLoadingTransition(S screen, float minTimeDisplay) {
         this.setScreenWithLoadingTransition(screen);
         loadingScreen.setMinDisplayTime(minTimeDisplay);
     }
 
-    public void setScreenWithLoadingTransition(final AbstractScreen<M> screen) {
+    public void setScreenWithLoadingTransition(S screen) {
         if (loadingScreen == null)
             loadingScreen = createLoadingScreen();
         loadingScreen.resetProgress();
@@ -77,14 +78,14 @@ public abstract class AbstractScreenManager<M extends AbstractMain> {
             }
         };
         this.loadingScreen.setAfterLoading(afterloading);
-        setScreen(loadingScreen);
+        setScreen((S) loadingScreen);
     }
 
-    public void setScreen(AbstractScreen<M> screen) {
+    public void setScreen(S screen) {
         this.setScreen(screen, false);
     }
 
-    public void setScreen(AbstractScreen<M> screen, boolean keepScreenAlive) {
+    public void setScreen(S screen, boolean keepScreenAlive) {
         if (currentScreen != null) {
             currentScreen.hide();
             if (!keepScreenAlive || !(keepLoadingScreenAlive && currentScreen == loadingScreen)) {
@@ -105,6 +106,7 @@ public abstract class AbstractScreenManager<M extends AbstractMain> {
 
 
     // ===================== screen implements
+    @Override
     public void pause() {
         if (currentScreen != null) {
             currentScreen.pause();
@@ -114,6 +116,7 @@ public abstract class AbstractScreenManager<M extends AbstractMain> {
 
     protected abstract void doPause();
 
+    @Override
     public void resume() {
         if (currentScreen != null) {
             currentScreen.resume();
@@ -123,6 +126,7 @@ public abstract class AbstractScreenManager<M extends AbstractMain> {
 
     protected abstract void doResume();
 
+    @Override
     public void resize(int width, int height) {
         if (currentScreen != null) {
             currentScreen.resize(width, height);
@@ -132,6 +136,7 @@ public abstract class AbstractScreenManager<M extends AbstractMain> {
 
     protected abstract void doResize(int width, int height);
 
+    @Override
     public void dispose() {
         if (currentScreen != null) {
             currentScreen.dispose();
@@ -140,6 +145,7 @@ public abstract class AbstractScreenManager<M extends AbstractMain> {
         main.exit();
     }
 
+    @Override
     public void render(float dt) {
         if (currentScreen != null) {
             currentScreen.render(dt);
