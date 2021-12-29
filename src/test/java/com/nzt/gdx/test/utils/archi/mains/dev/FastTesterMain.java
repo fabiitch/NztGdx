@@ -1,4 +1,4 @@
-package com.nzt.gdx.test.utils.archi.mains.mains;
+package com.nzt.gdx.test.utils.archi.mains.dev;
 
 import com.badlogic.gdx.Application;
 import com.badlogic.gdx.Gdx;
@@ -6,8 +6,6 @@ import com.nzt.gdx.main.AbstractMain;
 import com.nzt.gdx.screen.BaseScreen;
 import com.nzt.gdx.screen.manager.AbstractAssetsManager;
 import com.nzt.gdx.screen.manager.AbstractLogManager;
-import com.nzt.gdx.test.utils.archi.mains.FastTesterLogManager;
-import com.nzt.gdx.test.utils.archi.mains.screen_manager.FastTesterScreenManager;
 
 import java.lang.reflect.Constructor;
 

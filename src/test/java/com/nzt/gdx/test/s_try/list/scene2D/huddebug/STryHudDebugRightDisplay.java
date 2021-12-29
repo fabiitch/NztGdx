@@ -1,7 +1,7 @@
 package com.nzt.gdx.test.s_try.list.scene2D.huddebug;
 
 import com.nzt.gdx.debug.hud.core.HudDebug;
-import com.nzt.gdx.test.utils.archi.mains.mains.FastTesterMain;
+import com.nzt.gdx.test.utils.archi.mains.dev.FastTesterMain;
 import com.nzt.gdx.test.utils.archi.screens.ScreenTry;
 import com.nzt.gdx.test.utils.screen_selector.TestScreen;
 

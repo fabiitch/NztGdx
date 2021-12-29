@@ -3,7 +3,7 @@ package com.nzt.gdx.test.s_try.list.input;
 import com.badlogic.gdx.Gdx;
 import com.nzt.gdx.input.camera.Cam2DController;
 import com.nzt.gdx.input.camera.Cam2DZoomController;
-import com.nzt.gdx.test.utils.archi.mains.mains.FastTesterMain;
+import com.nzt.gdx.test.utils.archi.mains.dev.FastTesterMain;
 
 public class STry2DZoomControlCam extends BaseSTry2DControlCam {
 

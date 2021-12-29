@@ -9,7 +9,7 @@ import com.nzt.gdx.math.intersectors.IntersectorCircle;
 import com.nzt.gdx.math.shapes.Segment;
 import com.nzt.gdx.math.shapes.utils.CircleUtils;
 import com.nzt.gdx.math.vectors.V2;
-import com.nzt.gdx.test.utils.archi.mains.mains.FastTesterMain;
+import com.nzt.gdx.test.utils.archi.mains.dev.FastTesterMain;
 
 public class STryCircleReflexionRay extends BaseSTryCircle {
 

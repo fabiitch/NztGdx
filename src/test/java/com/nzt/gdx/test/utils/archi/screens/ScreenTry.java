@@ -10,9 +10,10 @@ import com.nzt.gdx.debug.hud.HudDebugPosition;
 import com.nzt.gdx.debug.hud.core.HudDebug;
 import com.nzt.gdx.debug.perf.DT_Tracker;
 import com.nzt.gdx.debug.perf.HudDebugPerformanceFrame;
+import com.nzt.gdx.main.AbstractMain;
 import com.nzt.gdx.scene2D.nz.NzStage;
 import com.nzt.gdx.test.s_try.list.scene2D.STryScene2DConstants;
-import com.nzt.gdx.test.utils.archi.mains.mains.FastTesterMain;
+import com.nzt.gdx.test.utils.archi.mains.dev.FastTesterMain;
 
 /**
  * Test Screen with hudDebug
@@ -26,7 +27,7 @@ public abstract class ScreenTry extends SimpleTestScreen {
     protected DT_Tracker dt_tracker;
     protected HudDebugPerformanceFrame hudDebugPerformanceFrame;
 
-    public ScreenTry(FastTesterMain main) {
+    public ScreenTry(AbstractMain main) {
         super(main);
         this.hudDebugPerformanceFrame = new HudDebugPerformanceFrame(HudDebugPosition.BOT_RIGHT, Color.WHITE, false);
         this.addInfoTestMsg();

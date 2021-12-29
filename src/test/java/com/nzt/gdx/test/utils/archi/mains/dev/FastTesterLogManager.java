@@ -1,4 +1,4 @@
-package com.nzt.gdx.test.utils.archi.mains;
+package com.nzt.gdx.test.utils.archi.mains.dev;
 
 import com.nzt.gdx.logger.tag.TagLogger;
 import com.nzt.gdx.screen.manager.impl.FastDevLogManager;
