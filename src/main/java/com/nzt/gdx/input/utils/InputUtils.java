@@ -11,7 +11,7 @@ import com.badlogic.gdx.math.collision.Ray;
 import com.nzt.gdx.math.vectors.V2;
 import com.nzt.gdx.math.vectors.V3;
 
-public abstract class InputUtils {
+public  class InputUtils {
     public final static int LEFT_CLICK = Input.Buttons.LEFT;
     public final static int RIGHT_CLICK =Input.Buttons.RIGHT;
     public final static int WHEEL_CLICK = Input.Buttons.MIDDLE;
