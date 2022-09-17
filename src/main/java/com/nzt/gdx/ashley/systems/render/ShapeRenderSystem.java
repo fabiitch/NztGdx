@@ -11,7 +11,6 @@ import com.nzt.gdx.ashley.components.renders.shape.ShapeRenderableComponent;
 import com.nzt.gdx.debug.perf.PerformanceFrame;
 import com.nzt.gdx.graphics.renderers.NzShapeRenderer;
 
-//TODO reprendre ou suppr
 public class ShapeRenderSystem extends IteratingSystem {
     public static final ComponentMapper<PositionComponent> posMapper = PositionComponent.mapper;
     public static final ComponentMapper<ShapeRenderableComponent> mapperShape = ShapeRenderableComponent.mapper;

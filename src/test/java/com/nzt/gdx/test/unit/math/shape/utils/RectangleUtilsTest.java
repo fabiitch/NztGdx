@@ -395,7 +395,7 @@ public class RectangleUtilsTest extends AbstractMathTest {
     }
 
     @Test
-    public void containsSickTest1() {
+    public void containsSickTest() {
         Rectangle rectMergeA = r(0, 0, 200, 200);
         Rectangle rectMergeB = r(10, 290, 20, 20);
         rectMergeA.merge(rectMergeB);

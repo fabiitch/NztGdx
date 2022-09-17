@@ -1,35 +1,29 @@
 package com.nzt.gdx.utils.arrays;
 
+import com.badlogic.gdx.utils.Array;
+
 public class ArrayUtils {
-    private ArrayUtils() {
 
-    }
-
-    public static <T> void clearValues(T[] array, int begin) {
-        for (int i = begin, n = array.length; i < n; i++) {
-            array[i] = null;
+    public static <T> Array<T> addIfNotPresent(Array<T> array, T value) {
+        if (!array.contains(value, true)) {
+            array.add(value);
         }
+        return array;
     }
 
-    public static <T> void clearValues(T[] array, int begin, int end) {
-        for (int i = begin; i <= end; i++) {
-            array[i] = null;
+    public static <T> Array<T> addIfNotPresent(Array<T> array, Array<T> values) {
+        for (int i = 0, n = values.size; i < n; i++) {
+            addIfNotPresent(array, values.get(i));
         }
+        return array;
     }
 
-    /**
-     * all value to null
-     */
-    public static <T> void clearValues(T[] array) {
-        for (int i = 0, n = array.length; i < n; i++) {
-            array[i] = null;
+    public static <T> Array<T> addIfNotPresent(Array<T> array, T... values) {
+        for (int i = 0, n = values.length; i < n; i++) {
+            addIfNotPresent(array, values[i]);
         }
+        return array;
     }
 
-    public static <T> void removeAndDecal(T[] array, int index) { //TODO voir si plus rapid
-        for (int i = index, n = array.length - 1; i < n; i++) {
-            array[i] = array[i + 1];
-        }
-        array[array.length - 1] = null;
-    }
+
 }

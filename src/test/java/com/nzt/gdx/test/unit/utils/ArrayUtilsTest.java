@@ -1,63 +1,47 @@
 package com.nzt.gdx.test.unit.utils;
 
+import com.badlogic.gdx.utils.Array;
 import com.nzt.gdx.utils.arrays.ArrayUtils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.util.Arrays;
-
 public class ArrayUtilsTest {
 
     @Test
-    public void clearValuesBeginEndTest() {
-        Integer[] array = new Integer[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
-        ArrayUtils.clearValues(array, 3, 8);
-        Assertions.assertEquals(10, array.length);
-        for (int i = 0; i < 10; i++) {
-            if (i >= 3 && i <= 8)
-                Assertions.assertNull(array[i]);
-            else
-                Assertions.assertNotNull(array[i]);
-        }
-    }
-    @Test
-    public void clearValuesBeginTest() {
-        Integer[] array = new Integer[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
-        ArrayUtils.clearValues(array, 3);
-        Assertions.assertEquals(10, array.length);
-        for (int i = 0; i < array.length; i++) {
-            if (i >= 3)
-                Assertions.assertNull(array[i]);
-            else
-                Assertions.assertNotNull(array[i]);
-        }
-    }
-
-
-    @Test
-    public void clearValuesTest() {
-        Integer[] array = new Integer[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
-        ArrayUtils.clearValues(array);
-        Assertions.assertEquals(10, array.length);
-        Arrays.stream(array).forEach(i -> Assertions.assertNull(i));
+    public void addIfNotPresentValueTest() {
+        Array<Integer> array = new Array<>();
+        array.add(1, 2, 3);
+        Assertions.assertEquals(3, array.size);
+        ArrayUtils.addIfNotPresent(array, Integer.valueOf(4));
+        Assertions.assertEquals(4, array.size);
+        ArrayUtils.addIfNotPresent(array, Integer.valueOf(4));
+        Assertions.assertEquals(4, array.size);
     }
 
     @Test
-    public void removeAndDecalTest() {
-        Integer[] array = new Integer[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
-        ArrayUtils.removeAndDecal(array, 5);
+    public void addIfNotPresentArrayGdxTest() {
+        Array<Integer> arrayBase = new Array<>();
+        Integer one = 1, three = 3, nine = 9;
+        arrayBase.add(one, 2, three, nine);
 
-        Assertions.assertEquals(10, array.length);
+        Assertions.assertEquals(4, arrayBase.size);
 
-        Assertions.assertEquals(0, array[0]);
-        Assertions.assertEquals(1, array[1]);
-        Assertions.assertEquals(2, array[2]);
-        Assertions.assertEquals(3, array[3]);
-        Assertions.assertEquals(4, array[4]);
-        Assertions.assertEquals(6, array[5]);
-        Assertions.assertEquals(7, array[6]);
-        Assertions.assertEquals(8, array[7]);
-        Assertions.assertEquals(9, array[8]);
-        Assertions.assertEquals(null, array[9]);
+        Array<Integer> arrayAdd = new Array<>();
+        arrayAdd.add(one, 10, three);
+
+        ArrayUtils.addIfNotPresent(arrayBase, arrayAdd);
+        Assertions.assertEquals(5, arrayBase.size);
+    }
+
+    @Test
+    public void addIfNotPresentArrayTest() {
+        Array<Integer> arrayBase = new Array<>();
+        Integer one = 1, three = 3, nine = 9;
+        arrayBase.add(one, 2, three, nine);
+        Assertions.assertEquals(4, arrayBase.size);
+
+        Integer[] arrayAdd = new Integer[]{one, 55, nine};
+        ArrayUtils.addIfNotPresent(arrayBase, arrayAdd);
+        Assertions.assertEquals(5, arrayBase.size);
     }
 }
