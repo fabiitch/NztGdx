@@ -13,7 +13,7 @@ Abstract = Really abstract BaseXX = class to use not finish at all ^^
 
 * **ashley** : ECS, components, systems, factories, utils
 * **assets** : TODO
-* **b2d** : Box2D physics (event pooling, system)
+* **b2d** : Box2D physics (gameEvent pooling, system)
 * **camera** : pixelPerfectViewport //TODO
 * **debug** : utils for debug, OPENGL, Performance, HUD display
 * **graphics** : TODO

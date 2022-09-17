@@ -3,7 +3,7 @@
 //import com.badlogic.gdx.math.Vector2;
 //import com.badlogic.gdx.scenes.scene2d.ui.Image;
 //import com.badlogic.gdx.scenes.scene2d.ui.WidgetGroup;
-//import com.nzt.gdx.math.vectors.VectorUtils;
+//import com.nzt.gdx.com.fabiitch.nz.math.vectors.VectorUtils;
 //import com.nzt.gdx.scene2D.StagePlacementUtils;
 //
 ////TODO a  reprendre 
