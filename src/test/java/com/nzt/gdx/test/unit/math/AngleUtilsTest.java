@@ -39,10 +39,10 @@ public class AngleUtilsTest {
     @Test
     public void distanceAbsTest() {
         float dst1 = AngleUtils.distanceAbs(v(1, 0), v(0, 1));
-        assertEquals(90, dst1, DELTA_0);
+        assertEquals(90, dst1, DELTA_01);
 
         float dst2 = AngleUtils.distanceAbs(v(1, 0), v(-1, 0));
-        assertEquals(180, dst2, DELTA_0);
+        assertEquals(180, dst2, DELTA_01);
     }
 
     @Test
