@@ -11,9 +11,9 @@ import com.nzt.gdx.debug.hud.core.HudDebug;
 import com.nzt.gdx.debug.perf.DT_Tracker;
 import com.nzt.gdx.debug.perf.HudDebugPerformanceFrame;
 import com.nzt.gdx.main.AbstractMain;
+import com.nzt.gdx.mains.FastTesterMain;
 import com.nzt.gdx.scene2D.nz.NzStage;
 import com.nzt.gdx.test.s_try.list.scene2D.STryScene2DConstants;
-import com.nzt.gdx.test.utils.archi.mains.dev.FastTesterMain;
 
 /**
  * Test Screen with hudDebug

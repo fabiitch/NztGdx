@@ -1,4 +1,4 @@
-package com.nzt.gdx.test.utils.archi.mains.dev;
+package com.nzt.gdx.mains;
 
 import com.nzt.gdx.main.AbstractMain;
 import com.nzt.gdx.screen.BaseScreen;

@@ -4,7 +4,6 @@ import com.badlogic.gdx.math.Rectangle;
 import com.nzt.gdx.main.AbstractMain;
 import com.nzt.gdx.test.st.tester.UnitTestScreen;
 import com.nzt.gdx.test.st.tester.conditions.TestCondition;
-import com.nzt.gdx.test.utils.archi.mains.dev.FastTesterMain;
 import com.nzt.gdx.test.utils.screen_selector.TestScreen;
 
 @TestScreen

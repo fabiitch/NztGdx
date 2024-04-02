@@ -12,7 +12,7 @@ import com.nzt.gdx.scene2D.nz.NzStage;
 import com.nzt.gdx.test.st.tester.conditions.PredicateKO;
 import com.nzt.gdx.test.st.tester.conditions.PredicateSuccess;
 import com.nzt.gdx.test.st.tester.conditions.TestCondition;
-import com.nzt.gdx.test.utils.archi.mains.dev.FastTesterMain;
+import com.nzt.gdx.mains.FastTesterMain;
 import com.nzt.gdx.test.utils.archi.screens.ScreenTry;
 import org.junit.jupiter.api.Assertions;
 import org.mockito.Mockito;

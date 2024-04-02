@@ -3,7 +3,7 @@ package com.nzt.gdx.test.utils.archi.mains.one;
 import com.badlogic.gdx.Application;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
-import com.nzt.gdx.test.utils.archi.mains.dev.FastTesterMain;
+import com.nzt.gdx.mains.FastTesterMain;
 
 /**
  * ESCAPE for exit

@@ -3,7 +3,7 @@ package com.nzt.gdx.test.utils.archi.screens;
 import com.badlogic.gdx.Gdx;
 import com.nzt.gdx.main.AbstractMain;
 import com.nzt.gdx.screen.SimpleScreen;
-import com.nzt.gdx.test.utils.archi.mains.dev.FastTesterMain;
+import com.nzt.gdx.mains.FastTesterMain;
 import com.nzt.gdx.utils.Strings;
 
 public abstract class SimpleTestScreen extends SimpleScreen<AbstractMain> {
